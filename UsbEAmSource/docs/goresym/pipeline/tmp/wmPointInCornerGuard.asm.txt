@@ -1,0 +1,68 @@
+0x1409ed9a0: test     r9, r9
+0x1409ed9a3: jle      0x1409ed9ae   ; main.windowManagementPointInCornerGuard+0xe
+0x1409ed9a5: cmp      esi, ecx
+0x1409ed9a7: jle      0x1409ed9ae   ; main.windowManagementPointInCornerGuard+0xe
+0x1409ed9a9: cmp      edi, r8d
+0x1409ed9ac: jl       0x1409ed9b1   ; main.windowManagementPointInCornerGuard+0x11
+0x1409ed9ae: xor      eax, eax
+0x1409ed9b0: ret      
+0x1409ed9b1: lea      rdx, [r9 + 4]
+0x1409ed9b5: mov      r9d, esi
+0x1409ed9b8: sub      esi, ecx
+0x1409ed9ba: mov      r10d, r8d
+0x1409ed9bd: sub      r8d, edi
+0x1409ed9c0: test     rdx, rdx
+0x1409ed9c3: jg       0x1409ed9c9   ; main.windowManagementPointInCornerGuard+0x29
+0x1409ed9c5: xor      edx, edx
+0x1409ed9c7: jmp      0x1409ed9d4   ; main.windowManagementPointInCornerGuard+0x34
+0x1409ed9c9: cmp      rdx, 0x60
+0x1409ed9cd: jle      0x1409ed9d4   ; main.windowManagementPointInCornerGuard+0x34
+0x1409ed9cf: mov      edx, 0x60
+0x1409ed9d4: test     edx, edx
+0x1409ed9d6: jle      0x1409eda3a   ; main.windowManagementPointInCornerGuard+0x9a
+0x1409ed9d8: cmp      edx, esi
+0x1409ed9da: cmovg    edx, esi
+0x1409ed9dd: cmp      edx, r8d
+0x1409ed9e0: cmovg    edx, r8d
+0x1409ed9e4: cmp      eax, ecx
+0x1409ed9e6: jl       0x1409ed9f1   ; main.windowManagementPointInCornerGuard+0x51
+0x1409ed9e8: add      ecx, edx
+0x1409ed9ea: cmp      eax, ecx
+0x1409ed9ec: setl     cl
+0x1409ed9ef: jmp      0x1409ed9f3   ; main.windowManagementPointInCornerGuard+0x53
+0x1409ed9f1: xor      ecx, ecx
+0x1409ed9f3: cmp      eax, r9d
+0x1409ed9f6: jge      0x1409eda04   ; main.windowManagementPointInCornerGuard+0x64
+0x1409ed9f8: sub      r9d, edx
+0x1409ed9fb: cmp      eax, r9d
+0x1409ed9fe: setge    sil
+0x1409eda02: jmp      0x1409eda06   ; main.windowManagementPointInCornerGuard+0x66
+0x1409eda04: xor      esi, esi
+0x1409eda06: cmp      ebx, edi
+0x1409eda08: jl       0x1409eda14   ; main.windowManagementPointInCornerGuard+0x74
+0x1409eda0a: add      edi, edx
+0x1409eda0c: cmp      ebx, edi
+0x1409eda0e: setl     dil
+0x1409eda12: jmp      0x1409eda16   ; main.windowManagementPointInCornerGuard+0x76
+0x1409eda14: xor      edi, edi
+0x1409eda16: cmp      ebx, r10d
+0x1409eda19: jge      0x1409eda26   ; main.windowManagementPointInCornerGuard+0x86
+0x1409eda1b: sub      r10d, edx
+0x1409eda1e: cmp      ebx, r10d
+0x1409eda21: setge    dl
+0x1409eda24: jmp      0x1409eda28   ; main.windowManagementPointInCornerGuard+0x88
+0x1409eda26: xor      edx, edx
+0x1409eda28: test     cl, cl
+0x1409eda2a: jne      0x1409eda31   ; main.windowManagementPointInCornerGuard+0x91
+0x1409eda2c: test     sil, sil
+0x1409eda2f: je       0x1409eda35   ; main.windowManagementPointInCornerGuard+0x95
+0x1409eda31: or       edi, edx
+0x1409eda33: jmp      0x1409eda37   ; main.windowManagementPointInCornerGuard+0x97
+0x1409eda35: xor      edi, edi
+0x1409eda37: mov      eax, edi
+0x1409eda39: ret      
+0x1409eda3a: xor      eax, eax
+0x1409eda3c: ret      
+0x1409eda3d: int3     
+0x1409eda3e: int3     
+0x1409eda3f: int3     

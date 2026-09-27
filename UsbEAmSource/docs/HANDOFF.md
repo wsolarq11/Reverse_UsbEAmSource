@@ -4719,6 +4719,35 @@ oledBlackoutPressedKeyboardKeys@0x140914ac0，落地以直接调用等价还原�
 下一批优先 windowmanagement_windows.go 的 wrap/rect 短函数链（128–192B）。
 FUNCS 2826/4754 = 59.44%。
 
+### 批次 255（windowmanagement_windows 短函数 +5 [S]）
+
+**基线/收口**：`FUNCS=2826→2831 / S=1294→1299 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2786→2791 = 58.71%）。`go1.25.12 build/vet/test ./backend` 全 EXIT=0。
+
+**本批落地**（1 文件 +5，全部 [S]，详见 acceptance/batch255.md）：
+- windowmanagement_windows.go（新增 import unsafe + procGetWindowLongPtrW/procGetClientRect）：
+  windowManagementPointInCornerGuard [S 0x1409ed9a0]（radius<=0||right<=left||top>=bottom→false，
+  margin=clamp(radius+4,0,96) 截到 width/height，返回 (左||右)&&(上||下)带）；
+  windowManagementWrapTargetX [S 0x1409eda40]（y∈[Top,Bottom) 且 Right>Left，direction→
+  max(best,Right-1)/min(best,Left)，返回 best∓3）；
+  windowManagementWrapTargetY [S 0x1409edb00]（x∈[Left,Right) 且 Bottom>Top，对称）；
+  windowManagementGetWindowLongPtr [S 0x1409ee320]（显式 Find 预加载，失败→nil→Call panic，
+  [2]uintptr{hwnd,index} 后 Call 返回 r1）；
+  windowManagementGetClientRectValue [S 0x1409ee780]（GetClientRect(hwnd,&rect)，r1==0→
+  (0,0,0,0)，否则 (Left,Top,Right-Left,Bottom-Top) int32→int）。
+
+**关键知悉**：WrapTargetX/Y 命名交叉——X 函数输入垂直 y 返回水平 x，Y 函数反之（WrappedCursorPoint
+调用点实证）。windowManagementRECT=标准 RECT（Left/Top/Right/Bottom，16B int32）。GetWindowLongPtr
+的 Find+cmovne 全局值2=0x140B3A7A0（procGetWindowLongPtrW）、全局值1=0（nil 回退），非 A/W 切换。
+
+**遗留订正**：windowManagementVirtualScreenBounds 现返 image.Rectangle（4×int64），asm 实返
+4×int32（32 位 add/lea）；与调用方 getLauncherBackgroundMetrics（bootstrapservice_callees.go @312）
+联动订正留专项批次。windowManagementStyleNames 依赖未落地 FlagNames/ExStyleNames，跳过。
+
+**下一批**：P=40。继续按 gap_aggregate.txt 长度升序落地 windowmanagement_windows.go 剩余短函数
+（GetClassName 256B / MaybeWrapCursor 288B / EnumDisplayMonitorProc 320B / GetCursorPoint 320B 等）。
+FUNCS 2831/4754 = 59.55%。
+
 
 
 

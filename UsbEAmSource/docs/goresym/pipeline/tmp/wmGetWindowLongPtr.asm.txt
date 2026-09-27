@@ -1,0 +1,62 @@
+0x1409ee320: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409ee324: jbe      0x1409ee3ad   ; main.windowManagementGetWindowLongPtr+0x8d
+0x1409ee32a: push     rbp
+0x1409ee32b: mov      rbp, rsp
+0x1409ee32e: sub      rsp, 0x40
+0x1409ee332: mov      qword ptr [rsp + 0x50], rax
+0x1409ee337: mov      rcx, qword ptr [rip + 0x11d3aba]
+0x1409ee33e: mov      qword ptr [rsp + 0x38], rcx
+0x1409ee343: mov      rax, qword ptr [rip + 0x11d3a9e]
+0x1409ee34a: mov      qword ptr [rsp + 0x30], rax
+0x1409ee34f: movsxd   rcx, ebx
+0x1409ee352: mov      qword ptr [rsp + 0x28], rcx
+0x1409ee357: call     0x1401933c0   ; golang.org/x/sys/windows.LazyProc.Find
+0x1409ee35c: mov      qword ptr [rsp + 0x20], rax
+0x1409ee361: lea      rax, [rip + 0x10f678]
+0x1409ee368: call     0x14001ae20   ; runtime.newobject
+0x1409ee36d: mov      rcx, qword ptr [rsp + 0x50]
+0x1409ee372: mov      qword ptr [rax], rcx
+0x1409ee375: mov      rcx, qword ptr [rsp + 0x28]
+0x1409ee37a: mov      qword ptr [rax + 8], rcx
+0x1409ee37e: mov      rcx, qword ptr [rsp + 0x20]
+0x1409ee383: test     rcx, rcx
+0x1409ee386: mov      rcx, qword ptr [rsp + 0x30]
+0x1409ee38b: mov      rdx, qword ptr [rsp + 0x38]
+0x1409ee390: cmovne   rcx, rdx
+0x1409ee394: mov      rbx, rax
+0x1409ee397: mov      edi, 2
+0x1409ee39c: mov      rax, rcx
+0x1409ee39f: mov      rcx, rdi
+0x1409ee3a2: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409ee3a7: add      rsp, 0x40
+0x1409ee3ab: pop      rbp
+0x1409ee3ac: ret      
+0x1409ee3ad: mov      qword ptr [rsp + 8], rax
+0x1409ee3b2: mov      dword ptr [rsp + 0x10], ebx
+0x1409ee3b6: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409ee3bb: mov      rax, qword ptr [rsp + 8]
+0x1409ee3c0: mov      ebx, dword ptr [rsp + 0x10]
+0x1409ee3c4: jmp      0x1409ee320   ; main.windowManagementGetWindowLongPtr
+0x1409ee3c9: int3     
+0x1409ee3ca: int3     
+0x1409ee3cb: int3     
+0x1409ee3cc: int3     
+0x1409ee3cd: int3     
+0x1409ee3ce: int3     
+0x1409ee3cf: int3     
+0x1409ee3d0: int3     
+0x1409ee3d1: int3     
+0x1409ee3d2: int3     
+0x1409ee3d3: int3     
+0x1409ee3d4: int3     
+0x1409ee3d5: int3     
+0x1409ee3d6: int3     
+0x1409ee3d7: int3     
+0x1409ee3d8: int3     
+0x1409ee3d9: int3     
+0x1409ee3da: int3     
+0x1409ee3db: int3     
+0x1409ee3dc: int3     
+0x1409ee3dd: int3     
+0x1409ee3de: int3     
+0x1409ee3df: int3     

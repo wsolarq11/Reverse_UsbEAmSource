@@ -1,0 +1,28 @@
+0x1409eebe0: lea      r12, [rsp - 0x140]
+0x1409eebe8: cmp      r12, qword ptr [r14 + 0x10]
+0x1409eebec: jbe      0x1409eec4e   ; main.windowManagementStyleNames+0x6e
+0x1409eebee: push     rbp
+0x1409eebef: mov      rbp, rsp
+0x1409eebf2: sub      rsp, 0x1b8
+0x1409eebf9: mov      rdx, qword ptr [rip + 0x7f7610]
+0x1409eec00: mov      qword ptr [rsp + 0x20], rdx
+0x1409eec05: lea      rdi, [rsp + 0x28]
+0x1409eec0a: lea      rsi, [rip + 0x7f7607]
+0x1409eec11: nop      word ptr [rax + rax]
+0x1409eec1a: nop      word ptr [rax + rax]
+0x1409eec20: mov      qword ptr [rsp - 0x10], rbp
+0x1409eec25: lea      rbp, [rsp - 0x10]
+0x1409eec2a: call     0x140081982   ; runtime.duffcopy+0x222
+0x1409eec2f: mov      rbp, qword ptr [rbp]
+0x1409eec33: lea      rbx, [rsp + 0x20]
+0x1409eec38: mov      ecx, 0x11
+0x1409eec3d: mov      rdi, rcx
+0x1409eec40: call     0x1409eede0   ; main.windowManagementFlagNames
+0x1409eec45: add      rsp, 0x1b8
+0x1409eec4c: pop      rbp
+0x1409eec4d: ret      
+0x1409eec4e: mov      qword ptr [rsp + 8], rax
+0x1409eec53: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409eec58: mov      rax, qword ptr [rsp + 8]
+0x1409eec5d: jmp      0x1409eebe0   ; main.windowManagementStyleNames
+0x1409eec5f: int3     

@@ -1,0 +1,88 @@
+0x1409edb00: mov      qword ptr [rsp + 8], rax
+0x1409edb05: xor      ecx, ecx
+0x1409edb07: xor      edx, edx
+0x1409edb09: xor      r8d, r8d
+0x1409edb0c: jmp      0x1409edb15   ; main.windowManagementWrapTargetY+0x15
+0x1409edb0e: lea      rax, [r9 + 0x10]
+0x1409edb12: inc      rcx
+0x1409edb15: cmp      rbx, rcx
+0x1409edb18: jle      0x1409edb80   ; main.windowManagementWrapTargetY+0x80
+0x1409edb1a: mov      r9, rax
+0x1409edb1d: nop      dword ptr [rax]
+0x1409edb20: cmp      dword ptr [rax], edi
+0x1409edb22: jg       0x1409edb0e   ; main.windowManagementWrapTargetY+0xe
+0x1409edb24: mov      r10d, dword ptr [rax + 8]
+0x1409edb28: cmp      edi, r10d
+0x1409edb2b: jge      0x1409edb0e   ; main.windowManagementWrapTargetY+0xe
+0x1409edb2d: mov      r10d, dword ptr [rax + 4]
+0x1409edb31: mov      r11d, dword ptr [rax + 0xc]
+0x1409edb35: cmp      r11d, r10d
+0x1409edb38: jle      0x1409edb0e   ; main.windowManagementWrapTargetY+0xe
+0x1409edb3a: test     dl, dl
+0x1409edb3c: je       0x1409edb64   ; main.windowManagementWrapTargetY+0x64
+0x1409edb3e: nop      
+0x1409edb40: test     sil, sil
+0x1409edb43: je       0x1409edb57   ; main.windowManagementWrapTargetY+0x57
+0x1409edb45: dec      r11d
+0x1409edb48: cmp      r8d, r11d
+0x1409edb4b: jge      0x1409edb52   ; main.windowManagementWrapTargetY+0x52
+0x1409edb4d: mov      r10d, r11d
+0x1409edb50: jmp      0x1409edb5f   ; main.windowManagementWrapTargetY+0x5f
+0x1409edb52: test     sil, sil
+0x1409edb55: jne      0x1409edb5c   ; main.windowManagementWrapTargetY+0x5c
+0x1409edb57: cmp      r8d, r10d
+0x1409edb5a: jg       0x1409edb5f   ; main.windowManagementWrapTargetY+0x5f
+0x1409edb5c: mov      r10d, r8d
+0x1409edb5f: mov      r8d, r10d
+0x1409edb62: jmp      0x1409edb0e   ; main.windowManagementWrapTargetY+0xe
+0x1409edb64: dec      r11d
+0x1409edb67: movzx    r12d, sil
+0x1409edb6b: test     r12, r12
+0x1409edb6e: cmovne   r10d, r11d
+0x1409edb72: mov      edx, 1
+0x1409edb77: mov      r8d, r10d
+0x1409edb7a: jmp      0x1409edb0e   ; main.windowManagementWrapTargetY+0xe
+0x1409edb7c: nop      dword ptr [rax]
+0x1409edb80: test     dl, dl
+0x1409edb82: je       0x1409edb9d   ; main.windowManagementWrapTargetY+0x9d
+0x1409edb84: test     sil, sil
+0x1409edb87: je       0x1409edb93   ; main.windowManagementWrapTargetY+0x93
+0x1409edb89: lea      eax, [r8 - 3]
+0x1409edb8d: mov      ebx, 1
+0x1409edb92: ret      
+0x1409edb93: lea      eax, [r8 + 3]
+0x1409edb97: mov      ebx, 1
+0x1409edb9c: ret      
+0x1409edb9d: xor      eax, eax
+0x1409edb9f: xor      ebx, ebx
+0x1409edba1: ret      
+0x1409edba2: int3     
+0x1409edba3: int3     
+0x1409edba4: int3     
+0x1409edba5: int3     
+0x1409edba6: int3     
+0x1409edba7: int3     
+0x1409edba8: int3     
+0x1409edba9: int3     
+0x1409edbaa: int3     
+0x1409edbab: int3     
+0x1409edbac: int3     
+0x1409edbad: int3     
+0x1409edbae: int3     
+0x1409edbaf: int3     
+0x1409edbb0: int3     
+0x1409edbb1: int3     
+0x1409edbb2: int3     
+0x1409edbb3: int3     
+0x1409edbb4: int3     
+0x1409edbb5: int3     
+0x1409edbb6: int3     
+0x1409edbb7: int3     
+0x1409edbb8: int3     
+0x1409edbb9: int3     
+0x1409edbba: int3     
+0x1409edbbb: int3     
+0x1409edbbc: int3     
+0x1409edbbd: int3     
+0x1409edbbe: int3     
+0x1409edbbf: int3     

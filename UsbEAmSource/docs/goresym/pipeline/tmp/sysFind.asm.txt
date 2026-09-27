@@ -1,0 +1,25 @@
+0x1401933c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1401933c4: jbe      0x140193524   ; golang.org/x/sys/windows.LazyProc.Find+0x164
+0x1401933ca: push     rbp
+0x1401933cb: mov      rbp, rsp
+0x1401933ce: sub      rsp, 0x48
+0x1401933d2: movq     qword ptr [rsp + 0x40], xmm15
+0x1401933d9: mov      byte ptr [rsp + 0x1f], 0
+0x1401933de: movups   xmmword ptr [rsp + 0x20], xmm15
+0x1401933e4: mov      rcx, qword ptr [rax + 0x20]
+0x1401933e8: test     rcx, rcx
+0x1401933eb: je       0x1401933f4   ; golang.org/x/sys/windows.LazyProc.Find+0x34
+0x1401933ed: xor      eax, eax
+0x1401933ef: jmp      0x140193494   ; golang.org/x/sys/windows.LazyProc.Find+0xd4
+0x1401933f4: mov      qword ptr [rsp + 0x58], rax
+0x1401933f9: nop      
+0x1401933fa: mov      rcx, rax
+0x1401933fd: xor      eax, eax
+0x1401933ff: mov      esi, 1
+0x140193404: lock cmpxchg dword ptr [rcx + 0x10], esi
+0x140193409: sete     sil
+0x14019340d: test     sil, sil
+0x140193410: jne      0x140193420   ; golang.org/x/sys/windows.LazyProc.Find+0x60
+0x140193412: lea      rax, [rcx + 0x10]
+0x140193416: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x14019341b: mov      rcx, qword ptr [rsp + 0x58]

@@ -1,0 +1,111 @@
+0x1409edce0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409edce4: jbe      0x1409ede44   ; main.windowManagementDisplayRects+0x164
+0x1409edcea: push     rbp
+0x1409edceb: mov      rbp, rsp
+0x1409edcee: sub      rsp, 0x48
+0x1409edcf2: lea      rax, [rip + 0xec247]
+0x1409edcf9: call     0x14001ae20   ; runtime.newobject
+0x1409edcfe: mov      qword ptr [rsp + 0x40], rax
+0x1409edd03: lea      rax, [rip + 0x10fc76]
+0x1409edd0a: call     0x14001ae20   ; runtime.newobject
+0x1409edd0f: mov      qword ptr [rax], 0x50
+0x1409edd16: mov      rcx, qword ptr [rip + 0x11d4093]
+0x1409edd1d: mov      rbx, rax
+0x1409edd20: mov      edi, 1
+0x1409edd25: mov      rax, rcx
+0x1409edd28: mov      rcx, rdi
+0x1409edd2b: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409edd30: test     rax, rax
+0x1409edd33: mov      ecx, 1
+0x1409edd38: cmovle   rax, rcx
+0x1409edd3c: mov      qword ptr [rsp + 0x30], rax
+0x1409edd41: xor      ebx, ebx
+0x1409edd43: mov      rcx, rax
+0x1409edd46: lea      rax, [rip + 0x1c6933]
+0x1409edd4d: call     0x14007ac40   ; runtime.makeslice
+0x1409edd52: mov      rcx, qword ptr [rsp + 0x40]
+0x1409edd57: mov      qword ptr [rcx + 8], 0
+0x1409edd5f: mov      rdx, qword ptr [rsp + 0x30]
+0x1409edd64: mov      qword ptr [rcx + 0x10], rdx
+0x1409edd68: cmp      dword ptr [rip + 0x126d5e1], 0
+0x1409edd6f: je       0x1409edd80   ; main.windowManagementDisplayRects+0xa0
+0x1409edd71: mov      rdx, qword ptr [rcx]
+0x1409edd74: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409edd79: mov      qword ptr [r11], rax
+0x1409edd7c: mov      qword ptr [r11 + 8], rdx
+0x1409edd80: mov      qword ptr [rcx], rax
+0x1409edd83: mov      qword ptr [rsp + 0x38], rcx
+0x1409edd88: lea      rax, [rip + 0x10fdd1]
+0x1409edd8f: call     0x14001ae20   ; runtime.newobject
+0x1409edd94: mov      rcx, qword ptr [rip + 0x126cdc5]
+0x1409edd9b: mov      qword ptr [rax + 0x10], rcx
+0x1409edd9f: mov      rcx, qword ptr [rsp + 0x38]
+0x1409edda4: mov      qword ptr [rax + 0x18], rcx
+0x1409edda8: mov      rcx, qword ptr [rip + 0x11d40b1]
+0x1409eddaf: mov      rbx, rax
+0x1409eddb2: mov      edi, 4
+0x1409eddb7: mov      rax, rcx
+0x1409eddba: mov      rcx, rdi
+0x1409eddbd: nop      dword ptr [rax]
+0x1409eddc0: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409eddc5: test     rax, rax
+0x1409eddc8: je       0x1409edde5   ; main.windowManagementDisplayRects+0x105
+0x1409eddca: mov      rdx, qword ptr [rsp + 0x40]
+0x1409eddcf: mov      rbx, qword ptr [rdx + 8]
+0x1409eddd3: test     rbx, rbx
+0x1409eddd6: je       0x1409edde5   ; main.windowManagementDisplayRects+0x105
+0x1409eddd8: mov      rax, qword ptr [rdx]
+0x1409edddb: mov      rcx, qword ptr [rdx + 0x10]
+0x1409edddf: add      rsp, 0x48
+0x1409edde3: pop      rbp
+0x1409edde4: ret      
+0x1409edde5: call     0x1409edbc0   ; main.windowManagementVirtualScreenBounds
+0x1409eddea: cmp      ecx, eax
+0x1409eddec: jle      0x1409eddf2   ; main.windowManagementDisplayRects+0x112
+0x1409eddee: cmp      edi, ebx
+0x1409eddf0: jg       0x1409eddff   ; main.windowManagementDisplayRects+0x11f
+0x1409eddf2: xor      eax, eax
+0x1409eddf4: xor      ebx, ebx
+0x1409eddf6: mov      rcx, rbx
+0x1409eddf9: add      rsp, 0x48
+0x1409eddfd: pop      rbp
+0x1409eddfe: ret      
+0x1409eddff: mov      dword ptr [rsp + 0x2c], ebx
+0x1409ede03: mov      dword ptr [rsp + 0x28], eax
+0x1409ede07: mov      dword ptr [rsp + 0x24], ecx
+0x1409ede0b: mov      dword ptr [rsp + 0x20], edi
+0x1409ede0f: lea      rax, [rip + 0x1103aa]
+0x1409ede16: call     0x14001ae20   ; runtime.newobject
+0x1409ede1b: mov      ecx, dword ptr [rsp + 0x28]
+0x1409ede1f: mov      dword ptr [rax], ecx
+0x1409ede21: mov      ecx, dword ptr [rsp + 0x2c]
+0x1409ede25: mov      dword ptr [rax + 4], ecx
+0x1409ede28: mov      ecx, dword ptr [rsp + 0x24]
+0x1409ede2c: mov      dword ptr [rax + 8], ecx
+0x1409ede2f: mov      ecx, dword ptr [rsp + 0x20]
+0x1409ede33: mov      dword ptr [rax + 0xc], ecx
+0x1409ede36: mov      ebx, 1
+0x1409ede3b: mov      rcx, rbx
+0x1409ede3e: add      rsp, 0x48
+0x1409ede42: pop      rbp
+0x1409ede43: ret      
+0x1409ede44: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409ede49: jmp      0x1409edce0   ; main.windowManagementDisplayRects
+0x1409ede4e: int3     
+0x1409ede4f: int3     
+0x1409ede50: int3     
+0x1409ede51: int3     
+0x1409ede52: int3     
+0x1409ede53: int3     
+0x1409ede54: int3     
+0x1409ede55: int3     
+0x1409ede56: int3     
+0x1409ede57: int3     
+0x1409ede58: int3     
+0x1409ede59: int3     
+0x1409ede5a: int3     
+0x1409ede5b: int3     
+0x1409ede5c: int3     
+0x1409ede5d: int3     
+0x1409ede5e: int3     
+0x1409ede5f: int3     

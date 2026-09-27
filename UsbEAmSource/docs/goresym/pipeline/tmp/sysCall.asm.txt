@@ -1,0 +1,26 @@
+0x1401935a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1401935a4: jbe      0x1401935fa   ; golang.org/x/sys/windows.LazyProc.Call+0x5a
+0x1401935a6: push     rbp
+0x1401935a7: mov      rbp, rsp
+0x1401935aa: sub      rsp, 0x20
+0x1401935ae: mov      qword ptr [rsp + 0x30], rax
+0x1401935b3: mov      qword ptr [rsp + 0x48], rdi
+0x1401935b8: mov      qword ptr [rsp + 0x40], rcx
+0x1401935bd: mov      qword ptr [rsp + 0x38], rbx
+0x1401935c2: nop      
+0x1401935c3: call     0x1401933c0   ; golang.org/x/sys/windows.LazyProc.Find
+0x1401935c8: test     rax, rax
+0x1401935cb: jne      0x1401935f0   ; golang.org/x/sys/windows.LazyProc.Call+0x50
+0x1401935cd: mov      rdx, qword ptr [rsp + 0x30]
+0x1401935d2: mov      rax, qword ptr [rdx + 0x20]
+0x1401935d6: mov      rbx, qword ptr [rsp + 0x38]
+0x1401935db: mov      rcx, qword ptr [rsp + 0x40]
+0x1401935e0: mov      rdi, qword ptr [rsp + 0x48]
+0x1401935e5: call     0x140193140   ; golang.org/x/sys/windows.Proc.Call
+0x1401935ea: add      rsp, 0x20
+0x1401935ee: pop      rbp
+0x1401935ef: ret      
+0x1401935f0: mov      rax, qword ptr [rax + 8]
+0x1401935f4: call     0x1400789c0   ; runtime.gopanic
+0x1401935f9: nop      
+0x1401935fa: mov      qword ptr [rsp + 8], rax

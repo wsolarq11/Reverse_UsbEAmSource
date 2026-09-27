@@ -1,0 +1,22 @@
+0x1409b0935: lea      rax, [rip + 0x1a3a44]
+0x1409b093c: nop      dword ptr [rax]
+0x1409b0940: call     0x14001ae20   ; runtime.newobject
+0x1409b0945: mov      qword ptr [rax + 8], 0x20
+0x1409b094d: lea      rcx, [rip + 0x2c1eb2]
+0x1409b0954: mov      qword ptr [rax], rcx
+0x1409b0957: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1409b095d: xor      ebx, ebx
+0x1409b095f: mov      ecx, ebx
+0x1409b0961: mov      edi, ecx
+0x1409b0963: mov      esi, ecx
+0x1409b0965: xor      r8d, r8d
+0x1409b0968: lea      r9, [rip + 0x6e6351]
+0x1409b096f: lea      r10, [rip + 0x82278a]
+0x1409b0976: mov      r11, rax
+0x1409b0979: xor      eax, eax
+0x1409b097b: add      rsp, 0x88
+0x1409b0982: pop      rbp
+0x1409b0983: ret      
+0x1409b0984: mov      qword ptr [rsp + 8], rax
+0x1409b0989: mov      dword ptr [rsp + 0x10], ebx
+0x1409b098d: mov      dword ptr [rsp + 0x14], ecx

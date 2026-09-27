@@ -1,0 +1,297 @@
+0x1408d1740: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408d1744: jbe      0x1408d17fc   ; main.resolveRegisteredLinkBrowserPath+0xbc
+0x1408d174a: push     rbp
+0x1408d174b: mov      rbp, rsp
+0x1408d174e: sub      rsp, 0x60
+0x1408d1752: mov      qword ptr [rsp + 0x70], rax
+0x1408d1757: call     0x1400a2200   ; strings.TrimSpace
+0x1408d175c: mov      ecx, 0x34
+0x1408d1761: mov      rdi, rax
+0x1408d1764: mov      rsi, rbx
+0x1408d1767: xor      eax, eax
+0x1408d1769: lea      rbx, [rip + 0x3b8242]
+0x1408d1770: call     0x14005fc00   ; runtime.concatstring2
+0x1408d1775: mov      qword ptr [rsp + 0x48], rax
+0x1408d177a: mov      qword ptr [rsp + 0x28], rbx
+0x1408d177f: mov      ecx, 0x80000001
+0x1408d1784: mov      qword ptr [rsp + 0x30], rcx
+0x1408d1789: mov      ecx, 0x80000002
+0x1408d178e: mov      qword ptr [rsp + 0x38], rcx
+0x1408d1793: xor      ecx, ecx
+0x1408d1795: jmp      0x1408d17a9   ; main.resolveRegisteredLinkBrowserPath+0x69
+0x1408d1797: mov      rcx, qword ptr [rsp + 0x40]
+0x1408d179c: inc      rcx
+0x1408d179f: mov      rax, qword ptr [rsp + 0x48]
+0x1408d17a4: mov      rbx, qword ptr [rsp + 0x28]
+0x1408d17a9: cmp      rcx, 2
+0x1408d17ad: jge      0x1408d17f2   ; main.resolveRegisteredLinkBrowserPath+0xb2
+0x1408d17af: mov      qword ptr [rsp + 0x40], rcx
+0x1408d17b4: mov      rdx, qword ptr [rsp + rcx*8 + 0x30]
+0x1408d17b9: mov      rcx, rbx
+0x1408d17bc: xor      edi, edi
+0x1408d17be: xor      esi, esi
+0x1408d17c0: mov      rbx, rax
+0x1408d17c3: mov      rax, rdx
+0x1408d17c6: call     0x1408d1820   ; main.readRegistryString
+0x1408d17cb: mov      qword ptr [rsp + 0x58], rbx
+0x1408d17d0: mov      qword ptr [rsp + 0x50], rax
+0x1408d17d5: lea      rax, [rsp + 0x50]
+0x1408d17da: mov      ebx, 1
+0x1408d17df: mov      rcx, rbx
+0x1408d17e2: call     0x1408d19e0   ; main.resolveExistingExecutablePath
+0x1408d17e7: test     rbx, rbx
+0x1408d17ea: je       0x1408d1797   ; main.resolveRegisteredLinkBrowserPath+0x57
+0x1408d17ec: add      rsp, 0x60
+0x1408d17f0: pop      rbp
+0x1408d17f1: ret      
+0x1408d17f2: xor      eax, eax
+0x1408d17f4: xor      ebx, ebx
+0x1408d17f6: add      rsp, 0x60
+0x1408d17fa: pop      rbp
+0x1408d17fb: ret      
+0x1408d17fc: mov      qword ptr [rsp + 8], rax
+0x1408d1801: mov      qword ptr [rsp + 0x10], rbx
+0x1408d1806: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408d180b: mov      rax, qword ptr [rsp + 8]
+0x1408d1810: mov      rbx, qword ptr [rsp + 0x10]
+0x1408d1815: jmp      0x1408d1740   ; main.resolveRegisteredLinkBrowserPath
+0x1408d181a: int3     
+0x1408d181b: int3     
+0x1408d181c: int3     
+0x1408d181d: int3     
+0x1408d181e: int3     
+0x1408d181f: int3     
+0x1408d1820: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408d1824: jbe      0x1408d1938   ; main.readRegistryString+0x118
+0x1408d182a: push     rbp
+0x1408d182b: mov      rbp, rsp
+0x1408d182e: sub      rsp, 0x50
+0x1408d1832: mov      qword ptr [rsp + 0x68], rbx
+0x1408d1837: movq     qword ptr [rsp + 0x48], xmm15
+0x1408d183e: mov      qword ptr [rsp + 0x80], rsi
+0x1408d1846: mov      qword ptr [rsp + 0x78], rdi
+0x1408d184b: mov      byte ptr [rsp + 0x27], 0
+0x1408d1850: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1408d1856: mov      edi, 1
+0x1408d185b: nop      dword ptr [rax + rax]
+0x1408d1860: call     0x1401ce9c0   ; golang.org/x/sys/windows/registry.OpenKey
+0x1408d1865: test     rbx, rbx
+0x1408d1868: jne      0x1408d1913   ; main.readRegistryString+0xf3
+0x1408d186e: lea      rdx, [rip + 0x10b]
+0x1408d1875: mov      qword ptr [rsp + 0x28], rdx
+0x1408d187a: mov      qword ptr [rsp + 0x30], rax
+0x1408d187f: lea      rdx, [rsp + 0x28]
+0x1408d1884: mov      qword ptr [rsp + 0x48], rdx
+0x1408d1889: mov      byte ptr [rsp + 0x27], 1
+0x1408d188e: mov      rbx, qword ptr [rsp + 0x78]
+0x1408d1893: mov      rcx, qword ptr [rsp + 0x80]
+0x1408d189b: nop      dword ptr [rax + rax]
+0x1408d18a0: call     0x1401cee60   ; golang.org/x/sys/windows/registry.Key.GetStringValue
+0x1408d18a5: test     rdi, rdi
+0x1408d18a8: je       0x1408d18cf   ; main.readRegistryString+0xaf
+0x1408d18aa: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1408d18b0: mov      byte ptr [rsp + 0x27], 0
+0x1408d18b5: mov      rdx, qword ptr [rsp + 0x48]
+0x1408d18ba: mov      rax, qword ptr [rdx]
+0x1408d18bd: call     rax
+0x1408d18bf: mov      rbx, qword ptr [rsp + 0x40]
+0x1408d18c4: mov      rax, qword ptr [rsp + 0x38]
+0x1408d18c9: add      rsp, 0x50
+0x1408d18cd: pop      rbp
+0x1408d18ce: ret      
+0x1408d18cf: lea      rcx, [rip + 0x8f93b2]
+0x1408d18d6: mov      edi, 1
+0x1408d18db: nop      dword ptr [rax + rax]
+0x1408d18e0: call     0x1400a1c20   ; strings.Trim
+0x1408d18e5: call     0x1400a2200   ; strings.TrimSpace
+0x1408d18ea: mov      qword ptr [rsp + 0x38], rax
+0x1408d18ef: mov      qword ptr [rsp + 0x40], rbx
+0x1408d18f4: mov      byte ptr [rsp + 0x27], 0
+0x1408d18f9: mov      rdx, qword ptr [rsp + 0x48]
+0x1408d18fe: mov      rsi, qword ptr [rdx]
+0x1408d1901: call     rsi
+0x1408d1903: mov      rax, qword ptr [rsp + 0x38]
+0x1408d1908: mov      rbx, qword ptr [rsp + 0x40]
+0x1408d190d: add      rsp, 0x50
+0x1408d1911: pop      rbp
+0x1408d1912: ret      
+0x1408d1913: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1408d1919: xor      eax, eax
+0x1408d191b: xor      ebx, ebx
+0x1408d191d: add      rsp, 0x50
+0x1408d1921: pop      rbp
+0x1408d1922: ret      
+0x1408d1923: call     0x1400435e0   ; runtime.deferreturn
+0x1408d1928: mov      rax, qword ptr [rsp + 0x38]
+0x1408d192d: mov      rbx, qword ptr [rsp + 0x40]
+0x1408d1932: add      rsp, 0x50
+0x1408d1936: pop      rbp
+0x1408d1937: ret      
+0x1408d1938: mov      qword ptr [rsp + 8], rax
+0x1408d193d: mov      qword ptr [rsp + 0x10], rbx
+0x1408d1942: mov      qword ptr [rsp + 0x18], rcx
+0x1408d1947: mov      qword ptr [rsp + 0x20], rdi
+0x1408d194c: mov      qword ptr [rsp + 0x28], rsi
+0x1408d1951: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408d1956: mov      rax, qword ptr [rsp + 8]
+0x1408d195b: mov      rbx, qword ptr [rsp + 0x10]
+0x1408d1960: mov      rcx, qword ptr [rsp + 0x18]
+0x1408d1965: mov      rdi, qword ptr [rsp + 0x20]
+0x1408d196a: mov      rsi, qword ptr [rsp + 0x28]
+0x1408d196f: jmp      0x1408d1820   ; main.readRegistryString
+0x1408d1974: int3     
+0x1408d1975: int3     
+0x1408d1976: int3     
+0x1408d1977: int3     
+0x1408d1978: int3     
+0x1408d1979: int3     
+0x1408d197a: int3     
+0x1408d197b: int3     
+0x1408d197c: int3     
+0x1408d197d: int3     
+0x1408d197e: int3     
+0x1408d197f: int3     
+0x1408d1980: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408d1984: jbe      0x1408d19ab   ; main.readRegistryString.deferwrap1+0x2b
+0x1408d1986: push     rbp
+0x1408d1987: mov      rbp, rsp
+0x1408d198a: sub      rsp, 8
+0x1408d198e: mov      r12, qword ptr [r14 + 0x20]
+0x1408d1992: test     r12, r12
+0x1408d1995: jne      0x1408d19b2   ; main.readRegistryString.deferwrap1+0x32
+0x1408d1997: mov      rax, qword ptr [rdx + 8]
+0x1408d199b: nop      dword ptr [rax + rax]
+0x1408d19a0: call     0x1400e97a0   ; syscall.RegCloseKey
+0x1408d19a5: add      rsp, 8
+0x1408d19a9: pop      rbp
+0x1408d19aa: ret      
+0x1408d19ab: call     0x14007f0a0   ; runtime.morestack
+0x1408d19b0: jmp      0x1408d1980   ; main.readRegistryString.deferwrap1
+0x1408d19b2: lea      r13, [rsp + 0x18]
+0x1408d19b7: cmp      qword ptr [r12], r13
+0x1408d19bb: jne      0x1408d1997   ; main.readRegistryString.deferwrap1+0x17
+0x1408d19bd: mov      qword ptr [r12], rsp
+0x1408d19c1: jmp      0x1408d1997   ; main.readRegistryString.deferwrap1+0x17
+0x1408d19c3: int3     
+0x1408d19c4: int3     
+0x1408d19c5: int3     
+0x1408d19c6: int3     
+0x1408d19c7: int3     
+0x1408d19c8: int3     
+0x1408d19c9: int3     
+0x1408d19ca: int3     
+0x1408d19cb: int3     
+0x1408d19cc: int3     
+0x1408d19cd: int3     
+0x1408d19ce: int3     
+0x1408d19cf: int3     
+0x1408d19d0: int3     
+0x1408d19d1: int3     
+0x1408d19d2: int3     
+0x1408d19d3: int3     
+0x1408d19d4: int3     
+0x1408d19d5: int3     
+0x1408d19d6: int3     
+0x1408d19d7: int3     
+0x1408d19d8: int3     
+0x1408d19d9: int3     
+0x1408d19da: int3     
+0x1408d19db: int3     
+0x1408d19dc: int3     
+0x1408d19dd: int3     
+0x1408d19de: int3     
+0x1408d19df: int3     
+0x1408d19e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408d19e4: jbe      0x1408d1a8c   ; main.resolveExistingExecutablePath+0xac
+0x1408d19ea: push     rbp
+0x1408d19eb: mov      rbp, rsp
+0x1408d19ee: sub      rsp, 0x40
+0x1408d19f2: mov      qword ptr [rsp + 0x50], rax
+0x1408d19f7: mov      qword ptr [rsp + 0x58], rbx
+0x1408d19fc: xor      ecx, ecx
+0x1408d19fe: nop      
+0x1408d1a00: jmp      0x1408d1a18   ; main.resolveExistingExecutablePath+0x38
+0x1408d1a02: mov      rax, qword ptr [rsp + 0x38]
+0x1408d1a07: add      rax, 0x10
+0x1408d1a0b: mov      rcx, qword ptr [rsp + 0x28]
+0x1408d1a10: inc      rcx
+0x1408d1a13: mov      rbx, qword ptr [rsp + 0x58]
+0x1408d1a18: cmp      rbx, rcx
+0x1408d1a1b: jle      0x1408d1a82   ; main.resolveExistingExecutablePath+0xa2
+0x1408d1a1d: mov      qword ptr [rsp + 0x28], rcx
+0x1408d1a22: mov      qword ptr [rsp + 0x38], rax
+0x1408d1a27: mov      rdx, qword ptr [rax]
+0x1408d1a2a: mov      rbx, qword ptr [rax + 8]
+0x1408d1a2e: mov      rax, rdx
+0x1408d1a31: lea      rcx, [rip + 0x8f9250]
+0x1408d1a38: mov      edi, 1
+0x1408d1a3d: nop      dword ptr [rax]
+0x1408d1a40: call     0x1400a1c20   ; strings.Trim
+0x1408d1a45: call     0x1400a2200   ; strings.TrimSpace
+0x1408d1a4a: test     rbx, rbx
+0x1408d1a4d: je       0x1408d1a02   ; main.resolveExistingExecutablePath+0x22
+0x1408d1a4f: mov      qword ptr [rsp + 0x20], rbx
+0x1408d1a54: mov      qword ptr [rsp + 0x30], rax
+0x1408d1a59: call     0x14012d940   ; os.Stat
+0x1408d1a5e: nop      
+0x1408d1a60: test     rcx, rcx
+0x1408d1a63: jne      0x1408d1a02   ; main.resolveExistingExecutablePath+0x22
+0x1408d1a65: mov      rcx, qword ptr [rax + 0x18]
+0x1408d1a69: mov      rax, rbx
+0x1408d1a6c: call     rcx
+0x1408d1a6e: test     al, al
+0x1408d1a70: jne      0x1408d1a02   ; main.resolveExistingExecutablePath+0x22
+0x1408d1a72: mov      rax, qword ptr [rsp + 0x30]
+0x1408d1a77: mov      rbx, qword ptr [rsp + 0x20]
+0x1408d1a7c: add      rsp, 0x40
+0x1408d1a80: pop      rbp
+0x1408d1a81: ret      
+0x1408d1a82: xor      eax, eax
+0x1408d1a84: xor      ebx, ebx
+0x1408d1a86: add      rsp, 0x40
+0x1408d1a8a: pop      rbp
+0x1408d1a8b: ret      
+0x1408d1a8c: mov      qword ptr [rsp + 8], rax
+0x1408d1a91: mov      qword ptr [rsp + 0x10], rbx
+0x1408d1a96: mov      qword ptr [rsp + 0x18], rcx
+0x1408d1a9b: nop      dword ptr [rax + rax]
+0x1408d1aa0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408d1aa5: mov      rax, qword ptr [rsp + 8]
+0x1408d1aaa: mov      rbx, qword ptr [rsp + 0x10]
+0x1408d1aaf: mov      rcx, qword ptr [rsp + 0x18]
+0x1408d1ab4: jmp      0x1408d19e0   ; main.resolveExistingExecutablePath
+0x1408d1ab9: int3     
+0x1408d1aba: int3     
+0x1408d1abb: int3     
+0x1408d1abc: int3     
+0x1408d1abd: int3     
+0x1408d1abe: int3     
+0x1408d1abf: int3     
+0x1408d1ac0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408d1ac4: jbe      0x1408d1b9d   ; main.buildEnvLinkBrowserPath+0xdd
+0x1408d1aca: push     rbp
+0x1408d1acb: mov      rbp, rsp
+0x1408d1ace: sub      rsp, 0x50
+0x1408d1ad2: mov      qword ptr [rsp + 0x60], rax
+0x1408d1ad7: mov      qword ptr [rsp + 0x70], rcx
+0x1408d1adc: mov      qword ptr [rsp + 0x78], rdi
+0x1408d1ae1: call     0x140125a00   ; os.Getenv
+0x1408d1ae6: call     0x1400a2200   ; strings.TrimSpace
+0x1408d1aeb: test     rbx, rbx
+0x1408d1aee: je       0x1408d1b93   ; main.buildEnvLinkBrowserPath+0xd3
+0x1408d1af4: mov      rdi, qword ptr [rsp + 0x78]
+0x1408d1af9: lea      rdx, [rdi + 1]
+0x1408d1afd: mov      qword ptr [rsp + 0x48], rbx
+0x1408d1b02: mov      qword ptr [rsp + 0x40], rax
+0x1408d1b07: cmp      rdx, 1
+0x1408d1b0b: ja       0x1408d1b1e   ; main.buildEnvLinkBrowserPath+0x5e
+0x1408d1b0d: mov      ecx, 1
+0x1408d1b12: mov      ebx, 1
+0x1408d1b17: lea      rax, [rsp + 0x40]
+0x1408d1b1c: jmp      0x1408d1b3c   ; main.buildEnvLinkBrowserPath+0x7c
+0x1408d1b1e: lea      rax, [rsp + 0x40]
+0x1408d1b23: mov      rbx, rdx
+0x1408d1b26: mov      ecx, 1
+0x1408d1b2b: lea      rsi, [rip + 0x2182ce]
+0x1408d1b32: call     0x14007ad20   ; runtime.growslice
+0x1408d1b37: mov      rdi, qword ptr [rsp + 0x78]

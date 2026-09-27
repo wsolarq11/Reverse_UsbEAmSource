@@ -1,0 +1,84 @@
+0x140796360: cmp      rsp, qword ptr [r14 + 0x10]
+0x140796364: jbe      0x140796451    ; main.BootstrapService.summonLauncherByHotkey+0xf1
+0x14079636a: push     rbp
+0x14079636b: mov      rbp, rsp
+0x14079636e: sub      rsp, 0x20
+0x140796372: mov      qword ptr [rsp + 0x38], rbx
+0x140796377: mov      qword ptr [rsp + 0x40], rcx
+0x14079637c: nop      dword ptr [rax]
+0x140796380: test     rbx, rbx
+0x140796383: je       0x1407963f9    ; main.BootstrapService.summonLauncherByHotkey+0x99
+0x140796385: mov      qword ptr [rsp + 0x30], rax
+0x14079638a: mov      qword ptr [rsp + 0x40], rcx
+0x14079638f: mov      qword ptr [rsp + 0x38], rbx
+0x140796394: mov      rdx, qword ptr [rbx + 0x48]
+0x140796398: mov      rax, rcx
+0x14079639b: call     rdx
+0x14079639d: nop      dword ptr [rax]
+0x1407963a0: test     al, al
+0x1407963a2: je       0x1407963d8    ; main.BootstrapService.summonLauncherByHotkey+0x78
+0x1407963a4: mov      rcx, qword ptr [rsp + 0x38]
+0x1407963a9: mov      rcx, qword ptr [rcx + 0x38]
+0x1407963ad: mov      rax, qword ptr [rsp + 0x40]
+0x1407963b2: call     rcx
+0x1407963b4: test     al, al
+0x1407963b6: je       0x1407963d8    ; main.BootstrapService.summonLauncherByHotkey+0x78
+0x1407963b8: mov      rdx, qword ptr [rsp + 0x38]
+0x1407963bd: nop      dword ptr [rax]
+0x1407963c0: test     rdx, rdx
+0x1407963c3: je       0x1407963ff    ; main.BootstrapService.summonLauncherByHotkey+0x9f
+0x1407963c5: mov      rbx, qword ptr [rdx + 8]
+0x1407963c9: mov      rsi, qword ptr [rip + 0x14307d0]
+0x1407963d0: mov      rdi, qword ptr [rsi]
+0x1407963d3: mov      edx, dword ptr [rdx + 0x10]
+0x1407963d6: jmp      0x140796417    ; main.BootstrapService.summonLauncherByHotkey+0xb7
+0x1407963d8: mov      rax, qword ptr [rsp + 0x30]
+0x1407963dd: mov      rbx, qword ptr [rsp + 0x38]
+0x1407963e2: mov      rcx, qword ptr [rsp + 0x40]
+0x1407963e7: xor      edi, edi
+0x1407963e9: mov      esi, 1
+0x1407963ee: call     0x140796480    ; main.BootstrapService.showLauncherWindow
+0x1407963f3: add      rsp, 0x20
+0x1407963f7: pop      rbp
+0x1407963f8: ret      
+0x1407963f9: add      rsp, 0x20
+0x1407963fd: pop      rbp
+0x1407963fe: ret      
+0x1407963ff: mov      rax, qword ptr [rsp + 0x30]
+0x140796404: mov      rbx, rdx
+0x140796407: mov      rcx, qword ptr [rsp + 0x40]
+0x14079640c: call     0x14079a420    ; main.BootstrapService.hideLauncherWindowToTray
+0x140796411: add      rsp, 0x20
+0x140796415: pop      rbp
+0x140796416: ret      
+0x140796417: mov      r8, rdx
+0x14079641a: and      rdx, rdi
+0x14079641d: shl      rdx, 4
+0x140796421: mov      r9, qword ptr [rdx + rsi + 8]
+0x140796426: cmp      r9, rbx
+0x140796429: je       0x14079644a    ; main.BootstrapService.summonLauncherByHotkey+0xea
+0x14079642b: lea      rdx, [r8 + 1]
+0x14079642f: test     r9, r9
+0x140796432: jne      0x140796417    ; main.BootstrapService.summonLauncherByHotkey+0xb7
+0x140796434: lea      rax, [rip + 0x1430765]
+0x14079643b: nop      dword ptr [rax + rax]
+0x140796440: call     0x1400174a0    ; runtime.typeAssert
+0x140796445: mov      rdx, rax
+0x140796448: jmp      0x1407963ff    ; main.BootstrapService.summonLauncherByHotkey+0x9f
+0x14079644a: mov      rdx, qword ptr [rdx + rsi + 0x10]
+0x14079644f: jmp      0x1407963ff    ; main.BootstrapService.summonLauncherByHotkey+0x9f
+0x140796451: mov      qword ptr [rsp + 8], rax
+0x140796456: mov      qword ptr [rsp + 0x10], rbx
+0x14079645b: mov      qword ptr [rsp + 0x18], rcx
+0x140796460: call     0x14007f140    ; runtime.morestack_noctxt
+0x140796465: mov      rax, qword ptr [rsp + 8]
+0x14079646a: mov      rbx, qword ptr [rsp + 0x10]
+0x14079646f: mov      rcx, qword ptr [rsp + 0x18]
+0x140796474: jmp      0x140796360    ; main.BootstrapService.summonLauncherByHotkey
+0x140796479: int3     
+0x14079647a: int3     
+0x14079647b: int3     
+0x14079647c: int3     
+0x14079647d: int3     
+0x14079647e: int3     
+0x14079647f: int3     

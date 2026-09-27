@@ -1,0 +1,14 @@
+0x1409f7c00: cmp      eax, 0x2c
+0x1409f7c03: je       0x1409f7c0c    ; main.splitTagText.func1+0xc
+0x1409f7c05: cmp      eax, 0xff0c
+0x1409f7c0a: jne      0x1409f7c13    ; main.splitTagText.func1+0x13
+0x1409f7c0c: mov      ecx, 1
+0x1409f7c11: jmp      0x1409f7c19    ; main.splitTagText.func1+0x19
+0x1409f7c13: cmp      eax, 0xa
+0x1409f7c16: sete     cl
+0x1409f7c19: mov      eax, ecx
+0x1409f7c1b: ret      
+0x1409f7c1c: int3     
+0x1409f7c1d: int3     
+0x1409f7c1e: int3     
+0x1409f7c1f: int3     

@@ -1,0 +1,121 @@
+0x140947340: cmp      rsp, qword ptr [r14 + 0x10]
+0x140947344: jbe      0x1409474a5
+0x14094734a: push     rbp
+0x14094734b: mov      rbp, rsp
+0x14094734e: sub      rsp, 0x10
+0x140947352: cmp      qword ptr [rax + 0x2e8], 0
+0x14094735a: nop      word ptr [rax + rax]
+0x140947360: je       0x14094749f
+0x140947366: mov      qword ptr [rsp + 0x20], rax
+0x14094736b: mov      qword ptr [rsp + 8], rbx
+0x140947370: call     0x14094d360
+0x140947375: cmp      rax, rcx
+0x140947378: jge      0x14094738a
+0x14094737a: cmp      rbx, rdi
+0x14094737d: jge      0x14094738a
+0x14094737f: mov      rdx, rcx
+0x140947382: sub      rcx, rax
+0x140947385: test     rcx, rcx
+0x140947388: jg       0x140947390
+0x14094738a: add      rsp, 0x10
+0x14094738e: pop      rbp
+0x14094738f: ret      
+0x140947390: mov      rbx, qword ptr [rsp + 8]
+0x140947395: cmp      rax, rbx
+0x140947398: jle      0x1409473a0
+0x14094739a: mov      rdx, rax
+0x14094739d: jmp      0x1409473b6
+0x14094739f: nop      
+0x1409473a0: cmp      rdx, rbx
+0x1409473a3: jge      0x1409473b0
+0x1409473a5: mov      rbx, rdx
+0x1409473a8: mov      rdx, rax
+0x1409473ab: mov      rax, rbx
+0x1409473ae: jmp      0x1409473b6
+0x1409473b0: mov      rdx, rax
+0x1409473b3: mov      rax, rbx
+0x1409473b6: sub      rax, rdx
+0x1409473b9: xorps    xmm0, xmm0
+0x1409473bc: cvtsi2sd xmm0, rax
+0x1409473c1: xorps    xmm1, xmm1
+0x1409473c4: cvtsi2sd xmm1, rcx
+0x1409473c9: divsd    xmm0, xmm1
+0x1409473cd: movsd    xmm1, qword ptr [rip + 0x8863bb]
+0x1409473d5: mulsd    xmm0, xmm1
+0x1409473d9: movq     rcx, xmm0
+0x1409473de: mov      rax, rcx
+0x1409473e1: shr      rax, 0x34
+0x1409473e5: and      eax, 0x7ff
+0x1409473ea: nop      
+0x1409473eb: cmp      rax, 0x3ff
+0x1409473f1: jae      0x140947420
+0x1409473f3: movabs   rdx, 0x8000000000000000
+0x1409473fd: and      rdx, rcx
+0x140947400: movabs   rcx, 0x3ff0000000000000
+0x14094740a: or       rcx, rdx
+0x14094740d: cmp      rax, 0x3fe
+0x140947413: cmove    rdx, rcx
+0x140947417: mov      rbx, rdx
+0x14094741a: jmp      0x14094745c
+0x14094741c: nop      dword ptr [rax]
+0x140947420: cmp      rax, 0x433
+0x140947426: jae      0x140947459
+0x140947428: add      rax, -0x3ff
+0x14094742e: mov      rdx, rcx
+0x140947431: mov      rcx, rax
+0x140947434: movabs   rbx, 0x8000000000000
+0x14094743e: shr      rbx, cl
+0x140947441: add      rdx, rbx
+0x140947444: movabs   rbx, 0xfffffffffffff
+0x14094744e: shr      rbx, cl
+0x140947451: not      rbx
+0x140947454: and      rbx, rdx
+0x140947457: jmp      0x14094745c
+0x140947459: mov      rbx, rcx
+0x14094745c: movq     xmm0, rbx
+0x140947461: cvttsd2si rax, xmm0
+0x140947466: add      rax, 0xc
+0x14094746a: cmp      rax, 0xc
+0x14094746e: jge      0x140947477
+0x140947470: mov      eax, 0xc
+0x140947475: jmp      0x140947482
+0x140947477: cmp      rax, 0x48
+0x14094747b: jle      0x140947482
+0x14094747d: mov      eax, 0x48
+0x140947482: mov      rcx, qword ptr [rsp + 0x20]
+0x140947487: mov      qword ptr [rcx + 0x290], rax
+0x14094748e: mov      rcx, qword ptr [rcx + 0x2e8]
+0x140947495: mov      qword ptr [rcx + 0x60], rax
+0x140947499: add      rsp, 0x10
+0x14094749d: pop      rbp
+0x14094749e: ret      
+0x14094749f: add      rsp, 0x10
+0x1409474a3: pop      rbp
+0x1409474a4: ret      
+0x1409474a5: mov      qword ptr [rsp + 8], rax
+0x1409474aa: mov      qword ptr [rsp + 0x10], rbx
+0x1409474af: mov      qword ptr [rsp + 0x18], rcx
+0x1409474b4: call     0x14007f140
+0x1409474b9: mov      rax, qword ptr [rsp + 8]
+0x1409474be: mov      rbx, qword ptr [rsp + 0x10]
+0x1409474c3: mov      rcx, qword ptr [rsp + 0x18]
+0x1409474c8: jmp      0x140947340
+0x1409474cd: int3     
+0x1409474ce: int3     
+0x1409474cf: int3     
+0x1409474d0: int3     
+0x1409474d1: int3     
+0x1409474d2: int3     
+0x1409474d3: int3     
+0x1409474d4: int3     
+0x1409474d5: int3     
+0x1409474d6: int3     
+0x1409474d7: int3     
+0x1409474d8: int3     
+0x1409474d9: int3     
+0x1409474da: int3     
+0x1409474db: int3     
+0x1409474dc: int3     
+0x1409474dd: int3     
+0x1409474de: int3     
+0x1409474df: int3     

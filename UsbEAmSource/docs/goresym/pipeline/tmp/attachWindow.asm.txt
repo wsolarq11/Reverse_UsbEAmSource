@@ -1,0 +1,151 @@
+0x140773b40: cmp      rsp, qword ptr [r14 + 0x10]
+0x140773b44: jbe      0x140773d46    ; main.BootstrapService.attachWindow+0x206
+0x140773b4a: push     rbp
+0x140773b4b: mov      rbp, rsp
+0x140773b4e: sub      rsp, 0x28
+0x140773b52: mov      qword ptr [rsp + 0x40], rbx
+0x140773b57: mov      qword ptr [rsp + 0x48], rcx
+0x140773b5c: nop      dword ptr [rax]
+0x140773b60: test     rbx, rbx
+0x140773b63: je       0x140773cef    ; main.BootstrapService.attachWindow+0x1af
+0x140773b69: mov      qword ptr [rsp + 0x38], rax
+0x140773b6e: mov      qword ptr [rsp + 0x48], rcx
+0x140773b73: mov      qword ptr [rsp + 0x40], rbx
+0x140773b78: nop      
+0x140773b79: lea      rdx, [rax + 0x540]
+0x140773b80: mov      rsi, rax
+0x140773b83: xor      eax, eax
+0x140773b85: mov      edi, 1
+0x140773b8a: lock cmpxchg dword ptr [rsi + 0x540], edi
+0x140773b92: sete     dil
+0x140773b96: test     dil, dil
+0x140773b99: jne      0x140773bbc    ; main.BootstrapService.attachWindow+0x7c
+0x140773b9b: mov      qword ptr [rsp + 0x18], rdx
+0x140773ba0: mov      rax, rdx
+0x140773ba3: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x140773ba8: mov      rcx, qword ptr [rsp + 0x48]
+0x140773bad: mov      rdx, qword ptr [rsp + 0x18]
+0x140773bb2: mov      rbx, qword ptr [rsp + 0x40]
+0x140773bb7: mov      rsi, qword ptr [rsp + 0x38]
+0x140773bbc: mov      qword ptr [rsi + 0x190], rbx
+0x140773bc3: cmp      dword ptr [rip + 0x14e7786], 0
+0x140773bca: je       0x140773bdf    ; main.BootstrapService.attachWindow+0x9f
+0x140773bcc: mov      rdi, qword ptr [rsi + 0x198]
+0x140773bd3: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140773bd8: mov      qword ptr [r11], rcx
+0x140773bdb: mov      qword ptr [r11 + 8], rdi
+0x140773bdf: mov      qword ptr [rsi + 0x198], rcx
+0x140773be6: mov      byte ptr [rsi + 0x44c], 0
+0x140773bed: mov      word ptr [rsi + 0x44d], 0x100
+0x140773bf6: nop      
+0x140773bf7: nop      
+0x140773bf8: mov      edi, 0xffffffff
+0x140773bfd: lock xadd dword ptr [rsi + 0x540], edi
+0x140773c05: dec      edi
+0x140773c07: je       0x140773c13    ; main.BootstrapService.attachWindow+0xd3
+0x140773c09: mov      rax, rdx
+0x140773c0c: mov      ebx, edi
+0x140773c0e: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x140773c13: lea      rax, [rip + 0x363a66]
+0x140773c1a: call     0x14001ae20    ; runtime.newobject
+0x140773c1f: mov      qword ptr [rsp + 0x20], rax
+0x140773c24: lea      rax, [rip + 0x437e35]
+0x140773c2b: call     0x14001ae20    ; runtime.newobject
+0x140773c30: lea      rcx, [rip + 0x149]
+0x140773c37: mov      qword ptr [rax], rcx
+0x140773c3a: cmp      dword ptr [rip + 0x14e770f], 0
+0x140773c41: jne      0x140773c54    ; main.BootstrapService.attachWindow+0x114
+0x140773c43: mov      rdx, qword ptr [rsp + 0x38]
+0x140773c48: mov      rsi, qword ptr [rsp + 0x48]
+0x140773c4d: mov      rdi, qword ptr [rsp + 0x20]
+0x140773c52: jmp      0x140773c73    ; main.BootstrapService.attachWindow+0x133
+0x140773c54: call     0x140081080    ; runtime.gcWriteBarrier3
+0x140773c59: mov      rdx, qword ptr [rsp + 0x38]
+0x140773c5e: mov      qword ptr [r11], rdx
+0x140773c61: mov      rsi, qword ptr [rsp + 0x48]
+0x140773c66: mov      qword ptr [r11 + 8], rsi
+0x140773c6a: mov      rdi, qword ptr [rsp + 0x20]
+0x140773c6f: mov      qword ptr [r11 + 0x10], rdi
+0x140773c73: mov      qword ptr [rax + 8], rdx
+0x140773c77: mov      rdx, qword ptr [rsp + 0x40]
+0x140773c7c: mov      qword ptr [rax + 0x10], rdx
+0x140773c80: mov      qword ptr [rax + 0x18], rsi
+0x140773c84: mov      qword ptr [rax + 0x20], rdi
+0x140773c88: mov      rdx, qword ptr [rdx + 0x138]
+0x140773c8f: mov      rbx, qword ptr [rip + 0x11f9dca]
+0x140773c96: mov      rcx, rax
+0x140773c99: mov      rax, rsi
+0x140773c9c: call     rdx
+0x140773c9e: cmp      dword ptr [rip + 0x14e76ab], 0
+0x140773ca5: jne      0x140773cbb    ; main.BootstrapService.attachWindow+0x17b
+0x140773ca7: mov      rdx, qword ptr [rsp + 0x40]
+0x140773cac: test     rdx, rdx
+0x140773caf: mov      rdx, qword ptr [rsp + 0x20]
+0x140773cb4: mov      rsi, qword ptr [rsp + 0x40]
+0x140773cb9: jmp      0x140773cd7    ; main.BootstrapService.attachWindow+0x197
+0x140773cbb: mov      rdx, qword ptr [rsp + 0x20]
+0x140773cc0: mov      rsi, qword ptr [rdx]
+0x140773cc3: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140773cc8: mov      qword ptr [r11], rax
+0x140773ccb: mov      qword ptr [r11 + 8], rsi
+0x140773ccf: mov      rsi, qword ptr [rsp + 0x40]
+0x140773cd4: test     rsi, rsi
+0x140773cd7: mov      qword ptr [rdx], rax
+0x140773cda: je       0x140773cf5    ; main.BootstrapService.attachWindow+0x1b5
+0x140773cdc: mov      rbx, qword ptr [rsi + 8]
+0x140773ce0: mov      rdx, qword ptr [rip + 0x1452d39]
+0x140773ce7: mov      rdi, qword ptr [rdx]
+0x140773cea: mov      esi, dword ptr [rsi + 0x10]
+0x140773ced: jmp      0x140773d0d    ; main.BootstrapService.attachWindow+0x1cd
+0x140773cef: add      rsp, 0x28
+0x140773cf3: pop      rbp
+0x140773cf4: ret      
+0x140773cf5: mov      rax, qword ptr [rsp + 0x38]
+0x140773cfa: mov      rbx, rsi
+0x140773cfd: mov      rcx, qword ptr [rsp + 0x48]
+0x140773d02: call     0x140796120    ; main.BootstrapService.showPendingLauncherReveal
+0x140773d07: add      rsp, 0x28
+0x140773d0b: pop      rbp
+0x140773d0c: ret      
+0x140773d0d: mov      r8, rsi
+0x140773d10: and      rsi, rdi
+0x140773d13: shl      rsi, 4
+0x140773d17: mov      r9, qword ptr [rsi + rdx + 8]
+0x140773d1c: nop      dword ptr [rax]
+0x140773d20: cmp      r9, rbx
+0x140773d23: je       0x140773d3f    ; main.BootstrapService.attachWindow+0x1ff
+0x140773d25: lea      rsi, [r8 + 1]
+0x140773d29: test     r9, r9
+0x140773d2c: jne      0x140773d0d    ; main.BootstrapService.attachWindow+0x1cd
+0x140773d2e: lea      rax, [rip + 0x1452ceb]
+0x140773d35: call     0x1400174a0    ; runtime.typeAssert
+0x140773d3a: mov      rsi, rax
+0x140773d3d: jmp      0x140773cf5    ; main.BootstrapService.attachWindow+0x1b5
+0x140773d3f: mov      rsi, qword ptr [rsi + rdx + 0x10]
+0x140773d44: jmp      0x140773cf5    ; main.BootstrapService.attachWindow+0x1b5
+0x140773d46: mov      qword ptr [rsp + 8], rax
+0x140773d4b: mov      qword ptr [rsp + 0x10], rbx
+0x140773d50: mov      qword ptr [rsp + 0x18], rcx
+0x140773d55: call     0x14007f140    ; runtime.morestack_noctxt
+0x140773d5a: mov      rax, qword ptr [rsp + 8]
+0x140773d5f: mov      rbx, qword ptr [rsp + 0x10]
+0x140773d64: mov      rcx, qword ptr [rsp + 0x18]
+0x140773d69: jmp      0x140773b40    ; main.BootstrapService.attachWindow
+0x140773d6e: int3     
+0x140773d6f: int3     
+0x140773d70: int3     
+0x140773d71: int3     
+0x140773d72: int3     
+0x140773d73: int3     
+0x140773d74: int3     
+0x140773d75: int3     
+0x140773d76: int3     
+0x140773d77: int3     
+0x140773d78: int3     
+0x140773d79: int3     
+0x140773d7a: int3     
+0x140773d7b: int3     
+0x140773d7c: int3     
+0x140773d7d: int3     
+0x140773d7e: int3     
+0x140773d7f: int3     

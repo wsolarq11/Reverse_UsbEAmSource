@@ -1,0 +1,165 @@
+0x1408a8580: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a8584: jbe      0x1408a8652   ; main.requiresShellOpen+0xd2
+0x1408a858a: push     rbp
+0x1408a858b: mov      rbp, rsp
+0x1408a858e: sub      rsp, 0x10
+0x1408a8592: mov      qword ptr [rsp + 0x28], rbx
+0x1408a8597: mov      qword ptr [rsp + 0x20], rax
+0x1408a859c: nop      dword ptr [rax]
+0x1408a85a0: call     0x1408a8680   ; main.looksLikeShellProtocolTarget
+0x1408a85a5: test     al, al
+0x1408a85a7: jne      0x1408a85be   ; main.requiresShellOpen+0x3e
+0x1408a85a9: mov      rax, qword ptr [rsp + 0x20]
+0x1408a85ae: mov      rbx, qword ptr [rsp + 0x28]
+0x1408a85b3: call     0x1400a2200   ; strings.TrimSpace
+0x1408a85b8: lea      rcx, [rbx - 1]
+0x1408a85bc: jmp      0x1408a85cc   ; main.requiresShellOpen+0x4c
+0x1408a85be: mov      eax, 1
+0x1408a85c3: add      rsp, 0x10
+0x1408a85c7: pop      rbp
+0x1408a85c8: ret      
+0x1408a85c9: dec      rcx
+0x1408a85cc: test     rcx, rcx
+0x1408a85cf: jl       0x1408a85fa   ; main.requiresShellOpen+0x7a
+0x1408a85d1: movzx    edx, byte ptr [rax + rcx]
+0x1408a85d5: cmp      dl, 0x5c
+0x1408a85d8: je       0x1408a85fa   ; main.requiresShellOpen+0x7a
+0x1408a85da: cmp      dl, 0x2f
+0x1408a85dd: je       0x1408a85fa   ; main.requiresShellOpen+0x7a
+0x1408a85df: nop      
+0x1408a85e0: cmp      dl, 0x2e
+0x1408a85e3: jne      0x1408a85c9   ; main.requiresShellOpen+0x49
+0x1408a85e5: sub      rbx, rcx
+0x1408a85e8: mov      rdx, rbx
+0x1408a85eb: neg      rbx
+0x1408a85ee: sar      rbx, 0x3f
+0x1408a85f2: and      rcx, rbx
+0x1408a85f5: add      rcx, rax
+0x1408a85f8: jmp      0x1408a85fe   ; main.requiresShellOpen+0x7e
+0x1408a85fa: xor      edx, edx
+0x1408a85fc: xor      ecx, ecx
+0x1408a85fe: mov      rax, rcx
+0x1408a8601: mov      rbx, rdx
+0x1408a8604: call     0x1400a1500   ; strings.ToLower
+0x1408a8609: cmp      rbx, 4
+0x1408a860d: jne      0x1408a8622   ; main.requiresShellOpen+0xa2
+0x1408a860f: cmp      dword ptr [rax], 0x6b6e6c2e
+0x1408a8615: je       0x1408a863f   ; main.requiresShellOpen+0xbf
+0x1408a8617: cmp      dword ptr [rax], 0x6c72752e
+0x1408a861d: je       0x1408a863f   ; main.requiresShellOpen+0xbf
+0x1408a861f: nop      
+0x1408a8620: jmp      0x1408a864a   ; main.requiresShellOpen+0xca
+0x1408a8622: cmp      rbx, 0xa
+0x1408a8626: jne      0x1408a864a   ; main.requiresShellOpen+0xca
+0x1408a8628: movabs   rcx, 0x2d6665727070612e
+0x1408a8632: cmp      qword ptr [rax], rcx
+0x1408a8635: jne      0x1408a864a   ; main.requiresShellOpen+0xca
+0x1408a8637: cmp      word ptr [rax + 8], 0x736d
+0x1408a863d: jne      0x1408a864a   ; main.requiresShellOpen+0xca
+0x1408a863f: mov      eax, 1
+0x1408a8644: add      rsp, 0x10
+0x1408a8648: pop      rbp
+0x1408a8649: ret      
+0x1408a864a: xor      eax, eax
+0x1408a864c: add      rsp, 0x10
+0x1408a8650: pop      rbp
+0x1408a8651: ret      
+0x1408a8652: mov      qword ptr [rsp + 8], rax
+0x1408a8657: mov      qword ptr [rsp + 0x10], rbx
+0x1408a865c: nop      dword ptr [rax]
+0x1408a8660: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a8665: mov      rax, qword ptr [rsp + 8]
+0x1408a866a: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a866f: jmp      0x1408a8580   ; main.requiresShellOpen
+0x1408a8674: int3     
+0x1408a8675: int3     
+0x1408a8676: int3     
+0x1408a8677: int3     
+0x1408a8678: int3     
+0x1408a8679: int3     
+0x1408a867a: int3     
+0x1408a867b: int3     
+0x1408a867c: int3     
+0x1408a867d: int3     
+0x1408a867e: int3     
+0x1408a867f: int3     
+0x1408a8680: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a8684: jbe      0x1408a879b   ; main.looksLikeShellProtocolTarget+0x11b
+0x1408a868a: push     rbp
+0x1408a868b: mov      rbp, rsp
+0x1408a868e: sub      rsp, 0x38
+0x1408a8692: mov      qword ptr [rsp + 0x48], rax
+0x1408a8697: call     0x1400a2200   ; strings.TrimSpace
+0x1408a869c: mov      qword ptr [rsp + 0x30], rax
+0x1408a86a1: mov      qword ptr [rsp + 0x28], rbx
+0x1408a86a6: nop      
+0x1408a86a7: lea      rcx, [rip + 0x9225aa]
+0x1408a86ae: mov      edi, 1
+0x1408a86b3: call     0x140006860   ; internal/stringslite.Index
+0x1408a86b8: test     rax, rax
+0x1408a86bb: jle      0x1408a870e   ; main.looksLikeShellProtocolTarget+0x8e
+0x1408a86bd: mov      rdx, qword ptr [rsp + 0x28]
+0x1408a86c2: test     rdx, rdx
+0x1408a86c5: jbe      0x1408a8790   ; main.looksLikeShellProtocolTarget+0x110
+0x1408a86cb: mov      rsi, qword ptr [rsp + 0x30]
+0x1408a86d0: movzx    edi, byte ptr [rsi]
+0x1408a86d3: lea      r8d, [rdi - 0x61]
+0x1408a86d7: cmp      r8b, 0x19
+0x1408a86db: jbe      0x1408a86e6   ; main.looksLikeShellProtocolTarget+0x66
+0x1408a86dd: add      edi, -0x41
+0x1408a86e0: cmp      dil, 0x19
+0x1408a86e4: ja       0x1408a8706   ; main.looksLikeShellProtocolTarget+0x86
+0x1408a86e6: cmp      rax, 1
+0x1408a86ea: je       0x1408a86fe   ; main.looksLikeShellProtocolTarget+0x7e
+0x1408a86ec: cmp      rax, rdx
+0x1408a86ef: ja       0x1408a8788   ; main.looksLikeShellProtocolTarget+0x108
+0x1408a86f5: mov      qword ptr [rsp + 0x20], rax
+0x1408a86fa: xor      ecx, ecx
+0x1408a86fc: jmp      0x1408a8719   ; main.looksLikeShellProtocolTarget+0x99
+0x1408a86fe: xor      eax, eax
+0x1408a8700: add      rsp, 0x38
+0x1408a8704: pop      rbp
+0x1408a8705: ret      
+0x1408a8706: xor      eax, eax
+0x1408a8708: add      rsp, 0x38
+0x1408a870c: pop      rbp
+0x1408a870d: ret      
+0x1408a870e: xor      eax, eax
+0x1408a8710: add      rsp, 0x38
+0x1408a8714: pop      rbp
+0x1408a8715: ret      
+0x1408a8716: mov      rcx, rdi
+0x1408a8719: cmp      rax, rcx
+0x1408a871c: jle      0x1408a877d   ; main.looksLikeShellProtocolTarget+0xfd
+0x1408a871e: movzx    edx, byte ptr [rsi + rcx]
+0x1408a8722: cmp      edx, 0x7f
+0x1408a8725: jg       0x1408a872d   ; main.looksLikeShellProtocolTarget+0xad
+0x1408a8727: lea      rdi, [rcx + 1]
+0x1408a872b: jmp      0x1408a8747   ; main.looksLikeShellProtocolTarget+0xc7
+0x1408a872d: mov      rbx, rax
+0x1408a8730: mov      rax, rsi
+0x1408a8733: call     0x1400733c0   ; runtime.decoderune
+0x1408a8738: mov      rsi, qword ptr [rsp + 0x30]
+0x1408a873d: mov      edx, eax
+0x1408a873f: mov      rdi, rbx
+0x1408a8742: mov      rax, qword ptr [rsp + 0x20]
+0x1408a8747: lea      r8d, [rdx - 0x61]
+0x1408a874b: cmp      r8d, 0x19
+0x1408a874f: jbe      0x1408a8716   ; main.looksLikeShellProtocolTarget+0x96
+0x1408a8751: lea      r8d, [rdx - 0x41]
+0x1408a8755: cmp      r8d, 0x19
+0x1408a8759: jbe      0x1408a8716   ; main.looksLikeShellProtocolTarget+0x96
+0x1408a875b: lea      r8d, [rdx - 0x30]
+0x1408a875f: nop      
+0x1408a8760: cmp      r8d, 9
+0x1408a8764: jbe      0x1408a8716   ; main.looksLikeShellProtocolTarget+0x96
+0x1408a8766: cmp      edx, 0x2b
+0x1408a8769: je       0x1408a8716   ; main.looksLikeShellProtocolTarget+0x96
+0x1408a876b: cmp      edx, 0x2d
+0x1408a876e: je       0x1408a8716   ; main.looksLikeShellProtocolTarget+0x96
+0x1408a8770: cmp      edx, 0x2e
+0x1408a8773: je       0x1408a8716   ; main.looksLikeShellProtocolTarget+0x96
+0x1408a8775: xor      eax, eax
+0x1408a8777: add      rsp, 0x38
+0x1408a877b: pop      rbp
+0x1408a877c: ret      

@@ -1,0 +1,103 @@
+0x14085ade0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14085ade4: jbe      0x14085af05   ; main.gpuPreferenceModeFromSettings+0x125
+0x14085adea: push     rbp
+0x14085adeb: mov      rbp, rsp
+0x14085adee: sub      rsp, 0x40
+0x14085adf2: mov      qword ptr [rsp + 0x50], rax
+0x14085adf7: mov      qword ptr [rsp + 0x58], rbx
+0x14085adfc: xor      ecx, ecx
+0x14085adfe: nop      
+0x14085ae00: jmp      0x14085ae20   ; main.gpuPreferenceModeFromSettings+0x40
+0x14085ae02: mov      rax, qword ptr [rsp + 0x38]
+0x14085ae07: add      rax, 0x20
+0x14085ae0b: mov      rcx, qword ptr [rsp + 0x28]
+0x14085ae10: inc      rcx
+0x14085ae13: mov      rbx, qword ptr [rsp + 0x58]
+0x14085ae18: nop      dword ptr [rax + rax]
+0x14085ae20: cmp      rbx, rcx
+0x14085ae23: jle      0x14085aef1   ; main.gpuPreferenceModeFromSettings+0x111
+0x14085ae29: mov      qword ptr [rsp + 0x28], rcx
+0x14085ae2e: mov      qword ptr [rsp + 0x38], rax
+0x14085ae33: mov      rdx, qword ptr [rax]
+0x14085ae36: mov      rbx, qword ptr [rax + 8]
+0x14085ae3a: mov      rsi, qword ptr [rax + 0x10]
+0x14085ae3e: mov      qword ptr [rsp + 0x30], rsi
+0x14085ae43: mov      rsi, qword ptr [rax + 0x18]
+0x14085ae47: mov      qword ptr [rsp + 0x20], rsi
+0x14085ae4c: mov      rax, rdx
+0x14085ae4f: lea      rcx, [rip + 0x3f31f8]
+0x14085ae56: mov      edi, 0xd
+0x14085ae5b: nop      dword ptr [rax + rax]
+0x14085ae60: call     0x1400a2c40   ; strings.EqualFold
+0x14085ae65: test     al, al
+0x14085ae67: je       0x14085ae02   ; main.gpuPreferenceModeFromSettings+0x22
+0x14085ae69: mov      rax, qword ptr [rsp + 0x30]
+0x14085ae6e: mov      rbx, qword ptr [rsp + 0x20]
+0x14085ae73: call     0x1400a2200   ; strings.TrimSpace
+0x14085ae78: call     0x1400a8ea0   ; strconv.Atoi
+0x14085ae7d: nop      dword ptr [rax]
+0x14085ae80: test     rbx, rbx
+0x14085ae83: jne      0x14085aedd   ; main.gpuPreferenceModeFromSettings+0xfd
+0x14085ae85: test     rax, rax
+0x14085ae88: jne      0x14085ae98   ; main.gpuPreferenceModeFromSettings+0xb8
+0x14085ae8a: mov      ecx, 0xd
+0x14085ae8f: lea      rdx, [rip + 0x3f31c5]
+0x14085ae96: jmp      0x14085aece   ; main.gpuPreferenceModeFromSettings+0xee
+0x14085ae98: cmp      rax, 1
+0x14085ae9c: jne      0x14085aeac   ; main.gpuPreferenceModeFromSettings+0xcc
+0x14085ae9e: mov      ecx, 0xb
+0x14085aea3: lea      rdx, [rip + 0x3ec642]
+0x14085aeaa: jmp      0x14085aece   ; main.gpuPreferenceModeFromSettings+0xee
+0x14085aeac: cmp      rax, 2
+0x14085aeb0: jne      0x14085aec2   ; main.gpuPreferenceModeFromSettings+0xe2
+0x14085aeb2: mov      ecx, 0xf
+0x14085aeb7: lea      rdx, [rip + 0x3f7e4c]
+0x14085aebe: nop      
+0x14085aec0: jmp      0x14085aece   ; main.gpuPreferenceModeFromSettings+0xee
+0x14085aec2: mov      ecx, 7
+0x14085aec7: lea      rdx, [rip + 0x3de520]
+0x14085aece: mov      rbx, rcx
+0x14085aed1: mov      rcx, rax
+0x14085aed4: mov      rax, rdx
+0x14085aed7: add      rsp, 0x40
+0x14085aedb: pop      rbp
+0x14085aedc: ret      
+0x14085aedd: lea      rax, [rip + 0x3de50a]
+0x14085aee4: mov      ebx, 7
+0x14085aee9: xor      ecx, ecx
+0x14085aeeb: add      rsp, 0x40
+0x14085aeef: pop      rbp
+0x14085aef0: ret      
+0x14085aef1: lea      rax, [rip + 0x3f3163]
+0x14085aef8: mov      ebx, 0xd
+0x14085aefd: xor      ecx, ecx
+0x14085aeff: add      rsp, 0x40
+0x14085af03: pop      rbp
+0x14085af04: ret      
+0x14085af05: mov      qword ptr [rsp + 8], rax
+0x14085af0a: mov      qword ptr [rsp + 0x10], rbx
+0x14085af0f: mov      qword ptr [rsp + 0x18], rcx
+0x14085af14: call     0x14007f140   ; runtime.morestack_noctxt
+0x14085af19: mov      rax, qword ptr [rsp + 8]
+0x14085af1e: mov      rbx, qword ptr [rsp + 0x10]
+0x14085af23: mov      rcx, qword ptr [rsp + 0x18]
+0x14085af28: jmp      0x14085ade0   ; main.gpuPreferenceModeFromSettings
+0x14085af2d: int3     
+0x14085af2e: int3     
+0x14085af2f: int3     
+0x14085af30: int3     
+0x14085af31: int3     
+0x14085af32: int3     
+0x14085af33: int3     
+0x14085af34: int3     
+0x14085af35: int3     
+0x14085af36: int3     
+0x14085af37: int3     
+0x14085af38: int3     
+0x14085af39: int3     
+0x14085af3a: int3     
+0x14085af3b: int3     
+0x14085af3c: int3     
+0x14085af3d: int3     
+0x14085af3e: int3     
+0x14085af3f: int3     

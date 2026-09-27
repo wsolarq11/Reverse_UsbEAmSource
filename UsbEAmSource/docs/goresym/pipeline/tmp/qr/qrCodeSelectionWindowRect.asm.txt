@@ -1,0 +1,48 @@
+0x140959ee0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140959ee4: jbe      0x140959f19   ; main.qrCodeSelectionWindowRect+0x39
+0x140959ee6: push     rbp
+0x140959ee7: mov      rbp, rsp
+0x140959eea: sub      rsp, 0x40
+0x140959eee: sub      rax, rsi
+0x140959ef1: sub      rbx, r8
+0x140959ef4: sub      rcx, rsi
+0x140959ef7: sub      rdi, r8
+0x140959efa: mov      rsi, qword ptr [rsp + 0x50]
+0x140959eff: mov      r8, qword ptr [rsp + 0x58]
+0x140959f04: mov      r9, qword ptr [rsp + 0x60]
+0x140959f09: mov      r10, qword ptr [rsp + 0x68]
+0x140959f0e: call     0x1401a1160   ; image.Rectangle.Intersect
+0x140959f13: add      rsp, 0x40
+0x140959f17: pop      rbp
+0x140959f18: ret      
+0x140959f19: mov      qword ptr [rsp + 0x28], rax
+0x140959f1e: mov      qword ptr [rsp + 0x30], rbx
+0x140959f23: mov      qword ptr [rsp + 0x38], rcx
+0x140959f28: mov      qword ptr [rsp + 0x40], rdi
+0x140959f2d: mov      qword ptr [rsp + 0x48], rsi
+0x140959f32: mov      qword ptr [rsp + 0x50], r8
+0x140959f37: mov      qword ptr [rsp + 0x58], r9
+0x140959f3c: mov      qword ptr [rsp + 0x60], r10
+0x140959f41: call     0x14007f140   ; runtime.morestack_noctxt
+0x140959f46: mov      rax, qword ptr [rsp + 0x28]
+0x140959f4b: mov      rbx, qword ptr [rsp + 0x30]
+0x140959f50: mov      rcx, qword ptr [rsp + 0x38]
+0x140959f55: mov      rdi, qword ptr [rsp + 0x40]
+0x140959f5a: mov      rsi, qword ptr [rsp + 0x48]
+0x140959f5f: mov      r8, qword ptr [rsp + 0x50]
+0x140959f64: mov      r9, qword ptr [rsp + 0x58]
+0x140959f69: mov      r10, qword ptr [rsp + 0x60]
+0x140959f6e: jmp      0x140959ee0   ; main.qrCodeSelectionWindowRect
+0x140959f73: int3     
+0x140959f74: int3     
+0x140959f75: int3     
+0x140959f76: int3     
+0x140959f77: int3     
+0x140959f78: int3     
+0x140959f79: int3     
+0x140959f7a: int3     
+0x140959f7b: int3     
+0x140959f7c: int3     
+0x140959f7d: int3     
+0x140959f7e: int3     
+0x140959f7f: int3     

@@ -1,0 +1,101 @@
+0x1409547a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409547a4: jbe      0x1409548b8   ; main.qrCodeAnnotationTextOutlineOffsets+0x118
+0x1409547aa: push     rbp
+0x1409547ab: mov      rbp, rsp
+0x1409547ae: sub      rsp, 0x70
+0x1409547b2: cmp      rax, 1
+0x1409547b6: mov      ecx, 1
+0x1409547bb: cmovg    rcx, rax
+0x1409547bf: mov      qword ptr [rsp + 0x68], rcx
+0x1409547c4: mov      rdx, rcx
+0x1409547c7: shl      rdx, 3
+0x1409547cb: mov      qword ptr [rsp + 0x50], rdx
+0x1409547d0: lea      rax, [rip + 0x28f169]
+0x1409547d7: xor      ebx, ebx
+0x1409547d9: mov      rcx, rdx
+0x1409547dc: nop      dword ptr [rax]
+0x1409547e0: call     0x14007ac40   ; runtime.makeslice
+0x1409547e5: mov      rdx, qword ptr [rsp + 0x68]
+0x1409547ea: mov      rsi, rdx
+0x1409547ed: imul     rdx, rdx
+0x1409547f1: inc      rdx
+0x1409547f4: mov      qword ptr [rsp + 0x58], rdx
+0x1409547f9: mov      rdi, rsi
+0x1409547fc: neg      rsi
+0x1409547ff: mov      qword ptr [rsp + 0x48], rsi
+0x140954804: mov      r8, qword ptr [rsp + 0x50]
+0x140954809: mov      rcx, rsi
+0x14095480c: xor      ebx, ebx
+0x14095480e: jmp      0x140954816   ; main.qrCodeAnnotationTextOutlineOffsets+0x76
+0x140954810: inc      rsi
+0x140954813: mov      rcx, r9
+0x140954816: cmp      rsi, rdi
+0x140954819: jg       0x140954825   ; main.qrCodeAnnotationTextOutlineOffsets+0x85
+0x14095481b: mov      qword ptr [rsp + 0x40], rsi
+0x140954820: mov      r9, rcx
+0x140954823: jmp      0x140954835   ; main.qrCodeAnnotationTextOutlineOffsets+0x95
+0x140954825: mov      rcx, r8
+0x140954828: add      rsp, 0x70
+0x14095482c: pop      rbp
+0x14095482d: ret      
+0x14095482e: lea      rcx, [r10 + 1]
+0x140954832: mov      rsi, r11
+0x140954835: cmp      rcx, rdi
+0x140954838: jg       0x140954810   ; main.qrCodeAnnotationTextOutlineOffsets+0x70
+0x14095483a: test     rcx, rcx
+0x14095483d: jne      0x14095484d   ; main.qrCodeAnnotationTextOutlineOffsets+0xad
+0x14095483f: nop      
+0x140954840: test     rsi, rsi
+0x140954843: jne      0x14095484d   ; main.qrCodeAnnotationTextOutlineOffsets+0xad
+0x140954845: mov      r10, rcx
+0x140954848: mov      r11, rsi
+0x14095484b: jmp      0x14095482e   ; main.qrCodeAnnotationTextOutlineOffsets+0x8e
+0x14095484d: mov      r10, rcx
+0x140954850: imul     rcx, rcx
+0x140954854: mov      r11, rsi
+0x140954857: imul     rsi, rsi
+0x14095485b: lea      r12, [rcx + rsi]
+0x14095485f: nop      
+0x140954860: cmp      rdx, r12
+0x140954863: jl       0x14095482e   ; main.qrCodeAnnotationTextOutlineOffsets+0x8e
+0x140954865: inc      rbx
+0x140954868: cmp      r8, rbx
+0x14095486b: jae      0x1409548a2   ; main.qrCodeAnnotationTextOutlineOffsets+0x102
+0x14095486d: mov      qword ptr [rsp + 0x60], r10
+0x140954872: mov      rcx, r8
+0x140954875: mov      edi, 1
+0x14095487a: lea      rsi, [rip + 0x28f0bf]
+0x140954881: call     0x14007ad20   ; runtime.growslice
+0x140954886: mov      rdx, qword ptr [rsp + 0x58]
+0x14095488b: mov      rdi, qword ptr [rsp + 0x68]
+0x140954890: mov      r9, qword ptr [rsp + 0x48]
+0x140954895: mov      r10, qword ptr [rsp + 0x60]
+0x14095489a: mov      r11, qword ptr [rsp + 0x40]
+0x14095489f: mov      r8, rcx
+0x1409548a2: lea      r12, [rbx - 1]
+0x1409548a6: shl      r12, 4
+0x1409548aa: mov      qword ptr [rax + r12], r10
+0x1409548ae: mov      qword ptr [rax + r12 + 8], r11
+0x1409548b3: jmp      0x14095482e   ; main.qrCodeAnnotationTextOutlineOffsets+0x8e
+0x1409548b8: mov      qword ptr [rsp + 8], rax
+0x1409548bd: nop      dword ptr [rax]
+0x1409548c0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409548c5: mov      rax, qword ptr [rsp + 8]
+0x1409548ca: jmp      0x1409547a0   ; main.qrCodeAnnotationTextOutlineOffsets
+0x1409548cf: int3     
+0x1409548d0: int3     
+0x1409548d1: int3     
+0x1409548d2: int3     
+0x1409548d3: int3     
+0x1409548d4: int3     
+0x1409548d5: int3     
+0x1409548d6: int3     
+0x1409548d7: int3     
+0x1409548d8: int3     
+0x1409548d9: int3     
+0x1409548da: int3     
+0x1409548db: int3     
+0x1409548dc: int3     
+0x1409548dd: int3     
+0x1409548de: int3     
+0x1409548df: int3     

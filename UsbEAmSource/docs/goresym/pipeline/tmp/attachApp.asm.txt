@@ -1,0 +1,249 @@
+0x140773400: lea      r12, [rsp - 0xe8]
+0x140773408: cmp      r12, qword ptr [r14 + 0x10]
+0x14077340c: jbe      0x1407739ae    ; main.BootstrapService.attachApp+0x5ae
+0x140773412: push     rbp
+0x140773413: mov      rbp, rsp
+0x140773416: sub      rsp, 0x160
+0x14077341d: mov      qword ptr [rsp + 0x170], rax
+0x140773425: mov      qword ptr [rsp + 0x178], rbx
+0x14077342d: nop      
+0x14077342e: lea      rdx, [rax + 0x540]
+0x140773435: mov      qword ptr [rsp + 0x148], rdx
+0x14077343d: mov      rcx, rax
+0x140773440: xor      eax, eax
+0x140773442: mov      r12d, 1
+0x140773448: lock cmpxchg dword ptr [rcx + 0x540], r12d
+0x140773451: sete     r12b
+0x140773455: test     r12b, r12b
+0x140773458: jne      0x14077347d    ; main.BootstrapService.attachApp+0x7d
+0x14077345a: mov      rax, rdx
+0x14077345d: nop      dword ptr [rax]
+0x140773460: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x140773465: mov      rcx, qword ptr [rsp + 0x170]
+0x14077346d: mov      rdx, qword ptr [rsp + 0x148]
+0x140773475: mov      rbx, qword ptr [rsp + 0x178]
+0x14077347d: cmp      dword ptr [rip + 0x14e7ecc], 0
+0x140773484: je       0x140773499    ; main.BootstrapService.attachApp+0x99
+0x140773486: mov      r12, qword ptr [rcx + 0x188]
+0x14077348d: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140773492: mov      qword ptr [r11], rbx
+0x140773495: mov      qword ptr [r11 + 8], r12
+0x140773499: mov      qword ptr [rcx + 0x188], rbx
+0x1407734a0: mov      r12, qword ptr [rcx + 0x1d8]
+0x1407734a7: mov      qword ptr [rsp + 0x150], r12
+0x1407734af: mov      r13, qword ptr [rcx + 0x1e0]
+0x1407734b6: mov      qword ptr [rsp + 0xe8], r13
+0x1407734be: movzx    edi, byte ptr [rcx + 0x1e8]
+0x1407734c5: mov      byte ptr [rsp + 0xb5], dil
+0x1407734cd: mov      rsi, qword ptr [rcx + 0x1f0]
+0x1407734d4: mov      qword ptr [rsp + 0xf0], rsi
+0x1407734dc: mov      r8, qword ptr [rcx + 0x1f8]
+0x1407734e3: mov      qword ptr [rsp + 0xb8], r8
+0x1407734eb: movzx    r9d, byte ptr [rcx + 0x200]
+0x1407734f3: mov      byte ptr [rsp + 0xb0], r9b
+0x1407734fb: mov      r10, qword ptr [rcx + 0x208]
+0x140773502: mov      qword ptr [rsp + 0x120], r10
+0x14077350a: mov      r11, qword ptr [rcx + 0x210]
+0x140773511: mov      qword ptr [rsp + 0xd0], r11
+0x140773519: movzx    r15d, byte ptr [rcx + 0x218]
+0x140773521: mov      byte ptr [rsp + 0xb3], r15b
+0x140773529: mov      rax, qword ptr [rcx + 0x220]
+0x140773530: mov      qword ptr [rsp + 0x108], rax
+0x140773538: mov      rbx, qword ptr [rcx + 0x228]
+0x14077353f: mov      qword ptr [rsp + 0xc8], rbx
+0x140773547: movzx    esi, byte ptr [rcx + 0x230]
+0x14077354e: mov      byte ptr [rsp + 0xb2], sil
+0x140773556: mov      rdi, qword ptr [rcx + 0x238]
+0x14077355d: mov      qword ptr [rsp + 0x128], rdi
+0x140773565: mov      r8, qword ptr [rcx + 0x240]
+0x14077356c: mov      qword ptr [rsp + 0xd8], r8
+0x140773574: movzx    r9d, byte ptr [rcx + 0x248]
+0x14077357c: mov      byte ptr [rsp + 0xb4], r9b
+0x140773584: mov      r10, qword ptr [rcx + 0x250]
+0x14077358b: mov      qword ptr [rsp + 0x100], r10
+0x140773593: mov      r11, qword ptr [rcx + 0x258]
+0x14077359a: mov      qword ptr [rsp + 0xc0], r11
+0x1407735a2: movzx    r12d, byte ptr [rcx + 0x260]
+0x1407735aa: mov      byte ptr [rsp + 0xb1], r12b
+0x1407735b2: mov      r13, qword ptr [rcx + 0x268]
+0x1407735b9: mov      qword ptr [rsp + 0x130], r13
+0x1407735c1: mov      r13, qword ptr [rcx + 0x270]
+0x1407735c8: mov      qword ptr [rsp + 0xe0], r13
+0x1407735d0: movzx    r13d, word ptr [rcx + 0x278]
+0x1407735d8: mov      word ptr [rsp + 0xb6], r13w
+0x1407735e1: mov      r13, qword ptr [rcx + 0x380]
+0x1407735e8: mov      rdx, qword ptr [rcx + 0x400]
+0x1407735ef: mov      qword ptr [rsp + 0x118], rdx
+0x1407735f7: mov      r12, qword ptr [rcx + 0x408]
+0x1407735fe: mov      qword ptr [rsp + 0x110], r12
+0x140773606: mov      r11, qword ptr [rcx + 0x410]
+0x14077360d: mov      qword ptr [rsp + 0xf8], r11
+0x140773615: mov      r10, qword ptr [rcx + 0x418]
+0x14077361c: mov      qword ptr [rsp + 0x138], r10
+0x140773624: mov      r9, qword ptr [rcx + 0x440]
+0x14077362b: mov      qword ptr [rsp + 0x158], r9
+0x140773633: nop      
+0x140773634: nop      
+0x140773635: mov      r15d, 0xffffffff
+0x14077363b: lock xadd dword ptr [rcx + 0x540], r15d
+0x140773644: dec      r15d
+0x140773647: je       0x1407736c5    ; main.BootstrapService.attachApp+0x2c5
+0x140773649: mov      qword ptr [rsp + 0x140], r13
+0x140773651: mov      rax, qword ptr [rsp + 0x148]
+0x140773659: mov      ebx, r15d
+0x14077365c: nop      dword ptr [rax]
+0x140773660: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x140773665: mov      rax, qword ptr [rsp + 0x108]
+0x14077366d: mov      rcx, qword ptr [rsp + 0x170]
+0x140773675: mov      rdx, qword ptr [rsp + 0x118]
+0x14077367d: mov      rbx, qword ptr [rsp + 0xc8]
+0x140773685: movzx    esi, byte ptr [rsp + 0xb2]
+0x14077368d: mov      rdi, qword ptr [rsp + 0x128]
+0x140773695: mov      r8, qword ptr [rsp + 0xd8]
+0x14077369d: mov      r9, qword ptr [rsp + 0x158]
+0x1407736a5: mov      r10, qword ptr [rsp + 0x138]
+0x1407736ad: mov      r11, qword ptr [rsp + 0xf8]
+0x1407736b5: mov      r12, qword ptr [rsp + 0x110]
+0x1407736bd: mov      r13, qword ptr [rsp + 0x140]
+0x1407736c5: test     r13, r13
+0x1407736c8: je       0x140773732    ; main.BootstrapService.attachApp+0x332
+0x1407736ca: mov      rax, r13
+0x1407736cd: mov      rbx, qword ptr [rsp + 0x178]
+0x1407736d5: call     0x1408ff580    ; main.oledBlackoutService.AttachApp
+0x1407736da: mov      rax, qword ptr [rsp + 0x108]
+0x1407736e2: mov      rcx, qword ptr [rsp + 0x170]
+0x1407736ea: mov      rdx, qword ptr [rsp + 0x118]
+0x1407736f2: mov      rbx, qword ptr [rsp + 0xc8]
+0x1407736fa: movzx    esi, byte ptr [rsp + 0xb2]
+0x140773702: mov      rdi, qword ptr [rsp + 0x128]
+0x14077370a: mov      r8, qword ptr [rsp + 0xd8]
+0x140773712: mov      r9, qword ptr [rsp + 0x158]
+0x14077371a: mov      r10, qword ptr [rsp + 0x138]
+0x140773722: mov      r11, qword ptr [rsp + 0xf8]
+0x14077372a: mov      r12, qword ptr [rsp + 0x110]
+0x140773732: test     rdx, rdx
+0x140773735: je       0x140773797    ; main.BootstrapService.attachApp+0x397
+0x140773737: mov      rax, rdx
+0x14077373a: mov      rbx, qword ptr [rsp + 0x178]
+0x140773742: call     0x140980f40    ; main.screenshotPinWindowService.AttachApp
+0x140773747: mov      rax, qword ptr [rsp + 0x108]
+0x14077374f: mov      rcx, qword ptr [rsp + 0x170]
+0x140773757: mov      rbx, qword ptr [rsp + 0xc8]
+0x14077375f: movzx    esi, byte ptr [rsp + 0xb2]
+0x140773767: mov      rdi, qword ptr [rsp + 0x128]
+0x14077376f: mov      r8, qword ptr [rsp + 0xd8]
+0x140773777: mov      r9, qword ptr [rsp + 0x158]
+0x14077377f: mov      r10, qword ptr [rsp + 0x138]
+0x140773787: mov      r11, qword ptr [rsp + 0xf8]
+0x14077378f: mov      r12, qword ptr [rsp + 0x110]
+0x140773797: test     r12, r12
+0x14077379a: je       0x1407737f4    ; main.BootstrapService.attachApp+0x3f4
+0x14077379c: mov      rax, r12
+0x14077379f: mov      rbx, qword ptr [rsp + 0x178]
+0x1407737a7: call     0x140996240    ; main.screenshotPreviewWindowService.AttachApp
+0x1407737ac: mov      rax, qword ptr [rsp + 0x108]
+0x1407737b4: mov      rcx, qword ptr [rsp + 0x170]
+0x1407737bc: mov      rbx, qword ptr [rsp + 0xc8]
+0x1407737c4: movzx    esi, byte ptr [rsp + 0xb2]
+0x1407737cc: mov      rdi, qword ptr [rsp + 0x128]
+0x1407737d4: mov      r8, qword ptr [rsp + 0xd8]
+0x1407737dc: mov      r9, qword ptr [rsp + 0x158]
+0x1407737e4: mov      r10, qword ptr [rsp + 0x138]
+0x1407737ec: mov      r11, qword ptr [rsp + 0xf8]
+0x1407737f4: test     r11, r11
+0x1407737f7: je       0x140773849    ; main.BootstrapService.attachApp+0x449
+0x1407737f9: mov      rax, r11
+0x1407737fc: mov      rbx, qword ptr [rsp + 0x178]
+0x140773804: call     0x1409a6340    ; main.screenshotSelectionToolbarWindowService.AttachApp
+0x140773809: mov      rax, qword ptr [rsp + 0x108]
+0x140773811: mov      rcx, qword ptr [rsp + 0x170]
+0x140773819: mov      rbx, qword ptr [rsp + 0xc8]
+0x140773821: movzx    esi, byte ptr [rsp + 0xb2]
+0x140773829: mov      rdi, qword ptr [rsp + 0x128]
+0x140773831: mov      r8, qword ptr [rsp + 0xd8]
+0x140773839: mov      r9, qword ptr [rsp + 0x158]
+0x140773841: mov      r10, qword ptr [rsp + 0x138]
+0x140773849: test     r10, r10
+0x14077384c: je       0x140773896    ; main.BootstrapService.attachApp+0x496
+0x14077384e: mov      rax, r10
+0x140773851: mov      rbx, qword ptr [rsp + 0x178]
+0x140773859: call     0x14092d4c0    ; main.pluginWindowService.AttachApp
+0x14077385e: mov      rax, qword ptr [rsp + 0x108]
+0x140773866: mov      rcx, qword ptr [rsp + 0x170]
+0x14077386e: mov      rbx, qword ptr [rsp + 0xc8]
+0x140773876: movzx    esi, byte ptr [rsp + 0xb2]
+0x14077387e: mov      rdi, qword ptr [rsp + 0x128]
+0x140773886: mov      r8, qword ptr [rsp + 0xd8]
+0x14077388e: mov      r9, qword ptr [rsp + 0x158]
+0x140773896: test     r9, r9
+0x140773899: je       0x1407738db    ; main.BootstrapService.attachApp+0x4db
+0x14077389b: mov      rax, r9
+0x14077389e: mov      rbx, qword ptr [rsp + 0x178]
+0x1407738a6: call     0x1407b3380    ; main.desktopWidgetService.AttachApp
+0x1407738ab: mov      rax, qword ptr [rsp + 0x108]
+0x1407738b3: mov      rcx, qword ptr [rsp + 0x170]
+0x1407738bb: mov      rbx, qword ptr [rsp + 0xc8]
+0x1407738c3: movzx    esi, byte ptr [rsp + 0xb2]
+0x1407738cb: mov      rdi, qword ptr [rsp + 0x128]
+0x1407738d3: mov      r8, qword ptr [rsp + 0xd8]
+0x1407738db: movzx    edx, byte ptr [rsp + 0xb3]
+0x1407738e3: mov      byte ptr [rsp], dl
+0x1407738e6: mov      qword ptr [rsp + 8], rax
+0x1407738eb: mov      qword ptr [rsp + 0x10], rbx
+0x1407738f0: mov      byte ptr [rsp + 0x18], sil
+0x1407738f5: mov      qword ptr [rsp + 0x20], rdi
+0x1407738fa: mov      qword ptr [rsp + 0x28], r8
+0x1407738ff: movzx    edx, byte ptr [rsp + 0xb4]
+0x140773907: mov      byte ptr [rsp + 0x30], dl
+0x14077390b: mov      rdx, qword ptr [rsp + 0x100]
+0x140773913: mov      qword ptr [rsp + 0x38], rdx
+0x140773918: mov      rdx, qword ptr [rsp + 0xc0]
+0x140773920: mov      qword ptr [rsp + 0x40], rdx
+0x140773925: movzx    edx, byte ptr [rsp + 0xb1]
+0x14077392d: mov      byte ptr [rsp + 0x48], dl
+0x140773931: mov      rdx, qword ptr [rsp + 0x130]
+0x140773939: mov      qword ptr [rsp + 0x50], rdx
+0x14077393e: mov      rdx, qword ptr [rsp + 0xe0]
+0x140773946: mov      qword ptr [rsp + 0x58], rdx
+0x14077394b: movzx    edx, word ptr [rsp + 0xb6]
+0x140773953: mov      word ptr [rsp + 0x60], dx
+0x140773958: mov      rax, rcx
+0x14077395b: mov      rbx, qword ptr [rsp + 0x150]
+0x140773963: mov      rcx, qword ptr [rsp + 0xe8]
+0x14077396b: movzx    edi, byte ptr [rsp + 0xb5]
+0x140773973: mov      rsi, qword ptr [rsp + 0xf0]
+0x14077397b: mov      r8, qword ptr [rsp + 0xb8]
+0x140773983: movzx    r9d, byte ptr [rsp + 0xb0]
+0x14077398c: mov      r10, qword ptr [rsp + 0x120]
+0x140773994: mov      r11, qword ptr [rsp + 0xd0]
+0x14077399c: nop      dword ptr [rax]
+0x1407739a0: call     0x140791400    ; main.BootstrapService.syncHotkeyBindings
+0x1407739a5: add      rsp, 0x160
+0x1407739ac: pop      rbp
+0x1407739ad: ret      
+0x1407739ae: mov      qword ptr [rsp + 8], rax
+0x1407739b3: mov      qword ptr [rsp + 0x10], rbx
+0x1407739b8: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407739bd: mov      rax, qword ptr [rsp + 8]
+0x1407739c2: mov      rbx, qword ptr [rsp + 0x10]
+0x1407739c7: jmp      0x140773400    ; main.BootstrapService.attachApp
+0x1407739cc: int3     
+0x1407739cd: int3     
+0x1407739ce: int3     
+0x1407739cf: int3     
+0x1407739d0: int3     
+0x1407739d1: int3     
+0x1407739d2: int3     
+0x1407739d3: int3     
+0x1407739d4: int3     
+0x1407739d5: int3     
+0x1407739d6: int3     
+0x1407739d7: int3     
+0x1407739d8: int3     
+0x1407739d9: int3     
+0x1407739da: int3     
+0x1407739db: int3     
+0x1407739dc: int3     
+0x1407739dd: int3     
+0x1407739de: int3     
+0x1407739df: int3     

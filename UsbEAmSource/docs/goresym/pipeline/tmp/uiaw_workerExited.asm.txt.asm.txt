@@ -1,0 +1,118 @@
+0x1409b6080: lea      r12, [rsp - 0x100]
+0x1409b6088: cmp      r12, qword ptr [r14 + 0x10]
+0x1409b608c: jbe      0x1409b67b1   ; main.screenshotCOMQueryWorkerPool.workerExited+0x731
+0x1409b6092: push     rbp
+0x1409b6093: mov      rbp, rsp
+0x1409b6096: sub      rsp, 0x178
+0x1409b609d: mov      qword ptr [rsp + 0x188], rax
+0x1409b60a5: mov      qword ptr [rsp + 0x190], rbx
+0x1409b60ad: mov      qword ptr [rsp + 0x1a0], rdi
+0x1409b60b5: mov      qword ptr [rsp + 0x198], rcx
+0x1409b60bd: nop      
+0x1409b60be: nop      
+0x1409b60bf: mov      rdx, rax
+0x1409b60c2: xor      eax, eax
+0x1409b60c4: mov      esi, 1
+0x1409b60c9: lock cmpxchg dword ptr [rdx], esi
+0x1409b60cd: sete     sil
+0x1409b60d1: test     sil, sil
+0x1409b60d4: jne      0x1409b60ee   ; main.screenshotCOMQueryWorkerPool.workerExited+0x6e
+0x1409b60d6: mov      rax, rdx
+0x1409b60d9: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1409b60de: mov      rdx, qword ptr [rsp + 0x188]
+0x1409b60e6: mov      rbx, qword ptr [rsp + 0x190]
+0x1409b60ee: mov      rcx, qword ptr [rbx]
+0x1409b60f1: mov      qword ptr [rsp + 0x88], rcx
+0x1409b60f9: mov      rbx, qword ptr [rdx + 0x80]
+0x1409b6100: mov      rdx, qword ptr [rdx + 0x78]
+0x1409b6104: mov      qword ptr [rsp + 0x80], rdx
+0x1409b610c: lea      rax, [rip + 0x19548d]
+0x1409b6113: call     0x14000d8a0   ; runtime.mapdelete_fast64
+0x1409b6118: mov      rdx, qword ptr [rsp + 0x80]
+0x1409b6120: mov      rsi, qword ptr [rsp + 0x88]
+0x1409b6128: cmp      rdx, rsi
+0x1409b612b: jne      0x1409b613f   ; main.screenshotCOMQueryWorkerPool.workerExited+0xbf
+0x1409b612d: mov      rax, qword ptr [rsp + 0x188]
+0x1409b6135: mov      qword ptr [rax + 0x78], 0
+0x1409b613d: jmp      0x1409b6147   ; main.screenshotCOMQueryWorkerPool.workerExited+0xc7
+0x1409b613f: mov      rax, qword ptr [rsp + 0x188]
+0x1409b6147: mov      rcx, qword ptr [rsp + 0x190]
+0x1409b614f: mov      rbx, qword ptr [rcx + 0x18]
+0x1409b6153: test     rbx, rbx
+0x1409b6156: je       0x1409b619e   ; main.screenshotCOMQueryWorkerPool.workerExited+0x11e
+0x1409b6158: cmp      byte ptr [rbx + 0x30], 1
+0x1409b615c: jne      0x1409b6195   ; main.screenshotCOMQueryWorkerPool.workerExited+0x115
+0x1409b615e: mov      byte ptr [rbx + 0x30], 3
+0x1409b6162: mov      rbx, qword ptr [rcx + 0x18]
+0x1409b6166: movups   xmmword ptr [rsp + 0xe8], xmm15
+0x1409b616f: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x1409b6178: mov      qword ptr [rsp + 0xe8], rbx
+0x1409b6180: mov      ebx, 1
+0x1409b6185: lea      rdi, [rsp + 0xe8]
+0x1409b618d: mov      r8d, 4
+0x1409b6193: jmp      0x1409b61a5   ; main.screenshotCOMQueryWorkerPool.workerExited+0x125
+0x1409b6195: xor      ebx, ebx
+0x1409b6197: xor      edi, edi
+0x1409b6199: xor      r8d, r8d
+0x1409b619c: jmp      0x1409b61a5   ; main.screenshotCOMQueryWorkerPool.workerExited+0x125
+0x1409b619e: xor      ebx, ebx
+0x1409b61a0: xor      edi, edi
+0x1409b61a2: xor      r8d, r8d
+0x1409b61a5: mov      qword ptr [rsp + 0x58], r8
+0x1409b61aa: mov      qword ptr [rsp + 0x50], rbx
+0x1409b61af: mov      qword ptr [rsp + 0xa0], rdi
+0x1409b61b7: cmp      dword ptr [rip + 0x12a5192], 0
+0x1409b61be: nop      
+0x1409b61c0: je       0x1409b61ce   ; main.screenshotCOMQueryWorkerPool.workerExited+0x14e
+0x1409b61c2: mov      r9, qword ptr [rcx + 0x18]
+0x1409b61c6: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409b61cb: mov      qword ptr [r11], r9
+0x1409b61ce: mov      qword ptr [rcx + 0x18], 0
+0x1409b61d6: mov      rdx, qword ptr [rax + 0x58]
+0x1409b61da: mov      rax, qword ptr [rdx]
+0x1409b61dd: call     rax
+0x1409b61df: mov      rsi, qword ptr [rsp + 0x198]
+0x1409b61e7: test     rsi, rsi
+0x1409b61ea: je       0x1409b636a   ; main.screenshotCOMQueryWorkerPool.workerExited+0x2ea
+0x1409b61f0: mov      rdx, qword ptr [rsp + 0x188]
+0x1409b61f8: cmp      byte ptr [rdx + 0xc8], 0
+0x1409b61ff: nop      
+0x1409b6200: je       0x1409b6214   ; main.screenshotCOMQueryWorkerPool.workerExited+0x194
+0x1409b6202: mov      rdi, qword ptr [rsp + 0x50]
+0x1409b6207: mov      r8, qword ptr [rsp + 0xa0]
+0x1409b620f: jmp      0x1409b637f   ; main.screenshotCOMQueryWorkerPool.workerExited+0x2ff
+0x1409b6214: mov      r9, qword ptr [rsp + 0x80]
+0x1409b621c: mov      r10, qword ptr [rsp + 0x88]
+0x1409b6224: cmp      r9, r10
+0x1409b6227: je       0x1409b623b   ; main.screenshotCOMQueryWorkerPool.workerExited+0x1bb
+0x1409b6229: mov      rdi, qword ptr [rsp + 0x50]
+0x1409b622e: mov      r8, qword ptr [rsp + 0xa0]
+0x1409b6236: jmp      0x1409b637f   ; main.screenshotCOMQueryWorkerPool.workerExited+0x2ff
+0x1409b623b: mov      qword ptr [rsp + 0xc0], rcx
+0x1409b6243: mov      qword ptr [rsp + 0x78], rbx
+0x1409b6248: mov      qword ptr [rsp + 0x88], rax
+0x1409b6250: mov      rdi, qword ptr [rdx + 0x30]
+0x1409b6254: call     0x1400fb8c0   ; time.Time.Add
+0x1409b6259: mov      qword ptr [rsp + 0x80], rax
+0x1409b6261: mov      qword ptr [rsp + 0xb8], rcx
+0x1409b6269: mov      qword ptr [rsp + 0x70], rbx
+0x1409b626e: mov      rdx, qword ptr [rsp + 0x188]
+0x1409b6276: mov      rdi, qword ptr [rdx + 0xb0]
+0x1409b627d: mov      rsi, qword ptr [rdx + 0xb8]
+0x1409b6284: mov      r8, qword ptr [rdx + 0xc0]
+0x1409b628b: call     0x1400f9f80   ; time.Time.After
+0x1409b6290: test     al, al
+0x1409b6292: je       0x1409b62f0   ; main.screenshotCOMQueryWorkerPool.workerExited+0x270
+0x1409b6294: mov      rdx, qword ptr [rsp + 0x80]
+0x1409b629c: mov      r8, qword ptr [rsp + 0x188]
+0x1409b62a4: mov      qword ptr [r8 + 0xb0], rdx
+0x1409b62ab: mov      rdx, qword ptr [rsp + 0x70]
+0x1409b62b0: mov      qword ptr [r8 + 0xb8], rdx
+0x1409b62b7: cmp      dword ptr [rip + 0x12a5092], 0
+0x1409b62be: nop      
+0x1409b62c0: jne      0x1409b62cc   ; main.screenshotCOMQueryWorkerPool.workerExited+0x24c
+0x1409b62c2: mov      r9, qword ptr [rsp + 0xb8]
+0x1409b62ca: jmp      0x1409b62e7   ; main.screenshotCOMQueryWorkerPool.workerExited+0x267
+0x1409b62cc: mov      rdx, qword ptr [r8 + 0xc0]
+0x1409b62d3: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409b62d8: mov      r9, qword ptr [rsp + 0xb8]

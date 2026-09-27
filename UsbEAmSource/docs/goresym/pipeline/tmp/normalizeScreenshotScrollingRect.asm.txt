@@ -1,0 +1,80 @@
+0x1409a2c60: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409a2c64: jbe      0x1409a2cf0   ; main.normalizeScreenshotScrollingRect+0x90
+0x1409a2c6a: push     rbp
+0x1409a2c6b: mov      rbp, rsp
+0x1409a2c6e: sub      rsp, 0x60
+0x1409a2c72: cmp      rax, rcx
+0x1409a2c75: mov      rdx, rcx
+0x1409a2c78: cmovg    rcx, rax
+0x1409a2c7c: cmovg    rax, rdx
+0x1409a2c80: cmp      rbx, rdi
+0x1409a2c83: mov      rdx, rbx
+0x1409a2c86: cmovg    rbx, rdi
+0x1409a2c8a: cmovg    rdi, rdx
+0x1409a2c8e: cmp      rax, rcx
+0x1409a2c91: jge      0x1409a2c98   ; main.normalizeScreenshotScrollingRect+0x38
+0x1409a2c93: cmp      rdi, rbx
+0x1409a2c96: jg       0x1409a2ca9   ; main.normalizeScreenshotScrollingRect+0x49
+0x1409a2c98: xor      eax, eax
+0x1409a2c9a: mov      rbx, rax
+0x1409a2c9d: mov      rcx, rax
+0x1409a2ca0: mov      rdi, rax
+0x1409a2ca3: add      rsp, 0x60
+0x1409a2ca7: pop      rbp
+0x1409a2ca8: ret      
+0x1409a2ca9: mov      qword ptr [rsp + 0x58], rcx
+0x1409a2cae: mov      qword ptr [rsp + 0x48], rax
+0x1409a2cb3: mov      qword ptr [rsp + 0x40], rbx
+0x1409a2cb8: mov      qword ptr [rsp + 0x50], rdi
+0x1409a2cbd: nop      dword ptr [rax]
+0x1409a2cc0: call     0x14095a060   ; main.qrCodeVirtualScreenBounds
+0x1409a2cc5: mov      rsi, rax
+0x1409a2cc8: mov      r8, rbx
+0x1409a2ccb: mov      r9, rcx
+0x1409a2cce: mov      r10, rdi
+0x1409a2cd1: mov      rax, qword ptr [rsp + 0x48]
+0x1409a2cd6: mov      rbx, qword ptr [rsp + 0x40]
+0x1409a2cdb: mov      rcx, qword ptr [rsp + 0x58]
+0x1409a2ce0: mov      rdi, qword ptr [rsp + 0x50]
+0x1409a2ce5: call     0x1401a1160   ; image.Rectangle.Intersect
+0x1409a2cea: add      rsp, 0x60
+0x1409a2cee: pop      rbp
+0x1409a2cef: ret      
+0x1409a2cf0: mov      qword ptr [rsp + 8], rax
+0x1409a2cf5: mov      qword ptr [rsp + 0x10], rbx
+0x1409a2cfa: mov      qword ptr [rsp + 0x18], rcx
+0x1409a2cff: mov      qword ptr [rsp + 0x20], rdi
+0x1409a2d04: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409a2d09: mov      rax, qword ptr [rsp + 8]
+0x1409a2d0e: mov      rbx, qword ptr [rsp + 0x10]
+0x1409a2d13: mov      rcx, qword ptr [rsp + 0x18]
+0x1409a2d18: mov      rdi, qword ptr [rsp + 0x20]
+0x1409a2d1d: nop      dword ptr [rax]
+0x1409a2d20: jmp      0x1409a2c60   ; main.normalizeScreenshotScrollingRect
+0x1409a2d25: int3     
+0x1409a2d26: int3     
+0x1409a2d27: int3     
+0x1409a2d28: int3     
+0x1409a2d29: int3     
+0x1409a2d2a: int3     
+0x1409a2d2b: int3     
+0x1409a2d2c: int3     
+0x1409a2d2d: int3     
+0x1409a2d2e: int3     
+0x1409a2d2f: int3     
+0x1409a2d30: int3     
+0x1409a2d31: int3     
+0x1409a2d32: int3     
+0x1409a2d33: int3     
+0x1409a2d34: int3     
+0x1409a2d35: int3     
+0x1409a2d36: int3     
+0x1409a2d37: int3     
+0x1409a2d38: int3     
+0x1409a2d39: int3     
+0x1409a2d3a: int3     
+0x1409a2d3b: int3     
+0x1409a2d3c: int3     
+0x1409a2d3d: int3     
+0x1409a2d3e: int3     
+0x1409a2d3f: int3     

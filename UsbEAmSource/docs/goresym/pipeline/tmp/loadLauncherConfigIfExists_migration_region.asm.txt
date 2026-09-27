@@ -1,0 +1,323 @@
+0x140876560: mov      qword ptr [rsp + 0x12b0], r8
+0x140876568: lea      rax, [rip + 0x38c0b1]
+0x14087656f: mov      rcx, rbx
+0x140876572: mov      rbx, rsi
+0x140876575: mov      rsi, rdi
+0x140876578: mov      rdi, rdx
+0x14087657b: nop      dword ptr [rax + rax]
+0x140876580: call     0x140077380   ; runtime.typedslicecopy
+0x140876585: mov      rdx, qword ptr [rsp + 0x25b0]
+0x14087658d: mov      qword ptr [rsp + 0x1c30], rdx
+0x140876595: mov      rdx, qword ptr [rsp + 0x12b8]
+0x14087659d: mov      qword ptr [rsp + 0x1c38], rdx
+0x1408765a5: mov      rdx, qword ptr [rsp + 0x12b0]
+0x1408765ad: mov      qword ptr [rsp + 0x1c40], rdx
+0x1408765b5: mov      rax, qword ptr [rsp + 0x25d8]
+0x1408765bd: nop      dword ptr [rax]
+0x1408765c0: call     0x14088f680   ; main.migrateHistoricalLauncherConfigIcons
+0x1408765c5: mov      byte ptr [rsp + 0x128f], al
+0x1408765cc: lea      rax, [rip + 0x393a8d]
+0x1408765d3: call     0x14001ae20   ; runtime.newobject
+0x1408765d8: mov      qword ptr [rsp + 0x25d0], rax
+0x1408765e0: mov      rsi, qword ptr [rsp + 0x25d8]
+0x1408765e8: mov      rdx, qword ptr [rsi]
+0x1408765eb: add      rsi, 8
+0x1408765ef: mov      qword ptr [rsp + 0x25a8], rsi
+0x1408765f7: mov      qword ptr [rsp + 0x1c58], rdx
+0x1408765ff: lea      rdi, [rsp + 0x1c60]
+0x140876607: mov      ecx, 0x126
+0x14087660c: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14087660f: mov      rdx, qword ptr [rsp + 0x1c58]
+0x140876617: mov      qword ptr [rsp], rdx
+0x14087661b: lea      rdi, [rsp + 8]
+0x140876620: lea      rsi, [rsp + 0x1c60]
+0x140876628: mov      ecx, 0x126
+0x14087662d: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140876630: xor      eax, eax
+0x140876632: xor      ebx, ebx
+0x140876634: mov      rcx, rbx
+0x140876637: call     0x140879380   ; main.normalizeLauncherConfigWithOptions
+0x14087663c: mov      rdx, qword ptr [rsp + 0x938]
+0x140876644: mov      qword ptr [rsp + 0x1c58], rdx
+0x14087664c: lea      rdi, [rsp + 0x1c60]
+0x140876654: lea      rsi, [rsp + 0x940]
+0x14087665c: mov      ecx, 0x126
+0x140876661: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140876664: mov      rdx, qword ptr [rsp + 0x1c58]
+0x14087666c: mov      qword ptr [rsp + 0x12c0], rdx
+0x140876674: lea      rdi, [rsp + 0x12c8]
+0x14087667c: lea      rsi, [rsp + 0x1c60]
+0x140876684: mov      ecx, 0x126
+0x140876689: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14087668c: cmp      dword ptr [rip + 0x13e4cbd], 0
+0x140876693: je       0x1408766b1   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x491
+0x140876695: lea      rax, [rip + 0x3939c4]
+0x14087669c: mov      rbx, qword ptr [rsp + 0x25d0]
+0x1408766a4: lea      rcx, [rsp + 0x12c0]
+0x1408766ac: call     0x14001b620   ; runtime.wbMove
+0x1408766b1: mov      rdx, qword ptr [rsp + 0x12c0]
+0x1408766b9: mov      rdi, qword ptr [rsp + 0x25d0]
+0x1408766c1: mov      qword ptr [rdi], rdx
+0x1408766c4: lea      rdx, [rdi + 8]
+0x1408766c8: mov      qword ptr [rsp + 0x25a0], rdx
+0x1408766d0: lea      rsi, [rsp + 0x12c8]
+0x1408766d8: mov      ecx, 0x126
+0x1408766dd: mov      rax, rdi
+0x1408766e0: mov      rdi, rdx
+0x1408766e3: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1408766e6: mov      r8, qword ptr [rsp + 0x1290]
+0x1408766ee: test     r8, r8
+0x1408766f1: je       0x140876773   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x553
+0x1408766f7: lea      rdi, [rax + 0x8e8]
+0x1408766fe: cmp      dword ptr [rip + 0x13e4c4b], 0
+0x140876705: je       0x140876746   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x526
+0x140876707: mov      qword ptr [rsp + 0x25b8], rdi
+0x14087670f: lea      rax, [rip + 0x306f4a]
+0x140876716: mov      rbx, rdi
+0x140876719: lea      rcx, [rsp + 0x1bf8]
+0x140876721: call     0x14001b620   ; runtime.wbMove
+0x140876726: mov      rax, qword ptr [rsp + 0x25d0]
+0x14087672e: mov      rdx, qword ptr [rsp + 0x25a0]
+0x140876736: mov      rdi, qword ptr [rsp + 0x25b8]
+0x14087673e: mov      r8, qword ptr [rsp + 0x1290]
+0x140876746: lea      rsi, [rsp + 0x1bf8]
+0x14087674e: nop      word ptr [rax + rax]
+0x140876757: nop      word ptr [rax + rax]
+0x140876760: mov      qword ptr [rsp - 0x10], rbp
+0x140876765: lea      rbp, [rsp - 0x10]
+0x14087676a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x14087676f: mov      rbp, qword ptr [rbp]
+0x140876773: call     0x140879ca0   ; main.populateAppIcons
+0x140876778: mov      rax, qword ptr [rsp + 0x25d0]
+0x140876780: call     0x1408775e0   ; main.stripLauncherConfigRuntimeFields
+0x140876785: mov      rcx, qword ptr [rsp + 0x25d0]
+0x14087678d: mov      rcx, qword ptr [rcx]
+0x140876790: mov      qword ptr [rsp], rcx
+0x140876794: lea      rdi, [rsp + 8]
+0x140876799: mov      rsi, qword ptr [rsp + 0x25a0]
+0x1408767a1: mov      ecx, 0x126
+0x1408767a6: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1408767a9: call     0x140898880   ; main.validateLauncherConfigInMemoryStructure
+0x1408767ae: test     rax, rax
+0x1408767b1: je       0x140876825   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x605
+0x1408767b3: movups   xmmword ptr [rsp + 0x2590], xmm15
+0x1408767bc: je       0x1408767c2   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x5a2
+0x1408767be: mov      rax, qword ptr [rax + 8]
+0x1408767c2: mov      qword ptr [rsp + 0x2590], rax
+0x1408767ca: mov      qword ptr [rsp + 0x2598], rbx
+0x1408767d2: lea      rax, [rip + 0x3f533f]
+0x1408767d9: mov      ebx, 0x1c
+0x1408767de: lea      rcx, [rsp + 0x2590]
+0x1408767e6: mov      edi, 1
+0x1408767eb: mov      rsi, rdi
+0x1408767ee: call     0x140133280   ; fmt.Errorf
+0x1408767f3: movups   xmmword ptr [rsp + 0x25f0], xmm15
+0x1408767fc: lea      rdi, [rsp + 0x25f8]
+0x140876804: mov      ecx, 0x126
+0x140876809: mov      rdx, rax
+0x14087680c: xor      eax, eax
+0x14087680e: rep stosq qword ptr [rdi], rax
+0x140876811: mov      eax, 1
+0x140876816: mov      rcx, rbx
+0x140876819: mov      rbx, rdx
+0x14087681c: add      rsp, 0x25e0
+0x140876823: pop      rbp
+0x140876824: ret      
+0x140876825: mov      rax, qword ptr [rsp + 0x25d0]
+0x14087682d: call     0x14088f680   ; main.migrateHistoricalLauncherConfigIcons
+0x140876832: movzx    ecx, byte ptr [rsp + 0x128f]
+0x14087683a: test     cl, cl
+0x14087683c: je       0x140876843   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x623
+0x14087683e: mov      eax, 1
+0x140876843: mov      byte ptr [rsp + 0x128e], al
+0x14087684a: mov      rax, qword ptr [rsp + 0x25d0]
+0x140876852: mov      rax, qword ptr [rax]
+0x140876855: mov      qword ptr [rsp], rax
+0x140876859: lea      rdi, [rsp + 8]
+0x14087685e: mov      rsi, qword ptr [rsp + 0x25a0]
+0x140876866: mov      ecx, 0x126
+0x14087686b: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14087686e: call     0x14088d740   ; main.validateLauncherConfigIconData
+0x140876873: test     rax, rax
+0x140876876: je       0x1408768ed   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x6cd
+0x140876878: movups   xmmword ptr [rsp + 0x2590], xmm15
+0x140876881: test     rax, rax
+0x140876884: je       0x14087688a   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x66a
+0x140876886: mov      rax, qword ptr [rax + 8]
+0x14087688a: mov      qword ptr [rsp + 0x2590], rax
+0x140876892: mov      qword ptr [rsp + 0x2598], rbx
+0x14087689a: lea      rax, [rip + 0x3f5277]
+0x1408768a1: mov      ebx, 0x1c
+0x1408768a6: lea      rcx, [rsp + 0x2590]
+0x1408768ae: mov      edi, 1
+0x1408768b3: mov      rsi, rdi
+0x1408768b6: call     0x140133280   ; fmt.Errorf
+0x1408768bb: movups   xmmword ptr [rsp + 0x25f0], xmm15
+0x1408768c4: lea      rdi, [rsp + 0x25f8]
+0x1408768cc: mov      ecx, 0x126
+0x1408768d1: mov      rdx, rax
+0x1408768d4: xor      eax, eax
+0x1408768d6: rep stosq qword ptr [rdi], rax
+0x1408768d9: mov      eax, 1
+0x1408768de: mov      rcx, rbx
+0x1408768e1: mov      rbx, rdx
+0x1408768e4: add      rsp, 0x25e0
+0x1408768eb: pop      rbp
+0x1408768ec: ret      
+0x1408768ed: mov      rdx, qword ptr [rsp + 0x1290]
+0x1408768f5: test     rdx, rdx
+0x1408768f8: jne      0x140876c4e   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0xa2e
+0x1408768fe: mov      rax, qword ptr [rsp + 0x25d0]
+0x140876906: call     0x1408924e0   ; main.launcherConfigHasInlineIconData
+0x14087690b: test     al, al
+0x14087690d: jne      0x140876916   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x6f6
+0x14087690f: xor      edx, edx
+0x140876911: jmp      0x140876a62   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x842
+0x140876916: mov      rax, qword ptr [rsp + 0x25c8]
+0x14087691e: mov      rbx, qword ptr [rsp + 0x2f30]
+0x140876926: mov      rcx, qword ptr [rsp + 0x1c50]
+0x14087692e: mov      rdi, qword ptr [rsp + 0x12a0]
+0x140876936: mov      rsi, qword ptr [rsp + 0x12a8]
+0x14087693e: nop      
+0x140876940: call     0x140890560   ; main.ensureLauncherConfigIconLibraryMigrationBackup
+0x140876945: test     rcx, rcx
+0x140876948: je       0x1408769bc   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x79c
+0x14087694a: movups   xmmword ptr [rsp + 0x2590], xmm15
+0x140876953: je       0x140876959   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x739
+0x140876955: mov      rcx, qword ptr [rcx + 8]
+0x140876959: mov      qword ptr [rsp + 0x2590], rcx
+0x140876961: mov      qword ptr [rsp + 0x2598], rdi
+0x140876969: lea      rax, [rip + 0x4033b1]
+0x140876970: mov      ebx, 0x25
+0x140876975: lea      rcx, [rsp + 0x2590]
+0x14087697d: mov      edi, 1
+0x140876982: mov      rsi, rdi
+0x140876985: call     0x140133280   ; fmt.Errorf
+0x14087698a: movups   xmmword ptr [rsp + 0x25f0], xmm15
+0x140876993: lea      rdi, [rsp + 0x25f8]
+0x14087699b: mov      ecx, 0x126
+0x1408769a0: mov      rdx, rax
+0x1408769a3: xor      eax, eax
+0x1408769a5: rep stosq qword ptr [rdi], rax
+0x1408769a8: mov      eax, 1
+0x1408769ad: mov      rcx, rbx
+0x1408769b0: mov      rbx, rdx
+0x1408769b3: add      rsp, 0x25e0
+0x1408769ba: pop      rbp
+0x1408769bb: ret      
+0x1408769bc: mov      rax, qword ptr [rsp + 0x25c8]
+0x1408769c4: mov      rbx, qword ptr [rsp + 0x2f30]
+0x1408769cc: call     0x140892740   ; main.launcherConfigIconStoreForConfigPath
+0x1408769d1: mov      rbx, qword ptr [rsp + 0x25d0]
+0x1408769d9: xor      ecx, ecx
+0x1408769db: xor      edi, edi
+0x1408769dd: nop      dword ptr [rax]
+0x1408769e0: call     0x1408937a0   ; main.launcherConfigIconStore.externalizeLauncherConfigIcons
+0x1408769e5: test     rsi, rsi
+0x1408769e8: je       0x140876a5c   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x83c
+0x1408769ea: movups   xmmword ptr [rsp + 0x2590], xmm15
+0x1408769f3: je       0x1408769f9   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x7d9
+0x1408769f5: mov      rsi, qword ptr [rsi + 8]
+0x1408769f9: mov      qword ptr [rsp + 0x2590], rsi
+0x140876a01: mov      qword ptr [rsp + 0x2598], r8
+0x140876a09: lea      rax, [rip + 0x40e3b0]
+0x140876a10: mov      ebx, 0x2e
+0x140876a15: lea      rcx, [rsp + 0x2590]
+0x140876a1d: mov      edi, 1
+0x140876a22: mov      rsi, rdi
+0x140876a25: call     0x140133280   ; fmt.Errorf
+0x140876a2a: movups   xmmword ptr [rsp + 0x25f0], xmm15
+0x140876a33: lea      rdi, [rsp + 0x25f8]
+0x140876a3b: mov      ecx, 0x126
+0x140876a40: mov      rdx, rax
+0x140876a43: xor      eax, eax
+0x140876a45: rep stosq qword ptr [rdi], rax
+0x140876a48: mov      eax, 1
+0x140876a4d: mov      rcx, rbx
+0x140876a50: mov      rbx, rdx
+0x140876a53: add      rsp, 0x25e0
+0x140876a5a: pop      rbp
+0x140876a5b: ret      
+0x140876a5c: test     rax, rax
+0x140876a5f: setg     dl
+0x140876a62: movzx    r8d, byte ptr [rsp + 0x128e]
+0x140876a6b: test     r8b, r8b
+0x140876a6e: je       0x140876a77   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x857
+0x140876a70: mov      eax, 1
+0x140876a75: jmp      0x140876ae2   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x8c2
+0x140876a77: test     dl, dl
+0x140876a79: je       0x140876a82   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x862
+0x140876a7b: mov      eax, 1
+0x140876a80: jmp      0x140876ae2   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x8c2
+0x140876a82: mov      rax, qword ptr [rsp + 0x25d8]
+0x140876a8a: mov      rax, qword ptr [rax]
+0x140876a8d: mov      qword ptr [rsp], rax
+0x140876a91: lea      rdi, [rsp + 8]
+0x140876a96: mov      rsi, qword ptr [rsp + 0x25a8]
+0x140876a9e: mov      ecx, 0x126
+0x140876aa3: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140876aa6: mov      rax, qword ptr [rsp + 0x25d0]
+0x140876aae: mov      rax, qword ptr [rax]
+0x140876ab1: mov      qword ptr [rsp + 0x938], rax
+0x140876ab9: lea      rdi, [rsp + 0x940]
+0x140876ac1: mov      rsi, qword ptr [rsp + 0x25a0]
+0x140876ac9: mov      ecx, 0x126
+0x140876ace: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140876ad1: call     0x14088bcc0   ; main.launcherConfigsEqual
+0x140876ad6: xor      eax, 1
+0x140876ad9: movzx    r8d, byte ptr [rsp + 0x128e]
+0x140876ae2: test     al, al
+0x140876ae4: je       0x140876c11   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x9f1
+0x140876aea: test     r8b, r8b
+0x140876aed: je       0x140876b9c   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x97c
+0x140876af3: mov      rax, qword ptr [rsp + 0x25c8]
+0x140876afb: mov      rbx, qword ptr [rsp + 0x2f30]
+0x140876b03: mov      rcx, qword ptr [rsp + 0x1c50]
+0x140876b0b: mov      rdi, qword ptr [rsp + 0x12a0]
+0x140876b13: mov      rsi, qword ptr [rsp + 0x12a8]
+0x140876b1b: nop      dword ptr [rax + rax]
+0x140876b20: call     0x1408904a0   ; main.ensureLauncherConfigIconMigrationBackup
+0x140876b25: test     rcx, rcx
+0x140876b28: je       0x140876b9c   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x97c
+0x140876b2a: movups   xmmword ptr [rsp + 0x2590], xmm15
+0x140876b33: je       0x140876b39   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x919
+0x140876b35: mov      rcx, qword ptr [rcx + 8]
+0x140876b39: mov      qword ptr [rsp + 0x2590], rcx
+0x140876b41: mov      qword ptr [rsp + 0x2598], rdi
+0x140876b49: lea      rax, [rip + 0x408552]
+0x140876b50: mov      ebx, 0x28
+0x140876b55: lea      rcx, [rsp + 0x2590]
+0x140876b5d: mov      edi, 1
+0x140876b62: mov      rsi, rdi
+0x140876b65: call     0x140133280   ; fmt.Errorf
+0x140876b6a: movups   xmmword ptr [rsp + 0x25f0], xmm15
+0x140876b73: lea      rdi, [rsp + 0x25f8]
+0x140876b7b: mov      ecx, 0x126
+0x140876b80: mov      rdx, rax
+0x140876b83: xor      eax, eax
+0x140876b85: rep stosq qword ptr [rdi], rax
+0x140876b88: mov      eax, 1
+0x140876b8d: mov      rcx, rbx
+0x140876b90: mov      rbx, rdx
+0x140876b93: add      rsp, 0x25e0
+0x140876b9a: pop      rbp
+0x140876b9b: ret      
+0x140876b9c: lea      rax, [rip + 0x3934bd]
+0x140876ba3: mov      rbx, qword ptr [rsp + 0x25d0]
+0x140876bab: call     0x140017240   ; runtime.convT
+0x140876bb0: mov      rdx, qword ptr [rsp + 0x25c0]
+0x140876bb8: mov      rcx, qword ptr [rdx]
+0x140876bbb: mov      rbx, qword ptr [rsp + 0x2f30]
+0x140876bc3: mov      rdi, rax
+0x140876bc6: mov      rax, qword ptr [rsp + 0x25c8]
+0x140876bce: mov      rsi, rcx
+0x140876bd1: lea      rcx, [rip + 0x393488]
+0x140876bd8: call     rsi
+0x140876bda: test     rax, rax
+0x140876bdd: je       0x140876c11   ; main.loadLauncherConfigIfExistsUnlockedWithWriter+0x9f1
+0x140876bdf: movups   xmmword ptr [rsp + 0x25f0], xmm15
+0x140876be8: lea      rdi, [rsp + 0x25f8]
+0x140876bf0: mov      ecx, 0x126
+0x140876bf5: mov      rdx, rax
+0x140876bf8: xor      eax, eax
+0x140876bfa: rep stosq qword ptr [rdi], rax

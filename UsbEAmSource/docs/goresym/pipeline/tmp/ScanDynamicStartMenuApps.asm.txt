@@ -1,0 +1,48 @@
+0x1409c3e00: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409c3e04: jbe      0x1409c3e33    ; main.BootstrapService.ScanDynamicStartMenuApps+0x33
+0x1409c3e06: push     rbp
+0x1409c3e07: mov      rbp, rsp
+0x1409c3e0a: sub      rsp, 0x28
+0x1409c3e0e: mov      qword ptr [rsp + 0x38], rax
+0x1409c3e13: call     0x1409c5180    ; main.resolveWindowsStartMenuRoots
+0x1409c3e18: mov      rdi, rcx
+0x1409c3e1b: xor      esi, esi
+0x1409c3e1d: mov      rcx, rbx
+0x1409c3e20: mov      rbx, rax
+0x1409c3e23: mov      rax, qword ptr [rsp + 0x38]
+0x1409c3e28: call     0x1409c3ec0    ; main.BootstrapService.scanStartMenuApps
+0x1409c3e2d: add      rsp, 0x28
+0x1409c3e31: pop      rbp
+0x1409c3e32: ret      
+0x1409c3e33: mov      qword ptr [rsp + 8], rax
+0x1409c3e38: call     0x14007f140    ; runtime.morestack_noctxt
+0x1409c3e3d: mov      rax, qword ptr [rsp + 8]
+0x1409c3e42: jmp      0x1409c3e00    ; main.BootstrapService.ScanDynamicStartMenuApps
+0x1409c3e44: int3     
+0x1409c3e45: int3     
+0x1409c3e46: int3     
+0x1409c3e47: int3     
+0x1409c3e48: int3     
+0x1409c3e49: int3     
+0x1409c3e4a: int3     
+0x1409c3e4b: int3     
+0x1409c3e4c: int3     
+0x1409c3e4d: int3     
+0x1409c3e4e: int3     
+0x1409c3e4f: int3     
+0x1409c3e50: int3     
+0x1409c3e51: int3     
+0x1409c3e52: int3     
+0x1409c3e53: int3     
+0x1409c3e54: int3     
+0x1409c3e55: int3     
+0x1409c3e56: int3     
+0x1409c3e57: int3     
+0x1409c3e58: int3     
+0x1409c3e59: int3     
+0x1409c3e5a: int3     
+0x1409c3e5b: int3     
+0x1409c3e5c: int3     
+0x1409c3e5d: int3     
+0x1409c3e5e: int3     
+0x1409c3e5f: int3     

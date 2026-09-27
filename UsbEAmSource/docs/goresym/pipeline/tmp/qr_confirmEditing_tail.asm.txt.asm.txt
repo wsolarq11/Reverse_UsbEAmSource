@@ -1,0 +1,34 @@
+0x1409405a0: push     rdi
+0x1409405a1: sub      al, byte ptr [rax]
+0x1409405a3: call     0x14001ae20   ; runtime.newobject
+0x1409405a8: mov      byte ptr [rax + 0x1a], 1
+0x1409405ac: mov      rcx, qword ptr [rsp + 0x60]
+0x1409405b1: mov      rdx, qword ptr [rcx + 0x110]
+0x1409405b8: mov      rbx, qword ptr [rcx + 0x108]
+0x1409405bf: mov      qword ptr [rax + 0x28], rdx
+0x1409405c3: mov      rdx, qword ptr [rsp + 0x48]
+0x1409405c8: mov      rsi, qword ptr [rsp + 0x20]
+0x1409405cd: add      rdx, rsi
+0x1409405d0: mov      rdi, qword ptr [rsp + 0x40]
+0x1409405d5: mov      r8, qword ptr [rsp + 0x28]
+0x1409405da: add      rdi, r8
+0x1409405dd: mov      r9, qword ptr [rsp + 0x38]
+0x1409405e2: add      rsi, r9
+0x1409405e5: mov      r9, qword ptr [rsp + 0x30]
+0x1409405ea: add      r8, r9
+0x1409405ed: cmp      dword ptr [rip + 0x131ad5c], 0
+0x1409405f4: je       0x1409405fe   ; main.qrCodeScreenSelectionSession.confirmAnnotationEditing+0x21e
+0x1409405f6: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409405fb: mov      qword ptr [r11], rbx
+0x1409405fe: mov      qword ptr [rax + 0x20], rbx
+0x140940602: mov      qword ptr [rax + 0x30], rdx
+0x140940606: mov      qword ptr [rax + 0x38], rdi
+0x14094060a: mov      qword ptr [rax + 0x40], rsi
+0x14094060e: mov      qword ptr [rax + 0x48], r8
+0x140940612: mov      rdx, qword ptr [rcx + 0x118]
+0x140940619: mov      qword ptr [rax + 0x50], rdx
+0x14094061d: mov      rdx, qword ptr [rcx + 0xd0]
+0x140940624: mov      rsi, qword ptr [rcx + 0xd8]
+0x14094062b: mov      rdi, qword ptr [rcx + 0xe0]
+0x140940632: movzx    r8d, byte ptr [rcx + 0xe8]
+0x14094063a: mov      qword ptr [rax + 0x58], rdx

@@ -1,0 +1,113 @@
+0x1409b0a00: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409b0a04: jbe      0x1409b0b33   ; main.initializeScreenshotCOMThreadMode+0x133
+0x1409b0a0a: push     rbp
+0x1409b0a0b: mov      rbp, rsp
+0x1409b0a0e: sub      rsp, 0x40
+0x1409b0a12: mov      byte ptr [rsp + 0x50], al
+0x1409b0a16: call     0x140052560   ; runtime.LockOSThread
+0x1409b0a1b: lea      rax, [rip + 0x14cfbe]
+0x1409b0a22: call     0x14001ae20   ; runtime.newobject
+0x1409b0a27: mov      qword ptr [rax + 8], 6
+0x1409b0a2f: mov      rcx, qword ptr [rip + 0x12112d2]
+0x1409b0a36: mov      rbx, rax
+0x1409b0a39: mov      edi, 2
+0x1409b0a3e: mov      rax, rcx
+0x1409b0a41: mov      rcx, rdi
+0x1409b0a44: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409b0a49: test     eax, eax
+0x1409b0a4b: jne      0x1409b0a54   ; main.initializeScreenshotCOMThreadMode+0x54
+0x1409b0a4d: mov      ecx, 1
+0x1409b0a52: jmp      0x1409b0a5c   ; main.initializeScreenshotCOMThreadMode+0x5c
+0x1409b0a54: cmp      eax, 1
+0x1409b0a57: sete     cl
+0x1409b0a5a: test     eax, eax
+0x1409b0a5c: mov      byte ptr [rsp + 0x2f], cl
+0x1409b0a60: jge      0x1409b0b0b   ; main.initializeScreenshotCOMThreadMode+0x10b
+0x1409b0a66: movzx    edx, byte ptr [rsp + 0x50]
+0x1409b0a6b: test     dl, dl
+0x1409b0a6d: je       0x1409b0a7a   ; main.initializeScreenshotCOMThreadMode+0x7a
+0x1409b0a6f: cmp      eax, 0x80010106
+0x1409b0a74: je       0x1409b0b0b   ; main.initializeScreenshotCOMThreadMode+0x10b
+0x1409b0a7a: mov      rcx, qword ptr [r14 + 0x30]
+0x1409b0a7e: mov      edx, dword ptr [rcx + 0x240]
+0x1409b0a84: nop      
+0x1409b0a85: test     edx, edx
+0x1409b0a87: je       0x1409b0abe   ; main.initializeScreenshotCOMThreadMode+0xbe
+0x1409b0a89: dec      edx
+0x1409b0a8b: mov      dword ptr [rcx + 0x240], edx
+0x1409b0a91: mov      rcx, qword ptr [r14 + 0x30]
+0x1409b0a95: nop      
+0x1409b0a96: cmp      dword ptr [rcx + 0x244], 0
+0x1409b0a9d: jne      0x1409b0abe   ; main.initializeScreenshotCOMThreadMode+0xbe
+0x1409b0a9f: cmp      dword ptr [rcx + 0x240], 0
+0x1409b0aa6: jne      0x1409b0abe   ; main.initializeScreenshotCOMThreadMode+0xbe
+0x1409b0aa8: mov      qword ptr [rcx + 0x138], 0
+0x1409b0ab3: mov      qword ptr [r14 + 0xd0], 0
+0x1409b0abe: movups   xmmword ptr [rsp + 0x30], xmm15
+0x1409b0ac4: call     0x1400173c0   ; runtime.convT32
+0x1409b0ac9: lea      rcx, [rip + 0x1394b0]
+0x1409b0ad0: mov      qword ptr [rsp + 0x30], rcx
+0x1409b0ad5: mov      qword ptr [rsp + 0x38], rax
+0x1409b0ada: lea      rax, [rip + 0x2d475d]
+0x1409b0ae1: mov      ebx, 0x2e
+0x1409b0ae6: lea      rcx, [rsp + 0x30]
+0x1409b0aeb: mov      edi, 1
+0x1409b0af0: mov      rsi, rdi
+0x1409b0af3: call     0x140133280   ; fmt.Errorf
+0x1409b0af8: mov      rcx, rbx
+0x1409b0afb: mov      rbx, rax
+0x1409b0afe: lea      rax, [rip + 0x6e5fcb]
+0x1409b0b05: add      rsp, 0x40
+0x1409b0b09: pop      rbp
+0x1409b0b0a: ret      
+0x1409b0b0b: lea      rax, [rip + 0x1b74ce]
+0x1409b0b12: call     0x14001ae20   ; runtime.newobject
+0x1409b0b17: lea      rcx, [rip + 0x42]
+0x1409b0b1e: mov      qword ptr [rax], rcx
+0x1409b0b21: movzx    ecx, byte ptr [rsp + 0x2f]
+0x1409b0b26: mov      byte ptr [rax + 8], cl
+0x1409b0b29: xor      ebx, ebx
+0x1409b0b2b: xor      ecx, ecx
+0x1409b0b2d: add      rsp, 0x40
+0x1409b0b31: pop      rbp
+0x1409b0b32: ret      
+0x1409b0b33: mov      byte ptr [rsp + 8], al
+0x1409b0b37: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409b0b3c: movzx    eax, byte ptr [rsp + 8]
+0x1409b0b41: jmp      0x1409b0a00   ; main.initializeScreenshotCOMThreadMode
+0x1409b0b46: int3     
+0x1409b0b47: int3     
+0x1409b0b48: int3     
+0x1409b0b49: int3     
+0x1409b0b4a: int3     
+0x1409b0b4b: int3     
+0x1409b0b4c: int3     
+0x1409b0b4d: int3     
+0x1409b0b4e: int3     
+0x1409b0b4f: int3     
+0x1409b0b50: int3     
+0x1409b0b51: int3     
+0x1409b0b52: int3     
+0x1409b0b53: int3     
+0x1409b0b54: int3     
+0x1409b0b55: int3     
+0x1409b0b56: int3     
+0x1409b0b57: int3     
+0x1409b0b58: int3     
+0x1409b0b59: int3     
+0x1409b0b5a: int3     
+0x1409b0b5b: int3     
+0x1409b0b5c: int3     
+0x1409b0b5d: int3     
+0x1409b0b5e: int3     
+0x1409b0b5f: int3     
+0x1409b0b60: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409b0b64: jbe      0x1409b0bd1   ; main.initializeScreenshotCOMThreadMode.func2+0x71
+0x1409b0b66: push     rbp
+0x1409b0b67: mov      rbp, rsp
+0x1409b0b6a: sub      rsp, 0x20
+0x1409b0b6e: cmp      byte ptr [rdx + 8], 0
+0x1409b0b72: je       0x1409b0b87   ; main.initializeScreenshotCOMThreadMode.func2+0x27
+0x1409b0b74: mov      rax, qword ptr [rip + 0x1211195]
+0x1409b0b7b: xor      ebx, ebx
+0x1409b0b7d: xor      ecx, ecx

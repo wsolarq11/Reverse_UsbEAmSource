@@ -1,0 +1,121 @@
+0x1407c7040: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407c7044: jbe      0x1407c720b   ; main.desktopWidgetWeatherService.setProviderError+0x1cb
+0x1407c704a: push     rbp
+0x1407c704b: mov      rbp, rsp
+0x1407c704e: sub      rsp, 0x60
+0x1407c7052: mov      qword ptr [rsp + 0x78], rbx
+0x1407c7057: mov      qword ptr [rsp + 0x88], rdi
+0x1407c705f: movq     qword ptr [rsp + 0x58], xmm15
+0x1407c7066: mov      byte ptr [rsp + 0x27], 0
+0x1407c706b: test     rax, rax
+0x1407c706e: je       0x1407c71f8   ; main.desktopWidgetWeatherService.setProviderError+0x1b8
+0x1407c7074: mov      qword ptr [rsp + 0x70], rax
+0x1407c7079: mov      qword ptr [rsp + 0x88], rdi
+0x1407c7081: mov      qword ptr [rsp + 0x90], rsi
+0x1407c7089: mov      rax, rbx
+0x1407c708c: mov      rbx, rcx
+0x1407c708f: call     0x1407c7c00   ; main.normalizeDesktopWeatherProviderID
+0x1407c7094: test     rbx, rbx
+0x1407c7097: je       0x1407c71f2   ; main.desktopWidgetWeatherService.setProviderError+0x1b2
+0x1407c709d: mov      qword ptr [rsp + 0x30], rbx
+0x1407c70a2: mov      qword ptr [rsp + 0x40], rax
+0x1407c70a7: nop      
+0x1407c70a8: mov      rcx, rax
+0x1407c70ab: xor      eax, eax
+0x1407c70ad: mov      rdx, qword ptr [rsp + 0x70]
+0x1407c70b2: mov      esi, 1
+0x1407c70b7: lock cmpxchg dword ptr [rdx + 0x30], esi
+0x1407c70bc: sete     sil
+0x1407c70c0: test     sil, sil
+0x1407c70c3: jne      0x1407c70dd   ; main.desktopWidgetWeatherService.setProviderError+0x9d
+0x1407c70c5: lea      rax, [rdx + 0x30]
+0x1407c70c9: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1407c70ce: mov      rcx, qword ptr [rsp + 0x40]
+0x1407c70d3: mov      rdx, qword ptr [rsp + 0x70]
+0x1407c70d8: mov      rbx, qword ptr [rsp + 0x30]
+0x1407c70dd: lea      rsi, [rip + 0x17c]
+0x1407c70e4: mov      qword ptr [rsp + 0x48], rsi
+0x1407c70e9: lea      rsi, [rdx + 0x30]
+0x1407c70ed: mov      qword ptr [rsp + 0x50], rsi
+0x1407c70f2: lea      rsi, [rsp + 0x48]
+0x1407c70f7: mov      qword ptr [rsp + 0x58], rsi
+0x1407c70fc: mov      byte ptr [rsp + 0x27], 1
+0x1407c7101: cmp      qword ptr [rdx + 0x40], 0
+0x1407c7106: jne      0x1407c7136   ; main.desktopWidgetWeatherService.setProviderError+0xf6
+0x1407c7108: call     0x140076d40   ; runtime.makemap_small
+0x1407c710d: cmp      dword ptr [rip + 0x149423c], 0
+0x1407c7114: jne      0x1407c711d   ; main.desktopWidgetWeatherService.setProviderError+0xdd
+0x1407c7116: mov      rcx, qword ptr [rsp + 0x70]
+0x1407c711b: jmp      0x1407c7132   ; main.desktopWidgetWeatherService.setProviderError+0xf2
+0x1407c711d: mov      rcx, qword ptr [rsp + 0x70]
+0x1407c7122: mov      rdx, qword ptr [rcx + 0x40]
+0x1407c7126: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407c712b: mov      qword ptr [r11], rax
+0x1407c712e: mov      qword ptr [r11 + 8], rdx
+0x1407c7132: mov      qword ptr [rcx + 0x40], rax
+0x1407c7136: mov      rax, qword ptr [rsp + 0x88]
+0x1407c713e: mov      rbx, qword ptr [rsp + 0x90]
+0x1407c7146: call     0x1400a2200   ; strings.TrimSpace
+0x1407c714b: test     rbx, rbx
+0x1407c714e: je       0x1407c71be   ; main.desktopWidgetWeatherService.setProviderError+0x17e
+0x1407c7150: mov      qword ptr [rsp + 0x38], rax
+0x1407c7155: mov      qword ptr [rsp + 0x28], rbx
+0x1407c715a: mov      rdx, qword ptr [rsp + 0x70]
+0x1407c715f: mov      rbx, qword ptr [rdx + 0x40]
+0x1407c7163: lea      rax, [rip + 0x3815b6]
+0x1407c716a: mov      rcx, qword ptr [rsp + 0x40]
+0x1407c716f: mov      rdi, qword ptr [rsp + 0x30]
+0x1407c7174: call     0x14000de60   ; runtime.mapassign_faststr
+0x1407c7179: mov      rdx, qword ptr [rsp + 0x28]
+0x1407c717e: mov      qword ptr [rax + 8], rdx
+0x1407c7182: cmp      dword ptr [rip + 0x14941c7], 0
+0x1407c7189: jne      0x1407c7192   ; main.desktopWidgetWeatherService.setProviderError+0x152
+0x1407c718b: mov      rbx, qword ptr [rsp + 0x38]
+0x1407c7190: jmp      0x1407c71a6   ; main.desktopWidgetWeatherService.setProviderError+0x166
+0x1407c7192: mov      rcx, qword ptr [rax]
+0x1407c7195: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407c719a: mov      rbx, qword ptr [rsp + 0x38]
+0x1407c719f: mov      qword ptr [r11], rbx
+0x1407c71a2: mov      qword ptr [r11 + 8], rcx
+0x1407c71a6: mov      qword ptr [rax], rbx
+0x1407c71a9: mov      byte ptr [rsp + 0x27], 0
+0x1407c71ae: mov      rdx, qword ptr [rsp + 0x58]
+0x1407c71b3: mov      rax, qword ptr [rdx]
+0x1407c71b6: call     rax
+0x1407c71b8: add      rsp, 0x60
+0x1407c71bc: pop      rbp
+0x1407c71bd: ret      
+0x1407c71be: mov      rdx, qword ptr [rsp + 0x70]
+0x1407c71c3: mov      rbx, qword ptr [rdx + 0x40]
+0x1407c71c7: lea      rax, [rip + 0x381552]
+0x1407c71ce: mov      rcx, qword ptr [rsp + 0x40]
+0x1407c71d3: mov      rdi, qword ptr [rsp + 0x30]
+0x1407c71d8: call     0x14000e3e0   ; runtime.mapdelete_faststr
+0x1407c71dd: mov      byte ptr [rsp + 0x27], 0
+0x1407c71e2: mov      rdx, qword ptr [rsp + 0x58]
+0x1407c71e7: mov      rsi, qword ptr [rdx]
+0x1407c71ea: call     rsi
+0x1407c71ec: add      rsp, 0x60
+0x1407c71f0: pop      rbp
+0x1407c71f1: ret      
+0x1407c71f2: add      rsp, 0x60
+0x1407c71f6: pop      rbp
+0x1407c71f7: ret      
+0x1407c71f8: add      rsp, 0x60
+0x1407c71fc: pop      rbp
+0x1407c71fd: ret      
+0x1407c71fe: nop      
+0x1407c7200: call     0x1400435e0   ; runtime.deferreturn
+0x1407c7205: add      rsp, 0x60
+0x1407c7209: pop      rbp
+0x1407c720a: ret      
+0x1407c720b: mov      qword ptr [rsp + 8], rax
+0x1407c7210: mov      qword ptr [rsp + 0x10], rbx
+0x1407c7215: mov      qword ptr [rsp + 0x18], rcx
+0x1407c721a: mov      qword ptr [rsp + 0x20], rdi
+0x1407c721f: mov      qword ptr [rsp + 0x28], rsi
+0x1407c7224: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407c7229: mov      rax, qword ptr [rsp + 8]
+0x1407c722e: mov      rbx, qword ptr [rsp + 0x10]
+0x1407c7233: mov      rcx, qword ptr [rsp + 0x18]
+0x1407c7238: mov      rdi, qword ptr [rsp + 0x20]

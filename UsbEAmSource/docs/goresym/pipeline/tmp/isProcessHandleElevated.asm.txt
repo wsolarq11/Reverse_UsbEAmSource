@@ -1,0 +1,75 @@
+0x1408acb40: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408acb44: jbe      0x1408acc42   ; main.isProcessHandleElevated+0x102
+0x1408acb4a: push     rbp
+0x1408acb4b: mov      rbp, rsp
+0x1408acb4e: sub      rsp, 0x58
+0x1408acb52: movq     qword ptr [rsp + 0x50], xmm15
+0x1408acb59: mov      byte ptr [rsp + 0x27], 0
+0x1408acb5e: mov      byte ptr [rsp + 0x26], 0
+0x1408acb63: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1408acb69: mov      qword ptr [rsp + 0x28], 0
+0x1408acb72: mov      ebx, 8
+0x1408acb77: lea      rcx, [rsp + 0x28]
+0x1408acb7c: nop      dword ptr [rax]
+0x1408acb80: call     0x1401952c0   ; golang.org/x/sys/windows.OpenProcessToken
+0x1408acb85: test     rax, rax
+0x1408acb88: je       0x1408acbc7   ; main.isProcessHandleElevated+0x87
+0x1408acb8a: mov      rcx, rax
+0x1408acb8d: mov      rdi, rbx
+0x1408acb90: lea      rax, [rip + 0x3b8629]
+0x1408acb97: mov      ebx, 0x18
+0x1408acb9c: nop      dword ptr [rax]
+0x1408acba0: call     0x1408af3a0   ; main.wrapWinError
+0x1408acba5: mov      byte ptr [rsp + 0x26], 0
+0x1408acbaa: mov      qword ptr [rsp + 0x40], rax
+0x1408acbaf: mov      qword ptr [rsp + 0x48], rbx
+0x1408acbb4: movzx    edx, byte ptr [rsp + 0x26]
+0x1408acbb9: mov      rcx, rbx
+0x1408acbbc: mov      rbx, rax
+0x1408acbbf: mov      eax, edx
+0x1408acbc1: add      rsp, 0x58
+0x1408acbc5: pop      rbp
+0x1408acbc6: ret      
+0x1408acbc7: mov      rcx, qword ptr [rsp + 0x28]
+0x1408acbcc: lea      rdx, [rip + 0x8d]
+0x1408acbd3: mov      qword ptr [rsp + 0x30], rdx
+0x1408acbd8: mov      qword ptr [rsp + 0x38], rcx
+0x1408acbdd: lea      rcx, [rsp + 0x30]
+0x1408acbe2: mov      qword ptr [rsp + 0x50], rcx
+0x1408acbe7: mov      byte ptr [rsp + 0x27], 1
+0x1408acbec: mov      rax, qword ptr [rsp + 0x28]
+0x1408acbf1: call     0x1408accc0   ; main.getTokenElevation
+0x1408acbf6: mov      byte ptr [rsp + 0x26], al
+0x1408acbfa: mov      qword ptr [rsp + 0x40], rbx
+0x1408acbff: mov      qword ptr [rsp + 0x48], rcx
+0x1408acc04: mov      byte ptr [rsp + 0x27], 0
+0x1408acc09: mov      rdx, qword ptr [rsp + 0x50]
+0x1408acc0e: mov      rcx, qword ptr [rdx]
+0x1408acc11: call     rcx
+0x1408acc13: mov      rbx, qword ptr [rsp + 0x40]
+0x1408acc18: movzx    eax, byte ptr [rsp + 0x26]
+0x1408acc1d: mov      rcx, qword ptr [rsp + 0x48]
+0x1408acc22: add      rsp, 0x58
+0x1408acc26: pop      rbp
+0x1408acc27: ret      
+0x1408acc28: call     0x1400435e0   ; runtime.deferreturn
+0x1408acc2d: movzx    eax, byte ptr [rsp + 0x26]
+0x1408acc32: mov      rbx, qword ptr [rsp + 0x40]
+0x1408acc37: mov      rcx, qword ptr [rsp + 0x48]
+0x1408acc3c: add      rsp, 0x58
+0x1408acc40: pop      rbp
+0x1408acc41: ret      
+0x1408acc42: mov      qword ptr [rsp + 8], rax
+0x1408acc47: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408acc4c: mov      rax, qword ptr [rsp + 8]
+0x1408acc51: jmp      0x1408acb40   ; main.isProcessHandleElevated
+0x1408acc56: int3     
+0x1408acc57: int3     
+0x1408acc58: int3     
+0x1408acc59: int3     
+0x1408acc5a: int3     
+0x1408acc5b: int3     
+0x1408acc5c: int3     
+0x1408acc5d: int3     
+0x1408acc5e: int3     
+0x1408acc5f: int3     

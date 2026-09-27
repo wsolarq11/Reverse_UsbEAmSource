@@ -1,0 +1,52 @@
+0x14085c4a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14085c4a4: jbe      0x14085c52e   ; main.pickWindowProcessForService.func1+0x8e
+0x14085c4aa: push     rbp
+0x14085c4ab: mov      rbp, rsp
+0x14085c4ae: sub      rsp, 0x50
+0x14085c4b2: mov      qword ptr [rsp + 0x48], rdx
+0x14085c4b7: mov      r8, qword ptr [rdx + 0x38]
+0x14085c4bb: mov      qword ptr [rsp + 0x30], r8
+0x14085c4c0: mov      r8, qword ptr [rdx + 0x40]
+0x14085c4c4: mov      qword ptr [rsp + 0x38], r8
+0x14085c4c9: mov      rdx, qword ptr [rdx + 8]
+0x14085c4cd: mov      qword ptr [rsp + 0x40], rdx
+0x14085c4d2: lea      rax, [rip + 0x40322e]
+0x14085c4d9: mov      ebx, 0x15
+0x14085c4de: xor      ecx, ecx
+0x14085c4e0: xor      edi, edi
+0x14085c4e2: mov      rsi, rdi
+0x14085c4e5: call     0x14085b700   ; main.gpuPickDebugLog
+0x14085c4ea: mov      rdx, qword ptr [rsp + 0x48]
+0x14085c4ef: mov      rbx, qword ptr [rdx + 0x10]
+0x14085c4f3: mov      rcx, qword ptr [rdx + 0x18]
+0x14085c4f7: movzx    edi, byte ptr [rdx + 0x20]
+0x14085c4fb: mov      rsi, qword ptr [rdx + 0x28]
+0x14085c4ff: mov      r8, qword ptr [rdx + 0x30]
+0x14085c503: mov      rax, qword ptr [rsp + 0x40]
+0x14085c508: call     0x140796c20   ; main.BootstrapService.endLauncherScreenshotCapture
+0x14085c50d: mov      rax, qword ptr [rsp + 0x40]
+0x14085c512: mov      rbx, qword ptr [rsp + 0x30]
+0x14085c517: mov      rcx, qword ptr [rsp + 0x38]
+0x14085c51c: xor      edi, edi
+0x14085c51e: mov      esi, 1
+0x14085c523: call     0x140796480   ; main.BootstrapService.showLauncherWindow
+0x14085c528: add      rsp, 0x50
+0x14085c52c: pop      rbp
+0x14085c52d: ret      
+0x14085c52e: call     0x14007f0a0   ; runtime.morestack
+0x14085c533: jmp      0x14085c4a0   ; main.pickWindowProcessForService.func1
+0x14085c538: int3     
+0x14085c539: int3     
+0x14085c53a: int3     
+0x14085c53b: int3     
+0x14085c53c: int3     
+0x14085c53d: int3     
+0x14085c53e: int3     
+0x14085c53f: int3     
+0x14085c540: lea      r12, [rsp - 8]
+0x14085c545: cmp      r12, qword ptr [r14 + 0x10]
+0x14085c549: jbe      0x14085c719   ; main.resolveWindowProcessPath+0x1d9
+0x14085c54f: push     rbp
+0x14085c550: mov      rbp, rsp
+0x14085c553: add      rsp, -0x80
+0x14085c557: nop      word ptr [rax + rax]

@@ -1,0 +1,35 @@
+0x140750200: cmp      rsp, qword ptr [r14 + 0x10]
+0x140750204: jbe      0x140750250    ; main.extractArchiveRegularFile.func1+0x50
+0x140750206: push     rbp
+0x140750207: mov      rbp, rsp
+0x14075020a: sub      rsp, 0x20
+0x14075020e: mov      rcx, qword ptr [rdx + 8]
+0x140750212: mov      rsi, qword ptr [rdx + 0x10]
+0x140750216: nop      
+0x140750217: test     rcx, rcx
+0x14075021a: je       0x140750238    ; main.extractArchiveRegularFile.func1+0x38
+0x14075021c: mov      qword ptr [rsp + 0x10], rdx
+0x140750221: mov      qword ptr [rsp + 0x18], rsi
+0x140750226: mov      rax, qword ptr [rcx]
+0x140750229: call     0x14012a320    ; os.file.close
+0x14075022e: mov      rdx, qword ptr [rsp + 0x10]
+0x140750233: mov      rsi, qword ptr [rsp + 0x18]
+0x140750238: cmp      byte ptr [rsi], 0
+0x14075023b: je       0x14075024a    ; main.extractArchiveRegularFile.func1+0x4a
+0x14075023d: mov      rax, qword ptr [rdx + 0x30]
+0x140750241: mov      rbx, qword ptr [rdx + 0x38]
+0x140750245: call     0x14012a5c0    ; os.Remove
+0x14075024a: add      rsp, 0x20
+0x14075024e: pop      rbp
+0x14075024f: ret      
+0x140750250: call     0x14007f0a0    ; runtime.morestack
+0x140750255: jmp      0x140750200    ; main.extractArchiveRegularFile.func1
+0x140750257: int3     
+0x140750258: int3     
+0x140750259: int3     
+0x14075025a: int3     
+0x14075025b: int3     
+0x14075025c: int3     
+0x14075025d: int3     
+0x14075025e: int3     
+0x14075025f: int3     

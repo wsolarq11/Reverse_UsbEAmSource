@@ -1,0 +1,55 @@
+0x140941c20: add      dword ptr [rax], eax
+0x140941c22: add      byte ptr [rcx], dh
+0x140941c24: leave    
+0x140941c25: test     cl, cl
+0x140941c27: jne      0x140941c31   ; main.qrCodeScreenSelectionSession.applyAnnotationToolbarAction+0xab1
+0x140941c29: mov      rax, rsi
+0x140941c2c: call     0x140940c00   ; main.qrCodeScreenSelectionSession.syncAnnotationToolbar
+0x140941c31: add      rsp, 0x138
+0x140941c38: pop      rbp
+0x140941c39: ret      
+0x140941c3a: mov      eax, 1
+0x140941c3f: xor      ecx, ecx
+0x140941c41: call     0x1400814c0   ; runtime.panicSliceB
+0x140941c46: nop      
+0x140941c47: mov      qword ptr [rsp + 0x50], rax
+0x140941c4c: mov      qword ptr [rsp + 0x58], rbx
+0x140941c51: call     0x14007f140   ; runtime.morestack_noctxt
+0x140941c56: mov      rax, qword ptr [rsp + 0x50]
+0x140941c5b: mov      rbx, qword ptr [rsp + 0x58]
+0x140941c60: jmp      0x140941180   ; main.qrCodeScreenSelectionSession.applyAnnotationToolbarAction
+0x140941c65: int3     
+0x140941c66: int3     
+0x140941c67: int3     
+0x140941c68: int3     
+0x140941c69: int3     
+0x140941c6a: int3     
+0x140941c6b: int3     
+0x140941c6c: int3     
+0x140941c6d: int3     
+0x140941c6e: int3     
+0x140941c6f: int3     
+0x140941c70: int3     
+0x140941c71: int3     
+0x140941c72: int3     
+0x140941c73: int3     
+0x140941c74: int3     
+0x140941c75: int3     
+0x140941c76: int3     
+0x140941c77: int3     
+0x140941c78: int3     
+0x140941c79: int3     
+0x140941c7a: int3     
+0x140941c7b: int3     
+0x140941c7c: int3     
+0x140941c7d: int3     
+0x140941c7e: int3     
+0x140941c7f: int3     
+0x140941c80: lea      r12, [rsp - 0x2f8]
+0x140941c88: cmp      r12, qword ptr [r14 + 0x10]
+0x140941c8c: jbe      0x14094347a   ; main.qrCodeScreenSelectionSession.handleAnnotationPointerDown+0x17fa
+0x140941c92: push     rbp
+0x140941c93: mov      rbp, rsp
+0x140941c96: sub      rsp, 0x370
+0x140941c9d: cmp      byte ptr [rax + 0x26a], 0
+0x140941ca4: jne      0x140942ee1   ; main.qrCodeScreenSelectionSession.handleAnnotationPointerDown+0x1261

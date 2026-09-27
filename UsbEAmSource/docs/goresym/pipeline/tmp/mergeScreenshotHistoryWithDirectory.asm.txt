@@ -1,0 +1,71 @@
+0x140968ac0: lea      r12, [rsp - 0x200]
+0x140968ac8: cmp      r12, qword ptr [r14 + 0x10]
+0x140968acc: jbe      0x140968fd7   ; main.mergeScreenshotHistoryWithDirectory+0x517
+0x140968ad2: push     rbp
+0x140968ad3: mov      rbp, rsp
+0x140968ad6: sub      rsp, 0x278
+0x140968add: mov      qword ptr [rsp + 0x298], rcx
+0x140968ae5: mov      qword ptr [rsp + 0x2c0], r10
+0x140968aed: mov      byte ptr [rsp + 0x2c8], r11b
+0x140968af5: mov      qword ptr [rsp + 0x68], r9
+0x140968afa: mov      qword ptr [rsp + 0x60], r8
+0x140968aff: mov      qword ptr [rsp + 0x120], r10
+0x140968b07: mov      qword ptr [rsp + 0x290], rbx
+0x140968b0f: mov      qword ptr [rsp + 0x288], rax
+0x140968b17: mov      rax, rcx
+0x140968b1a: mov      rbx, rdi
+0x140968b1d: mov      rcx, rsi
+0x140968b20: mov      edi, 1
+0x140968b25: call     0x14096a180   ; main.normalizeScreenshotHistoryEntries
+0x140968b2a: movzx    edx, byte ptr [rsp + 0x2c8]
+0x140968b32: test     dl, dl
+0x140968b34: je       0x140968b60   ; main.mergeScreenshotHistoryWithDirectory+0xa0
+0x140968b36: test     rbx, rbx
+0x140968b39: je       0x140968b60   ; main.mergeScreenshotHistoryWithDirectory+0xa0
+0x140968b3b: mov      rdi, qword ptr [rsp + 0x60]
+0x140968b40: mov      rsi, qword ptr [rsp + 0x68]
+0x140968b45: mov      r8, qword ptr [rsp + 0x120]
+0x140968b4d: call     0x1409699e0   ; main.filterScreenshotHistoryEntriesAfterClearCutoff
+0x140968b52: movzx    edx, byte ptr [rsp + 0x2c8]
+0x140968b5a: nop      word ptr [rax + rax]
+0x140968b60: cmp      rbx, 0x30
+0x140968b64: jge      0x140968c11   ; main.mergeScreenshotHistoryWithDirectory+0x151
+0x140968b6a: mov      qword ptr [rsp + 0x40], rcx
+0x140968b6f: mov      qword ptr [rsp + 0x88], rax
+0x140968b77: movups   xmmword ptr [rsp + 0x1f0], xmm15
+0x140968b80: movups   xmmword ptr [rsp + 0x200], xmm15
+0x140968b89: movups   xmmword ptr [rsp + 0x210], xmm15
+0x140968b92: cmp      rbx, 8
+0x140968b96: jg       0x140968bde   ; main.mergeScreenshotHistoryWithDirectory+0x11e
+0x140968b98: movups   xmmword ptr [rsp + 0x128], xmm15
+0x140968ba1: lea      rdi, [rsp + 0x130]
+0x140968ba9: mov      qword ptr [rsp - 0x10], rbp
+0x140968bae: lea      rbp, [rsp - 0x10]
+0x140968bb3: call     0x14008170b   ; runtime.duffzero+0x12b
+0x140968bb8: mov      rbp, qword ptr [rbp]
+0x140968bbc: movabs   rsi, 0x8080808080808080
+0x140968bc6: mov      qword ptr [rsp + 0x128], rsi
+0x140968bce: lea      rsi, [rsp + 0x128]
+0x140968bd6: mov      qword ptr [rsp + 0x200], rsi
+0x140968bde: mov      qword ptr [rsp + 0x38], rbx
+0x140968be3: lea      rax, [rip + 0x1dfeb6]
+0x140968bea: lea      rcx, [rsp + 0x1f0]
+0x140968bf2: call     0x140076d80   ; runtime.makemap
+0x140968bf7: mov      qword ptr [rsp + 0x80], rax
+0x140968bff: mov      rdx, qword ptr [rsp + 0x88]
+0x140968c07: mov      rsi, rdx
+0x140968c0a: xor      ecx, ecx
+0x140968c0c: jmp      0x140968cc5   ; main.mergeScreenshotHistoryWithDirectory+0x205
+0x140968c11: xor      edi, edi
+0x140968c13: xor      esi, esi
+0x140968c15: add      rsp, 0x278
+0x140968c1c: pop      rbp
+0x140968c1d: ret      
+0x140968c1e: mov      qword ptr [rsp + 0x58], rcx
+0x140968c23: mov      qword ptr [rsp + 0x118], rdx
+0x140968c2b: mov      rcx, qword ptr [rdx]
+0x140968c2e: mov      qword ptr [rsp + 0xb0], rcx
+0x140968c36: movups   xmm0, xmmword ptr [rdx + 8]
+0x140968c3a: movups   xmmword ptr [rsp + 0xb8], xmm0
+0x140968c42: movups   xmm0, xmmword ptr [rdx + 0x18]
+0x140968c46: movups   xmmword ptr [rsp + 0xc8], xmm0

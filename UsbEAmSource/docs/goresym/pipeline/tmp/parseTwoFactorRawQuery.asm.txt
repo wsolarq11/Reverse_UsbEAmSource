@@ -1,0 +1,50 @@
+0x1409d7480: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409d7484: jbe      0x1409d751c   ; main.parseTwoFactorRawQuery+0x9c
+0x1409d748a: push     rbp
+0x1409d748b: mov      rbp, rsp
+0x1409d748e: sub      rsp, 0x50
+0x1409d7492: mov      qword ptr [rsp + 0x68], rbx
+0x1409d7497: mov      qword ptr [rsp + 0x60], rax
+0x1409d749c: nop      dword ptr [rax]
+0x1409d74a0: call     0x1400a2200   ; strings.TrimSpace
+0x1409d74a5: test     rbx, rbx
+0x1409d74a8: jne      0x1409d74b9   ; main.parseTwoFactorRawQuery+0x39
+0x1409d74aa: call     0x140076d40   ; runtime.makemap_small
+0x1409d74af: xor      ebx, ebx
+0x1409d74b1: xor      ecx, ecx
+0x1409d74b3: add      rsp, 0x50
+0x1409d74b7: pop      rbp
+0x1409d74b8: ret      
+0x1409d74b9: mov      rax, qword ptr [rsp + 0x60]
+0x1409d74be: mov      rbx, qword ptr [rsp + 0x68]
+0x1409d74c3: lea      rcx, [rip + 0x7f37d6]
+0x1409d74ca: mov      edi, 1
+0x1409d74cf: lea      rsi, [rip + 0x25c867]
+0x1409d74d6: mov      r8d, 3
+0x1409d74dc: mov      r9, 0xffffffffffffffff
+0x1409d74e3: call     0x1400a2340   ; strings.Replace
+0x1409d74e8: mov      qword ptr [rsp + 0x40], rax
+0x1409d74ed: mov      qword ptr [rsp + 0x38], rbx
+0x1409d74f2: call     0x140076d40   ; runtime.makemap_small
+0x1409d74f7: mov      qword ptr [rsp + 0x48], rax
+0x1409d74fc: mov      rbx, qword ptr [rsp + 0x40]
+0x1409d7501: mov      rcx, qword ptr [rsp + 0x38]
+0x1409d7506: call     0x1402677a0   ; net/url.parseQuery
+0x1409d750b: mov      rcx, rbx
+0x1409d750e: mov      rbx, rax
+0x1409d7511: mov      rax, qword ptr [rsp + 0x48]
+0x1409d7516: add      rsp, 0x50
+0x1409d751a: pop      rbp
+0x1409d751b: ret      
+0x1409d751c: mov      qword ptr [rsp + 8], rax
+0x1409d7521: mov      qword ptr [rsp + 0x10], rbx
+0x1409d7526: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d752b: mov      rax, qword ptr [rsp + 8]
+0x1409d7530: mov      rbx, qword ptr [rsp + 0x10]
+0x1409d7535: jmp      0x1409d7480   ; main.parseTwoFactorRawQuery
+0x1409d753a: int3     
+0x1409d753b: int3     
+0x1409d753c: int3     
+0x1409d753d: int3     
+0x1409d753e: int3     
+0x1409d753f: int3     

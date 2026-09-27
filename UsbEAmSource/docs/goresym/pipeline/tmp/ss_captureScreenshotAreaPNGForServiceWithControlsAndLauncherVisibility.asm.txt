@@ -1,0 +1,63 @@
+0x1409b75a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409b75a4: jbe      0x1409b75f5   ; main.captureScreenshotAreaPNGForServiceWithControlsAndLauncherVisibility+0x55
+0x1409b75a6: push     rbp
+0x1409b75a7: mov      rbp, rsp
+0x1409b75aa: sub      rsp, 0x48
+0x1409b75ae: movups   xmmword ptr [rsp + 0x20], xmm15
+0x1409b75b4: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1409b75ba: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1409b75c0: lea      rdx, [rip + 0x99]
+0x1409b75c7: mov      qword ptr [rsp + 0x20], rdx
+0x1409b75cc: mov      byte ptr [rsp + 0x28], sil
+0x1409b75d1: mov      byte ptr [rsp + 0x29], r8b
+0x1409b75d6: mov      qword ptr [rsp + 0x30], rax
+0x1409b75db: mov      byte ptr [rsp + 0x38], dil
+0x1409b75e0: mov      qword ptr [rsp + 0x40], r9
+0x1409b75e5: lea      rdi, [rsp + 0x20]
+0x1409b75ea: call     0x1409b94c0   ; main.captureScreenshotWithLauncherVisibility
+0x1409b75ef: add      rsp, 0x48
+0x1409b75f3: pop      rbp
+0x1409b75f4: ret      
+0x1409b75f5: mov      qword ptr [rsp + 8], rax
+0x1409b75fa: mov      qword ptr [rsp + 0x10], rbx
+0x1409b75ff: mov      byte ptr [rsp + 0x18], cl
+0x1409b7603: mov      byte ptr [rsp + 0x19], dil
+0x1409b7608: mov      byte ptr [rsp + 0x1a], sil
+0x1409b760d: mov      byte ptr [rsp + 0x1b], r8b
+0x1409b7612: mov      qword ptr [rsp + 0x20], r9
+0x1409b7617: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409b761c: mov      rax, qword ptr [rsp + 8]
+0x1409b7621: mov      rbx, qword ptr [rsp + 0x10]
+0x1409b7626: movzx    ecx, byte ptr [rsp + 0x18]
+0x1409b762b: movzx    edi, byte ptr [rsp + 0x19]
+0x1409b7630: movzx    esi, byte ptr [rsp + 0x1a]
+0x1409b7635: movzx    r8d, byte ptr [rsp + 0x1b]
+0x1409b763b: mov      r9, qword ptr [rsp + 0x20]
+0x1409b7640: jmp      0x1409b75a0   ; main.captureScreenshotAreaPNGForServiceWithControlsAndLauncherVisibility
+0x1409b7645: int3     
+0x1409b7646: int3     
+0x1409b7647: int3     
+0x1409b7648: int3     
+0x1409b7649: int3     
+0x1409b764a: int3     
+0x1409b764b: int3     
+0x1409b764c: int3     
+0x1409b764d: int3     
+0x1409b764e: int3     
+0x1409b764f: int3     
+0x1409b7650: int3     
+0x1409b7651: int3     
+0x1409b7652: int3     
+0x1409b7653: int3     
+0x1409b7654: int3     
+0x1409b7655: int3     
+0x1409b7656: int3     
+0x1409b7657: int3     
+0x1409b7658: int3     
+0x1409b7659: int3     
+0x1409b765a: int3     
+0x1409b765b: int3     
+0x1409b765c: int3     
+0x1409b765d: int3     
+0x1409b765e: int3     
+0x1409b765f: int3     

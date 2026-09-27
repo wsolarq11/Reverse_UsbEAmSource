@@ -1,0 +1,72 @@
+0x140798540: cmp      rsp, qword ptr [r14 + 0x10]
+0x140798544: jbe      0x1407985d0    ; main.BootstrapService.screenshotAssetService+0x90
+0x14079854a: push     rbp
+0x14079854b: mov      rbp, rsp
+0x14079854e: sub      rsp, 0x28
+0x140798552: test     rax, rax
+0x140798555: je       0x1407985c8    ; main.BootstrapService.screenshotAssetService+0x88
+0x140798557: nop      
+0x140798558: lea      rcx, [rax + 0x540]
+0x14079855f: mov      rdx, rax
+0x140798562: xor      eax, eax
+0x140798564: mov      esi, 1
+0x140798569: lock cmpxchg dword ptr [rdx + 0x540], esi
+0x140798571: sete     sil
+0x140798575: test     sil, sil
+0x140798578: jne      0x140798596    ; main.BootstrapService.screenshotAssetService+0x56
+0x14079857a: mov      qword ptr [rsp + 0x20], rdx
+0x14079857f: mov      qword ptr [rsp + 0x10], rcx
+0x140798584: mov      rax, rcx
+0x140798587: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14079858c: mov      rcx, qword ptr [rsp + 0x10]
+0x140798591: mov      rdx, qword ptr [rsp + 0x20]
+0x140798596: mov      rax, qword ptr [rdx + 0x398]
+0x14079859d: nop      
+0x14079859e: nop      
+0x14079859f: mov      ebx, 0xffffffff
+0x1407985a4: lock xadd dword ptr [rdx + 0x540], ebx
+0x1407985ac: dec      ebx
+0x1407985ae: je       0x1407985c2    ; main.BootstrapService.screenshotAssetService+0x82
+0x1407985b0: mov      qword ptr [rsp + 0x18], rax
+0x1407985b5: mov      rax, rcx
+0x1407985b8: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x1407985bd: mov      rax, qword ptr [rsp + 0x18]
+0x1407985c2: add      rsp, 0x28
+0x1407985c6: pop      rbp
+0x1407985c7: ret      
+0x1407985c8: xor      eax, eax
+0x1407985ca: add      rsp, 0x28
+0x1407985ce: pop      rbp
+0x1407985cf: ret      
+0x1407985d0: mov      qword ptr [rsp + 8], rax
+0x1407985d5: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407985da: mov      rax, qword ptr [rsp + 8]
+0x1407985df: nop      
+0x1407985e0: jmp      0x140798540    ; main.BootstrapService.screenshotAssetService
+0x1407985e5: int3     
+0x1407985e6: int3     
+0x1407985e7: int3     
+0x1407985e8: int3     
+0x1407985e9: int3     
+0x1407985ea: int3     
+0x1407985eb: int3     
+0x1407985ec: int3     
+0x1407985ed: int3     
+0x1407985ee: int3     
+0x1407985ef: int3     
+0x1407985f0: int3     
+0x1407985f1: int3     
+0x1407985f2: int3     
+0x1407985f3: int3     
+0x1407985f4: int3     
+0x1407985f5: int3     
+0x1407985f6: int3     
+0x1407985f7: int3     
+0x1407985f8: int3     
+0x1407985f9: int3     
+0x1407985fa: int3     
+0x1407985fb: int3     
+0x1407985fc: int3     
+0x1407985fd: int3     
+0x1407985fe: int3     
+0x1407985ff: int3     

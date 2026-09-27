@@ -1,0 +1,65 @@
+0x140796960: cmp      rsp, qword ptr [r14 + 0x10]
+0x140796964: jbe      0x140796a16    ; main.BootstrapService.consumeLauncherDefaultSizeReset+0xb6
+0x14079696a: push     rbp
+0x14079696b: mov      rbp, rsp
+0x14079696e: sub      rsp, 0x30
+0x140796972: movq     qword ptr [rsp + 0x28], xmm15
+0x140796979: mov      byte ptr [rsp + 0xf], 0
+0x14079697e: mov      byte ptr [rsp + 0xe], 0
+0x140796983: nop      
+0x140796984: mov      rcx, rax
+0x140796987: xor      eax, eax
+0x140796989: mov      ebx, 1
+0x14079698e: lock cmpxchg dword ptr [rcx + 0x540], ebx
+0x140796996: sete     bl
+0x140796999: test     bl, bl
+0x14079699b: jne      0x1407969b3    ; main.BootstrapService.consumeLauncherDefaultSizeReset+0x53
+0x14079699d: mov      qword ptr [rsp + 0x20], rcx
+0x1407969a2: lea      rax, [rcx + 0x540]
+0x1407969a9: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x1407969ae: mov      rcx, qword ptr [rsp + 0x20]
+0x1407969b3: lea      rax, [rip + 0x86]
+0x1407969ba: mov      qword ptr [rsp + 0x10], rax
+0x1407969bf: lea      rax, [rcx + 0x540]
+0x1407969c6: mov      qword ptr [rsp + 0x18], rax
+0x1407969cb: lea      rax, [rsp + 0x10]
+0x1407969d0: mov      qword ptr [rsp + 0x28], rax
+0x1407969d5: mov      byte ptr [rsp + 0xf], 1
+0x1407969da: movzx    eax, byte ptr [rcx + 0x448]
+0x1407969e1: mov      byte ptr [rcx + 0x448], 0
+0x1407969e8: mov      byte ptr [rsp + 0xe], al
+0x1407969ec: mov      byte ptr [rsp + 0xf], 0
+0x1407969f1: mov      rdx, qword ptr [rsp + 0x28]
+0x1407969f6: mov      rax, qword ptr [rdx]
+0x1407969f9: call     rax
+0x1407969fb: movzx    eax, byte ptr [rsp + 0xe]
+0x140796a00: add      rsp, 0x30
+0x140796a04: pop      rbp
+0x140796a05: ret      
+0x140796a06: call     0x1400435e0    ; runtime.deferreturn
+0x140796a0b: movzx    eax, byte ptr [rsp + 0xe]
+0x140796a10: add      rsp, 0x30
+0x140796a14: pop      rbp
+0x140796a15: ret      
+0x140796a16: mov      qword ptr [rsp + 8], rax
+0x140796a1b: nop      dword ptr [rax + rax]
+0x140796a20: call     0x14007f140    ; runtime.morestack_noctxt
+0x140796a25: mov      rax, qword ptr [rsp + 8]
+0x140796a2a: jmp      0x140796960    ; main.BootstrapService.consumeLauncherDefaultSizeReset
+0x140796a2f: int3     
+0x140796a30: int3     
+0x140796a31: int3     
+0x140796a32: int3     
+0x140796a33: int3     
+0x140796a34: int3     
+0x140796a35: int3     
+0x140796a36: int3     
+0x140796a37: int3     
+0x140796a38: int3     
+0x140796a39: int3     
+0x140796a3a: int3     
+0x140796a3b: int3     
+0x140796a3c: int3     
+0x140796a3d: int3     
+0x140796a3e: int3     
+0x140796a3f: int3     

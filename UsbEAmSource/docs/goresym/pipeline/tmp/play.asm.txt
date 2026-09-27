@@ -1,0 +1,134 @@
+0x1407a6ae0: lea      r12, [rsp - 8]
+0x1407a6ae5: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a6ae9: jbe      0x1407a6ca7   ; main.platformDesktopWidgetAudioPlayer.Play+0x1c7
+0x1407a6aef: push     rbp
+0x1407a6af0: mov      rbp, rsp
+0x1407a6af3: add      rsp, -0x80
+0x1407a6af7: mov      qword ptr [rsp + 0x90], rax
+0x1407a6aff: mov      qword ptr [rsp + 0x98], rbx
+0x1407a6b07: mov      qword ptr [rsp + 0xa0], rcx
+0x1407a6b0f: mov      qword ptr [rsp + 0xa8], rdi
+0x1407a6b17: mov      qword ptr [rsp + 0xb0], rsi
+0x1407a6b1f: mov      qword ptr [rsp + 0xb8], r8
+0x1407a6b27: mov      rax, qword ptr [rsp + 0x98]
+0x1407a6b2f: mov      rbx, rcx
+0x1407a6b32: mov      rcx, rdi
+0x1407a6b35: mov      rdi, rsi
+0x1407a6b38: mov      rsi, r8
+0x1407a6b3b: nop      dword ptr [rax + rax]
+0x1407a6b40: call     0x1407a6660   ; main.normalizeDesktopReminderAudio
+0x1407a6b45: mov      qword ptr [rsp + 0x58], rax
+0x1407a6b4a: mov      qword ptr [rsp + 0x60], rbx
+0x1407a6b4f: mov      qword ptr [rsp + 0x68], rcx
+0x1407a6b54: mov      qword ptr [rsp + 0x70], rdi
+0x1407a6b59: mov      qword ptr [rsp + 0x78], rsi
+0x1407a6b5e: mov      rdx, qword ptr [rsp + 0x58]
+0x1407a6b63: mov      qword ptr [rsp + 0x28], rdx
+0x1407a6b68: movups   xmm0, xmmword ptr [rsp + 0x60]
+0x1407a6b6d: movups   xmmword ptr [rsp + 0x30], xmm0
+0x1407a6b72: movups   xmm0, xmmword ptr [rsp + 0x70]
+0x1407a6b77: movups   xmmword ptr [rsp + 0x40], xmm0
+0x1407a6b7c: mov      rax, qword ptr [rsp + 0x28]
+0x1407a6b81: mov      rbx, qword ptr [rsp + 0x30]
+0x1407a6b86: mov      rcx, qword ptr [rsp + 0x38]
+0x1407a6b8b: mov      rdi, qword ptr [rsp + 0x40]
+0x1407a6b90: mov      rsi, qword ptr [rsp + 0x48]
+0x1407a6b95: call     0x1407a68c0   ; main.validateDesktopReminderAudio
+0x1407a6b9a: nop      word ptr [rax + rax]
+0x1407a6ba0: test     rax, rax
+0x1407a6ba3: jne      0x1407a6ca1   ; main.platformDesktopWidgetAudioPlayer.Play+0x1c1
+0x1407a6ba9: cmp      qword ptr [rsp + 0x30], 6
+0x1407a6baf: jne      0x1407a6c18   ; main.platformDesktopWidgetAudioPlayer.Play+0x138
+0x1407a6bb1: mov      rcx, qword ptr [rsp + 0x28]
+0x1407a6bb6: cmp      dword ptr [rcx], 0x74737563
+0x1407a6bbc: jne      0x1407a6c18   ; main.platformDesktopWidgetAudioPlayer.Play+0x138
+0x1407a6bbe: cmp      word ptr [rcx + 4], 0x6d6f
+0x1407a6bc4: jne      0x1407a6c18   ; main.platformDesktopWidgetAudioPlayer.Play+0x138
+0x1407a6bc6: mov      rax, qword ptr [rsp + 0x38]
+0x1407a6bcb: mov      rbx, qword ptr [rsp + 0x40]
+0x1407a6bd0: call     0x14012d940   ; os.Stat
+0x1407a6bd5: test     rcx, rcx
+0x1407a6bd8: jne      0x1407a6bea   ; main.platformDesktopWidgetAudioPlayer.Play+0x10a
+0x1407a6bda: mov      rcx, qword ptr [rax + 0x28]
+0x1407a6bde: mov      rax, rbx
+0x1407a6be1: call     rcx
+0x1407a6be3: test     eax, 0x8f280000
+0x1407a6be8: je       0x1407a6c18   ; main.platformDesktopWidgetAudioPlayer.Play+0x138
+0x1407a6bea: lea      rax, [rip + 0x3ad78f]
+0x1407a6bf1: call     0x14001ae20   ; runtime.newobject
+0x1407a6bf6: mov      qword ptr [rax + 8], 0x27
+0x1407a6bfe: lea      rcx, [rip + 0x4d7026]
+0x1407a6c05: mov      qword ptr [rax], rcx
+0x1407a6c08: mov      rbx, rax
+0x1407a6c0b: lea      rax, [rip + 0xa2c4ee]
+0x1407a6c12: sub      rsp, -0x80
+0x1407a6c16: pop      rbp
+0x1407a6c17: ret      
+0x1407a6c18: lea      rax, [rip + 0x3ec2a1]
+0x1407a6c1f: nop      
+0x1407a6c20: call     0x14001ae20   ; runtime.newobject
+0x1407a6c25: lea      rcx, [rip + 0xd4]
+0x1407a6c2c: mov      qword ptr [rax], rcx
+0x1407a6c2f: cmp      dword ptr [rip + 0x14b471a], 0
+0x1407a6c36: je       0x1407a6c6a   ; main.platformDesktopWidgetAudioPlayer.Play+0x18a
+0x1407a6c38: mov      qword ptr [rsp + 0x50], rax
+0x1407a6c3d: nop      dword ptr [rax]
+0x1407a6c40: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407a6c45: mov      rdx, qword ptr [rsp + 0x90]
+0x1407a6c4d: mov      qword ptr [r11], rdx
+0x1407a6c50: lea      rbx, [rax + 0x10]
+0x1407a6c54: lea      rax, [rip + 0x3f3645]
+0x1407a6c5b: lea      rcx, [rsp + 0x28]
+0x1407a6c60: call     0x14001b620   ; runtime.wbMove
+0x1407a6c65: mov      rax, qword ptr [rsp + 0x50]
+0x1407a6c6a: mov      rcx, qword ptr [rsp + 0x90]
+0x1407a6c72: mov      qword ptr [rax + 8], rcx
+0x1407a6c76: mov      rcx, qword ptr [rsp + 0x28]
+0x1407a6c7b: mov      qword ptr [rax + 0x10], rcx
+0x1407a6c7f: movups   xmm0, xmmword ptr [rsp + 0x30]
+0x1407a6c84: movups   xmmword ptr [rax + 0x18], xmm0
+0x1407a6c88: movups   xmm0, xmmword ptr [rsp + 0x40]
+0x1407a6c8d: movups   xmmword ptr [rax + 0x28], xmm0
+0x1407a6c91: call     0x1400516a0   ; runtime.newproc
+0x1407a6c96: xor      eax, eax
+0x1407a6c98: xor      ebx, ebx
+0x1407a6c9a: sub      rsp, -0x80
+0x1407a6c9e: pop      rbp
+0x1407a6c9f: nop      
+0x1407a6ca0: ret      
+0x1407a6ca1: sub      rsp, -0x80
+0x1407a6ca5: pop      rbp
+0x1407a6ca6: ret      
+0x1407a6ca7: mov      qword ptr [rsp + 8], rax
+0x1407a6cac: mov      qword ptr [rsp + 0x10], rbx
+0x1407a6cb1: mov      qword ptr [rsp + 0x18], rcx
+0x1407a6cb6: mov      qword ptr [rsp + 0x20], rdi
+0x1407a6cbb: mov      qword ptr [rsp + 0x28], rsi
+0x1407a6cc0: mov      qword ptr [rsp + 0x30], r8
+0x1407a6cc5: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a6cca: mov      rax, qword ptr [rsp + 8]
+0x1407a6ccf: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a6cd4: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a6cd9: mov      rdi, qword ptr [rsp + 0x20]
+0x1407a6cde: mov      rsi, qword ptr [rsp + 0x28]
+0x1407a6ce3: mov      r8, qword ptr [rsp + 0x30]
+0x1407a6ce8: jmp      0x1407a6ae0   ; main.platformDesktopWidgetAudioPlayer.Play
+0x1407a6ced: int3     
+0x1407a6cee: int3     
+0x1407a6cef: int3     
+0x1407a6cf0: int3     
+0x1407a6cf1: int3     
+0x1407a6cf2: int3     
+0x1407a6cf3: int3     
+0x1407a6cf4: int3     
+0x1407a6cf5: int3     
+0x1407a6cf6: int3     
+0x1407a6cf7: int3     
+0x1407a6cf8: int3     
+0x1407a6cf9: int3     
+0x1407a6cfa: int3     
+0x1407a6cfb: int3     
+0x1407a6cfc: int3     
+0x1407a6cfd: int3     
+0x1407a6cfe: int3     
+0x1407a6cff: int3     

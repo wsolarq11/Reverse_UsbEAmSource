@@ -1,0 +1,66 @@
+0x1407a9a00: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a9a04: jbe      0x1407a9a8c    ; main.BootstrapService.TestDesktopReminderNotification+0x8c
+0x1407a9a0a: push     rbp
+0x1407a9a0b: mov      rbp, rsp
+0x1407a9a0e: sub      rsp, 0x60
+0x1407a9a12: test     rax, rax
+0x1407a9a15: je       0x1407a9a5e    ; main.BootstrapService.TestDesktopReminderNotification+0x5e
+0x1407a9a17: mov      rax, qword ptr [rax + 0x440]
+0x1407a9a1e: nop      
+0x1407a9a20: test     rax, rax
+0x1407a9a23: je       0x1407a9a5e    ; main.BootstrapService.TestDesktopReminderNotification+0x5e
+0x1407a9a25: mov      rcx, qword ptr [rsp + 0x70]
+0x1407a9a2a: mov      qword ptr [rsp], rcx
+0x1407a9a2e: lea      rdi, [rsp + 8]
+0x1407a9a33: lea      rsi, [rsp + 0x78]
+0x1407a9a38: nop      dword ptr [rax + rax]
+0x1407a9a40: mov      qword ptr [rsp - 0x10], rbp
+0x1407a9a45: lea      rbp, [rsp - 0x10]
+0x1407a9a4a: call     0x140081a9a    ; runtime.duffcopy+0x33a
+0x1407a9a4f: mov      rbp, qword ptr [rbp]
+0x1407a9a53: call     0x1407a7320    ; main.desktopWidgetService.TestReminderNotification
+0x1407a9a58: add      rsp, 0x60
+0x1407a9a5c: pop      rbp
+0x1407a9a5d: ret      
+0x1407a9a5e: lea      rax, [rip + 0x3aa91b]
+0x1407a9a65: call     0x14001ae20    ; runtime.newobject
+0x1407a9a6a: mov      qword ptr [rax + 8], 0x1b
+0x1407a9a72: lea      rcx, [rip + 0x4c01f0]
+0x1407a9a79: mov      qword ptr [rax], rcx
+0x1407a9a7c: mov      rbx, rax
+0x1407a9a7f: lea      rax, [rip + 0xa2967a]
+0x1407a9a86: add      rsp, 0x60
+0x1407a9a8a: pop      rbp
+0x1407a9a8b: ret      
+0x1407a9a8c: mov      qword ptr [rsp + 0x60], rax
+0x1407a9a91: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a9a96: mov      rax, qword ptr [rsp + 0x60]
+0x1407a9a9b: nop      dword ptr [rax + rax]
+0x1407a9aa0: jmp      0x1407a9a00    ; main.BootstrapService.TestDesktopReminderNotification
+0x1407a9aa5: int3     
+0x1407a9aa6: int3     
+0x1407a9aa7: int3     
+0x1407a9aa8: int3     
+0x1407a9aa9: int3     
+0x1407a9aaa: int3     
+0x1407a9aab: int3     
+0x1407a9aac: int3     
+0x1407a9aad: int3     
+0x1407a9aae: int3     
+0x1407a9aaf: int3     
+0x1407a9ab0: int3     
+0x1407a9ab1: int3     
+0x1407a9ab2: int3     
+0x1407a9ab3: int3     
+0x1407a9ab4: int3     
+0x1407a9ab5: int3     
+0x1407a9ab6: int3     
+0x1407a9ab7: int3     
+0x1407a9ab8: int3     
+0x1407a9ab9: int3     
+0x1407a9aba: int3     
+0x1407a9abb: int3     
+0x1407a9abc: int3     
+0x1407a9abd: int3     
+0x1407a9abe: int3     
+0x1407a9abf: int3     

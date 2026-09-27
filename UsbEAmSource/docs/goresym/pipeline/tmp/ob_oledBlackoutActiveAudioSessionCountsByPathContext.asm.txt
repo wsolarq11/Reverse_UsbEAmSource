@@ -1,0 +1,41 @@
+0x14091d100: cmp      rsp, qword ptr [r14 + 0x10]
+0x14091d104: jbe      0x14091d158   ; main.oledBlackoutActiveAudioSessionCountsByPathContext+0x58
+0x14091d106: push     rbp
+0x14091d107: mov      rbp, rsp
+0x14091d10a: sub      rsp, 0x30
+0x14091d10e: mov      qword ptr [rsp + 0x48], rbx
+0x14091d113: mov      qword ptr [rsp + 0x40], rax
+0x14091d118: call     0x140076d40   ; runtime.makemap_small
+0x14091d11d: mov      qword ptr [rsp + 0x18], rax
+0x14091d122: lea      rcx, [rip + 0x57]
+0x14091d129: mov      qword ptr [rsp + 0x20], rcx
+0x14091d12e: mov      qword ptr [rsp + 0x28], rax
+0x14091d133: mov      rax, qword ptr [rsp + 0x40]
+0x14091d138: mov      rbx, qword ptr [rsp + 0x48]
+0x14091d13d: lea      rcx, [rsp + 0x20]
+0x14091d142: call     0x140915ce0   ; main.oledBlackoutWalkActiveRenderSessionsContext
+0x14091d147: mov      rcx, rbx
+0x14091d14a: mov      rbx, rax
+0x14091d14d: mov      rax, qword ptr [rsp + 0x18]
+0x14091d152: add      rsp, 0x30
+0x14091d156: pop      rbp
+0x14091d157: ret      
+0x14091d158: mov      qword ptr [rsp + 8], rax
+0x14091d15d: mov      qword ptr [rsp + 0x10], rbx
+0x14091d162: call     0x14007f140   ; runtime.morestack_noctxt
+0x14091d167: mov      rax, qword ptr [rsp + 8]
+0x14091d16c: mov      rbx, qword ptr [rsp + 0x10]
+0x14091d171: jmp      0x14091d100   ; main.oledBlackoutActiveAudioSessionCountsByPathContext
+0x14091d173: int3     
+0x14091d174: int3     
+0x14091d175: int3     
+0x14091d176: int3     
+0x14091d177: int3     
+0x14091d178: int3     
+0x14091d179: int3     
+0x14091d17a: int3     
+0x14091d17b: int3     
+0x14091d17c: int3     
+0x14091d17d: int3     
+0x14091d17e: int3     
+0x14091d17f: int3     

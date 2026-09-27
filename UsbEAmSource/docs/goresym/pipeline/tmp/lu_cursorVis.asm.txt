@@ -1,0 +1,50 @@
+0x140973ba0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140973ba4: jbe      0x140973bcd   ; main.ensureScreenshotCursorVisible+0x2d
+0x140973ba6: push     rbp
+0x140973ba7: mov      rbp, rsp
+0x140973baa: sub      rsp, 8
+0x140973bae: call     0x140973c40   ; main.screenshotCursorCurrentlyShowing
+0x140973bb3: test     al, al
+0x140973bb5: je       0x140973bbd   ; main.ensureScreenshotCursorVisible+0x1d
+0x140973bb7: add      rsp, 8
+0x140973bbb: pop      rbp
+0x140973bbc: ret      
+0x140973bbd: mov      eax, 1
+0x140973bc2: call     0x140973e00   ; main.adjustScreenshotCursorVisibility
+0x140973bc7: add      rsp, 8
+0x140973bcb: pop      rbp
+0x140973bcc: ret      
+0x140973bcd: call     0x14007f140   ; runtime.morestack_noctxt
+0x140973bd2: jmp      0x140973ba0   ; main.ensureScreenshotCursorVisible
+0x140973bd4: int3     
+0x140973bd5: int3     
+0x140973bd6: int3     
+0x140973bd7: int3     
+0x140973bd8: int3     
+0x140973bd9: int3     
+0x140973bda: int3     
+0x140973bdb: int3     
+0x140973bdc: int3     
+0x140973bdd: int3     
+0x140973bde: int3     
+0x140973bdf: int3     
+0x140973be0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140973be4: jbe      0x140973c2e   ; main.restoreScreenshotCursorAfterOverlay+0x4e
+0x140973be6: push     rbp
+0x140973be7: mov      rbp, rsp
+0x140973bea: sub      rsp, 0x20
+0x140973bee: mov      rax, qword ptr [rip + 0x124ed1b]
+0x140973bf5: nop      
+0x140973bf6: xor      ebx, ebx
+0x140973bf8: xor      ecx, ecx
+0x140973bfa: mov      rdi, rcx
+0x140973bfd: nop      dword ptr [rax]
+0x140973c00: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140973c05: mov      eax, 0x7f00
+0x140973c0a: call     0x140973ae0   ; main.setScreenshotOverlayCursor
+0x140973c0f: call     0x140973c40   ; main.screenshotCursorCurrentlyShowing
+0x140973c14: test     al, al
+0x140973c16: je       0x140973c1e   ; main.restoreScreenshotCursorAfterOverlay+0x3e
+0x140973c18: add      rsp, 0x20
+0x140973c1c: pop      rbp
+0x140973c1d: ret      

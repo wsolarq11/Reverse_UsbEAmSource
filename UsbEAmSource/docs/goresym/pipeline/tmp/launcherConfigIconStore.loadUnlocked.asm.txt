@@ -1,0 +1,173 @@
+0x140894fa0: lea      r12, [rsp - 0x50]
+0x140894fa5: cmp      r12, qword ptr [r14 + 0x10]
+0x140894fa9: jbe      0x14089517c   ; main.launcherConfigIconStore.loadUnlocked+0x1dc
+0x140894faf: push     rbp
+0x140894fb0: mov      rbp, rsp
+0x140894fb3: sub      rsp, 0xc8
+0x140894fba: mov      qword ptr [rsp + 0xd8], rax
+0x140894fc2: nop      
+0x140894fc3: call     0x140076d40   ; runtime.makemap_small
+0x140894fc8: mov      qword ptr [rsp + 0x38], rax
+0x140894fcd: mov      rax, qword ptr [rsp + 0xd8]
+0x140894fd5: call     0x1408951a0   ; main.launcherConfigIconStore.ensureLoadedUnlocked
+0x140894fda: nop      word ptr [rax + rax]
+0x140894fe0: test     rax, rax
+0x140894fe3: jne      0x14089508b   ; main.launcherConfigIconStore.loadUnlocked+0xeb
+0x140894fe9: lea      rax, [rip + 0x306cf0]
+0x140894ff0: call     0x14001ae20   ; runtime.newobject
+0x140894ff5: mov      qword ptr [rsp + 0xc0], rax
+0x140894ffd: mov      rcx, qword ptr [rsp + 0xd8]
+0x140895005: mov      rdx, qword ptr [rcx + 0x48]
+0x140895009: mov      rbx, qword ptr [rcx + 0x50]
+0x14089500d: mov      rsi, qword ptr [rcx + 0x58]
+0x140895011: mov      qword ptr [rax], rdx
+0x140895014: mov      qword ptr [rax + 8], rbx
+0x140895018: mov      qword ptr [rax + 0x10], rsi
+0x14089501c: mov      rdx, qword ptr [rcx + 0x40]
+0x140895020: mov      qword ptr [rsp + 0x58], rdx
+0x140895025: mov      rcx, qword ptr [rcx + 0x38]
+0x140895029: mov      qword ptr [rsp + 0x30], rcx
+0x14089502e: test     rdx, rdx
+0x140895031: je       0x140895038   ; main.launcherConfigIconStore.loadUnlocked+0x98
+0x140895033: mov      rsi, qword ptr [rdx]
+0x140895036: jmp      0x14089503a   ; main.launcherConfigIconStore.loadUnlocked+0x9a
+0x140895038: xor      esi, esi
+0x14089503a: lea      rax, [rip + 0x2b525f]
+0x140895041: mov      rbx, rsi
+0x140895044: xor      ecx, ecx
+0x140895046: call     0x140076d80   ; runtime.makemap
+0x14089504b: mov      qword ptr [rsp + 0x40], rax
+0x140895050: lea      rdi, [rsp + 0x60]
+0x140895055: lea      rdi, [rdi - 0x20]
+0x140895059: nop      dword ptr [rax]
+0x140895060: mov      qword ptr [rsp - 0x10], rbp
+0x140895065: lea      rbp, [rsp - 0x10]
+0x14089506a: call     0x14008172b   ; runtime.duffzero+0x14b
+0x14089506f: mov      rbp, qword ptr [rbp]
+0x140895073: lea      rax, [rip + 0x2b5226]
+0x14089507a: mov      rbx, qword ptr [rsp + 0x58]
+0x14089507f: lea      rcx, [rsp + 0x60]
+0x140895084: call     0x14001b520   ; runtime.mapIterStart
+0x140895089: jmp      0x1408950b7   ; main.launcherConfigIconStore.loadUnlocked+0x117
+0x14089508b: xor      ecx, ecx
+0x14089508d: mov      rdi, rax
+0x140895090: mov      rsi, rbx
+0x140895093: mov      eax, 1
+0x140895098: mov      rbx, qword ptr [rsp + 0x38]
+0x14089509d: add      rsp, 0xc8
+0x1408950a4: pop      rbp
+0x1408950a5: ret      
+0x1408950a6: mov      qword ptr [rax], rbx
+0x1408950a9: mov      qword ptr [rax + 0x10], rcx
+0x1408950ad: lea      rax, [rsp + 0x60]
+0x1408950b2: call     0x14001b580   ; runtime.mapIterNext
+0x1408950b7: mov      rdx, qword ptr [rsp + 0x60]
+0x1408950bc: nop      dword ptr [rax]
+0x1408950c0: test     rdx, rdx
+0x1408950c3: je       0x14089515d   ; main.launcherConfigIconStore.loadUnlocked+0x1bd
+0x1408950c9: mov      rcx, qword ptr [rdx]
+0x1408950cc: mov      rdi, qword ptr [rdx + 8]
+0x1408950d0: mov      rdx, qword ptr [rsp + 0x68]
+0x1408950d5: mov      rsi, qword ptr [rdx + 8]
+0x1408950d9: mov      qword ptr [rsp + 0x28], rsi
+0x1408950de: mov      rsi, qword ptr [rdx + 0x18]
+0x1408950e2: mov      qword ptr [rsp + 0x20], rsi
+0x1408950e7: mov      rsi, qword ptr [rdx]
+0x1408950ea: mov      qword ptr [rsp + 0x50], rsi
+0x1408950ef: mov      rdx, qword ptr [rdx + 0x10]
+0x1408950f3: mov      qword ptr [rsp + 0x48], rdx
+0x1408950f8: lea      rax, [rip + 0x2b51a1]
+0x1408950ff: mov      rbx, qword ptr [rsp + 0x40]
+0x140895104: call     0x14000de60   ; runtime.mapassign_faststr
+0x140895109: mov      rdx, qword ptr [rsp + 0x28]
+0x14089510e: mov      qword ptr [rax + 8], rdx
+0x140895112: mov      rdx, qword ptr [rsp + 0x20]
+0x140895117: mov      qword ptr [rax + 0x18], rdx
+0x14089511b: cmp      dword ptr [rip + 0x13c622e], 0
+0x140895122: jne      0x140895133   ; main.launcherConfigIconStore.loadUnlocked+0x193
+0x140895124: mov      rcx, qword ptr [rsp + 0x48]
+0x140895129: mov      rbx, qword ptr [rsp + 0x50]
+0x14089512e: jmp      0x1408950a6   ; main.launcherConfigIconStore.loadUnlocked+0x106
+0x140895133: mov      rcx, qword ptr [rax]
+0x140895136: mov      rdx, qword ptr [rax + 0x10]
+0x14089513a: call     0x1400810a0   ; runtime.gcWriteBarrier4
+0x14089513f: mov      rbx, qword ptr [rsp + 0x50]
+0x140895144: mov      qword ptr [r11], rbx
+0x140895147: mov      qword ptr [r11 + 8], rcx
+0x14089514b: mov      rcx, qword ptr [rsp + 0x48]
+0x140895150: mov      qword ptr [r11 + 0x10], rcx
+0x140895154: mov      qword ptr [r11 + 0x18], rdx
+0x140895158: jmp      0x1408950a6   ; main.launcherConfigIconStore.loadUnlocked+0x106
+0x14089515d: mov      rax, qword ptr [rsp + 0x30]
+0x140895162: mov      rbx, qword ptr [rsp + 0x40]
+0x140895167: mov      rcx, qword ptr [rsp + 0xc0]
+0x14089516f: xor      edi, edi
+0x140895171: xor      esi, esi
+0x140895173: add      rsp, 0xc8
+0x14089517a: pop      rbp
+0x14089517b: ret      
+0x14089517c: mov      qword ptr [rsp + 8], rax
+0x140895181: call     0x14007f140   ; runtime.morestack_noctxt
+0x140895186: mov      rax, qword ptr [rsp + 8]
+0x14089518b: jmp      0x140894fa0   ; main.launcherConfigIconStore.loadUnlocked
+0x140895190: int3     
+0x140895191: int3     
+0x140895192: int3     
+0x140895193: int3     
+0x140895194: int3     
+0x140895195: int3     
+0x140895196: int3     
+0x140895197: int3     
+0x140895198: int3     
+0x140895199: int3     
+0x14089519a: int3     
+0x14089519b: int3     
+0x14089519c: int3     
+0x14089519d: int3     
+0x14089519e: int3     
+0x14089519f: int3     
+0x1408951a0: lea      r12, [rsp - 0x278]
+0x1408951a8: cmp      r12, qword ptr [r14 + 0x10]
+0x1408951ac: jbe      0x140895a69   ; main.launcherConfigIconStore.ensureLoadedUnlocked+0x8c9
+0x1408951b2: push     rbp
+0x1408951b3: mov      rbp, rsp
+0x1408951b6: sub      rsp, 0x2f0
+0x1408951bd: mov      qword ptr [rsp + 0x300], rax
+0x1408951c5: nop      
+0x1408951c6: movups   xmmword ptr [rsp + 0x230], xmm15
+0x1408951cf: movups   xmmword ptr [rsp + 0x240], xmm15
+0x1408951d8: movups   xmmword ptr [rsp + 0x250], xmm15
+0x1408951e1: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1408951ea: lea      rdi, [rsp + 0xb0]
+0x1408951f2: nop      word ptr [rax + rax]
+0x1408951fb: nop      dword ptr [rax + rax]
+0x140895200: mov      qword ptr [rsp - 0x10], rbp
+0x140895205: lea      rbp, [rsp - 0x10]
+0x14089520a: call     0x1400816c6   ; runtime.duffzero+0xe6
+0x14089520f: mov      rbp, qword ptr [rbp]
+0x140895213: movabs   rax, 0x8080808080808080
+0x14089521d: mov      qword ptr [rsp + 0xa8], rax
+0x140895225: lea      rax, [rsp + 0xa8]
+0x14089522d: mov      qword ptr [rsp + 0x240], rax
+0x140895235: call     0x1400797c0   ; runtime.rand
+0x14089523a: mov      qword ptr [rsp + 0x238], rax
+0x140895242: mov      rax, qword ptr [rsp + 0x300]
+0x14089524a: test     rax, rax
+0x14089524d: je       0x140895766   ; main.launcherConfigIconStore.ensureLoadedUnlocked+0x5c6
+0x140895253: mov      rcx, qword ptr [rax]
+0x140895256: mov      rbx, qword ptr [rax + 8]
+0x14089525a: mov      rax, rcx
+0x14089525d: nop      dword ptr [rax]
+0x140895260: call     0x1400a2200   ; strings.TrimSpace
+0x140895265: test     rbx, rbx
+0x140895268: je       0x140895766   ; main.launcherConfigIconStore.ensureLoadedUnlocked+0x5c6
+0x14089526e: mov      rcx, qword ptr [rsp + 0x300]
+0x140895276: cmp      byte ptr [rcx + 0x20], 0
+0x14089527a: nop      word ptr [rax + rax]
+0x140895280: jne      0x140895759   ; main.launcherConfigIconStore.ensureLoadedUnlocked+0x5b9
+0x140895286: mov      rax, qword ptr [rcx + 0x28]
+0x14089528a: test     rax, rax
+0x14089528d: jne      0x14089574c   ; main.launcherConfigIconStore.ensureLoadedUnlocked+0x5ac
+0x140895293: mov      rsi, qword ptr [rcx + 0x10]
+0x140895297: test     rsi, rsi
+0x14089529a: jne      0x1408952a3   ; main.launcherConfigIconStore.ensureLoadedUnlocked+0x103

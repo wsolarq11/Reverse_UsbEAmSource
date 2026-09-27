@@ -1,0 +1,131 @@
+0x1407807c0: lea      r12, [rsp - 0x1a8]
+0x1407807c8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407807cc: jbe      0x140780a2c    ; main.BootstrapService.ToggleOLEDBlackoutProfile+0x26c
+0x1407807d2: push     rbp
+0x1407807d3: mov      rbp, rsp
+0x1407807d6: sub      rsp, 0x220
+0x1407807dd: mov      qword ptr [rsp + 0x2e0], rbx
+0x1407807e5: mov      qword ptr [rsp + 0x2d8], rax
+0x1407807ed: movups   xmmword ptr [rsp + 0x230], xmm15
+0x1407807f6: lea      rdi, [rsp + 0x238]
+0x1407807fe: lea      rdi, [rdi - 0x20]
+0x140780802: mov      qword ptr [rsp - 0x10], rbp
+0x140780807: lea      rbp, [rsp - 0x10]
+0x14078080c: call     0x140081714    ; runtime.duffzero+0x134
+0x140780811: mov      rbp, qword ptr [rbp]
+0x140780815: movups   xmmword ptr [rsp + 0x178], xmm15
+0x14078081e: lea      rdi, [rsp + 0x180]
+0x140780826: lea      rdi, [rdi - 0x20]
+0x14078082a: mov      qword ptr [rsp - 0x10], rbp
+0x14078082f: lea      rbp, [rsp - 0x10]
+0x140780834: call     0x140081714    ; runtime.duffzero+0x134
+0x140780839: mov      rbp, qword ptr [rbp]
+0x14078083d: mov      rax, qword ptr [rax + 0x380]
+0x140780844: call     0x1408ffd60    ; main.oledBlackoutService.ToggleProfile
+0x140780849: mov      qword ptr [rsp + 0xc0], rax
+0x140780851: mov      qword ptr [rsp + 0x170], rbx
+0x140780859: mov      rdx, qword ptr [rsp]
+0x14078085d: mov      qword ptr [rsp + 0x178], rdx
+0x140780865: lea      rdi, [rsp + 0x180]
+0x14078086d: lea      rsi, [rsp + 8]
+0x140780872: nop      word ptr [rax + rax]
+0x14078087b: nop      dword ptr [rax + rax]
+0x140780880: mov      qword ptr [rsp - 0x10], rbp
+0x140780885: lea      rbp, [rsp - 0x10]
+0x14078088a: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x14078088f: mov      rbp, qword ptr [rbp]
+0x140780893: mov      rdx, qword ptr [rsp + 0x178]
+0x14078089b: mov      qword ptr [rsp + 0xc8], rdx
+0x1407808a3: lea      rdi, [rsp + 0xd0]
+0x1407808ab: lea      rsi, [rsp + 0x180]
+0x1407808b3: nop      word ptr [rax + rax]
+0x1407808bc: nop      dword ptr [rax]
+0x1407808c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407808c5: lea      rbp, [rsp - 0x10]
+0x1407808ca: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x1407808cf: mov      rbp, qword ptr [rbp]
+0x1407808d3: mov      rdx, qword ptr [rsp + 0xd0]
+0x1407808db: mov      qword ptr [rsp], rdx
+0x1407808df: movups   xmm0, xmmword ptr [rsp + 0xd8]
+0x1407808e7: movups   xmmword ptr [rsp + 8], xmm0
+0x1407808ec: movups   xmm0, xmmword ptr [rsp + 0xe8]
+0x1407808f4: movups   xmmword ptr [rsp + 0x18], xmm0
+0x1407808f9: movups   xmm0, xmmword ptr [rsp + 0xf8]
+0x140780901: movups   xmmword ptr [rsp + 0x28], xmm0
+0x140780906: mov      rax, qword ptr [rsp + 0x2d8]
+0x14078090e: call     0x1408a4280    ; main.BootstrapService.attachOLEDBlackoutConfigIconURLs
+0x140780913: mov      byte ptr [rsp + 0x178], al
+0x14078091a: mov      byte ptr [rsp + 0x179], bl
+0x140780921: mov      byte ptr [rsp + 0x17a], cl
+0x140780928: mov      qword ptr [rsp + 0x180], rdi
+0x140780930: mov      qword ptr [rsp + 0x188], rsi
+0x140780938: mov      qword ptr [rsp + 0x190], r8
+0x140780940: mov      qword ptr [rsp + 0x198], r9
+0x140780948: mov      qword ptr [rsp + 0x1a0], r10
+0x140780950: mov      qword ptr [rsp + 0x1a8], r11
+0x140780958: mov      rdx, qword ptr [rsp + 0x178]
+0x140780960: mov      qword ptr [rsp + 0xd0], rdx
+0x140780968: movups   xmm0, xmmword ptr [rsp + 0x180]
+0x140780970: movups   xmmword ptr [rsp + 0xd8], xmm0
+0x140780978: movups   xmm0, xmmword ptr [rsp + 0x190]
+0x140780980: movups   xmmword ptr [rsp + 0xe8], xmm0
+0x140780988: movups   xmm0, xmmword ptr [rsp + 0x1a0]
+0x140780990: movups   xmmword ptr [rsp + 0xf8], xmm0
+0x140780998: mov      rdx, qword ptr [rsp + 0xc8]
+0x1407809a0: mov      qword ptr [rsp + 0x230], rdx
+0x1407809a8: lea      rdi, [rsp + 0x238]
+0x1407809b0: lea      rsi, [rsp + 0xd0]
+0x1407809b8: nop      dword ptr [rax + rax]
+0x1407809c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407809c5: lea      rbp, [rsp - 0x10]
+0x1407809ca: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x1407809cf: mov      rbp, qword ptr [rbp]
+0x1407809d3: mov      rdx, qword ptr [rsp + 0xc8]
+0x1407809db: mov      qword ptr [rsp + 0x230], rdx
+0x1407809e3: lea      rdi, [rsp + 0x238]
+0x1407809eb: lea      rsi, [rsp + 0xd0]
+0x1407809f3: nop      word ptr [rax + rax]
+0x1407809fc: nop      dword ptr [rax]
+0x140780a00: mov      qword ptr [rsp - 0x10], rbp
+0x140780a05: lea      rbp, [rsp - 0x10]
+0x140780a0a: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x140780a0f: mov      rbp, qword ptr [rbp]
+0x140780a13: mov      rax, qword ptr [rsp + 0xc0]
+0x140780a1b: mov      rbx, qword ptr [rsp + 0x170]
+0x140780a23: add      rsp, 0x220
+0x140780a2a: pop      rbp
+0x140780a2b: ret      
+0x140780a2c: mov      qword ptr [rsp + 0xb0], rax
+0x140780a34: mov      qword ptr [rsp + 0xb8], rbx
+0x140780a3c: mov      qword ptr [rsp + 0xc0], rcx
+0x140780a44: call     0x14007f140    ; runtime.morestack_noctxt
+0x140780a49: mov      rax, qword ptr [rsp + 0xb0]
+0x140780a51: mov      rbx, qword ptr [rsp + 0xb8]
+0x140780a59: mov      rcx, qword ptr [rsp + 0xc0]
+0x140780a61: jmp      0x1407807c0    ; main.BootstrapService.ToggleOLEDBlackoutProfile
+0x140780a66: int3     
+0x140780a67: int3     
+0x140780a68: int3     
+0x140780a69: int3     
+0x140780a6a: int3     
+0x140780a6b: int3     
+0x140780a6c: int3     
+0x140780a6d: int3     
+0x140780a6e: int3     
+0x140780a6f: int3     
+0x140780a70: int3     
+0x140780a71: int3     
+0x140780a72: int3     
+0x140780a73: int3     
+0x140780a74: int3     
+0x140780a75: int3     
+0x140780a76: int3     
+0x140780a77: int3     
+0x140780a78: int3     
+0x140780a79: int3     
+0x140780a7a: int3     
+0x140780a7b: int3     
+0x140780a7c: int3     
+0x140780a7d: int3     
+0x140780a7e: int3     
+0x140780a7f: int3     

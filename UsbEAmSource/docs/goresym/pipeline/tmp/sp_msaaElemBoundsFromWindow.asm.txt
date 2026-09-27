@@ -1,0 +1,190 @@
+0x1409afba0: lea      r12, [rsp - 0x38]
+0x1409afba5: cmp      r12, qword ptr [r14 + 0x10]
+0x1409afba9: jbe      0x1409afe83   ; main.screenshotMSAAElementBoundsAtPointFromWindow+0x2e3
+0x1409afbaf: push     rbp
+0x1409afbb0: mov      rbp, rsp
+0x1409afbb3: sub      rsp, 0xb0
+0x1409afbba: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1409afbc3: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x1409afbcc: mov      dword ptr [rsp + 0x24], ebx
+0x1409afbd0: mov      dword ptr [rsp + 0x20], eax
+0x1409afbd4: mov      byte ptr [rsp + 0x1f], 0
+0x1409afbd9: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1409afbdf: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1409afbe5: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1409afbeb: mov      rax, rcx
+0x1409afbee: call     0x1409b0520   ; main.screenshotAccessibleObjectFromWindow
+0x1409afbf3: test     rbx, rbx
+0x1409afbf6: jne      0x1409afe18   ; main.screenshotMSAAElementBoundsAtPointFromWindow+0x278
+0x1409afbfc: mov      qword ptr [rsp + 0x68], rax
+0x1409afc01: lea      rcx, [rip + 0x338]
+0x1409afc08: mov      qword ptr [rsp + 0x80], rcx
+0x1409afc10: mov      qword ptr [rsp + 0x88], rax
+0x1409afc18: lea      rcx, [rsp + 0x80]
+0x1409afc20: mov      qword ptr [rsp + 0x98], rcx
+0x1409afc28: mov      byte ptr [rsp + 0x1f], 1
+0x1409afc2d: lea      rax, [rip + 0x215a0c]
+0x1409afc34: call     0x14001ae20   ; runtime.newobject
+0x1409afc39: mov      qword ptr [rsp + 0x90], rax
+0x1409afc41: mov      rax, qword ptr [rsp + 0x68]
+0x1409afc46: mov      ebx, dword ptr [rsp + 0x20]
+0x1409afc4a: mov      ecx, dword ptr [rsp + 0x24]
+0x1409afc4e: call     0x1409b06a0   ; main.screenshotAccessibleHitTest
+0x1409afc53: mov      word ptr [rsp + 0x48], bx
+0x1409afc58: mov      word ptr [rsp + 0x4a], cx
+0x1409afc5d: mov      word ptr [rsp + 0x4c], di
+0x1409afc62: mov      word ptr [rsp + 0x4e], si
+0x1409afc67: mov      qword ptr [rsp + 0x50], r8
+0x1409afc6c: movups   xmm0, xmmword ptr [rsp + 0x48]
+0x1409afc71: mov      rcx, qword ptr [rsp + 0x90]
+0x1409afc79: movups   xmmword ptr [rcx], xmm0
+0x1409afc7c: nop      dword ptr [rax]
+0x1409afc80: test     r10, r10
+0x1409afc83: jne      0x1409afdc9   ; main.screenshotMSAAElementBoundsAtPointFromWindow+0x229
+0x1409afc89: mov      qword ptr [rsp + 0xa0], r9
+0x1409afc91: lea      rdx, [rip + 0x228]
+0x1409afc98: mov      qword ptr [rsp + 0x70], rdx
+0x1409afc9d: mov      qword ptr [rsp + 0x78], rcx
+0x1409afca2: lea      rdx, [rsp + 0x70]
+0x1409afca7: mov      qword ptr [rsp + 0xa8], rdx
+0x1409afcaf: mov      byte ptr [rsp + 0x1f], 7
+0x1409afcb4: movzx    ebx, word ptr [rcx]
+0x1409afcb7: movzx    edx, word ptr [rcx + 2]
+0x1409afcbb: movzx    edi, word ptr [rcx + 4]
+0x1409afcbf: movzx    esi, word ptr [rcx + 6]
+0x1409afcc3: mov      r8, qword ptr [rcx + 8]
+0x1409afcc7: mov      ecx, edx
+0x1409afcc9: call     0x1409b0ca0   ; main.screenshotAccessibleLocation
+0x1409afcce: test     rsi, rsi
+0x1409afcd1: jne      0x1409afcdd   ; main.screenshotMSAAElementBoundsAtPointFromWindow+0x13d
+0x1409afcd3: cmp      rcx, rax
+0x1409afcd6: jle      0x1409afcdd   ; main.screenshotMSAAElementBoundsAtPointFromWindow+0x13d
+0x1409afcd8: cmp      rbx, rdi
+0x1409afcdb: jl       0x1409afd50   ; main.screenshotMSAAElementBoundsAtPointFromWindow+0x1b0
+0x1409afcdd: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1409afce3: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1409afce9: mov      qword ptr [rsp + 0x58], rsi
+0x1409afcee: mov      qword ptr [rsp + 0x60], r8
+0x1409afcf3: mov      byte ptr [rsp + 0x1f], 3
+0x1409afcf8: mov      rdx, qword ptr [rsp + 0xa8]
+0x1409afd00: mov      rax, qword ptr [rdx]
+0x1409afd03: call     rax
+0x1409afd05: mov      byte ptr [rsp + 0x1f], 1
+0x1409afd0a: mov      rdx, qword ptr [rsp + 0xa0]
+0x1409afd12: mov      rax, qword ptr [rdx]
+0x1409afd15: call     rax
+0x1409afd17: mov      byte ptr [rsp + 0x1f], 0
+0x1409afd1c: mov      rdx, qword ptr [rsp + 0x98]
+0x1409afd24: mov      rax, qword ptr [rdx]
+0x1409afd27: call     rax
+0x1409afd29: mov      rsi, qword ptr [rsp + 0x58]
+0x1409afd2e: mov      r8, qword ptr [rsp + 0x60]
+0x1409afd33: mov      rax, qword ptr [rsp + 0x28]
+0x1409afd38: mov      rbx, qword ptr [rsp + 0x30]
+0x1409afd3d: mov      rcx, qword ptr [rsp + 0x38]
+0x1409afd42: mov      rdi, qword ptr [rsp + 0x40]
+0x1409afd47: add      rsp, 0xb0
+0x1409afd4e: pop      rbp
+0x1409afd4f: ret      
+0x1409afd50: mov      qword ptr [rsp + 0x28], rax
+0x1409afd55: mov      qword ptr [rsp + 0x30], rbx
+0x1409afd5a: mov      qword ptr [rsp + 0x38], rcx
+0x1409afd5f: mov      qword ptr [rsp + 0x40], rdi
+0x1409afd64: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1409afd6a: mov      byte ptr [rsp + 0x1f], 3
+0x1409afd6f: mov      rdx, qword ptr [rsp + 0xa8]
+0x1409afd77: mov      rax, qword ptr [rdx]
+0x1409afd7a: call     rax
+0x1409afd7c: mov      byte ptr [rsp + 0x1f], 1
+0x1409afd81: mov      rdx, qword ptr [rsp + 0xa0]
+0x1409afd89: mov      rax, qword ptr [rdx]
+0x1409afd8c: call     rax
+0x1409afd8e: mov      byte ptr [rsp + 0x1f], 0
+0x1409afd93: mov      rdx, qword ptr [rsp + 0x98]
+0x1409afd9b: mov      rax, qword ptr [rdx]
+0x1409afd9e: nop      
+0x1409afda0: call     rax
+0x1409afda2: mov      rsi, qword ptr [rsp + 0x58]
+0x1409afda7: mov      r8, qword ptr [rsp + 0x60]
+0x1409afdac: mov      rax, qword ptr [rsp + 0x28]
+0x1409afdb1: mov      rbx, qword ptr [rsp + 0x30]
+0x1409afdb6: mov      rcx, qword ptr [rsp + 0x38]
+0x1409afdbb: mov      rdi, qword ptr [rsp + 0x40]
+0x1409afdc0: add      rsp, 0xb0
+0x1409afdc7: pop      rbp
+0x1409afdc8: ret      
+0x1409afdc9: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1409afdcf: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1409afdd5: mov      qword ptr [rsp + 0x58], r10
+0x1409afdda: mov      qword ptr [rsp + 0x60], r11
+0x1409afddf: mov      byte ptr [rsp + 0x1f], 0
+0x1409afde4: mov      rdx, qword ptr [rsp + 0x98]
+0x1409afdec: mov      rax, qword ptr [rdx]
+0x1409afdef: call     rax
+0x1409afdf1: mov      rsi, qword ptr [rsp + 0x58]
+0x1409afdf6: mov      r8, qword ptr [rsp + 0x60]
+0x1409afdfb: mov      rax, qword ptr [rsp + 0x28]
+0x1409afe00: mov      rbx, qword ptr [rsp + 0x30]
+0x1409afe05: mov      rcx, qword ptr [rsp + 0x38]
+0x1409afe0a: mov      rdi, qword ptr [rsp + 0x40]
+0x1409afe0f: add      rsp, 0xb0
+0x1409afe16: pop      rbp
+0x1409afe17: ret      
+0x1409afe18: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1409afe1e: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1409afe24: mov      qword ptr [rsp + 0x58], rbx
+0x1409afe29: mov      qword ptr [rsp + 0x60], rcx
+0x1409afe2e: mov      rax, qword ptr [rsp + 0x28]
+0x1409afe33: mov      rdx, qword ptr [rsp + 0x30]
+0x1409afe38: mov      r9, qword ptr [rsp + 0x38]
+0x1409afe3d: mov      rdi, qword ptr [rsp + 0x40]
+0x1409afe42: mov      rsi, rbx
+0x1409afe45: mov      r8, rcx
+0x1409afe48: mov      rbx, rdx
+0x1409afe4b: mov      rcx, r9
+0x1409afe4e: add      rsp, 0xb0
+0x1409afe55: pop      rbp
+0x1409afe56: ret      
+0x1409afe57: call     0x1400435e0   ; runtime.deferreturn
+0x1409afe5c: mov      rax, qword ptr [rsp + 0x28]
+0x1409afe61: mov      rbx, qword ptr [rsp + 0x30]
+0x1409afe66: mov      rcx, qword ptr [rsp + 0x38]
+0x1409afe6b: mov      rdi, qword ptr [rsp + 0x40]
+0x1409afe70: mov      rsi, qword ptr [rsp + 0x58]
+0x1409afe75: mov      r8, qword ptr [rsp + 0x60]
+0x1409afe7a: add      rsp, 0xb0
+0x1409afe81: pop      rbp
+0x1409afe82: ret      
+0x1409afe83: mov      dword ptr [rsp + 8], eax
+0x1409afe87: mov      dword ptr [rsp + 0xc], ebx
+0x1409afe8b: mov      qword ptr [rsp + 0x10], rcx
+0x1409afe90: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409afe95: mov      eax, dword ptr [rsp + 8]
+0x1409afe99: mov      ebx, dword ptr [rsp + 0xc]
+0x1409afe9d: mov      rcx, qword ptr [rsp + 0x10]
+0x1409afea2: jmp      0x1409afba0   ; main.screenshotMSAAElementBoundsAtPointFromWindow
+0x1409afea7: int3     
+0x1409afea8: int3     
+0x1409afea9: int3     
+0x1409afeaa: int3     
+0x1409afeab: int3     
+0x1409afeac: int3     
+0x1409afead: int3     
+0x1409afeae: int3     
+0x1409afeaf: int3     
+0x1409afeb0: int3     
+0x1409afeb1: int3     
+0x1409afeb2: int3     
+0x1409afeb3: int3     
+0x1409afeb4: int3     
+0x1409afeb5: int3     
+0x1409afeb6: int3     
+0x1409afeb7: int3     
+0x1409afeb8: int3     
+0x1409afeb9: int3     
+0x1409afeba: int3     
+0x1409afebb: int3     
+0x1409afebc: int3     
+0x1409afebd: int3     
+0x1409afebe: int3     
+0x1409afebf: int3     

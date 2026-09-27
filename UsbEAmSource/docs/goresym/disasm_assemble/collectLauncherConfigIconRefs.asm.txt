@@ -1,0 +1,45 @@
+0x140894ca0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140894ca4: jbe      0x140894d03    ; main.collectLauncherConfigIconRefs+0x63
+0x140894ca6: push     rbp
+0x140894ca7: mov      rbp, rsp
+0x140894caa: sub      rsp, 0x28
+0x140894cae: mov      qword ptr [rsp + 0x38], rax
+0x140894cb3: call     0x140076d40    ; runtime.makemap_small
+0x140894cb8: mov      rcx, qword ptr [rsp + 0x38]
+0x140894cbd: nop      dword ptr [rax]
+0x140894cc0: test     rcx, rcx
+0x140894cc3: je       0x140894cf9    ; main.collectLauncherConfigIconRefs+0x59
+0x140894cc5: mov      qword ptr [rsp + 0x10], rax
+0x140894cca: lea      rdx, [rip + 0x4f]
+0x140894cd1: mov      qword ptr [rsp + 0x18], rdx
+0x140894cd6: mov      qword ptr [rsp + 0x20], rax
+0x140894cdb: mov      rax, rcx
+0x140894cde: lea      rbx, [rsp + 0x18]
+0x140894ce3: call     0x14088d940    ; main.visitLauncherConfigIconSlots
+0x140894ce8: mov      rcx, rbx
+0x140894ceb: mov      rbx, rax
+0x140894cee: mov      rax, qword ptr [rsp + 0x10]
+0x140894cf3: add      rsp, 0x28
+0x140894cf7: pop      rbp
+0x140894cf8: ret      
+0x140894cf9: xor      ebx, ebx
+0x140894cfb: xor      ecx, ecx
+0x140894cfd: add      rsp, 0x28
+0x140894d01: pop      rbp
+0x140894d02: ret      
+0x140894d03: mov      qword ptr [rsp + 8], rax
+0x140894d08: call     0x14007f140    ; runtime.morestack_noctxt
+0x140894d0d: mov      rax, qword ptr [rsp + 8]
+0x140894d12: jmp      0x140894ca0    ; main.collectLauncherConfigIconRefs
+0x140894d14: int3     
+0x140894d15: int3     
+0x140894d16: int3     
+0x140894d17: int3     
+0x140894d18: int3     
+0x140894d19: int3     
+0x140894d1a: int3     
+0x140894d1b: int3     
+0x140894d1c: int3     
+0x140894d1d: int3     
+0x140894d1e: int3     
+0x140894d1f: int3     

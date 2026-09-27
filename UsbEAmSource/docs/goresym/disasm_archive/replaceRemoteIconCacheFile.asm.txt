@@ -1,0 +1,70 @@
+0x140966340: cmp      rsp, qword ptr [r14 + 0x10]
+0x140966344: jbe      0x1409663b7    ; main.replaceRemoteIconCacheFile+0x77
+0x140966346: push     rbp
+0x140966347: mov      rbp, rsp
+0x14096634a: sub      rsp, 0x20
+0x14096634e: mov      qword ptr [rsp + 0x30], rax
+0x140966353: mov      qword ptr [rsp + 0x48], rdi
+0x140966358: mov      qword ptr [rsp + 0x40], rcx
+0x14096635d: nop      dword ptr [rax]
+0x140966360: call     0x140194220    ; golang.org/x/sys/windows.UTF16PtrFromString
+0x140966365: test     rbx, rbx
+0x140966368: jne      0x1409663ab    ; main.replaceRemoteIconCacheFile+0x6b
+0x14096636a: mov      qword ptr [rsp + 0x18], rax
+0x14096636f: mov      rax, qword ptr [rsp + 0x40]
+0x140966374: mov      rbx, qword ptr [rsp + 0x48]
+0x140966379: call     0x140194220    ; golang.org/x/sys/windows.UTF16PtrFromString
+0x14096637e: nop      
+0x140966380: test     rbx, rbx
+0x140966383: je       0x140966391    ; main.replaceRemoteIconCacheFile+0x51
+0x140966385: mov      rax, rbx
+0x140966388: mov      rbx, rcx
+0x14096638b: add      rsp, 0x20
+0x14096638f: pop      rbp
+0x140966390: ret      
+0x140966391: mov      rbx, rax
+0x140966394: mov      ecx, 9
+0x140966399: mov      rax, qword ptr [rsp + 0x18]
+0x14096639e: nop      
+0x1409663a0: call     0x140198660    ; golang.org/x/sys/windows.MoveFileEx
+0x1409663a5: add      rsp, 0x20
+0x1409663a9: pop      rbp
+0x1409663aa: ret      
+0x1409663ab: mov      rax, rbx
+0x1409663ae: mov      rbx, rcx
+0x1409663b1: add      rsp, 0x20
+0x1409663b5: pop      rbp
+0x1409663b6: ret      
+0x1409663b7: mov      qword ptr [rsp + 8], rax
+0x1409663bc: mov      qword ptr [rsp + 0x10], rbx
+0x1409663c1: mov      qword ptr [rsp + 0x18], rcx
+0x1409663c6: mov      qword ptr [rsp + 0x20], rdi
+0x1409663cb: call     0x14007f140    ; runtime.morestack_noctxt
+0x1409663d0: mov      rax, qword ptr [rsp + 8]
+0x1409663d5: mov      rbx, qword ptr [rsp + 0x10]
+0x1409663da: mov      rcx, qword ptr [rsp + 0x18]
+0x1409663df: mov      rdi, qword ptr [rsp + 0x20]
+0x1409663e4: jmp      0x140966340    ; main.replaceRemoteIconCacheFile
+0x1409663e9: int3     
+0x1409663ea: int3     
+0x1409663eb: int3     
+0x1409663ec: int3     
+0x1409663ed: int3     
+0x1409663ee: int3     
+0x1409663ef: int3     
+0x1409663f0: int3     
+0x1409663f1: int3     
+0x1409663f2: int3     
+0x1409663f3: int3     
+0x1409663f4: int3     
+0x1409663f5: int3     
+0x1409663f6: int3     
+0x1409663f7: int3     
+0x1409663f8: int3     
+0x1409663f9: int3     
+0x1409663fa: int3     
+0x1409663fb: int3     
+0x1409663fc: int3     
+0x1409663fd: int3     
+0x1409663fe: int3     
+0x1409663ff: int3     

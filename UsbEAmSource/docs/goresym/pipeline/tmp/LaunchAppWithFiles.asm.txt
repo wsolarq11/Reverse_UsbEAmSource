@@ -1,0 +1,132 @@
+0x1408a62c0: lea      r12, [rsp - 0x540]
+0x1408a62c8: cmp      r12, qword ptr [r14 + 0x10]
+0x1408a62cc: jbe      0x1408a6532    ; main.BootstrapService.LaunchAppWithFiles+0x272
+0x1408a62d2: push     rbp
+0x1408a62d3: mov      rbp, rsp
+0x1408a62d6: sub      rsp, 0x5b8
+0x1408a62dd: mov      qword ptr [rsp + 0x730], rax
+0x1408a62e5: mov      qword ptr [rsp + 0x758], r8
+0x1408a62ed: mov      qword ptr [rsp + 0x750], rsi
+0x1408a62f5: mov      qword ptr [rsp + 0x740], rcx
+0x1408a62fd: mov      qword ptr [rsp + 0x738], rbx
+0x1408a6305: mov      qword ptr [rsp + 0x748], rdi
+0x1408a630d: movups   xmmword ptr [rsp + 0x450], xmm15
+0x1408a6316: lea      rdi, [rsp + 0x458]
+0x1408a631e: lea      rdi, [rdi - 0x20]
+0x1408a6322: mov      qword ptr [rsp - 0x10], rbp
+0x1408a6327: lea      rbp, [rsp - 0x10]
+0x1408a632c: call     0x1400816cf    ; runtime.duffzero+0xef
+0x1408a6331: mov      rbp, qword ptr [rbp]
+0x1408a6335: mov      rdx, qword ptr [rsp + 0x5c8]
+0x1408a633d: mov      qword ptr [rsp + 0x450], rdx
+0x1408a6345: lea      rdi, [rsp + 0x458]
+0x1408a634d: lea      rsi, [rsp + 0x5d0]
+0x1408a6355: nop      word ptr [rax + rax]
+0x1408a635e: nop      
+0x1408a6360: mov      qword ptr [rsp - 0x10], rbp
+0x1408a6365: lea      rbp, [rsp - 0x10]
+0x1408a636a: call     0x1400819ac    ; runtime.duffcopy+0x24c
+0x1408a636f: mov      rbp, qword ptr [rbp]
+0x1408a6373: lea      rax, [rsp + 0x450]
+0x1408a637b: mov      ebx, 1
+0x1408a6380: mov      rcx, rbx
+0x1408a6383: call     0x140889780    ; main.normalizeAppEntries
+0x1408a6388: test     rbx, rbx
+0x1408a638b: je       0x1408a6501    ; main.BootstrapService.LaunchAppWithFiles+0x241
+0x1408a6391: mov      rdx, qword ptr [rax]
+0x1408a6394: lea      rsi, [rax + 8]
+0x1408a6398: mov      qword ptr [rsp + 0x2e8], rdx
+0x1408a63a0: lea      rdi, [rsp + 0x2f0]
+0x1408a63a8: mov      qword ptr [rsp - 0x10], rbp
+0x1408a63ad: lea      rbp, [rsp - 0x10]
+0x1408a63b2: call     0x1400819ac    ; runtime.duffcopy+0x24c
+0x1408a63b7: mov      rbp, qword ptr [rbp]
+0x1408a63bb: mov      rdx, qword ptr [rsp + 0x2e8]
+0x1408a63c3: mov      qword ptr [rsp], rdx
+0x1408a63c7: lea      rdi, [rsp + 8]
+0x1408a63cc: lea      rsi, [rsp + 0x2f0]
+0x1408a63d4: nop      word ptr [rax + rax]
+0x1408a63dd: nop      dword ptr [rax]
+0x1408a63e0: mov      qword ptr [rsp - 0x10], rbp
+0x1408a63e5: lea      rbp, [rsp - 0x10]
+0x1408a63ea: call     0x1400819ac    ; runtime.duffcopy+0x24c
+0x1408a63ef: mov      rbp, qword ptr [rbp]
+0x1408a63f3: mov      rax, qword ptr [rsp + 0x738]
+0x1408a63fb: mov      rbx, qword ptr [rsp + 0x740]
+0x1408a6403: mov      rcx, qword ptr [rsp + 0x748]
+0x1408a640b: call     0x1408a6c20    ; main.buildAppEntryWithDroppedFiles
+0x1408a6410: mov      rdx, qword ptr [rsp + 0x168]
+0x1408a6418: mov      qword ptr [rsp + 0x2e8], rdx
+0x1408a6420: lea      rdi, [rsp + 0x2f0]
+0x1408a6428: lea      rsi, [rsp + 0x170]
+0x1408a6430: nop      word ptr [rax + rax]
+0x1408a6439: nop      dword ptr [rax]
+0x1408a6440: mov      qword ptr [rsp - 0x10], rbp
+0x1408a6445: lea      rbp, [rsp - 0x10]
+0x1408a644a: call     0x1400819ac    ; runtime.duffcopy+0x24c
+0x1408a644f: mov      rbp, qword ptr [rbp]
+0x1408a6453: mov      rax, qword ptr [rsp + 0x750]
+0x1408a645b: mov      rbx, qword ptr [rsp + 0x758]
+0x1408a6463: call     0x140882680    ; main.normalizeAppLaunchPrivilegeMode
+0x1408a6468: test     rbx, rbx
+0x1408a646b: je       0x1408a6489    ; main.BootstrapService.LaunchAppWithFiles+0x1c9
+0x1408a646d: cmp      rbx, 7
+0x1408a6471: jne      0x1408a64ba    ; main.BootstrapService.LaunchAppWithFiles+0x1fa
+0x1408a6473: cmp      dword ptr [rax], 0x61666564
+0x1408a6479: jne      0x1408a64ba    ; main.BootstrapService.LaunchAppWithFiles+0x1fa
+0x1408a647b: cmp      word ptr [rax + 4], 0x6c75
+0x1408a6481: jne      0x1408a64ba    ; main.BootstrapService.LaunchAppWithFiles+0x1fa
+0x1408a6483: cmp      byte ptr [rax + 6], 0x74
+0x1408a6487: jne      0x1408a64ba    ; main.BootstrapService.LaunchAppWithFiles+0x1fa
+0x1408a6489: mov      rax, qword ptr [rsp + 0x730]
+0x1408a6491: call     0x1408a65a0    ; main.BootstrapService.loadAppLaunchPrivilegeDefault
+0x1408a6496: mov      rcx, qword ptr [rsp + 0x3f0]
+0x1408a649e: mov      rdx, qword ptr [rsp + 0x3f8]
+0x1408a64a6: mov      rdi, rbx
+0x1408a64a9: mov      rbx, rdx
+0x1408a64ac: mov      rdx, rax
+0x1408a64af: mov      rax, rcx
+0x1408a64b2: mov      rcx, rdx
+0x1408a64b5: call     0x140882880    ; main.resolveEffectiveAppLaunchPrivilege
+0x1408a64ba: mov      rcx, qword ptr [rsp + 0x2e8]
+0x1408a64c2: mov      qword ptr [rsp], rcx
+0x1408a64c6: lea      rdi, [rsp + 8]
+0x1408a64cb: lea      rsi, [rsp + 0x2f0]
+0x1408a64d3: nop      word ptr [rax + rax]
+0x1408a64dc: nop      dword ptr [rax]
+0x1408a64e0: mov      qword ptr [rsp - 0x10], rbp
+0x1408a64e5: lea      rbp, [rsp - 0x10]
+0x1408a64ea: call     0x1400819ac    ; runtime.duffcopy+0x24c
+0x1408a64ef: mov      rbp, qword ptr [rbp]
+0x1408a64f3: call     0x1408a6a20    ; main.startApplication
+0x1408a64f8: add      rsp, 0x5b8
+0x1408a64ff: pop      rbp
+0x1408a6500: ret      
+0x1408a6501: lea      rax, [rip + 0x2ade78]
+0x1408a6508: call     0x14001ae20    ; runtime.newobject
+0x1408a650d: mov      qword ptr [rax + 8], 0x18
+0x1408a6515: lea      rcx, [rip + 0x3bec5c]
+0x1408a651c: mov      qword ptr [rax], rcx
+0x1408a651f: mov      rbx, rax
+0x1408a6522: lea      rax, [rip + 0x92cbd7]
+0x1408a6529: add      rsp, 0x5b8
+0x1408a6530: pop      rbp
+0x1408a6531: ret      
+0x1408a6532: mov      qword ptr [rsp + 0x170], rax
+0x1408a653a: mov      qword ptr [rsp + 0x178], rbx
+0x1408a6542: mov      qword ptr [rsp + 0x180], rcx
+0x1408a654a: mov      qword ptr [rsp + 0x188], rdi
+0x1408a6552: mov      qword ptr [rsp + 0x190], rsi
+0x1408a655a: mov      qword ptr [rsp + 0x198], r8
+0x1408a6562: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408a6567: mov      rax, qword ptr [rsp + 0x170]
+0x1408a656f: mov      rbx, qword ptr [rsp + 0x178]
+0x1408a6577: mov      rcx, qword ptr [rsp + 0x180]
+0x1408a657f: mov      rdi, qword ptr [rsp + 0x188]
+0x1408a6587: mov      rsi, qword ptr [rsp + 0x190]
+0x1408a658f: mov      r8, qword ptr [rsp + 0x198]
+0x1408a6597: jmp      0x1408a62c0    ; main.BootstrapService.LaunchAppWithFiles
+0x1408a659c: int3     
+0x1408a659d: int3     
+0x1408a659e: int3     
+0x1408a659f: int3     

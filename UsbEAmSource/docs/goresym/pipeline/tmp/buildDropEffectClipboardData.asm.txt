@@ -1,0 +1,108 @@
+0x1408ae5e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ae5e4: jbe      0x1408ae72f   ; main.buildDropEffectClipboardData+0x14f
+0x1408ae5ea: push     rbp
+0x1408ae5eb: mov      rbp, rsp
+0x1408ae5ee: sub      rsp, 0x70
+0x1408ae5f2: movq     qword ptr [rsp + 0x68], xmm15
+0x1408ae5f9: mov      dword ptr [rsp + 0x80], eax
+0x1408ae600: mov      byte ptr [rsp + 0x27], 0
+0x1408ae605: mov      qword ptr [rsp + 0x28], 0
+0x1408ae60e: movups   xmmword ptr [rsp + 0x50], xmm15
+0x1408ae614: mov      eax, 4
+0x1408ae619: call     0x1408ae9e0   ; main.globalAllocMoveable
+0x1408ae61e: nop      
+0x1408ae620: test     rbx, rbx
+0x1408ae623: jne      0x1408ae6f7   ; main.buildDropEffectClipboardData+0x117
+0x1408ae629: mov      qword ptr [rsp + 0x30], rax
+0x1408ae62e: call     0x1408aeac0   ; main.globalLock
+0x1408ae633: test     rbx, rbx
+0x1408ae636: je       0x1408ae698   ; main.buildDropEffectClipboardData+0xb8
+0x1408ae638: mov      qword ptr [rsp + 0x60], rcx
+0x1408ae63d: mov      qword ptr [rsp + 0x38], rbx
+0x1408ae642: lea      rax, [rip + 0x24f337]
+0x1408ae649: call     0x14001ae20   ; runtime.newobject
+0x1408ae64e: mov      rcx, qword ptr [rsp + 0x30]
+0x1408ae653: mov      qword ptr [rax], rcx
+0x1408ae656: mov      rcx, qword ptr [rip + 0x131342b]
+0x1408ae65d: mov      rbx, rax
+0x1408ae660: mov      edi, 1
+0x1408ae665: mov      rax, rcx
+0x1408ae668: mov      rcx, rdi
+0x1408ae66b: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1408ae670: mov      qword ptr [rsp + 0x28], 0
+0x1408ae679: mov      rbx, qword ptr [rsp + 0x38]
+0x1408ae67e: mov      qword ptr [rsp + 0x50], rbx
+0x1408ae683: mov      rcx, qword ptr [rsp + 0x60]
+0x1408ae688: mov      qword ptr [rsp + 0x58], rcx
+0x1408ae68d: mov      rax, qword ptr [rsp + 0x28]
+0x1408ae692: add      rsp, 0x70
+0x1408ae696: pop      rbp
+0x1408ae697: ret      
+0x1408ae698: lea      rcx, [rip + 0xc1]
+0x1408ae69f: mov      qword ptr [rsp + 0x40], rcx
+0x1408ae6a4: mov      rcx, qword ptr [rsp + 0x30]
+0x1408ae6a9: mov      qword ptr [rsp + 0x48], rcx
+0x1408ae6ae: lea      rbx, [rsp + 0x40]
+0x1408ae6b3: mov      qword ptr [rsp + 0x68], rbx
+0x1408ae6b8: mov      byte ptr [rsp + 0x27], 1
+0x1408ae6bd: mov      ebx, dword ptr [rsp + 0x80]
+0x1408ae6c4: mov      dword ptr [rax], ebx
+0x1408ae6c6: mov      qword ptr [rsp + 0x28], rcx
+0x1408ae6cb: movups   xmmword ptr [rsp + 0x50], xmm15
+0x1408ae6d1: mov      byte ptr [rsp + 0x27], 0
+0x1408ae6d6: mov      rdx, qword ptr [rsp + 0x68]
+0x1408ae6db: mov      rax, qword ptr [rdx]
+0x1408ae6de: nop      
+0x1408ae6e0: call     rax
+0x1408ae6e2: mov      rbx, qword ptr [rsp + 0x50]
+0x1408ae6e7: mov      rax, qword ptr [rsp + 0x28]
+0x1408ae6ec: mov      rcx, qword ptr [rsp + 0x58]
+0x1408ae6f1: add      rsp, 0x70
+0x1408ae6f5: pop      rbp
+0x1408ae6f6: ret      
+0x1408ae6f7: mov      qword ptr [rsp + 0x28], 0
+0x1408ae700: mov      qword ptr [rsp + 0x50], rbx
+0x1408ae705: mov      qword ptr [rsp + 0x58], rcx
+0x1408ae70a: mov      rax, qword ptr [rsp + 0x28]
+0x1408ae70f: add      rsp, 0x70
+0x1408ae713: pop      rbp
+0x1408ae714: ret      
+0x1408ae715: call     0x1400435e0   ; runtime.deferreturn
+0x1408ae71a: mov      rax, qword ptr [rsp + 0x28]
+0x1408ae71f: mov      rbx, qword ptr [rsp + 0x50]
+0x1408ae724: mov      rcx, qword ptr [rsp + 0x58]
+0x1408ae729: add      rsp, 0x70
+0x1408ae72d: pop      rbp
+0x1408ae72e: ret      
+0x1408ae72f: mov      dword ptr [rsp + 8], eax
+0x1408ae733: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408ae738: mov      eax, dword ptr [rsp + 8]
+0x1408ae73c: nop      dword ptr [rax]
+0x1408ae740: jmp      0x1408ae5e0   ; main.buildDropEffectClipboardData
+0x1408ae745: int3     
+0x1408ae746: int3     
+0x1408ae747: int3     
+0x1408ae748: int3     
+0x1408ae749: int3     
+0x1408ae74a: int3     
+0x1408ae74b: int3     
+0x1408ae74c: int3     
+0x1408ae74d: int3     
+0x1408ae74e: int3     
+0x1408ae74f: int3     
+0x1408ae750: int3     
+0x1408ae751: int3     
+0x1408ae752: int3     
+0x1408ae753: int3     
+0x1408ae754: int3     
+0x1408ae755: int3     
+0x1408ae756: int3     
+0x1408ae757: int3     
+0x1408ae758: int3     
+0x1408ae759: int3     
+0x1408ae75a: int3     
+0x1408ae75b: int3     
+0x1408ae75c: int3     
+0x1408ae75d: int3     
+0x1408ae75e: int3     
+0x1408ae75f: int3     

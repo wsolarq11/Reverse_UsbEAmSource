@@ -1,0 +1,50 @@
+0x1408008e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408008e4: jbe      0x140800935   ; main.truncateOpenWALAtValidOffset+0x55
+0x1408008e6: push     rbp
+0x1408008e7: mov      rbp, rsp
+0x1408008ea: sub      rsp, 0x10
+0x1408008ee: test     rax, rax
+0x1408008f1: je       0x140800921   ; main.truncateOpenWALAtValidOffset+0x41
+0x1408008f3: test     rbx, rbx
+0x1408008f6: jl       0x140800921   ; main.truncateOpenWALAtValidOffset+0x41
+0x1408008f8: mov      qword ptr [rsp + 0x20], rax
+0x1408008fd: nop      dword ptr [rax]
+0x140800900: call     0x140129a80   ; os.File.Truncate
+0x140800905: test     rax, rax
+0x140800908: je       0x140800910   ; main.truncateOpenWALAtValidOffset+0x30
+0x14080090a: add      rsp, 0x10
+0x14080090e: pop      rbp
+0x14080090f: ret      
+0x140800910: mov      rax, qword ptr [rsp + 0x20]
+0x140800915: call     0x140129b20   ; os.File.Sync
+0x14080091a: add      rsp, 0x10
+0x14080091e: pop      rbp
+0x14080091f: nop      
+0x140800920: ret      
+0x140800921: mov      rax, qword ptr [rip + 0x13c3328]
+0x140800928: mov      rbx, qword ptr [rip + 0x13c3329]
+0x14080092f: add      rsp, 0x10
+0x140800933: pop      rbp
+0x140800934: ret      
+0x140800935: mov      qword ptr [rsp + 8], rax
+0x14080093a: mov      qword ptr [rsp + 0x10], rbx
+0x14080093f: nop      
+0x140800940: call     0x14007f140   ; runtime.morestack_noctxt
+0x140800945: mov      rax, qword ptr [rsp + 8]
+0x14080094a: mov      rbx, qword ptr [rsp + 0x10]
+0x14080094f: jmp      0x1408008e0   ; main.truncateOpenWALAtValidOffset
+0x140800951: int3     
+0x140800952: int3     
+0x140800953: int3     
+0x140800954: int3     
+0x140800955: int3     
+0x140800956: int3     
+0x140800957: int3     
+0x140800958: int3     
+0x140800959: int3     
+0x14080095a: int3     
+0x14080095b: int3     
+0x14080095c: int3     
+0x14080095d: int3     
+0x14080095e: int3     
+0x14080095f: int3     

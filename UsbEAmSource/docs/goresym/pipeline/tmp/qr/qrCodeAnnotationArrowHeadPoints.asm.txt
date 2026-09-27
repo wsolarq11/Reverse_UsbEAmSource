@@ -1,0 +1,204 @@
+0x140955ba0: lea      r12, [rsp - 0x38]
+0x140955ba5: cmp      r12, qword ptr [r14 + 0x10]
+0x140955ba9: jbe      0x140955ea6   ; main.qrCodeAnnotationArrowHeadPoints+0x306
+0x140955baf: push     rbp
+0x140955bb0: mov      rbp, rsp
+0x140955bb3: sub      rsp, 0xb0
+0x140955bba: mov      qword ptr [rsp + 0xe0], rsi
+0x140955bc2: mov      qword ptr [rsp + 0x90], rdi
+0x140955bca: mov      qword ptr [rsp + 0x88], rcx
+0x140955bd2: sub      rdi, rbx
+0x140955bd5: xorps    xmm0, xmm0
+0x140955bd8: cvtsi2sd xmm0, rdi
+0x140955bdd: sub      rcx, rax
+0x140955be0: xorps    xmm1, xmm1
+0x140955be3: cvtsi2sd xmm1, rcx
+0x140955be8: call     0x1400a37e0   ; math.atan2
+0x140955bed: movsd    qword ptr [rsp + 0x50], xmm0
+0x140955bf3: nop      
+0x140955bf4: lea      rax, [rip + 0x28dd45]
+0x140955bfb: xor      ebx, ebx
+0x140955bfd: mov      ecx, 2
+0x140955c02: call     0x14007ac40   ; runtime.makeslice
+0x140955c07: movabs   rcx, 0x3fe0c152382d7366
+0x140955c11: mov      qword ptr [rsp + 0x98], rcx
+0x140955c19: movabs   rcx, 0xbfe0c152382d7366
+0x140955c23: mov      qword ptr [rsp + 0xa0], rcx
+0x140955c2b: mov      rcx, qword ptr [rsp + 0xe0]
+0x140955c33: cmp      rcx, 1
+0x140955c37: mov      edx, 1
+0x140955c3c: cmovg    rdx, rcx
+0x140955c40: shl      rdx, 2
+0x140955c44: cmp      rdx, 0xe
+0x140955c48: mov      ecx, 0xe
+0x140955c4d: cmovg    rcx, rdx
+0x140955c51: xorps    xmm2, xmm2
+0x140955c54: cvtsi2sd xmm2, rcx
+0x140955c59: movsd    qword ptr [rsp + 0x48], xmm2
+0x140955c5f: xor      ecx, ecx
+0x140955c61: mov      edx, 2
+0x140955c66: xor      ebx, ebx
+0x140955c68: jmp      0x140955c8f   ; main.qrCodeAnnotationArrowHeadPoints+0xef
+0x140955c6a: lea      rsi, [rbx - 1]
+0x140955c6e: shl      rsi, 4
+0x140955c72: mov      qword ptr [rax + rsi], r9
+0x140955c76: mov      qword ptr [rax + rsi + 8], rdx
+0x140955c7b: mov      rsi, qword ptr [rsp + 0x80]
+0x140955c83: inc      rsi
+0x140955c86: movups   xmm2, xmm1
+0x140955c89: mov      rdx, rcx
+0x140955c8c: mov      rcx, rsi
+0x140955c8f: cmp      rcx, 2
+0x140955c93: jge      0x140955e9a   ; main.qrCodeAnnotationArrowHeadPoints+0x2fa
+0x140955c99: mov      qword ptr [rsp + 0xa8], rax
+0x140955ca1: mov      qword ptr [rsp + 0x80], rcx
+0x140955ca9: mov      qword ptr [rsp + 0x68], rdx
+0x140955cae: mov      qword ptr [rsp + 0x60], rbx
+0x140955cb3: movsd    xmm0, qword ptr [rsp + rcx*8 + 0x98]
+0x140955cbc: movsd    xmm1, qword ptr [rsp + 0x50]
+0x140955cc2: addsd    xmm0, xmm1
+0x140955cc6: movsd    qword ptr [rsp + 0x58], xmm0
+0x140955ccc: call     0x1400a4a40   ; math.cos
+0x140955cd1: movsd    xmm1, qword ptr [rsp + 0x48]
+0x140955cd7: mulsd    xmm0, xmm1
+0x140955cdb: movq     rcx, xmm0
+0x140955ce0: mov      rax, rcx
+0x140955ce3: shr      rax, 0x34
+0x140955ce7: and      eax, 0x7ff
+0x140955cec: nop      
+0x140955ced: cmp      rax, 0x3ff
+0x140955cf3: jae      0x140955d20   ; main.qrCodeAnnotationArrowHeadPoints+0x180
+0x140955cf5: movabs   rdx, 0x8000000000000000
+0x140955cff: and      rcx, rdx
+0x140955d02: movabs   rbx, 0x3ff0000000000000
+0x140955d0c: or       rbx, rcx
+0x140955d0f: cmp      rax, 0x3fe
+0x140955d15: cmove    rcx, rbx
+0x140955d19: mov      rdx, rcx
+0x140955d1c: jmp      0x140955d5c   ; main.qrCodeAnnotationArrowHeadPoints+0x1bc
+0x140955d1e: nop      
+0x140955d20: cmp      rax, 0x433
+0x140955d26: jae      0x140955d59   ; main.qrCodeAnnotationArrowHeadPoints+0x1b9
+0x140955d28: add      rax, -0x3ff
+0x140955d2e: mov      rdx, rcx
+0x140955d31: mov      rcx, rax
+0x140955d34: movabs   rbx, 0x8000000000000
+0x140955d3e: shr      rbx, cl
+0x140955d41: add      rdx, rbx
+0x140955d44: movabs   rbx, 0xfffffffffffff
+0x140955d4e: shr      rbx, cl
+0x140955d51: not      rbx
+0x140955d54: and      rdx, rbx
+0x140955d57: jmp      0x140955d5c   ; main.qrCodeAnnotationArrowHeadPoints+0x1bc
+0x140955d59: mov      rdx, rcx
+0x140955d5c: mov      qword ptr [rsp + 0x70], rdx
+0x140955d61: movsd    xmm0, qword ptr [rsp + 0x58]
+0x140955d67: call     0x1400a4ca0   ; math.sin
+0x140955d6c: movsd    xmm1, qword ptr [rsp + 0x48]
+0x140955d72: mulsd    xmm0, xmm1
+0x140955d76: movq     rcx, xmm0
+0x140955d7b: mov      rax, rcx
+0x140955d7e: shr      rax, 0x34
+0x140955d82: and      eax, 0x7ff
+0x140955d87: nop      
+0x140955d88: cmp      rax, 0x3ff
+0x140955d8e: jae      0x140955dc0   ; main.qrCodeAnnotationArrowHeadPoints+0x220
+0x140955d90: movabs   rdx, 0x8000000000000000
+0x140955d9a: and      rcx, rdx
+0x140955d9d: movabs   r8, 0x3ff0000000000000
+0x140955da7: or       r8, rcx
+0x140955daa: cmp      rax, 0x3fe
+0x140955db0: cmove    rcx, r8
+0x140955db4: mov      r8, rcx
+0x140955db7: jmp      0x140955dfd   ; main.qrCodeAnnotationArrowHeadPoints+0x25d
+0x140955db9: nop      dword ptr [rax]
+0x140955dc0: cmp      rax, 0x433
+0x140955dc6: jae      0x140955dfa   ; main.qrCodeAnnotationArrowHeadPoints+0x25a
+0x140955dc8: lea      rdx, [rax - 0x3ff]
+0x140955dcf: mov      rax, rcx
+0x140955dd2: mov      rcx, rdx
+0x140955dd5: movabs   r8, 0x8000000000000
+0x140955ddf: shr      r8, cl
+0x140955de2: add      r8, rax
+0x140955de5: movabs   r9, 0xfffffffffffff
+0x140955def: shr      r9, cl
+0x140955df2: not      r9
+0x140955df5: and      r8, r9
+0x140955df8: jmp      0x140955dfd   ; main.qrCodeAnnotationArrowHeadPoints+0x25d
+0x140955dfa: mov      r8, rcx
+0x140955dfd: mov      rbx, qword ptr [rsp + 0x60]
+0x140955e02: inc      rbx
+0x140955e05: mov      rdx, qword ptr [rsp + 0x70]
+0x140955e0a: movq     xmm2, rdx
+0x140955e0f: cvttsd2si rdx, xmm2
+0x140955e14: movq     xmm2, r8
+0x140955e19: cvttsd2si r8, xmm2
+0x140955e1e: mov      r9, qword ptr [rsp + 0x88]
+0x140955e26: mov      r10, r9
+0x140955e29: sub      r9, rdx
+0x140955e2c: mov      rdx, qword ptr [rsp + 0x90]
+0x140955e34: mov      r11, rdx
+0x140955e37: sub      rdx, r8
+0x140955e3a: mov      rcx, qword ptr [rsp + 0x68]
+0x140955e3f: nop      
+0x140955e40: cmp      rcx, rbx
+0x140955e43: jb       0x140955e52   ; main.qrCodeAnnotationArrowHeadPoints+0x2b2
+0x140955e45: mov      rax, qword ptr [rsp + 0xa8]
+0x140955e4d: jmp      0x140955c6a   ; main.qrCodeAnnotationArrowHeadPoints+0xca
+0x140955e52: mov      qword ptr [rsp + 0x78], r9
+0x140955e57: mov      qword ptr [rsp + 0x40], rdx
+0x140955e5c: mov      rax, qword ptr [rsp + 0xa8]
+0x140955e64: mov      edi, 1
+0x140955e69: lea      rsi, [rip + 0x28dad0]
+0x140955e70: call     0x14007ad20   ; runtime.growslice
+0x140955e75: mov      rdx, qword ptr [rsp + 0x40]
+0x140955e7a: mov      r9, qword ptr [rsp + 0x78]
+0x140955e7f: mov      r10, qword ptr [rsp + 0x88]
+0x140955e87: mov      r11, qword ptr [rsp + 0x90]
+0x140955e8f: movsd    xmm1, qword ptr [rsp + 0x48]
+0x140955e95: jmp      0x140955c6a   ; main.qrCodeAnnotationArrowHeadPoints+0xca
+0x140955e9a: mov      rcx, rdx
+0x140955e9d: add      rsp, 0xb0
+0x140955ea4: pop      rbp
+0x140955ea5: ret      
+0x140955ea6: mov      qword ptr [rsp + 8], rax
+0x140955eab: mov      qword ptr [rsp + 0x10], rbx
+0x140955eb0: mov      qword ptr [rsp + 0x18], rcx
+0x140955eb5: mov      qword ptr [rsp + 0x20], rdi
+0x140955eba: mov      qword ptr [rsp + 0x28], rsi
+0x140955ebf: nop      
+0x140955ec0: call     0x14007f140   ; runtime.morestack_noctxt
+0x140955ec5: mov      rax, qword ptr [rsp + 8]
+0x140955eca: mov      rbx, qword ptr [rsp + 0x10]
+0x140955ecf: mov      rcx, qword ptr [rsp + 0x18]
+0x140955ed4: mov      rdi, qword ptr [rsp + 0x20]
+0x140955ed9: mov      rsi, qword ptr [rsp + 0x28]
+0x140955ede: nop      
+0x140955ee0: jmp      0x140955ba0   ; main.qrCodeAnnotationArrowHeadPoints
+0x140955ee5: int3     
+0x140955ee6: int3     
+0x140955ee7: int3     
+0x140955ee8: int3     
+0x140955ee9: int3     
+0x140955eea: int3     
+0x140955eeb: int3     
+0x140955eec: int3     
+0x140955eed: int3     
+0x140955eee: int3     
+0x140955eef: int3     
+0x140955ef0: int3     
+0x140955ef1: int3     
+0x140955ef2: int3     
+0x140955ef3: int3     
+0x140955ef4: int3     
+0x140955ef5: int3     
+0x140955ef6: int3     
+0x140955ef7: int3     
+0x140955ef8: int3     
+0x140955ef9: int3     
+0x140955efa: int3     
+0x140955efb: int3     
+0x140955efc: int3     
+0x140955efd: int3     
+0x140955efe: int3     
+0x140955eff: int3     

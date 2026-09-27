@@ -1,0 +1,107 @@
+0x14079cb80: cmp      rsp, qword ptr [r14 + 0x10]
+0x14079cb84: jbe      0x14079cce1    ; main.BootstrapService.cacheBookmarkSources+0x161
+0x14079cb8a: push     rbp
+0x14079cb8b: mov      rbp, rsp
+0x14079cb8e: sub      rsp, 0x48
+0x14079cb92: mov      qword ptr [rsp + 0x60], rbx
+0x14079cb97: mov      qword ptr [rsp + 0x58], rax
+0x14079cb9c: mov      rax, rbx
+0x14079cb9f: mov      rbx, rcx
+0x14079cba2: mov      rcx, rdi
+0x14079cba5: call     0x14088b260    ; main.normalizeBookmarkSources
+0x14079cbaa: mov      qword ptr [rsp + 0x30], rax
+0x14079cbaf: mov      qword ptr [rsp + 0x20], rbx
+0x14079cbb4: mov      qword ptr [rsp + 0x28], rcx
+0x14079cbb9: nop      
+0x14079cbba: mov      rdx, qword ptr [rsp + 0x58]
+0x14079cbbf: lea      rsi, [rdx + 0x540]
+0x14079cbc6: mov      qword ptr [rsp + 0x38], rsi
+0x14079cbcb: xor      eax, eax
+0x14079cbcd: mov      r8d, 1
+0x14079cbd3: lock cmpxchg dword ptr [rdx + 0x540], r8d
+0x14079cbdc: sete     r8b
+0x14079cbe0: test     r8b, r8b
+0x14079cbe3: jne      0x14079cbf2    ; main.BootstrapService.cacheBookmarkSources+0x72
+0x14079cbe5: mov      rax, rsi
+0x14079cbe8: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14079cbed: mov      rdx, qword ptr [rsp + 0x58]
+0x14079cbf2: mov      rax, qword ptr [rdx + 0x358]
+0x14079cbf9: mov      rbx, qword ptr [rdx + 0x360]
+0x14079cc00: mov      rcx, qword ptr [rdx + 0x368]
+0x14079cc07: call     0x140076700    ; runtime.convTslice
+0x14079cc0c: mov      qword ptr [rsp + 0x40], rax
+0x14079cc11: mov      rax, qword ptr [rsp + 0x30]
+0x14079cc16: mov      rbx, qword ptr [rsp + 0x20]
+0x14079cc1b: mov      rcx, qword ptr [rsp + 0x28]
+0x14079cc20: call     0x140076700    ; runtime.convTslice
+0x14079cc25: mov      rbx, qword ptr [rsp + 0x40]
+0x14079cc2a: lea      rcx, [rip + 0x33b4cf]
+0x14079cc31: mov      rdi, rax
+0x14079cc34: mov      rax, rcx
+0x14079cc37: call     0x1400b2cc0    ; reflect.DeepEqual
+0x14079cc3c: nop      dword ptr [rax]
+0x14079cc40: test     al, al
+0x14079cc42: je       0x14079cc6c    ; main.BootstrapService.cacheBookmarkSources+0xec
+0x14079cc44: nop      
+0x14079cc45: nop      
+0x14079cc46: mov      ebx, 0xffffffff
+0x14079cc4b: mov      rcx, qword ptr [rsp + 0x58]
+0x14079cc50: lock xadd dword ptr [rcx + 0x540], ebx
+0x14079cc58: dec      ebx
+0x14079cc5a: je       0x14079cc66    ; main.BootstrapService.cacheBookmarkSources+0xe6
+0x14079cc5c: mov      rax, qword ptr [rsp + 0x38]
+0x14079cc61: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14079cc66: add      rsp, 0x48
+0x14079cc6a: pop      rbp
+0x14079cc6b: ret      
+0x14079cc6c: mov      rcx, qword ptr [rsp + 0x20]
+0x14079cc71: mov      rdx, qword ptr [rsp + 0x58]
+0x14079cc76: mov      qword ptr [rdx + 0x360], rcx
+0x14079cc7d: mov      rcx, qword ptr [rsp + 0x28]
+0x14079cc82: mov      qword ptr [rdx + 0x368], rcx
+0x14079cc89: cmp      dword ptr [rip + 0x14be6c0], 0
+0x14079cc90: jne      0x14079cc99    ; main.BootstrapService.cacheBookmarkSources+0x119
+0x14079cc92: mov      rsi, qword ptr [rsp + 0x30]
+0x14079cc97: jmp      0x14079ccb1    ; main.BootstrapService.cacheBookmarkSources+0x131
+0x14079cc99: mov      rcx, qword ptr [rdx + 0x358]
+0x14079cca0: call     0x140081060    ; runtime.gcWriteBarrier2
+0x14079cca5: mov      rsi, qword ptr [rsp + 0x30]
+0x14079ccaa: mov      qword ptr [r11], rsi
+0x14079ccad: mov      qword ptr [r11 + 8], rcx
+0x14079ccb1: mov      qword ptr [rdx + 0x358], rsi
+0x14079ccb8: nop      
+0x14079ccb9: nop      
+0x14079ccba: mov      ebx, 0xffffffff
+0x14079ccbf: lock xadd dword ptr [rdx + 0x540], ebx
+0x14079ccc7: dec      ebx
+0x14079ccc9: je       0x14079ccd5    ; main.BootstrapService.cacheBookmarkSources+0x155
+0x14079cccb: mov      rax, qword ptr [rsp + 0x38]
+0x14079ccd0: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14079ccd5: call     0x14075bda0    ; main.resetBookmarkIconCache
+0x14079ccda: add      rsp, 0x48
+0x14079ccde: pop      rbp
+0x14079ccdf: nop      
+0x14079cce0: ret      
+0x14079cce1: mov      qword ptr [rsp + 8], rax
+0x14079cce6: mov      qword ptr [rsp + 0x10], rbx
+0x14079cceb: mov      qword ptr [rsp + 0x18], rcx
+0x14079ccf0: mov      qword ptr [rsp + 0x20], rdi
+0x14079ccf5: call     0x14007f140    ; runtime.morestack_noctxt
+0x14079ccfa: mov      rax, qword ptr [rsp + 8]
+0x14079ccff: mov      rbx, qword ptr [rsp + 0x10]
+0x14079cd04: mov      rcx, qword ptr [rsp + 0x18]
+0x14079cd09: mov      rdi, qword ptr [rsp + 0x20]
+0x14079cd0e: jmp      0x14079cb80    ; main.BootstrapService.cacheBookmarkSources
+0x14079cd13: int3     
+0x14079cd14: int3     
+0x14079cd15: int3     
+0x14079cd16: int3     
+0x14079cd17: int3     
+0x14079cd18: int3     
+0x14079cd19: int3     
+0x14079cd1a: int3     
+0x14079cd1b: int3     
+0x14079cd1c: int3     
+0x14079cd1d: int3     
+0x14079cd1e: int3     
+0x14079cd1f: int3     

@@ -1,0 +1,79 @@
+0x140795fc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140795fc4: jbe      0x140796095    ; main.BootstrapService.beginLauncherUpdateNotification+0xd5
+0x140795fca: push     rbp
+0x140795fcb: mov      rbp, rsp
+0x140795fce: sub      rsp, 0x30
+0x140795fd2: movq     qword ptr [rsp + 0x28], xmm15
+0x140795fd9: mov      byte ptr [rsp + 0xf], 0
+0x140795fde: mov      byte ptr [rsp + 0xe], 0
+0x140795fe3: nop      
+0x140795fe4: mov      rcx, rax
+0x140795fe7: xor      eax, eax
+0x140795fe9: mov      ebx, 1
+0x140795fee: lock cmpxchg dword ptr [rcx + 0x540], ebx
+0x140795ff6: sete     bl
+0x140795ff9: test     bl, bl
+0x140795ffb: jne      0x140796013    ; main.BootstrapService.beginLauncherUpdateNotification+0x53
+0x140795ffd: mov      qword ptr [rsp + 0x20], rcx
+0x140796002: lea      rax, [rcx + 0x540]
+0x140796009: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14079600e: mov      rcx, qword ptr [rsp + 0x20]
+0x140796013: lea      rax, [rip + 0xa6]
+0x14079601a: mov      qword ptr [rsp + 0x10], rax
+0x14079601f: lea      rax, [rcx + 0x540]
+0x140796026: mov      qword ptr [rsp + 0x18], rax
+0x14079602b: lea      rdx, [rsp + 0x10]
+0x140796030: mov      qword ptr [rsp + 0x28], rdx
+0x140796035: mov      byte ptr [rsp + 0xf], 1
+0x14079603a: cmp      byte ptr [rcx + 0x4f1], 0
+0x140796041: je       0x14079605f    ; main.BootstrapService.beginLauncherUpdateNotification+0x9f
+0x140796043: mov      byte ptr [rsp + 0xe], 0
+0x140796048: mov      byte ptr [rsp + 0xf], 0
+0x14079604d: mov      rax, qword ptr [rsp + 0x10]
+0x140796052: call     rax
+0x140796054: movzx    eax, byte ptr [rsp + 0xe]
+0x140796059: add      rsp, 0x30
+0x14079605d: pop      rbp
+0x14079605e: ret      
+0x14079605f: mov      byte ptr [rcx + 0x4f1], 1
+0x140796066: mov      byte ptr [rsp + 0xe], 1
+0x14079606b: mov      byte ptr [rsp + 0xf], 0
+0x140796070: mov      rdx, qword ptr [rsp + 0x28]
+0x140796075: mov      rax, qword ptr [rdx]
+0x140796078: call     rax
+0x14079607a: movzx    eax, byte ptr [rsp + 0xe]
+0x14079607f: add      rsp, 0x30
+0x140796083: pop      rbp
+0x140796084: ret      
+0x140796085: call     0x1400435e0    ; runtime.deferreturn
+0x14079608a: movzx    eax, byte ptr [rsp + 0xe]
+0x14079608f: add      rsp, 0x30
+0x140796093: pop      rbp
+0x140796094: ret      
+0x140796095: mov      qword ptr [rsp + 8], rax
+0x14079609a: call     0x14007f140    ; runtime.morestack_noctxt
+0x14079609f: mov      rax, qword ptr [rsp + 8]
+0x1407960a4: jmp      0x140795fc0    ; main.BootstrapService.beginLauncherUpdateNotification
+0x1407960a9: int3     
+0x1407960aa: int3     
+0x1407960ab: int3     
+0x1407960ac: int3     
+0x1407960ad: int3     
+0x1407960ae: int3     
+0x1407960af: int3     
+0x1407960b0: int3     
+0x1407960b1: int3     
+0x1407960b2: int3     
+0x1407960b3: int3     
+0x1407960b4: int3     
+0x1407960b5: int3     
+0x1407960b6: int3     
+0x1407960b7: int3     
+0x1407960b8: int3     
+0x1407960b9: int3     
+0x1407960ba: int3     
+0x1407960bb: int3     
+0x1407960bc: int3     
+0x1407960bd: int3     
+0x1407960be: int3     
+0x1407960bf: int3     

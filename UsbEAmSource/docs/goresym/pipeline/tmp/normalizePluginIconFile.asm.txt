@@ -1,0 +1,126 @@
+0x14092bb20: cmp      rsp, qword ptr [r14 + 0x10]
+0x14092bb24: jbe      0x14092bc68   ; main.normalizePluginIconFile+0x148
+0x14092bb2a: push     rbp
+0x14092bb2b: mov      rbp, rsp
+0x14092bb2e: sub      rsp, 0x48
+0x14092bb32: mov      qword ptr [rsp + 0x58], rax
+0x14092bb37: call     0x1400a2200   ; strings.TrimSpace
+0x14092bb3c: nop      dword ptr [rax]
+0x14092bb40: test     rbx, rbx
+0x14092bb43: je       0x14092bbda   ; main.normalizePluginIconFile+0xba
+0x14092bb49: nop      
+0x14092bb4a: lea      rcx, [rip + 0x89f0ef]
+0x14092bb51: mov      edi, 1
+0x14092bb56: lea      rsi, [rip + 0x307ad2]
+0x14092bb5d: mov      r8, rdi
+0x14092bb60: mov      r9, 0xffffffffffffffff
+0x14092bb67: call     0x1400a2340   ; strings.Replace
+0x14092bb6c: mov      qword ptr [rsp + 0x40], rax
+0x14092bb71: mov      qword ptr [rsp + 0x38], rbx
+0x14092bb76: lea      rcx, [rip + 0x307ab2]
+0x14092bb7d: mov      edi, 1
+0x14092bb82: call     0x140006860   ; internal/stringslite.Index
+0x14092bb87: test     rax, rax
+0x14092bb8a: jge      0x14092bbd0   ; main.normalizePluginIconFile+0xb0
+0x14092bb8c: mov      rax, qword ptr [rsp + 0x40]
+0x14092bb91: mov      rbx, qword ptr [rsp + 0x38]
+0x14092bb96: call     0x140108ee0   ; path.Clean
+0x14092bb9b: mov      rcx, qword ptr [rsp + 0x38]
+0x14092bba0: cmp      rcx, rbx
+0x14092bba3: je       0x14092bbac   ; main.normalizePluginIconFile+0x8c
+0x14092bba5: mov      eax, 1
+0x14092bbaa: jmp      0x14092bbc1   ; main.normalizePluginIconFile+0xa1
+0x14092bbac: mov      rcx, rbx
+0x14092bbaf: mov      rbx, qword ptr [rsp + 0x40]
+0x14092bbb4: call     0x140006280   ; runtime.memequal
+0x14092bbb9: xor      eax, 1
+0x14092bbbc: mov      rcx, qword ptr [rsp + 0x38]
+0x14092bbc1: test     al, al
+0x14092bbc3: jne      0x14092bbd0   ; main.normalizePluginIconFile+0xb0
+0x14092bbc5: lea      rdx, [rcx - 1]
+0x14092bbc9: mov      rsi, qword ptr [rsp + 0x40]
+0x14092bbce: jmp      0x14092bbe7   ; main.normalizePluginIconFile+0xc7
+0x14092bbd0: xor      eax, eax
+0x14092bbd2: xor      ebx, ebx
+0x14092bbd4: add      rsp, 0x48
+0x14092bbd8: pop      rbp
+0x14092bbd9: ret      
+0x14092bbda: xor      eax, eax
+0x14092bbdc: xor      ebx, ebx
+0x14092bbde: add      rsp, 0x48
+0x14092bbe2: pop      rbp
+0x14092bbe3: ret      
+0x14092bbe4: dec      rdx
+0x14092bbe7: test     rdx, rdx
+0x14092bbea: jl       0x14092bc1f   ; main.normalizePluginIconFile+0xff
+0x14092bbec: movzx    edi, byte ptr [rsi + rdx]
+0x14092bbf0: cmp      dil, 0x5c
+0x14092bbf4: je       0x14092bc1f   ; main.normalizePluginIconFile+0xff
+0x14092bbf6: cmp      dil, 0x2f
+0x14092bbfa: je       0x14092bc1f   ; main.normalizePluginIconFile+0xff
+0x14092bbfc: nop      dword ptr [rax]
+0x14092bc00: cmp      dil, 0x2e
+0x14092bc04: jne      0x14092bbe4   ; main.normalizePluginIconFile+0xc4
+0x14092bc06: sub      rcx, rdx
+0x14092bc09: mov      r8, rcx
+0x14092bc0c: neg      rcx
+0x14092bc0f: sar      rcx, 0x3f
+0x14092bc13: and      rdx, rcx
+0x14092bc16: lea      rcx, [rsi + rdx]
+0x14092bc1a: mov      rax, rcx
+0x14092bc1d: jmp      0x14092bc24   ; main.normalizePluginIconFile+0x104
+0x14092bc1f: xor      r8d, r8d
+0x14092bc22: xor      eax, eax
+0x14092bc24: mov      rbx, r8
+0x14092bc27: call     0x1400a1500   ; strings.ToLower
+0x14092bc2c: cmp      rbx, 4
+0x14092bc30: jne      0x14092bc4e   ; main.normalizePluginIconFile+0x12e
+0x14092bc32: cmp      dword ptr [rax], 0x6776732e
+0x14092bc38: je       0x14092bc58   ; main.normalizePluginIconFile+0x138
+0x14092bc3a: nop      word ptr [rax + rax]
+0x14092bc40: cmp      rbx, 4
+0x14092bc44: jne      0x14092bc4e   ; main.normalizePluginIconFile+0x12e
+0x14092bc46: cmp      dword ptr [rax], 0x676e702e
+0x14092bc4c: je       0x14092bc58   ; main.normalizePluginIconFile+0x138
+0x14092bc4e: xor      eax, eax
+0x14092bc50: xor      ebx, ebx
+0x14092bc52: add      rsp, 0x48
+0x14092bc56: pop      rbp
+0x14092bc57: ret      
+0x14092bc58: mov      rax, qword ptr [rsp + 0x40]
+0x14092bc5d: mov      rbx, qword ptr [rsp + 0x38]
+0x14092bc62: add      rsp, 0x48
+0x14092bc66: pop      rbp
+0x14092bc67: ret      
+0x14092bc68: mov      qword ptr [rsp + 8], rax
+0x14092bc6d: mov      qword ptr [rsp + 0x10], rbx
+0x14092bc72: call     0x14007f140   ; runtime.morestack_noctxt
+0x14092bc77: mov      rax, qword ptr [rsp + 8]
+0x14092bc7c: mov      rbx, qword ptr [rsp + 0x10]
+0x14092bc81: jmp      0x14092bb20   ; main.normalizePluginIconFile
+0x14092bc86: int3     
+0x14092bc87: int3     
+0x14092bc88: int3     
+0x14092bc89: int3     
+0x14092bc8a: int3     
+0x14092bc8b: int3     
+0x14092bc8c: int3     
+0x14092bc8d: int3     
+0x14092bc8e: int3     
+0x14092bc8f: int3     
+0x14092bc90: int3     
+0x14092bc91: int3     
+0x14092bc92: int3     
+0x14092bc93: int3     
+0x14092bc94: int3     
+0x14092bc95: int3     
+0x14092bc96: int3     
+0x14092bc97: int3     
+0x14092bc98: int3     
+0x14092bc99: int3     
+0x14092bc9a: int3     
+0x14092bc9b: int3     
+0x14092bc9c: int3     
+0x14092bc9d: int3     
+0x14092bc9e: int3     
+0x14092bc9f: int3     

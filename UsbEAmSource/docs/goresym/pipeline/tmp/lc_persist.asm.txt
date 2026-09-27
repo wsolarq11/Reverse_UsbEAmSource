@@ -1,0 +1,73 @@
+0x140898960: lea      r12, [rsp - 0x8c0]
+0x140898968: cmp      r12, qword ptr [r14 + 0x10]
+0x14089896c: jbe      0x1408989dd   ; main.validateLauncherConfigForPersistence+0x7d
+0x14089896e: push     rbp
+0x14089896f: mov      rbp, rsp
+0x140898972: sub      rsp, 0x938
+0x140898979: mov      rax, qword ptr [rsp + 0x948]
+0x140898981: mov      qword ptr [rsp], rax
+0x140898985: lea      rdi, [rsp + 8]
+0x14089898a: lea      rsi, [rsp + 0x950]
+0x140898992: mov      ecx, 0x126
+0x140898997: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14089899a: call     0x1408987e0   ; main.validateLauncherConfigInMemoryBudget
+0x14089899f: nop      
+0x1408989a0: test     rax, rax
+0x1408989a3: je       0x1408989ae   ; main.validateLauncherConfigForPersistence+0x4e
+0x1408989a5: add      rsp, 0x938
+0x1408989ac: pop      rbp
+0x1408989ad: ret      
+0x1408989ae: mov      rax, qword ptr [rsp + 0x948]
+0x1408989b6: mov      qword ptr [rsp], rax
+0x1408989ba: lea      rdi, [rsp + 8]
+0x1408989bf: lea      rsi, [rsp + 0x950]
+0x1408989c7: mov      ecx, 0x126
+0x1408989cc: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1408989cf: call     0x14088d740   ; main.validateLauncherConfigIconData
+0x1408989d4: add      rsp, 0x938
+0x1408989db: pop      rbp
+0x1408989dc: ret      
+0x1408989dd: nop      dword ptr [rax]
+0x1408989e0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408989e5: jmp      0x140898960   ; main.validateLauncherConfigForPersistence
+0x1408989ea: int3     
+0x1408989eb: int3     
+0x1408989ec: int3     
+0x1408989ed: int3     
+0x1408989ee: int3     
+0x1408989ef: int3     
+0x1408989f0: int3     
+0x1408989f1: int3     
+0x1408989f2: int3     
+0x1408989f3: int3     
+0x1408989f4: int3     
+0x1408989f5: int3     
+0x1408989f6: int3     
+0x1408989f7: int3     
+0x1408989f8: int3     
+0x1408989f9: int3     
+0x1408989fa: int3     
+0x1408989fb: int3     
+0x1408989fc: int3     
+0x1408989fd: int3     
+0x1408989fe: int3     
+0x1408989ff: int3     
+0x140898a00: cmp      rsp, qword ptr [r14 + 0x10]
+0x140898a04: jbe      0x140898aab   ; main.launcherConfigConflictError.Error+0xab
+0x140898a0a: push     rbp
+0x140898a0b: mov      rbp, rsp
+0x140898a0e: sub      rsp, 0x58
+0x140898a12: mov      qword ptr [rsp + 0x68], rax
+0x140898a17: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140898a1d: movups   xmmword ptr [rsp + 0x38], xmm15
+0x140898a23: movups   xmmword ptr [rsp + 0x48], xmm15
+0x140898a29: lea      rcx, [rip + 0x2513d0]
+0x140898a30: mov      qword ptr [rsp + 0x28], rcx
+0x140898a35: lea      rcx, [rip + 0x936094]
+0x140898a3c: mov      qword ptr [rsp + 0x30], rcx
+0x140898a41: mov      rcx, qword ptr [rax]
+0x140898a44: mov      rbx, qword ptr [rax + 8]
+0x140898a48: mov      rax, rcx
+0x140898a4b: call     0x140076660   ; runtime.convTstring
+0x140898a50: lea      rcx, [rip + 0x2513a9]
+0x140898a57: mov      qword ptr [rsp + 0x38], rcx

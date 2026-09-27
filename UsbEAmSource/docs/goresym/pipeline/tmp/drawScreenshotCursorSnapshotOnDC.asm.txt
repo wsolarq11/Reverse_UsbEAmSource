@@ -1,0 +1,64 @@
+0x140973fc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140973fc4: jbe      0x14097402a   ; main.drawScreenshotCursorSnapshotOnDC+0x6a
+0x140973fc6: push     rbp
+0x140973fc7: mov      rbp, rsp
+0x140973fca: sub      rsp, 0x50
+0x140973fce: test     rax, rax
+0x140973fd1: je       0x140974022   ; main.drawScreenshotCursorSnapshotOnDC+0x62
+0x140973fd3: test     rbx, rbx
+0x140973fd6: je       0x140974022   ; main.drawScreenshotCursorSnapshotOnDC+0x62
+0x140973fd8: cmp      rsi, rcx
+0x140973fdb: jle      0x140974022   ; main.drawScreenshotCursorSnapshotOnDC+0x62
+0x140973fdd: nop      dword ptr [rax]
+0x140973fe0: cmp      r8, rdi
+0x140973fe3: jle      0x140974022   ; main.drawScreenshotCursorSnapshotOnDC+0x62
+0x140973fe5: mov      edx, dword ptr [rsp + 0x60]
+0x140973fe9: mov      dword ptr [rsp], edx
+0x140973fec: mov      edx, dword ptr [rsp + 0x64]
+0x140973ff0: mov      dword ptr [rsp + 4], edx
+0x140973ff4: mov      rdx, qword ptr [rsp + 0x68]
+0x140973ff9: mov      qword ptr [rsp + 8], rdx
+0x140973ffe: mov      edx, dword ptr [rsp + 0x70]
+0x140974002: mov      dword ptr [rsp + 0x10], edx
+0x140974006: mov      edx, dword ptr [rsp + 0x74]
+0x14097400a: mov      dword ptr [rsp + 0x14], edx
+0x14097400e: movzx    edx, byte ptr [rsp + 0x78]
+0x140974013: mov      byte ptr [rsp + 0x18], dl
+0x140974017: call     0x140974080   ; main.drawScreenshotCursorInfoOnDC
+0x14097401c: add      rsp, 0x50
+0x140974020: pop      rbp
+0x140974021: ret      
+0x140974022: xor      eax, eax
+0x140974024: add      rsp, 0x50
+0x140974028: pop      rbp
+0x140974029: ret      
+0x14097402a: mov      qword ptr [rsp + 0x28], rax
+0x14097402f: mov      qword ptr [rsp + 0x30], rbx
+0x140974034: mov      qword ptr [rsp + 0x38], rcx
+0x140974039: mov      qword ptr [rsp + 0x40], rdi
+0x14097403e: mov      qword ptr [rsp + 0x48], rsi
+0x140974043: mov      qword ptr [rsp + 0x50], r8
+0x140974048: call     0x14007f140   ; runtime.morestack_noctxt
+0x14097404d: mov      rax, qword ptr [rsp + 0x28]
+0x140974052: mov      rbx, qword ptr [rsp + 0x30]
+0x140974057: mov      rcx, qword ptr [rsp + 0x38]
+0x14097405c: mov      rdi, qword ptr [rsp + 0x40]
+0x140974061: mov      rsi, qword ptr [rsp + 0x48]
+0x140974066: mov      r8, qword ptr [rsp + 0x50]
+0x14097406b: jmp      0x140973fc0   ; main.drawScreenshotCursorSnapshotOnDC
+0x140974070: int3     
+0x140974071: int3     
+0x140974072: int3     
+0x140974073: int3     
+0x140974074: int3     
+0x140974075: int3     
+0x140974076: int3     
+0x140974077: int3     
+0x140974078: int3     
+0x140974079: int3     
+0x14097407a: int3     
+0x14097407b: int3     
+0x14097407c: int3     
+0x14097407d: int3     
+0x14097407e: int3     
+0x14097407f: int3     

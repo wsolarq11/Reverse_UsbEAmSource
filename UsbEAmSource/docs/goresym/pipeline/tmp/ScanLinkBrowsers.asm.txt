@@ -1,0 +1,15 @@
+0x1408d0b40: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408d0b44: jbe      0x1408d0b55    ; main.BootstrapService.ScanLinkBrowsers+0x15
+0x1408d0b46: push     rbp
+0x1408d0b47: mov      rbp, rsp
+0x1408d0b4a: call     0x1408d0b60    ; main.detectLinkBrowsers
+0x1408d0b4f: xor      edi, edi
+0x1408d0b51: xor      esi, esi
+0x1408d0b53: pop      rbp
+0x1408d0b54: ret      
+0x1408d0b55: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408d0b5a: jmp      0x1408d0b40    ; main.BootstrapService.ScanLinkBrowsers
+0x1408d0b5c: int3     
+0x1408d0b5d: int3     
+0x1408d0b5e: int3     
+0x1408d0b5f: int3     

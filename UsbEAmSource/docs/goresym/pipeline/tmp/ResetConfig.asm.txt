@@ -1,0 +1,164 @@
+0x140778200: lea      r12, [rsp - 0x1c8]
+0x140778208: cmp      r12, qword ptr [r14 + 0x10]
+0x14077820c: jbe      0x14077858a    ; main.BootstrapService.ResetConfig+0x38a
+0x140778212: push     rbp
+0x140778213: mov      rbp, rsp
+0x140778216: sub      rsp, 0x240
+0x14077821d: movq     qword ptr [rsp + 0x238], xmm15
+0x140778227: mov      qword ptr [rsp + 0x250], rax
+0x14077822f: mov      byte ptr [rsp + 0xaf], 0
+0x140778237: movups   xmmword ptr [rsp + 0xb8], xmm15
+0x140778240: nop      
+0x140778241: mov      rcx, rax
+0x140778244: xor      eax, eax
+0x140778246: mov      edx, 1
+0x14077824b: lock cmpxchg dword ptr [rcx + 0x518], edx
+0x140778253: sete     dl
+0x140778256: test     dl, dl
+0x140778258: jne      0x14077826e    ; main.BootstrapService.ResetConfig+0x6e
+0x14077825a: lea      rax, [rcx + 0x518]
+0x140778261: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x140778266: mov      rcx, qword ptr [rsp + 0x250]
+0x14077826e: lea      rdx, [rip + 0x46b]
+0x140778275: mov      qword ptr [rsp + 0x178], rdx
+0x14077827d: lea      rdx, [rcx + 0x518]
+0x140778284: mov      qword ptr [rsp + 0x180], rdx
+0x14077828c: lea      rdx, [rsp + 0x178]
+0x140778294: mov      qword ptr [rsp + 0x238], rdx
+0x14077829c: mov      byte ptr [rsp + 0xaf], 1
+0x1407782a4: lea      rdi, [rsp + 0x198]
+0x1407782ac: lea      rdi, [rdi - 0x20]
+0x1407782b0: nop      word ptr [rax + rax]
+0x1407782b9: nop      dword ptr [rax]
+0x1407782c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407782c5: lea      rbp, [rsp - 0x10]
+0x1407782ca: call     0x140081714    ; runtime.duffzero+0x134
+0x1407782cf: mov      rbp, qword ptr [rbp]
+0x1407782d3: mov      rax, rcx
+0x1407782d6: call     0x1407a1240    ; main.BootstrapService.configStoreSnapshot
+0x1407782db: mov      qword ptr [rsp + 0x168], rax
+0x1407782e3: lea      rdi, [rsp + 0x198]
+0x1407782eb: mov      rsi, rsp
+0x1407782ee: nop      word ptr [rax + rax]
+0x1407782f7: nop      word ptr [rax + rax]
+0x140778300: mov      qword ptr [rsp - 0x10], rbp
+0x140778305: lea      rbp, [rsp - 0x10]
+0x14077830a: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x14077830f: mov      rbp, qword ptr [rbp]
+0x140778313: lea      rdi, [rsp + 0xc8]
+0x14077831b: lea      rsi, [rsp + 0x198]
+0x140778323: mov      qword ptr [rsp - 0x10], rbp
+0x140778328: lea      rbp, [rsp - 0x10]
+0x14077832d: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x140778332: mov      rbp, qword ptr [rbp]
+0x140778336: mov      rdi, rsp
+0x140778339: lea      rsi, [rsp + 0x198]
+0x140778341: mov      qword ptr [rsp - 0x10], rbp
+0x140778346: lea      rbp, [rsp - 0x10]
+0x14077834b: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x140778350: mov      rbp, qword ptr [rbp]
+0x140778354: call     0x1407a2520    ; main.ensureWorkspaceDirectories
+0x140778359: nop      dword ptr [rax]
+0x140778360: test     rax, rax
+0x140778363: jne      0x14077852e    ; main.BootstrapService.ResetConfig+0x32e
+0x140778369: mov      rax, qword ptr [rsp + 0xd8]
+0x140778371: mov      rbx, qword ptr [rsp + 0xe0]
+0x140778379: call     0x1400a2200    ; strings.TrimSpace
+0x14077837e: nop      
+0x140778380: test     rbx, rbx
+0x140778383: je       0x1407784cb    ; main.BootstrapService.ResetConfig+0x2cb
+0x140778389: mov      qword ptr [rsp + 0xb0], rbx
+0x140778391: mov      qword ptr [rsp + 0x170], rax
+0x140778399: lea      rdx, [rip + 0x200]
+0x1407783a0: mov      qword ptr [rsp + 0x188], rdx
+0x1407783a8: mov      rdx, qword ptr [rsp + 0x250]
+0x1407783b0: mov      qword ptr [rsp + 0x190], rdx
+0x1407783b8: mov      rax, qword ptr [rsp + 0x168]
+0x1407783c0: xor      ebx, ebx
+0x1407783c2: lea      rcx, [rsp + 0x188]
+0x1407783ca: call     0x14089bfa0    ; main.launcherConfigStore.DeletePrepared
+0x1407783cf: test     rax, rax
+0x1407783d2: jne      0x14077848d    ; main.BootstrapService.ResetConfig+0x28d
+0x1407783d8: mov      rax, qword ptr [rsp + 0x170]
+0x1407783e0: mov      rbx, qword ptr [rsp + 0xb0]
+0x1407783e8: call     0x140892740    ; main.launcherConfigIconStoreForConfigPath
+0x1407783ed: call     0x1408934c0    ; main.launcherConfigIconStore.Delete
+0x1407783f2: test     rax, rax
+0x1407783f5: je       0x140778435    ; main.BootstrapService.ResetConfig+0x235
+0x1407783f7: mov      qword ptr [rsp + 0xb8], rax
+0x1407783ff: mov      qword ptr [rsp + 0xc0], rbx
+0x140778407: mov      byte ptr [rsp + 0xaf], 0
+0x14077840f: mov      rdx, qword ptr [rsp + 0x238]
+0x140778417: mov      rax, qword ptr [rdx]
+0x14077841a: call     rax
+0x14077841c: mov      rax, qword ptr [rsp + 0xb8]
+0x140778424: mov      rbx, qword ptr [rsp + 0xc0]
+0x14077842c: add      rsp, 0x240
+0x140778433: pop      rbp
+0x140778434: ret      
+0x140778435: mov      rax, qword ptr [rsp + 0x170]
+0x14077843d: mov      rbx, qword ptr [rsp + 0xb0]
+0x140778445: call     0x1407bfd20    ; main.launcherWidgetStoreForConfigPath
+0x14077844a: call     0x1407c0d20    ; main.launcherWidgetStore.Delete
+0x14077844f: mov      qword ptr [rsp + 0xb8], rax
+0x140778457: mov      qword ptr [rsp + 0xc0], rbx
+0x14077845f: mov      byte ptr [rsp + 0xaf], 0
+0x140778467: mov      rdx, qword ptr [rsp + 0x238]
+0x14077846f: mov      rcx, qword ptr [rdx]
+0x140778472: call     rcx
+0x140778474: mov      rax, qword ptr [rsp + 0xb8]
+0x14077847c: mov      rbx, qword ptr [rsp + 0xc0]
+0x140778484: add      rsp, 0x240
+0x14077848b: pop      rbp
+0x14077848c: ret      
+0x14077848d: mov      qword ptr [rsp + 0xb8], rax
+0x140778495: mov      qword ptr [rsp + 0xc0], rbx
+0x14077849d: mov      byte ptr [rsp + 0xaf], 0
+0x1407784a5: mov      rdx, qword ptr [rsp + 0x238]
+0x1407784ad: mov      rax, qword ptr [rdx]
+0x1407784b0: call     rax
+0x1407784b2: mov      rax, qword ptr [rsp + 0xb8]
+0x1407784ba: mov      rbx, qword ptr [rsp + 0xc0]
+0x1407784c2: add      rsp, 0x240
+0x1407784c9: pop      rbp
+0x1407784ca: ret      
+0x1407784cb: lea      rax, [rip + 0x3dbeae]
+0x1407784d2: call     0x14001ae20    ; runtime.newobject
+0x1407784d7: mov      qword ptr [rax + 8], 0x1b
+0x1407784df: lea      rcx, [rip + 0x4f16c6]
+0x1407784e6: mov      qword ptr [rax], rcx
+0x1407784e9: lea      rcx, [rip + 0xa5ac10]
+0x1407784f0: mov      qword ptr [rsp + 0xb8], rcx
+0x1407784f8: mov      qword ptr [rsp + 0xc0], rax
+0x140778500: mov      byte ptr [rsp + 0xaf], 0
+0x140778508: mov      rdx, qword ptr [rsp + 0x238]
+0x140778510: mov      rcx, qword ptr [rdx]
+0x140778513: call     rcx
+0x140778515: mov      rax, qword ptr [rsp + 0xb8]
+0x14077851d: mov      rbx, qword ptr [rsp + 0xc0]
+0x140778525: add      rsp, 0x240
+0x14077852c: pop      rbp
+0x14077852d: ret      
+0x14077852e: mov      qword ptr [rsp + 0xb8], rax
+0x140778536: mov      qword ptr [rsp + 0xc0], rbx
+0x14077853e: mov      byte ptr [rsp + 0xaf], 0
+0x140778546: mov      rdx, qword ptr [rsp + 0x238]
+0x14077854e: mov      rax, qword ptr [rdx]
+0x140778551: call     rax
+0x140778553: mov      rax, qword ptr [rsp + 0xb8]
+0x14077855b: mov      rbx, qword ptr [rsp + 0xc0]
+0x140778563: add      rsp, 0x240
+0x14077856a: pop      rbp
+0x14077856b: ret      
+0x14077856c: call     0x1400435e0    ; runtime.deferreturn
+0x140778571: mov      rax, qword ptr [rsp + 0xb8]
+0x140778579: mov      rbx, qword ptr [rsp + 0xc0]
+0x140778581: add      rsp, 0x240
+0x140778588: pop      rbp
+0x140778589: ret      
+0x14077858a: mov      qword ptr [rsp + 8], rax
+0x14077858f: call     0x14007f140    ; runtime.morestack_noctxt
+0x140778594: mov      rax, qword ptr [rsp + 8]
+0x140778599: jmp      0x140778200    ; main.BootstrapService.ResetConfig
+0x14077859e: int3     
+0x14077859f: int3     

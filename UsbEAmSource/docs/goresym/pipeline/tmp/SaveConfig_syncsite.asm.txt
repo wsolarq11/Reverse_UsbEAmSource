@@ -1,0 +1,20 @@
+0x1407776f0: test     al, 9
+0x1407776f2: add      byte ptr [rax], al
+0x1407776f4: xor      eax, eax
+0x1407776f6: jmp      0x1407777a6   ; main.BootstrapService).SaveConfig.func1+0x266
+0x1407776fb: mov      rdx, rax
+0x1407776fe: mov      r8, qword ptr [rsp + 0x9a8]
+0x140777706: xor      eax, eax
+0x140777708: jmp      0x1407777a6   ; main.BootstrapService).SaveConfig.func1+0x266
+0x14077770d: mov      rcx, qword ptr [rsp + 0x940]
+0x140777715: mov      rax, qword ptr [rsp + 0x9a8]
+0x14077771d: nop      dword ptr [rax]
+0x140777720: call     0x1407a14c0   ; main.BootstrapService.syncStartupTask
+0x140777725: test     rax, rax
+0x140777728: jne      0x14077786e   ; main.BootstrapService).SaveConfig.func1+0x32e
+0x14077772e: lea      rax, [rip + 0x43426b]
+0x140777735: call     0x14001ae20   ; runtime.newobject
+0x14077773a: lea      rcx, [rip + 0xa1f]
+0x140777741: mov      qword ptr [rax], rcx
+0x140777744: cmp      dword ptr [rip + 0x14e3c05], 0
+0x14077774b: jne      0x14077775f   ; main.BootstrapService).SaveConfig.func1+0x21f

@@ -1,0 +1,85 @@
+0x1407a6500: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a6504: jbe      0x1407a661b   ; main.nestedLanguageMessageString+0x11b
+0x1407a650a: push     rbp
+0x1407a650b: mov      rbp, rsp
+0x1407a650e: sub      rsp, 0x68
+0x1407a6512: mov      qword ptr [rsp + 0x80], rbx
+0x1407a651a: mov      qword ptr [rsp + 0x78], rax
+0x1407a651f: mov      rax, rbx
+0x1407a6522: mov      rbx, rcx
+0x1407a6525: call     0x1400a2200   ; strings.TrimSpace
+0x1407a652a: lea      rcx, [rip + 0xa246f7]
+0x1407a6531: mov      edi, 1
+0x1407a6536: xor      esi, esi
+0x1407a6538: mov      r8, 0xffffffffffffffff
+0x1407a653f: nop      
+0x1407a6540: call     0x14009f920   ; strings.genSplit
+0x1407a6545: mov      qword ptr [rsp + 0x30], rbx
+0x1407a654a: xor      ecx, ecx
+0x1407a654c: mov      rdx, qword ptr [rsp + 0x78]
+0x1407a6551: lea      rsi, [rip + 0x3a2848]
+0x1407a6558: jmp      0x1407a6591   ; main.nestedLanguageMessageString+0x91
+0x1407a655a: mov      rbx, qword ptr [rsp + 0x58]
+0x1407a655f: mov      rcx, qword ptr [rsp + 0x50]
+0x1407a6564: mov      rdi, qword ptr [rsp + 0x38]
+0x1407a6569: call     0x14000d920   ; runtime.mapaccess1_faststr
+0x1407a656e: mov      rdx, qword ptr [rsp + 0x60]
+0x1407a6573: add      rdx, 0x10
+0x1407a6577: mov      rsi, qword ptr [rax]
+0x1407a657a: mov      r8, qword ptr [rax + 8]
+0x1407a657e: mov      rcx, qword ptr [rsp + 0x48]
+0x1407a6583: inc      rcx
+0x1407a6586: mov      rbx, qword ptr [rsp + 0x30]
+0x1407a658b: mov      rax, rdx
+0x1407a658e: mov      rdx, r8
+0x1407a6591: cmp      rbx, rcx
+0x1407a6594: jle      0x1407a65f3   ; main.nestedLanguageMessageString+0xf3
+0x1407a6596: mov      qword ptr [rsp + 0x58], rdx
+0x1407a659b: mov      qword ptr [rsp + 0x40], rsi
+0x1407a65a0: mov      qword ptr [rsp + 0x48], rcx
+0x1407a65a5: mov      qword ptr [rsp + 0x60], rax
+0x1407a65aa: mov      rcx, qword ptr [rax]
+0x1407a65ad: mov      qword ptr [rsp + 0x50], rcx
+0x1407a65b2: mov      rbx, qword ptr [rax + 8]
+0x1407a65b6: mov      qword ptr [rsp + 0x38], rbx
+0x1407a65bb: mov      rax, rcx
+0x1407a65be: nop      
+0x1407a65c0: call     0x1400a2200   ; strings.TrimSpace
+0x1407a65c5: test     rbx, rbx
+0x1407a65c8: je       0x1407a65e9   ; main.nestedLanguageMessageString+0xe9
+0x1407a65ca: mov      rdx, qword ptr [rsp + 0x40]
+0x1407a65cf: lea      rax, [rip + 0x3a27ca]
+0x1407a65d6: cmp      rdx, rax
+0x1407a65d9: je       0x1407a655a   ; main.nestedLanguageMessageString+0x5a
+0x1407a65df: xor      eax, eax
+0x1407a65e1: xor      ebx, ebx
+0x1407a65e3: add      rsp, 0x68
+0x1407a65e7: pop      rbp
+0x1407a65e8: ret      
+0x1407a65e9: xor      eax, eax
+0x1407a65eb: xor      ebx, ebx
+0x1407a65ed: add      rsp, 0x68
+0x1407a65f1: pop      rbp
+0x1407a65f2: ret      
+0x1407a65f3: lea      rcx, [rip + 0x343806]
+0x1407a65fa: cmp      rsi, rcx
+0x1407a65fd: jne      0x1407a6611   ; main.nestedLanguageMessageString+0x111
+0x1407a65ff: mov      rax, qword ptr [rdx]
+0x1407a6602: mov      rbx, qword ptr [rdx + 8]
+0x1407a6606: call     0x1400a2200   ; strings.TrimSpace
+0x1407a660b: add      rsp, 0x68
+0x1407a660f: pop      rbp
+0x1407a6610: ret      
+0x1407a6611: xor      eax, eax
+0x1407a6613: xor      ebx, ebx
+0x1407a6615: add      rsp, 0x68
+0x1407a6619: pop      rbp
+0x1407a661a: ret      
+0x1407a661b: mov      qword ptr [rsp + 8], rax
+0x1407a6620: mov      qword ptr [rsp + 0x10], rbx
+0x1407a6625: mov      qword ptr [rsp + 0x18], rcx
+0x1407a662a: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a662f: mov      rax, qword ptr [rsp + 8]
+0x1407a6634: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a6639: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a663e: nop      

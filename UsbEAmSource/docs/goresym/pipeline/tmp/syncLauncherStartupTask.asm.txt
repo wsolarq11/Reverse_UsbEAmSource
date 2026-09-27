@@ -1,0 +1,146 @@
+0x1408af840: lea      r12, [rsp - 0x20]
+0x1408af845: cmp      r12, qword ptr [r14 + 0x10]
+0x1408af849: jbe      0x1408afa2e   ; main.syncLauncherStartupTask+0x1ee
+0x1408af84f: push     rbp
+0x1408af850: mov      rbp, rsp
+0x1408af853: sub      rsp, 0x98
+0x1408af85a: nop      word ptr [rax + rax]
+0x1408af860: test     al, al
+0x1408af862: je       0x1408afa20   ; main.syncLauncherStartupTask+0x1e0
+0x1408af868: test     rbx, rbx
+0x1408af86b: jg       0x1408af874   ; main.syncLauncherStartupTask+0x34
+0x1408af86d: mov      ebx, 0xa
+0x1408af872: jmp      0x1408af87f   ; main.syncLauncherStartupTask+0x3f
+0x1408af874: cmp      rbx, 0x64
+0x1408af878: jle      0x1408af87f   ; main.syncLauncherStartupTask+0x3f
+0x1408af87a: mov      ebx, 0x64
+0x1408af87f: mov      qword ptr [rsp + 0x40], rbx
+0x1408af884: call     0x140127960   ; os.Executable
+0x1408af889: test     rcx, rcx
+0x1408af88c: jne      0x1408afa10   ; main.syncLauncherStartupTask+0x1d0
+0x1408af892: nop      
+0x1408af893: call     0x1401cd5e0   ; path/filepath.abs
+0x1408af898: nop      dword ptr [rax + rax]
+0x1408af8a0: test     rcx, rcx
+0x1408af8a3: jne      0x1408afa01   ; main.syncLauncherStartupTask+0x1c1
+0x1408af8a9: mov      qword ptr [rsp + 0x68], rax
+0x1408af8ae: mov      qword ptr [rsp + 0x50], rbx
+0x1408af8b3: call     0x1408b2a60   ; main.currentLauncherStartupTaskUserID
+0x1408af8b8: nop      dword ptr [rax + rax]
+0x1408af8c0: test     rcx, rcx
+0x1408af8c3: jne      0x1408af9f2   ; main.syncLauncherStartupTask+0x1b2
+0x1408af8c9: mov      qword ptr [rsp + 0x60], rax
+0x1408af8ce: mov      qword ptr [rsp + 0x48], rbx
+0x1408af8d3: call     0x1408affa0   ; main.deleteLauncherStartupTask
+0x1408af8d8: nop      dword ptr [rax + rax]
+0x1408af8e0: test     rax, rax
+0x1408af8e3: jne      0x1408af9e9   ; main.syncLauncherStartupTask+0x1a9
+0x1408af8e9: mov      rax, qword ptr [rsp + 0x68]
+0x1408af8ee: mov      rbx, qword ptr [rsp + 0x50]
+0x1408af8f3: lea      rcx, [rip + 0x3aff1e]
+0x1408af8fa: mov      edi, 0x15
+0x1408af8ff: mov      rsi, qword ptr [rsp + 0x60]
+0x1408af904: mov      r8, qword ptr [rsp + 0x48]
+0x1408af909: xor      r9d, r9d
+0x1408af90c: mov      r10, qword ptr [rsp + 0x40]
+0x1408af911: call     0x1408b01c0   ; main.createLauncherStartupTaskUsingTaskSchedulerAPI
+0x1408af916: test     rax, rax
+0x1408af919: je       0x1408af9dc   ; main.syncLauncherStartupTask+0x19c
+0x1408af91f: mov      qword ptr [rsp + 0x70], rbx
+0x1408af924: mov      qword ptr [rsp + 0x58], rax
+0x1408af929: mov      rax, qword ptr [rsp + 0x68]
+0x1408af92e: mov      rbx, qword ptr [rsp + 0x50]
+0x1408af933: lea      rcx, [rip + 0x3afede]
+0x1408af93a: mov      edi, 0x15
+0x1408af93f: mov      rsi, qword ptr [rsp + 0x60]
+0x1408af944: mov      r8, qword ptr [rsp + 0x48]
+0x1408af949: xor      r9d, r9d
+0x1408af94c: mov      r10, qword ptr [rsp + 0x40]
+0x1408af951: call     0x1408afa60   ; main.createLauncherStartupTaskUsingSchtasks
+0x1408af956: test     rax, rax
+0x1408af959: je       0x1408af9cf   ; main.syncLauncherStartupTask+0x18f
+0x1408af95b: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1408af961: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1408af96a: mov      rdx, qword ptr [rsp + 0x58]
+0x1408af96f: test     rdx, rdx
+0x1408af972: je       0x1408af97d   ; main.syncLauncherStartupTask+0x13d
+0x1408af974: mov      rdx, qword ptr [rdx + 8]
+0x1408af978: test     rax, rax
+0x1408af97b: jmp      0x1408af980   ; main.syncLauncherStartupTask+0x140
+0x1408af97d: test     rax, rax
+0x1408af980: mov      qword ptr [rsp + 0x78], rdx
+0x1408af985: mov      rdx, qword ptr [rsp + 0x70]
+0x1408af98a: mov      qword ptr [rsp + 0x80], rdx
+0x1408af992: je       0x1408af998   ; main.syncLauncherStartupTask+0x158
+0x1408af994: mov      rax, qword ptr [rax + 8]
+0x1408af998: mov      qword ptr [rsp + 0x88], rax
+0x1408af9a0: mov      qword ptr [rsp + 0x90], rbx
+0x1408af9a8: lea      rax, [rip + 0x3df92a]
+0x1408af9af: mov      ebx, 0x41
+0x1408af9b4: lea      rcx, [rsp + 0x78]
+0x1408af9b9: mov      edi, 2
+0x1408af9be: mov      rsi, rdi
+0x1408af9c1: call     0x140133280   ; fmt.Errorf
+0x1408af9c6: add      rsp, 0x98
+0x1408af9cd: pop      rbp
+0x1408af9ce: ret      
+0x1408af9cf: xor      eax, eax
+0x1408af9d1: xor      ebx, ebx
+0x1408af9d3: add      rsp, 0x98
+0x1408af9da: pop      rbp
+0x1408af9db: ret      
+0x1408af9dc: xor      eax, eax
+0x1408af9de: xor      ebx, ebx
+0x1408af9e0: add      rsp, 0x98
+0x1408af9e7: pop      rbp
+0x1408af9e8: ret      
+0x1408af9e9: add      rsp, 0x98
+0x1408af9f0: pop      rbp
+0x1408af9f1: ret      
+0x1408af9f2: mov      rax, rcx
+0x1408af9f5: mov      rbx, rdi
+0x1408af9f8: add      rsp, 0x98
+0x1408af9ff: pop      rbp
+0x1408afa00: ret      
+0x1408afa01: mov      rax, rcx
+0x1408afa04: mov      rbx, rdi
+0x1408afa07: add      rsp, 0x98
+0x1408afa0e: pop      rbp
+0x1408afa0f: ret      
+0x1408afa10: mov      rax, rcx
+0x1408afa13: mov      rbx, rdi
+0x1408afa16: add      rsp, 0x98
+0x1408afa1d: pop      rbp
+0x1408afa1e: ret      
+0x1408afa1f: nop      
+0x1408afa20: call     0x1408affa0   ; main.deleteLauncherStartupTask
+0x1408afa25: add      rsp, 0x98
+0x1408afa2c: pop      rbp
+0x1408afa2d: ret      
+0x1408afa2e: mov      byte ptr [rsp + 8], al
+0x1408afa32: mov      qword ptr [rsp + 0x10], rbx
+0x1408afa37: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408afa3c: movzx    eax, byte ptr [rsp + 8]
+0x1408afa41: mov      rbx, qword ptr [rsp + 0x10]
+0x1408afa46: jmp      0x1408af840   ; main.syncLauncherStartupTask
+0x1408afa4b: int3     
+0x1408afa4c: int3     
+0x1408afa4d: int3     
+0x1408afa4e: int3     
+0x1408afa4f: int3     
+0x1408afa50: int3     
+0x1408afa51: int3     
+0x1408afa52: int3     
+0x1408afa53: int3     
+0x1408afa54: int3     
+0x1408afa55: int3     
+0x1408afa56: int3     
+0x1408afa57: int3     
+0x1408afa58: int3     
+0x1408afa59: int3     
+0x1408afa5a: int3     
+0x1408afa5b: int3     
+0x1408afa5c: int3     
+0x1408afa5d: int3     
+0x1408afa5e: int3     
+0x1408afa5f: int3     

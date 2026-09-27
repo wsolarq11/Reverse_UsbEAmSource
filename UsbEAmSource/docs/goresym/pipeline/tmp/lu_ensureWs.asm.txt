@@ -1,0 +1,34 @@
+0x1407a26a0: lea      r12, [rsp - 0xd0]
+0x1407a26a8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a26ac: jbe      0x1407a2708   ; main.BootstrapService.ensureWorkspaceDirectories+0x68
+0x1407a26ae: push     rbp
+0x1407a26af: mov      rbp, rsp
+0x1407a26b2: sub      rsp, 0x148
+0x1407a26b9: call     0x1407a10c0   ; main.BootstrapService.workspaceSnapshot
+0x1407a26be: lea      rdi, [rsp + 0xa8]
+0x1407a26c6: mov      rsi, rsp
+0x1407a26c9: mov      qword ptr [rsp - 0x10], rbp
+0x1407a26ce: lea      rbp, [rsp - 0x10]
+0x1407a26d3: call     0x140081a54   ; runtime.duffcopy+0x2f4
+0x1407a26d8: mov      rbp, qword ptr [rbp]
+0x1407a26dc: mov      rdi, rsp
+0x1407a26df: lea      rsi, [rsp + 0xa8]
+0x1407a26e7: mov      qword ptr [rsp - 0x10], rbp
+0x1407a26ec: lea      rbp, [rsp - 0x10]
+0x1407a26f1: call     0x140081a54   ; runtime.duffcopy+0x2f4
+0x1407a26f6: mov      rbp, qword ptr [rbp]
+0x1407a26fa: call     0x1407a2520   ; main.ensureWorkspaceDirectories
+0x1407a26ff: add      rsp, 0x148
+0x1407a2706: pop      rbp
+0x1407a2707: ret      
+0x1407a2708: mov      qword ptr [rsp + 8], rax
+0x1407a270d: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a2712: mov      rax, qword ptr [rsp + 8]
+0x1407a2717: jmp      0x1407a26a0   ; main.BootstrapService.ensureWorkspaceDirectories
+0x1407a2719: int3     
+0x1407a271a: int3     
+0x1407a271b: int3     
+0x1407a271c: int3     
+0x1407a271d: int3     
+0x1407a271e: int3     
+0x1407a271f: int3     

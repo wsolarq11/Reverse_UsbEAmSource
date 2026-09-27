@@ -1,0 +1,44 @@
+0x14088a700: cmp      rsp, qword ptr [r14 + 0x10]
+0x14088a704: jbe      0x14088a751    ; main.normalizeAppEntryType+0x51
+0x14088a706: push     rbp
+0x14088a707: mov      rbp, rsp
+0x14088a70a: sub      rsp, 0x20
+0x14088a70e: mov      qword ptr [rsp + 0x30], rax
+0x14088a713: call     0x1400a2200    ; strings.TrimSpace
+0x14088a718: lea      rcx, [rip + 0x3b4fb1]
+0x14088a71f: mov      edi, 9
+0x14088a724: call     0x1400a2c40    ; strings.EqualFold
+0x14088a729: test     al, al
+0x14088a72b: je       0x14088a73f    ; main.normalizeAppEntryType+0x3f
+0x14088a72d: lea      rax, [rip + 0x3b4f9c]
+0x14088a734: mov      ebx, 9
+0x14088a739: add      rsp, 0x20
+0x14088a73d: pop      rbp
+0x14088a73e: ret      
+0x14088a73f: lea      rax, [rip + 0x3a941d]
+0x14088a746: mov      ebx, 3
+0x14088a74b: add      rsp, 0x20
+0x14088a74f: pop      rbp
+0x14088a750: ret      
+0x14088a751: mov      qword ptr [rsp + 8], rax
+0x14088a756: mov      qword ptr [rsp + 0x10], rbx
+0x14088a75b: nop      dword ptr [rax + rax]
+0x14088a760: call     0x14007f140    ; runtime.morestack_noctxt
+0x14088a765: mov      rax, qword ptr [rsp + 8]
+0x14088a76a: mov      rbx, qword ptr [rsp + 0x10]
+0x14088a76f: jmp      0x14088a700    ; main.normalizeAppEntryType
+0x14088a771: int3     
+0x14088a772: int3     
+0x14088a773: int3     
+0x14088a774: int3     
+0x14088a775: int3     
+0x14088a776: int3     
+0x14088a777: int3     
+0x14088a778: int3     
+0x14088a779: int3     
+0x14088a77a: int3     
+0x14088a77b: int3     
+0x14088a77c: int3     
+0x14088a77d: int3     
+0x14088a77e: int3     
+0x14088a77f: int3     

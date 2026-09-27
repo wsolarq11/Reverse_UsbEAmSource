@@ -1,0 +1,398 @@
+0x1409ae0e0: lea      r12, [rsp - 0xb8]
+0x1409ae0e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1409ae0ec: jbe      0x1409ae89f   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x7bf
+0x1409ae0f2: push     rbp
+0x1409ae0f3: mov      rbp, rsp
+0x1409ae0f6: sub      rsp, 0x130
+0x1409ae0fd: mov      qword ptr [rsp + 0x190], r10
+0x1409ae105: mov      qword ptr [rsp + 0x198], r11
+0x1409ae10d: movups   xmmword ptr [rsp + 0x118], xmm15
+0x1409ae116: movups   xmmword ptr [rsp + 0x120], xmm15
+0x1409ae11f: mov      byte ptr [rsp + 0x4a], 0
+0x1409ae124: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1409ae12a: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1409ae130: mov      byte ptr [rsp + 0x49], 0
+0x1409ae135: test     r9, r9
+0x1409ae138: je       0x1409ae829   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x749
+0x1409ae13e: mov      qword ptr [rsp + 0x188], r9
+0x1409ae146: mov      qword ptr [rsp + 0x198], r11
+0x1409ae14e: mov      qword ptr [rsp + 0xf8], r8
+0x1409ae156: mov      qword ptr [rsp + 0xf0], rsi
+0x1409ae15e: mov      qword ptr [rsp + 0xe8], rdi
+0x1409ae166: mov      qword ptr [rsp + 0xe0], rcx
+0x1409ae16e: mov      dword ptr [rsp + 0x54], ebx
+0x1409ae172: mov      dword ptr [rsp + 0x50], eax
+0x1409ae176: mov      qword ptr [rsp + 0x190], r10
+0x1409ae17e: mov      rax, r9
+0x1409ae181: call     0x1409af060   ; main.screenshotOverlayWindowRect
+0x1409ae186: mov      qword ptr [rsp + 0xd8], rax
+0x1409ae18e: mov      qword ptr [rsp + 0xd0], rbx
+0x1409ae196: mov      qword ptr [rsp + 0xc8], rcx
+0x1409ae19e: mov      qword ptr [rsp + 0xc0], rdi
+0x1409ae1a6: mov      rax, qword ptr [rsp + 0x188]
+0x1409ae1ae: call     0x140973ce0   ; main.captureScreenshotOverlayMouseInput
+0x1409ae1b3: mov      qword ptr [rsp + 0x118], rax
+0x1409ae1bb: mov      byte ptr [rsp + 0x4a], 1
+0x1409ae1c0: mov      rcx, qword ptr [rsp + 0x190]
+0x1409ae1c8: test     rcx, rcx
+0x1409ae1cb: jne      0x1409ae1d4   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0xf4
+0x1409ae1cd: mov      eax, 1
+0x1409ae1d2: jmp      0x1409ae232   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x152
+0x1409ae1d4: mov      rcx, qword ptr [rcx + 0x18]
+0x1409ae1d8: mov      rax, qword ptr [rsp + 0x198]
+0x1409ae1e0: mov      ebx, 1
+0x1409ae1e5: call     rcx
+0x1409ae1e7: mov      rcx, qword ptr [rsp + 0x190]
+0x1409ae1ef: test     byte ptr [rcx], al
+0x1409ae1f1: lea      rdx, [rip + 0x7a8]
+0x1409ae1f8: mov      qword ptr [rsp + 0x100], rdx
+0x1409ae200: mov      qword ptr [rsp + 0x108], rcx
+0x1409ae208: mov      rcx, qword ptr [rsp + 0x198]
+0x1409ae210: mov      qword ptr [rsp + 0x110], rcx
+0x1409ae218: lea      rcx, [rsp + 0x100]
+0x1409ae220: mov      qword ptr [rsp + 0x120], rcx
+0x1409ae228: mov      byte ptr [rsp + 0x4a], 3
+0x1409ae22d: mov      eax, 3
+0x1409ae232: mov      byte ptr [rsp + 0x4b], al
+0x1409ae236: nop      
+0x1409ae237: lea      rax, [rip + 0x14f7a2]
+0x1409ae23e: nop      
+0x1409ae240: call     0x14001ae20   ; runtime.newobject
+0x1409ae245: mov      rcx, qword ptr [rsp + 0x188]
+0x1409ae24d: mov      qword ptr [rax], rcx
+0x1409ae250: mov      qword ptr [rax + 8], 0xffffffffffffffec
+0x1409ae258: mov      rcx, qword ptr [rip + 0x1214649]
+0x1409ae25f: mov      rbx, rax
+0x1409ae262: mov      edi, 2
+0x1409ae267: mov      rax, rcx
+0x1409ae26a: mov      rcx, rdi
+0x1409ae26d: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409ae272: mov      rcx, rax
+0x1409ae275: or       rax, 0x20
+0x1409ae279: cmp      rcx, rax
+0x1409ae27c: jne      0x1409ae288   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x1a8
+0x1409ae27e: movzx    eax, byte ptr [rsp + 0x4b]
+0x1409ae283: jmp      0x1409ae32d   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x24d
+0x1409ae288: mov      qword ptr [rsp + 0xb8], rcx
+0x1409ae290: mov      qword ptr [rsp + 0x78], rax
+0x1409ae295: movzx    ecx, byte ptr [rsp + 0x4b]
+0x1409ae29a: or       ecx, 4
+0x1409ae29d: mov      byte ptr [rsp + 0x4b], cl
+0x1409ae2a1: nop      
+0x1409ae2a2: lea      rax, [rip + 0x14d997]
+0x1409ae2a9: call     0x14001ae20   ; runtime.newobject
+0x1409ae2ae: mov      rcx, qword ptr [rsp + 0x188]
+0x1409ae2b6: mov      qword ptr [rax], rcx
+0x1409ae2b9: mov      qword ptr [rax + 8], 0xffffffffffffffec
+0x1409ae2c1: mov      rcx, qword ptr [rsp + 0x78]
+0x1409ae2c6: mov      qword ptr [rax + 0x10], rcx
+0x1409ae2ca: mov      rcx, qword ptr [rip + 0x12145c7]
+0x1409ae2d1: mov      rbx, rax
+0x1409ae2d4: mov      edi, 3
+0x1409ae2d9: mov      rax, rcx
+0x1409ae2dc: mov      rcx, rdi
+0x1409ae2df: nop      
+0x1409ae2e0: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409ae2e5: lea      rcx, [rip + 0x614]
+0x1409ae2ec: mov      qword ptr [rsp + 0x80], rcx
+0x1409ae2f4: mov      rcx, qword ptr [rsp + 0x188]
+0x1409ae2fc: mov      qword ptr [rsp + 0x88], rcx
+0x1409ae304: mov      rcx, qword ptr [rsp + 0xb8]
+0x1409ae30c: mov      qword ptr [rsp + 0x90], rcx
+0x1409ae314: lea      rcx, [rsp + 0x80]
+0x1409ae31c: mov      qword ptr [rsp + 0x128], rcx
+0x1409ae324: movzx    eax, byte ptr [rsp + 0x4b]
+0x1409ae329: mov      byte ptr [rsp + 0x4a], al
+0x1409ae32d: mov      byte ptr [rsp + 0x4b], al
+0x1409ae331: mov      eax, dword ptr [rsp + 0x50]
+0x1409ae335: mov      ebx, dword ptr [rsp + 0x54]
+0x1409ae339: mov      rcx, qword ptr [rsp + 0x148]
+0x1409ae341: movzx    edi, byte ptr [rsp + 0x158]
+0x1409ae349: call     0x1409b1000   ; main.screenshotUIAElementBoundsAtPointWithQueryTimeoutAndPriority
+0x1409ae34e: mov      qword ptr [rsp + 0xb0], rax
+0x1409ae356: mov      dword ptr [rsp + 0x4c], esi
+0x1409ae35a: mov      qword ptr [rsp + 0xa8], rbx
+0x1409ae362: mov      qword ptr [rsp + 0xa0], rcx
+0x1409ae36a: mov      qword ptr [rsp + 0x98], rdi
+0x1409ae372: test     r8, r8
+0x1409ae375: je       0x1409ae37b   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x29b
+0x1409ae377: xor      edx, edx
+0x1409ae379: jmp      0x1409ae3ce   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x2ee
+0x1409ae37b: mov      rsi, qword ptr [rsp + 0xd8]
+0x1409ae383: mov      r8, qword ptr [rsp + 0xd0]
+0x1409ae38b: mov      r9, qword ptr [rsp + 0xc8]
+0x1409ae393: mov      r10, qword ptr [rsp + 0xc0]
+0x1409ae39b: nop      dword ptr [rax + rax]
+0x1409ae3a0: call     0x1409af320   ; main.screenshotRectMatchesBounds
+0x1409ae3a5: xor      eax, 1
+0x1409ae3a8: mov      rcx, qword ptr [rsp + 0xa0]
+0x1409ae3b0: mov      rbx, qword ptr [rsp + 0xa8]
+0x1409ae3b8: mov      esi, dword ptr [rsp + 0x4c]
+0x1409ae3bc: mov      rdi, qword ptr [rsp + 0x98]
+0x1409ae3c4: mov      edx, eax
+0x1409ae3c6: mov      rax, qword ptr [rsp + 0xb0]
+0x1409ae3ce: test     dl, dl
+0x1409ae3d0: jne      0x1409ae3d9   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x2f9
+0x1409ae3d2: xor      edx, edx
+0x1409ae3d4: jmp      0x1409ae481   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x3a1
+0x1409ae3d9: mov      rsi, qword ptr [rsp + 0x140]
+0x1409ae3e1: call     0x1409aed00   ; main.screenshotControlRectMatchesTargetWindow
+0x1409ae3e6: test     al, al
+0x1409ae3e8: je       0x1409ae412   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x332
+0x1409ae3ea: mov      rax, qword ptr [rsp + 0xb0]
+0x1409ae3f2: mov      rcx, qword ptr [rsp + 0xa0]
+0x1409ae3fa: mov      rbx, qword ptr [rsp + 0xa8]
+0x1409ae402: mov      esi, dword ptr [rsp + 0x4c]
+0x1409ae406: mov      rdi, qword ptr [rsp + 0x98]
+0x1409ae40e: xor      edx, edx
+0x1409ae410: jmp      0x1409ae481   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x3a1
+0x1409ae412: mov      rax, qword ptr [rsp + 0xb0]
+0x1409ae41a: mov      rbx, qword ptr [rsp + 0xa8]
+0x1409ae422: mov      rcx, qword ptr [rsp + 0xa0]
+0x1409ae42a: mov      rdi, qword ptr [rsp + 0x98]
+0x1409ae432: mov      esi, dword ptr [rsp + 0x4c]
+0x1409ae436: mov      r8, qword ptr [rsp + 0xe0]
+0x1409ae43e: mov      r9, qword ptr [rsp + 0xe8]
+0x1409ae446: mov      r10, qword ptr [rsp + 0xf0]
+0x1409ae44e: mov      r11, qword ptr [rsp + 0xf8]
+0x1409ae456: call     0x1409af4e0   ; main.screenshotUIAControlRectUsable
+0x1409ae45b: mov      rcx, qword ptr [rsp + 0xa0]
+0x1409ae463: mov      rbx, qword ptr [rsp + 0xa8]
+0x1409ae46b: mov      esi, dword ptr [rsp + 0x4c]
+0x1409ae46f: mov      rdi, qword ptr [rsp + 0x98]
+0x1409ae477: mov      edx, eax
+0x1409ae479: mov      rax, qword ptr [rsp + 0xb0]
+0x1409ae481: test     dl, dl
+0x1409ae483: je       0x1409ae746   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x666
+0x1409ae489: mov      rsi, qword ptr [rsp + 0xe0]
+0x1409ae491: mov      r8, qword ptr [rsp + 0xe8]
+0x1409ae499: mov      r9, qword ptr [rsp + 0xf0]
+0x1409ae4a1: mov      r10, qword ptr [rsp + 0xf8]
+0x1409ae4a9: call     0x1409af400   ; main.normalizeScreenshotControlRect
+0x1409ae4ae: test     sil, sil
+0x1409ae4b1: je       0x1409ae746   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x666
+0x1409ae4b7: mov      r12d, dword ptr [rsp + 0x4c]
+0x1409ae4bc: mov      r12d, r12d
+0x1409ae4bf: add      r12, -0xc358
+0x1409ae4c6: nop      
+0x1409ae4c7: cmp      r12, 0x19
+0x1409ae4cb: ja       0x1409ae694   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x5b4
+0x1409ae4d1: mov      qword ptr [rsp + 0xd8], rax
+0x1409ae4d9: mov      qword ptr [rsp + 0xd0], rdi
+0x1409ae4e1: mov      qword ptr [rsp + 0xc8], rcx
+0x1409ae4e9: mov      qword ptr [rsp + 0xc0], rbx
+0x1409ae4f1: lea      rdx, [rip + 0x8337e8]
+0x1409ae4f8: jmp      qword ptr [rdx + r12*8]
+0x1409ae4fc: mov      eax, dword ptr [rsp + 0x50]
+0x1409ae500: mov      ebx, dword ptr [rsp + 0x54]
+0x1409ae504: mov      rcx, qword ptr [rsp + 0x140]
+0x1409ae50c: mov      rdi, qword ptr [rsp + 0xe0]
+0x1409ae514: mov      rsi, qword ptr [rsp + 0xe8]
+0x1409ae51c: mov      r8, qword ptr [rsp + 0xf0]
+0x1409ae524: mov      r9, qword ptr [rsp + 0xf8]
+0x1409ae52c: mov      r10, qword ptr [rsp + 0x150]
+0x1409ae534: movzx    r11d, byte ptr [rsp + 0x158]
+0x1409ae53d: nop      dword ptr [rax]
+0x1409ae540: call     0x1409aee20   ; main.screenshotFallbackControlBoundsAtPointWithTimeoutAndPriority
+0x1409ae545: test     sil, sil
+0x1409ae548: jne      0x1409ae54e   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x46e
+0x1409ae54a: xor      edx, edx
+0x1409ae54c: jmp      0x1409ae5c1   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x4e1
+0x1409ae54e: mov      qword ptr [rsp + 0xf8], rax
+0x1409ae556: mov      qword ptr [rsp + 0xf0], rbx
+0x1409ae55e: mov      qword ptr [rsp + 0xe8], rcx
+0x1409ae566: mov      qword ptr [rsp + 0xe0], rdi
+0x1409ae56e: mov      rsi, rax
+0x1409ae571: mov      r8, rbx
+0x1409ae574: mov      r9, rcx
+0x1409ae577: mov      r10, rdi
+0x1409ae57a: mov      rax, qword ptr [rsp + 0xd8]
+0x1409ae582: mov      rbx, qword ptr [rsp + 0xc0]
+0x1409ae58a: mov      rcx, qword ptr [rsp + 0xc8]
+0x1409ae592: mov      rdi, qword ptr [rsp + 0xd0]
+0x1409ae59a: call     0x1409aedc0   ; main.screenshotPreferSmallerControlRect
+0x1409ae59f: mov      rcx, qword ptr [rsp + 0xe8]
+0x1409ae5a7: mov      rbx, qword ptr [rsp + 0xf0]
+0x1409ae5af: mov      rdi, qword ptr [rsp + 0xe0]
+0x1409ae5b7: mov      edx, eax
+0x1409ae5b9: mov      rax, qword ptr [rsp + 0xf8]
+0x1409ae5c1: test     dl, dl
+0x1409ae5c3: je       0x1409ae674   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x594
+0x1409ae5c9: mov      qword ptr [rsp + 0x58], rax
+0x1409ae5ce: mov      qword ptr [rsp + 0x60], rbx
+0x1409ae5d3: mov      qword ptr [rsp + 0x68], rcx
+0x1409ae5d8: mov      qword ptr [rsp + 0x70], rdi
+0x1409ae5dd: mov      byte ptr [rsp + 0x49], 1
+0x1409ae5e2: movzx    r8d, byte ptr [rsp + 0x4b]
+0x1409ae5e8: test     r8b, 4
+0x1409ae5ec: je       0x1409ae60f   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x52f
+0x1409ae5ee: and      r8d, 0xfffffffb
+0x1409ae5f2: mov      byte ptr [rsp + 0x4b], r8b
+0x1409ae5f7: mov      byte ptr [rsp + 0x4a], r8b
+0x1409ae5fc: mov      rdx, qword ptr [rsp + 0x128]
+0x1409ae604: mov      rax, qword ptr [rdx]
+0x1409ae607: call     rax
+0x1409ae609: movzx    r8d, byte ptr [rsp + 0x4b]
+0x1409ae60f: test     r8b, 2
+0x1409ae613: je       0x1409ae636   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x556
+0x1409ae615: and      r8d, 0xfffffffd
+0x1409ae619: mov      byte ptr [rsp + 0x4b], r8b
+0x1409ae61e: mov      byte ptr [rsp + 0x4a], r8b
+0x1409ae623: mov      rdx, qword ptr [rsp + 0x120]
+0x1409ae62b: mov      rax, qword ptr [rdx]
+0x1409ae62e: call     rax
+0x1409ae630: movzx    r8d, byte ptr [rsp + 0x4b]
+0x1409ae636: test     r8b, 1
+0x1409ae63a: je       0x1409ae652   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x572
+0x1409ae63c: and      r8d, 0xfffffffe
+0x1409ae640: mov      byte ptr [rsp + 0x4a], r8b
+0x1409ae645: mov      rdx, qword ptr [rsp + 0x118]
+0x1409ae64d: mov      rax, qword ptr [rdx]
+0x1409ae650: call     rax
+0x1409ae652: movzx    esi, byte ptr [rsp + 0x49]
+0x1409ae657: mov      rax, qword ptr [rsp + 0x58]
+0x1409ae65c: mov      rbx, qword ptr [rsp + 0x60]
+0x1409ae661: mov      rcx, qword ptr [rsp + 0x68]
+0x1409ae666: mov      rdi, qword ptr [rsp + 0x70]
+0x1409ae66b: add      rsp, 0x130
+0x1409ae672: pop      rbp
+0x1409ae673: ret      
+0x1409ae674: mov      rax, qword ptr [rsp + 0xd8]
+0x1409ae67c: mov      rcx, qword ptr [rsp + 0xc8]
+0x1409ae684: mov      rbx, qword ptr [rsp + 0xc0]
+0x1409ae68c: mov      rdi, qword ptr [rsp + 0xd0]
+0x1409ae694: mov      qword ptr [rsp + 0x58], rax
+0x1409ae699: mov      qword ptr [rsp + 0x60], rbx
+0x1409ae69e: mov      qword ptr [rsp + 0x68], rcx
+0x1409ae6a3: mov      qword ptr [rsp + 0x70], rdi
+0x1409ae6a8: mov      byte ptr [rsp + 0x49], 1
+0x1409ae6ad: movzx    r8d, byte ptr [rsp + 0x4b]
+0x1409ae6b3: test     r8b, 4
+0x1409ae6b7: je       0x1409ae6e0   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x600
+0x1409ae6b9: and      r8d, 0xfffffffb
+0x1409ae6bd: mov      byte ptr [rsp + 0x4b], r8b
+0x1409ae6c2: mov      byte ptr [rsp + 0x4a], r8b
+0x1409ae6c7: mov      rdx, qword ptr [rsp + 0x128]
+0x1409ae6cf: mov      rax, qword ptr [rdx]
+0x1409ae6d2: call     rax
+0x1409ae6d4: movzx    r8d, byte ptr [rsp + 0x4b]
+0x1409ae6da: nop      word ptr [rax + rax]
+0x1409ae6e0: test     r8b, 2
+0x1409ae6e4: je       0x1409ae708   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x628
+0x1409ae6e6: and      r8d, 0xfffffffd
+0x1409ae6ea: mov      byte ptr [rsp + 0x4b], r8b
+0x1409ae6ef: mov      byte ptr [rsp + 0x4a], r8b
+0x1409ae6f4: mov      rdx, qword ptr [rsp + 0x120]
+0x1409ae6fc: mov      rax, qword ptr [rdx]
+0x1409ae6ff: nop      
+0x1409ae700: call     rax
+0x1409ae702: movzx    r8d, byte ptr [rsp + 0x4b]
+0x1409ae708: test     r8b, 1
+0x1409ae70c: je       0x1409ae724   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x644
+0x1409ae70e: and      r8d, 0xfffffffe
+0x1409ae712: mov      byte ptr [rsp + 0x4a], r8b
+0x1409ae717: mov      rdx, qword ptr [rsp + 0x118]
+0x1409ae71f: mov      rax, qword ptr [rdx]
+0x1409ae722: call     rax
+0x1409ae724: movzx    esi, byte ptr [rsp + 0x49]
+0x1409ae729: mov      rax, qword ptr [rsp + 0x58]
+0x1409ae72e: mov      rbx, qword ptr [rsp + 0x60]
+0x1409ae733: mov      rcx, qword ptr [rsp + 0x68]
+0x1409ae738: mov      rdi, qword ptr [rsp + 0x70]
+0x1409ae73d: add      rsp, 0x130
+0x1409ae744: pop      rbp
+0x1409ae745: ret      
+0x1409ae746: mov      eax, dword ptr [rsp + 0x50]
+0x1409ae74a: mov      ebx, dword ptr [rsp + 0x54]
+0x1409ae74e: mov      rcx, qword ptr [rsp + 0x140]
+0x1409ae756: mov      rdi, qword ptr [rsp + 0xe0]
+0x1409ae75e: mov      rsi, qword ptr [rsp + 0xe8]
+0x1409ae766: mov      r8, qword ptr [rsp + 0xf0]
+0x1409ae76e: mov      r9, qword ptr [rsp + 0xf8]
+0x1409ae776: mov      r10, qword ptr [rsp + 0x150]
+0x1409ae77e: movzx    r11d, byte ptr [rsp + 0x158]
+0x1409ae787: call     0x1409aee20   ; main.screenshotFallbackControlBoundsAtPointWithTimeoutAndPriority
+0x1409ae78c: mov      qword ptr [rsp + 0x58], rax
+0x1409ae791: mov      qword ptr [rsp + 0x60], rbx
+0x1409ae796: mov      qword ptr [rsp + 0x68], rcx
+0x1409ae79b: mov      qword ptr [rsp + 0x70], rdi
+0x1409ae7a0: mov      byte ptr [rsp + 0x49], sil
+0x1409ae7a5: movzx    edx, byte ptr [rsp + 0x4b]
+0x1409ae7aa: test     dl, 4
+0x1409ae7ad: je       0x1409ae7cc   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x6ec
+0x1409ae7af: and      edx, 0xfffffffb
+0x1409ae7b2: mov      byte ptr [rsp + 0x4b], dl
+0x1409ae7b6: mov      byte ptr [rsp + 0x4a], dl
+0x1409ae7ba: mov      rdx, qword ptr [rsp + 0x128]
+0x1409ae7c2: mov      rax, qword ptr [rdx]
+0x1409ae7c5: call     rax
+0x1409ae7c7: movzx    edx, byte ptr [rsp + 0x4b]
+0x1409ae7cc: test     dl, 2
+0x1409ae7cf: je       0x1409ae7ee   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x70e
+0x1409ae7d1: and      edx, 0xfffffffd
+0x1409ae7d4: mov      byte ptr [rsp + 0x4b], dl
+0x1409ae7d8: mov      byte ptr [rsp + 0x4a], dl
+0x1409ae7dc: mov      rdx, qword ptr [rsp + 0x120]
+0x1409ae7e4: mov      rax, qword ptr [rdx]
+0x1409ae7e7: call     rax
+0x1409ae7e9: movzx    edx, byte ptr [rsp + 0x4b]
+0x1409ae7ee: test     dl, 1
+0x1409ae7f1: je       0x1409ae807   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout+0x727
+0x1409ae7f3: and      edx, 0xfffffffe
+0x1409ae7f6: mov      byte ptr [rsp + 0x4a], dl
+0x1409ae7fa: mov      rdx, qword ptr [rsp + 0x118]
+0x1409ae802: mov      rax, qword ptr [rdx]
+0x1409ae805: call     rax
+0x1409ae807: movzx    esi, byte ptr [rsp + 0x49]
+0x1409ae80c: mov      rax, qword ptr [rsp + 0x58]
+0x1409ae811: mov      rbx, qword ptr [rsp + 0x60]
+0x1409ae816: mov      rcx, qword ptr [rsp + 0x68]
+0x1409ae81b: mov      rdi, qword ptr [rsp + 0x70]
+0x1409ae820: add      rsp, 0x130
+0x1409ae827: pop      rbp
+0x1409ae828: ret      
+0x1409ae829: movzx    edx, byte ptr [rsp + 0x158]
+0x1409ae831: mov      byte ptr [rsp], dl
+0x1409ae834: mov      r9, qword ptr [rsp + 0x140]
+0x1409ae83c: mov      r10, qword ptr [rsp + 0x148]
+0x1409ae844: mov      r11, qword ptr [rsp + 0x150]
+0x1409ae84c: call     0x1409aea00   ; main.screenshotControlBoundsAtPointWithWindowFallbackWithTimeoutAndPriority
+0x1409ae851: mov      qword ptr [rsp + 0x58], rax
+0x1409ae856: mov      qword ptr [rsp + 0x60], rbx
+0x1409ae85b: mov      qword ptr [rsp + 0x68], rcx
+0x1409ae860: mov      qword ptr [rsp + 0x70], rdi
+0x1409ae865: mov      byte ptr [rsp + 0x49], sil
+0x1409ae86a: mov      rax, qword ptr [rsp + 0x58]
+0x1409ae86f: add      rsp, 0x130
+0x1409ae876: pop      rbp
+0x1409ae877: ret      
+0x1409ae878: call     0x1400435e0   ; runtime.deferreturn
+0x1409ae87d: mov      rax, qword ptr [rsp + 0x58]
+0x1409ae882: mov      rbx, qword ptr [rsp + 0x60]
+0x1409ae887: mov      rcx, qword ptr [rsp + 0x68]
+0x1409ae88c: mov      rdi, qword ptr [rsp + 0x70]
+0x1409ae891: movzx    esi, byte ptr [rsp + 0x49]
+0x1409ae896: add      rsp, 0x130
+0x1409ae89d: pop      rbp
+0x1409ae89e: ret      
+0x1409ae89f: mov      dword ptr [rsp + 0x28], eax
+0x1409ae8a3: mov      dword ptr [rsp + 0x2c], ebx
+0x1409ae8a7: mov      qword ptr [rsp + 0x30], rcx
+0x1409ae8ac: mov      qword ptr [rsp + 0x38], rdi
+0x1409ae8b1: mov      qword ptr [rsp + 0x40], rsi
+0x1409ae8b6: mov      qword ptr [rsp + 0x48], r8
+0x1409ae8bb: mov      qword ptr [rsp + 0x50], r9
+0x1409ae8c0: mov      qword ptr [rsp + 0x58], r10
+0x1409ae8c5: mov      qword ptr [rsp + 0x60], r11
+0x1409ae8ca: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409ae8cf: mov      eax, dword ptr [rsp + 0x28]
+0x1409ae8d3: mov      ebx, dword ptr [rsp + 0x2c]
+0x1409ae8d7: mov      rcx, qword ptr [rsp + 0x30]
+0x1409ae8dc: mov      rdi, qword ptr [rsp + 0x38]
+0x1409ae8e1: mov      rsi, qword ptr [rsp + 0x40]
+0x1409ae8e6: mov      r8, qword ptr [rsp + 0x48]
+0x1409ae8eb: mov      r9, qword ptr [rsp + 0x50]
+0x1409ae8f0: mov      r10, qword ptr [rsp + 0x58]
+0x1409ae8f5: mov      r11, qword ptr [rsp + 0x60]
+0x1409ae8fa: jmp      0x1409ae0e0   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout
+0x1409ae8ff: int3     

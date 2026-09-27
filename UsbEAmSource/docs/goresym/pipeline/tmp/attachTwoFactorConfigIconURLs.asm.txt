@@ -1,0 +1,136 @@
+0x1408a3920: lea      r12, [rsp - 0x40]
+0x1408a3925: cmp      r12, qword ptr [r14 + 0x10]
+0x1408a3929: jbe      0x1408a3b4b    ; main.BootstrapService.attachTwoFactorConfigIconURLs+0x22b
+0x1408a392f: push     rbp
+0x1408a3930: mov      rbp, rsp
+0x1408a3933: sub      rsp, 0xb8
+0x1408a393a: mov      qword ptr [rsp + 0x168], rax
+0x1408a3942: lea      rdi, [rsp + 0x118]
+0x1408a394a: lea      rdi, [rdi - 0x30]
+0x1408a394e: nop      word ptr [rax + rax]
+0x1408a3957: nop      word ptr [rax + rax]
+0x1408a3960: mov      qword ptr [rsp - 0x10], rbp
+0x1408a3965: lea      rbp, [rsp - 0x10]
+0x1408a396a: call     0x140081730    ; runtime.duffzero+0x150
+0x1408a396f: mov      rbp, qword ptr [rbp]
+0x1408a3973: mov      rdx, qword ptr [rsp + 0x108]
+0x1408a397b: mov      qword ptr [rsp + 0x48], rdx
+0x1408a3980: xor      ecx, ecx
+0x1408a3982: jmp      0x1408a39a5    ; main.BootstrapService.attachTwoFactorConfigIconURLs+0x85
+0x1408a3984: mov      qword ptr [r12 + r11 + 0x80], r13
+0x1408a398c: movups   xmmword ptr [rdx], xmm15
+0x1408a3990: mov      rcx, qword ptr [rsp + 0x38]
+0x1408a3995: inc      rcx
+0x1408a3998: mov      rax, qword ptr [rsp + 0x168]
+0x1408a39a0: mov      rdx, qword ptr [rsp + 0x48]
+0x1408a39a5: cmp      rcx, rdx
+0x1408a39a8: jge      0x1408a3aee    ; main.BootstrapService.attachTwoFactorConfigIconURLs+0x1ce
+0x1408a39ae: mov      r10, qword ptr [rsp + 0x108]
+0x1408a39b6: cmp      rcx, r10
+0x1408a39b9: jae      0x1408a3b3f    ; main.BootstrapService.attachTwoFactorConfigIconURLs+0x21f
+0x1408a39bf: mov      qword ptr [rsp + 0x38], rcx
+0x1408a39c4: mov      rdx, qword ptr [rsp + 0x100]
+0x1408a39cc: mov      qword ptr [rsp + 0x80], rdx
+0x1408a39d4: imul     r10, rcx, 0xd0
+0x1408a39db: mov      qword ptr [rsp + 0x40], r10
+0x1408a39e0: mov      rdi, qword ptr [rdx + r10 + 0x70]
+0x1408a39e5: mov      rsi, qword ptr [rdx + r10 + 0x78]
+0x1408a39ea: mov      r8, qword ptr [rdx + r10 + 0x60]
+0x1408a39ef: mov      r9, qword ptr [rdx + r10 + 0x68]
+0x1408a39f4: lea      rbx, [rip + 0x3af34b]
+0x1408a39fb: mov      ecx, 0xf
+0x1408a3a00: call     0x1408a28e0    ; main.BootstrapService.buildLauncherConfigIconResource
+0x1408a3a05: mov      qword ptr [rsp + 0x88], rax
+0x1408a3a0d: mov      qword ptr [rsp + 0x90], rbx
+0x1408a3a15: mov      qword ptr [rsp + 0x98], rcx
+0x1408a3a1d: mov      qword ptr [rsp + 0xa0], rdi
+0x1408a3a25: mov      qword ptr [rsp + 0xa8], rsi
+0x1408a3a2d: mov      qword ptr [rsp + 0xb0], r8
+0x1408a3a35: movups   xmm0, xmmword ptr [rsp + 0x88]
+0x1408a3a3d: movups   xmmword ptr [rsp + 0x50], xmm0
+0x1408a3a42: movups   xmm0, xmmword ptr [rsp + 0x98]
+0x1408a3a4a: movups   xmmword ptr [rsp + 0x60], xmm0
+0x1408a3a4f: movups   xmm0, xmmword ptr [rsp + 0xa8]
+0x1408a3a57: movups   xmmword ptr [rsp + 0x70], xmm0
+0x1408a3a5c: mov      rdx, qword ptr [rsp + 0x68]
+0x1408a3a61: mov      r10, qword ptr [rsp + 0x60]
+0x1408a3a66: mov      r11, qword ptr [rsp + 0x40]
+0x1408a3a6b: mov      r12, qword ptr [rsp + 0x80]
+0x1408a3a73: mov      qword ptr [r12 + r11 + 0x78], rdx
+0x1408a3a78: lea      rdx, [r12 + r11]
+0x1408a3a7c: lea      rdx, [rdx + 0x60]
+0x1408a3a80: cmp      dword ptr [rip + 0x13b78c9], 0
+0x1408a3a87: je       0x1408a3aa0    ; main.BootstrapService.attachTwoFactorConfigIconURLs+0x180
+0x1408a3a89: mov      r13, qword ptr [r12 + r11 + 0x70]
+0x1408a3a8e: mov      rax, r11
+0x1408a3a91: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1408a3a96: mov      qword ptr [r11], r10
+0x1408a3a99: mov      qword ptr [r11 + 8], r13
+0x1408a3a9d: mov      r11, rax
+0x1408a3aa0: mov      qword ptr [r12 + r11 + 0x70], r10
+0x1408a3aa5: mov      r10, qword ptr [rsp + 0x78]
+0x1408a3aaa: mov      r13, qword ptr [rsp + 0x70]
+0x1408a3aaf: mov      qword ptr [r12 + r11 + 0x88], r10
+0x1408a3ab7: cmp      dword ptr [rip + 0x13b7892], 0
+0x1408a3abe: nop      
+0x1408a3ac0: je       0x1408a3984    ; main.BootstrapService.attachTwoFactorConfigIconURLs+0x64
+0x1408a3ac6: mov      r10, qword ptr [r12 + r11 + 0x80]
+0x1408a3ace: mov      r15, qword ptr [r12 + r11 + 0x60]
+0x1408a3ad3: mov      rax, r11
+0x1408a3ad6: call     0x140081080    ; runtime.gcWriteBarrier3
+0x1408a3adb: mov      qword ptr [r11], r13
+0x1408a3ade: mov      qword ptr [r11 + 8], r10
+0x1408a3ae2: mov      qword ptr [r11 + 0x10], r15
+0x1408a3ae6: mov      r11, rax
+0x1408a3ae9: jmp      0x1408a3984    ; main.BootstrapService.attachTwoFactorConfigIconURLs+0x64
+0x1408a3aee: lea      rdi, [rsp + 0x118]
+0x1408a3af6: lea      rsi, [rsp + 0xc8]
+0x1408a3afe: nop      
+0x1408a3b00: mov      qword ptr [rsp - 0x10], rbp
+0x1408a3b05: lea      rbp, [rsp - 0x10]
+0x1408a3b0a: call     0x140081a9a    ; runtime.duffcopy+0x33a
+0x1408a3b0f: mov      rbp, qword ptr [rbp]
+0x1408a3b13: lea      rdi, [rsp + 0x118]
+0x1408a3b1b: lea      rsi, [rsp + 0xc8]
+0x1408a3b23: mov      qword ptr [rsp - 0x10], rbp
+0x1408a3b28: lea      rbp, [rsp - 0x10]
+0x1408a3b2d: call     0x140081a9a    ; runtime.duffcopy+0x33a
+0x1408a3b32: mov      rbp, qword ptr [rbp]
+0x1408a3b36: add      rsp, 0xb8
+0x1408a3b3d: pop      rbp
+0x1408a3b3e: ret      
+0x1408a3b3f: mov      rax, rcx
+0x1408a3b42: mov      rcx, r10
+0x1408a3b45: call     0x140081400    ; runtime.panicIndex
+0x1408a3b4a: nop      
+0x1408a3b4b: mov      qword ptr [rsp + 0xa8], rax
+0x1408a3b53: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408a3b58: mov      rax, qword ptr [rsp + 0xa8]
+0x1408a3b60: jmp      0x1408a3920    ; main.BootstrapService.attachTwoFactorConfigIconURLs
+0x1408a3b65: int3     
+0x1408a3b66: int3     
+0x1408a3b67: int3     
+0x1408a3b68: int3     
+0x1408a3b69: int3     
+0x1408a3b6a: int3     
+0x1408a3b6b: int3     
+0x1408a3b6c: int3     
+0x1408a3b6d: int3     
+0x1408a3b6e: int3     
+0x1408a3b6f: int3     
+0x1408a3b70: int3     
+0x1408a3b71: int3     
+0x1408a3b72: int3     
+0x1408a3b73: int3     
+0x1408a3b74: int3     
+0x1408a3b75: int3     
+0x1408a3b76: int3     
+0x1408a3b77: int3     
+0x1408a3b78: int3     
+0x1408a3b79: int3     
+0x1408a3b7a: int3     
+0x1408a3b7b: int3     
+0x1408a3b7c: int3     
+0x1408a3b7d: int3     
+0x1408a3b7e: int3     
+0x1408a3b7f: int3     

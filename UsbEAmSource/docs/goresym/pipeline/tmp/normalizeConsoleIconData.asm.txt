@@ -1,0 +1,69 @@
+0x1408808a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408808a4: jbe      0x1408808fe   ; main.normalizeConsoleIconData+0x5e
+0x1408808a6: push     rbp
+0x1408808a7: mov      rbp, rsp
+0x1408808aa: sub      rsp, 0x28
+0x1408808ae: mov      qword ptr [rsp + 0x38], rax
+0x1408808b3: call     0x1400a2200   ; strings.TrimSpace
+0x1408808b8: mov      qword ptr [rsp + 0x20], rax
+0x1408808bd: mov      qword ptr [rsp + 0x18], rbx
+0x1408808c2: call     0x1400a1500   ; strings.ToLower
+0x1408808c7: nop      
+0x1408808c8: cmp      rbx, 0xb
+0x1408808cc: jl       0x1408808e4   ; main.normalizeConsoleIconData+0x44
+0x1408808ce: lea      rbx, [rip + 0x3c6c64]
+0x1408808d5: mov      ecx, 0xb
+0x1408808da: call     0x140006280   ; runtime.memequal
+0x1408808df: nop      
+0x1408808e0: test     al, al
+0x1408808e2: jne      0x1408808ee   ; main.normalizeConsoleIconData+0x4e
+0x1408808e4: xor      eax, eax
+0x1408808e6: xor      ebx, ebx
+0x1408808e8: add      rsp, 0x28
+0x1408808ec: pop      rbp
+0x1408808ed: ret      
+0x1408808ee: mov      rax, qword ptr [rsp + 0x20]
+0x1408808f3: mov      rbx, qword ptr [rsp + 0x18]
+0x1408808f8: add      rsp, 0x28
+0x1408808fc: pop      rbp
+0x1408808fd: ret      
+0x1408808fe: mov      qword ptr [rsp + 8], rax
+0x140880903: mov      qword ptr [rsp + 0x10], rbx
+0x140880908: call     0x14007f140   ; runtime.morestack_noctxt
+0x14088090d: mov      rax, qword ptr [rsp + 8]
+0x140880912: mov      rbx, qword ptr [rsp + 0x10]
+0x140880917: jmp      0x1408808a0   ; main.normalizeConsoleIconData
+0x140880919: int3     
+0x14088091a: int3     
+0x14088091b: int3     
+0x14088091c: int3     
+0x14088091d: int3     
+0x14088091e: int3     
+0x14088091f: int3     
+0x140880920: lea      r12, [rsp - 0x38]
+0x140880925: cmp      r12, qword ptr [r14 + 0x10]
+0x140880929: jbe      0x1408809fc   ; main.trimStringLimit+0xdc
+0x14088092f: push     rbp
+0x140880930: mov      rbp, rsp
+0x140880933: sub      rsp, 0xb0
+0x14088093a: mov      qword ptr [rsp + 0xc0], rax
+0x140880942: mov      qword ptr [rsp + 0xd0], rcx
+0x14088094a: call     0x1400a2200   ; strings.TrimSpace
+0x14088094f: test     rbx, rbx
+0x140880952: je       0x140880965   ; main.trimStringLimit+0x45
+0x140880954: mov      rcx, qword ptr [rsp + 0xd0]
+0x14088095c: nop      dword ptr [rax]
+0x140880960: test     rcx, rcx
+0x140880963: jg       0x140880972   ; main.trimStringLimit+0x52
+0x140880965: xor      eax, eax
+0x140880967: xor      ebx, ebx
+0x140880969: add      rsp, 0xb0
+0x140880970: pop      rbp
+0x140880971: ret      
+0x140880972: mov      qword ptr [rsp + 0xa0], rbx
+0x14088097a: mov      qword ptr [rsp + 0xa8], rax
+0x140880982: call     0x140073340   ; runtime.countrunes
+0x140880987: mov      rcx, qword ptr [rsp + 0xd0]
+0x14088098f: cmp      rax, rcx
+0x140880992: jle      0x1408809d4   ; main.trimStringLimit+0xb4
+0x140880994: lea      rax, [rsp + 0x20]

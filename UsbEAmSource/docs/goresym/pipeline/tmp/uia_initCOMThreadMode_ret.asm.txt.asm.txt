@@ -1,0 +1,17 @@
+0x1409b0b00: add      eax, 0x6e5fcb
+0x1409b0b05: add      rsp, 0x40
+0x1409b0b09: pop      rbp
+0x1409b0b0a: ret      
+0x1409b0b0b: lea      rax, [rip + 0x1b74ce]
+0x1409b0b12: call     0x14001ae20   ; runtime.newobject
+0x1409b0b17: lea      rcx, [rip + 0x42]
+0x1409b0b1e: mov      qword ptr [rax], rcx
+0x1409b0b21: movzx    ecx, byte ptr [rsp + 0x2f]
+0x1409b0b26: mov      byte ptr [rax + 8], cl
+0x1409b0b29: xor      ebx, ebx
+0x1409b0b2b: xor      ecx, ecx
+0x1409b0b2d: add      rsp, 0x40
+0x1409b0b31: pop      rbp
+0x1409b0b32: ret      
+0x1409b0b33: mov      byte ptr [rsp + 8], al
+0x1409b0b37: call     0x14007f140   ; runtime.morestack_noctxt

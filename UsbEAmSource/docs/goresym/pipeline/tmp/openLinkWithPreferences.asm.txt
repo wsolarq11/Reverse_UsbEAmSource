@@ -1,0 +1,293 @@
+0x140768fc0: lea      r12, [rsp - 0xf8]
+0x140768fc8: cmp      r12, qword ptr [r14 + 0x10]
+0x140768fcc: jbe      0x1407695c8   ; main.openLinkWithPreferences+0x608
+0x140768fd2: push     rbp
+0x140768fd3: mov      rbp, rsp
+0x140768fd6: sub      rsp, 0x170
+0x140768fdd: mov      qword ptr [rsp + 0x6b8], rbx
+0x140768fe5: mov      qword ptr [rsp + 0x6b0], rax
+0x140768fed: mov      rax, qword ptr [rsp + 0x200]
+0x140768ff5: mov      rbx, qword ptr [rsp + 0x208]
+0x140768ffd: nop      dword ptr [rax]
+0x140769000: call     0x140769600   ; main.normalizeOpenLinkTarget
+0x140769005: test     rcx, rcx
+0x140769008: jne      0x1407695b9   ; main.openLinkWithPreferences+0x5f9
+0x14076900e: mov      qword ptr [rsp + 0x80], rbx
+0x140769016: mov      qword ptr [rsp + 0x98], rax
+0x14076901e: mov      rax, qword ptr [rsp + 0x6b0]
+0x140769026: mov      rbx, qword ptr [rsp + 0x6b8]
+0x14076902e: call     0x1400a2200   ; strings.TrimSpace
+0x140769033: test     rbx, rbx
+0x140769036: je       0x14076921a   ; main.openLinkWithPreferences+0x25a
+0x14076903c: mov      qword ptr [rsp + 0x88], rbx
+0x140769044: mov      qword ptr [rsp + 0xa0], rax
+0x14076904c: cmp      rbx, 0x12
+0x140769050: jne      0x14076907d   ; main.openLinkWithPreferences+0xbd
+0x140769052: lea      rbx, [rip + 0x4f0ba1]
+0x140769059: mov      ecx, 0x12
+0x14076905e: nop      
+0x140769060: call     0x140006280   ; runtime.memequal
+0x140769065: test     al, al
+0x140769067: jne      0x1407691fc   ; main.openLinkWithPreferences+0x23c
+0x14076906d: mov      rax, qword ptr [rsp + 0xa0]
+0x140769075: mov      rbx, qword ptr [rsp + 0x88]
+0x14076907d: movups   xmmword ptr [rsp + 0x118], xmm15
+0x140769086: lea      rdi, [rsp + 0x120]
+0x14076908e: lea      rdi, [rdi - 0x30]
+0x140769092: nop      word ptr [rax + rax]
+0x14076909b: nop      dword ptr [rax + rax]
+0x1407690a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407690a5: lea      rbp, [rsp - 0x10]
+0x1407690aa: call     0x140081730   ; runtime.duffzero+0x150
+0x1407690af: mov      rbp, qword ptr [rbp]
+0x1407690b3: mov      rdx, qword ptr [rsp + 0x568]
+0x1407690bb: mov      r8, qword ptr [rsp + 0x570]
+0x1407690c3: mov      rcx, qword ptr [rsp + 0x578]
+0x1407690cb: mov      rdi, rax
+0x1407690ce: mov      rsi, rbx
+0x1407690d1: mov      rax, rdx
+0x1407690d4: mov      rbx, r8
+0x1407690d7: call     0x140883aa0   ; main.findConfiguredLinkBrowserByID
+0x1407690dc: mov      rdx, qword ptr [rsp]
+0x1407690e0: mov      qword ptr [rsp + 0x118], rdx
+0x1407690e8: lea      rdi, [rsp + 0x120]
+0x1407690f0: lea      rsi, [rsp + 8]
+0x1407690f5: nop      word ptr [rax + rax]
+0x1407690fe: nop      
+0x140769100: mov      qword ptr [rsp - 0x10], rbp
+0x140769105: lea      rbp, [rsp - 0x10]
+0x14076910a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x14076910f: mov      rbp, qword ptr [rbp]
+0x140769113: mov      rdx, qword ptr [rsp + 0x118]
+0x14076911b: mov      qword ptr [rsp + 0xb0], rdx
+0x140769123: lea      rdi, [rsp + 0xb8]
+0x14076912b: lea      rsi, [rsp + 0x120]
+0x140769133: nop      word ptr [rax + rax]
+0x14076913c: nop      dword ptr [rax]
+0x140769140: mov      qword ptr [rsp - 0x10], rbp
+0x140769145: lea      rbp, [rsp - 0x10]
+0x14076914a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x14076914f: mov      rbp, qword ptr [rbp]
+0x140769153: test     al, al
+0x140769155: je       0x14076919d   ; main.openLinkWithPreferences+0x1dd
+0x140769157: mov      rax, qword ptr [rsp + 0xe0]
+0x14076915f: mov      rbx, qword ptr [rsp + 0xe8]
+0x140769167: mov      rcx, qword ptr [rsp + 0xf0]
+0x14076916f: mov      rdi, qword ptr [rsp + 0xf8]
+0x140769177: mov      rsi, qword ptr [rsp + 0x100]
+0x14076917f: mov      r8, qword ptr [rsp + 0x98]
+0x140769187: mov      r9, qword ptr [rsp + 0x80]
+0x14076918f: call     0x140769a60   ; main.startLinkWithExplicitBrowser
+0x140769194: add      rsp, 0x170
+0x14076919b: pop      rbp
+0x14076919c: ret      
+0x14076919d: movups   xmmword ptr [rsp + 0x108], xmm15
+0x1407691a6: mov      rax, qword ptr [rsp + 0xa0]
+0x1407691ae: mov      rbx, qword ptr [rsp + 0x88]
+0x1407691b6: call     0x140076660   ; runtime.convTstring
+0x1407691bb: lea      rcx, [rip + 0x380c3e]
+0x1407691c2: mov      qword ptr [rsp + 0x108], rcx
+0x1407691ca: mov      qword ptr [rsp + 0x110], rax
+0x1407691d2: lea      rax, [rip + 0x511ef1]
+0x1407691d9: mov      ebx, 0x26
+0x1407691de: lea      rcx, [rsp + 0x108]
+0x1407691e6: mov      edi, 1
+0x1407691eb: mov      rsi, rdi
+0x1407691ee: call     0x140133280   ; fmt.Errorf
+0x1407691f3: add      rsp, 0x170
+0x1407691fa: pop      rbp
+0x1407691fb: ret      
+0x1407691fc: mov      rax, qword ptr [rsp + 0x98]
+0x140769204: mov      rbx, qword ptr [rsp + 0x80]
+0x14076920c: call     0x1408a8de0   ; main.openWithDefaultHandler
+0x140769211: add      rsp, 0x170
+0x140769218: pop      rbp
+0x140769219: ret      
+0x14076921a: mov      rax, qword ptr [rsp + 0x210]
+0x140769222: mov      rbx, qword ptr [rsp + 0x218]
+0x14076922a: call     0x1400a2200   ; strings.TrimSpace
+0x14076922f: test     rbx, rbx
+0x140769232: je       0x140769437   ; main.openLinkWithPreferences+0x477
+0x140769238: mov      qword ptr [rsp + 0x90], rbx
+0x140769240: mov      qword ptr [rsp + 0xa8], rax
+0x140769248: cmp      rbx, 0x12
+0x14076924c: jne      0x140769278   ; main.openLinkWithPreferences+0x2b8
+0x14076924e: lea      rbx, [rip + 0x4f09a5]
+0x140769255: mov      ecx, 0x12
+0x14076925a: call     0x140006280   ; runtime.memequal
+0x14076925f: nop      
+0x140769260: test     al, al
+0x140769262: jne      0x140769419   ; main.openLinkWithPreferences+0x459
+0x140769268: mov      rax, qword ptr [rsp + 0xa8]
+0x140769270: mov      rbx, qword ptr [rsp + 0x90]
+0x140769278: movups   xmmword ptr [rsp + 0x118], xmm15
+0x140769281: lea      rdi, [rsp + 0x120]
+0x140769289: lea      rdi, [rdi - 0x30]
+0x14076928d: nop      word ptr [rax + rax]
+0x140769296: nop      word ptr [rax + rax]
+0x14076929f: nop      
+0x1407692a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407692a5: lea      rbp, [rsp - 0x10]
+0x1407692aa: call     0x140081730   ; runtime.duffzero+0x150
+0x1407692af: mov      rbp, qword ptr [rbp]
+0x1407692b3: mov      rdx, qword ptr [rsp + 0x568]
+0x1407692bb: mov      r8, qword ptr [rsp + 0x570]
+0x1407692c3: mov      rcx, qword ptr [rsp + 0x578]
+0x1407692cb: mov      rdi, rax
+0x1407692ce: mov      rsi, rbx
+0x1407692d1: mov      rax, rdx
+0x1407692d4: mov      rbx, r8
+0x1407692d7: call     0x140883aa0   ; main.findConfiguredLinkBrowserByID
+0x1407692dc: mov      rdx, qword ptr [rsp]
+0x1407692e0: mov      qword ptr [rsp + 0x118], rdx
+0x1407692e8: lea      rdi, [rsp + 0x120]
+0x1407692f0: lea      rsi, [rsp + 8]
+0x1407692f5: nop      word ptr [rax + rax]
+0x1407692fe: nop      
+0x140769300: mov      qword ptr [rsp - 0x10], rbp
+0x140769305: lea      rbp, [rsp - 0x10]
+0x14076930a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x14076930f: mov      rbp, qword ptr [rbp]
+0x140769313: mov      rdx, qword ptr [rsp + 0x118]
+0x14076931b: mov      qword ptr [rsp + 0xb0], rdx
+0x140769323: lea      rdi, [rsp + 0xb8]
+0x14076932b: lea      rsi, [rsp + 0x120]
+0x140769333: nop      word ptr [rax + rax]
+0x14076933c: nop      dword ptr [rax]
+0x140769340: mov      qword ptr [rsp - 0x10], rbp
+0x140769345: lea      rbp, [rsp - 0x10]
+0x14076934a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x14076934f: mov      rbp, qword ptr [rbp]
+0x140769353: test     al, al
+0x140769355: jne      0x1407693d3   ; main.openLinkWithPreferences+0x413
+0x140769357: mov      rcx, qword ptr [rsp + 0x220]
+0x14076935f: mov      rdi, qword ptr [rsp + 0x228]
+0x140769367: mov      rsi, qword ptr [rsp + 0x230]
+0x14076936f: mov      rax, qword ptr [rsp + 0xa8]
+0x140769377: mov      rbx, qword ptr [rsp + 0x90]
+0x14076937f: nop      
+0x140769380: call     0x140769b20   ; main.shouldUseLegacyExplicitLinkBrowser
+0x140769385: test     al, al
+0x140769387: je       0x140769437   ; main.openLinkWithPreferences+0x477
+0x14076938d: mov      rcx, qword ptr [rsp + 0x220]
+0x140769395: mov      rdi, qword ptr [rsp + 0x228]
+0x14076939d: mov      rsi, qword ptr [rsp + 0x230]
+0x1407693a5: mov      rax, qword ptr [rsp + 0xa8]
+0x1407693ad: mov      rbx, qword ptr [rsp + 0x90]
+0x1407693b5: mov      r8, qword ptr [rsp + 0x98]
+0x1407693bd: mov      r9, qword ptr [rsp + 0x80]
+0x1407693c5: call     0x140769a60   ; main.startLinkWithExplicitBrowser
+0x1407693ca: add      rsp, 0x170
+0x1407693d1: pop      rbp
+0x1407693d2: ret      
+0x1407693d3: mov      rax, qword ptr [rsp + 0xe0]
+0x1407693db: mov      rbx, qword ptr [rsp + 0xe8]
+0x1407693e3: mov      rcx, qword ptr [rsp + 0xf0]
+0x1407693eb: mov      rdi, qword ptr [rsp + 0xf8]
+0x1407693f3: mov      rsi, qword ptr [rsp + 0x100]
+0x1407693fb: mov      r8, qword ptr [rsp + 0x98]
+0x140769403: mov      r9, qword ptr [rsp + 0x80]
+0x14076940b: call     0x140769a60   ; main.startLinkWithExplicitBrowser
+0x140769410: add      rsp, 0x170
+0x140769417: pop      rbp
+0x140769418: ret      
+0x140769419: mov      rax, qword ptr [rsp + 0x98]
+0x140769421: mov      rbx, qword ptr [rsp + 0x80]
+0x140769429: call     0x1408a8de0   ; main.openWithDefaultHandler
+0x14076942e: add      rsp, 0x170
+0x140769435: pop      rbp
+0x140769436: ret      
+0x140769437: mov      rax, qword ptr [rsp + 0x580]
+0x14076943f: mov      rbx, qword ptr [rsp + 0x588]
+0x140769447: call     0x1400a2200   ; strings.TrimSpace
+0x14076944c: cmp      rbx, 0x12
+0x140769450: jne      0x14076946d   ; main.openLinkWithPreferences+0x4ad
+0x140769452: lea      rbx, [rip + 0x4f07a1]
+0x140769459: mov      ecx, 0x12
+0x14076945e: nop      
+0x140769460: call     0x140006280   ; runtime.memequal
+0x140769465: test     al, al
+0x140769467: jne      0x14076959b   ; main.openLinkWithPreferences+0x5db
+0x14076946d: movups   xmmword ptr [rsp + 0x118], xmm15
+0x140769476: lea      rdi, [rsp + 0x120]
+0x14076947e: lea      rdi, [rdi - 0x30]
+0x140769482: mov      qword ptr [rsp - 0x10], rbp
+0x140769487: lea      rbp, [rsp - 0x10]
+0x14076948c: call     0x140081730   ; runtime.duffzero+0x150
+0x140769491: mov      rbp, qword ptr [rbp]
+0x140769495: mov      rax, qword ptr [rsp + 0x568]
+0x14076949d: mov      rbx, qword ptr [rsp + 0x570]
+0x1407694a5: mov      rcx, qword ptr [rsp + 0x578]
+0x1407694ad: mov      rdi, qword ptr [rsp + 0x580]
+0x1407694b5: mov      rsi, qword ptr [rsp + 0x588]
+0x1407694bd: nop      dword ptr [rax]
+0x1407694c0: call     0x140883aa0   ; main.findConfiguredLinkBrowserByID
+0x1407694c5: mov      rdx, qword ptr [rsp]
+0x1407694c9: mov      qword ptr [rsp + 0x118], rdx
+0x1407694d1: lea      rdi, [rsp + 0x120]
+0x1407694d9: lea      rsi, [rsp + 8]
+0x1407694de: nop      
+0x1407694e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407694e5: lea      rbp, [rsp - 0x10]
+0x1407694ea: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x1407694ef: mov      rbp, qword ptr [rbp]
+0x1407694f3: mov      rdx, qword ptr [rsp + 0x118]
+0x1407694fb: mov      qword ptr [rsp + 0xb0], rdx
+0x140769503: lea      rdi, [rsp + 0xb8]
+0x14076950b: lea      rsi, [rsp + 0x120]
+0x140769513: nop      word ptr [rax + rax]
+0x14076951c: nop      dword ptr [rax]
+0x140769520: mov      qword ptr [rsp - 0x10], rbp
+0x140769525: lea      rbp, [rsp - 0x10]
+0x14076952a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x14076952f: mov      rbp, qword ptr [rbp]
+0x140769533: test     al, al
+0x140769535: je       0x14076957d   ; main.openLinkWithPreferences+0x5bd
+0x140769537: mov      rax, qword ptr [rsp + 0xe0]
+0x14076953f: mov      rbx, qword ptr [rsp + 0xe8]
+0x140769547: mov      rcx, qword ptr [rsp + 0xf0]
+0x14076954f: mov      rdi, qword ptr [rsp + 0xf8]
+0x140769557: mov      rsi, qword ptr [rsp + 0x100]
+0x14076955f: mov      r8, qword ptr [rsp + 0x98]
+0x140769567: mov      r9, qword ptr [rsp + 0x80]
+0x14076956f: call     0x140769a60   ; main.startLinkWithExplicitBrowser
+0x140769574: add      rsp, 0x170
+0x14076957b: pop      rbp
+0x14076957c: ret      
+0x14076957d: mov      rax, qword ptr [rsp + 0x98]
+0x140769585: mov      rbx, qword ptr [rsp + 0x80]
+0x14076958d: call     0x1408a8de0   ; main.openWithDefaultHandler
+0x140769592: add      rsp, 0x170
+0x140769599: pop      rbp
+0x14076959a: ret      
+0x14076959b: mov      rax, qword ptr [rsp + 0x98]
+0x1407695a3: mov      rbx, qword ptr [rsp + 0x80]
+0x1407695ab: call     0x1408a8de0   ; main.openWithDefaultHandler
+0x1407695b0: add      rsp, 0x170
+0x1407695b7: pop      rbp
+0x1407695b8: ret      
+0x1407695b9: mov      rax, rcx
+0x1407695bc: mov      rbx, rdi
+0x1407695bf: add      rsp, 0x170
+0x1407695c6: pop      rbp
+0x1407695c7: ret      
+0x1407695c8: mov      qword ptr [rsp + 0x538], rax
+0x1407695d0: mov      qword ptr [rsp + 0x540], rbx
+0x1407695d8: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407695dd: mov      rax, qword ptr [rsp + 0x538]
+0x1407695e5: mov      rbx, qword ptr [rsp + 0x540]
+0x1407695ed: jmp      0x140768fc0   ; main.openLinkWithPreferences
+0x1407695f2: int3     
+0x1407695f3: int3     
+0x1407695f4: int3     
+0x1407695f5: int3     
+0x1407695f6: int3     
+0x1407695f7: int3     
+0x1407695f8: int3     
+0x1407695f9: int3     
+0x1407695fa: int3     
+0x1407695fb: int3     
+0x1407695fc: int3     
+0x1407695fd: int3     
+0x1407695fe: int3     
+0x1407695ff: int3     

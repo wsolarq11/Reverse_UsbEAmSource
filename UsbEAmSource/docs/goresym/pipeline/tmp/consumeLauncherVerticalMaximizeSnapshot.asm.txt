@@ -1,0 +1,130 @@
+0x14079ba00: cmp      rsp, qword ptr [r14 + 0x10]
+0x14079ba04: jbe      0x14079bb98    ; main.BootstrapService.consumeLauncherVerticalMaximizeSnapshot+0x198
+0x14079ba0a: push     rbp
+0x14079ba0b: mov      rbp, rsp
+0x14079ba0e: sub      rsp, 0x50
+0x14079ba12: movq     qword ptr [rsp + 0x48], xmm15
+0x14079ba19: mov      byte ptr [rsp + 0xf], 0
+0x14079ba1e: movups   xmmword ptr [rsp + 0x10], xmm15
+0x14079ba24: movups   xmmword ptr [rsp + 0x20], xmm15
+0x14079ba2a: mov      byte ptr [rsp + 0xe], 0
+0x14079ba2f: nop      
+0x14079ba30: mov      rdx, rax
+0x14079ba33: xor      eax, eax
+0x14079ba35: mov      esi, 1
+0x14079ba3a: lock cmpxchg dword ptr [rdx + 0x540], esi
+0x14079ba42: sete     sil
+0x14079ba46: test     sil, sil
+0x14079ba49: jne      0x14079ba75    ; main.BootstrapService.consumeLauncherVerticalMaximizeSnapshot+0x75
+0x14079ba4b: mov      qword ptr [rsp + 0x30], rdx
+0x14079ba50: mov      qword ptr [rsp + 0x68], rbx
+0x14079ba55: mov      qword ptr [rsp + 0x70], rcx
+0x14079ba5a: lea      rax, [rdx + 0x540]
+0x14079ba61: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14079ba66: mov      rcx, qword ptr [rsp + 0x70]
+0x14079ba6b: mov      rdx, qword ptr [rsp + 0x30]
+0x14079ba70: mov      rbx, qword ptr [rsp + 0x68]
+0x14079ba75: lea      rax, [rip + 0x164]
+0x14079ba7c: mov      qword ptr [rsp + 0x38], rax
+0x14079ba81: lea      rax, [rdx + 0x540]
+0x14079ba88: mov      qword ptr [rsp + 0x40], rax
+0x14079ba8d: lea      rax, [rsp + 0x38]
+0x14079ba92: mov      qword ptr [rsp + 0x48], rax
+0x14079ba97: mov      byte ptr [rsp + 0xf], 1
+0x14079ba9c: mov      rax, qword ptr [rdx + 0x500]
+0x14079baa3: test     rax, rax
+0x14079baa6: je       0x14079bb35    ; main.BootstrapService.consumeLauncherVerticalMaximizeSnapshot+0x135
+0x14079baac: mov      rsi, qword ptr [rax + 8]
+0x14079bab0: mov      rdi, qword ptr [rax + 0x10]
+0x14079bab4: mov      r8, qword ptr [rax + 0x18]
+0x14079bab8: mov      rax, qword ptr [rax]
+0x14079babb: cmp      dword ptr [rip + 0x14bf88e], 0
+0x14079bac2: je       0x14079bad3    ; main.BootstrapService.consumeLauncherVerticalMaximizeSnapshot+0xd3
+0x14079bac4: mov      r9, qword ptr [rdx + 0x500]
+0x14079bacb: call     0x140081040    ; runtime.gcWriteBarrier1
+0x14079bad0: mov      qword ptr [r11], r9
+0x14079bad3: mov      qword ptr [rdx + 0x500], 0
+0x14079bade: nop      
+0x14079bae0: test     rbx, rbx
+0x14079bae3: jle      0x14079baed    ; main.BootstrapService.consumeLauncherVerticalMaximizeSnapshot+0xed
+0x14079bae5: test     rcx, rcx
+0x14079bae8: sete     cl
+0x14079baeb: jmp      0x14079baef    ; main.BootstrapService.consumeLauncherVerticalMaximizeSnapshot+0xef
+0x14079baed: xor      ecx, ecx
+0x14079baef: mov      qword ptr [rsp + 0x10], rax
+0x14079baf4: mov      qword ptr [rsp + 0x18], rsi
+0x14079baf9: mov      qword ptr [rsp + 0x20], rdi
+0x14079bafe: mov      qword ptr [rsp + 0x28], r8
+0x14079bb03: mov      byte ptr [rsp + 0xe], cl
+0x14079bb07: mov      byte ptr [rsp + 0xf], 0
+0x14079bb0c: mov      rdx, qword ptr [rsp + 0x48]
+0x14079bb11: mov      rax, qword ptr [rdx]
+0x14079bb14: call     rax
+0x14079bb16: mov      rax, qword ptr [rsp + 0x10]
+0x14079bb1b: movzx    esi, byte ptr [rsp + 0xe]
+0x14079bb20: mov      rbx, qword ptr [rsp + 0x18]
+0x14079bb25: mov      rcx, qword ptr [rsp + 0x20]
+0x14079bb2a: mov      rdi, qword ptr [rsp + 0x28]
+0x14079bb2f: add      rsp, 0x50
+0x14079bb33: pop      rbp
+0x14079bb34: ret      
+0x14079bb35: movups   xmmword ptr [rsp + 0x10], xmm15
+0x14079bb3b: movups   xmmword ptr [rsp + 0x20], xmm15
+0x14079bb41: mov      byte ptr [rsp + 0xe], 0
+0x14079bb46: mov      byte ptr [rsp + 0xf], 0
+0x14079bb4b: mov      rdx, qword ptr [rsp + 0x48]
+0x14079bb50: mov      rax, qword ptr [rdx]
+0x14079bb53: call     rax
+0x14079bb55: mov      rax, qword ptr [rsp + 0x10]
+0x14079bb5a: movzx    esi, byte ptr [rsp + 0xe]
+0x14079bb5f: mov      rbx, qword ptr [rsp + 0x18]
+0x14079bb64: mov      rcx, qword ptr [rsp + 0x20]
+0x14079bb69: mov      rdi, qword ptr [rsp + 0x28]
+0x14079bb6e: add      rsp, 0x50
+0x14079bb72: pop      rbp
+0x14079bb73: ret      
+0x14079bb74: call     0x1400435e0    ; runtime.deferreturn
+0x14079bb79: mov      rax, qword ptr [rsp + 0x10]
+0x14079bb7e: mov      rbx, qword ptr [rsp + 0x18]
+0x14079bb83: mov      rcx, qword ptr [rsp + 0x20]
+0x14079bb88: mov      rdi, qword ptr [rsp + 0x28]
+0x14079bb8d: movzx    esi, byte ptr [rsp + 0xe]
+0x14079bb92: add      rsp, 0x50
+0x14079bb96: pop      rbp
+0x14079bb97: ret      
+0x14079bb98: mov      qword ptr [rsp + 8], rax
+0x14079bb9d: mov      qword ptr [rsp + 0x10], rbx
+0x14079bba2: mov      qword ptr [rsp + 0x18], rcx
+0x14079bba7: call     0x14007f140    ; runtime.morestack_noctxt
+0x14079bbac: mov      rax, qword ptr [rsp + 8]
+0x14079bbb1: mov      rbx, qword ptr [rsp + 0x10]
+0x14079bbb6: mov      rcx, qword ptr [rsp + 0x18]
+0x14079bbbb: nop      dword ptr [rax + rax]
+0x14079bbc0: jmp      0x14079ba00    ; main.BootstrapService.consumeLauncherVerticalMaximizeSnapshot
+0x14079bbc5: int3     
+0x14079bbc6: int3     
+0x14079bbc7: int3     
+0x14079bbc8: int3     
+0x14079bbc9: int3     
+0x14079bbca: int3     
+0x14079bbcb: int3     
+0x14079bbcc: int3     
+0x14079bbcd: int3     
+0x14079bbce: int3     
+0x14079bbcf: int3     
+0x14079bbd0: int3     
+0x14079bbd1: int3     
+0x14079bbd2: int3     
+0x14079bbd3: int3     
+0x14079bbd4: int3     
+0x14079bbd5: int3     
+0x14079bbd6: int3     
+0x14079bbd7: int3     
+0x14079bbd8: int3     
+0x14079bbd9: int3     
+0x14079bbda: int3     
+0x14079bbdb: int3     
+0x14079bbdc: int3     
+0x14079bbdd: int3     
+0x14079bbde: int3     
+0x14079bbdf: int3     

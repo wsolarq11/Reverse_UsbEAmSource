@@ -1,0 +1,81 @@
+0x140981580: cmp      rsp, qword ptr [r14 + 0x10]
+0x140981584: jbe      0x140981638   ; main.screenshotPinWindowService.PersistSnapshotsForShutdown+0xb8
+0x14098158a: push     rbp
+0x14098158b: mov      rbp, rsp
+0x14098158e: sub      rsp, 0x20
+0x140981592: test     rax, rax
+0x140981595: je       0x140981632   ; main.screenshotPinWindowService.PersistSnapshotsForShutdown+0xb2
+0x14098159b: mov      qword ptr [rsp + 0x30], rax
+0x1409815a0: nop      
+0x1409815a1: nop      
+0x1409815a2: mov      rcx, rax
+0x1409815a5: xor      eax, eax
+0x1409815a7: mov      edx, 1
+0x1409815ac: lock cmpxchg dword ptr [rcx], edx
+0x1409815b0: sete     dl
+0x1409815b3: test     dl, dl
+0x1409815b5: jne      0x1409815c4   ; main.screenshotPinWindowService.PersistSnapshotsForShutdown+0x44
+0x1409815b7: mov      rax, rcx
+0x1409815ba: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1409815bf: mov      rcx, qword ptr [rsp + 0x30]
+0x1409815c4: cmp      byte ptr [rcx + 0x52], 0
+0x1409815c8: je       0x1409815eb   ; main.screenshotPinWindowService.PersistSnapshotsForShutdown+0x6b
+0x1409815ca: nop      
+0x1409815cb: nop      
+0x1409815cc: mov      ebx, 0xffffffff
+0x1409815d1: lock xadd dword ptr [rcx], ebx
+0x1409815d5: dec      ebx
+0x1409815d7: je       0x1409815e5   ; main.screenshotPinWindowService.PersistSnapshotsForShutdown+0x65
+0x1409815d9: mov      rax, rcx
+0x1409815dc: nop      dword ptr [rax]
+0x1409815e0: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x1409815e5: add      rsp, 0x20
+0x1409815e9: pop      rbp
+0x1409815ea: ret      
+0x1409815eb: mov      byte ptr [rcx + 0x50], 1
+0x1409815ef: mov      byte ptr [rcx + 0x53], 1
+0x1409815f3: nop      
+0x1409815f4: nop      
+0x1409815f5: mov      ebx, 0xffffffff
+0x1409815fa: lock xadd dword ptr [rcx], ebx
+0x1409815fe: nop      
+0x140981600: dec      ebx
+0x140981602: je       0x140981611   ; main.screenshotPinWindowService.PersistSnapshotsForShutdown+0x91
+0x140981604: mov      rax, rcx
+0x140981607: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x14098160c: mov      rcx, qword ptr [rsp + 0x30]
+0x140981611: mov      rax, rcx
+0x140981614: call     0x140984f40   ; main.screenshotPinWindowService.snapshotMirror
+0x140981619: mov      rdi, rcx
+0x14098161c: mov      rcx, rbx
+0x14098161f: mov      rbx, rax
+0x140981622: mov      rax, qword ptr [rsp + 0x30]
+0x140981627: call     0x14098a0e0   ; main.screenshotPinWindowService.saveSnapshots
+0x14098162c: add      rsp, 0x20
+0x140981630: pop      rbp
+0x140981631: ret      
+0x140981632: add      rsp, 0x20
+0x140981636: pop      rbp
+0x140981637: ret      
+0x140981638: mov      qword ptr [rsp + 8], rax
+0x14098163d: nop      dword ptr [rax]
+0x140981640: call     0x14007f140   ; runtime.morestack_noctxt
+0x140981645: mov      rax, qword ptr [rsp + 8]
+0x14098164a: jmp      0x140981580   ; main.screenshotPinWindowService.PersistSnapshotsForShutdown
+0x14098164f: int3     
+0x140981650: int3     
+0x140981651: int3     
+0x140981652: int3     
+0x140981653: int3     
+0x140981654: int3     
+0x140981655: int3     
+0x140981656: int3     
+0x140981657: int3     
+0x140981658: int3     
+0x140981659: int3     
+0x14098165a: int3     
+0x14098165b: int3     
+0x14098165c: int3     
+0x14098165d: int3     
+0x14098165e: int3     
+0x14098165f: int3     

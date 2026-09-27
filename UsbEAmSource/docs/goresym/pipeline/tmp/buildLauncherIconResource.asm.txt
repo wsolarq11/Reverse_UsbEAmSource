@@ -1,0 +1,136 @@
+0x1408a4f20: lea      r12, [rsp - 0xa0]
+0x1408a4f28: cmp      r12, qword ptr [r14 + 0x10]
+0x1408a4f2c: jbe      0x1408a51c1   ; main.BootstrapService.buildLauncherIconResource+0x2a1
+0x1408a4f32: push     rbp
+0x1408a4f33: mov      rbp, rsp
+0x1408a4f36: sub      rsp, 0x118
+0x1408a4f3d: mov      qword ptr [rsp + 0x140], rdi
+0x1408a4f45: mov      qword ptr [rsp + 0x128], rax
+0x1408a4f4d: mov      qword ptr [rsp + 0x138], rcx
+0x1408a4f55: mov      qword ptr [rsp + 0x130], rbx
+0x1408a4f5d: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1408a4f63: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1408a4f69: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1408a4f6f: mov      rax, rdi
+0x1408a4f72: mov      rbx, rsi
+0x1408a4f75: call     0x1400a2200   ; strings.TrimSpace
+0x1408a4f7a: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1408a4f80: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1408a4f89: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1408a4f92: mov      qword ptr [rsp + 0x78], rax
+0x1408a4f97: mov      qword ptr [rsp + 0x80], rbx
+0x1408a4f9f: mov      rcx, qword ptr [rsp + 0x128]
+0x1408a4fa7: test     rcx, rcx
+0x1408a4faa: je       0x1408a518c   ; main.BootstrapService.buildLauncherIconResource+0x26c
+0x1408a4fb0: cmp      qword ptr [rcx + 0x398], 0
+0x1408a4fb8: je       0x1408a518c   ; main.BootstrapService.buildLauncherIconResource+0x26c
+0x1408a4fbe: nop      
+0x1408a4fc0: test     rbx, rbx
+0x1408a4fc3: je       0x1408a518c   ; main.BootstrapService.buildLauncherIconResource+0x26c
+0x1408a4fc9: call     0x1408a5200   ; main.decodeLauncherImageDataURL
+0x1408a4fce: test     r8, r8
+0x1408a4fd1: jne      0x1408a5141   ; main.BootstrapService.buildLauncherIconResource+0x221
+0x1408a4fd7: mov      rdx, qword ptr [rsp + 0x128]
+0x1408a4fdf: mov      rdx, qword ptr [rdx + 0x398]
+0x1408a4fe6: mov      r8, rax
+0x1408a4fe9: mov      r9, rbx
+0x1408a4fec: mov      r10, rcx
+0x1408a4fef: mov      r11, 0xffffffffc4653600
+0x1408a4ff6: mov      rax, rdx
+0x1408a4ff9: mov      rbx, qword ptr [rsp + 0x130]
+0x1408a5001: mov      rcx, qword ptr [rsp + 0x138]
+0x1408a5009: call     0x14086e760   ; main.launcherAssetService.RegisterStableBytes
+0x1408a500e: mov      qword ptr [rsp + 0xe0], rax
+0x1408a5016: mov      qword ptr [rsp + 0xe8], rbx
+0x1408a501e: mov      qword ptr [rsp + 0xf0], rcx
+0x1408a5026: mov      qword ptr [rsp + 0xf8], rdi
+0x1408a502e: mov      qword ptr [rsp + 0x100], rsi
+0x1408a5036: mov      qword ptr [rsp + 0x108], r8
+0x1408a503e: mov      qword ptr [rsp + 0x110], r9
+0x1408a5046: mov      rdx, qword ptr [rsp + 0xe0]
+0x1408a504e: mov      qword ptr [rsp + 0xa8], rdx
+0x1408a5056: movups   xmm0, xmmword ptr [rsp + 0xe8]
+0x1408a505e: movups   xmmword ptr [rsp + 0xb0], xmm0
+0x1408a5066: movups   xmm0, xmmword ptr [rsp + 0xf8]
+0x1408a506e: movups   xmmword ptr [rsp + 0xc0], xmm0
+0x1408a5076: movups   xmm0, xmmword ptr [rsp + 0x108]
+0x1408a507e: movups   xmmword ptr [rsp + 0xd0], xmm0
+0x1408a5086: test     r10, r10
+0x1408a5089: je       0x1408a50d6   ; main.BootstrapService.buildLauncherIconResource+0x1b6
+0x1408a508b: movups   xmm0, xmmword ptr [rsp + 0x78]
+0x1408a5090: movups   xmmword ptr [rsp + 0x48], xmm0
+0x1408a5095: movups   xmm0, xmmword ptr [rsp + 0x88]
+0x1408a509d: movups   xmmword ptr [rsp + 0x58], xmm0
+0x1408a50a2: movups   xmm0, xmmword ptr [rsp + 0x98]
+0x1408a50aa: movups   xmmword ptr [rsp + 0x68], xmm0
+0x1408a50af: mov      rax, qword ptr [rsp + 0x48]
+0x1408a50b4: mov      rbx, qword ptr [rsp + 0x50]
+0x1408a50b9: mov      rcx, qword ptr [rsp + 0x58]
+0x1408a50be: mov      rdi, qword ptr [rsp + 0x60]
+0x1408a50c3: mov      rsi, qword ptr [rsp + 0x68]
+0x1408a50c8: mov      r8, qword ptr [rsp + 0x70]
+0x1408a50cd: add      rsp, 0x118
+0x1408a50d4: pop      rbp
+0x1408a50d5: ret      
+0x1408a50d6: mov      rdx, qword ptr [rsp + 0xb8]
+0x1408a50de: mov      r9, qword ptr [rsp + 0xc0]
+0x1408a50e6: mov      qword ptr [rsp + 0x98], rdx
+0x1408a50ee: mov      qword ptr [rsp + 0xa0], r9
+0x1408a50f6: movups   xmm0, xmmword ptr [rsp + 0x78]
+0x1408a50fb: movups   xmmword ptr [rsp + 0x48], xmm0
+0x1408a5100: movups   xmm0, xmmword ptr [rsp + 0x88]
+0x1408a5108: movups   xmmword ptr [rsp + 0x58], xmm0
+0x1408a510d: movups   xmm0, xmmword ptr [rsp + 0x98]
+0x1408a5115: movups   xmmword ptr [rsp + 0x68], xmm0
+0x1408a511a: mov      rax, qword ptr [rsp + 0x48]
+0x1408a511f: mov      rbx, qword ptr [rsp + 0x50]
+0x1408a5124: mov      rcx, qword ptr [rsp + 0x58]
+0x1408a5129: mov      rdi, qword ptr [rsp + 0x60]
+0x1408a512e: mov      rsi, qword ptr [rsp + 0x68]
+0x1408a5133: mov      r8, qword ptr [rsp + 0x70]
+0x1408a5138: add      rsp, 0x118
+0x1408a513f: pop      rbp
+0x1408a5140: ret      
+0x1408a5141: movups   xmm0, xmmword ptr [rsp + 0x78]
+0x1408a5146: movups   xmmword ptr [rsp + 0x48], xmm0
+0x1408a514b: movups   xmm0, xmmword ptr [rsp + 0x88]
+0x1408a5153: movups   xmmword ptr [rsp + 0x58], xmm0
+0x1408a5158: movups   xmm0, xmmword ptr [rsp + 0x98]
+0x1408a5160: movups   xmmword ptr [rsp + 0x68], xmm0
+0x1408a5165: mov      rax, qword ptr [rsp + 0x48]
+0x1408a516a: mov      rbx, qword ptr [rsp + 0x50]
+0x1408a516f: mov      rcx, qword ptr [rsp + 0x58]
+0x1408a5174: mov      rdi, qword ptr [rsp + 0x60]
+0x1408a5179: mov      rsi, qword ptr [rsp + 0x68]
+0x1408a517e: mov      r8, qword ptr [rsp + 0x70]
+0x1408a5183: add      rsp, 0x118
+0x1408a518a: pop      rbp
+0x1408a518b: ret      
+0x1408a518c: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1408a5192: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1408a5198: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1408a519e: mov      rcx, qword ptr [rsp + 0x58]
+0x1408a51a3: mov      rsi, qword ptr [rsp + 0x68]
+0x1408a51a8: mov      qword ptr [rsp + 0x48], rax
+0x1408a51ad: mov      qword ptr [rsp + 0x50], rbx
+0x1408a51b2: xor      edi, edi
+0x1408a51b4: mov      r8, rdi
+0x1408a51b7: add      rsp, 0x118
+0x1408a51be: pop      rbp
+0x1408a51bf: nop      
+0x1408a51c0: ret      
+0x1408a51c1: mov      qword ptr [rsp + 8], rax
+0x1408a51c6: mov      qword ptr [rsp + 0x10], rbx
+0x1408a51cb: mov      qword ptr [rsp + 0x18], rcx
+0x1408a51d0: mov      qword ptr [rsp + 0x20], rdi
+0x1408a51d5: mov      qword ptr [rsp + 0x28], rsi
+0x1408a51da: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a51df: mov      rax, qword ptr [rsp + 8]
+0x1408a51e4: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a51e9: mov      rcx, qword ptr [rsp + 0x18]
+0x1408a51ee: mov      rdi, qword ptr [rsp + 0x20]
+0x1408a51f3: mov      rsi, qword ptr [rsp + 0x28]
+0x1408a51f8: jmp      0x1408a4f20   ; main.BootstrapService.buildLauncherIconResource
+0x1408a51fd: int3     
+0x1408a51fe: int3     
+0x1408a51ff: int3     

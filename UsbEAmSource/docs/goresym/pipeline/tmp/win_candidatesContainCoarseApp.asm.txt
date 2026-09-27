@@ -1,0 +1,166 @@
+0x1409191c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409191c4: jbe      0x140919438   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x278
+0x1409191ca: push     rbp
+0x1409191cb: mov      rbp, rsp
+0x1409191ce: sub      rsp, 0x68
+0x1409191d2: mov      qword ptr [rsp + 0x78], rax
+0x1409191d7: mov      qword ptr [rsp + 0x80], rbx
+0x1409191df: xor      ecx, ecx
+0x1409191e1: jmp      0x140919200   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x40
+0x1409191e3: mov      rax, qword ptr [rsp + 0x60]
+0x1409191e8: add      rax, 0x40
+0x1409191ec: mov      rsi, qword ptr [rsp + 0x18]
+0x1409191f1: inc      rsi
+0x1409191f4: mov      rbx, qword ptr [rsp + 0x80]
+0x1409191fc: mov      rcx, rsi
+0x1409191ff: nop      
+0x140919200: cmp      rbx, rcx
+0x140919203: jle      0x140919430   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x270
+0x140919209: mov      qword ptr [rsp + 0x18], rcx
+0x14091920e: mov      qword ptr [rsp + 0x60], rax
+0x140919213: movups   xmm0, xmmword ptr [rax]
+0x140919216: movups   xmmword ptr [rsp + 0x20], xmm0
+0x14091921b: movups   xmm0, xmmword ptr [rax + 0x10]
+0x14091921f: movups   xmmword ptr [rsp + 0x30], xmm0
+0x140919224: movups   xmm0, xmmword ptr [rax + 0x20]
+0x140919228: movups   xmmword ptr [rsp + 0x40], xmm0
+0x14091922d: movups   xmm0, xmmword ptr [rax + 0x30]
+0x140919231: movups   xmmword ptr [rsp + 0x50], xmm0
+0x140919236: mov      rax, qword ptr [rsp + 0x30]
+0x14091923b: mov      rbx, qword ptr [rsp + 0x38]
+0x140919240: call     0x1408fddc0   ; main.normalizeOLEDBlackoutMediaPauseExclusionProcessName
+0x140919245: cmp      rbx, 0xa
+0x140919249: jg       0x140919300   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x140
+0x14091924f: cmp      rbx, 9
+0x140919253: jne      0x1409192a0   ; main.oledBlackoutCandidatesContainCoarseAppSession+0xe0
+0x140919255: movabs   rcx, 0x78652e6576617262
+0x14091925f: nop      
+0x140919260: cmp      qword ptr [rax], rcx
+0x140919263: jne      0x14091926f   ; main.oledBlackoutCandidatesContainCoarseAppSession+0xaf
+0x140919265: cmp      byte ptr [rax + 8], 0x65
+0x140919269: je       0x140919425   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x265
+0x14091926f: movabs   rdx, 0x78652e617265706f
+0x140919279: nop      dword ptr [rax]
+0x140919280: cmp      qword ptr [rax], rdx
+0x140919283: jne      0x1409191e3   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x23
+0x140919289: cmp      byte ptr [rax + 8], 0x65
+0x14091928d: jne      0x1409191e3   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x23
+0x140919293: jmp      0x140919425   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x265
+0x140919298: nop      dword ptr [rax + rax]
+0x1409192a0: cmp      rbx, 0xa
+0x1409192a4: jne      0x1409193de   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x21e
+0x1409192aa: movabs   rcx, 0x652e656d6f726863
+0x1409192b4: cmp      qword ptr [rax], rcx
+0x1409192b7: jne      0x1409192c6   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x106
+0x1409192b9: cmp      word ptr [rax + 8], 0x6578
+0x1409192bf: nop      
+0x1409192c0: je       0x140919425   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x265
+0x1409192c6: movabs   rdx, 0x652e65676465736d
+0x1409192d0: cmp      qword ptr [rax], rdx
+0x1409192d3: jne      0x1409192e6   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x126
+0x1409192d5: cmp      word ptr [rax + 8], 0x6578
+0x1409192db: nop      dword ptr [rax + rax]
+0x1409192e0: je       0x140919425   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x265
+0x1409192e6: movabs   rcx, 0x78652e6576617262
+0x1409192f0: movabs   rdx, 0x78652e617265706f
+0x1409192fa: jmp      0x1409191e3   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x23
+0x1409192ff: nop      
+0x140919300: cmp      rbx, 0xb
+0x140919304: jne      0x140919385   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x1c5
+0x140919306: movabs   rcx, 0x2e726573776f7262
+0x140919310: cmp      qword ptr [rax], rcx
+0x140919313: jne      0x140919327   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x167
+0x140919315: cmp      word ptr [rax + 8], 0x7865
+0x14091931b: jne      0x140919327   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x167
+0x14091931d: cmp      byte ptr [rax + 0xa], 0x65
+0x140919321: je       0x140919425   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x265
+0x140919327: movabs   rdx, 0x2e786f6665726966
+0x140919331: cmp      qword ptr [rax], rdx
+0x140919334: jne      0x140919348   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x188
+0x140919336: cmp      word ptr [rax + 8], 0x7865
+0x14091933c: jne      0x140919348   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x188
+0x14091933e: cmp      byte ptr [rax + 0xa], 0x65
+0x140919342: je       0x140919425   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x265
+0x140919348: movabs   rsi, 0x2e69646c61766976
+0x140919352: cmp      qword ptr [rax], rsi
+0x140919355: jne      0x140919369   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x1a9
+0x140919357: cmp      word ptr [rax + 8], 0x7865
+0x14091935d: jne      0x140919369   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x1a9
+0x14091935f: cmp      byte ptr [rax + 0xa], 0x65
+0x140919363: je       0x140919425   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x265
+0x140919369: movabs   rcx, 0x78652e6576617262
+0x140919373: movabs   rdx, 0x78652e617265706f
+0x14091937d: nop      dword ptr [rax]
+0x140919380: jmp      0x1409191e3   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x23
+0x140919385: cmp      rbx, 0xc
+0x140919389: jne      0x1409193d8   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x218
+0x14091938b: movabs   rcx, 0x6d75696d6f726863
+0x140919395: cmp      qword ptr [rax], rcx
+0x140919398: jne      0x1409193a7   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x1e7
+0x14091939a: cmp      dword ptr [rax + 8], 0x6578652e
+0x1409193a1: je       0x140919425   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x265
+0x1409193a7: movabs   rdx, 0x78675f617265706f
+0x1409193b1: cmp      qword ptr [rax], rdx
+0x1409193b4: jne      0x1409193bf   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x1ff
+0x1409193b6: cmp      dword ptr [rax + 8], 0x6578652e
+0x1409193bd: je       0x140919425   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x265
+0x1409193bf: movabs   rcx, 0x78652e6576617262
+0x1409193c9: movabs   rdx, 0x78652e617265706f
+0x1409193d3: jmp      0x1409191e3   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x23
+0x1409193d8: cmp      rbx, 0x11
+0x1409193dc: je       0x1409193f7   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x237
+0x1409193de: movabs   rcx, 0x78652e6576617262
+0x1409193e8: movabs   rdx, 0x78652e617265706f
+0x1409193f2: jmp      0x1409191e3   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x23
+0x1409193f7: lea      rbx, [rip + 0x33e075]
+0x1409193fe: mov      ecx, 0x11
+0x140919403: call     0x140006280   ; runtime.memequal
+0x140919408: test     al, al
+0x14091940a: jne      0x140919425   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x265
+0x14091940c: movabs   rcx, 0x78652e6576617262
+0x140919416: movabs   rdx, 0x78652e617265706f
+0x140919420: jmp      0x1409191e3   ; main.oledBlackoutCandidatesContainCoarseAppSession+0x23
+0x140919425: mov      eax, 1
+0x14091942a: add      rsp, 0x68
+0x14091942e: pop      rbp
+0x14091942f: ret      
+0x140919430: xor      eax, eax
+0x140919432: add      rsp, 0x68
+0x140919436: pop      rbp
+0x140919437: ret      
+0x140919438: mov      qword ptr [rsp + 8], rax
+0x14091943d: mov      qword ptr [rsp + 0x10], rbx
+0x140919442: mov      qword ptr [rsp + 0x18], rcx
+0x140919447: call     0x14007f140   ; runtime.morestack_noctxt
+0x14091944c: mov      rax, qword ptr [rsp + 8]
+0x140919451: mov      rbx, qword ptr [rsp + 0x10]
+0x140919456: mov      rcx, qword ptr [rsp + 0x18]
+0x14091945b: nop      dword ptr [rax + rax]
+0x140919460: jmp      0x1409191c0   ; main.oledBlackoutCandidatesContainCoarseAppSession
+0x140919465: int3     
+0x140919466: int3     
+0x140919467: int3     
+0x140919468: int3     
+0x140919469: int3     
+0x14091946a: int3     
+0x14091946b: int3     
+0x14091946c: int3     
+0x14091946d: int3     
+0x14091946e: int3     
+0x14091946f: int3     
+0x140919470: int3     
+0x140919471: int3     
+0x140919472: int3     
+0x140919473: int3     
+0x140919474: int3     
+0x140919475: int3     
+0x140919476: int3     
+0x140919477: int3     
+0x140919478: int3     
+0x140919479: int3     
+0x14091947a: int3     
+0x14091947b: int3     
+0x14091947c: int3     
+0x14091947d: int3     
+0x14091947e: int3     
+0x14091947f: int3     

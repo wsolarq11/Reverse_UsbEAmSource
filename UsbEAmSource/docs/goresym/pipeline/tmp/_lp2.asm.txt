@@ -1,0 +1,2 @@
+0x141bc1a20: jmp      0x141bd5be2
+0x141bc1a26: add      byte ptr [rax], al

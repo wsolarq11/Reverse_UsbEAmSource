@@ -1,0 +1,64 @@
+0x1409744a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409744a4: jbe      0x14097450b   ; main.drawScreenshotCursorOnRGBA+0x6b
+0x1409744a6: push     rbp
+0x1409744a7: mov      rbp, rsp
+0x1409744aa: sub      rsp, 0x68
+0x1409744ae: mov      qword ptr [rsp + 0x60], rcx
+0x1409744b3: mov      qword ptr [rsp + 0x58], rbx
+0x1409744b8: mov      qword ptr [rsp + 0x78], rax
+0x1409744bd: mov      qword ptr [rsp + 0x50], rdi
+0x1409744c2: mov      qword ptr [rsp + 0x48], rsi
+0x1409744c7: call     0x140973f80   ; main.captureScreenshotCursorSnapshot
+0x1409744cc: mov      dword ptr [rsp], eax
+0x1409744cf: mov      dword ptr [rsp + 4], ebx
+0x1409744d3: mov      qword ptr [rsp + 8], rcx
+0x1409744d8: mov      dword ptr [rsp + 0x10], edi
+0x1409744dc: mov      dword ptr [rsp + 0x14], esi
+0x1409744e0: mov      byte ptr [rsp + 0x18], r8b
+0x1409744e5: mov      rax, qword ptr [rsp + 0x78]
+0x1409744ea: mov      rbx, qword ptr [rsp + 0x58]
+0x1409744ef: mov      rcx, qword ptr [rsp + 0x60]
+0x1409744f4: mov      rdi, qword ptr [rsp + 0x50]
+0x1409744f9: mov      rsi, qword ptr [rsp + 0x48]
+0x1409744fe: nop      
+0x140974500: call     0x140974560   ; main.drawScreenshotCursorSnapshotOnRGBA
+0x140974505: add      rsp, 0x68
+0x140974509: pop      rbp
+0x14097450a: ret      
+0x14097450b: mov      qword ptr [rsp + 8], rax
+0x140974510: mov      qword ptr [rsp + 0x10], rbx
+0x140974515: mov      qword ptr [rsp + 0x18], rcx
+0x14097451a: mov      qword ptr [rsp + 0x20], rdi
+0x14097451f: mov      qword ptr [rsp + 0x28], rsi
+0x140974524: call     0x14007f140   ; runtime.morestack_noctxt
+0x140974529: mov      rax, qword ptr [rsp + 8]
+0x14097452e: mov      rbx, qword ptr [rsp + 0x10]
+0x140974533: mov      rcx, qword ptr [rsp + 0x18]
+0x140974538: mov      rdi, qword ptr [rsp + 0x20]
+0x14097453d: mov      rsi, qword ptr [rsp + 0x28]
+0x140974542: jmp      0x1409744a0   ; main.drawScreenshotCursorOnRGBA
+0x140974547: int3     
+0x140974548: int3     
+0x140974549: int3     
+0x14097454a: int3     
+0x14097454b: int3     
+0x14097454c: int3     
+0x14097454d: int3     
+0x14097454e: int3     
+0x14097454f: int3     
+0x140974550: int3     
+0x140974551: int3     
+0x140974552: int3     
+0x140974553: int3     
+0x140974554: int3     
+0x140974555: int3     
+0x140974556: int3     
+0x140974557: int3     
+0x140974558: int3     
+0x140974559: int3     
+0x14097455a: int3     
+0x14097455b: int3     
+0x14097455c: int3     
+0x14097455d: int3     
+0x14097455e: int3     
+0x14097455f: int3     

@@ -1,0 +1,59 @@
+0x140971440: cmp      rsp, qword ptr [r14 + 0x10]
+0x140971444: jbe      0x140971521   ; main.screenshotHDRCaptureDebugLog+0xe1
+0x14097144a: push     rbp
+0x14097144b: mov      rbp, rsp
+0x14097144e: sub      rsp, 0x78
+0x140971452: mov      qword ptr [rsp + 0x88], rax
+0x14097145a: mov      qword ptr [rsp + 0xa8], rsi
+0x140971462: mov      qword ptr [rsp + 0x98], rcx
+0x14097146a: mov      qword ptr [rsp + 0x90], rbx
+0x140971472: mov      qword ptr [rsp + 0xa0], rdi
+0x14097147a: call     0x1409715c0   ; main.isScreenshotHDRCaptureDebugEnabled
+0x14097147f: nop      
+0x140971480: test     al, al
+0x140971482: je       0x14097151b   ; main.screenshotHDRCaptureDebugLog+0xdb
+0x140971488: lea      rax, [rsp + 0x28]
+0x14097148d: lea      rbx, [rip + 0x2e6012]
+0x140971494: mov      ecx, 0x11
+0x140971499: mov      rdi, qword ptr [rsp + 0x88]
+0x1409714a1: mov      rsi, qword ptr [rsp + 0x90]
+0x1409714a9: call     0x14005fc00   ; runtime.concatstring2
+0x1409714ae: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1409714b4: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1409714ba: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1409714c0: lea      rdx, [rip + 0x99]
+0x1409714c7: mov      qword ptr [rsp + 0x48], rdx
+0x1409714cc: mov      qword ptr [rsp + 0x58], rbx
+0x1409714d1: mov      qword ptr [rsp + 0x50], rax
+0x1409714d6: mov      rdx, qword ptr [rsp + 0xa0]
+0x1409714de: mov      qword ptr [rsp + 0x68], rdx
+0x1409714e3: mov      rdx, qword ptr [rsp + 0xa8]
+0x1409714eb: mov      qword ptr [rsp + 0x70], rdx
+0x1409714f0: mov      rdx, qword ptr [rsp + 0x98]
+0x1409714f8: mov      qword ptr [rsp + 0x60], rdx
+0x1409714fd: mov      rax, qword ptr [rip + 0x129e93c]
+0x140971504: xor      ebx, ebx
+0x140971506: mov      ecx, 2
+0x14097150b: lea      rdi, [rsp + 0x48]
+0x140971510: call     0x1402e3d00   ; log.Logger.output
+0x140971515: add      rsp, 0x78
+0x140971519: pop      rbp
+0x14097151a: ret      
+0x14097151b: add      rsp, 0x78
+0x14097151f: pop      rbp
+0x140971520: ret      
+0x140971521: mov      qword ptr [rsp + 8], rax
+0x140971526: mov      qword ptr [rsp + 0x10], rbx
+0x14097152b: mov      qword ptr [rsp + 0x18], rcx
+0x140971530: mov      qword ptr [rsp + 0x20], rdi
+0x140971535: mov      qword ptr [rsp + 0x28], rsi
+0x14097153a: call     0x14007f140   ; runtime.morestack_noctxt
+0x14097153f: mov      rax, qword ptr [rsp + 8]
+0x140971544: mov      rbx, qword ptr [rsp + 0x10]
+0x140971549: mov      rcx, qword ptr [rsp + 0x18]
+0x14097154e: mov      rdi, qword ptr [rsp + 0x20]
+0x140971553: mov      rsi, qword ptr [rsp + 0x28]
+0x140971558: jmp      0x140971440   ; main.screenshotHDRCaptureDebugLog
+0x14097155d: int3     
+0x14097155e: int3     
+0x14097155f: int3     

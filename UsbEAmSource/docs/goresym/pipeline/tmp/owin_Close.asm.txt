@@ -1,0 +1,48 @@
+0x140912080: cmp      rsp, qword ptr [r14 + 0x10]
+0x140912084: jbe      0x1409120e2   ; main.oledBlackoutNativeOverlayWindow.Close+0x62
+0x140912086: push     rbp
+0x140912087: mov      rbp, rsp
+0x14091208a: sub      rsp, 0x20
+0x14091208e: test     rax, rax
+0x140912091: je       0x1409120d8   ; main.oledBlackoutNativeOverlayWindow.Close+0x58
+0x140912093: lea      rcx, [rip + 0x66]
+0x14091209a: mov      qword ptr [rsp + 0x10], rcx
+0x14091209f: mov      qword ptr [rsp + 0x18], rax
+0x1409120a4: mov      ecx, dword ptr [rax + 0x54]
+0x1409120a7: test     ecx, ecx
+0x1409120a9: jne      0x1409120c3   ; main.oledBlackoutNativeOverlayWindow.Close+0x43
+0x1409120ab: mov      qword ptr [rsp + 0x30], rax
+0x1409120b0: add      rax, 0x54
+0x1409120b4: lea      rbx, [rsp + 0x10]
+0x1409120b9: call     0x140092520   ; sync.Once.doSlow
+0x1409120be: mov      rax, qword ptr [rsp + 0x30]
+0x1409120c3: mov      rax, qword ptr [rax + 0x10]
+0x1409120c7: xor      ebx, ebx
+0x1409120c9: call     0x140012620   ; runtime.chanrecv1
+0x1409120ce: xor      eax, eax
+0x1409120d0: xor      ebx, ebx
+0x1409120d2: add      rsp, 0x20
+0x1409120d6: pop      rbp
+0x1409120d7: ret      
+0x1409120d8: xor      eax, eax
+0x1409120da: xor      ebx, ebx
+0x1409120dc: add      rsp, 0x20
+0x1409120e0: pop      rbp
+0x1409120e1: ret      
+0x1409120e2: mov      qword ptr [rsp + 8], rax
+0x1409120e7: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409120ec: mov      rax, qword ptr [rsp + 8]
+0x1409120f1: jmp      0x140912080   ; main.oledBlackoutNativeOverlayWindow.Close
+0x1409120f3: int3     
+0x1409120f4: int3     
+0x1409120f5: int3     
+0x1409120f6: int3     
+0x1409120f7: int3     
+0x1409120f8: int3     
+0x1409120f9: int3     
+0x1409120fa: int3     
+0x1409120fb: int3     
+0x1409120fc: int3     
+0x1409120fd: int3     
+0x1409120fe: int3     
+0x1409120ff: int3     

@@ -1,0 +1,254 @@
+0x140992de0: lea      r12, [rsp - 0x18]
+0x140992de5: cmp      r12, qword ptr [r14 + 0x10]
+0x140992de9: jbe      0x140993239   ; main.screenshotNativePinDrawOverlay+0x459
+0x140992def: push     rbp
+0x140992df0: mov      rbp, rsp
+0x140992df3: sub      rsp, 0x90
+0x140992dfa: mov      qword ptr [rsp + 0xa0], rax
+0x140992e02: movsd    qword ptr [rsp + 0xc8], xmm0
+0x140992e0b: mov      byte ptr [rsp + 0xd1], r9b
+0x140992e13: mov      byte ptr [rsp + 0xd2], r10b
+0x140992e1b: mov      qword ptr [rsp + 0x88], rsi
+0x140992e23: mov      qword ptr [rsp + 0x80], rdi
+0x140992e2b: mov      qword ptr [rsp + 0x78], rcx
+0x140992e30: mov      qword ptr [rsp + 0x70], rbx
+0x140992e35: test     r11, r11
+0x140992e38: jle      0x140992ec0   ; main.screenshotNativePinDrawOverlay+0xe0
+0x140992e3e: bt       r11d, 0
+0x140992e43: jb       0x140992ec0   ; main.screenshotNativePinDrawOverlay+0xe0
+0x140992e45: mov      byte ptr [rsp + 0xd0], r8b
+0x140992e4d: mov      rbx, qword ptr [rax + 0x20]
+0x140992e51: mov      rcx, qword ptr [rax + 0x28]
+0x140992e55: mov      rdi, qword ptr [rax + 0x30]
+0x140992e59: mov      rsi, qword ptr [rax + 0x38]
+0x140992e5d: mov      r8d, 0xfffffff9
+0x140992e63: mov      r9d, 0x73
+0x140992e69: mov      r10d, 0x16
+0x140992e6f: mov      r11d, 0xffffffff
+0x140992e75: call     0x1409932c0   ; main.screenshotNativePinDrawHighlightBorder
+0x140992e7a: mov      rax, qword ptr [rsp + 0xa0]
+0x140992e82: mov      rcx, qword ptr [rsp + 0x78]
+0x140992e87: mov      rbx, qword ptr [rsp + 0x70]
+0x140992e8c: mov      rsi, qword ptr [rsp + 0x88]
+0x140992e94: mov      rdi, qword ptr [rsp + 0x80]
+0x140992e9c: movzx    r8d, byte ptr [rsp + 0xd0]
+0x140992ea5: movzx    r9d, byte ptr [rsp + 0xd1]
+0x140992eae: movzx    r10d, byte ptr [rsp + 0xd2]
+0x140992eb7: movsd    xmm0, qword ptr [rsp + 0xc8]
+0x140992ec0: test     r8b, r8b
+0x140992ec3: jne      0x140992ece   ; main.screenshotNativePinDrawOverlay+0xee
+0x140992ec5: test     r9b, r9b
+0x140992ec8: je       0x140993230   ; main.screenshotNativePinDrawOverlay+0x450
+0x140992ece: mov      rax, rbx
+0x140992ed1: mov      rbx, rcx
+0x140992ed4: mov      rcx, rdi
+0x140992ed7: mov      rdi, rsi
+0x140992eda: call     0x140992960   ; main.screenshotNativePinCloseButtonRect
+0x140992edf: mov      qword ptr [rsp + 0x68], rax
+0x140992ee4: mov      qword ptr [rsp + 0x60], rbx
+0x140992ee9: mov      qword ptr [rsp + 0x58], rcx
+0x140992eee: mov      qword ptr [rsp + 0x50], rdi
+0x140992ef3: mov      rsi, rdi
+0x140992ef6: mov      r8d, 0xf
+0x140992efc: mov      r9d, 0x17
+0x140992f02: mov      r10d, 0x2a
+0x140992f08: mov      r11d, 0xffffffc6
+0x140992f0e: mov      rdi, rcx
+0x140992f11: mov      rcx, rbx
+0x140992f14: mov      rbx, rax
+0x140992f17: mov      rax, qword ptr [rsp + 0xa0]
+0x140992f1f: nop      
+0x140992f20: call     0x1409933c0   ; main.screenshotNativePinDrawRect
+0x140992f25: movzx    edx, byte ptr [rsp + 0xd2]
+0x140992f2d: test     dl, dl
+0x140992f2f: je       0x140992f6a   ; main.screenshotNativePinDrawOverlay+0x18a
+0x140992f31: mov      rax, qword ptr [rsp + 0xa0]
+0x140992f39: mov      rbx, qword ptr [rsp + 0x68]
+0x140992f3e: mov      rcx, qword ptr [rsp + 0x60]
+0x140992f43: mov      rdi, qword ptr [rsp + 0x58]
+0x140992f48: mov      rsi, qword ptr [rsp + 0x50]
+0x140992f4d: mov      r8d, 0x1e
+0x140992f53: mov      r9d, 0x29
+0x140992f59: mov      r10d, 0x3b
+0x140992f5f: mov      r11d, 0xffffffeb
+0x140992f65: call     0x1409933c0   ; main.screenshotNativePinDrawRect
+0x140992f6a: mov      rax, qword ptr [rsp + 0xa0]
+0x140992f72: mov      rbx, qword ptr [rsp + 0x68]
+0x140992f77: mov      rcx, qword ptr [rsp + 0x60]
+0x140992f7c: mov      rdi, qword ptr [rsp + 0x58]
+0x140992f81: mov      rsi, qword ptr [rsp + 0x50]
+0x140992f86: mov      r8d, 0xffffffff
+0x140992f8c: mov      r9d, r8d
+0x140992f8f: mov      r10d, r8d
+0x140992f92: mov      r11d, 0x34
+0x140992f98: call     0x140993580   ; main.screenshotNativePinDrawRectBorder
+0x140992f9d: mov      rax, qword ptr [rsp + 0xa0]
+0x140992fa5: mov      rbx, qword ptr [rsp + 0x68]
+0x140992faa: mov      rcx, qword ptr [rsp + 0x60]
+0x140992faf: mov      rdi, qword ptr [rsp + 0x58]
+0x140992fb4: mov      rsi, qword ptr [rsp + 0x50]
+0x140992fb9: mov      r8d, 0xffffffff
+0x140992fbf: mov      r9d, r8d
+0x140992fc2: mov      r10d, r8d
+0x140992fc5: mov      r11d, 0xffffffe6
+0x140992fcb: call     0x140993c20   ; main.screenshotNativePinDrawCloseIcon
+0x140992fd0: movzx    edx, byte ptr [rsp + 0xd1]
+0x140992fd8: nop      dword ptr [rax + rax]
+0x140992fe0: test     dl, dl
+0x140992fe2: je       0x140993227   ; main.screenshotNativePinDrawOverlay+0x447
+0x140992fe8: mov      rax, qword ptr [rsp + 0x70]
+0x140992fed: mov      rbx, qword ptr [rsp + 0x78]
+0x140992ff2: mov      rcx, qword ptr [rsp + 0x80]
+0x140992ffa: mov      rdi, qword ptr [rsp + 0x88]
+0x140993002: call     0x1409929c0   ; main.screenshotNativePinOpacityPanelRect
+0x140993007: mov      qword ptr [rsp + 0x68], rax
+0x14099300c: mov      qword ptr [rsp + 0x60], rbx
+0x140993011: mov      qword ptr [rsp + 0x58], rcx
+0x140993016: mov      qword ptr [rsp + 0x50], rdi
+0x14099301b: mov      rax, qword ptr [rsp + 0x70]
+0x140993020: mov      rbx, qword ptr [rsp + 0x78]
+0x140993025: mov      rcx, qword ptr [rsp + 0x80]
+0x14099302d: mov      rdi, qword ptr [rsp + 0x88]
+0x140993035: call     0x140992a20   ; main.screenshotNativePinOpacityTrackRect
+0x14099303a: mov      qword ptr [rsp + 0x48], rax
+0x14099303f: mov      qword ptr [rsp + 0x40], rbx
+0x140993044: mov      qword ptr [rsp + 0x38], rdi
+0x140993049: mov      qword ptr [rsp + 0x30], rcx
+0x14099304e: mov      rax, qword ptr [rsp + 0x70]
+0x140993053: mov      rbx, qword ptr [rsp + 0x78]
+0x140993058: mov      rcx, qword ptr [rsp + 0x80]
+0x140993060: mov      rdi, qword ptr [rsp + 0x88]
+0x140993068: movsd    xmm0, qword ptr [rsp + 0xc8]
+0x140993071: call     0x140992c80   ; main.screenshotNativePinOpacityThumbRect
+0x140993076: mov      qword ptr [rsp + 0x88], rax
+0x14099307e: mov      qword ptr [rsp + 0x80], rcx
+0x140993086: mov      qword ptr [rsp + 0x78], rbx
+0x14099308b: mov      qword ptr [rsp + 0x70], rdi
+0x140993090: mov      rax, qword ptr [rsp + 0xa0]
+0x140993098: mov      rbx, qword ptr [rsp + 0x68]
+0x14099309d: mov      rcx, qword ptr [rsp + 0x60]
+0x1409930a2: mov      rdi, qword ptr [rsp + 0x58]
+0x1409930a7: mov      rsi, qword ptr [rsp + 0x50]
+0x1409930ac: mov      r8d, 0xf
+0x1409930b2: mov      r9d, 0x17
+0x1409930b8: mov      r10d, 0x2a
+0x1409930be: mov      r11d, 0xffffffdc
+0x1409930c4: call     0x1409933c0   ; main.screenshotNativePinDrawRect
+0x1409930c9: mov      rax, qword ptr [rsp + 0xa0]
+0x1409930d1: mov      rbx, qword ptr [rsp + 0x68]
+0x1409930d6: mov      rcx, qword ptr [rsp + 0x60]
+0x1409930db: mov      rdi, qword ptr [rsp + 0x58]
+0x1409930e0: mov      rsi, qword ptr [rsp + 0x50]
+0x1409930e5: mov      r8d, 0xffffffff
+0x1409930eb: mov      r9d, r8d
+0x1409930ee: mov      r10d, r8d
+0x1409930f1: mov      r11d, 0x2e
+0x1409930f7: call     0x140993580   ; main.screenshotNativePinDrawRectBorder
+0x1409930fc: mov      rax, qword ptr [rsp + 0xa0]
+0x140993104: mov      rbx, qword ptr [rsp + 0x48]
+0x140993109: mov      rcx, qword ptr [rsp + 0x40]
+0x14099310e: mov      rdi, qword ptr [rsp + 0x30]
+0x140993113: mov      rsi, qword ptr [rsp + 0x38]
+0x140993118: mov      r8d, 0xffffffff
+0x14099311e: mov      r9d, r8d
+0x140993121: mov      r10d, r8d
+0x140993124: mov      r11d, 0x58
+0x14099312a: call     0x1409933c0   ; main.screenshotNativePinDrawRect
+0x14099312f: mov      rdx, qword ptr [rsp + 0x80]
+0x140993137: mov      rsi, qword ptr [rsp + 0x88]
+0x14099313f: sub      rdx, rsi
+0x140993142: mov      r8, rdx
+0x140993145: shr      rdx, 0x3f
+0x140993149: add      rdx, r8
+0x14099314c: sar      rdx, 1
+0x14099314f: lea      rdi, [rdx + rsi]
+0x140993153: mov      rbx, qword ptr [rsp + 0x48]
+0x140993158: cmp      rbx, rdi
+0x14099315b: mov      rdx, rbx
+0x14099315e: cmovg    rdx, rdi
+0x140993162: cmovg    rdi, rbx
+0x140993166: mov      rcx, qword ptr [rsp + 0x40]
+0x14099316b: mov      rsi, qword ptr [rsp + 0x38]
+0x140993170: cmp      rcx, rsi
+0x140993173: mov      r8, rcx
+0x140993176: cmovg    r8, rsi
+0x14099317a: cmovg    rsi, rcx
+0x14099317e: mov      rax, qword ptr [rsp + 0xa0]
+0x140993186: mov      rbx, rdx
+0x140993189: mov      rcx, r8
+0x14099318c: mov      r8d, 0xfffffff9
+0x140993192: mov      r9d, 0x73
+0x140993198: mov      r10d, 0x16
+0x14099319e: mov      r11d, 0xffffffdc
+0x1409931a4: call     0x1409933c0   ; main.screenshotNativePinDrawRect
+0x1409931a9: mov      rax, qword ptr [rsp + 0xa0]
+0x1409931b1: mov      rbx, qword ptr [rsp + 0x88]
+0x1409931b9: mov      rcx, qword ptr [rsp + 0x78]
+0x1409931be: mov      rdi, qword ptr [rsp + 0x80]
+0x1409931c6: mov      rsi, qword ptr [rsp + 0x70]
+0x1409931cb: mov      r8d, 0xffffffff
+0x1409931d1: mov      r9d, r8d
+0x1409931d4: mov      r10d, r8d
+0x1409931d7: mov      r11d, r8d
+0x1409931da: call     0x140993f20   ; main.screenshotNativePinDrawCircle
+0x1409931df: mov      rax, qword ptr [rsp + 0xa0]
+0x1409931e7: mov      rbx, qword ptr [rsp + 0x88]
+0x1409931ef: mov      rcx, qword ptr [rsp + 0x78]
+0x1409931f4: mov      rdi, qword ptr [rsp + 0x80]
+0x1409931fc: mov      rsi, qword ptr [rsp + 0x70]
+0x140993201: mov      r8d, 0xfffffff9
+0x140993207: mov      r9d, 0x73
+0x14099320d: mov      r10d, 0x16
+0x140993213: mov      r11d, 0xffffffff
+0x140993219: call     0x1409940e0   ; main.screenshotNativePinDrawCircleBorder
+0x14099321e: add      rsp, 0x90
+0x140993225: pop      rbp
+0x140993226: ret      
+0x140993227: add      rsp, 0x90
+0x14099322e: pop      rbp
+0x14099322f: ret      
+0x140993230: add      rsp, 0x90
+0x140993237: pop      rbp
+0x140993238: ret      
+0x140993239: mov      qword ptr [rsp + 8], rax
+0x14099323e: mov      qword ptr [rsp + 0x10], rbx
+0x140993243: mov      qword ptr [rsp + 0x18], rcx
+0x140993248: mov      qword ptr [rsp + 0x20], rdi
+0x14099324d: mov      qword ptr [rsp + 0x28], rsi
+0x140993252: movsd    qword ptr [rsp + 0x30], xmm0
+0x140993258: mov      byte ptr [rsp + 0x38], r8b
+0x14099325d: mov      byte ptr [rsp + 0x39], r9b
+0x140993262: mov      byte ptr [rsp + 0x3a], r10b
+0x140993267: mov      qword ptr [rsp + 0x40], r11
+0x14099326c: call     0x14007f140   ; runtime.morestack_noctxt
+0x140993271: mov      rax, qword ptr [rsp + 8]
+0x140993276: mov      rbx, qword ptr [rsp + 0x10]
+0x14099327b: mov      rcx, qword ptr [rsp + 0x18]
+0x140993280: mov      rdi, qword ptr [rsp + 0x20]
+0x140993285: mov      rsi, qword ptr [rsp + 0x28]
+0x14099328a: movsd    xmm0, qword ptr [rsp + 0x30]
+0x140993290: movzx    r8d, byte ptr [rsp + 0x38]
+0x140993296: movzx    r9d, byte ptr [rsp + 0x39]
+0x14099329c: movzx    r10d, byte ptr [rsp + 0x3a]
+0x1409932a2: mov      r11, qword ptr [rsp + 0x40]
+0x1409932a7: jmp      0x140992de0   ; main.screenshotNativePinDrawOverlay
+0x1409932ac: int3     
+0x1409932ad: int3     
+0x1409932ae: int3     
+0x1409932af: int3     
+0x1409932b0: int3     
+0x1409932b1: int3     
+0x1409932b2: int3     
+0x1409932b3: int3     
+0x1409932b4: int3     
+0x1409932b5: int3     
+0x1409932b6: int3     
+0x1409932b7: int3     
+0x1409932b8: int3     
+0x1409932b9: int3     
+0x1409932ba: int3     
+0x1409932bb: int3     
+0x1409932bc: int3     
+0x1409932bd: int3     
+0x1409932be: int3     
+0x1409932bf: int3     

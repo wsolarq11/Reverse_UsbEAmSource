@@ -1,0 +1,20 @@
+0x1408aff40: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408aff44: jbe      0x1408aff6b   ; main.createLauncherStartupTaskUsingSchtasks.deferwrap1+0x2b
+0x1408aff46: push     rbp
+0x1408aff47: mov      rbp, rsp
+0x1408aff4a: sub      rsp, 0x10
+0x1408aff4e: mov      r12, qword ptr [r14 + 0x20]
+0x1408aff52: test     r12, r12
+0x1408aff55: jne      0x1408aff72   ; main.createLauncherStartupTaskUsingSchtasks.deferwrap1+0x32
+0x1408aff57: mov      rax, qword ptr [rdx + 8]
+0x1408aff5b: mov      rbx, qword ptr [rdx + 0x10]
+0x1408aff5f: nop      
+0x1408aff60: call     0x14012a5c0   ; os.Remove
+0x1408aff65: add      rsp, 0x10
+0x1408aff69: pop      rbp
+0x1408aff6a: ret      
+0x1408aff6b: call     0x14007f0a0   ; runtime.morestack
+0x1408aff70: jmp      0x1408aff40   ; main.createLauncherStartupTaskUsingSchtasks.deferwrap1
+0x1408aff72: lea      r13, [rsp + 0x20]
+0x1408aff77: cmp      qword ptr [r12], r13
+0x1408aff7b: jne      0x1408aff57   ; main.createLauncherStartupTaskUsingSchtasks.deferwrap1+0x17

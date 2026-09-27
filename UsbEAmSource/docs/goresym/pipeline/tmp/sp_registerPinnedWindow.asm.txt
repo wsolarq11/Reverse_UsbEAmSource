@@ -1,0 +1,162 @@
+0x140987940: lea      r12, [rsp - 0x248]
+0x140987948: cmp      r12, qword ptr [r14 + 0x10]
+0x14098794c: jbe      0x140987c4b   ; main.screenshotPinWindowService.registerPinnedWindow+0x30b
+0x140987952: push     rbp
+0x140987953: mov      rbp, rsp
+0x140987956: sub      rsp, 0x2c0
+0x14098795d: movq     qword ptr [rsp + 0x2b8], xmm15
+0x140987967: mov      byte ptr [rsp + 0xf7], 0
+0x14098796f: mov      byte ptr [rsp + 0xf6], 0
+0x140987977: nop      word ptr [rax + rax]
+0x140987980: test     rax, rax
+0x140987983: je       0x140987c22   ; main.screenshotPinWindowService.registerPinnedWindow+0x2e2
+0x140987989: test     rbx, rbx
+0x14098798c: je       0x140987c22   ; main.screenshotPinWindowService.registerPinnedWindow+0x2e2
+0x140987992: mov      qword ptr [rsp + 0x2d0], rax
+0x14098799a: mov      byte ptr [rsp + 0x300], r9b
+0x1409879a2: mov      qword ptr [rsp + 0x118], r8
+0x1409879aa: mov      qword ptr [rsp + 0x110], rsi
+0x1409879b2: mov      qword ptr [rsp + 0x108], rdi
+0x1409879ba: mov      qword ptr [rsp + 0x100], rcx
+0x1409879c2: nop      
+0x1409879c3: nop      
+0x1409879c4: mov      rdx, rax
+0x1409879c7: xor      eax, eax
+0x1409879c9: mov      r10d, 1
+0x1409879cf: lock cmpxchg dword ptr [rdx], r10d
+0x1409879d4: sete     r10b
+0x1409879d8: test     r10b, r10b
+0x1409879db: jne      0x1409879fd   ; main.screenshotPinWindowService.registerPinnedWindow+0xbd
+0x1409879dd: mov      qword ptr [rsp + 0x2d8], rbx
+0x1409879e5: mov      rax, rdx
+0x1409879e8: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1409879ed: mov      rdx, qword ptr [rsp + 0x2d0]
+0x1409879f5: mov      rbx, qword ptr [rsp + 0x2d8]
+0x1409879fd: lea      rcx, [rip + 0x29c]
+0x140987a04: mov      qword ptr [rsp + 0x1e8], rcx
+0x140987a0c: mov      qword ptr [rsp + 0x1f0], rdx
+0x140987a14: lea      rcx, [rsp + 0x1e8]
+0x140987a1c: mov      qword ptr [rsp + 0x2b8], rcx
+0x140987a24: mov      byte ptr [rsp + 0xf7], 1
+0x140987a2c: lea      rdi, [rsp + 0x1f8]
+0x140987a34: nop      word ptr [rax + rax]
+0x140987a3d: nop      dword ptr [rax]
+0x140987a40: mov      qword ptr [rsp - 0x10], rbp
+0x140987a45: lea      rbp, [rsp - 0x10]
+0x140987a4a: call     0x14008170b   ; runtime.duffzero+0x12b
+0x140987a4f: mov      rbp, qword ptr [rbp]
+0x140987a53: mov      rax, rdx
+0x140987a56: call     0x1409854a0   ; main.screenshotPinWindowService.currentPinViewLocked
+0x140987a5b: lea      rdi, [rsp + 0x1f8]
+0x140987a63: mov      rsi, rsp
+0x140987a66: mov      qword ptr [rsp - 0x10], rbp
+0x140987a6b: lea      rbp, [rsp - 0x10]
+0x140987a70: call     0x140081a38   ; runtime.duffcopy+0x2d8
+0x140987a75: mov      rbp, qword ptr [rbp]
+0x140987a79: lea      rdi, [rsp + 0x120]
+0x140987a81: lea      rsi, [rsp + 0x1f8]
+0x140987a89: mov      qword ptr [rsp - 0x10], rbp
+0x140987a8e: lea      rbp, [rsp - 0x10]
+0x140987a93: call     0x140081a38   ; runtime.duffcopy+0x2d8
+0x140987a98: mov      rbp, qword ptr [rbp]
+0x140987a9c: nop      dword ptr [rax]
+0x140987aa0: test     al, al
+0x140987aa2: je       0x140987bf4   ; main.screenshotPinWindowService.registerPinnedWindow+0x2b4
+0x140987aa8: mov      rsi, qword ptr [rsp + 0x2d0]
+0x140987ab0: cmp      byte ptr [rsi + 0x50], 0
+0x140987ab4: jne      0x140987bf4   ; main.screenshotPinWindowService.registerPinnedWindow+0x2b4
+0x140987aba: mov      rbx, qword ptr [rsi + 0x38]
+0x140987abe: mov      rdi, qword ptr [rsp + 0x140]
+0x140987ac6: mov      rcx, qword ptr [rsp + 0x138]
+0x140987ace: mov      rdx, qword ptr [rsp + 0x150]
+0x140987ad6: mov      qword ptr [rsp + 0xf8], rdx
+0x140987ade: mov      rdx, qword ptr [rsp + 0x148]
+0x140987ae6: mov      qword ptr [rsp + 0x1e0], rdx
+0x140987aee: lea      rax, [rip + 0x1c0c2b]
+0x140987af5: call     0x14000de60   ; runtime.mapassign_faststr
+0x140987afa: mov      rdx, qword ptr [rsp + 0xf8]
+0x140987b02: mov      qword ptr [rax + 8], rdx
+0x140987b06: cmp      dword ptr [rip + 0x12d3843], 0
+0x140987b0d: jne      0x140987b19   ; main.screenshotPinWindowService.registerPinnedWindow+0x1d9
+0x140987b0f: mov      r9, qword ptr [rsp + 0x1e0]
+0x140987b17: jmp      0x140987b34   ; main.screenshotPinWindowService.registerPinnedWindow+0x1f4
+0x140987b19: mov      rdx, qword ptr [rax]
+0x140987b1c: nop      dword ptr [rax]
+0x140987b20: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140987b25: mov      r9, qword ptr [rsp + 0x1e0]
+0x140987b2d: mov      qword ptr [r11], r9
+0x140987b30: mov      qword ptr [r11 + 8], rdx
+0x140987b34: mov      qword ptr [rax], r9
+0x140987b37: mov      rdx, qword ptr [rsp + 0x150]
+0x140987b3f: mov      r9, qword ptr [rsp + 0x148]
+0x140987b47: mov      rax, qword ptr [rsp + 0x2d0]
+0x140987b4f: mov      qword ptr [rax + 0x48], rdx
+0x140987b53: cmp      dword ptr [rip + 0x12d37f6], 0
+0x140987b5a: je       0x140987b6c   ; main.screenshotPinWindowService.registerPinnedWindow+0x22c
+0x140987b5c: mov      rdx, qword ptr [rax + 0x40]
+0x140987b60: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140987b65: mov      qword ptr [r11], r9
+0x140987b68: mov      qword ptr [r11 + 8], rdx
+0x140987b6c: mov      qword ptr [rax + 0x40], r9
+0x140987b70: mov      rdi, rsp
+0x140987b73: lea      rsi, [rsp + 0x120]
+0x140987b7b: nop      dword ptr [rax + rax]
+0x140987b80: mov      qword ptr [rsp - 0x10], rbp
+0x140987b85: lea      rbp, [rsp - 0x10]
+0x140987b8a: call     0x140081a38   ; runtime.duffcopy+0x2d8
+0x140987b8f: mov      rbp, qword ptr [rbp]
+0x140987b93: movzx    ebx, byte ptr [rsp + 0x300]
+0x140987b9b: mov      rcx, qword ptr [rsp + 0x100]
+0x140987ba3: mov      rdi, qword ptr [rsp + 0x108]
+0x140987bab: mov      rsi, qword ptr [rsp + 0x110]
+0x140987bb3: mov      r8, qword ptr [rsp + 0x118]
+0x140987bbb: nop      dword ptr [rax + rax]
+0x140987bc0: call     0x1409856e0   ; main.screenshotPinWindowService.storeSnapshotLocked
+0x140987bc5: mov      byte ptr [rsp + 0xf6], 1
+0x140987bcd: mov      byte ptr [rsp + 0xf7], 0
+0x140987bd5: mov      rdx, qword ptr [rsp + 0x2b8]
+0x140987bdd: mov      r9, qword ptr [rdx]
+0x140987be0: call     r9
+0x140987be3: movzx    eax, byte ptr [rsp + 0xf6]
+0x140987beb: add      rsp, 0x2c0
+0x140987bf2: pop      rbp
+0x140987bf3: ret      
+0x140987bf4: mov      byte ptr [rsp + 0xf6], 0
+0x140987bfc: mov      byte ptr [rsp + 0xf7], 0
+0x140987c04: mov      rdx, qword ptr [rsp + 0x2b8]
+0x140987c0c: mov      rax, qword ptr [rdx]
+0x140987c0f: call     rax
+0x140987c11: movzx    eax, byte ptr [rsp + 0xf6]
+0x140987c19: add      rsp, 0x2c0
+0x140987c20: pop      rbp
+0x140987c21: ret      
+0x140987c22: mov      byte ptr [rsp + 0xf6], 0
+0x140987c2a: xor      eax, eax
+0x140987c2c: add      rsp, 0x2c0
+0x140987c33: pop      rbp
+0x140987c34: ret      
+0x140987c35: call     0x1400435e0   ; runtime.deferreturn
+0x140987c3a: movzx    eax, byte ptr [rsp + 0xf6]
+0x140987c42: add      rsp, 0x2c0
+0x140987c49: pop      rbp
+0x140987c4a: ret      
+0x140987c4b: mov      qword ptr [rsp + 8], rax
+0x140987c50: mov      qword ptr [rsp + 0x10], rbx
+0x140987c55: mov      qword ptr [rsp + 0x18], rcx
+0x140987c5a: mov      qword ptr [rsp + 0x20], rdi
+0x140987c5f: mov      qword ptr [rsp + 0x28], rsi
+0x140987c64: mov      qword ptr [rsp + 0x30], r8
+0x140987c69: mov      byte ptr [rsp + 0x38], r9b
+0x140987c6e: call     0x14007f140   ; runtime.morestack_noctxt
+0x140987c73: mov      rax, qword ptr [rsp + 8]
+0x140987c78: mov      rbx, qword ptr [rsp + 0x10]
+0x140987c7d: mov      rcx, qword ptr [rsp + 0x18]
+0x140987c82: mov      rdi, qword ptr [rsp + 0x20]
+0x140987c87: mov      rsi, qword ptr [rsp + 0x28]
+0x140987c8c: mov      r8, qword ptr [rsp + 0x30]
+0x140987c91: movzx    r9d, byte ptr [rsp + 0x38]
+0x140987c97: jmp      0x140987940   ; main.screenshotPinWindowService.registerPinnedWindow
+0x140987c9c: int3     
+0x140987c9d: int3     
+0x140987c9e: int3     
+0x140987c9f: int3     

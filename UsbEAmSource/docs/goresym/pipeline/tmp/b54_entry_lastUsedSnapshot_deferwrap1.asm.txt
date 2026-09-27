@@ -1,0 +1,45 @@
+0x1409797c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409797c4: jbe      0x1409797f4   ; main.screenshotDXGIOutputCaptureEntry).lastUsedSnapshot.deferwrap1+0x34
+0x1409797c6: push     rbp
+0x1409797c7: mov      rbp, rsp
+0x1409797ca: sub      rsp, 0x10
+0x1409797ce: mov      r12, qword ptr [r14 + 0x20]
+0x1409797d2: test     r12, r12
+0x1409797d5: jne      0x1409797fb   ; main.screenshotDXGIOutputCaptureEntry).lastUsedSnapshot.deferwrap1+0x3b
+0x1409797d7: mov      rax, qword ptr [rdx + 8]
+0x1409797db: nop      
+0x1409797dc: mov      ebx, 0xffffffff
+0x1409797e1: lock xadd dword ptr [rax], ebx
+0x1409797e5: dec      ebx
+0x1409797e7: je       0x1409797ee   ; main.screenshotDXGIOutputCaptureEntry).lastUsedSnapshot.deferwrap1+0x2e
+0x1409797e9: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x1409797ee: add      rsp, 0x10
+0x1409797f2: pop      rbp
+0x1409797f3: ret      
+0x1409797f4: call     0x14007f0a0   ; runtime.morestack
+0x1409797f9: jmp      0x1409797c0   ; main.screenshotDXGIOutputCaptureEntry).lastUsedSnapshot.deferwrap1
+0x1409797fb: lea      r13, [rsp + 0x20]
+0x140979800: cmp      qword ptr [r12], r13
+0x140979804: jne      0x1409797d7   ; main.screenshotDXGIOutputCaptureEntry).lastUsedSnapshot.deferwrap1+0x17
+0x140979806: mov      qword ptr [r12], rsp
+0x14097980a: jmp      0x1409797d7   ; main.screenshotDXGIOutputCaptureEntry).lastUsedSnapshot.deferwrap1+0x17
+0x14097980c: int3     
+0x14097980d: int3     
+0x14097980e: int3     
+0x14097980f: int3     
+0x140979810: int3     
+0x140979811: int3     
+0x140979812: int3     
+0x140979813: int3     
+0x140979814: int3     
+0x140979815: int3     
+0x140979816: int3     
+0x140979817: int3     
+0x140979818: int3     
+0x140979819: int3     
+0x14097981a: int3     
+0x14097981b: int3     
+0x14097981c: int3     
+0x14097981d: int3     
+0x14097981e: int3     
+0x14097981f: int3     

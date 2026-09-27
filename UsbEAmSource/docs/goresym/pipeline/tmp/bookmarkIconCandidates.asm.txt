@@ -1,0 +1,549 @@
+0x140760c60: lea      r12, [rsp - 0x280]
+0x140760c68: cmp      r12, qword ptr [r14 + 0x10]
+0x140760c6c: jbe      0x140761706    ; main.bookmarkIconCandidates+0xaa6
+0x140760c72: push     rbp
+0x140760c73: mov      rbp, rsp
+0x140760c76: sub      rsp, 0x2f8
+0x140760c7d: mov      qword ptr [rsp + 0x308], rax
+0x140760c85: call     0x140761e40    ; main.normalizeBookmarkIconURL
+0x140760c8a: test     rbx, rbx
+0x140760c8d: je       0x140761313    ; main.bookmarkIconCandidates+0x6b3
+0x140760c93: mov      qword ptr [rsp + 0x50], rbx
+0x140760c98: mov      qword ptr [rsp + 0x168], rax
+0x140760ca0: lea      rax, [rip + 0x389159]
+0x140760ca7: xor      ebx, ebx
+0x140760ca9: mov      ecx, 6
+0x140760cae: call     0x14007ac40    ; runtime.makeslice
+0x140760cb3: mov      qword ptr [rsp + 0x2f0], rax
+0x140760cbb: movups   xmmword ptr [rsp + 0x2b8], xmm15
+0x140760cc4: movups   xmmword ptr [rsp + 0x2c8], xmm15
+0x140760ccd: movups   xmmword ptr [rsp + 0x2d8], xmm15
+0x140760cd6: movups   xmmword ptr [rsp + 0x1f0], xmm15
+0x140760cdf: lea      rdi, [rsp + 0x1f8]
+0x140760ce7: mov      qword ptr [rsp - 0x10], rbp
+0x140760cec: lea      rbp, [rsp - 0x10]
+0x140760cf1: call     0x14008170b    ; runtime.duffzero+0x12b
+0x140760cf6: mov      rbp, qword ptr [rbp]
+0x140760cfa: movabs   rdx, 0x8080808080808080
+0x140760d04: mov      qword ptr [rsp + 0x1f0], rdx
+0x140760d0c: lea      rdx, [rsp + 0x1f0]
+0x140760d14: mov      qword ptr [rsp + 0x2c8], rdx
+0x140760d1c: nop      dword ptr [rax]
+0x140760d20: call     0x1400797c0    ; runtime.rand
+0x140760d25: mov      qword ptr [rsp + 0x2c0], rax
+0x140760d2d: mov      rax, qword ptr [rsp + 0x168]
+0x140760d35: mov      rbx, qword ptr [rsp + 0x50]
+0x140760d3a: call     0x1400a2200    ; strings.TrimSpace
+0x140760d3f: nop      
+0x140760d40: test     rbx, rbx
+0x140760d43: jne      0x140760d4c    ; main.bookmarkIconCandidates+0xec
+0x140760d45: xor      eax, eax
+0x140760d47: jmp      0x140760dfd    ; main.bookmarkIconCandidates+0x19d
+0x140760d4c: mov      qword ptr [rsp + 0xc0], rbx
+0x140760d54: mov      qword ptr [rsp + 0x1c8], rax
+0x140760d5c: nop      dword ptr [rax]
+0x140760d60: call     0x1400a1500    ; strings.ToLower
+0x140760d65: mov      qword ptr [rsp + 0x190], rax
+0x140760d6d: mov      qword ptr [rsp + 0x78], rbx
+0x140760d72: mov      rcx, rax
+0x140760d75: mov      rdi, rbx
+0x140760d78: lea      rax, [rip + 0x3e7d21]
+0x140760d7f: lea      rbx, [rsp + 0x2b8]
+0x140760d87: call     0x14000dbc0    ; runtime.mapaccess2_faststr
+0x140760d8c: test     bl, bl
+0x140760d8e: je       0x140760d94    ; main.bookmarkIconCandidates+0x134
+0x140760d90: xor      eax, eax
+0x140760d92: jmp      0x140760dfd    ; main.bookmarkIconCandidates+0x19d
+0x140760d94: lea      rax, [rip + 0x3e7d05]
+0x140760d9b: lea      rbx, [rsp + 0x2b8]
+0x140760da3: mov      rcx, qword ptr [rsp + 0x190]
+0x140760dab: mov      rdi, qword ptr [rsp + 0x78]
+0x140760db0: call     0x14000de60    ; runtime.mapassign_faststr
+0x140760db5: test     byte ptr [rax], al
+0x140760db7: mov      rdx, qword ptr [rsp + 0xc0]
+0x140760dbf: mov      rsi, qword ptr [rsp + 0x2f0]
+0x140760dc7: mov      qword ptr [rsi + 8], rdx
+0x140760dcb: cmp      dword ptr [rip + 0x14fa57e], 0
+0x140760dd2: jne      0x140760dde    ; main.bookmarkIconCandidates+0x17e
+0x140760dd4: mov      rdx, qword ptr [rsp + 0x1c8]
+0x140760ddc: jmp      0x140760df5    ; main.bookmarkIconCandidates+0x195
+0x140760dde: mov      rcx, qword ptr [rsi]
+0x140760de1: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140760de6: mov      rdx, qword ptr [rsp + 0x1c8]
+0x140760dee: mov      qword ptr [r11], rdx
+0x140760df1: mov      qword ptr [r11 + 8], rcx
+0x140760df5: mov      qword ptr [rsi], rdx
+0x140760df8: mov      eax, 1
+0x140760dfd: mov      qword ptr [rsp + 0x90], rax
+0x140760e05: mov      rax, qword ptr [rsp + 0x168]
+0x140760e0d: mov      rbx, qword ptr [rsp + 0x50]
+0x140760e12: call     0x140264d80    ; net/url.Parse
+0x140760e17: nop      word ptr [rax + rax]
+0x140760e20: test     rbx, rbx
+0x140760e23: jne      0x1407612f5    ; main.bookmarkIconCandidates+0x695
+0x140760e29: test     byte ptr [rax], al
+0x140760e2b: lea      rdi, [rsp + 0xd0]
+0x140760e33: mov      rsi, rax
+0x140760e36: nop      word ptr [rax + rax]
+0x140760e3f: nop      
+0x140760e40: mov      qword ptr [rsp - 0x10], rbp
+0x140760e45: lea      rbp, [rsp - 0x10]
+0x140760e4a: call     0x140081a62    ; runtime.duffcopy+0x302
+0x140760e4f: mov      rbp, qword ptr [rbp]
+0x140760e53: movups   xmmword ptr [rsp + 0x140], xmm15
+0x140760e5c: lea      rax, [rsp + 0xd0]
+0x140760e64: call     0x140266400    ; net/url.URL.String
+0x140760e69: call     0x1400a2200    ; strings.TrimSpace
+0x140760e6e: test     rbx, rbx
+0x140760e71: jne      0x140760e8d    ; main.bookmarkIconCandidates+0x22d
+0x140760e73: mov      ecx, 6
+0x140760e78: mov      rax, qword ptr [rsp + 0x2f0]
+0x140760e80: mov      rbx, qword ptr [rsp + 0x90]
+0x140760e88: jmp      0x140760f8f    ; main.bookmarkIconCandidates+0x32f
+0x140760e8d: mov      qword ptr [rsp + 0xb8], rbx
+0x140760e95: mov      qword ptr [rsp + 0x1c0], rax
+0x140760e9d: nop      dword ptr [rax]
+0x140760ea0: call     0x1400a1500    ; strings.ToLower
+0x140760ea5: mov      qword ptr [rsp + 0x188], rax
+0x140760ead: mov      qword ptr [rsp + 0x70], rbx
+0x140760eb2: mov      rcx, rax
+0x140760eb5: mov      rdi, rbx
+0x140760eb8: lea      rax, [rip + 0x3e7be1]
+0x140760ebf: lea      rbx, [rsp + 0x2b8]
+0x140760ec7: call     0x14000dbc0    ; runtime.mapaccess2_faststr
+0x140760ecc: test     bl, bl
+0x140760ece: je       0x140760eea    ; main.bookmarkIconCandidates+0x28a
+0x140760ed0: mov      ecx, 6
+0x140760ed5: mov      rax, qword ptr [rsp + 0x2f0]
+0x140760edd: mov      rbx, qword ptr [rsp + 0x90]
+0x140760ee5: jmp      0x140760f8f    ; main.bookmarkIconCandidates+0x32f
+0x140760eea: lea      rax, [rip + 0x3e7baf]
+0x140760ef1: lea      rbx, [rsp + 0x2b8]
+0x140760ef9: mov      rcx, qword ptr [rsp + 0x188]
+0x140760f01: mov      rdi, qword ptr [rsp + 0x70]
+0x140760f06: call     0x14000de60    ; runtime.mapassign_faststr
+0x140760f0b: test     byte ptr [rax], al
+0x140760f0d: mov      rbx, qword ptr [rsp + 0x90]
+0x140760f15: inc      rbx
+0x140760f18: cmp      rbx, 6
+0x140760f1c: ja       0x140760f2d    ; main.bookmarkIconCandidates+0x2cd
+0x140760f1e: mov      rax, qword ptr [rsp + 0x2f0]
+0x140760f26: mov      ecx, 6
+0x140760f2b: jmp      0x140760f4b    ; main.bookmarkIconCandidates+0x2eb
+0x140760f2d: mov      rax, qword ptr [rsp + 0x2f0]
+0x140760f35: mov      ecx, 6
+0x140760f3a: mov      edi, 1
+0x140760f3f: lea      rsi, [rip + 0x388eba]
+0x140760f46: call     0x14007ad20    ; runtime.growslice
+0x140760f4b: lea      rdx, [rbx - 1]
+0x140760f4f: shl      rdx, 4
+0x140760f53: mov      rsi, qword ptr [rsp + 0xb8]
+0x140760f5b: mov      qword ptr [rax + rdx + 8], rsi
+0x140760f60: cmp      dword ptr [rip + 0x14fa3e9], 0
+0x140760f67: jne      0x140760f73    ; main.bookmarkIconCandidates+0x313
+0x140760f69: mov      rdi, qword ptr [rsp + 0x1c0]
+0x140760f71: jmp      0x140760f8b    ; main.bookmarkIconCandidates+0x32b
+0x140760f73: mov      rsi, qword ptr [rax + rdx]
+0x140760f77: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140760f7c: mov      rdi, qword ptr [rsp + 0x1c0]
+0x140760f84: mov      qword ptr [r11], rdi
+0x140760f87: mov      qword ptr [r11 + 8], rsi
+0x140760f8b: mov      qword ptr [rax + rdx], rdi
+0x140760f8f: mov      qword ptr [rsp + 0x98], rcx
+0x140760f97: mov      qword ptr [rsp + 0x90], rbx
+0x140760f9f: mov      qword ptr [rsp + 0x1a0], rax
+0x140760fa7: movups   xmmword ptr [rsp + 0x130], xmm15
+0x140760fb0: lea      rax, [rsp + 0xd0]
+0x140760fb8: call     0x140266400    ; net/url.URL.String
+0x140760fbd: nop      dword ptr [rax]
+0x140760fc0: call     0x1400a2200    ; strings.TrimSpace
+0x140760fc5: test     rbx, rbx
+0x140760fc8: jne      0x140760fe7    ; main.bookmarkIconCandidates+0x387
+0x140760fca: mov      rbx, qword ptr [rsp + 0x90]
+0x140760fd2: mov      rcx, qword ptr [rsp + 0x98]
+0x140760fda: mov      rax, qword ptr [rsp + 0x1a0]
+0x140760fe2: jmp      0x1407610ec    ; main.bookmarkIconCandidates+0x48c
+0x140760fe7: mov      qword ptr [rsp + 0xb0], rbx
+0x140760fef: mov      qword ptr [rsp + 0x1b8], rax
+0x140760ff7: call     0x1400a1500    ; strings.ToLower
+0x140760ffc: mov      qword ptr [rsp + 0x180], rax
+0x140761004: mov      qword ptr [rsp + 0x68], rbx
+0x140761009: mov      rcx, rax
+0x14076100c: mov      rdi, rbx
+0x14076100f: lea      rax, [rip + 0x3e7a8a]
+0x140761016: lea      rbx, [rsp + 0x2b8]
+0x14076101e: nop      
+0x140761020: call     0x14000dbc0    ; runtime.mapaccess2_faststr
+0x140761025: test     bl, bl
+0x140761027: je       0x140761046    ; main.bookmarkIconCandidates+0x3e6
+0x140761029: mov      rbx, qword ptr [rsp + 0x90]
+0x140761031: mov      rcx, qword ptr [rsp + 0x98]
+0x140761039: mov      rax, qword ptr [rsp + 0x1a0]
+0x140761041: jmp      0x1407610ec    ; main.bookmarkIconCandidates+0x48c
+0x140761046: lea      rax, [rip + 0x3e7a53]
+0x14076104d: lea      rbx, [rsp + 0x2b8]
+0x140761055: mov      rcx, qword ptr [rsp + 0x180]
+0x14076105d: mov      rdi, qword ptr [rsp + 0x68]
+0x140761062: call     0x14000de60    ; runtime.mapassign_faststr
+0x140761067: test     byte ptr [rax], al
+0x140761069: mov      rbx, qword ptr [rsp + 0x90]
+0x140761071: inc      rbx
+0x140761074: mov      rcx, qword ptr [rsp + 0x98]
+0x14076107c: nop      dword ptr [rax]
+0x140761080: cmp      rcx, rbx
+0x140761083: jb       0x14076108f    ; main.bookmarkIconCandidates+0x42f
+0x140761085: mov      rax, qword ptr [rsp + 0x1a0]
+0x14076108d: jmp      0x1407610a8    ; main.bookmarkIconCandidates+0x448
+0x14076108f: mov      rax, qword ptr [rsp + 0x1a0]
+0x140761097: mov      edi, 1
+0x14076109c: lea      rsi, [rip + 0x388d5d]
+0x1407610a3: call     0x14007ad20    ; runtime.growslice
+0x1407610a8: lea      rdx, [rbx - 1]
+0x1407610ac: shl      rdx, 4
+0x1407610b0: mov      rsi, qword ptr [rsp + 0xb0]
+0x1407610b8: mov      qword ptr [rax + rdx + 8], rsi
+0x1407610bd: cmp      dword ptr [rip + 0x14fa28c], 0
+0x1407610c4: jne      0x1407610d0    ; main.bookmarkIconCandidates+0x470
+0x1407610c6: mov      rdi, qword ptr [rsp + 0x1b8]
+0x1407610ce: jmp      0x1407610e8    ; main.bookmarkIconCandidates+0x488
+0x1407610d0: mov      rsi, qword ptr [rax + rdx]
+0x1407610d4: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1407610d9: mov      rdi, qword ptr [rsp + 0x1b8]
+0x1407610e1: mov      qword ptr [r11], rdi
+0x1407610e4: mov      qword ptr [r11 + 8], rsi
+0x1407610e8: mov      qword ptr [rax + rdx], rdi
+0x1407610ec: mov      qword ptr [rsp + 0x90], rbx
+0x1407610f4: mov      qword ptr [rsp + 0x1a0], rax
+0x1407610fc: mov      qword ptr [rsp + 0x98], rcx
+0x140761104: mov      rax, qword ptr [rsp + 0xd0]
+0x14076110c: mov      rbx, qword ptr [rsp + 0xd8]
+0x140761114: call     0x1400a2200    ; strings.TrimSpace
+0x140761119: call     0x1400a1500    ; strings.ToLower
+0x14076111e: nop      
+0x140761120: test     rbx, rbx
+0x140761123: jne      0x140761131    ; main.bookmarkIconCandidates+0x4d1
+0x140761125: lea      rax, [rip + 0x4d4ab5]
+0x14076112c: mov      ebx, 5
+0x140761131: mov      qword ptr [rsp + 0x48], rbx
+0x140761136: mov      qword ptr [rsp + 0x160], rax
+0x14076113e: mov      rax, qword ptr [rsp + 0xf8]
+0x140761146: mov      rbx, qword ptr [rsp + 0x100]
+0x14076114e: call     0x140268de0    ; net/url.splitHostPort
+0x140761153: call     0x1400a2200    ; strings.TrimSpace
+0x140761158: nop      dword ptr [rax + rax]
+0x140761160: test     rbx, rbx
+0x140761163: je       0x1407612d4    ; main.bookmarkIconCandidates+0x674
+0x140761169: cmp      rbx, 4
+0x14076116d: jl       0x14076119c    ; main.bookmarkIconCandidates+0x53c
+0x14076116f: cmp      dword ptr [rax], 0x2e777777
+0x140761175: jne      0x14076119c    ; main.bookmarkIconCandidates+0x53c
+0x140761177: lea      rcx, [rbx - 4]
+0x14076117b: mov      rdx, rcx
+0x14076117e: neg      rcx
+0x140761181: sar      rcx, 0x3f
+0x140761185: and      ecx, 4
+0x140761188: add      rcx, rax
+0x14076118b: mov      rsi, rcx
+0x14076118e: mov      rcx, rbx
+0x140761191: mov      rbx, rdx
+0x140761194: mov      rdx, rax
+0x140761197: mov      rax, rsi
+0x14076119a: jmp      0x1407611a2    ; main.bookmarkIconCandidates+0x542
+0x14076119c: mov      rcx, rbx
+0x14076119f: mov      rdx, rax
+0x1407611a2: mov      qword ptr [rsp + 0xc8], rcx
+0x1407611aa: mov      qword ptr [rsp + 0x2e8], rdx
+0x1407611b2: movups   xmmword ptr [rsp + 0x1d0], xmm15
+0x1407611bb: movups   xmmword ptr [rsp + 0x1e0], xmm15
+0x1407611c4: mov      qword ptr [rsp + 0x1d8], rcx
+0x1407611cc: mov      qword ptr [rsp + 0x1d0], rdx
+0x1407611d4: mov      qword ptr [rsp + 0x1e8], rbx
+0x1407611dc: mov      qword ptr [rsp + 0x1e0], rax
+0x1407611e4: mov      rax, rdx
+0x1407611e7: mov      rbx, rcx
+0x1407611ea: call     0x1400a1500    ; strings.ToLower
+0x1407611ef: cmp      rbx, 4
+0x1407611f3: jl       0x140761202    ; main.bookmarkIconCandidates+0x5a2
+0x1407611f5: cmp      dword ptr [rax], 0x2e777777
+0x1407611fb: sete     dl
+0x1407611fe: nop      
+0x140761200: jmp      0x140761204    ; main.bookmarkIconCandidates+0x5a4
+0x140761202: xor      edx, edx
+0x140761204: test     dl, dl
+0x140761206: je       0x14076121a    ; main.bookmarkIconCandidates+0x5ba
+0x140761208: lea      rax, [rsp + 0x1d0]
+0x140761210: mov      ecx, 2
+0x140761215: jmp      0x1407612b0    ; main.bookmarkIconCandidates+0x650
+0x14076121a: xor      eax, eax
+0x14076121c: lea      rbx, [rip + 0x4d3567]
+0x140761223: mov      ecx, 4
+0x140761228: mov      rdi, qword ptr [rsp + 0x2e8]
+0x140761230: mov      rsi, qword ptr [rsp + 0xc8]
+0x140761238: call     0x14005fc00    ; runtime.concatstring2
+0x14076123d: mov      qword ptr [rsp + 0xc8], rbx
+0x140761245: mov      qword ptr [rsp + 0x2e8], rax
+0x14076124d: lea      rax, [rsp + 0x1d0]
+0x140761255: mov      ebx, 3
+0x14076125a: mov      ecx, 2
+0x14076125f: mov      edi, 1
+0x140761264: lea      rsi, [rip + 0x388b95]
+0x14076126b: call     0x14007ad20    ; runtime.growslice
+0x140761270: mov      rdx, qword ptr [rsp + 0xc8]
+0x140761278: mov      qword ptr [rax + 0x28], rdx
+0x14076127c: cmp      dword ptr [rip + 0x14fa0cd], 0
+0x140761283: jne      0x14076128f    ; main.bookmarkIconCandidates+0x62f
+0x140761285: mov      rsi, qword ptr [rsp + 0x2e8]
+0x14076128d: jmp      0x1407612a7    ; main.bookmarkIconCandidates+0x647
+0x14076128f: mov      rdx, qword ptr [rax + 0x20]
+0x140761293: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140761298: mov      rsi, qword ptr [rsp + 0x2e8]
+0x1407612a0: mov      qword ptr [r11], rsi
+0x1407612a3: mov      qword ptr [r11 + 8], rdx
+0x1407612a7: mov      qword ptr [rax + 0x20], rsi
+0x1407612ab: mov      ecx, 3
+0x1407612b0: mov      qword ptr [rsp + 0x80], rcx
+0x1407612b8: xor      edx, edx
+0x1407612ba: mov      rbx, qword ptr [rsp + 0x98]
+0x1407612c2: mov      rsi, qword ptr [rsp + 0x1a0]
+0x1407612ca: mov      rdi, qword ptr [rsp + 0x90]
+0x1407612d2: jmp      0x14076134e    ; main.bookmarkIconCandidates+0x6ee
+0x1407612d4: mov      rax, qword ptr [rsp + 0x1a0]
+0x1407612dc: mov      rbx, qword ptr [rsp + 0x90]
+0x1407612e4: mov      rcx, qword ptr [rsp + 0x98]
+0x1407612ec: add      rsp, 0x2f8
+0x1407612f3: pop      rbp
+0x1407612f4: ret      
+0x1407612f5: mov      rax, qword ptr [rsp + 0x2f0]
+0x1407612fd: mov      rbx, qword ptr [rsp + 0x90]
+0x140761305: mov      ecx, 6
+0x14076130a: add      rsp, 0x2f8
+0x140761311: pop      rbp
+0x140761312: ret      
+0x140761313: xor      eax, eax
+0x140761315: xor      ebx, ebx
+0x140761317: mov      rcx, rbx
+0x14076131a: add      rsp, 0x2f8
+0x140761321: pop      rbp
+0x140761322: ret      
+0x140761323: mov      r8, qword ptr [rsp + 0x2f0]
+0x14076132b: add      r8, 0x10
+0x14076132f: mov      rdx, qword ptr [rsp + 0xc8]
+0x140761337: inc      rdx
+0x14076133a: mov      rsi, rax
+0x14076133d: mov      rdi, rbx
+0x140761340: mov      rax, r8
+0x140761343: mov      rbx, rcx
+0x140761346: mov      rcx, qword ptr [rsp + 0x80]
+0x14076134e: cmp      rdx, rcx
+0x140761351: jge      0x1407616f4    ; main.bookmarkIconCandidates+0xa94
+0x140761357: mov      qword ptr [rsp + 0xc8], rdx
+0x14076135f: mov      qword ptr [rsp + 0x90], rdi
+0x140761367: mov      qword ptr [rsp + 0x1a0], rsi
+0x14076136f: mov      qword ptr [rsp + 0x98], rbx
+0x140761377: mov      qword ptr [rsp + 0x2f0], rax
+0x14076137f: mov      rcx, qword ptr [rax]
+0x140761382: mov      rbx, qword ptr [rax + 8]
+0x140761386: mov      rax, rcx
+0x140761389: call     0x1400a2200    ; strings.TrimSpace
+0x14076138e: test     rbx, rbx
+0x140761391: jne      0x1407613b0    ; main.bookmarkIconCandidates+0x750
+0x140761393: mov      rcx, qword ptr [rsp + 0x98]
+0x14076139b: mov      rbx, qword ptr [rsp + 0x90]
+0x1407613a3: mov      rax, qword ptr [rsp + 0x1a0]
+0x1407613ab: jmp      0x140761323    ; main.bookmarkIconCandidates+0x6c3
+0x1407613b0: mov      qword ptr [rsp + 0x88], rbx
+0x1407613b8: mov      qword ptr [rsp + 0x198], rax
+0x1407613c0: mov      rcx, qword ptr [rsp + 0x48]
+0x1407613c5: lea      rdi, [rip + 0x4d2788]
+0x1407613cc: mov      esi, 3
+0x1407613d1: mov      r8, rax
+0x1407613d4: mov      r9, rbx
+0x1407613d7: lea      r10, [rip + 0x4d2251]
+0x1407613de: mov      r11d, 1
+0x1407613e4: xor      eax, eax
+0x1407613e6: mov      rbx, qword ptr [rsp + 0x160]
+0x1407613ee: call     0x14005fd60    ; runtime.concatstring4
+0x1407613f3: call     0x1400a2200    ; strings.TrimSpace
+0x1407613f8: test     rbx, rbx
+0x1407613fb: jne      0x14076141a    ; main.bookmarkIconCandidates+0x7ba
+0x1407613fd: mov      rcx, qword ptr [rsp + 0x98]
+0x140761405: mov      rax, qword ptr [rsp + 0x1a0]
+0x14076140d: mov      rbx, qword ptr [rsp + 0x90]
+0x140761415: jmp      0x140761519    ; main.bookmarkIconCandidates+0x8b9
+0x14076141a: mov      qword ptr [rsp + 0xa8], rbx
+0x140761422: mov      qword ptr [rsp + 0x1b0], rax
+0x14076142a: call     0x1400a1500    ; strings.ToLower
+0x14076142f: mov      qword ptr [rsp + 0x178], rax
+0x140761437: mov      qword ptr [rsp + 0x60], rbx
+0x14076143c: mov      rcx, rax
+0x14076143f: mov      rdi, rbx
+0x140761442: lea      rax, [rip + 0x3e7657]
+0x140761449: lea      rbx, [rsp + 0x2b8]
+0x140761451: call     0x14000dbc0    ; runtime.mapaccess2_faststr
+0x140761456: test     bl, bl
+0x140761458: je       0x140761477    ; main.bookmarkIconCandidates+0x817
+0x14076145a: mov      rcx, qword ptr [rsp + 0x98]
+0x140761462: mov      rax, qword ptr [rsp + 0x1a0]
+0x14076146a: mov      rbx, qword ptr [rsp + 0x90]
+0x140761472: jmp      0x140761519    ; main.bookmarkIconCandidates+0x8b9
+0x140761477: lea      rax, [rip + 0x3e7622]
+0x14076147e: lea      rbx, [rsp + 0x2b8]
+0x140761486: mov      rcx, qword ptr [rsp + 0x178]
+0x14076148e: mov      rdi, qword ptr [rsp + 0x60]
+0x140761493: call     0x14000de60    ; runtime.mapassign_faststr
+0x140761498: test     byte ptr [rax], al
+0x14076149a: mov      rbx, qword ptr [rsp + 0x90]
+0x1407614a2: inc      rbx
+0x1407614a5: mov      rcx, qword ptr [rsp + 0x98]
+0x1407614ad: cmp      rcx, rbx
+0x1407614b0: jb       0x1407614bc    ; main.bookmarkIconCandidates+0x85c
+0x1407614b2: mov      rax, qword ptr [rsp + 0x1a0]
+0x1407614ba: jmp      0x1407614d5    ; main.bookmarkIconCandidates+0x875
+0x1407614bc: mov      rax, qword ptr [rsp + 0x1a0]
+0x1407614c4: mov      edi, 1
+0x1407614c9: lea      rsi, [rip + 0x388930]
+0x1407614d0: call     0x14007ad20    ; runtime.growslice
+0x1407614d5: lea      rdx, [rbx - 1]
+0x1407614d9: shl      rdx, 4
+0x1407614dd: mov      r12, qword ptr [rsp + 0xa8]
+0x1407614e5: mov      qword ptr [rax + rdx + 8], r12
+0x1407614ea: cmp      dword ptr [rip + 0x14f9e5f], 0
+0x1407614f1: jne      0x1407614fd    ; main.bookmarkIconCandidates+0x89d
+0x1407614f3: mov      r13, qword ptr [rsp + 0x1b0]
+0x1407614fb: jmp      0x140761515    ; main.bookmarkIconCandidates+0x8b5
+0x1407614fd: mov      r12, qword ptr [rax + rdx]
+0x140761501: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140761506: mov      r13, qword ptr [rsp + 0x1b0]
+0x14076150e: mov      qword ptr [r11], r13
+0x140761511: mov      qword ptr [r11 + 8], r12
+0x140761515: mov      qword ptr [rax + rdx], r13
+0x140761519: mov      qword ptr [rsp + 0x98], rcx
+0x140761521: mov      qword ptr [rsp + 0x90], rbx
+0x140761529: mov      qword ptr [rsp + 0x1a0], rax
+0x140761531: mov      rdx, qword ptr [rsp + 0x48]
+0x140761536: cmp      rdx, 5
+0x14076153a: jne      0x140761582    ; main.bookmarkIconCandidates+0x922
+0x14076153c: mov      r12, qword ptr [rsp + 0x160]
+0x140761544: cmp      dword ptr [r12], 0x70747468
+0x14076154c: jne      0x140761572    ; main.bookmarkIconCandidates+0x912
+0x14076154e: cmp      byte ptr [r12 + 4], 0x73
+0x140761554: jne      0x140761564    ; main.bookmarkIconCandidates+0x904
+0x140761556: mov      esi, 4
+0x14076155b: lea      rdi, [rip + 0x4d322c]
+0x140761562: jmp      0x14076158e    ; main.bookmarkIconCandidates+0x92e
+0x140761564: mov      esi, 5
+0x140761569: lea      rdi, [rip + 0x4d4671]
+0x140761570: jmp      0x14076158e    ; main.bookmarkIconCandidates+0x92e
+0x140761572: mov      esi, 5
+0x140761577: lea      rdi, [rip + 0x4d4663]
+0x14076157e: nop      
+0x140761580: jmp      0x14076158e    ; main.bookmarkIconCandidates+0x92e
+0x140761582: mov      esi, 5
+0x140761587: lea      rdi, [rip + 0x4d4653]
+0x14076158e: xor      eax, eax
+0x140761590: mov      rbx, rdi
+0x140761593: mov      rcx, rsi
+0x140761596: lea      rdi, [rip + 0x4d25b7]
+0x14076159d: mov      esi, 3
+0x1407615a2: mov      r8, qword ptr [rsp + 0x198]
+0x1407615aa: mov      r9, qword ptr [rsp + 0x88]
+0x1407615b2: lea      r10, [rip + 0x4d2076]
+0x1407615b9: mov      r11d, 1
+0x1407615bf: nop      
+0x1407615c0: call     0x14005fd60    ; runtime.concatstring4
+0x1407615c5: call     0x1400a2200    ; strings.TrimSpace
+0x1407615ca: test     rbx, rbx
+0x1407615cd: jne      0x1407615ec    ; main.bookmarkIconCandidates+0x98c
+0x1407615cf: mov      rcx, qword ptr [rsp + 0x98]
+0x1407615d7: mov      rbx, qword ptr [rsp + 0x90]
+0x1407615df: mov      rax, qword ptr [rsp + 0x1a0]
+0x1407615e7: jmp      0x140761323    ; main.bookmarkIconCandidates+0x6c3
+0x1407615ec: mov      qword ptr [rsp + 0xa0], rbx
+0x1407615f4: mov      qword ptr [rsp + 0x1a8], rax
+0x1407615fc: nop      dword ptr [rax]
+0x140761600: call     0x1400a1500    ; strings.ToLower
+0x140761605: mov      qword ptr [rsp + 0x170], rax
+0x14076160d: mov      qword ptr [rsp + 0x58], rbx
+0x140761612: mov      rcx, rax
+0x140761615: mov      rdi, rbx
+0x140761618: lea      rax, [rip + 0x3e7481]
+0x14076161f: lea      rbx, [rsp + 0x2b8]
+0x140761627: call     0x14000dbc0    ; runtime.mapaccess2_faststr
+0x14076162c: test     bl, bl
+0x14076162e: je       0x14076164d    ; main.bookmarkIconCandidates+0x9ed
+0x140761630: mov      rcx, qword ptr [rsp + 0x98]
+0x140761638: mov      rbx, qword ptr [rsp + 0x90]
+0x140761640: mov      rax, qword ptr [rsp + 0x1a0]
+0x140761648: jmp      0x140761323    ; main.bookmarkIconCandidates+0x6c3
+0x14076164d: lea      rax, [rip + 0x3e744c]
+0x140761654: lea      rbx, [rsp + 0x2b8]
+0x14076165c: mov      rcx, qword ptr [rsp + 0x170]
+0x140761664: mov      rdi, qword ptr [rsp + 0x58]
+0x140761669: call     0x14000de60    ; runtime.mapassign_faststr
+0x14076166e: test     byte ptr [rax], al
+0x140761670: mov      rbx, qword ptr [rsp + 0x90]
+0x140761678: inc      rbx
+0x14076167b: mov      rcx, qword ptr [rsp + 0x98]
+0x140761683: cmp      rcx, rbx
+0x140761686: jb       0x140761692    ; main.bookmarkIconCandidates+0xa32
+0x140761688: mov      rax, qword ptr [rsp + 0x1a0]
+0x140761690: jmp      0x1407616ab    ; main.bookmarkIconCandidates+0xa4b
+0x140761692: mov      rax, qword ptr [rsp + 0x1a0]
+0x14076169a: mov      edi, 1
+0x14076169f: lea      rsi, [rip + 0x38875a]
+0x1407616a6: call     0x14007ad20    ; runtime.growslice
+0x1407616ab: lea      rdx, [rbx - 1]
+0x1407616af: shl      rdx, 4
+0x1407616b3: mov      rsi, qword ptr [rsp + 0xa0]
+0x1407616bb: mov      qword ptr [rax + rdx + 8], rsi
+0x1407616c0: cmp      dword ptr [rip + 0x14f9c89], 0
+0x1407616c7: jne      0x1407616d3    ; main.bookmarkIconCandidates+0xa73
+0x1407616c9: mov      rdi, qword ptr [rsp + 0x1a8]
+0x1407616d1: jmp      0x1407616eb    ; main.bookmarkIconCandidates+0xa8b
+0x1407616d3: mov      rsi, qword ptr [rax + rdx]
+0x1407616d7: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1407616dc: mov      rdi, qword ptr [rsp + 0x1a8]
+0x1407616e4: mov      qword ptr [r11], rdi
+0x1407616e7: mov      qword ptr [r11 + 8], rsi
+0x1407616eb: mov      qword ptr [rax + rdx], rdi
+0x1407616ef: jmp      0x140761323    ; main.bookmarkIconCandidates+0x6c3
+0x1407616f4: mov      rax, rsi
+0x1407616f7: mov      rcx, rbx
+0x1407616fa: mov      rbx, rdi
+0x1407616fd: add      rsp, 0x2f8
+0x140761704: pop      rbp
+0x140761705: ret      
+0x140761706: mov      qword ptr [rsp + 8], rax
+0x14076170b: mov      qword ptr [rsp + 0x10], rbx
+0x140761710: call     0x14007f140    ; runtime.morestack_noctxt
+0x140761715: mov      rax, qword ptr [rsp + 8]
+0x14076171a: mov      rbx, qword ptr [rsp + 0x10]
+0x14076171f: nop      
+0x140761720: jmp      0x140760c60    ; main.bookmarkIconCandidates
+0x140761725: int3     
+0x140761726: int3     
+0x140761727: int3     
+0x140761728: int3     
+0x140761729: int3     
+0x14076172a: int3     
+0x14076172b: int3     
+0x14076172c: int3     
+0x14076172d: int3     
+0x14076172e: int3     
+0x14076172f: int3     
+0x140761730: int3     
+0x140761731: int3     
+0x140761732: int3     
+0x140761733: int3     
+0x140761734: int3     
+0x140761735: int3     
+0x140761736: int3     
+0x140761737: int3     
+0x140761738: int3     
+0x140761739: int3     
+0x14076173a: int3     
+0x14076173b: int3     
+0x14076173c: int3     
+0x14076173d: int3     
+0x14076173e: int3     
+0x14076173f: int3     

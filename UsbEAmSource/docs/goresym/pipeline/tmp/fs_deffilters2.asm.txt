@@ -1,0 +1,300 @@
+0x140812980: add      eax, dword ptr [rax]
+0x140812982: add      byte ptr [rax], al
+0x140812984: lea      rdx, [rip + 0x421127]
+0x14081298b: mov      qword ptr [rax + 0xa0], rdx
+0x140812992: mov      qword ptr [rax + 0xb8], 3
+0x14081299d: lea      rdx, [rip + 0x4211e9]
+0x1408129a4: mov      qword ptr [rax + 0xb0], rdx
+0x1408129ab: mov      qword ptr [rax + 0xc8], 3
+0x1408129b6: lea      rdx, [rip + 0x4211d3]
+0x1408129bd: mov      qword ptr [rax + 0xc0], rdx
+0x1408129c4: mov      qword ptr [rax + 0xd8], 4
+0x1408129cf: lea      rdx, [rip + 0x421e58]
+0x1408129d6: mov      qword ptr [rax + 0xd0], rdx
+0x1408129dd: mov      qword ptr [rax + 0xe8], 4
+0x1408129e8: lea      rdx, [rip + 0x421d1f]
+0x1408129ef: mov      qword ptr [rax + 0xe0], rdx
+0x1408129f6: mov      qword ptr [rax + 0xf8], 4
+0x140812a01: lea      rdx, [rip + 0x421d0a]
+0x140812a08: mov      qword ptr [rax + 0xf0], rdx
+0x140812a0f: mov      qword ptr [rax + 0x108], 4
+0x140812a1a: lea      rdx, [rip + 0x421ce9]
+0x140812a21: mov      qword ptr [rax + 0x100], rdx
+0x140812a28: mov      qword ptr [rax + 0x118], 3
+0x140812a33: lea      rdx, [rip + 0x42107b]
+0x140812a3a: mov      qword ptr [rax + 0x110], rdx
+0x140812a41: mov      qword ptr [rax + 0x128], 4
+0x140812a4c: lea      rdx, [rip + 0x421cc3]
+0x140812a53: mov      qword ptr [rax + 0x120], rdx
+0x140812a5a: mov      qword ptr [rax + 0x138], 3
+0x140812a65: lea      rdx, [rip + 0x42104c]
+0x140812a6c: mov      qword ptr [rax + 0x130], rdx
+0x140812a73: mov      qword ptr [rax + 0x148], 4
+0x140812a7e: lea      rdx, [rip + 0x421c95]
+0x140812a85: mov      qword ptr [rax + 0x140], rdx
+0x140812a8c: mov      qword ptr [rax + 0x158], 3
+0x140812a97: lea      rdx, [rip + 0x4210f5]
+0x140812a9e: mov      qword ptr [rax + 0x150], rdx
+0x140812aa5: mov      qword ptr [rax + 0x168], 3
+0x140812ab0: lea      rdx, [rip + 0x42100a]
+0x140812ab7: mov      qword ptr [rax + 0x160], rdx
+0x140812abe: mov      qword ptr [rax + 0x178], 3
+0x140812ac9: lea      rdx, [rip + 0x420ffd]
+0x140812ad0: mov      qword ptr [rax + 0x170], rdx
+0x140812ad7: mov      qword ptr [rax + 0x188], 3
+0x140812ae2: lea      rdx, [rip + 0x420fdb]
+0x140812ae9: mov      qword ptr [rax + 0x180], rdx
+0x140812af0: mov      qword ptr [rax + 0x198], 3
+0x140812afb: lea      rdx, [rip + 0x421094]
+0x140812b02: mov      qword ptr [rax + 0x190], rdx
+0x140812b09: mov      qword ptr [rax + 0x1a8], 3
+0x140812b14: lea      rdx, [rip + 0x420fac]
+0x140812b1b: mov      qword ptr [rax + 0x1a0], rdx
+0x140812b22: mov      qword ptr [rax + 0x1b8], 3
+0x140812b2d: lea      rdx, [rip + 0x421065]
+0x140812b34: mov      qword ptr [rax + 0x1b0], rdx
+0x140812b3b: mov      qword ptr [rax + 0x1c8], 3
+0x140812b46: lea      rdx, [rip + 0x420f7d]
+0x140812b4d: mov      qword ptr [rax + 0x1c0], rdx
+0x140812b54: mov      qword ptr [rax + 0x1d8], 3
+0x140812b5f: lea      rdx, [rip + 0x421036]
+0x140812b66: mov      qword ptr [rax + 0x1d0], rdx
+0x140812b6d: mov      qword ptr [rax + 0x1e8], 3
+0x140812b78: lea      rdx, [rip + 0x421020]
+0x140812b7f: mov      qword ptr [rax + 0x1e0], rdx
+0x140812b86: mov      qword ptr [rax + 0x1f8], 3
+0x140812b91: lea      rdx, [rip + 0x42100a]
+0x140812b98: mov      qword ptr [rax + 0x1f0], rdx
+0x140812b9f: mov      qword ptr [rax + 0x208], 3
+0x140812baa: lea      rdx, [rip + 0x420ff4]
+0x140812bb1: mov      qword ptr [rax + 0x200], rdx
+0x140812bb8: mov      qword ptr [rax + 0x218], 3
+0x140812bc3: lea      rdx, [rip + 0x420fde]
+0x140812bca: mov      qword ptr [rax + 0x210], rdx
+0x140812bd1: mov      qword ptr [rax + 0x228], 3
+0x140812bdc: lea      rdx, [rip + 0x420fc8]
+0x140812be3: mov      qword ptr [rax + 0x220], rdx
+0x140812bea: mov      qword ptr [rax + 0x238], 3
+0x140812bf5: lea      rdx, [rip + 0x420fb2]
+0x140812bfc: mov      qword ptr [rax + 0x230], rdx
+0x140812c03: mov      qword ptr [rax + 0x248], 3
+0x140812c0e: lea      rdx, [rip + 0x420f9c]
+0x140812c15: mov      qword ptr [rax + 0x240], rdx
+0x140812c1c: mov      qword ptr [rax + 0x258], 3
+0x140812c27: lea      rdx, [rip + 0x420f86]
+0x140812c2e: mov      qword ptr [rax + 0x250], rdx
+0x140812c35: mov      qword ptr [rax + 0x268], 3
+0x140812c40: lea      rdx, [rip + 0x420f70]
+0x140812c47: mov      qword ptr [rax + 0x260], rdx
+0x140812c4e: mov      qword ptr [rax + 0x278], 3
+0x140812c59: lea      rdx, [rip + 0x420f5a]
+0x140812c60: mov      qword ptr [rax + 0x270], rdx
+0x140812c67: mov      qword ptr [rax + 0x288], 3
+0x140812c72: lea      rdx, [rip + 0x420e42]
+0x140812c79: mov      qword ptr [rax + 0x280], rdx
+0x140812c80: mov      qword ptr [rax + 0x298], 3
+0x140812c8b: lea      rdx, [rip + 0x420f2b]
+0x140812c92: mov      qword ptr [rax + 0x290], rdx
+0x140812c99: mov      qword ptr [rax + 0x2a8], 2
+0x140812ca4: lea      rdx, [rip + 0x4209dc]
+0x140812cab: mov      qword ptr [rax + 0x2a0], rdx
+0x140812cb2: mov      qword ptr [rax + 0x2b8], 3
+0x140812cbd: lea      rdx, [rip + 0x420efc]
+0x140812cc4: mov      qword ptr [rax + 0x2b0], rdx
+0x140812ccb: mov      qword ptr [rax + 0x2c8], 2
+0x140812cd6: lea      rdx, [rip + 0x4209ac]
+0x140812cdd: mov      qword ptr [rax + 0x2c0], rdx
+0x140812ce4: mov      qword ptr [rax + 0x2d8], 3
+0x140812cef: lea      rdx, [rip + 0x420ecd]
+0x140812cf6: mov      qword ptr [rax + 0x2d0], rdx
+0x140812cfd: mov      qword ptr [rax + 0x2e8], 3
+0x140812d08: lea      rdx, [rip + 0x420eb7]
+0x140812d0f: mov      qword ptr [rax + 0x2e0], rdx
+0x140812d16: mov      qword ptr [rax + 0x2f8], 3
+0x140812d21: lea      rdx, [rip + 0x420ea1]
+0x140812d28: mov      qword ptr [rax + 0x2f0], rdx
+0x140812d2f: mov      qword ptr [rax + 0x308], 3
+0x140812d3a: lea      rdx, [rip + 0x420e8b]
+0x140812d41: mov      qword ptr [rax + 0x300], rdx
+0x140812d48: mov      qword ptr [rax + 0x318], 3
+0x140812d53: lea      rdx, [rip + 0x420e75]
+0x140812d5a: mov      qword ptr [rax + 0x310], rdx
+0x140812d61: mov      qword ptr [rax + 0x328], 3
+0x140812d6c: lea      rdx, [rip + 0x420e5f]
+0x140812d73: mov      qword ptr [rax + 0x320], rdx
+0x140812d7a: mov      qword ptr [rax + 0x338], 3
+0x140812d85: lea      rdx, [rip + 0x420e49]
+0x140812d8c: mov      qword ptr [rax + 0x330], rdx
+0x140812d93: mov      qword ptr [rax + 0x348], 5
+0x140812d9e: lea      rdx, [rip + 0x422ecd]
+0x140812da5: mov      qword ptr [rax + 0x340], rdx
+0x140812dac: mov      qword ptr [rax + 0x358], 3
+0x140812db7: lea      rdx, [rip + 0x420e1a]
+0x140812dbe: mov      qword ptr [rax + 0x350], rdx
+0x140812dc5: mov      qword ptr [rax + 0x368], 3
+0x140812dd0: lea      rdx, [rip + 0x420e04]
+0x140812dd7: mov      qword ptr [rax + 0x360], rdx
+0x140812dde: mov      qword ptr [rax + 0x378], 3
+0x140812de9: lea      rdx, [rip + 0x420dee]
+0x140812df0: mov      qword ptr [rax + 0x370], rdx
+0x140812df7: mov      qword ptr [rax + 0x388], 3
+0x140812e02: lea      rdx, [rip + 0x420dd8]
+0x140812e09: mov      qword ptr [rax + 0x380], rdx
+0x140812e10: mov      qword ptr [rax + 0x398], 4
+0x140812e1b: lea      rdx, [rip + 0x421a10]
+0x140812e22: mov      qword ptr [rax + 0x390], rdx
+0x140812e29: mov      qword ptr [rax + 0x3a8], 3
+0x140812e34: lea      rdx, [rip + 0x420da9]
+0x140812e3b: mov      qword ptr [rax + 0x3a0], rdx
+0x140812e42: mov      qword ptr [rax + 0x3b8], 3
+0x140812e4d: lea      rdx, [rip + 0x420d93]
+0x140812e54: mov      qword ptr [rax + 0x3b0], rdx
+0x140812e5b: mov      qword ptr [rax + 0x3c8], 3
+0x140812e66: lea      rdx, [rip + 0x420d7d]
+0x140812e6d: mov      qword ptr [rax + 0x3c0], rdx
+0x140812e74: mov      qword ptr [rax + 0x3d8], 3
+0x140812e7f: lea      rdx, [rip + 0x420d67]
+0x140812e86: mov      qword ptr [rax + 0x3d0], rdx
+0x140812e8d: mov      qword ptr [rax + 0x3e8], 3
+0x140812e98: lea      rdx, [rip + 0x420d51]
+0x140812e9f: mov      qword ptr [rax + 0x3e0], rdx
+0x140812ea6: mov      qword ptr [rax + 0x3f8], 3
+0x140812eb1: lea      rdx, [rip + 0x420d3b]
+0x140812eb8: mov      qword ptr [rax + 0x3f0], rdx
+0x140812ebf: lea      rax, [rip + 0x1447afa]
+0x140812ec6: mov      ebx, 0x42
+0x140812ecb: xor      ecx, ecx
+0x140812ecd: mov      rdi, rbx
+0x140812ed0: lea      rsi, [rip + 0x2d6f29]
+0x140812ed7: call     0x14007ad20   ; runtime.growslice
+0x140812edc: mov      qword ptr [rsp + 0x60], rcx
+0x140812ee1: mov      qword ptr [rax + 8], 3
+0x140812ee9: cmp      dword ptr [rip + 0x1448460], 0
+0x140812ef0: je       0x1408131ef   ; main.defaultFileSearchTypeFilters+0xc6f
+0x140812ef6: mov      rdx, qword ptr [rax]
+0x140812ef9: mov      r8, qword ptr [rax + 0x10]
+0x140812efd: mov      r9, qword ptr [rax + 0x20]
+0x140812f01: mov      r10, qword ptr [rax + 0x30]
+0x140812f05: mov      r11, qword ptr [rax + 0x40]
+0x140812f09: mov      r12, qword ptr [rax + 0x50]
+0x140812f0d: mov      r13, qword ptr [rax + 0x60]
+0x140812f11: mov      r15, qword ptr [rax + 0x70]
+0x140812f15: mov      rbx, r11
+0x140812f18: call     0x140081120   ; runtime.gcWriteBarrier8
+0x140812f1d: mov      qword ptr [r11], rdx
+0x140812f20: mov      qword ptr [r11 + 8], r8
+0x140812f24: mov      qword ptr [r11 + 0x10], r9
+0x140812f28: mov      qword ptr [r11 + 0x18], r10
+0x140812f2c: mov      qword ptr [r11 + 0x20], rbx
+0x140812f30: mov      qword ptr [r11 + 0x28], r12
+0x140812f34: mov      qword ptr [r11 + 0x30], r13
+0x140812f38: mov      qword ptr [r11 + 0x38], r15
+0x140812f3c: mov      rdx, qword ptr [rax + 0x80]
+0x140812f43: mov      r8, qword ptr [rax + 0x90]
+0x140812f4a: mov      r9, qword ptr [rax + 0xa0]
+0x140812f51: mov      r10, qword ptr [rax + 0xb0]
+0x140812f58: mov      r11, qword ptr [rax + 0xc0]
+0x140812f5f: mov      r12, qword ptr [rax + 0xd0]
+0x140812f66: mov      r13, qword ptr [rax + 0xe0]
+0x140812f6d: mov      r15, qword ptr [rax + 0xf0]
+0x140812f74: mov      rbx, r11
+0x140812f77: call     0x140081120   ; runtime.gcWriteBarrier8
+0x140812f7c: mov      qword ptr [r11], rdx
+0x140812f7f: mov      qword ptr [r11 + 8], r8
+0x140812f83: mov      qword ptr [r11 + 0x10], r9
+0x140812f87: mov      qword ptr [r11 + 0x18], r10
+0x140812f8b: mov      qword ptr [r11 + 0x20], rbx
+0x140812f8f: mov      qword ptr [r11 + 0x28], r12
+0x140812f93: mov      qword ptr [r11 + 0x30], r13
+0x140812f97: mov      qword ptr [r11 + 0x38], r15
+0x140812f9b: mov      rdx, qword ptr [rax + 0x100]
+0x140812fa2: mov      r8, qword ptr [rax + 0x110]
+0x140812fa9: mov      r9, qword ptr [rax + 0x120]
+0x140812fb0: mov      r10, qword ptr [rax + 0x130]
+0x140812fb7: mov      r11, qword ptr [rax + 0x140]
+0x140812fbe: mov      r12, qword ptr [rax + 0x150]
+0x140812fc5: mov      r13, qword ptr [rax + 0x160]
+0x140812fcc: mov      r15, qword ptr [rax + 0x170]
+0x140812fd3: mov      rbx, r11
+0x140812fd6: call     0x140081120   ; runtime.gcWriteBarrier8
+0x140812fdb: mov      qword ptr [r11], rdx
+0x140812fde: mov      qword ptr [r11 + 8], r8
+0x140812fe2: mov      qword ptr [r11 + 0x10], r9
+0x140812fe6: mov      qword ptr [r11 + 0x18], r10
+0x140812fea: mov      qword ptr [r11 + 0x20], rbx
+0x140812fee: mov      qword ptr [r11 + 0x28], r12
+0x140812ff2: mov      qword ptr [r11 + 0x30], r13
+0x140812ff6: mov      qword ptr [r11 + 0x38], r15
+0x140812ffa: mov      rdx, qword ptr [rax + 0x180]
+0x140813001: mov      r8, qword ptr [rax + 0x190]
+0x140813008: mov      r9, qword ptr [rax + 0x1a0]
+0x14081300f: mov      r10, qword ptr [rax + 0x1b0]
+0x140813016: mov      r11, qword ptr [rax + 0x1c0]
+0x14081301d: mov      r12, qword ptr [rax + 0x1d0]
+0x140813024: mov      r13, qword ptr [rax + 0x1e0]
+0x14081302b: mov      r15, qword ptr [rax + 0x1f0]
+0x140813032: mov      rbx, r11
+0x140813035: call     0x140081120   ; runtime.gcWriteBarrier8
+0x14081303a: mov      qword ptr [r11], rdx
+0x14081303d: mov      qword ptr [r11 + 8], r8
+0x140813041: mov      qword ptr [r11 + 0x10], r9
+0x140813045: mov      qword ptr [r11 + 0x18], r10
+0x140813049: mov      qword ptr [r11 + 0x20], rbx
+0x14081304d: mov      qword ptr [r11 + 0x28], r12
+0x140813051: mov      qword ptr [r11 + 0x30], r13
+0x140813055: mov      qword ptr [r11 + 0x38], r15
+0x140813059: mov      rdx, qword ptr [rax + 0x200]
+0x140813060: mov      r8, qword ptr [rax + 0x210]
+0x140813067: mov      r9, qword ptr [rax + 0x220]
+0x14081306e: mov      r10, qword ptr [rax + 0x230]
+0x140813075: mov      r11, qword ptr [rax + 0x240]
+0x14081307c: mov      r12, qword ptr [rax + 0x250]
+0x140813083: mov      r13, qword ptr [rax + 0x260]
+0x14081308a: mov      r15, qword ptr [rax + 0x270]
+0x140813091: mov      rbx, r11
+0x140813094: call     0x140081120   ; runtime.gcWriteBarrier8
+0x140813099: mov      qword ptr [r11], rdx
+0x14081309c: mov      qword ptr [r11 + 8], r8
+0x1408130a0: mov      qword ptr [r11 + 0x10], r9
+0x1408130a4: mov      qword ptr [r11 + 0x18], r10
+0x1408130a8: mov      qword ptr [r11 + 0x20], rbx
+0x1408130ac: mov      qword ptr [r11 + 0x28], r12
+0x1408130b0: mov      qword ptr [r11 + 0x30], r13
+0x1408130b4: mov      qword ptr [r11 + 0x38], r15
+0x1408130b8: mov      rdx, qword ptr [rax + 0x280]
+0x1408130bf: mov      r8, qword ptr [rax + 0x290]
+0x1408130c6: mov      r9, qword ptr [rax + 0x2a0]
+0x1408130cd: mov      r10, qword ptr [rax + 0x2b0]
+0x1408130d4: mov      r11, qword ptr [rax + 0x2c0]
+0x1408130db: mov      r12, qword ptr [rax + 0x2d0]
+0x1408130e2: mov      r13, qword ptr [rax + 0x2e0]
+0x1408130e9: mov      r15, qword ptr [rax + 0x2f0]
+0x1408130f0: mov      rbx, r11
+0x1408130f3: call     0x140081120   ; runtime.gcWriteBarrier8
+0x1408130f8: mov      qword ptr [r11], rdx
+0x1408130fb: mov      qword ptr [r11 + 8], r8
+0x1408130ff: mov      qword ptr [r11 + 0x10], r9
+0x140813103: mov      qword ptr [r11 + 0x18], r10
+0x140813107: mov      qword ptr [r11 + 0x20], rbx
+0x14081310b: mov      qword ptr [r11 + 0x28], r12
+0x14081310f: mov      qword ptr [r11 + 0x30], r13
+0x140813113: mov      qword ptr [r11 + 0x38], r15
+0x140813117: mov      rdx, qword ptr [rax + 0x300]
+0x14081311e: mov      r8, qword ptr [rax + 0x310]
+0x140813125: mov      r9, qword ptr [rax + 0x320]
+0x14081312c: mov      r10, qword ptr [rax + 0x330]
+0x140813133: mov      r11, qword ptr [rax + 0x340]
+0x14081313a: mov      r12, qword ptr [rax + 0x350]
+0x140813141: mov      r13, qword ptr [rax + 0x360]
+0x140813148: mov      r15, qword ptr [rax + 0x370]
+0x14081314f: mov      rbx, r11
+0x140813152: call     0x140081120   ; runtime.gcWriteBarrier8
+0x140813157: mov      qword ptr [r11], rdx
+0x14081315a: mov      qword ptr [r11 + 8], r8
+0x14081315e: mov      qword ptr [r11 + 0x10], r9
+0x140813162: mov      qword ptr [r11 + 0x18], r10
+0x140813166: mov      qword ptr [r11 + 0x20], rbx
+0x14081316a: mov      qword ptr [r11 + 0x28], r12
+0x14081316e: mov      qword ptr [r11 + 0x30], r13
+0x140813172: mov      qword ptr [r11 + 0x38], r15
+0x140813176: mov      rdx, qword ptr [rax + 0x380]

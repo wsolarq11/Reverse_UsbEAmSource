@@ -1,0 +1,222 @@
+0x1408c7160: lea      r12, [rsp - 0x10]
+0x1408c7165: cmp      r12, qword ptr [r14 + 0x10]
+0x1408c7169: jbe      0x1408c74aa    ; main.decodeStrictUpdaterJSON+0x34a
+0x1408c716f: push     rbp
+0x1408c7170: mov      rbp, rsp
+0x1408c7173: sub      rsp, 0x88
+0x1408c717a: mov      qword ptr [rsp + 0xa0], rbx
+0x1408c7182: mov      qword ptr [rsp + 0xb8], rsi
+0x1408c718a: mov      qword ptr [rsp + 0xb0], rdi
+0x1408c7192: mov      qword ptr [rsp + 0xa8], rcx
+0x1408c719a: mov      qword ptr [rsp + 0x98], rax
+0x1408c71a2: call     0x140146200    ; bytes.TrimSpace
+0x1408c71a7: test     rbx, rbx
+0x1408c71aa: je       0x1408c7478    ; main.decodeStrictUpdaterJSON+0x318
+0x1408c71b0: nop      
+0x1408c71b1: lea      rax, [rip + 0x2d63e8]
+0x1408c71b8: call     0x14001ae20    ; runtime.newobject
+0x1408c71bd: mov      rcx, qword ptr [rsp + 0xa0]
+0x1408c71c5: mov      qword ptr [rax + 8], rcx
+0x1408c71c9: mov      rdx, qword ptr [rsp + 0xa8]
+0x1408c71d1: mov      qword ptr [rax + 0x10], rdx
+0x1408c71d5: cmp      dword ptr [rip + 0x1394174], 0
+0x1408c71dc: jne      0x1408c71e8    ; main.decodeStrictUpdaterJSON+0x88
+0x1408c71de: mov      rbx, qword ptr [rsp + 0x98]
+0x1408c71e6: jmp      0x1408c71f8    ; main.decodeStrictUpdaterJSON+0x98
+0x1408c71e8: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408c71ed: mov      rbx, qword ptr [rsp + 0x98]
+0x1408c71f5: mov      qword ptr [r11], rbx
+0x1408c71f8: mov      qword ptr [rsp + 0x50], rax
+0x1408c71fd: mov      qword ptr [rax], rbx
+0x1408c7200: mov      qword ptr [rax + 0x18], 0
+0x1408c7208: mov      qword ptr [rax + 0x20], 0xffffffffffffffff
+0x1408c7210: nop      
+0x1408c7211: lea      rax, [rip + 0x325fe8]
+0x1408c7218: call     0x14001ae20    ; runtime.newobject
+0x1408c721d: lea      rcx, [rip + 0x90bafc]
+0x1408c7224: mov      qword ptr [rax], rcx
+0x1408c7227: cmp      dword ptr [rip + 0x1394122], 0
+0x1408c722e: jne      0x1408c7237    ; main.decodeStrictUpdaterJSON+0xd7
+0x1408c7230: mov      rdx, qword ptr [rsp + 0x50]
+0x1408c7235: jmp      0x1408c7244    ; main.decodeStrictUpdaterJSON+0xe4
+0x1408c7237: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408c723c: mov      rdx, qword ptr [rsp + 0x50]
+0x1408c7241: mov      qword ptr [r11], rdx
+0x1408c7244: mov      qword ptr [rsp + 0x48], rax
+0x1408c7249: mov      qword ptr [rax + 8], rdx
+0x1408c724d: nop      
+0x1408c724e: mov      byte ptr [rax + 0xa8], 1
+0x1408c7255: xor      ebx, ebx
+0x1408c7257: call     0x1408c7500    ; main.validateUpdaterJSONValue
+0x1408c725c: nop      dword ptr [rax]
+0x1408c7260: test     rax, rax
+0x1408c7263: jne      0x1408c746f    ; main.decodeStrictUpdaterJSON+0x30f
+0x1408c7269: mov      rax, qword ptr [rsp + 0x48]
+0x1408c726e: call     0x140594fc0    ; encoding/json.Decoder.Token
+0x1408c7273: cmp      qword ptr [rip + 0x12fd326], rcx
+0x1408c727a: jne      0x1408c72c0    ; main.decodeStrictUpdaterJSON+0x160
+0x1408c727c: mov      qword ptr [rsp + 0x68], rdi
+0x1408c7281: mov      qword ptr [rsp + 0x38], rcx
+0x1408c7286: mov      qword ptr [rsp + 0x58], rbx
+0x1408c728b: mov      qword ptr [rsp + 0x28], rax
+0x1408c7290: mov      rdx, qword ptr [rip + 0x12fd311]
+0x1408c7297: mov      rax, rcx
+0x1408c729a: mov      rbx, rdi
+0x1408c729d: mov      rcx, rdx
+0x1408c72a0: call     0x140010840    ; runtime.ifaceeq
+0x1408c72a5: test     al, al
+0x1408c72a7: jne      0x1408c7308    ; main.decodeStrictUpdaterJSON+0x1a8
+0x1408c72a9: mov      rax, qword ptr [rsp + 0x28]
+0x1408c72ae: mov      rcx, qword ptr [rsp + 0x38]
+0x1408c72b3: mov      rbx, qword ptr [rsp + 0x58]
+0x1408c72b8: mov      rdi, qword ptr [rsp + 0x68]
+0x1408c72bd: nop      dword ptr [rax]
+0x1408c72c0: test     rcx, rcx
+0x1408c72c3: je       0x1408c72d4    ; main.decodeStrictUpdaterJSON+0x174
+0x1408c72c5: mov      rax, rcx
+0x1408c72c8: mov      rbx, rdi
+0x1408c72cb: add      rsp, 0x88
+0x1408c72d2: pop      rbp
+0x1408c72d3: ret      
+0x1408c72d4: mov      qword ptr [rsp + 0x78], rax
+0x1408c72d9: mov      qword ptr [rsp + 0x80], rbx
+0x1408c72e1: lea      rax, [rip + 0x3b133f]
+0x1408c72e8: mov      ebx, 0x24
+0x1408c72ed: lea      rcx, [rsp + 0x78]
+0x1408c72f2: mov      edi, 1
+0x1408c72f7: mov      rsi, rdi
+0x1408c72fa: call     0x140133280    ; fmt.Errorf
+0x1408c72ff: add      rsp, 0x88
+0x1408c7306: pop      rbp
+0x1408c7307: ret      
+0x1408c7308: nop      
+0x1408c7309: lea      rax, [rip + 0x2d6290]
+0x1408c7310: call     0x14001ae20    ; runtime.newobject
+0x1408c7315: mov      rcx, qword ptr [rsp + 0xa0]
+0x1408c731d: mov      qword ptr [rax + 8], rcx
+0x1408c7321: mov      rcx, qword ptr [rsp + 0xa8]
+0x1408c7329: mov      qword ptr [rax + 0x10], rcx
+0x1408c732d: cmp      dword ptr [rip + 0x139401c], 0
+0x1408c7334: jne      0x1408c7342    ; main.decodeStrictUpdaterJSON+0x1e2
+0x1408c7336: mov      rcx, qword ptr [rsp + 0x98]
+0x1408c733e: nop      
+0x1408c7340: jmp      0x1408c7352    ; main.decodeStrictUpdaterJSON+0x1f2
+0x1408c7342: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408c7347: mov      rcx, qword ptr [rsp + 0x98]
+0x1408c734f: mov      qword ptr [r11], rcx
+0x1408c7352: mov      qword ptr [rsp + 0x40], rax
+0x1408c7357: mov      qword ptr [rax], rcx
+0x1408c735a: mov      qword ptr [rax + 0x18], 0
+0x1408c7362: mov      qword ptr [rax + 0x20], 0xffffffffffffffff
+0x1408c736a: nop      
+0x1408c736b: lea      rax, [rip + 0x325e8e]
+0x1408c7372: call     0x14001ae20    ; runtime.newobject
+0x1408c7377: lea      rcx, [rip + 0x90b9a2]
+0x1408c737e: mov      qword ptr [rax], rcx
+0x1408c7381: cmp      dword ptr [rip + 0x1393fc8], 0
+0x1408c7388: jne      0x1408c7391    ; main.decodeStrictUpdaterJSON+0x231
+0x1408c738a: mov      rdx, qword ptr [rsp + 0x40]
+0x1408c738f: jmp      0x1408c739e    ; main.decodeStrictUpdaterJSON+0x23e
+0x1408c7391: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408c7396: mov      rdx, qword ptr [rsp + 0x40]
+0x1408c739b: mov      qword ptr [r11], rdx
+0x1408c739e: mov      qword ptr [rsp + 0x70], rax
+0x1408c73a3: mov      qword ptr [rax + 8], rdx
+0x1408c73a7: nop      
+0x1408c73a8: mov      byte ptr [rax + 0xa9], 1
+0x1408c73af: nop      
+0x1408c73b0: mov      byte ptr [rax + 0xa8], 1
+0x1408c73b7: mov      rbx, qword ptr [rsp + 0xb0]
+0x1408c73bf: mov      rcx, qword ptr [rsp + 0xb8]
+0x1408c73c7: call     0x1405941e0    ; encoding/json.Decoder.Decode
+0x1408c73cc: test     rax, rax
+0x1408c73cf: jne      0x1408c7466    ; main.decodeStrictUpdaterJSON+0x306
+0x1408c73d5: mov      rax, qword ptr [rsp + 0x70]
+0x1408c73da: lea      rbx, [rip + 0x21045f]
+0x1408c73e1: lea      rcx, [rip + 0x13935d8]
+0x1408c73e8: call     0x1405941e0    ; encoding/json.Decoder.Decode
+0x1408c73ed: cmp      qword ptr [rip + 0x12fd1ac], rax
+0x1408c73f4: jne      0x1408c741a    ; main.decodeStrictUpdaterJSON+0x2ba
+0x1408c73f6: mov      qword ptr [rsp + 0x30], rax
+0x1408c73fb: mov      qword ptr [rsp + 0x60], rbx
+0x1408c7400: mov      rcx, qword ptr [rip + 0x12fd1a1]
+0x1408c7407: call     0x140010840    ; runtime.ifaceeq
+0x1408c740c: test     al, al
+0x1408c740e: jne      0x1408c7459    ; main.decodeStrictUpdaterJSON+0x2f9
+0x1408c7410: mov      rax, qword ptr [rsp + 0x30]
+0x1408c7415: mov      rbx, qword ptr [rsp + 0x60]
+0x1408c741a: test     rax, rax
+0x1408c741d: je       0x1408c7428    ; main.decodeStrictUpdaterJSON+0x2c8
+0x1408c741f: add      rsp, 0x88
+0x1408c7426: pop      rbp
+0x1408c7427: ret      
+0x1408c7428: lea      rax, [rip + 0x28cf51]
+0x1408c742f: call     0x14001ae20    ; runtime.newobject
+0x1408c7434: mov      qword ptr [rax + 8], 0x20
+0x1408c743c: lea      rcx, [rip + 0x3ab223]
+0x1408c7443: mov      qword ptr [rax], rcx
+0x1408c7446: mov      rbx, rax
+0x1408c7449: lea      rax, [rip + 0x90bcb0]
+0x1408c7450: add      rsp, 0x88
+0x1408c7457: pop      rbp
+0x1408c7458: ret      
+0x1408c7459: xor      eax, eax
+0x1408c745b: xor      ebx, ebx
+0x1408c745d: add      rsp, 0x88
+0x1408c7464: pop      rbp
+0x1408c7465: ret      
+0x1408c7466: add      rsp, 0x88
+0x1408c746d: pop      rbp
+0x1408c746e: ret      
+0x1408c746f: add      rsp, 0x88
+0x1408c7476: pop      rbp
+0x1408c7477: ret      
+0x1408c7478: lea      rax, [rip + 0x28cf01]
+0x1408c747f: nop      
+0x1408c7480: call     0x14001ae20    ; runtime.newobject
+0x1408c7485: mov      qword ptr [rax + 8], 0x11
+0x1408c748d: lea      rcx, [rip + 0x38ff35]
+0x1408c7494: mov      qword ptr [rax], rcx
+0x1408c7497: mov      rbx, rax
+0x1408c749a: lea      rax, [rip + 0x90bc5f]
+0x1408c74a1: add      rsp, 0x88
+0x1408c74a8: pop      rbp
+0x1408c74a9: ret      
+0x1408c74aa: mov      qword ptr [rsp + 8], rax
+0x1408c74af: mov      qword ptr [rsp + 0x10], rbx
+0x1408c74b4: mov      qword ptr [rsp + 0x18], rcx
+0x1408c74b9: mov      qword ptr [rsp + 0x20], rdi
+0x1408c74be: mov      qword ptr [rsp + 0x28], rsi
+0x1408c74c3: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408c74c8: mov      rax, qword ptr [rsp + 8]
+0x1408c74cd: mov      rbx, qword ptr [rsp + 0x10]
+0x1408c74d2: mov      rcx, qword ptr [rsp + 0x18]
+0x1408c74d7: mov      rdi, qword ptr [rsp + 0x20]
+0x1408c74dc: mov      rsi, qword ptr [rsp + 0x28]
+0x1408c74e1: jmp      0x1408c7160    ; main.decodeStrictUpdaterJSON
+0x1408c74e6: int3     
+0x1408c74e7: int3     
+0x1408c74e8: int3     
+0x1408c74e9: int3     
+0x1408c74ea: int3     
+0x1408c74eb: int3     
+0x1408c74ec: int3     
+0x1408c74ed: int3     
+0x1408c74ee: int3     
+0x1408c74ef: int3     
+0x1408c74f0: int3     
+0x1408c74f1: int3     
+0x1408c74f2: int3     
+0x1408c74f3: int3     
+0x1408c74f4: int3     
+0x1408c74f5: int3     
+0x1408c74f6: int3     
+0x1408c74f7: int3     
+0x1408c74f8: int3     
+0x1408c74f9: int3     
+0x1408c74fa: int3     
+0x1408c74fb: int3     
+0x1408c74fc: int3     
+0x1408c74fd: int3     
+0x1408c74fe: int3     
+0x1408c74ff: int3     

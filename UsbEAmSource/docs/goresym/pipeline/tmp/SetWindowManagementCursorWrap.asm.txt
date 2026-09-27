@@ -1,0 +1,94 @@
+0x140781080: lea      r12, [rsp - 0xa60]
+0x140781088: cmp      r12, qword ptr [r14 + 0x10]
+0x14078108c: jbe      0x140781222    ; main.BootstrapService.SetWindowManagementCursorWrap+0x1a2
+0x140781092: push     rbp
+0x140781093: mov      rbp, rsp
+0x140781096: sub      rsp, 0xad8
+0x14078109d: mov      qword ptr [rsp + 0xd98], rax
+0x1407810a5: lea      rdi, [rsp + 0xae8]
+0x1407810ad: lea      rdi, [rdi - 0x10]
+0x1407810b1: nop      word ptr [rax + rax]
+0x1407810ba: nop      word ptr [rax + rax]
+0x1407810c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407810c5: lea      rbp, [rsp - 0x10]
+0x1407810ca: call     0x140081657    ; runtime.duffzero+0x77
+0x1407810cf: mov      rbp, qword ptr [rbp]
+0x1407810d3: lea      rdi, [rsp + 0x828]
+0x1407810db: lea      rdi, [rdi - 0x10]
+0x1407810df: nop      
+0x1407810e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407810e5: lea      rbp, [rsp - 0x10]
+0x1407810ea: call     0x140081657    ; runtime.duffzero+0x77
+0x1407810ef: mov      rbp, qword ptr [rbp]
+0x1407810f3: mov      rax, qword ptr [rax + 0x388]
+0x1407810fa: call     0x1409e12a0    ; main.windowManagementService.SetCursorWrap
+0x1407810ff: lea      rdi, [rsp + 0x828]
+0x140781107: mov      rsi, rsp
+0x14078110a: mov      qword ptr [rsp - 0x10], rbp
+0x14078110f: lea      rbp, [rsp - 0x10]
+0x140781114: call     0x140081886    ; runtime.duffcopy+0x126
+0x140781119: mov      rbp, qword ptr [rbp]
+0x14078111d: lea      rdi, [rsp + 0x578]
+0x140781125: lea      rsi, [rsp + 0x828]
+0x14078112d: nop      word ptr [rax + rax]
+0x140781136: nop      word ptr [rax + rax]
+0x14078113f: nop      
+0x140781140: mov      qword ptr [rsp - 0x10], rbp
+0x140781145: lea      rbp, [rsp - 0x10]
+0x14078114a: call     0x140081886    ; runtime.duffcopy+0x126
+0x14078114f: mov      rbp, qword ptr [rbp]
+0x140781153: lea      rdi, [rsp + 0x828]
+0x14078115b: lea      rdi, [rdi - 0x10]
+0x14078115f: nop      
+0x140781160: mov      qword ptr [rsp - 0x10], rbp
+0x140781165: lea      rbp, [rsp - 0x10]
+0x14078116a: call     0x140081657    ; runtime.duffzero+0x77
+0x14078116f: mov      rbp, qword ptr [rbp]
+0x140781173: mov      rdi, rsp
+0x140781176: lea      rsi, [rsp + 0x578]
+0x14078117e: nop      
+0x140781180: mov      qword ptr [rsp - 0x10], rbp
+0x140781185: lea      rbp, [rsp - 0x10]
+0x14078118a: call     0x140081886    ; runtime.duffcopy+0x126
+0x14078118f: mov      rbp, qword ptr [rbp]
+0x140781193: mov      rcx, rbx
+0x140781196: mov      rbx, rax
+0x140781199: mov      rax, qword ptr [rsp + 0xd98]
+0x1407811a1: call     0x1408a4a80    ; main.BootstrapService.persistAndRefreshWindowManagementState
+0x1407811a6: lea      rdi, [rsp + 0x828]
+0x1407811ae: lea      rsi, [rsp + 0x2b0]
+0x1407811b6: nop      word ptr [rax + rax]
+0x1407811bf: nop      
+0x1407811c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407811c5: lea      rbp, [rsp - 0x10]
+0x1407811ca: call     0x140081886    ; runtime.duffcopy+0x126
+0x1407811cf: mov      rbp, qword ptr [rbp]
+0x1407811d3: lea      rdi, [rsp + 0xae8]
+0x1407811db: lea      rsi, [rsp + 0x828]
+0x1407811e3: mov      qword ptr [rsp - 0x10], rbp
+0x1407811e8: lea      rbp, [rsp - 0x10]
+0x1407811ed: call     0x140081886    ; runtime.duffcopy+0x126
+0x1407811f2: mov      rbp, qword ptr [rbp]
+0x1407811f6: lea      rdi, [rsp + 0xae8]
+0x1407811fe: lea      rsi, [rsp + 0x828]
+0x140781206: mov      qword ptr [rsp - 0x10], rbp
+0x14078120b: lea      rbp, [rsp - 0x10]
+0x140781210: call     0x140081886    ; runtime.duffcopy+0x126
+0x140781215: mov      rbp, qword ptr [rbp]
+0x140781219: add      rsp, 0xad8
+0x140781220: pop      rbp
+0x140781221: ret      
+0x140781222: mov      qword ptr [rsp + 0x2b8], rax
+0x14078122a: mov      byte ptr [rsp + 0x2c0], bl
+0x140781231: mov      byte ptr [rsp + 0x2c1], cl
+0x140781238: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078123d: mov      rax, qword ptr [rsp + 0x2b8]
+0x140781245: movzx    ebx, byte ptr [rsp + 0x2c0]
+0x14078124d: movzx    ecx, byte ptr [rsp + 0x2c1]
+0x140781255: jmp      0x140781080    ; main.BootstrapService.SetWindowManagementCursorWrap
+0x14078125a: int3     
+0x14078125b: int3     
+0x14078125c: int3     
+0x14078125d: int3     
+0x14078125e: int3     
+0x14078125f: int3     

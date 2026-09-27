@@ -1,0 +1,42 @@
+0x1408af7e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408af7e4: jbe      0x1408af82d   ; main.prepareLauncherStartupTrayProcess+0x4d
+0x1408af7e6: push     rbp
+0x1408af7e7: mov      rbp, rsp
+0x1408af7ea: sub      rsp, 0x10
+0x1408af7ee: call     0x140127960   ; os.Executable
+0x1408af7f3: test     rcx, rcx
+0x1408af7f6: jne      0x1408af821   ; main.prepareLauncherStartupTrayProcess+0x41
+0x1408af7f8: nop      
+0x1408af7f9: call     0x1401cd5e0   ; path/filepath.abs
+0x1408af7fe: nop      
+0x1408af800: test     rcx, rcx
+0x1408af803: je       0x1408af811   ; main.prepareLauncherStartupTrayProcess+0x31
+0x1408af805: mov      rax, rcx
+0x1408af808: mov      rbx, rdi
+0x1408af80b: add      rsp, 0x10
+0x1408af80f: pop      rbp
+0x1408af810: ret      
+0x1408af811: call     0x140116440   ; internal/filepathlite.Dir
+0x1408af816: call     0x140128740   ; os.Chdir
+0x1408af81b: add      rsp, 0x10
+0x1408af81f: pop      rbp
+0x1408af820: ret      
+0x1408af821: mov      rax, rcx
+0x1408af824: mov      rbx, rdi
+0x1408af827: add      rsp, 0x10
+0x1408af82b: pop      rbp
+0x1408af82c: ret      
+0x1408af82d: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408af832: jmp      0x1408af7e0   ; main.prepareLauncherStartupTrayProcess
+0x1408af834: int3     
+0x1408af835: int3     
+0x1408af836: int3     
+0x1408af837: int3     
+0x1408af838: int3     
+0x1408af839: int3     
+0x1408af83a: int3     
+0x1408af83b: int3     
+0x1408af83c: int3     
+0x1408af83d: int3     
+0x1408af83e: int3     
+0x1408af83f: int3     

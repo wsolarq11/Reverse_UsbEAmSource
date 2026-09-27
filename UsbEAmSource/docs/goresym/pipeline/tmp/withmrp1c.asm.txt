@@ -1,0 +1,88 @@
+0x1408d5a14: lea      rax, [rip + 0x27e8e5]
+0x1408d5a1b: nop      dword ptr [rax + rax]
+0x1408d5a20: call     0x14001ae20   ; runtime.newobject
+0x1408d5a25: mov      rdx, qword ptr [rsp + 0x40]
+0x1408d5a2a: mov      qword ptr [rax + 0x10], rdx
+0x1408d5a2e: cmp      dword ptr [rip + 0x138591b], 0
+0x1408d5a35: jne      0x1408d5a40   ; main.withMemoryReleasePrivilege.func1+0x160
+0x1408d5a37: mov      rdx, qword ptr [rsp + 0x78]
+0x1408d5a3c: jmp      0x1408d5a4d   ; main.withMemoryReleasePrivilege.func1+0x16d
+0x1408d5a3e: nop      
+0x1408d5a40: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408d5a45: mov      rdx, qword ptr [rsp + 0x78]
+0x1408d5a4a: mov      qword ptr [r11], rdx
+0x1408d5a4d: mov      qword ptr [rsp + 0x60], rax
+0x1408d5a52: mov      qword ptr [rax], rdx
+0x1408d5a55: lea      rdx, [rsp + 0x80]
+0x1408d5a5d: xor      ecx, ecx
+0x1408d5a5f: nop      
+0x1408d5a60: jmp      0x1408d5a92   ; main.withMemoryReleasePrivilege.func1+0x1b2
+0x1408d5a62: xor      eax, eax
+0x1408d5a64: xor      ecx, ecx
+0x1408d5a66: mov      qword ptr [rdx], rax
+0x1408d5a69: cmp      dword ptr [rip + 0x13858e0], 0
+0x1408d5a70: je       0x1408d5a82   ; main.withMemoryReleasePrivilege.func1+0x1a2
+0x1408d5a72: mov      rax, qword ptr [rdx + 8]
+0x1408d5a76: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1408d5a7b: mov      qword ptr [r11], rcx
+0x1408d5a7e: mov      qword ptr [r11 + 8], rax
+0x1408d5a82: mov      qword ptr [rdx + 8], rcx
+0x1408d5a86: jmp      0x1408d59d2   ; main.withMemoryReleasePrivilege.func1+0xf2
+0x1408d5a8b: add      rdx, 0x10
+0x1408d5a8f: inc      rcx
+0x1408d5a92: cmp      rcx, 2
+0x1408d5a96: jge      0x1408d5b65   ; main.withMemoryReleasePrivilege.func1+0x285
+0x1408d5a9c: mov      r8, qword ptr [rdx]
+0x1408d5a9f: mov      r9, qword ptr [rdx + 8]
+0x1408d5aa3: test     r8, r8
+0x1408d5aa6: je       0x1408d5a8b   ; main.withMemoryReleasePrivilege.func1+0x1ab
+0x1408d5aa8: mov      r10, qword ptr [rax + 0x10]
+0x1408d5aac: mov      rbx, qword ptr [rax + 8]
+0x1408d5ab0: inc      rbx
+0x1408d5ab3: mov      r11, qword ptr [rax]
+0x1408d5ab6: cmp      r10, rbx
+0x1408d5ab9: jae      0x1408d5b2b   ; main.withMemoryReleasePrivilege.func1+0x24b
+0x1408d5abb: mov      qword ptr [rsp + 0x50], rcx
+0x1408d5ac0: mov      qword ptr [rsp + 0x78], rdx
+0x1408d5ac5: mov      qword ptr [rsp + 0x48], r8
+0x1408d5aca: mov      qword ptr [rsp + 0x58], r9
+0x1408d5acf: mov      rax, r11
+0x1408d5ad2: mov      rcx, r10
+0x1408d5ad5: mov      edi, 1
+0x1408d5ada: lea      rsi, [rip + 0x2633bf]
+0x1408d5ae1: call     0x14007ad20   ; runtime.growslice
+0x1408d5ae6: mov      rdx, qword ptr [rsp + 0x60]
+0x1408d5aeb: mov      qword ptr [rdx + 0x10], rcx
+0x1408d5aef: cmp      dword ptr [rip + 0x138585a], 0
+0x1408d5af6: je       0x1408d5b0c   ; main.withMemoryReleasePrivilege.func1+0x22c
+0x1408d5af8: mov      r8, qword ptr [rdx]
+0x1408d5afb: nop      dword ptr [rax + rax]
+0x1408d5b00: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1408d5b05: mov      qword ptr [r11], rax
+0x1408d5b08: mov      qword ptr [r11 + 8], r8
+0x1408d5b0c: mov      qword ptr [rdx], rax
+0x1408d5b0f: mov      rcx, qword ptr [rsp + 0x50]
+0x1408d5b14: mov      rdx, qword ptr [rsp + 0x78]
+0x1408d5b19: mov      r8, qword ptr [rsp + 0x48]
+0x1408d5b1e: mov      r9, qword ptr [rsp + 0x58]
+0x1408d5b23: mov      r11, rax
+0x1408d5b26: mov      rax, qword ptr [rsp + 0x60]
+0x1408d5b2b: mov      qword ptr [rax + 8], rbx
+0x1408d5b2f: lea      r10, [rbx - 1]
+0x1408d5b33: shl      r10, 4
+0x1408d5b37: mov      qword ptr [r11 + r10], r8
+0x1408d5b3b: cmp      dword ptr [rip + 0x138580e], 0
+0x1408d5b42: je       0x1408d5b5b   ; main.withMemoryReleasePrivilege.func1+0x27b
+0x1408d5b44: mov      r8, qword ptr [r11 + r10 + 8]
+0x1408d5b49: mov      rbx, r11
+0x1408d5b4c: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1408d5b51: mov      qword ptr [r11], r9
+0x1408d5b54: mov      qword ptr [r11 + 8], r8
+0x1408d5b58: mov      r11, rbx
+0x1408d5b5b: mov      qword ptr [r11 + r10 + 8], r9
+0x1408d5b60: jmp      0x1408d5a8b   ; main.withMemoryReleasePrivilege.func1+0x1ab
+0x1408d5b65: mov      rdx, qword ptr [rsp + 0xa0]
+0x1408d5b6d: lea      rax, [rip + 0x8fd5ac]
+0x1408d5b74: mov      rcx, qword ptr [rsp + 0x60]
+0x1408d5b79: jmp      0x1408d5a66   ; main.withMemoryReleasePrivilege.func1+0x186
+0x1408d5b7e: nop      

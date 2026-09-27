@@ -1,0 +1,35 @@
+0x1408a8d20: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a8d24: jbe      0x1408a8d7f   ; main.revealPathInExplorer+0x5f
+0x1408a8d26: push     rbp
+0x1408a8d27: mov      rbp, rsp
+0x1408a8d2a: sub      rsp, 0x60
+0x1408a8d2e: mov      qword ptr [rsp + 0x70], rax
+0x1408a8d33: call     0x1400a2200   ; strings.TrimSpace
+0x1408a8d38: call     0x1408ad280   ; main.quoteWindowsArgument
+0x1408a8d3d: mov      ecx, 8
+0x1408a8d42: mov      rdi, rax
+0x1408a8d45: mov      rsi, rbx
+0x1408a8d48: lea      rax, [rsp + 0x28]
+0x1408a8d4d: lea      rbx, [rip + 0x3934f8]
+0x1408a8d54: call     0x14005fc00   ; runtime.concatstring2
+0x1408a8d59: lea      rcx, [rip + 0x40]
+0x1408a8d60: mov      qword ptr [rsp + 0x48], rcx
+0x1408a8d65: mov      qword ptr [rsp + 0x58], rbx
+0x1408a8d6a: mov      qword ptr [rsp + 0x50], rax
+0x1408a8d6f: lea      rax, [rsp + 0x48]
+0x1408a8d74: call     0x1408af020   ; main.withShellApartment
+0x1408a8d79: add      rsp, 0x60
+0x1408a8d7d: pop      rbp
+0x1408a8d7e: ret      
+0x1408a8d7f: mov      qword ptr [rsp + 8], rax
+0x1408a8d84: mov      qword ptr [rsp + 0x10], rbx
+0x1408a8d89: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a8d8e: mov      rax, qword ptr [rsp + 8]
+0x1408a8d93: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a8d98: jmp      0x1408a8d20   ; main.revealPathInExplorer
+0x1408a8d9a: int3     
+0x1408a8d9b: int3     
+0x1408a8d9c: int3     
+0x1408a8d9d: int3     
+0x1408a8d9e: int3     
+0x1408a8d9f: int3     

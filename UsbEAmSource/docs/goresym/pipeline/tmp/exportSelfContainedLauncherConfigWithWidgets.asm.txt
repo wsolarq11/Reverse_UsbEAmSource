@@ -1,0 +1,52 @@
+0x1407ac7e0: lea      r12, [rsp - 0x8e8]
+0x1407ac7e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407ac7ec: jbe      0x1407ac88e    ; main.exportSelfContainedLauncherConfigWithWidgets+0xae
+0x1407ac7f2: push     rbp
+0x1407ac7f3: mov      rbp, rsp
+0x1407ac7f6: sub      rsp, 0x960
+0x1407ac7fd: mov      qword ptr [rsp + 0x12b8], rcx
+0x1407ac805: mov      qword ptr [rsp + 0x12b0], rbx
+0x1407ac80d: mov      qword ptr [rsp + 0x12a8], rax
+0x1407ac815: mov      qword ptr [rsp + 0x12c0], rdi
+0x1407ac81d: nop      dword ptr [rax]
+0x1407ac820: call     0x140878700    ; main.validateLauncherConfigExportTarget
+0x1407ac825: test     rax, rax
+0x1407ac828: je       0x1407ac833    ; main.exportSelfContainedLauncherConfigWithWidgets+0x53
+0x1407ac82a: add      rsp, 0x960
+0x1407ac831: pop      rbp
+0x1407ac832: ret      
+0x1407ac833: mov      rax, qword ptr [rsp + 0x12a8]
+0x1407ac83b: mov      rbx, qword ptr [rsp + 0x12b0]
+0x1407ac843: call     0x1400a2200    ; strings.TrimSpace
+0x1407ac848: mov      rcx, qword ptr [rsp + 0x970]
+0x1407ac850: mov      qword ptr [rsp], rcx
+0x1407ac854: lea      rdi, [rsp + 8]
+0x1407ac859: lea      rsi, [rsp + 0x978]
+0x1407ac861: mov      ecx, 0x126
+0x1407ac866: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407ac869: mov      rcx, qword ptr [rsp + 0x12b8]
+0x1407ac871: mov      rdi, qword ptr [rsp + 0x12c0]
+0x1407ac879: xor      esi, esi
+0x1407ac87b: nop      dword ptr [rax + rax]
+0x1407ac880: call     0x1407ac100    ; main.writeSelfContainedLauncherConfigWithWidgets
+0x1407ac885: add      rsp, 0x960
+0x1407ac88c: pop      rbp
+0x1407ac88d: ret      
+0x1407ac88e: mov      qword ptr [rsp + 0x940], rax
+0x1407ac896: mov      qword ptr [rsp + 0x948], rbx
+0x1407ac89e: mov      qword ptr [rsp + 0x950], rcx
+0x1407ac8a6: mov      qword ptr [rsp + 0x958], rdi
+0x1407ac8ae: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407ac8b3: mov      rax, qword ptr [rsp + 0x940]
+0x1407ac8bb: mov      rbx, qword ptr [rsp + 0x948]
+0x1407ac8c3: mov      rcx, qword ptr [rsp + 0x950]
+0x1407ac8cb: mov      rdi, qword ptr [rsp + 0x958]
+0x1407ac8d3: jmp      0x1407ac7e0    ; main.exportSelfContainedLauncherConfigWithWidgets
+0x1407ac8d8: int3     
+0x1407ac8d9: int3     
+0x1407ac8da: int3     
+0x1407ac8db: int3     
+0x1407ac8dc: int3     
+0x1407ac8dd: int3     
+0x1407ac8de: int3     
+0x1407ac8df: int3     

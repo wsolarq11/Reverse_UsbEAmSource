@@ -1,0 +1,120 @@
+0x1407705e0: lea      r12, [rsp - 0x138]
+0x1407705e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407705ec: jbe      0x1407707a9    ; main.sqliteReadonlyURI+0x1c9
+0x1407705f2: push     rbp
+0x1407705f3: mov      rbp, rsp
+0x1407705f6: sub      rsp, 0x1b0
+0x1407705fd: mov      qword ptr [rsp + 0x1c0], rax
+0x140770605: call     0x1400a2200    ; strings.TrimSpace
+0x14077060a: test     rbx, rbx
+0x14077060d: je       0x14077079c    ; main.sqliteReadonlyURI+0x1bc
+0x140770613: mov      qword ptr [rsp + 0x20], rbx
+0x140770618: mov      qword ptr [rsp + 0x28], rax
+0x14077061d: movups   xmmword ptr [rsp + 0x180], xmm15
+0x140770626: movups   xmmword ptr [rsp + 0x190], xmm15
+0x14077062f: movups   xmmword ptr [rsp + 0x1a0], xmm15
+0x140770638: movups   xmmword ptr [rsp + 0x38], xmm15
+0x14077063e: lea      rdi, [rsp + 0x40]
+0x140770643: mov      qword ptr [rsp - 0x10], rbp
+0x140770648: lea      rbp, [rsp - 0x10]
+0x14077064d: call     0x1400816dd    ; runtime.duffzero+0xfd
+0x140770652: mov      rbp, qword ptr [rbp]
+0x140770656: movabs   rax, 0x8080808080808080
+0x140770660: mov      qword ptr [rsp + 0x38], rax
+0x140770665: lea      rax, [rsp + 0x38]
+0x14077066a: mov      qword ptr [rsp + 0x190], rax
+0x140770672: call     0x1400797c0    ; runtime.rand
+0x140770677: mov      qword ptr [rsp + 0x188], rax
+0x14077067f: nop      
+0x140770680: lea      rax, [rip + 0x38d299]
+0x140770687: call     0x14001ae20    ; runtime.newobject
+0x14077068c: mov      qword ptr [rsp + 0x30], rax
+0x140770691: mov      qword ptr [rax + 8], 2
+0x140770699: lea      rcx, [rip + 0x4c2fc3]
+0x1407706a0: mov      qword ptr [rax], rcx
+0x1407706a3: lea      rax, [rip + 0x45ce76]
+0x1407706aa: lea      rbx, [rsp + 0x180]
+0x1407706b2: lea      rcx, [rip + 0x4c40e9]
+0x1407706b9: mov      edi, 4
+0x1407706be: nop      
+0x1407706c0: call     0x14000de60    ; runtime.mapassign_faststr
+0x1407706c5: mov      qword ptr [rax + 8], 1
+0x1407706cd: mov      qword ptr [rax + 0x10], 1
+0x1407706d5: cmp      dword ptr [rip + 0x14eac74], 0
+0x1407706dc: jne      0x1407706e5    ; main.sqliteReadonlyURI+0x105
+0x1407706de: mov      rdx, qword ptr [rsp + 0x30]
+0x1407706e3: jmp      0x1407706f9    ; main.sqliteReadonlyURI+0x119
+0x1407706e5: mov      rcx, qword ptr [rax]
+0x1407706e8: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1407706ed: mov      rdx, qword ptr [rsp + 0x30]
+0x1407706f2: mov      qword ptr [r11], rdx
+0x1407706f5: mov      qword ptr [r11 + 8], rcx
+0x1407706f9: mov      qword ptr [rax], rdx
+0x1407706fc: nop      
+0x1407706fd: lea      rax, [rip + 0x38d21c]
+0x140770704: call     0x14001ae20    ; runtime.newobject
+0x140770709: mov      qword ptr [rsp + 0x30], rax
+0x14077070e: mov      qword ptr [rax + 8], 1
+0x140770716: lea      rcx, [rip + 0xa5a57b]
+0x14077071d: mov      qword ptr [rax], rcx
+0x140770720: lea      rax, [rip + 0x45cdf9]
+0x140770727: lea      rbx, [rsp + 0x180]
+0x14077072f: lea      rcx, [rip + 0x4db22a]
+0x140770736: mov      edi, 0xc
+0x14077073b: nop      dword ptr [rax + rax]
+0x140770740: call     0x14000de60    ; runtime.mapassign_faststr
+0x140770745: mov      qword ptr [rax + 8], 1
+0x14077074d: mov      qword ptr [rax + 0x10], 1
+0x140770755: cmp      dword ptr [rip + 0x14eabf4], 0
+0x14077075c: jne      0x140770765    ; main.sqliteReadonlyURI+0x185
+0x14077075e: mov      rsi, qword ptr [rsp + 0x30]
+0x140770763: jmp      0x140770779    ; main.sqliteReadonlyURI+0x199
+0x140770765: mov      rdx, qword ptr [rax]
+0x140770768: call     0x140081060    ; runtime.gcWriteBarrier2
+0x14077076d: mov      rsi, qword ptr [rsp + 0x30]
+0x140770772: mov      qword ptr [r11], rsi
+0x140770775: mov      qword ptr [r11 + 8], rdx
+0x140770779: mov      qword ptr [rax], rsi
+0x14077077c: mov      rax, qword ptr [rsp + 0x28]
+0x140770781: mov      rbx, qword ptr [rsp + 0x20]
+0x140770786: lea      rcx, [rsp + 0x180]
+0x14077078e: call     0x1407707e0    ; main.sqliteFileURI
+0x140770793: add      rsp, 0x1b0
+0x14077079a: pop      rbp
+0x14077079b: ret      
+0x14077079c: xor      eax, eax
+0x14077079e: xor      ebx, ebx
+0x1407707a0: add      rsp, 0x1b0
+0x1407707a7: pop      rbp
+0x1407707a8: ret      
+0x1407707a9: mov      qword ptr [rsp + 8], rax
+0x1407707ae: mov      qword ptr [rsp + 0x10], rbx
+0x1407707b3: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407707b8: mov      rax, qword ptr [rsp + 8]
+0x1407707bd: mov      rbx, qword ptr [rsp + 0x10]
+0x1407707c2: jmp      0x1407705e0    ; main.sqliteReadonlyURI
+0x1407707c7: int3     
+0x1407707c8: int3     
+0x1407707c9: int3     
+0x1407707ca: int3     
+0x1407707cb: int3     
+0x1407707cc: int3     
+0x1407707cd: int3     
+0x1407707ce: int3     
+0x1407707cf: int3     
+0x1407707d0: int3     
+0x1407707d1: int3     
+0x1407707d2: int3     
+0x1407707d3: int3     
+0x1407707d4: int3     
+0x1407707d5: int3     
+0x1407707d6: int3     
+0x1407707d7: int3     
+0x1407707d8: int3     
+0x1407707d9: int3     
+0x1407707da: int3     
+0x1407707db: int3     
+0x1407707dc: int3     
+0x1407707dd: int3     
+0x1407707de: int3     
+0x1407707df: int3     

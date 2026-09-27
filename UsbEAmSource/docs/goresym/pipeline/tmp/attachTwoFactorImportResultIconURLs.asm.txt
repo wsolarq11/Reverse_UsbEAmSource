@@ -1,0 +1,163 @@
+0x1408a3f20: lea      r12, [rsp - 0x280]
+0x1408a3f28: cmp      r12, qword ptr [r14 + 0x10]
+0x1408a3f2c: jbe      0x1408a4256    ; main.BootstrapService.attachTwoFactorImportResultIconURLs+0x336
+0x1408a3f32: push     rbp
+0x1408a3f33: mov      rbp, rsp
+0x1408a3f36: sub      rsp, 0x2f8
+0x1408a3f3d: mov      qword ptr [rsp + 0x4c8], rax
+0x1408a3f45: lea      rdi, [rsp + 0x3e8]
+0x1408a3f4d: lea      rdi, [rdi - 0x20]
+0x1408a3f51: nop      word ptr [rax + rax]
+0x1408a3f5a: nop      word ptr [rax + rax]
+0x1408a3f60: mov      qword ptr [rsp - 0x10], rbp
+0x1408a3f65: lea      rbp, [rsp - 0x10]
+0x1408a3f6a: call     0x1400816fd    ; runtime.duffzero+0x11d
+0x1408a3f6f: mov      rbp, qword ptr [rbp]
+0x1408a3f73: mov      rdi, rsp
+0x1408a3f76: lea      rsi, [rsp + 0x308]
+0x1408a3f7e: nop      
+0x1408a3f80: mov      qword ptr [rsp - 0x10], rbp
+0x1408a3f85: lea      rbp, [rsp - 0x10]
+0x1408a3f8a: call     0x140081a9a    ; runtime.duffcopy+0x33a
+0x1408a3f8f: mov      rbp, qword ptr [rbp]
+0x1408a3f93: call     0x1408a3920    ; main.BootstrapService.attachTwoFactorConfigIconURLs
+0x1408a3f98: lea      rdi, [rsp + 0x230]
+0x1408a3fa0: lea      rsi, [rsp + 0x50]
+0x1408a3fa5: mov      qword ptr [rsp - 0x10], rbp
+0x1408a3faa: lea      rbp, [rsp - 0x10]
+0x1408a3faf: call     0x140081a9a    ; runtime.duffcopy+0x33a
+0x1408a3fb4: mov      rbp, qword ptr [rbp]
+0x1408a3fb8: lea      rdi, [rsp + 0x308]
+0x1408a3fc0: lea      rsi, [rsp + 0x230]
+0x1408a3fc8: mov      qword ptr [rsp - 0x10], rbp
+0x1408a3fcd: lea      rbp, [rsp - 0x10]
+0x1408a3fd2: call     0x140081a9a    ; runtime.duffcopy+0x33a
+0x1408a3fd7: mov      rbp, qword ptr [rbp]
+0x1408a3fdb: mov      rcx, qword ptr [rsp + 0x358]
+0x1408a3fe3: mov      qword ptr [rsp + 0x1b0], rcx
+0x1408a3feb: lea      rdi, [rsp + 0x1b8]
+0x1408a3ff3: lea      rsi, [rsp + 0x360]
+0x1408a3ffb: nop      dword ptr [rax + rax]
+0x1408a4000: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4005: lea      rbp, [rsp - 0x10]
+0x1408a400a: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x1408a400f: mov      rbp, qword ptr [rbp]
+0x1408a4013: mov      rcx, qword ptr [rsp + 0x1c8]
+0x1408a401b: mov      qword ptr [rsp + 0x1a8], rcx
+0x1408a4023: mov      rdx, qword ptr [rsp + 0x4c8]
+0x1408a402b: xor      eax, eax
+0x1408a402d: jmp      0x1408a4071    ; main.BootstrapService.attachTwoFactorImportResultIconURLs+0x151
+0x1408a402f: mov      rbx, qword ptr [rsp + 0x230]
+0x1408a4037: mov      qword ptr [rdx + r8], rbx
+0x1408a403b: lea      rdi, [rdx + r8]
+0x1408a403f: lea      rdi, [rdi + 8]
+0x1408a4043: lea      rsi, [rsp + 0x238]
+0x1408a404b: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4050: lea      rbp, [rsp - 0x10]
+0x1408a4055: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x1408a405a: mov      rbp, qword ptr [rbp]
+0x1408a405e: inc      rax
+0x1408a4061: mov      rcx, qword ptr [rsp + 0x1a8]
+0x1408a4069: mov      rdx, qword ptr [rsp + 0x4c8]
+0x1408a4071: cmp      rax, rcx
+0x1408a4074: jge      0x1408a41c6    ; main.BootstrapService.attachTwoFactorImportResultIconURLs+0x2a6
+0x1408a407a: mov      rbx, qword ptr [rsp + 0x1c8]
+0x1408a4082: cmp      rax, rbx
+0x1408a4085: jae      0x1408a424d    ; main.BootstrapService.attachTwoFactorImportResultIconURLs+0x32d
+0x1408a408b: mov      qword ptr [rsp + 0x198], rax
+0x1408a4093: mov      rcx, qword ptr [rsp + 0x1c0]
+0x1408a409b: imul     rbx, rax, 0xc8
+0x1408a40a2: mov      qword ptr [rsp + 0x1a0], rbx
+0x1408a40aa: mov      r8, qword ptr [rcx + rbx]
+0x1408a40ae: mov      qword ptr [rsp + 0x230], r8
+0x1408a40b6: lea      rsi, [rcx + rbx]
+0x1408a40ba: lea      rsi, [rsi + 8]
+0x1408a40be: lea      rdi, [rsp + 0x238]
+0x1408a40c6: mov      qword ptr [rsp - 0x10], rbp
+0x1408a40cb: lea      rbp, [rsp - 0x10]
+0x1408a40d0: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x1408a40d5: mov      rbp, qword ptr [rbp]
+0x1408a40d9: mov      rcx, qword ptr [rsp + 0x230]
+0x1408a40e1: mov      qword ptr [rsp], rcx
+0x1408a40e5: lea      rdi, [rsp + 8]
+0x1408a40ea: lea      rsi, [rsp + 0x238]
+0x1408a40f2: nop      word ptr [rax + rax]
+0x1408a40fb: nop      dword ptr [rax + rax]
+0x1408a4100: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4105: lea      rbp, [rsp - 0x10]
+0x1408a410a: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x1408a410f: mov      rbp, qword ptr [rbp]
+0x1408a4113: mov      rax, rdx
+0x1408a4116: call     0x1408a3780    ; main.BootstrapService.attachTwoFactorEntryStateIconURL
+0x1408a411b: mov      rcx, qword ptr [rsp + 0xc8]
+0x1408a4123: mov      qword ptr [rsp + 0x230], rcx
+0x1408a412b: lea      rdi, [rsp + 0x238]
+0x1408a4133: lea      rsi, [rsp + 0xd0]
+0x1408a413b: nop      dword ptr [rax + rax]
+0x1408a4140: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4145: lea      rbp, [rsp - 0x10]
+0x1408a414a: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x1408a414f: mov      rbp, qword ptr [rbp]
+0x1408a4153: mov      rcx, qword ptr [rsp + 0x1c8]
+0x1408a415b: mov      rax, qword ptr [rsp + 0x198]
+0x1408a4163: cmp      rax, rcx
+0x1408a4166: jae      0x1408a4248    ; main.BootstrapService.attachTwoFactorImportResultIconURLs+0x328
+0x1408a416c: mov      rdx, qword ptr [rsp + 0x1c0]
+0x1408a4174: mov      r8, qword ptr [rsp + 0x1a0]
+0x1408a417c: lea      rbx, [rdx + r8]
+0x1408a4180: cmp      dword ptr [rip + 0x13b71c9], 0
+0x1408a4187: je       0x1408a402f    ; main.BootstrapService.attachTwoFactorImportResultIconURLs+0x10f
+0x1408a418d: mov      qword ptr [rsp + 0x228], rdx
+0x1408a4195: lea      rax, [rip + 0x35e644]
+0x1408a419c: lea      rcx, [rsp + 0x230]
+0x1408a41a4: call     0x14001b620    ; runtime.wbMove
+0x1408a41a9: mov      rax, qword ptr [rsp + 0x198]
+0x1408a41b1: mov      rdx, qword ptr [rsp + 0x228]
+0x1408a41b9: mov      r8, qword ptr [rsp + 0x1a0]
+0x1408a41c1: jmp      0x1408a402f    ; main.BootstrapService.attachTwoFactorImportResultIconURLs+0x10f
+0x1408a41c6: mov      rax, qword ptr [rsp + 0x1b0]
+0x1408a41ce: mov      qword ptr [rsp + 0x358], rax
+0x1408a41d6: lea      rdi, [rsp + 0x360]
+0x1408a41de: lea      rsi, [rsp + 0x1b8]
+0x1408a41e6: mov      qword ptr [rsp - 0x10], rbp
+0x1408a41eb: lea      rbp, [rsp - 0x10]
+0x1408a41f0: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x1408a41f5: mov      rbp, qword ptr [rbp]
+0x1408a41f9: lea      rdi, [rsp + 0x3e8]
+0x1408a4201: lea      rsi, [rsp + 0x308]
+0x1408a4209: mov      qword ptr [rsp - 0x10], rbp
+0x1408a420e: lea      rbp, [rsp - 0x10]
+0x1408a4213: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x1408a4218: mov      rbp, qword ptr [rbp]
+0x1408a421c: lea      rdi, [rsp + 0x3e8]
+0x1408a4224: lea      rsi, [rsp + 0x308]
+0x1408a422c: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4231: lea      rbp, [rsp - 0x10]
+0x1408a4236: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x1408a423b: mov      rbp, qword ptr [rbp]
+0x1408a423f: add      rsp, 0x2f8
+0x1408a4246: pop      rbp
+0x1408a4247: ret      
+0x1408a4248: call     0x140081400    ; runtime.panicIndex
+0x1408a424d: mov      rcx, rbx
+0x1408a4250: call     0x140081400    ; runtime.panicIndex
+0x1408a4255: nop      
+0x1408a4256: mov      qword ptr [rsp + 0x1c8], rax
+0x1408a425e: nop      
+0x1408a4260: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408a4265: mov      rax, qword ptr [rsp + 0x1c8]
+0x1408a426d: jmp      0x1408a3f20    ; main.BootstrapService.attachTwoFactorImportResultIconURLs
+0x1408a4272: int3     
+0x1408a4273: int3     
+0x1408a4274: int3     
+0x1408a4275: int3     
+0x1408a4276: int3     
+0x1408a4277: int3     
+0x1408a4278: int3     
+0x1408a4279: int3     
+0x1408a427a: int3     
+0x1408a427b: int3     
+0x1408a427c: int3     
+0x1408a427d: int3     
+0x1408a427e: int3     
+0x1408a427f: int3     

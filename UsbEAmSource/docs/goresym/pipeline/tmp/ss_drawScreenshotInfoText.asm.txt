@@ -1,0 +1,89 @@
+0x1409bf9c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409bf9c4: jbe      0x1409bfa91   ; main.drawScreenshotInfoText+0xd1
+0x1409bf9ca: push     rbp
+0x1409bf9cb: mov      rbp, rsp
+0x1409bf9ce: sub      rsp, 0x38
+0x1409bf9d2: mov      qword ptr [rsp + 0x50], rbx
+0x1409bf9d7: mov      qword ptr [rsp + 0x48], rax
+0x1409bf9dc: mov      qword ptr [rsp + 0x60], rdi
+0x1409bf9e1: mov      dword ptr [rsp + 0x68], esi
+0x1409bf9e5: mov      rax, rbx
+0x1409bf9e8: mov      rbx, rcx
+0x1409bf9eb: call     0x1400a2200   ; strings.TrimSpace
+0x1409bf9f0: mov      rcx, qword ptr [rsp + 0x48]
+0x1409bf9f5: test     rcx, rcx
+0x1409bf9f8: je       0x1409bfa09   ; main.drawScreenshotInfoText+0x49
+0x1409bf9fa: test     rbx, rbx
+0x1409bf9fd: je       0x1409bfa09   ; main.drawScreenshotInfoText+0x49
+0x1409bf9ff: mov      rdx, qword ptr [rsp + 0x60]
+0x1409bfa04: test     rdx, rdx
+0x1409bfa07: jne      0x1409bfa0f   ; main.drawScreenshotInfoText+0x4f
+0x1409bfa09: add      rsp, 0x38
+0x1409bfa0d: pop      rbp
+0x1409bfa0e: ret      
+0x1409bfa0f: call     0x1401941c0   ; golang.org/x/sys/windows.StringToUTF16
+0x1409bfa14: test     rbx, rbx
+0x1409bfa17: jne      0x1409bfa1f   ; main.drawScreenshotInfoText+0x5f
+0x1409bfa19: add      rsp, 0x38
+0x1409bfa1d: pop      rbp
+0x1409bfa1e: ret      
+0x1409bfa1f: mov      ecx, dword ptr [rsp + 0x68]
+0x1409bfa23: mov      ecx, ecx
+0x1409bfa25: mov      qword ptr [rsp + 0x20], rcx
+0x1409bfa2a: nop      
+0x1409bfa2b: mov      qword ptr [rsp + 0x30], rax
+0x1409bfa30: mov      rcx, qword ptr [rsp + 0x60]
+0x1409bfa35: mov      qword ptr [rsp + 0x28], rcx
+0x1409bfa3a: lea      rax, [rip + 0x13f01f]
+0x1409bfa41: call     0x14001ae20   ; runtime.newobject
+0x1409bfa46: mov      rcx, qword ptr [rsp + 0x48]
+0x1409bfa4b: mov      qword ptr [rax], rcx
+0x1409bfa4e: mov      rcx, qword ptr [rsp + 0x30]
+0x1409bfa53: mov      qword ptr [rax + 8], rcx
+0x1409bfa57: mov      qword ptr [rax + 0x10], 0xffffffffffffffff
+0x1409bfa5f: mov      rcx, qword ptr [rsp + 0x28]
+0x1409bfa64: mov      qword ptr [rax + 0x18], rcx
+0x1409bfa68: mov      rcx, qword ptr [rsp + 0x20]
+0x1409bfa6d: mov      qword ptr [rax + 0x20], rcx
+0x1409bfa71: mov      rcx, qword ptr [rip + 0x1202f40]
+0x1409bfa78: mov      rbx, rax
+0x1409bfa7b: mov      edi, 5
+0x1409bfa80: mov      rax, rcx
+0x1409bfa83: mov      rcx, rdi
+0x1409bfa86: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409bfa8b: add      rsp, 0x38
+0x1409bfa8f: pop      rbp
+0x1409bfa90: ret      
+0x1409bfa91: mov      qword ptr [rsp + 8], rax
+0x1409bfa96: mov      qword ptr [rsp + 0x10], rbx
+0x1409bfa9b: mov      qword ptr [rsp + 0x18], rcx
+0x1409bfaa0: mov      qword ptr [rsp + 0x20], rdi
+0x1409bfaa5: mov      dword ptr [rsp + 0x28], esi
+0x1409bfaa9: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409bfaae: mov      rax, qword ptr [rsp + 8]
+0x1409bfab3: mov      rbx, qword ptr [rsp + 0x10]
+0x1409bfab8: mov      rcx, qword ptr [rsp + 0x18]
+0x1409bfabd: mov      rdi, qword ptr [rsp + 0x20]
+0x1409bfac2: mov      esi, dword ptr [rsp + 0x28]
+0x1409bfac6: jmp      0x1409bf9c0   ; main.drawScreenshotInfoText
+0x1409bfacb: int3     
+0x1409bfacc: int3     
+0x1409bfacd: int3     
+0x1409bface: int3     
+0x1409bfacf: int3     
+0x1409bfad0: int3     
+0x1409bfad1: int3     
+0x1409bfad2: int3     
+0x1409bfad3: int3     
+0x1409bfad4: int3     
+0x1409bfad5: int3     
+0x1409bfad6: int3     
+0x1409bfad7: int3     
+0x1409bfad8: int3     
+0x1409bfad9: int3     
+0x1409bfada: int3     
+0x1409bfadb: int3     
+0x1409bfadc: int3     
+0x1409bfadd: int3     
+0x1409bfade: int3     
+0x1409bfadf: int3     

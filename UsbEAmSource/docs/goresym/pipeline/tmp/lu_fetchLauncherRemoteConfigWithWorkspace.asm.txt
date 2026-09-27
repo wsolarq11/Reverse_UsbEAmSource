@@ -1,0 +1,299 @@
+0x1408b45e0: lea      r12, [rsp - 0x140]
+0x1408b45e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1408b45ec: jbe      0x1408b4b6d   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x58d
+0x1408b45f2: push     rbp
+0x1408b45f3: mov      rbp, rsp
+0x1408b45f6: sub      rsp, 0x1b8
+0x1408b45fd: movq     qword ptr [rsp + 0x1b0], xmm15
+0x1408b4607: mov      qword ptr [rsp + 0x318], rcx
+0x1408b460f: mov      qword ptr [rsp + 0x310], rbx
+0x1408b4617: mov      byte ptr [rsp + 0xb7], 0
+0x1408b461f: lea      rdi, [rsp + 0x268]
+0x1408b4627: lea      rdi, [rdi - 0x20]
+0x1408b462b: mov      qword ptr [rsp - 0x10], rbp
+0x1408b4630: lea      rbp, [rsp - 0x10]
+0x1408b4635: call     0x140081714   ; runtime.duffzero+0x134
+0x1408b463a: mov      rbp, qword ptr [rbp]
+0x1408b463e: movups   xmmword ptr [rsp + 0xc0], xmm15
+0x1408b4647: mov      rax, qword ptr [rsp + 0x1d8]
+0x1408b464f: mov      rbx, qword ptr [rsp + 0x1e0]
+0x1408b4657: call     0x1408a5640   ; main.newLauncherNetworkAccess
+0x1408b465c: mov      qword ptr [rsp + 0xb8], rax
+0x1408b4664: mov      qword ptr [rsp + 0xe8], rbx
+0x1408b466c: mov      rax, qword ptr [rsp + 0x310]
+0x1408b4674: mov      rbx, qword ptr [rsp + 0x318]
+0x1408b467c: lea      rcx, [rip + 0x37f4d4]
+0x1408b4683: mov      edi, 3
+0x1408b4688: lea      rsi, [rip + 0x3cba33]
+0x1408b468f: mov      r8d, 0x29
+0x1408b4695: xor      r9d, r9d
+0x1408b4698: xor      r10d, r10d
+0x1408b469b: nop      dword ptr [rax + rax]
+0x1408b46a0: call     0x140334640   ; net/http.NewRequestWithContext
+0x1408b46a5: test     rbx, rbx
+0x1408b46a8: jne      0x1408b48b6   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x2d6
+0x1408b46ae: mov      qword ptr [rsp + 0xd8], rax
+0x1408b46b6: mov      rdx, qword ptr [rsp + 0xb8]
+0x1408b46be: mov      rdx, qword ptr [rdx + 0x18]
+0x1408b46c2: mov      rbx, rax
+0x1408b46c5: movabs   rcx, 0x12a05f200
+0x1408b46cf: mov      rax, qword ptr [rsp + 0xe8]
+0x1408b46d7: call     rdx
+0x1408b46d9: nop      dword ptr [rax]
+0x1408b46e0: test     rbx, rbx
+0x1408b46e3: jne      0x1408b4878   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x298
+0x1408b46e9: mov      qword ptr [rsp + 0xd0], rax
+0x1408b46f1: mov      rcx, qword ptr [rax + 0x40]
+0x1408b46f5: test     byte ptr [rcx], al
+0x1408b46f7: mov      rdx, qword ptr [rax + 0x48]
+0x1408b46fb: lea      rsi, [rip + 0x4be]
+0x1408b4702: mov      qword ptr [rsp + 0xf8], rsi
+0x1408b470a: mov      qword ptr [rsp + 0x100], rcx
+0x1408b4712: mov      qword ptr [rsp + 0x108], rdx
+0x1408b471a: lea      rcx, [rsp + 0xf8]
+0x1408b4722: mov      qword ptr [rsp + 0x1b0], rcx
+0x1408b472a: mov      byte ptr [rsp + 0xb7], 1
+0x1408b4732: mov      rcx, qword ptr [rsp + 0xd8]
+0x1408b473a: mov      rcx, qword ptr [rcx + 0x10]
+0x1408b473e: mov      rbx, rax
+0x1408b4741: mov      rax, rcx
+0x1408b4744: call     0x1408b4c20   ; main.validateUpdaterHTTPSResponse
+0x1408b4749: test     rax, rax
+0x1408b474c: jne      0x1408b481b   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x23b
+0x1408b4752: mov      rcx, qword ptr [rsp + 0xd0]
+0x1408b475a: mov      rdx, qword ptr [rcx + 0x10]
+0x1408b475e: add      rdx, -0xc8
+0x1408b4765: cmp      rdx, 0x64
+0x1408b4769: jae      0x1408b479f   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x1bf
+0x1408b476b: mov      rdx, qword ptr [rcx + 0x40]
+0x1408b476f: mov      rcx, qword ptr [rcx + 0x48]
+0x1408b4773: mov      qword ptr [rsp + 0xe0], rcx
+0x1408b477b: nop      dword ptr [rax + rax]
+0x1408b4780: test     rdx, rdx
+0x1408b4783: je       0x1408b48f4   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x314
+0x1408b4789: mov      rbx, qword ptr [rdx + 8]
+0x1408b478d: mov      rsi, qword ptr [rip + 0x131270c]
+0x1408b4794: mov      rdi, qword ptr [rsi]
+0x1408b4797: mov      edx, dword ptr [rdx + 0x10]
+0x1408b479a: jmp      0x1408b4b14   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x534
+0x1408b479f: lea      rax, [rip + 0x3bf49f]
+0x1408b47a6: mov      ebx, 0x21
+0x1408b47ab: call     0x1400a2200   ; strings.TrimSpace
+0x1408b47b0: call     0x140076660   ; runtime.convTstring
+0x1408b47b5: lea      rdi, [rsp + 0x268]
+0x1408b47bd: lea      rdi, [rdi - 0x20]
+0x1408b47c1: mov      qword ptr [rsp - 0x10], rbp
+0x1408b47c6: lea      rbp, [rsp - 0x10]
+0x1408b47cb: call     0x140081714   ; runtime.duffzero+0x134
+0x1408b47d0: mov      rbp, qword ptr [rbp]
+0x1408b47d4: lea      rcx, [rip + 0x91e685]
+0x1408b47db: mov      qword ptr [rsp + 0xc0], rcx
+0x1408b47e3: mov      qword ptr [rsp + 0xc8], rax
+0x1408b47eb: mov      byte ptr [rsp + 0xb7], 0
+0x1408b47f3: mov      rdx, qword ptr [rsp + 0x1b0]
+0x1408b47fb: mov      rcx, qword ptr [rdx]
+0x1408b47fe: nop      
+0x1408b4800: call     rcx
+0x1408b4802: mov      rax, qword ptr [rsp + 0xc0]
+0x1408b480a: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408b4812: add      rsp, 0x1b8
+0x1408b4819: pop      rbp
+0x1408b481a: ret      
+0x1408b481b: lea      rdi, [rsp + 0x268]
+0x1408b4823: lea      rdi, [rdi - 0x20]
+0x1408b4827: mov      qword ptr [rsp - 0x10], rbp
+0x1408b482c: lea      rbp, [rsp - 0x10]
+0x1408b4831: call     0x140081714   ; runtime.duffzero+0x134
+0x1408b4836: mov      rbp, qword ptr [rbp]
+0x1408b483a: mov      qword ptr [rsp + 0xc0], rax
+0x1408b4842: mov      qword ptr [rsp + 0xc8], rbx
+0x1408b484a: mov      byte ptr [rsp + 0xb7], 0
+0x1408b4852: mov      rdx, qword ptr [rsp + 0x1b0]
+0x1408b485a: mov      rax, qword ptr [rdx]
+0x1408b485d: call     rax
+0x1408b485f: mov      rax, qword ptr [rsp + 0xc0]
+0x1408b4867: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408b486f: add      rsp, 0x1b8
+0x1408b4876: pop      rbp
+0x1408b4877: ret      
+0x1408b4878: lea      rdi, [rsp + 0x268]
+0x1408b4880: lea      rdi, [rdi - 0x20]
+0x1408b4884: mov      qword ptr [rsp - 0x10], rbp
+0x1408b4889: lea      rbp, [rsp - 0x10]
+0x1408b488e: call     0x140081714   ; runtime.duffzero+0x134
+0x1408b4893: mov      rbp, qword ptr [rbp]
+0x1408b4897: mov      qword ptr [rsp + 0xc0], rbx
+0x1408b489f: mov      qword ptr [rsp + 0xc8], rcx
+0x1408b48a7: mov      rax, rbx
+0x1408b48aa: mov      rbx, rcx
+0x1408b48ad: add      rsp, 0x1b8
+0x1408b48b4: pop      rbp
+0x1408b48b5: ret      
+0x1408b48b6: lea      rdi, [rsp + 0x268]
+0x1408b48be: lea      rdi, [rdi - 0x20]
+0x1408b48c2: mov      qword ptr [rsp - 0x10], rbp
+0x1408b48c7: lea      rbp, [rsp - 0x10]
+0x1408b48cc: call     0x140081714   ; runtime.duffzero+0x134
+0x1408b48d1: mov      rbp, qword ptr [rbp]
+0x1408b48d5: mov      qword ptr [rsp + 0xc0], rbx
+0x1408b48dd: mov      qword ptr [rsp + 0xc8], rcx
+0x1408b48e5: mov      rax, rbx
+0x1408b48e8: mov      rbx, rcx
+0x1408b48eb: add      rsp, 0x1b8
+0x1408b48f2: pop      rbp
+0x1408b48f3: ret      
+0x1408b48f4: mov      qword ptr [rsp + 0xf0], rdx
+0x1408b48fc: lea      rax, [rip + 0x2cdfdd]
+0x1408b4903: call     0x14001ae20   ; runtime.newobject
+0x1408b4908: mov      rcx, qword ptr [rsp + 0xf0]
+0x1408b4910: mov      qword ptr [rax], rcx
+0x1408b4913: cmp      dword ptr [rip + 0x13a6a36], 0
+0x1408b491a: jne      0x1408b4926   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x346
+0x1408b491c: mov      rcx, qword ptr [rsp + 0xe0]
+0x1408b4924: jmp      0x1408b4936   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x356
+0x1408b4926: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408b492b: mov      rcx, qword ptr [rsp + 0xe0]
+0x1408b4933: mov      qword ptr [r11], rcx
+0x1408b4936: mov      qword ptr [rax + 8], rcx
+0x1408b493a: mov      qword ptr [rax + 0x10], 0x1001
+0x1408b4942: mov      rbx, rax
+0x1408b4945: lea      rax, [rip + 0x91e6d4]
+0x1408b494c: call     0x140098bc0   ; io.ReadAll
+0x1408b4951: test     rdi, rdi
+0x1408b4954: jne      0x1408b4ab4   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x4d4
+0x1408b495a: nop      word ptr [rax + rax]
+0x1408b4960: cmp      rbx, 0x1000
+0x1408b4967: jle      0x1408b49e3   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x403
+0x1408b4969: lea      rax, [rip + 0x3c287b]
+0x1408b4970: mov      ebx, 0x23
+0x1408b4975: call     0x1400a2200   ; strings.TrimSpace
+0x1408b497a: call     0x140076660   ; runtime.convTstring
+0x1408b497f: lea      rdi, [rsp + 0x268]
+0x1408b4987: lea      rdi, [rdi - 0x20]
+0x1408b498b: mov      qword ptr [rsp - 0x10], rbp
+0x1408b4990: lea      rbp, [rsp - 0x10]
+0x1408b4995: call     0x140081714   ; runtime.duffzero+0x134
+0x1408b499a: mov      rbp, qword ptr [rbp]
+0x1408b499e: lea      rcx, [rip + 0x91e4bb]
+0x1408b49a5: mov      qword ptr [rsp + 0xc0], rcx
+0x1408b49ad: mov      qword ptr [rsp + 0xc8], rax
+0x1408b49b5: mov      byte ptr [rsp + 0xb7], 0
+0x1408b49bd: mov      rdx, qword ptr [rsp + 0x1b0]
+0x1408b49c5: mov      rcx, qword ptr [rdx]
+0x1408b49c8: call     rcx
+0x1408b49ca: mov      rax, qword ptr [rsp + 0xc0]
+0x1408b49d2: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408b49da: add      rsp, 0x1b8
+0x1408b49e1: pop      rbp
+0x1408b49e2: ret      
+0x1408b49e3: lea      rdi, [rsp + 0x110]
+0x1408b49eb: lea      rdi, [rdi - 0x20]
+0x1408b49ef: nop      word ptr [rax + rax]
+0x1408b49f8: nop      dword ptr [rax + rax]
+0x1408b4a00: mov      qword ptr [rsp - 0x10], rbp
+0x1408b4a05: lea      rbp, [rsp - 0x10]
+0x1408b4a0a: call     0x140081714   ; runtime.duffzero+0x134
+0x1408b4a0f: mov      rbp, qword ptr [rbp]
+0x1408b4a13: mov      rcx, rbx
+0x1408b4a16: mov      rbx, rax
+0x1408b4a19: xor      eax, eax
+0x1408b4a1b: nop      dword ptr [rax + rax]
+0x1408b4a20: call     0x1400603c0   ; runtime.slicebytetostring
+0x1408b4a25: call     0x1408b5320   ; main.parseLauncherRemoteConfigText
+0x1408b4a2a: lea      rdi, [rsp + 0x110]
+0x1408b4a32: mov      rsi, rsp
+0x1408b4a35: nop      word ptr [rax + rax]
+0x1408b4a3e: nop      
+0x1408b4a40: mov      qword ptr [rsp - 0x10], rbp
+0x1408b4a45: lea      rbp, [rsp - 0x10]
+0x1408b4a4a: call     0x140081a54   ; runtime.duffcopy+0x2f4
+0x1408b4a4f: mov      rbp, qword ptr [rbp]
+0x1408b4a53: lea      rdi, [rsp + 0x268]
+0x1408b4a5b: lea      rsi, [rsp + 0x110]
+0x1408b4a63: mov      qword ptr [rsp - 0x10], rbp
+0x1408b4a68: lea      rbp, [rsp - 0x10]
+0x1408b4a6d: call     0x140081a54   ; runtime.duffcopy+0x2f4
+0x1408b4a72: mov      rbp, qword ptr [rbp]
+0x1408b4a76: mov      qword ptr [rsp + 0xc0], rax
+0x1408b4a7e: mov      qword ptr [rsp + 0xc8], rbx
+0x1408b4a86: mov      byte ptr [rsp + 0xb7], 0
+0x1408b4a8e: mov      rdx, qword ptr [rsp + 0x1b0]
+0x1408b4a96: mov      rsi, qword ptr [rdx]
+0x1408b4a99: call     rsi
+0x1408b4a9b: mov      rax, qword ptr [rsp + 0xc0]
+0x1408b4aa3: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408b4aab: add      rsp, 0x1b8
+0x1408b4ab2: pop      rbp
+0x1408b4ab3: ret      
+0x1408b4ab4: mov      rax, rdi
+0x1408b4ab7: lea      rdi, [rsp + 0x268]
+0x1408b4abf: lea      rdi, [rdi - 0x20]
+0x1408b4ac3: mov      qword ptr [rsp - 0x10], rbp
+0x1408b4ac8: lea      rbp, [rsp - 0x10]
+0x1408b4acd: call     0x140081714   ; runtime.duffzero+0x134
+0x1408b4ad2: mov      rbp, qword ptr [rbp]
+0x1408b4ad6: mov      qword ptr [rsp + 0xc0], rax
+0x1408b4ade: mov      qword ptr [rsp + 0xc8], rsi
+0x1408b4ae6: mov      byte ptr [rsp + 0xb7], 0
+0x1408b4aee: mov      rdx, qword ptr [rsp + 0x1b0]
+0x1408b4af6: mov      rax, qword ptr [rdx]
+0x1408b4af9: call     rax
+0x1408b4afb: mov      rax, qword ptr [rsp + 0xc0]
+0x1408b4b03: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408b4b0b: add      rsp, 0x1b8
+0x1408b4b12: pop      rbp
+0x1408b4b13: ret      
+0x1408b4b14: mov      r8, rdx
+0x1408b4b17: and      rdx, rdi
+0x1408b4b1a: shl      rdx, 4
+0x1408b4b1e: mov      r9, qword ptr [rdx + rsi + 8]
+0x1408b4b23: cmp      r9, rbx
+0x1408b4b26: je       0x1408b4b45   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x565
+0x1408b4b28: lea      rdx, [r8 + 1]
+0x1408b4b2c: test     r9, r9
+0x1408b4b2f: jne      0x1408b4b14   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x534
+0x1408b4b31: lea      rax, [rip + 0x1312368]
+0x1408b4b38: call     0x1400174a0   ; runtime.typeAssert
+0x1408b4b3d: mov      rdx, rax
+0x1408b4b40: jmp      0x1408b48f4   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x314
+0x1408b4b45: mov      rdx, qword ptr [rdx + rsi + 0x10]
+0x1408b4b4a: jmp      0x1408b48f4   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace+0x314
+0x1408b4b4f: call     0x1400435e0   ; runtime.deferreturn
+0x1408b4b54: mov      rax, qword ptr [rsp + 0xc0]
+0x1408b4b5c: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408b4b64: add      rsp, 0x1b8
+0x1408b4b6b: pop      rbp
+0x1408b4b6c: ret      
+0x1408b4b6d: mov      qword ptr [rsp + 0x148], rax
+0x1408b4b75: mov      qword ptr [rsp + 0x150], rbx
+0x1408b4b7d: mov      qword ptr [rsp + 0x158], rcx
+0x1408b4b85: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408b4b8a: mov      rax, qword ptr [rsp + 0x148]
+0x1408b4b92: mov      rbx, qword ptr [rsp + 0x150]
+0x1408b4b9a: mov      rcx, qword ptr [rsp + 0x158]
+0x1408b4ba2: jmp      0x1408b45e0   ; main.BootstrapService.fetchLauncherRemoteConfigWithWorkspace
+0x1408b4ba7: int3     
+0x1408b4ba8: int3     
+0x1408b4ba9: int3     
+0x1408b4baa: int3     
+0x1408b4bab: int3     
+0x1408b4bac: int3     
+0x1408b4bad: int3     
+0x1408b4bae: int3     
+0x1408b4baf: int3     
+0x1408b4bb0: int3     
+0x1408b4bb1: int3     
+0x1408b4bb2: int3     
+0x1408b4bb3: int3     
+0x1408b4bb4: int3     
+0x1408b4bb5: int3     
+0x1408b4bb6: int3     
+0x1408b4bb7: int3     
+0x1408b4bb8: int3     
+0x1408b4bb9: int3     
+0x1408b4bba: int3     
+0x1408b4bbb: int3     
+0x1408b4bbc: int3     
+0x1408b4bbd: int3     
+0x1408b4bbe: int3     
+0x1408b4bbf: int3     

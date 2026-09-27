@@ -1,0 +1,92 @@
+0x1408af3a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408af3a4: jbe      0x1408af4c2   ; main.wrapWinError+0x122
+0x1408af3aa: push     rbp
+0x1408af3ab: mov      rbp, rsp
+0x1408af3ae: sub      rsp, 0x48
+0x1408af3b2: mov      qword ptr [rsp + 0x68], rcx
+0x1408af3b7: mov      qword ptr [rsp + 0x70], rdi
+0x1408af3bc: mov      qword ptr [rsp + 0x60], rbx
+0x1408af3c1: mov      qword ptr [rsp + 0x58], rax
+0x1408af3c6: test     rcx, rcx
+0x1408af3c9: je       0x1408af47c   ; main.wrapWinError+0xdc
+0x1408af3cf: mov      qword ptr [rsp + 0x70], rdi
+0x1408af3d4: mov      qword ptr [rsp + 0x68], rcx
+0x1408af3d9: lea      rdx, [rip + 0x923900]
+0x1408af3e0: cmp      rcx, rdx
+0x1408af3e3: je       0x1408af3e9   ; main.wrapWinError+0x49
+0x1408af3e5: xor      edx, edx
+0x1408af3e7: jmp      0x1408af411   ; main.wrapWinError+0x71
+0x1408af3e9: mov      rax, rdx
+0x1408af3ec: lea      rbx, [rip + 0x91e12d]
+0x1408af3f3: mov      rcx, rdi
+0x1408af3f6: call     0x140010840   ; runtime.ifaceeq
+0x1408af3fb: mov      rcx, qword ptr [rsp + 0x68]
+0x1408af400: mov      rbx, qword ptr [rsp + 0x60]
+0x1408af405: mov      rdi, qword ptr [rsp + 0x70]
+0x1408af40a: mov      edx, eax
+0x1408af40c: mov      rax, qword ptr [rsp + 0x58]
+0x1408af411: test     dl, dl
+0x1408af413: jne      0x1408af47c   ; main.wrapWinError+0xdc
+0x1408af415: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1408af41b: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1408af421: call     0x140076660   ; runtime.convTstring
+0x1408af426: lea      rcx, [rip + 0x23a9d3]
+0x1408af42d: mov      qword ptr [rsp + 0x28], rcx
+0x1408af432: mov      qword ptr [rsp + 0x30], rax
+0x1408af437: mov      rcx, qword ptr [rsp + 0x68]
+0x1408af43c: nop      dword ptr [rax]
+0x1408af440: test     rcx, rcx
+0x1408af443: je       0x1408af449   ; main.wrapWinError+0xa9
+0x1408af445: mov      rcx, qword ptr [rcx + 8]
+0x1408af449: mov      qword ptr [rsp + 0x38], rcx
+0x1408af44e: mov      rdx, qword ptr [rsp + 0x70]
+0x1408af453: mov      qword ptr [rsp + 0x40], rdx
+0x1408af458: lea      rax, [rip + 0x3881a9]
+0x1408af45f: mov      ebx, 6
+0x1408af464: lea      rcx, [rsp + 0x28]
+0x1408af469: mov      edi, 2
+0x1408af46e: mov      rsi, rdi
+0x1408af471: call     0x140133280   ; fmt.Errorf
+0x1408af476: add      rsp, 0x48
+0x1408af47a: pop      rbp
+0x1408af47b: ret      
+0x1408af47c: lea      rax, [rip + 0x2a4efd]
+0x1408af483: call     0x14001ae20   ; runtime.newobject
+0x1408af488: mov      rcx, qword ptr [rsp + 0x60]
+0x1408af48d: mov      qword ptr [rax + 8], rcx
+0x1408af491: cmp      dword ptr [rip + 0x13abeb8], 0
+0x1408af498: jne      0x1408af4a2   ; main.wrapWinError+0x102
+0x1408af49a: mov      rcx, qword ptr [rsp + 0x58]
+0x1408af49f: nop      
+0x1408af4a0: jmp      0x1408af4af   ; main.wrapWinError+0x10f
+0x1408af4a2: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408af4a7: mov      rcx, qword ptr [rsp + 0x58]
+0x1408af4ac: mov      qword ptr [r11], rcx
+0x1408af4af: mov      qword ptr [rax], rcx
+0x1408af4b2: mov      rbx, rax
+0x1408af4b5: lea      rax, [rip + 0x923c44]
+0x1408af4bc: add      rsp, 0x48
+0x1408af4c0: pop      rbp
+0x1408af4c1: ret      
+0x1408af4c2: mov      qword ptr [rsp + 8], rax
+0x1408af4c7: mov      qword ptr [rsp + 0x10], rbx
+0x1408af4cc: mov      qword ptr [rsp + 0x18], rcx
+0x1408af4d1: mov      qword ptr [rsp + 0x20], rdi
+0x1408af4d6: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408af4db: mov      rax, qword ptr [rsp + 8]
+0x1408af4e0: mov      rbx, qword ptr [rsp + 0x10]
+0x1408af4e5: mov      rcx, qword ptr [rsp + 0x18]
+0x1408af4ea: mov      rdi, qword ptr [rsp + 0x20]
+0x1408af4ef: jmp      0x1408af3a0   ; main.wrapWinError
+0x1408af4f4: int3     
+0x1408af4f5: int3     
+0x1408af4f6: int3     
+0x1408af4f7: int3     
+0x1408af4f8: int3     
+0x1408af4f9: int3     
+0x1408af4fa: int3     
+0x1408af4fb: int3     
+0x1408af4fc: int3     
+0x1408af4fd: int3     
+0x1408af4fe: int3     
+0x1408af4ff: int3     

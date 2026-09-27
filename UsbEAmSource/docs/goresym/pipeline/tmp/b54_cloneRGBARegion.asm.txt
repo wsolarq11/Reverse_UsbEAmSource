@@ -1,0 +1,103 @@
+0x1409573a0: lea      r12, [rsp - 0x18]
+0x1409573a5: cmp      r12, qword ptr [r14 + 0x10]
+0x1409573a9: jbe      0x1409574cf   ; main.cloneRGBARegion+0x12f
+0x1409573af: push     rbp
+0x1409573b0: mov      rbp, rsp
+0x1409573b3: sub      rsp, 0x90
+0x1409573ba: nop      word ptr [rax + rax]
+0x1409573c0: test     rax, rax
+0x1409573c3: je       0x1409574b6   ; main.cloneRGBARegion+0x116
+0x1409573c9: cmp      rbx, rdi
+0x1409573cc: jge      0x1409574b6   ; main.cloneRGBARegion+0x116
+0x1409573d2: cmp      rsi, rcx
+0x1409573d5: jle      0x1409574b6   ; main.cloneRGBARegion+0x116
+0x1409573db: mov      qword ptr [rsp + 0xa0], rax
+0x1409573e3: mov      r8, qword ptr [rax + 0x28]
+0x1409573e7: mov      r9, qword ptr [rax + 0x30]
+0x1409573eb: mov      r10, qword ptr [rax + 0x38]
+0x1409573ef: mov      rdx, qword ptr [rax + 0x20]
+0x1409573f3: mov      rax, rbx
+0x1409573f6: mov      rbx, rcx
+0x1409573f9: mov      rcx, rdi
+0x1409573fc: mov      rdi, rsi
+0x1409573ff: mov      rsi, rdx
+0x140957402: call     0x1401a1160   ; image.Rectangle.Intersect
+0x140957407: mov      qword ptr [rsp + 0x80], rax
+0x14095740f: mov      qword ptr [rsp + 0x78], rbx
+0x140957414: sub      rcx, rax
+0x140957417: sub      rdi, rbx
+0x14095741a: test     rcx, rcx
+0x14095741d: mov      eax, 0
+0x140957422: cmovl    rax, rcx
+0x140957426: mov      ebx, 0
+0x14095742b: cmovl    rcx, rbx
+0x14095742f: test     rdi, rdi
+0x140957432: cmovl    rbx, rdi
+0x140957436: mov      edx, 0
+0x14095743b: cmovl    rdi, rdx
+0x14095743f: nop      
+0x140957440: call     0x1401a1ce0   ; image.NewRGBA
+0x140957445: mov      qword ptr [rsp + 0x88], rax
+0x14095744d: mov      rcx, qword ptr [rax + 0x20]
+0x140957451: mov      rdi, qword ptr [rax + 0x28]
+0x140957455: mov      rsi, qword ptr [rax + 0x30]
+0x140957459: mov      r8, qword ptr [rax + 0x38]
+0x14095745d: nop      
+0x14095745e: nop      
+0x14095745f: mov      rdx, qword ptr [rsp + 0x80]
+0x140957467: mov      qword ptr [rsp], rdx
+0x14095746b: mov      rdx, qword ptr [rsp + 0x78]
+0x140957470: mov      qword ptr [rsp + 8], rdx
+0x140957475: movups   xmmword ptr [rsp + 0x10], xmm15
+0x14095747b: movups   xmmword ptr [rsp + 0x20], xmm15
+0x140957481: mov      rbx, rax
+0x140957484: lea      r9, [rip + 0x880425]
+0x14095748b: mov      r10, qword ptr [rsp + 0xa0]
+0x140957493: mov      r11d, 1
+0x140957499: lea      rax, [rip + 0x8810e0]
+0x1409574a0: call     0x1401a92c0   ; image/draw.DrawMask
+0x1409574a5: mov      rax, qword ptr [rsp + 0x88]
+0x1409574ad: add      rsp, 0x90
+0x1409574b4: pop      rbp
+0x1409574b5: ret      
+0x1409574b6: xor      eax, eax
+0x1409574b8: mov      rbx, rax
+0x1409574bb: mov      rcx, rax
+0x1409574be: mov      rdi, rax
+0x1409574c1: call     0x1401a1ce0   ; image.NewRGBA
+0x1409574c6: add      rsp, 0x90
+0x1409574cd: pop      rbp
+0x1409574ce: ret      
+0x1409574cf: mov      qword ptr [rsp + 8], rax
+0x1409574d4: mov      qword ptr [rsp + 0x10], rbx
+0x1409574d9: mov      qword ptr [rsp + 0x18], rcx
+0x1409574de: mov      qword ptr [rsp + 0x20], rdi
+0x1409574e3: mov      qword ptr [rsp + 0x28], rsi
+0x1409574e8: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409574ed: mov      rax, qword ptr [rsp + 8]
+0x1409574f2: mov      rbx, qword ptr [rsp + 0x10]
+0x1409574f7: mov      rcx, qword ptr [rsp + 0x18]
+0x1409574fc: mov      rdi, qword ptr [rsp + 0x20]
+0x140957501: mov      rsi, qword ptr [rsp + 0x28]
+0x140957506: jmp      0x1409573a0   ; main.cloneRGBARegion
+0x14095750b: int3     
+0x14095750c: int3     
+0x14095750d: int3     
+0x14095750e: int3     
+0x14095750f: int3     
+0x140957510: int3     
+0x140957511: int3     
+0x140957512: int3     
+0x140957513: int3     
+0x140957514: int3     
+0x140957515: int3     
+0x140957516: int3     
+0x140957517: int3     
+0x140957518: int3     
+0x140957519: int3     
+0x14095751a: int3     
+0x14095751b: int3     
+0x14095751c: int3     
+0x14095751d: int3     
+0x14095751e: int3     
+0x14095751f: int3     

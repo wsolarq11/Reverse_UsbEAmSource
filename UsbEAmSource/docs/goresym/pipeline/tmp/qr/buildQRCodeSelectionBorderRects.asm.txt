@@ -1,0 +1,123 @@
+0x14095d540: cmp      rsp, qword ptr [r14 + 0x10]
+0x14095d544: jbe      0x14095d6c4   ; main.buildQRCodeSelectionBorderRects+0x184
+0x14095d54a: push     rbp
+0x14095d54b: mov      rbp, rsp
+0x14095d54e: sub      rsp, 0x50
+0x14095d552: cmp      rax, rcx
+0x14095d555: jge      0x14095d55c   ; main.buildQRCodeSelectionBorderRects+0x1c
+0x14095d557: cmp      rbx, rdi
+0x14095d55a: jl       0x14095d569   ; main.buildQRCodeSelectionBorderRects+0x29
+0x14095d55c: xor      eax, eax
+0x14095d55e: xor      ebx, ebx
+0x14095d560: mov      rcx, rbx
+0x14095d563: add      rsp, 0x50
+0x14095d567: pop      rbp
+0x14095d568: ret      
+0x14095d569: mov      qword ptr [rsp + 0x48], rdi
+0x14095d56e: mov      qword ptr [rsp + 0x40], rcx
+0x14095d573: mov      qword ptr [rsp + 0x38], rbx
+0x14095d578: mov      qword ptr [rsp + 0x30], rax
+0x14095d57d: mov      rdx, rcx
+0x14095d580: sub      rcx, rax
+0x14095d583: cmp      rcx, 4
+0x14095d587: jle      0x14095d595   ; main.buildQRCodeSelectionBorderRects+0x55
+0x14095d589: mov      rcx, rdi
+0x14095d58c: sub      rdi, rbx
+0x14095d58f: cmp      rdi, 4
+0x14095d593: jg       0x14095d5d6   ; main.buildQRCodeSelectionBorderRects+0x96
+0x14095d595: lea      rax, [rip + 0x1a0a44]
+0x14095d59c: nop      dword ptr [rax]
+0x14095d5a0: call     0x14001ae20   ; runtime.newobject
+0x14095d5a5: mov      rcx, qword ptr [rsp + 0x30]
+0x14095d5aa: mov      qword ptr [rax], rcx
+0x14095d5ad: mov      rcx, qword ptr [rsp + 0x38]
+0x14095d5b2: mov      qword ptr [rax + 8], rcx
+0x14095d5b6: mov      rcx, qword ptr [rsp + 0x40]
+0x14095d5bb: mov      qword ptr [rax + 0x10], rcx
+0x14095d5bf: mov      rcx, qword ptr [rsp + 0x48]
+0x14095d5c4: mov      qword ptr [rax + 0x18], rcx
+0x14095d5c8: mov      ebx, 1
+0x14095d5cd: mov      rcx, rbx
+0x14095d5d0: add      rsp, 0x50
+0x14095d5d4: pop      rbp
+0x14095d5d5: ret      
+0x14095d5d6: add      rbx, 2
+0x14095d5da: mov      qword ptr [rsp + 0x18], rbx
+0x14095d5df: add      rcx, -2
+0x14095d5e3: mov      qword ptr [rsp + 0x10], rcx
+0x14095d5e8: lea      rcx, [rax + 2]
+0x14095d5ec: mov      qword ptr [rsp + 0x28], rcx
+0x14095d5f1: lea      rcx, [rdx - 2]
+0x14095d5f5: mov      qword ptr [rsp + 0x20], rcx
+0x14095d5fa: lea      rax, [rip + 0x1a115f]
+0x14095d601: call     0x14001ae20   ; runtime.newobject
+0x14095d606: mov      rcx, qword ptr [rsp + 0x30]
+0x14095d60b: mov      qword ptr [rax], rcx
+0x14095d60e: mov      rdx, qword ptr [rsp + 0x38]
+0x14095d613: mov      rbx, qword ptr [rsp + 0x18]
+0x14095d618: cmp      rdx, rbx
+0x14095d61b: mov      rsi, rdx
+0x14095d61e: cmovg    rdx, rbx
+0x14095d622: mov      qword ptr [rax + 8], rdx
+0x14095d626: mov      rdx, qword ptr [rsp + 0x40]
+0x14095d62b: mov      qword ptr [rax + 0x10], rdx
+0x14095d62f: mov      rdi, rbx
+0x14095d632: cmovg    rbx, rsi
+0x14095d636: mov      qword ptr [rax + 0x18], rbx
+0x14095d63a: mov      qword ptr [rax + 0x20], rcx
+0x14095d63e: mov      rbx, qword ptr [rsp + 0x48]
+0x14095d643: mov      rsi, qword ptr [rsp + 0x10]
+0x14095d648: cmp      rbx, rsi
+0x14095d64b: mov      r8, rsi
+0x14095d64e: cmovl    rsi, rbx
+0x14095d652: mov      qword ptr [rax + 0x28], rsi
+0x14095d656: mov      qword ptr [rax + 0x30], rdx
+0x14095d65a: cmovl    rbx, r8
+0x14095d65e: mov      qword ptr [rax + 0x38], rbx
+0x14095d662: mov      rbx, qword ptr [rsp + 0x28]
+0x14095d667: cmp      rcx, rbx
+0x14095d66a: mov      rsi, rcx
+0x14095d66d: cmovg    rcx, rbx
+0x14095d671: mov      qword ptr [rax + 0x40], rcx
+0x14095d675: cmovg    rbx, rsi
+0x14095d679: cmp      r8, rdi
+0x14095d67c: mov      rcx, rdi
+0x14095d67f: cmovl    rdi, r8
+0x14095d683: mov      qword ptr [rax + 0x48], rdi
+0x14095d687: mov      qword ptr [rax + 0x50], rbx
+0x14095d68b: cmovl    r8, rcx
+0x14095d68f: mov      qword ptr [rax + 0x58], r8
+0x14095d693: mov      rcx, qword ptr [rsp + 0x20]
+0x14095d698: cmp      rdx, rcx
+0x14095d69b: mov      rbx, rcx
+0x14095d69e: cmovl    rcx, rdx
+0x14095d6a2: mov      qword ptr [rax + 0x60], rcx
+0x14095d6a6: mov      qword ptr [rax + 0x68], rdi
+0x14095d6aa: cmovl    rdx, rbx
+0x14095d6ae: mov      qword ptr [rax + 0x70], rdx
+0x14095d6b2: mov      qword ptr [rax + 0x78], r8
+0x14095d6b6: mov      ebx, 4
+0x14095d6bb: mov      rcx, rbx
+0x14095d6be: add      rsp, 0x50
+0x14095d6c2: pop      rbp
+0x14095d6c3: ret      
+0x14095d6c4: mov      qword ptr [rsp + 8], rax
+0x14095d6c9: mov      qword ptr [rsp + 0x10], rbx
+0x14095d6ce: mov      qword ptr [rsp + 0x18], rcx
+0x14095d6d3: mov      qword ptr [rsp + 0x20], rdi
+0x14095d6d8: call     0x14007f140   ; runtime.morestack_noctxt
+0x14095d6dd: mov      rax, qword ptr [rsp + 8]
+0x14095d6e2: mov      rbx, qword ptr [rsp + 0x10]
+0x14095d6e7: mov      rcx, qword ptr [rsp + 0x18]
+0x14095d6ec: mov      rdi, qword ptr [rsp + 0x20]
+0x14095d6f1: jmp      0x14095d540   ; main.buildQRCodeSelectionBorderRects
+0x14095d6f6: int3     
+0x14095d6f7: int3     
+0x14095d6f8: int3     
+0x14095d6f9: int3     
+0x14095d6fa: int3     
+0x14095d6fb: int3     
+0x14095d6fc: int3     
+0x14095d6fd: int3     
+0x14095d6fe: int3     
+0x14095d6ff: int3     

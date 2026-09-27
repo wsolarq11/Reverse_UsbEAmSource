@@ -1,0 +1,37 @@
+0x140877aa0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140877aa4: jbe      0x140877afb    ; main.launcherConfigBackupDir+0x5b
+0x140877aa6: push     rbp
+0x140877aa7: mov      rbp, rsp
+0x140877aaa: sub      rsp, 0x38
+0x140877aae: mov      qword ptr [rsp + 0x48], rax
+0x140877ab3: call     0x140116440    ; internal/filepathlite.Dir
+0x140877ab8: movups   xmmword ptr [rsp + 0x18], xmm15
+0x140877abe: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140877ac4: mov      qword ptr [rsp + 0x20], rbx
+0x140877ac9: mov      qword ptr [rsp + 0x18], rax
+0x140877ace: mov      qword ptr [rsp + 0x30], 6
+0x140877ad7: lea      rcx, [rip + 0x3bfbc0]
+0x140877ade: mov      qword ptr [rsp + 0x28], rcx
+0x140877ae3: lea      rax, [rsp + 0x18]
+0x140877ae8: mov      ebx, 2
+0x140877aed: mov      rcx, rbx
+0x140877af0: call     0x1401cd660    ; path/filepath.join
+0x140877af5: add      rsp, 0x38
+0x140877af9: pop      rbp
+0x140877afa: ret      
+0x140877afb: mov      qword ptr [rsp + 8], rax
+0x140877b00: mov      qword ptr [rsp + 0x10], rbx
+0x140877b05: call     0x14007f140    ; runtime.morestack_noctxt
+0x140877b0a: mov      rax, qword ptr [rsp + 8]
+0x140877b0f: mov      rbx, qword ptr [rsp + 0x10]
+0x140877b14: jmp      0x140877aa0    ; main.launcherConfigBackupDir
+0x140877b16: int3     
+0x140877b17: int3     
+0x140877b18: int3     
+0x140877b19: int3     
+0x140877b1a: int3     
+0x140877b1b: int3     
+0x140877b1c: int3     
+0x140877b1d: int3     
+0x140877b1e: int3     
+0x140877b1f: int3     

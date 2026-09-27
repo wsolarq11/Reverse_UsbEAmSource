@@ -1,0 +1,74 @@
+0x1408ccfe0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ccfe4: jbe      0x1408cd091    ; main.launcherUpdateTransaction.AwaitHealth+0xb1
+0x1408ccfea: push     rbp
+0x1408ccfeb: mov      rbp, rsp
+0x1408ccfee: sub      rsp, 0x38
+0x1408ccff2: cmp      qword ptr [rax + 0x20], 7
+0x1408ccff7: jne      0x1408cd013    ; main.launcherUpdateTransaction.AwaitHealth+0x33
+0x1408ccff9: mov      rcx, qword ptr [rax + 0x18]
+0x1408ccffd: cmp      dword ptr [rcx], 0x6c707061
+0x1408cd003: jne      0x1408cd013    ; main.launcherUpdateTransaction.AwaitHealth+0x33
+0x1408cd005: cmp      word ptr [rcx + 4], 0x6569
+0x1408cd00b: jne      0x1408cd013    ; main.launcherUpdateTransaction.AwaitHealth+0x33
+0x1408cd00d: cmp      byte ptr [rcx + 6], 0x64
+0x1408cd011: je       0x1408cd05e    ; main.launcherUpdateTransaction.AwaitHealth+0x7e
+0x1408cd013: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1408cd019: mov      rcx, qword ptr [rax + 0x18]
+0x1408cd01d: mov      rbx, qword ptr [rax + 0x20]
+0x1408cd021: mov      rax, rcx
+0x1408cd024: call     0x140076660    ; runtime.convTstring
+0x1408cd029: lea      rcx, [rip + 0x21cdd0]
+0x1408cd030: mov      qword ptr [rsp + 0x28], rcx
+0x1408cd035: mov      qword ptr [rsp + 0x30], rax
+0x1408cd03a: lea      rax, [rip + 0x39ec5f]
+0x1408cd041: mov      ebx, 0x1c
+0x1408cd046: lea      rcx, [rsp + 0x28]
+0x1408cd04b: mov      edi, 1
+0x1408cd050: mov      rsi, rdi
+0x1408cd053: call     0x140133280    ; fmt.Errorf
+0x1408cd058: add      rsp, 0x38
+0x1408cd05c: pop      rbp
+0x1408cd05d: ret      
+0x1408cd05e: mov      qword ptr [rax + 0x20], 0xf
+0x1408cd066: cmp      dword ptr [rip + 0x138e2e3], 0
+0x1408cd06d: je       0x1408cd07b    ; main.launcherUpdateTransaction.AwaitHealth+0x9b
+0x1408cd06f: mov      rcx, qword ptr [rax + 0x18]
+0x1408cd073: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408cd078: mov      qword ptr [r11], rcx
+0x1408cd07b: lea      rcx, [rip + 0x385d1e]
+0x1408cd082: mov      qword ptr [rax + 0x18], rcx
+0x1408cd086: call     0x1408cf480    ; main.launcherUpdateTransaction.persist
+0x1408cd08b: add      rsp, 0x38
+0x1408cd08f: pop      rbp
+0x1408cd090: ret      
+0x1408cd091: mov      qword ptr [rsp + 8], rax
+0x1408cd096: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408cd09b: mov      rax, qword ptr [rsp + 8]
+0x1408cd0a0: jmp      0x1408ccfe0    ; main.launcherUpdateTransaction.AwaitHealth
+0x1408cd0a5: int3     
+0x1408cd0a6: int3     
+0x1408cd0a7: int3     
+0x1408cd0a8: int3     
+0x1408cd0a9: int3     
+0x1408cd0aa: int3     
+0x1408cd0ab: int3     
+0x1408cd0ac: int3     
+0x1408cd0ad: int3     
+0x1408cd0ae: int3     
+0x1408cd0af: int3     
+0x1408cd0b0: int3     
+0x1408cd0b1: int3     
+0x1408cd0b2: int3     
+0x1408cd0b3: int3     
+0x1408cd0b4: int3     
+0x1408cd0b5: int3     
+0x1408cd0b6: int3     
+0x1408cd0b7: int3     
+0x1408cd0b8: int3     
+0x1408cd0b9: int3     
+0x1408cd0ba: int3     
+0x1408cd0bb: int3     
+0x1408cd0bc: int3     
+0x1408cd0bd: int3     
+0x1408cd0be: int3     
+0x1408cd0bf: int3     

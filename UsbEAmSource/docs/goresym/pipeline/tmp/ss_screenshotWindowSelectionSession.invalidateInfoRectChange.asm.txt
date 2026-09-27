@@ -1,0 +1,131 @@
+0x1409be100: lea      r12, [rsp - 0x68]
+0x1409be105: cmp      r12, qword ptr [r14 + 0x10]
+0x1409be109: jbe      0x1409be312   ; main.screenshotWindowSelectionSession.invalidateInfoRectChange+0x212
+0x1409be10f: push     rbp
+0x1409be110: mov      rbp, rsp
+0x1409be113: sub      rsp, 0xe0
+0x1409be11a: nop      word ptr [rax + rax]
+0x1409be120: test     rbx, rbx
+0x1409be123: je       0x1409be1e6   ; main.screenshotWindowSelectionSession.invalidateInfoRectChange+0xe6
+0x1409be129: mov      qword ptr [rsp + 0x118], rbx
+0x1409be131: mov      rdx, qword ptr [rax + 0x20]
+0x1409be135: mov      r10, qword ptr [rdx + 0x20]
+0x1409be139: mov      qword ptr [rsp + 0x88], r10
+0x1409be141: mov      r11, qword ptr [rdx + 0x28]
+0x1409be145: mov      qword ptr [rsp + 0x80], r11
+0x1409be14d: mov      r12, qword ptr [rdx + 0x30]
+0x1409be151: mov      qword ptr [rsp + 0x78], r12
+0x1409be156: mov      r9, qword ptr [rdx + 0x38]
+0x1409be15a: mov      qword ptr [rsp + 0x70], r9
+0x1409be15f: mov      qword ptr [rsp + 0x90], rcx
+0x1409be167: mov      qword ptr [rsp + 0x98], rdi
+0x1409be16f: mov      qword ptr [rsp + 0xa0], rsi
+0x1409be177: mov      qword ptr [rsp + 0xa8], r8
+0x1409be17f: mov      rdx, qword ptr [rsp + 0xf0]
+0x1409be187: mov      qword ptr [rsp + 0xb0], rdx
+0x1409be18f: mov      rdx, qword ptr [rsp + 0xf8]
+0x1409be197: mov      qword ptr [rsp + 0xb8], rdx
+0x1409be19f: mov      rdx, qword ptr [rsp + 0x100]
+0x1409be1a7: mov      qword ptr [rsp + 0xc0], rdx
+0x1409be1af: mov      rdx, qword ptr [rsp + 0x108]
+0x1409be1b7: mov      qword ptr [rsp + 0xc8], rdx
+0x1409be1bf: lea      rax, [rsp + 0x90]
+0x1409be1c7: mov      ebx, 2
+0x1409be1cc: mov      rcx, rbx
+0x1409be1cf: mov      rdi, r10
+0x1409be1d2: mov      rsi, r11
+0x1409be1d5: mov      r8, r12
+0x1409be1d8: call     0x1409c0a00   ; main.uniqueNonEmptyScreenshotRects
+0x1409be1dd: mov      qword ptr [rsp + 0x68], rbx
+0x1409be1e2: xor      ecx, ecx
+0x1409be1e4: jmp      0x1409be255   ; main.screenshotWindowSelectionSession.invalidateInfoRectChange+0x155
+0x1409be1e6: add      rsp, 0xe0
+0x1409be1ed: pop      rbp
+0x1409be1ee: ret      
+0x1409be1ef: mov      rax, rdx
+0x1409be1f2: mov      rbx, r12
+0x1409be1f5: mov      rdi, r11
+0x1409be1f8: mov      rsi, qword ptr [rsp + 0x88]
+0x1409be200: mov      r8, qword ptr [rsp + 0x80]
+0x1409be208: mov      r9, qword ptr [rsp + 0x78]
+0x1409be20d: mov      r10, qword ptr [rsp + 0x70]
+0x1409be212: call     0x1401a1160   ; image.Rectangle.Intersect
+0x1409be217: mov      rdx, qword ptr [rsp + 0xd8]
+0x1409be21f: mov      dword ptr [rdx], eax
+0x1409be221: mov      dword ptr [rdx + 4], ebx
+0x1409be224: mov      dword ptr [rdx + 8], ecx
+0x1409be227: mov      dword ptr [rdx + 0xc], edi
+0x1409be22a: mov      rax, qword ptr [rsp + 0x118]
+0x1409be232: mov      rbx, rdx
+0x1409be235: xor      ecx, ecx
+0x1409be237: call     0x1401e0580   ; github.com/wailsapp/wails/v3/pkg/w32.InvalidateRect
+0x1409be23c: mov      rax, qword ptr [rsp + 0xd0]
+0x1409be244: add      rax, 0x20
+0x1409be248: mov      rcx, qword ptr [rsp + 0x60]
+0x1409be24d: inc      rcx
+0x1409be250: mov      rbx, qword ptr [rsp + 0x68]
+0x1409be255: cmp      rbx, rcx
+0x1409be258: jle      0x1409be309   ; main.screenshotWindowSelectionSession.invalidateInfoRectChange+0x209
+0x1409be25e: mov      qword ptr [rsp + 0x60], rcx
+0x1409be263: mov      qword ptr [rsp + 0xd0], rax
+0x1409be26b: mov      rcx, qword ptr [rax]
+0x1409be26e: mov      qword ptr [rsp + 0x58], rcx
+0x1409be273: mov      rcx, qword ptr [rax + 0x10]
+0x1409be277: mov      qword ptr [rsp + 0x50], rcx
+0x1409be27c: mov      rcx, qword ptr [rax + 8]
+0x1409be280: mov      qword ptr [rsp + 0x48], rcx
+0x1409be285: mov      rcx, qword ptr [rax + 0x18]
+0x1409be289: mov      qword ptr [rsp + 0x40], rcx
+0x1409be28e: lea      rax, [rip + 0x1f806b]
+0x1409be295: call     0x14001ae20   ; runtime.newobject
+0x1409be29a: mov      qword ptr [rsp + 0xd8], rax
+0x1409be2a2: mov      rcx, qword ptr [rsp + 0x50]
+0x1409be2a7: mov      rdx, qword ptr [rsp + 0x58]
+0x1409be2ac: cmp      rcx, rdx
+0x1409be2af: jg       0x1409be2c5   ; main.screenshotWindowSelectionSession.invalidateInfoRectChange+0x1c5
+0x1409be2b1: mov      r11, qword ptr [rsp + 0x40]
+0x1409be2b6: mov      r12, qword ptr [rsp + 0x48]
+0x1409be2bb: nop      dword ptr [rax + rax]
+0x1409be2c0: jmp      0x1409be1ef   ; main.screenshotWindowSelectionSession.invalidateInfoRectChange+0xef
+0x1409be2c5: mov      r11, qword ptr [rsp + 0x40]
+0x1409be2ca: mov      r12, qword ptr [rsp + 0x48]
+0x1409be2cf: cmp      r11, r12
+0x1409be2d2: jle      0x1409be1ef   ; main.screenshotWindowSelectionSession.invalidateInfoRectChange+0xef
+0x1409be2d8: add      rdx, -2
+0x1409be2dc: add      r12, -2
+0x1409be2e0: add      rcx, 2
+0x1409be2e4: add      r11, 2
+0x1409be2e8: cmp      rcx, rdx
+0x1409be2eb: mov      r13, rdx
+0x1409be2ee: cmovl    rdx, rcx
+0x1409be2f2: cmovl    rcx, r13
+0x1409be2f6: cmp      r11, r12
+0x1409be2f9: mov      r13, r12
+0x1409be2fc: cmovl    r12, r11
+0x1409be300: cmovl    r11, r13
+0x1409be304: jmp      0x1409be1ef   ; main.screenshotWindowSelectionSession.invalidateInfoRectChange+0xef
+0x1409be309: add      rsp, 0xe0
+0x1409be310: pop      rbp
+0x1409be311: ret      
+0x1409be312: mov      qword ptr [rsp + 0x28], rax
+0x1409be317: mov      qword ptr [rsp + 0x30], rbx
+0x1409be31c: mov      qword ptr [rsp + 0x38], rcx
+0x1409be321: mov      qword ptr [rsp + 0x40], rdi
+0x1409be326: mov      qword ptr [rsp + 0x48], rsi
+0x1409be32b: mov      qword ptr [rsp + 0x50], r8
+0x1409be330: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409be335: mov      rax, qword ptr [rsp + 0x28]
+0x1409be33a: mov      rbx, qword ptr [rsp + 0x30]
+0x1409be33f: mov      rcx, qword ptr [rsp + 0x38]
+0x1409be344: mov      rdi, qword ptr [rsp + 0x40]
+0x1409be349: mov      rsi, qword ptr [rsp + 0x48]
+0x1409be34e: mov      r8, qword ptr [rsp + 0x50]
+0x1409be353: jmp      0x1409be100   ; main.screenshotWindowSelectionSession.invalidateInfoRectChange
+0x1409be358: int3     
+0x1409be359: int3     
+0x1409be35a: int3     
+0x1409be35b: int3     
+0x1409be35c: int3     
+0x1409be35d: int3     
+0x1409be35e: int3     
+0x1409be35f: int3     

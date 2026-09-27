@@ -1,0 +1,154 @@
+0x1407a14c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a14c4: jbe      0x1407a15b6   ; main.BootstrapService.syncStartupTask+0xf6
+0x1407a14ca: push     rbp
+0x1407a14cb: mov      rbp, rsp
+0x1407a14ce: sub      rsp, 0x28
+0x1407a14d2: test     rax, rax
+0x1407a14d5: je       0x1407a1588   ; main.BootstrapService.syncStartupTask+0xc8
+0x1407a14db: mov      byte ptr [rsp + 0x40], bl
+0x1407a14df: mov      qword ptr [rsp + 0x48], rcx
+0x1407a14e4: nop      
+0x1407a14e5: lea      rsi, [rax + 0x540]
+0x1407a14ec: mov      rdx, rax
+0x1407a14ef: xor      eax, eax
+0x1407a14f1: mov      edi, 1
+0x1407a14f6: lock cmpxchg dword ptr [rdx + 0x540], edi
+0x1407a14fe: sete     dil
+0x1407a1502: test     dil, dil
+0x1407a1505: jne      0x1407a152d   ; main.BootstrapService.syncStartupTask+0x6d
+0x1407a1507: mov      qword ptr [rsp + 0x20], rdx
+0x1407a150c: mov      qword ptr [rsp + 0x18], rsi
+0x1407a1511: mov      rax, rsi
+0x1407a1514: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1407a1519: mov      rcx, qword ptr [rsp + 0x48]
+0x1407a151e: mov      rdx, qword ptr [rsp + 0x20]
+0x1407a1523: movzx    ebx, byte ptr [rsp + 0x40]
+0x1407a1528: mov      rsi, qword ptr [rsp + 0x18]
+0x1407a152d: mov      rdi, qword ptr [rdx + 0x510]
+0x1407a1534: nop      
+0x1407a1535: nop      
+0x1407a1536: mov      r8d, 0xffffffff
+0x1407a153c: lock xadd dword ptr [rdx + 0x540], r8d
+0x1407a1545: dec      r8d
+0x1407a1548: je       0x1407a1569   ; main.BootstrapService.syncStartupTask+0xa9
+0x1407a154a: mov      qword ptr [rsp + 0x10], rdi
+0x1407a154f: mov      rax, rsi
+0x1407a1552: mov      ebx, r8d
+0x1407a1555: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x1407a155a: mov      rcx, qword ptr [rsp + 0x48]
+0x1407a155f: movzx    ebx, byte ptr [rsp + 0x40]
+0x1407a1564: mov      rdi, qword ptr [rsp + 0x10]
+0x1407a1569: test     rdi, rdi
+0x1407a156c: jne      0x1407a1575   ; main.BootstrapService.syncStartupTask+0xb5
+0x1407a156e: lea      rdi, [rip + 0x8f5813]
+0x1407a1575: mov      rsi, qword ptr [rdi]
+0x1407a1578: mov      eax, ebx
+0x1407a157a: mov      rbx, rcx
+0x1407a157d: mov      rdx, rdi
+0x1407a1580: call     rsi
+0x1407a1582: add      rsp, 0x28
+0x1407a1586: pop      rbp
+0x1407a1587: ret      
+0x1407a1588: lea      rax, [rip + 0x3b2df1]
+0x1407a158f: call     0x14001ae20   ; runtime.newobject
+0x1407a1594: mov      qword ptr [rax + 8], 0x1b
+0x1407a159c: lea      rcx, [rip + 0x4c8690]
+0x1407a15a3: mov      qword ptr [rax], rcx
+0x1407a15a6: mov      rbx, rax
+0x1407a15a9: lea      rax, [rip + 0xa31b50]
+0x1407a15b0: add      rsp, 0x28
+0x1407a15b4: pop      rbp
+0x1407a15b5: ret      
+0x1407a15b6: mov      qword ptr [rsp + 8], rax
+0x1407a15bb: mov      byte ptr [rsp + 0x10], bl
+0x1407a15bf: mov      qword ptr [rsp + 0x18], rcx
+0x1407a15c4: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a15c9: mov      rax, qword ptr [rsp + 8]
+0x1407a15ce: movzx    ebx, byte ptr [rsp + 0x10]
+0x1407a15d3: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a15d8: jmp      0x1407a14c0   ; main.BootstrapService.syncStartupTask
+0x1407a15dd: int3     
+0x1407a15de: int3     
+0x1407a15df: int3     
+0x1407a15e0: mov      r12, rsp
+0x1407a15e3: sub      r12, 0x1c00
+0x1407a15ea: jb       0x1407a1902   ; main.resolveWorkspaceLayout+0x322
+0x1407a15f0: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a15f4: jbe      0x1407a1902   ; main.resolveWorkspaceLayout+0x322
+0x1407a15fa: push     rbp
+0x1407a15fb: mov      rbp, rsp
+0x1407a15fe: sub      rsp, 0x1c78
+0x1407a1605: lea      rdi, [rsp + 0x1c88]
+0x1407a160d: lea      rdi, [rdi - 0x20]
+0x1407a1611: nop      word ptr [rax + rax]
+0x1407a161a: nop      word ptr [rax + rax]
+0x1407a1620: mov      qword ptr [rsp - 0x10], rbp
+0x1407a1625: lea      rbp, [rsp - 0x10]
+0x1407a162a: call     0x140081714   ; runtime.duffzero+0x134
+0x1407a162f: mov      rbp, qword ptr [rbp]
+0x1407a1633: call     0x1407a2480   ; main.resolveProcessWorkingDirectory
+0x1407a1638: mov      qword ptr [rsp + 0x960], rax
+0x1407a1640: mov      qword ptr [rsp + 0x948], rbx
+0x1407a1648: call     0x1407a1920   ; main.resolveLauncherConfigFilePath
+0x1407a164d: mov      qword ptr [rsp + 0x9c0], rax
+0x1407a1655: mov      qword ptr [rsp + 0x958], rbx
+0x1407a165d: lea      rdi, [rsp + 0x968]
+0x1407a1665: lea      rdi, [rdi - 0x30]
+0x1407a1669: mov      qword ptr [rsp - 0x10], rbp
+0x1407a166e: lea      rbp, [rsp - 0x10]
+0x1407a1673: call     0x140081730   ; runtime.duffzero+0x150
+0x1407a1678: mov      rbp, qword ptr [rbp]
+0x1407a167c: movups   xmmword ptr [rsp + 0x1340], xmm15
+0x1407a1685: lea      rdi, [rsp + 0x1348]
+0x1407a168d: mov      ecx, 0x126
+0x1407a1692: mov      rdx, rax
+0x1407a1695: xor      eax, eax
+0x1407a1697: rep stosq qword ptr [rdi], rax
+0x1407a169a: mov      rax, rdx
+0x1407a169d: nop      dword ptr [rax]
+0x1407a16a0: call     0x1408760e0   ; main.loadLauncherConfigIfExists
+0x1407a16a5: mov      rcx, qword ptr [rsp]
+0x1407a16a9: mov      qword ptr [rsp + 0x1340], rcx
+0x1407a16b1: lea      rdi, [rsp + 0x1348]
+0x1407a16b9: lea      rsi, [rsp + 8]
+0x1407a16be: mov      ecx, 0x126
+0x1407a16c3: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407a16c6: mov      rcx, qword ptr [rsp + 0x1340]
+0x1407a16ce: mov      qword ptr [rsp + 0x9c8], rcx
+0x1407a16d6: lea      rdi, [rsp + 0x9d0]
+0x1407a16de: lea      rsi, [rsp + 0x1348]
+0x1407a16e6: mov      ecx, 0x126
+0x1407a16eb: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407a16ee: test     rbx, rbx
+0x1407a16f1: jne      0x1407a171a   ; main.resolveWorkspaceLayout+0x13a
+0x1407a16f3: test     al, al
+0x1407a16f5: je       0x1407a171a   ; main.resolveWorkspaceLayout+0x13a
+0x1407a16f7: lea      rdi, [rsp + 0x968]
+0x1407a16ff: lea      rsi, [rsp + 0x9e8]
+0x1407a1707: mov      qword ptr [rsp - 0x10], rbp
+0x1407a170c: lea      rbp, [rsp - 0x10]
+0x1407a1711: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x1407a1716: mov      rbp, qword ptr [rbp]
+0x1407a171a: mov      rax, qword ptr [rsp + 0x968]
+0x1407a1722: mov      rbx, qword ptr [rsp + 0x970]
+0x1407a172a: call     0x1400a2200   ; strings.TrimSpace
+0x1407a172f: test     rbx, rbx
+0x1407a1732: jne      0x1407a1796   ; main.resolveWorkspaceLayout+0x1b6
+0x1407a1734: movups   xmmword ptr [rsp + 0x1320], xmm15
+0x1407a173d: movups   xmmword ptr [rsp + 0x1330], xmm15
+0x1407a1746: mov      rdx, qword ptr [rsp + 0x948]
+0x1407a174e: mov      qword ptr [rsp + 0x1328], rdx
+0x1407a1756: mov      rdx, qword ptr [rsp + 0x960]
+0x1407a175e: mov      qword ptr [rsp + 0x1320], rdx
+0x1407a1766: mov      qword ptr [rsp + 0x1338], 4
+0x1407a1772: lea      rdx, [rip + 0x493041]
+0x1407a1779: mov      qword ptr [rsp + 0x1330], rdx
+0x1407a1781: lea      rax, [rsp + 0x1320]
+0x1407a1789: mov      ebx, 2
+0x1407a178e: mov      rcx, rbx
+0x1407a1791: call     0x1401cd660   ; path/filepath.join
+0x1407a1796: mov      qword ptr [rsp + 0x950], rbx
+0x1407a179e: mov      qword ptr [rsp + 0x9b8], rax
+0x1407a17a6: movups   xmmword ptr [rsp + 0x1300], xmm15
+0x1407a17af: movups   xmmword ptr [rsp + 0x1310], xmm15
+0x1407a17b8: mov      rdx, qword ptr [rsp + 0x948]

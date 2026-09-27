@@ -1,0 +1,142 @@
+0x140883aa0: lea      r12, [rsp - 0x20]
+0x140883aa5: cmp      r12, qword ptr [r14 + 0x10]
+0x140883aa9: jbe      0x140883c9e   ; main.findConfiguredLinkBrowserByID+0x1fe
+0x140883aaf: push     rbp
+0x140883ab0: mov      rbp, rsp
+0x140883ab3: sub      rsp, 0x98
+0x140883aba: mov      qword ptr [rsp + 0x118], rdi
+0x140883ac2: mov      qword ptr [rsp + 0x100], rax
+0x140883aca: mov      qword ptr [rsp + 0x108], rbx
+0x140883ad2: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x140883adb: mov      rax, rdi
+0x140883ade: lea      rdi, [rsp + 0xb0]
+0x140883ae6: lea      rdi, [rdi - 0x30]
+0x140883aea: mov      qword ptr [rsp - 0x10], rbp
+0x140883aef: lea      rbp, [rsp - 0x10]
+0x140883af4: call     0x140081730   ; runtime.duffzero+0x150
+0x140883af9: mov      rbp, qword ptr [rbp]
+0x140883afd: mov      rbx, rsi
+0x140883b00: call     0x1400a2200   ; strings.TrimSpace
+0x140883b05: test     rbx, rbx
+0x140883b08: je       0x140883b22   ; main.findConfiguredLinkBrowserByID+0x82
+0x140883b0a: mov      qword ptr [rsp + 0x30], rax
+0x140883b0f: mov      qword ptr [rsp + 0x20], rbx
+0x140883b14: mov      rcx, qword ptr [rsp + 0x100]
+0x140883b1c: xor      edx, edx
+0x140883b1e: nop      
+0x140883b20: jmp      0x140883b7c   ; main.findConfiguredLinkBrowserByID+0xdc
+0x140883b22: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x140883b2b: lea      rdi, [rsp + 0xb0]
+0x140883b33: lea      rdi, [rdi - 0x30]
+0x140883b37: nop      word ptr [rax + rax]
+0x140883b40: mov      qword ptr [rsp - 0x10], rbp
+0x140883b45: lea      rbp, [rsp - 0x10]
+0x140883b4a: call     0x140081730   ; runtime.duffzero+0x150
+0x140883b4f: mov      rbp, qword ptr [rbp]
+0x140883b53: xor      eax, eax
+0x140883b55: add      rsp, 0x98
+0x140883b5c: pop      rbp
+0x140883b5d: ret      
+0x140883b5e: mov      rcx, qword ptr [rsp + 0x90]
+0x140883b66: add      rcx, 0x58
+0x140883b6a: mov      rdx, qword ptr [rsp + 0x28]
+0x140883b6f: inc      rdx
+0x140883b72: mov      rax, qword ptr [rsp + 0x30]
+0x140883b77: mov      rbx, qword ptr [rsp + 0x20]
+0x140883b7c: mov      r8, qword ptr [rsp + 0x108]
+0x140883b84: cmp      r8, rdx
+0x140883b87: jle      0x140883c61   ; main.findConfiguredLinkBrowserByID+0x1c1
+0x140883b8d: mov      qword ptr [rsp + 0x28], rdx
+0x140883b92: mov      qword ptr [rsp + 0x90], rcx
+0x140883b9a: mov      rdx, qword ptr [rcx]
+0x140883b9d: mov      qword ptr [rsp + 0x38], rdx
+0x140883ba2: lea      rsi, [rcx + 8]
+0x140883ba6: lea      rdi, [rsp + 0x40]
+0x140883bab: mov      qword ptr [rsp - 0x10], rbp
+0x140883bb0: lea      rbp, [rsp - 0x10]
+0x140883bb5: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x140883bba: mov      rbp, qword ptr [rbp]
+0x140883bbe: mov      rax, qword ptr [rsp + 0x38]
+0x140883bc3: mov      rbx, qword ptr [rsp + 0x40]
+0x140883bc8: call     0x1400a2200   ; strings.TrimSpace
+0x140883bcd: mov      rcx, qword ptr [rsp + 0x30]
+0x140883bd2: mov      rdi, qword ptr [rsp + 0x20]
+0x140883bd7: call     0x1400a2c40   ; strings.EqualFold
+0x140883bdc: nop      dword ptr [rax]
+0x140883be0: test     al, al
+0x140883be2: je       0x140883b5e   ; main.findConfiguredLinkBrowserByID+0xbe
+0x140883be8: mov      rcx, qword ptr [rsp + 0x38]
+0x140883bed: mov      qword ptr [rsp + 0xa8], rcx
+0x140883bf5: lea      rdi, [rsp + 0xb0]
+0x140883bfd: lea      rsi, [rsp + 0x40]
+0x140883c02: mov      qword ptr [rsp - 0x10], rbp
+0x140883c07: lea      rbp, [rsp - 0x10]
+0x140883c0c: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x140883c11: mov      rbp, qword ptr [rbp]
+0x140883c15: mov      rcx, qword ptr [rsp + 0x38]
+0x140883c1a: mov      qword ptr [rsp + 0xa8], rcx
+0x140883c22: lea      rdi, [rsp + 0xb0]
+0x140883c2a: lea      rsi, [rsp + 0x40]
+0x140883c2f: nop      word ptr [rax + rax]
+0x140883c38: nop      dword ptr [rax + rax]
+0x140883c40: mov      qword ptr [rsp - 0x10], rbp
+0x140883c45: lea      rbp, [rsp - 0x10]
+0x140883c4a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x140883c4f: mov      rbp, qword ptr [rbp]
+0x140883c53: mov      eax, 1
+0x140883c58: add      rsp, 0x98
+0x140883c5f: pop      rbp
+0x140883c60: ret      
+0x140883c61: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x140883c6a: lea      rdi, [rsp + 0xb0]
+0x140883c72: lea      rdi, [rdi - 0x30]
+0x140883c76: nop      word ptr [rax + rax]
+0x140883c7f: nop      
+0x140883c80: mov      qword ptr [rsp - 0x10], rbp
+0x140883c85: lea      rbp, [rsp - 0x10]
+0x140883c8a: call     0x140081730   ; runtime.duffzero+0x150
+0x140883c8f: mov      rbp, qword ptr [rbp]
+0x140883c93: xor      eax, eax
+0x140883c95: add      rsp, 0x98
+0x140883c9c: pop      rbp
+0x140883c9d: ret      
+0x140883c9e: mov      qword ptr [rsp + 0x60], rax
+0x140883ca3: mov      qword ptr [rsp + 0x68], rbx
+0x140883ca8: mov      qword ptr [rsp + 0x70], rcx
+0x140883cad: mov      qword ptr [rsp + 0x78], rdi
+0x140883cb2: mov      qword ptr [rsp + 0x80], rsi
+0x140883cba: call     0x14007f140   ; runtime.morestack_noctxt
+0x140883cbf: mov      rax, qword ptr [rsp + 0x60]
+0x140883cc4: mov      rbx, qword ptr [rsp + 0x68]
+0x140883cc9: mov      rcx, qword ptr [rsp + 0x70]
+0x140883cce: mov      rdi, qword ptr [rsp + 0x78]
+0x140883cd3: mov      rsi, qword ptr [rsp + 0x80]
+0x140883cdb: nop      dword ptr [rax + rax]
+0x140883ce0: jmp      0x140883aa0   ; main.findConfiguredLinkBrowserByID
+0x140883ce5: int3     
+0x140883ce6: int3     
+0x140883ce7: int3     
+0x140883ce8: int3     
+0x140883ce9: int3     
+0x140883cea: int3     
+0x140883ceb: int3     
+0x140883cec: int3     
+0x140883ced: int3     
+0x140883cee: int3     
+0x140883cef: int3     
+0x140883cf0: int3     
+0x140883cf1: int3     
+0x140883cf2: int3     
+0x140883cf3: int3     
+0x140883cf4: int3     
+0x140883cf5: int3     
+0x140883cf6: int3     
+0x140883cf7: int3     
+0x140883cf8: int3     
+0x140883cf9: int3     
+0x140883cfa: int3     
+0x140883cfb: int3     
+0x140883cfc: int3     
+0x140883cfd: int3     
+0x140883cfe: int3     
+0x140883cff: int3     

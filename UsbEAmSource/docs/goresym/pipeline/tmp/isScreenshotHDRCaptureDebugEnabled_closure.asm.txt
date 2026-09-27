@@ -1,0 +1,48 @@
+0x141096ae0: add      byte ptr [rbp - 0x61], bl
+0x141096ae3: add      dword ptr [rax], eax
+0x141096ae6: add      byte ptr [rax], al
+0x141096ae8: rcr      byte ptr [rax], 0x9c
+0x141096aeb: add      dword ptr [rax], eax
+0x141096aee: add      byte ptr [rax], al
+0x141096af0: and      byte ptr [rax - 0x73], dl
+0x141096af3: add      dword ptr [rax], eax
+0x141096af6: add      byte ptr [rax], al
+0x141096af8: add      byte ptr [rax - 0x73], dl
+0x141096afb: add      dword ptr [rax], eax
+0x141096afe: add      byte ptr [rax], al
+0x141096b00: mov      cs, word ptr [rsi + 0x140]
+0x141096b07: add      byte ptr [rax - 0x6c], al
+0x141096b0a: pop      qword ptr [rax + 1]
+0x141096b0d: add      byte ptr [rax], al
+0x141096b0f: add      al, al
+0x141096b11: xchg     esp, eax
+0x141096b12: pop      qword ptr [rax + 1]
+0x141096b15: add      byte ptr [rax], al
+0x141096b17: add      byte ptr [rax - 0x60], al
+0x141096b1a: pop      qword ptr [rax + 1]
+0x141096b1d: add      byte ptr [rax], al
+0x141096b1f: add      al, ah
+0x141096b21: movabs   al, byte ptr [0xa14000000001408f]
+0x141096b2a: pop      qword ptr [rax + 1]
+0x141096b2d: add      byte ptr [rax], al
+0x141096b2f: add      al, al
+0x141096b31: lahf     
+0x141096b32: pop      qword ptr [rax + 1]
+0x141096b35: add      byte ptr [rax], al
+0x141096b37: add      al, al
+0x141096b39: movabs   byte ptr [0xa1a000000001408f], al
+0x141096b42: pop      qword ptr [rax + 1]
+0x141096b45: add      byte ptr [rax], al
+0x141096b47: add      byte ptr [rax + 0x1408fa2], al
+0x141096b4d: add      byte ptr [rax], al
+0x141096b4f: add      byte ptr [rax], ah
+0x141096b51: movabs   byte ptr [0x9ec000000001408f], al
+0x141096b5a: pop      qword ptr [rax + 1]
+0x141096b5d: add      byte ptr [rax], al
+0x141096b5f: add      byte ptr [rax - 0x63], ah
+0x141096b62: pop      qword ptr [rax + 1]
+0x141096b65: add      byte ptr [rax], al
+0x141096b67: add      al, ah
+0x141096b69: popfq    
+0x141096b6a: pop      qword ptr [rax + 1]
+0x141096b6d: add      byte ptr [rax], al

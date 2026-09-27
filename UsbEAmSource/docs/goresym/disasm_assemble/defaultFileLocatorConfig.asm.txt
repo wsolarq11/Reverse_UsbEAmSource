@@ -1,0 +1,86 @@
+0x1408745e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408745e4: jbe      0x14087473c    ; main.defaultFileLocatorConfig+0x15c
+0x1408745ea: push     rbp
+0x1408745eb: mov      rbp, rsp
+0x1408745ee: sub      rsp, 0x60
+0x1408745f2: lea      rdi, [rsp + 0x70]
+0x1408745f7: lea      rdi, [rdi - 0x10]
+0x1408745fb: nop      dword ptr [rax + rax]
+0x140874600: mov      qword ptr [rsp - 0x10], rbp
+0x140874605: lea      rbp, [rsp - 0x10]
+0x14087460a: call     0x1400816f8    ; runtime.duffzero+0x118
+0x14087460f: mov      rbp, qword ptr [rbp]
+0x140874613: nop      
+0x140874614: call     0x140874760    ; main.defaultFileLocatorFilterValue
+0x140874619: lea      rcx, [rip + 0x3f8eeb]
+0x140874620: mov      qword ptr [rsp + 0x18], rcx
+0x140874625: mov      qword ptr [rsp + 0x20], 0x1d
+0x14087462e: lea      rcx, [rip + 0x3eb111]
+0x140874635: mov      qword ptr [rsp + 0x28], rcx
+0x14087463a: mov      qword ptr [rsp + 0x30], 0x15
+0x140874643: mov      qword ptr [rsp + 0x38], rax
+0x140874648: mov      qword ptr [rsp + 0x40], rbx
+0x14087464d: lea      rax, [rip + 0x3c01aa]
+0x140874654: mov      qword ptr [rsp + 0x48], rax
+0x140874659: mov      qword ptr [rsp + 0x50], 4
+0x140874662: lea      rax, [rip + 0x2891f7]
+0x140874669: call     0x14001ae20    ; runtime.newobject
+0x14087466e: cmp      dword ptr [rip + 0x13e6cdb], 0
+0x140874675: je       0x140874695    ; main.defaultFileLocatorConfig+0xb5
+0x140874677: mov      qword ptr [rsp + 0x58], rax
+0x14087467c: mov      rbx, rax
+0x14087467f: lea      rcx, [rsp + 0x18]
+0x140874684: lea      rax, [rip + 0x33e5b5]
+0x14087468b: call     0x14001b620    ; runtime.wbMove
+0x140874690: mov      rax, qword ptr [rsp + 0x58]
+0x140874695: movups   xmm0, xmmword ptr [rsp + 0x18]
+0x14087469a: movups   xmmword ptr [rax], xmm0
+0x14087469d: movups   xmm0, xmmword ptr [rsp + 0x28]
+0x1408746a2: movups   xmmword ptr [rax + 0x10], xmm0
+0x1408746a6: movups   xmm0, xmmword ptr [rsp + 0x38]
+0x1408746ab: movups   xmmword ptr [rax + 0x20], xmm0
+0x1408746af: movups   xmm0, xmmword ptr [rsp + 0x48]
+0x1408746b4: movups   xmmword ptr [rax + 0x30], xmm0
+0x1408746b8: lea      rdi, [rsp + 0x70]
+0x1408746bd: lea      rsi, [rip + 0x96ed2c]
+0x1408746c4: mov      qword ptr [rsp - 0x10], rbp
+0x1408746c9: lea      rbp, [rsp - 0x10]
+0x1408746ce: call     0x140081a0e    ; runtime.duffcopy+0x2ae
+0x1408746d3: mov      rbp, qword ptr [rbp]
+0x1408746d7: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1408746e0: mov      qword ptr [rsp + 0xa8], 0
+0x1408746ec: movups   xmmword ptr [rsp + 0xd8], xmm15
+0x1408746f5: mov      qword ptr [rsp + 0xe8], 0
+0x140874701: movups   xmmword ptr [rsp + 0x110], xmm15
+0x14087470a: mov      qword ptr [rsp + 0x120], 0
+0x140874716: mov      qword ptr [rsp + 0x148], rax
+0x14087471e: mov      qword ptr [rsp + 0x150], 1
+0x14087472a: mov      qword ptr [rsp + 0x158], 1
+0x140874736: add      rsp, 0x60
+0x14087473a: pop      rbp
+0x14087473b: ret      
+0x14087473c: nop      dword ptr [rax]
+0x140874740: call     0x14007f140    ; runtime.morestack_noctxt
+0x140874745: jmp      0x1408745e0    ; main.defaultFileLocatorConfig
+0x14087474a: int3     
+0x14087474b: int3     
+0x14087474c: int3     
+0x14087474d: int3     
+0x14087474e: int3     
+0x14087474f: int3     
+0x140874750: int3     
+0x140874751: int3     
+0x140874752: int3     
+0x140874753: int3     
+0x140874754: int3     
+0x140874755: int3     
+0x140874756: int3     
+0x140874757: int3     
+0x140874758: int3     
+0x140874759: int3     
+0x14087475a: int3     
+0x14087475b: int3     
+0x14087475c: int3     
+0x14087475d: int3     
+0x14087475e: int3     
+0x14087475f: int3     

@@ -1,0 +1,103 @@
+0x1408a9de0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a9de4: jbe      0x1408a9eaf   ; main.invokeShellVerb+0xcf
+0x1408a9dea: push     rbp
+0x1408a9deb: mov      rbp, rsp
+0x1408a9dee: sub      rsp, 0x40
+0x1408a9df2: mov      qword ptr [rsp + 0x50], rax
+0x1408a9df7: mov      qword ptr [rsp + 0x60], rcx
+0x1408a9dfc: mov      qword ptr [rsp + 0x68], rdi
+0x1408a9e01: call     0x1400a2200   ; strings.TrimSpace
+0x1408a9e06: mov      qword ptr [rsp + 0x20], rbx
+0x1408a9e0b: mov      qword ptr [rsp + 0x30], rax
+0x1408a9e10: mov      rax, qword ptr [rsp + 0x60]
+0x1408a9e15: mov      rbx, qword ptr [rsp + 0x68]
+0x1408a9e1a: call     0x1400a2200   ; strings.TrimSpace
+0x1408a9e1f: mov      rcx, qword ptr [rsp + 0x20]
+0x1408a9e24: test     rcx, rcx
+0x1408a9e27: je       0x1408a9e2e   ; main.invokeShellVerb+0x4e
+0x1408a9e29: test     rbx, rbx
+0x1408a9e2c: jne      0x1408a9e5c   ; main.invokeShellVerb+0x7c
+0x1408a9e2e: lea      rax, [rip + 0x2aa54b]
+0x1408a9e35: call     0x14001ae20   ; runtime.newobject
+0x1408a9e3a: mov      qword ptr [rax + 8], 0x1b
+0x1408a9e42: lea      rcx, [rip + 0x3c00f9]
+0x1408a9e49: mov      qword ptr [rax], rcx
+0x1408a9e4c: mov      rbx, rax
+0x1408a9e4f: lea      rax, [rip + 0x9292aa]
+0x1408a9e56: add      rsp, 0x40
+0x1408a9e5a: pop      rbp
+0x1408a9e5b: ret      
+0x1408a9e5c: mov      qword ptr [rsp + 0x38], rax
+0x1408a9e61: mov      qword ptr [rsp + 0x28], rbx
+0x1408a9e66: lea      rcx, [rip + 0x39a340]
+0x1408a9e6d: mov      edi, 0xa
+0x1408a9e72: call     0x1400a2c40   ; strings.EqualFold
+0x1408a9e77: test     al, al
+0x1408a9e79: je       0x1408a9e90   ; main.invokeShellVerb+0xb0
+0x1408a9e7b: mov      rax, qword ptr [rsp + 0x30]
+0x1408a9e80: mov      rbx, qword ptr [rsp + 0x20]
+0x1408a9e85: call     0x1408aeea0   ; main.showShellProperties
+0x1408a9e8a: add      rsp, 0x40
+0x1408a9e8e: pop      rbp
+0x1408a9e8f: ret      
+0x1408a9e90: mov      rax, qword ptr [rsp + 0x30]
+0x1408a9e95: mov      rbx, qword ptr [rsp + 0x20]
+0x1408a9e9a: mov      rcx, qword ptr [rsp + 0x38]
+0x1408a9e9f: mov      rdi, qword ptr [rsp + 0x28]
+0x1408a9ea4: call     0x1408ada40   ; main.invokeShellVerbWithPowerShell
+0x1408a9ea9: add      rsp, 0x40
+0x1408a9ead: pop      rbp
+0x1408a9eae: ret      
+0x1408a9eaf: mov      qword ptr [rsp + 8], rax
+0x1408a9eb4: mov      qword ptr [rsp + 0x10], rbx
+0x1408a9eb9: mov      qword ptr [rsp + 0x18], rcx
+0x1408a9ebe: mov      qword ptr [rsp + 0x20], rdi
+0x1408a9ec3: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a9ec8: mov      rax, qword ptr [rsp + 8]
+0x1408a9ecd: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a9ed2: mov      rcx, qword ptr [rsp + 0x18]
+0x1408a9ed7: mov      rdi, qword ptr [rsp + 0x20]
+0x1408a9edc: nop      dword ptr [rax]
+0x1408a9ee0: jmp      0x1408a9de0   ; main.invokeShellVerb
+0x1408a9ee5: int3     
+0x1408a9ee6: int3     
+0x1408a9ee7: int3     
+0x1408a9ee8: int3     
+0x1408a9ee9: int3     
+0x1408a9eea: int3     
+0x1408a9eeb: int3     
+0x1408a9eec: int3     
+0x1408a9eed: int3     
+0x1408a9eee: int3     
+0x1408a9eef: int3     
+0x1408a9ef0: int3     
+0x1408a9ef1: int3     
+0x1408a9ef2: int3     
+0x1408a9ef3: int3     
+0x1408a9ef4: int3     
+0x1408a9ef5: int3     
+0x1408a9ef6: int3     
+0x1408a9ef7: int3     
+0x1408a9ef8: int3     
+0x1408a9ef9: int3     
+0x1408a9efa: int3     
+0x1408a9efb: int3     
+0x1408a9efc: int3     
+0x1408a9efd: int3     
+0x1408a9efe: int3     
+0x1408a9eff: int3     
+0x1408a9f00: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a9f04: jbe      0x1408a9fa7   ; main.setFileClipboard+0xa7
+0x1408a9f0a: push     rbp
+0x1408a9f0b: mov      rbp, rsp
+0x1408a9f0e: sub      rsp, 0x38
+0x1408a9f12: mov      qword ptr [rsp + 0x48], rax
+0x1408a9f17: mov      qword ptr [rsp + 0x68], rsi
+0x1408a9f1c: mov      qword ptr [rsp + 0x60], rdi
+0x1408a9f21: call     0x14088c420   ; main.normalizePathList
+0x1408a9f26: test     rbx, rbx
+0x1408a9f29: je       0x1408a9f76   ; main.setFileClipboard+0x76
+0x1408a9f2b: mov      qword ptr [rsp + 0x28], rcx
+0x1408a9f30: mov      qword ptr [rsp + 0x20], rbx
+0x1408a9f35: mov      qword ptr [rsp + 0x30], rax
+0x1408a9f3a: mov      rax, qword ptr [rsp + 0x60]

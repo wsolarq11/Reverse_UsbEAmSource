@@ -1,0 +1,126 @@
+0x14091f9c0: lea      r12, [rsp - 0x28]
+0x14091f9c5: cmp      r12, qword ptr [r14 + 0x10]
+0x14091f9c9: jbe      0x14091fbc7   ; main.oledBlackoutRoGetActivationFactory+0x207
+0x14091f9cf: push     rbp
+0x14091f9d0: mov      rbp, rsp
+0x14091f9d3: sub      rsp, 0xa0
+0x14091f9da: mov      qword ptr [rsp + 0xb0], rax
+0x14091f9e2: movq     qword ptr [rsp + 0x98], xmm15
+0x14091f9ec: mov      qword ptr [rsp + 0xc0], rcx
+0x14091f9f4: mov      byte ptr [rsp + 0x2f], 0
+0x14091f9f9: mov      qword ptr [rsp + 0x58], 0
+0x14091fa02: movups   xmmword ptr [rsp + 0x48], xmm15
+0x14091fa08: call     0x14091fc80   ; main.oledBlackoutNewHString
+0x14091fa0d: test     rbx, rbx
+0x14091fa10: jne      0x14091fb89   ; main.oledBlackoutRoGetActivationFactory+0x1c9
+0x14091fa16: mov      qword ptr [rsp + 0x30], rax
+0x14091fa1b: lea      rcx, [rip + 0x1de]
+0x14091fa22: mov      qword ptr [rsp + 0x38], rcx
+0x14091fa27: mov      qword ptr [rsp + 0x40], rax
+0x14091fa2c: lea      rcx, [rsp + 0x38]
+0x14091fa31: mov      qword ptr [rsp + 0x98], rcx
+0x14091fa39: mov      byte ptr [rsp + 0x2f], 1
+0x14091fa3e: lea      rax, [rip + 0x1ca7fb]
+0x14091fa45: call     0x14001ae20   ; runtime.newobject
+0x14091fa4a: mov      qword ptr [rsp + 0x90], rax
+0x14091fa52: mov      rcx, qword ptr [rsp + 0xc0]
+0x14091fa5a: mov      qword ptr [rsp + 0x88], rcx
+0x14091fa62: mov      qword ptr [rsp + 0x80], rax
+0x14091fa6a: lea      rax, [rip + 0x1dc1cf]
+0x14091fa71: call     0x14001ae20   ; runtime.newobject
+0x14091fa76: mov      rcx, qword ptr [rsp + 0x30]
+0x14091fa7b: mov      qword ptr [rax], rcx
+0x14091fa7e: mov      rcx, qword ptr [rsp + 0x88]
+0x14091fa86: mov      qword ptr [rax + 8], rcx
+0x14091fa8a: mov      rcx, qword ptr [rsp + 0x80]
+0x14091fa92: mov      qword ptr [rax + 0x10], rcx
+0x14091fa96: mov      rcx, qword ptr [rip + 0x12a216b]
+0x14091fa9d: mov      rbx, rax
+0x14091faa0: mov      edi, 3
+0x14091faa5: mov      rax, rcx
+0x14091faa8: mov      rcx, rdi
+0x14091faab: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x14091fab0: test     eax, eax
+0x14091fab2: jl       0x14091faf4   ; main.oledBlackoutRoGetActivationFactory+0x134
+0x14091fab4: mov      rax, qword ptr [rsp + 0x90]
+0x14091fabc: mov      rax, qword ptr [rax]
+0x14091fabf: mov      qword ptr [rsp + 0x58], rax
+0x14091fac4: movups   xmmword ptr [rsp + 0x48], xmm15
+0x14091faca: mov      byte ptr [rsp + 0x2f], 0
+0x14091facf: mov      rdx, qword ptr [rsp + 0x98]
+0x14091fad7: mov      rax, qword ptr [rdx]
+0x14091fada: call     rax
+0x14091fadc: mov      rbx, qword ptr [rsp + 0x48]
+0x14091fae1: mov      rax, qword ptr [rsp + 0x58]
+0x14091fae6: mov      rcx, qword ptr [rsp + 0x50]
+0x14091faeb: add      rsp, 0xa0
+0x14091faf2: pop      rbp
+0x14091faf3: ret      
+0x14091faf4: movups   xmmword ptr [rsp + 0x60], xmm15
+0x14091fafa: movups   xmmword ptr [rsp + 0x70], xmm15
+0x14091fb00: lea      rcx, [rip + 0x1ca2f9]
+0x14091fb07: mov      qword ptr [rsp + 0x60], rcx
+0x14091fb0c: lea      rcx, [rip + 0x8af0ad]
+0x14091fb13: mov      qword ptr [rsp + 0x68], rcx
+0x14091fb18: call     0x1400173c0   ; runtime.convT32
+0x14091fb1d: lea      rcx, [rip + 0x1ca45c]
+0x14091fb24: mov      qword ptr [rsp + 0x70], rcx
+0x14091fb29: mov      qword ptr [rsp + 0x78], rax
+0x14091fb2e: lea      rax, [rip + 0x3450d3]
+0x14091fb35: mov      ebx, 0x18
+0x14091fb3a: lea      rcx, [rsp + 0x60]
+0x14091fb3f: mov      edi, 2
+0x14091fb44: mov      rsi, rdi
+0x14091fb47: call     0x140133280   ; fmt.Errorf
+0x14091fb4c: mov      qword ptr [rsp + 0x58], 0
+0x14091fb55: mov      qword ptr [rsp + 0x48], rax
+0x14091fb5a: mov      qword ptr [rsp + 0x50], rbx
+0x14091fb5f: mov      byte ptr [rsp + 0x2f], 0
+0x14091fb64: mov      rdx, qword ptr [rsp + 0x98]
+0x14091fb6c: mov      rcx, qword ptr [rdx]
+0x14091fb6f: call     rcx
+0x14091fb71: mov      rbx, qword ptr [rsp + 0x48]
+0x14091fb76: mov      rax, qword ptr [rsp + 0x58]
+0x14091fb7b: mov      rcx, qword ptr [rsp + 0x50]
+0x14091fb80: add      rsp, 0xa0
+0x14091fb87: pop      rbp
+0x14091fb88: ret      
+0x14091fb89: mov      qword ptr [rsp + 0x58], 0
+0x14091fb92: mov      qword ptr [rsp + 0x48], rbx
+0x14091fb97: mov      qword ptr [rsp + 0x50], rcx
+0x14091fb9c: mov      rax, qword ptr [rsp + 0x58]
+0x14091fba1: add      rsp, 0xa0
+0x14091fba8: pop      rbp
+0x14091fba9: ret      
+0x14091fbaa: call     0x1400435e0   ; runtime.deferreturn
+0x14091fbaf: mov      rax, qword ptr [rsp + 0x58]
+0x14091fbb4: mov      rbx, qword ptr [rsp + 0x48]
+0x14091fbb9: mov      rcx, qword ptr [rsp + 0x50]
+0x14091fbbe: add      rsp, 0xa0
+0x14091fbc5: pop      rbp
+0x14091fbc6: ret      
+0x14091fbc7: mov      qword ptr [rsp + 8], rax
+0x14091fbcc: mov      qword ptr [rsp + 0x10], rbx
+0x14091fbd1: mov      qword ptr [rsp + 0x18], rcx
+0x14091fbd6: call     0x14007f140   ; runtime.morestack_noctxt
+0x14091fbdb: mov      rax, qword ptr [rsp + 8]
+0x14091fbe0: mov      rbx, qword ptr [rsp + 0x10]
+0x14091fbe5: mov      rcx, qword ptr [rsp + 0x18]
+0x14091fbea: jmp      0x14091f9c0   ; main.oledBlackoutRoGetActivationFactory
+0x14091fbef: int3     
+0x14091fbf0: int3     
+0x14091fbf1: int3     
+0x14091fbf2: int3     
+0x14091fbf3: int3     
+0x14091fbf4: int3     
+0x14091fbf5: int3     
+0x14091fbf6: int3     
+0x14091fbf7: int3     
+0x14091fbf8: int3     
+0x14091fbf9: int3     
+0x14091fbfa: int3     
+0x14091fbfb: int3     
+0x14091fbfc: int3     
+0x14091fbfd: int3     
+0x14091fbfe: int3     
+0x14091fbff: int3     

@@ -1,0 +1,8 @@
+0x14087b1c9: lea      rax, [rip + 0x3be1d1]
+0x14087b1d0: mov      ebx, 7
+0x14087b1d5: add      rsp, 0x10
+0x14087b1d9: pop      rbp
+0x14087b1da: ret      
+0x14087b1db: nop      dword ptr [rax + rax]
+0x14087b1e0: cmp      rbx, 8
+0x14087b1e4: jne      0x14087b207   ; main.normalizeFileLocatorFilterType+0x107

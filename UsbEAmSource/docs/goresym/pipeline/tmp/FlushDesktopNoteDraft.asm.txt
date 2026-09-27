@@ -1,0 +1,41 @@
+0x1407a8c40: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a8c44: jbe      0x1407a8c65    ; main.BootstrapService.FlushDesktopNoteDraft+0x25
+0x1407a8c46: push     rbp
+0x1407a8c47: mov      rbp, rsp
+0x1407a8c4a: sub      rsp, 0x18
+0x1407a8c4e: mov      qword ptr [rsp + 0x30], rbx
+0x1407a8c53: mov      rax, qword ptr [rax + 0x440]
+0x1407a8c5a: call     0x1407ba400    ; main.desktopWidgetService.FlushNoteDrafts
+0x1407a8c5f: add      rsp, 0x18
+0x1407a8c63: pop      rbp
+0x1407a8c64: ret      
+0x1407a8c65: mov      qword ptr [rsp + 8], rax
+0x1407a8c6a: mov      qword ptr [rsp + 0x10], rbx
+0x1407a8c6f: mov      qword ptr [rsp + 0x18], rcx
+0x1407a8c74: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a8c79: mov      rax, qword ptr [rsp + 8]
+0x1407a8c7e: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a8c83: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a8c88: jmp      0x1407a8c40    ; main.BootstrapService.FlushDesktopNoteDraft
+0x1407a8c8a: int3     
+0x1407a8c8b: int3     
+0x1407a8c8c: int3     
+0x1407a8c8d: int3     
+0x1407a8c8e: int3     
+0x1407a8c8f: int3     
+0x1407a8c90: int3     
+0x1407a8c91: int3     
+0x1407a8c92: int3     
+0x1407a8c93: int3     
+0x1407a8c94: int3     
+0x1407a8c95: int3     
+0x1407a8c96: int3     
+0x1407a8c97: int3     
+0x1407a8c98: int3     
+0x1407a8c99: int3     
+0x1407a8c9a: int3     
+0x1407a8c9b: int3     
+0x1407a8c9c: int3     
+0x1407a8c9d: int3     
+0x1407a8c9e: int3     
+0x1407a8c9f: int3     

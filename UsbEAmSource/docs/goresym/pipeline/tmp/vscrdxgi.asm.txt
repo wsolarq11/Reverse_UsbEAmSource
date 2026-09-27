@@ -1,0 +1,150 @@
+0x14096ed00: lea      r12, [rsp - 0x50]
+0x14096ed05: cmp      r12, qword ptr [r14 + 0x10]
+0x14096ed09: jbe      0x14096ef1d   ; main.screenshotDXGIHDRScreenCaptureBackend.captureVirtualScreenDXGI+0x21d
+0x14096ed0f: push     rbp
+0x14096ed10: mov      rbp, rsp
+0x14096ed13: sub      rsp, 0xc8
+0x14096ed1a: mov      qword ptr [rsp + 0x108], rax
+0x14096ed22: mov      qword ptr [rsp + 0xc0], rax
+0x14096ed2a: mov      qword ptr [rsp + 0x80], rcx
+0x14096ed32: mov      qword ptr [rsp + 0x78], rbx
+0x14096ed37: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14096ed40: movups   xmmword ptr [rsp + 0x98], xmm15
+0x14096ed49: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x14096ed52: call     0x14095a060   ; main.qrCodeVirtualScreenBounds
+0x14096ed57: cmp      rax, rcx
+0x14096ed5a: jge      0x14096ed65   ; main.screenshotDXGIHDRScreenCaptureBackend.captureVirtualScreenDXGI+0x65
+0x14096ed5c: nop      dword ptr [rax]
+0x14096ed60: cmp      rbx, rdi
+0x14096ed63: jl       0x14096edcc   ; main.screenshotDXGIHDRScreenCaptureBackend.captureVirtualScreenDXGI+0xcc
+0x14096ed65: lea      rax, [rip + 0x1e5614]
+0x14096ed6c: call     0x14001ae20   ; runtime.newobject
+0x14096ed71: mov      qword ptr [rax + 8], 0x21
+0x14096ed79: lea      rcx, [rip + 0x305327]
+0x14096ed80: mov      qword ptr [rax], rcx
+0x14096ed83: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14096ed8c: movups   xmmword ptr [rsp + 0x98], xmm15
+0x14096ed95: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x14096ed9e: mov      rsi, qword ptr [rsp + 0xa8]
+0x14096eda6: mov      r8, qword ptr [rsp + 0xb0]
+0x14096edae: xor      ebx, ebx
+0x14096edb0: mov      rcx, rbx
+0x14096edb3: mov      rdi, rcx
+0x14096edb6: lea      r9, [rip + 0x864343]
+0x14096edbd: mov      r10, rax
+0x14096edc0: mov      rax, rcx
+0x14096edc3: add      rsp, 0xc8
+0x14096edca: pop      rbp
+0x14096edcb: ret      
+0x14096edcc: mov      qword ptr [rsp + 0x70], rdi
+0x14096edd1: mov      qword ptr [rsp + 0x68], rcx
+0x14096edd6: mov      qword ptr [rsp + 0x60], rbx
+0x14096eddb: mov      qword ptr [rsp + 0x58], rax
+0x14096ede0: nop      
+0x14096ede1: mov      rsi, rbx
+0x14096ede4: mov      r8, rcx
+0x14096ede7: mov      r9, rdi
+0x14096edea: lea      r10, [rip + 0x727bbf]
+0x14096edf1: mov      rbx, qword ptr [rsp + 0x78]
+0x14096edf6: mov      rcx, qword ptr [rsp + 0x80]
+0x14096edfe: mov      rdi, rax
+0x14096ee01: mov      rax, qword ptr [rsp + 0xc0]
+0x14096ee09: call     0x14096f1a0   ; main.buildScreenshotDXGIVirtualScreenImage
+0x14096ee0e: test     rbx, rbx
+0x14096ee11: je       0x14096ee58   ; main.screenshotDXGIHDRScreenCaptureBackend.captureVirtualScreenDXGI+0x158
+0x14096ee13: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14096ee1c: movups   xmmword ptr [rsp + 0x98], xmm15
+0x14096ee25: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x14096ee2e: mov      rsi, qword ptr [rsp + 0xa8]
+0x14096ee36: mov      r8, qword ptr [rsp + 0xb0]
+0x14096ee3e: xor      eax, eax
+0x14096ee40: mov      rdi, rax
+0x14096ee43: mov      r9, rbx
+0x14096ee46: mov      r10, rcx
+0x14096ee49: mov      rbx, rax
+0x14096ee4c: mov      rcx, rax
+0x14096ee4f: add      rsp, 0xc8
+0x14096ee56: pop      rbp
+0x14096ee57: ret      
+0x14096ee58: mov      qword ptr [rsp + 0xb8], rax
+0x14096ee60: movups   xmm0, xmmword ptr [rsp + 0xd8]
+0x14096ee68: movups   xmmword ptr [rsp], xmm0
+0x14096ee6c: movups   xmm0, xmmword ptr [rsp + 0xe8]
+0x14096ee74: movups   xmmword ptr [rsp + 0x10], xmm0
+0x14096ee79: movups   xmm0, xmmword ptr [rsp + 0xf8]
+0x14096ee81: movups   xmmword ptr [rsp + 0x20], xmm0
+0x14096ee86: mov      rbx, qword ptr [rsp + 0x58]
+0x14096ee8b: mov      rcx, qword ptr [rsp + 0x60]
+0x14096ee90: mov      rdi, qword ptr [rsp + 0x68]
+0x14096ee95: mov      rsi, qword ptr [rsp + 0x70]
+0x14096ee9a: call     0x14096f100   ; main.drawScreenshotCaptureCursorOnRGBA
+0x14096ee9f: mov      rax, qword ptr [rsp + 0xb8]
+0x14096eea7: call     0x14095a200   ; main.buildDarkenedQRCodeSelectionPreview
+0x14096eeac: mov      rdx, qword ptr [rsp + 0x58]
+0x14096eeb1: mov      qword ptr [rsp + 0x88], rdx
+0x14096eeb9: mov      rdx, qword ptr [rsp + 0x60]
+0x14096eebe: mov      qword ptr [rsp + 0x90], rdx
+0x14096eec6: mov      rcx, qword ptr [rsp + 0x68]
+0x14096eecb: mov      qword ptr [rsp + 0x98], rcx
+0x14096eed3: mov      rdi, qword ptr [rsp + 0x70]
+0x14096eed8: mov      qword ptr [rsp + 0xa0], rdi
+0x14096eee0: mov      rsi, qword ptr [rsp + 0xb8]
+0x14096eee8: mov      qword ptr [rsp + 0xa8], rsi
+0x14096eef0: mov      qword ptr [rsp + 0xb0], rax
+0x14096eef8: mov      rdx, qword ptr [rsp + 0x88]
+0x14096ef00: mov      rbx, qword ptr [rsp + 0x90]
+0x14096ef08: mov      r8, rax
+0x14096ef0b: xor      r9d, r9d
+0x14096ef0e: xor      r10d, r10d
+0x14096ef11: mov      rax, rdx
+0x14096ef14: add      rsp, 0xc8
+0x14096ef1b: pop      rbp
+0x14096ef1c: ret      
+0x14096ef1d: mov      qword ptr [rsp + 0x38], rax
+0x14096ef22: mov      qword ptr [rsp + 0x40], rbx
+0x14096ef27: mov      qword ptr [rsp + 0x48], rcx
+0x14096ef2c: call     0x14007f140   ; runtime.morestack_noctxt
+0x14096ef31: mov      rax, qword ptr [rsp + 0x38]
+0x14096ef36: mov      rbx, qword ptr [rsp + 0x40]
+0x14096ef3b: mov      rcx, qword ptr [rsp + 0x48]
+0x14096ef40: jmp      0x14096ed00   ; main.screenshotDXGIHDRScreenCaptureBackend.captureVirtualScreenDXGI
+0x14096ef45: int3     
+0x14096ef46: int3     
+0x14096ef47: int3     
+0x14096ef48: int3     
+0x14096ef49: int3     
+0x14096ef4a: int3     
+0x14096ef4b: int3     
+0x14096ef4c: int3     
+0x14096ef4d: int3     
+0x14096ef4e: int3     
+0x14096ef4f: int3     
+0x14096ef50: int3     
+0x14096ef51: int3     
+0x14096ef52: int3     
+0x14096ef53: int3     
+0x14096ef54: int3     
+0x14096ef55: int3     
+0x14096ef56: int3     
+0x14096ef57: int3     
+0x14096ef58: int3     
+0x14096ef59: int3     
+0x14096ef5a: int3     
+0x14096ef5b: int3     
+0x14096ef5c: int3     
+0x14096ef5d: int3     
+0x14096ef5e: int3     
+0x14096ef5f: int3     
+0x14096ef60: lea      r12, [rsp - 0x20]
+0x14096ef65: cmp      r12, qword ptr [r14 + 0x10]
+0x14096ef69: jbe      0x14096f094   ; main.screenshotDXGIHDRScreenCaptureBackend.captureScreenRectDXGI+0x134
+0x14096ef6f: push     rbp
+0x14096ef70: mov      rbp, rsp
+0x14096ef73: sub      rsp, 0x98
+0x14096ef7a: mov      qword ptr [rsp + 0xd8], rax
+0x14096ef82: mov      qword ptr [rsp + 0x90], rax
+0x14096ef8a: mov      qword ptr [rsp + 0x80], rcx
+0x14096ef92: mov      qword ptr [rsp + 0x78], rbx
+0x14096ef97: mov      rax, rdi
+0x14096ef9a: mov      rbx, rsi
+0x14096ef9d: mov      rcx, r8

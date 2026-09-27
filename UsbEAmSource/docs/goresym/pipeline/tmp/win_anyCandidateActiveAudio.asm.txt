@@ -1,0 +1,107 @@
+0x14091dd20: lea      r12, [rsp - 0xf8]
+0x14091dd28: cmp      r12, qword ptr [r14 + 0x10]
+0x14091dd2c: jbe      0x14091df1b   ; main.oledBlackoutAnyCandidateHasActiveAudioContext+0x1fb
+0x14091dd32: push     rbp
+0x14091dd33: mov      rbp, rsp
+0x14091dd36: sub      rsp, 0x170
+0x14091dd3d: mov      qword ptr [rsp + 0x198], rax
+0x14091dd45: mov      qword ptr [rsp + 0x1a0], rbx
+0x14091dd4d: mov      qword ptr [rsp + 0x1a8], rcx
+0x14091dd55: test     rdi, rdi
+0x14091dd58: je       0x14091df0c   ; main.oledBlackoutAnyCandidateHasActiveAudioContext+0x1ec
+0x14091dd5e: mov      qword ptr [rsp + 0x1d8], r11
+0x14091dd66: mov      qword ptr [rsp + 0x1b0], rdi
+0x14091dd6e: mov      qword ptr [rsp + 0x1a8], rcx
+0x14091dd76: mov      qword ptr [rsp + 0x1b8], rsi
+0x14091dd7e: mov      qword ptr [rsp + 0x1a0], rbx
+0x14091dd86: mov      qword ptr [rsp + 0x198], rax
+0x14091dd8e: mov      byte ptr [rsp + 0x47], 0
+0x14091dd93: movups   xmmword ptr [rsp + 0x110], xmm15
+0x14091dd9c: movups   xmmword ptr [rsp + 0x120], xmm15
+0x14091dda5: movups   xmmword ptr [rsp + 0x130], xmm15
+0x14091ddae: movups   xmmword ptr [rsp + 0x48], xmm15
+0x14091ddb4: lea      rdi, [rsp + 0x50]
+0x14091ddb9: nop      dword ptr [rax]
+0x14091ddc0: mov      qword ptr [rsp - 0x10], rbp
+0x14091ddc5: lea      rbp, [rsp - 0x10]
+0x14091ddca: call     0x14008170b   ; runtime.duffzero+0x12b
+0x14091ddcf: mov      rbp, qword ptr [rbp]
+0x14091ddd3: movabs   rax, 0x8080808080808080
+0x14091dddd: mov      qword ptr [rsp + 0x48], rax
+0x14091dde2: lea      rax, [rsp + 0x48]
+0x14091dde7: mov      qword ptr [rsp + 0x120], rax
+0x14091ddef: call     0x1400797c0   ; runtime.rand
+0x14091ddf4: mov      qword ptr [rsp + 0x118], rax
+0x14091ddfc: movups   xmmword ptr [rsp + 0x140], xmm15
+0x14091de05: movups   xmmword ptr [rsp + 0x150], xmm15
+0x14091de0e: movups   xmmword ptr [rsp + 0x160], xmm15
+0x14091de17: lea      rax, [rip + 0x162]
+0x14091de1e: mov      qword ptr [rsp + 0x140], rax
+0x14091de26: lea      rax, [rsp + 0x110]
+0x14091de2e: mov      qword ptr [rsp + 0x148], rax
+0x14091de36: mov      rax, qword ptr [rsp + 0x1b0]
+0x14091de3e: mov      qword ptr [rsp + 0x158], rax
+0x14091de46: mov      rax, qword ptr [rsp + 0x1b8]
+0x14091de4e: mov      qword ptr [rsp + 0x160], rax
+0x14091de56: mov      rax, qword ptr [rsp + 0x1a8]
+0x14091de5e: mov      qword ptr [rsp + 0x150], rax
+0x14091de66: lea      rax, [rsp + 0x47]
+0x14091de6b: mov      qword ptr [rsp + 0x168], rax
+0x14091de73: mov      rax, qword ptr [rsp + 0x198]
+0x14091de7b: mov      rbx, qword ptr [rsp + 0x1a0]
+0x14091de83: lea      rcx, [rsp + 0x140]
+0x14091de8b: call     0x140915ce0   ; main.oledBlackoutWalkActiveRenderSessionsContext
+0x14091de90: test     rax, rax
+0x14091de93: jne      0x14091defb   ; main.oledBlackoutAnyCandidateHasActiveAudioContext+0x1db
+0x14091de95: cmp      byte ptr [rsp + 0x47], 0
+0x14091de9a: jne      0x14091dee9   ; main.oledBlackoutAnyCandidateHasActiveAudioContext+0x1c9
+0x14091de9c: mov      rax, qword ptr [rsp + 0x1a8]
+0x14091dea4: mov      rbx, qword ptr [rsp + 0x1b0]
+0x14091deac: mov      rcx, qword ptr [rsp + 0x1b8]
+0x14091deb4: mov      rdi, qword ptr [rsp + 0x180]
+0x14091debc: mov      rsi, qword ptr [rsp + 0x188]
+0x14091dec4: mov      r8, qword ptr [rsp + 0x190]
+0x14091decc: lea      r9, [rsp + 0x110]
+0x14091ded4: mov      r10, qword ptr [rsp + 0x1d8]
+0x14091dedc: nop      dword ptr [rax]
+0x14091dee0: call     0x14091a8c0   ; main.oledBlackoutBrowserAudioMatchesVisiblePlayingWindows
+0x14091dee5: mov      byte ptr [rsp + 0x47], al
+0x14091dee9: movzx    eax, byte ptr [rsp + 0x47]
+0x14091deee: xor      ebx, ebx
+0x14091def0: xor      ecx, ecx
+0x14091def2: add      rsp, 0x170
+0x14091def9: pop      rbp
+0x14091defa: ret      
+0x14091defb: mov      rcx, rbx
+0x14091defe: mov      rbx, rax
+0x14091df01: xor      eax, eax
+0x14091df03: add      rsp, 0x170
+0x14091df0a: pop      rbp
+0x14091df0b: ret      
+0x14091df0c: xor      eax, eax
+0x14091df0e: xor      ebx, ebx
+0x14091df10: xor      ecx, ecx
+0x14091df12: add      rsp, 0x170
+0x14091df19: pop      rbp
+0x14091df1a: ret      
+0x14091df1b: mov      qword ptr [rsp + 0x20], rax
+0x14091df20: mov      qword ptr [rsp + 0x28], rbx
+0x14091df25: mov      qword ptr [rsp + 0x30], rcx
+0x14091df2a: mov      qword ptr [rsp + 0x38], rdi
+0x14091df2f: mov      qword ptr [rsp + 0x40], rsi
+0x14091df34: mov      qword ptr [rsp + 0x48], r8
+0x14091df39: mov      qword ptr [rsp + 0x50], r9
+0x14091df3e: mov      qword ptr [rsp + 0x58], r10
+0x14091df43: mov      qword ptr [rsp + 0x60], r11
+0x14091df48: call     0x14007f140   ; runtime.morestack_noctxt
+0x14091df4d: mov      rax, qword ptr [rsp + 0x20]
+0x14091df52: mov      rbx, qword ptr [rsp + 0x28]
+0x14091df57: mov      rcx, qword ptr [rsp + 0x30]
+0x14091df5c: mov      rdi, qword ptr [rsp + 0x38]
+0x14091df61: mov      rsi, qword ptr [rsp + 0x40]
+0x14091df66: mov      r8, qword ptr [rsp + 0x48]
+0x14091df6b: mov      r9, qword ptr [rsp + 0x50]
+0x14091df70: mov      r10, qword ptr [rsp + 0x58]
+0x14091df75: mov      r11, qword ptr [rsp + 0x60]
+0x14091df7a: jmp      0x14091dd20   ; main.oledBlackoutAnyCandidateHasActiveAudioContext
+0x14091df7f: int3     

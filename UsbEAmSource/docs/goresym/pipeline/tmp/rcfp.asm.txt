@@ -1,0 +1,14 @@
+0x1407a1920: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a1924: jbe      0x1407a19ce   ; main.resolveLauncherConfigFilePath+0xae
+0x1407a192a: push     rbp
+0x1407a192b: mov      rbp, rsp
+0x1407a192e: sub      rsp, 0x48
+0x1407a1932: mov      qword ptr [rsp + 0x60], rbx
+0x1407a1937: mov      qword ptr [rsp + 0x58], rax
+0x1407a193c: lea      rax, [rip + 0x4bf88b]
+0x1407a1943: mov      ebx, 0x16
+0x1407a1948: call     0x140125a00   ; os.Getenv
+0x1407a194d: call     0x1400a2200   ; strings.TrimSpace
+0x1407a1952: test     rbx, rbx
+0x1407a1955: je       0x1407a1981   ; main.resolveLauncherConfigFilePath+0x61
+0x1407a1957: mov      qword ptr [rsp + 0x20], rax

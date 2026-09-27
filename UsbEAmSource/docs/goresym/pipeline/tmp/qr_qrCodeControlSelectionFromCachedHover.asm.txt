@@ -1,0 +1,62 @@
+0x14093e860: cmp      rsp, qword ptr [r14 + 0x10]
+0x14093e864: jbe      0x14093e8d2   ; main.qrCodeControlSelectionFromCachedHover+0x72
+0x14093e866: push     rbp
+0x14093e867: mov      rbp, rsp
+0x14093e86a: sub      rsp, 0x40
+0x14093e86e: cmp      rax, rcx
+0x14093e871: jge      0x14093e8c1   ; main.qrCodeControlSelectionFromCachedHover+0x61
+0x14093e873: cmp      rdi, rbx
+0x14093e876: jle      0x14093e8c1   ; main.qrCodeControlSelectionFromCachedHover+0x61
+0x14093e878: mov      r9, qword ptr [rsp + 0x60]
+0x14093e87d: mov      rdx, qword ptr [rsp + 0x50]
+0x14093e882: cmp      r9, rdx
+0x14093e885: jle      0x14093e8c1   ; main.qrCodeControlSelectionFromCachedHover+0x61
+0x14093e887: mov      r10, qword ptr [rsp + 0x68]
+0x14093e88c: mov      r11, qword ptr [rsp + 0x58]
+0x14093e891: cmp      r10, r11
+0x14093e894: jle      0x14093e8c1   ; main.qrCodeControlSelectionFromCachedHover+0x61
+0x14093e896: cmp      rax, rsi
+0x14093e899: jg       0x14093e8c1   ; main.qrCodeControlSelectionFromCachedHover+0x61
+0x14093e89b: nop      dword ptr [rax + rax]
+0x14093e8a0: cmp      rcx, rsi
+0x14093e8a3: jle      0x14093e8c1   ; main.qrCodeControlSelectionFromCachedHover+0x61
+0x14093e8a5: cmp      rbx, r8
+0x14093e8a8: jg       0x14093e8c1   ; main.qrCodeControlSelectionFromCachedHover+0x61
+0x14093e8aa: cmp      rdi, r8
+0x14093e8ad: jle      0x14093e8c1   ; main.qrCodeControlSelectionFromCachedHover+0x61
+0x14093e8af: mov      rsi, rdx
+0x14093e8b2: mov      r8, r11
+0x14093e8b5: call     0x1401a1160   ; image.Rectangle.Intersect
+0x14093e8ba: add      rsp, 0x40
+0x14093e8be: pop      rbp
+0x14093e8bf: nop      
+0x14093e8c0: ret      
+0x14093e8c1: xor      eax, eax
+0x14093e8c3: mov      rbx, rax
+0x14093e8c6: mov      rcx, rax
+0x14093e8c9: mov      rdi, rax
+0x14093e8cc: add      rsp, 0x40
+0x14093e8d0: pop      rbp
+0x14093e8d1: ret      
+0x14093e8d2: mov      qword ptr [rsp + 0x28], rax
+0x14093e8d7: mov      qword ptr [rsp + 0x30], rbx
+0x14093e8dc: mov      qword ptr [rsp + 0x38], rcx
+0x14093e8e1: mov      qword ptr [rsp + 0x40], rdi
+0x14093e8e6: mov      qword ptr [rsp + 0x48], rsi
+0x14093e8eb: mov      qword ptr [rsp + 0x50], r8
+0x14093e8f0: call     0x14007f140   ; runtime.morestack_noctxt
+0x14093e8f5: mov      rax, qword ptr [rsp + 0x28]
+0x14093e8fa: mov      rbx, qword ptr [rsp + 0x30]
+0x14093e8ff: mov      rcx, qword ptr [rsp + 0x38]
+0x14093e904: mov      rdi, qword ptr [rsp + 0x40]
+0x14093e909: mov      rsi, qword ptr [rsp + 0x48]
+0x14093e90e: mov      r8, qword ptr [rsp + 0x50]
+0x14093e913: jmp      0x14093e860   ; main.qrCodeControlSelectionFromCachedHover
+0x14093e918: int3     
+0x14093e919: int3     
+0x14093e91a: int3     
+0x14093e91b: int3     
+0x14093e91c: int3     
+0x14093e91d: int3     
+0x14093e91e: int3     
+0x14093e91f: int3     

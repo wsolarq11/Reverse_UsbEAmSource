@@ -1,0 +1,385 @@
+0x140954c20: lea      r12, [rsp - 0x198]
+0x140954c28: cmp      r12, qword ptr [r14 + 0x10]
+0x140954c2c: jbe      0x140955474   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x854
+0x140954c32: push     rbp
+0x140954c33: mov      rbp, rsp
+0x140954c36: sub      rsp, 0x210
+0x140954c3d: nop      dword ptr [rax]
+0x140954c40: test     rax, rax
+0x140954c43: je       0x1409552b7   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x697
+0x140954c49: mov      qword ptr [rsp + 0x2b8], rax
+0x140954c51: mov      qword ptr [rsp + 0x2c0], rbx
+0x140954c59: mov      qword ptr [rsp + 0x170], r8
+0x140954c61: mov      qword ptr [rsp + 0x168], r10
+0x140954c69: mov      qword ptr [rsp + 0x160], r9
+0x140954c71: mov      qword ptr [rsp + 0x158], rsi
+0x140954c79: mov      qword ptr [rsp + 0x150], rdi
+0x140954c81: mov      qword ptr [rsp + 0x148], rcx
+0x140954c89: mov      rdx, qword ptr [rsp + 0x220]
+0x140954c91: mov      qword ptr [rsp], rdx
+0x140954c95: lea      rsi, [rsp + 0x228]
+0x140954c9d: mov      rax, rdi
+0x140954ca0: lea      rdi, [rsp + 8]
+0x140954ca5: mov      qword ptr [rsp - 0x10], rbp
+0x140954caa: lea      rbp, [rsp - 0x10]
+0x140954caf: call     0x140081a62   ; runtime.duffcopy+0x302
+0x140954cb4: mov      rbp, qword ptr [rbp]
+0x140954cb8: neg      rcx
+0x140954cbb: mov      rbx, rax
+0x140954cbe: neg      rbx
+0x140954cc1: mov      rax, rcx
+0x140954cc4: call     0x140947ec0   ; main.offsetQRCodeAnnotationStroke
+0x140954cc9: mov      rcx, qword ptr [rsp + 0x98]
+0x140954cd1: mov      qword ptr [rsp + 0x178], rcx
+0x140954cd9: lea      rdi, [rsp + 0x180]
+0x140954ce1: lea      rsi, [rsp + 0xa0]
+0x140954ce9: mov      qword ptr [rsp - 0x10], rbp
+0x140954cee: lea      rbp, [rsp - 0x10]
+0x140954cf3: call     0x140081a62   ; runtime.duffcopy+0x302
+0x140954cf8: mov      rbp, qword ptr [rbp]
+0x140954cfc: mov      rcx, qword ptr [rsp + 0x188]
+0x140954d04: mov      rdx, qword ptr [rsp + 0x180]
+0x140954d0c: cmp      rcx, 4
+0x140954d10: jg       0x140955025   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x405
+0x140954d16: cmp      rcx, 3
+0x140954d1a: jne      0x140954d40   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x120
+0x140954d1c: cmp      word ptr [rdx], 0x6570
+0x140954d21: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140954d27: cmp      byte ptr [rdx + 2], 0x6e
+0x140954d2b: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140954d31: mov      eax, 1
+0x140954d36: jmp      0x1409552e0   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6c0
+0x140954d3b: nop      dword ptr [rax + rax]
+0x140954d40: cmp      rcx, 4
+0x140954d44: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140954d4a: cmp      byte ptr [rdx], 0x6c
+0x140954d4d: jg       0x140954e45   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x225
+0x140954d53: cmp      dword ptr [rdx], 0x72756c62
+0x140954d59: je       0x140954dca   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x1aa
+0x140954d5b: cmp      dword ptr [rdx], 0x656e696c
+0x140954d61: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140954d67: mov      rbx, qword ptr [rsp + 0x190]
+0x140954d6f: mov      rcx, qword ptr [rsp + 0x198]
+0x140954d77: mov      rdi, qword ptr [rsp + 0x1a0]
+0x140954d7f: mov      rsi, qword ptr [rsp + 0x1a8]
+0x140954d87: movzx    r8d, byte ptr [rsp + 0x1c8]
+0x140954d90: movzx    r9d, byte ptr [rsp + 0x1c9]
+0x140954d99: movzx    r10d, byte ptr [rsp + 0x1ca]
+0x140954da2: movzx    r11d, byte ptr [rsp + 0x1cb]
+0x140954dab: mov      rdx, qword ptr [rsp + 0x1d0]
+0x140954db3: mov      qword ptr [rsp], rdx
+0x140954db7: mov      rax, qword ptr [rsp + 0x2b8]
+0x140954dbf: nop      
+0x140954dc0: call     0x140957f00   ; main.drawSmoothCapsuleOnRGBA
+0x140954dc5: jmp      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140954dca: mov      rdx, qword ptr [rsp + 0x220]
+0x140954dd2: mov      qword ptr [rsp], rdx
+0x140954dd6: lea      rdi, [rsp + 8]
+0x140954ddb: lea      rsi, [rsp + 0x228]
+0x140954de3: mov      qword ptr [rsp - 0x10], rbp
+0x140954de8: lea      rbp, [rsp - 0x10]
+0x140954ded: call     0x140081a62   ; runtime.duffcopy+0x302
+0x140954df2: mov      rbp, qword ptr [rbp]
+0x140954df6: mov      rax, qword ptr [rsp + 0x2b8]
+0x140954dfe: mov      rbx, qword ptr [rsp + 0x2c0]
+0x140954e06: mov      rcx, qword ptr [rsp + 0x148]
+0x140954e0e: mov      rdi, qword ptr [rsp + 0x150]
+0x140954e16: mov      rsi, qword ptr [rsp + 0x158]
+0x140954e1e: mov      r8, qword ptr [rsp + 0x170]
+0x140954e26: mov      r9, qword ptr [rsp + 0x160]
+0x140954e2e: mov      r10, qword ptr [rsp + 0x168]
+0x140954e36: call     0x1409557c0   ; main.drawQRCodeAnnotationBlurOnImageWithOffset
+0x140954e3b: nop      dword ptr [rax + rax]
+0x140954e40: jmp      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140954e45: cmp      dword ptr [rdx], 0x74636572
+0x140954e4b: je       0x140954ebd   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x29d
+0x140954e4d: cmp      dword ptr [rdx], 0x74786574
+0x140954e53: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140954e59: mov      rdx, qword ptr [rsp + 0x178]
+0x140954e61: mov      qword ptr [rsp], rdx
+0x140954e65: lea      rdi, [rsp + 8]
+0x140954e6a: lea      rsi, [rsp + 0x180]
+0x140954e72: nop      word ptr [rax + rax]
+0x140954e7b: nop      dword ptr [rax + rax]
+0x140954e80: mov      qword ptr [rsp - 0x10], rbp
+0x140954e85: lea      rbp, [rsp - 0x10]
+0x140954e8a: call     0x140081a62   ; runtime.duffcopy+0x302
+0x140954e8f: mov      rbp, qword ptr [rbp]
+0x140954e93: mov      rax, qword ptr [rsp + 0x2b8]
+0x140954e9b: xor      ebx, ebx
+0x140954e9d: mov      ecx, ebx
+0x140954e9f: mov      edi, ecx
+0x140954ea1: mov      esi, ecx
+0x140954ea3: xor      r8d, r8d
+0x140954ea6: call     0x140956820   ; main.drawTextBlockOnRGBAWithOutline
+0x140954eab: test     rax, rax
+0x140954eae: je       0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140954eb4: add      rsp, 0x210
+0x140954ebb: pop      rbp
+0x140954ebc: ret      
+0x140954ebd: mov      rbx, qword ptr [rsp + 0x190]
+0x140954ec5: mov      rdi, qword ptr [rsp + 0x1a0]
+0x140954ecd: mov      rsi, qword ptr [rsp + 0x198]
+0x140954ed5: movzx    r8d, byte ptr [rsp + 0x1c8]
+0x140954ede: movzx    r9d, byte ptr [rsp + 0x1c9]
+0x140954ee7: movzx    r10d, byte ptr [rsp + 0x1ca]
+0x140954ef0: movzx    r11d, byte ptr [rsp + 0x1cb]
+0x140954ef9: mov      rdx, qword ptr [rsp + 0x1d0]
+0x140954f01: mov      qword ptr [rsp], rdx
+0x140954f05: mov      rax, qword ptr [rsp + 0x2b8]
+0x140954f0d: mov      rcx, rsi
+0x140954f10: call     0x140957f00   ; main.drawSmoothCapsuleOnRGBA
+0x140954f15: mov      rcx, qword ptr [rsp + 0x198]
+0x140954f1d: mov      rsi, qword ptr [rsp + 0x1a8]
+0x140954f25: mov      rdi, qword ptr [rsp + 0x1a0]
+0x140954f2d: movzx    r8d, byte ptr [rsp + 0x1c8]
+0x140954f36: movzx    r9d, byte ptr [rsp + 0x1c9]
+0x140954f3f: movzx    r10d, byte ptr [rsp + 0x1ca]
+0x140954f48: movzx    r11d, byte ptr [rsp + 0x1cb]
+0x140954f51: mov      rdx, qword ptr [rsp + 0x1d0]
+0x140954f59: mov      qword ptr [rsp], rdx
+0x140954f5d: mov      rax, qword ptr [rsp + 0x2b8]
+0x140954f65: mov      rbx, rdi
+0x140954f68: call     0x140957f00   ; main.drawSmoothCapsuleOnRGBA
+0x140954f6d: mov      rsi, qword ptr [rsp + 0x1a8]
+0x140954f75: mov      rbx, qword ptr [rsp + 0x1a0]
+0x140954f7d: mov      rdi, qword ptr [rsp + 0x190]
+0x140954f85: movzx    r8d, byte ptr [rsp + 0x1c8]
+0x140954f8e: movzx    r9d, byte ptr [rsp + 0x1c9]
+0x140954f97: movzx    r10d, byte ptr [rsp + 0x1ca]
+0x140954fa0: movzx    r11d, byte ptr [rsp + 0x1cb]
+0x140954fa9: mov      rdx, qword ptr [rsp + 0x1d0]
+0x140954fb1: mov      qword ptr [rsp], rdx
+0x140954fb5: mov      rax, qword ptr [rsp + 0x2b8]
+0x140954fbd: mov      rcx, rsi
+0x140954fc0: call     0x140957f00   ; main.drawSmoothCapsuleOnRGBA
+0x140954fc5: mov      rcx, qword ptr [rsp + 0x1a8]
+0x140954fcd: mov      rsi, qword ptr [rsp + 0x198]
+0x140954fd5: mov      rdi, qword ptr [rsp + 0x190]
+0x140954fdd: movzx    r8d, byte ptr [rsp + 0x1c8]
+0x140954fe6: movzx    r9d, byte ptr [rsp + 0x1c9]
+0x140954fef: movzx    r10d, byte ptr [rsp + 0x1ca]
+0x140954ff8: movzx    r11d, byte ptr [rsp + 0x1cb]
+0x140955001: mov      rdx, qword ptr [rsp + 0x1d0]
+0x140955009: mov      qword ptr [rsp], rdx
+0x14095500d: mov      rax, qword ptr [rsp + 0x2b8]
+0x140955015: mov      rbx, rdi
+0x140955018: call     0x140957f00   ; main.drawSmoothCapsuleOnRGBA
+0x14095501d: nop      dword ptr [rax]
+0x140955020: jmp      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140955025: cmp      rcx, 5
+0x140955029: jne      0x14095510a   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x4ea
+0x14095502f: cmp      dword ptr [rdx], 0x6f727261
+0x140955035: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x14095503b: cmp      byte ptr [rdx + 4], 0x77
+0x14095503f: nop      
+0x140955040: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140955046: mov      rbx, qword ptr [rsp + 0x190]
+0x14095504e: mov      rcx, qword ptr [rsp + 0x198]
+0x140955056: mov      rdi, qword ptr [rsp + 0x1a0]
+0x14095505e: mov      rsi, qword ptr [rsp + 0x1a8]
+0x140955066: movzx    r8d, byte ptr [rsp + 0x1c8]
+0x14095506f: movzx    r9d, byte ptr [rsp + 0x1c9]
+0x140955078: movzx    r10d, byte ptr [rsp + 0x1ca]
+0x140955081: movzx    r11d, byte ptr [rsp + 0x1cb]
+0x14095508a: mov      rdx, qword ptr [rsp + 0x1d0]
+0x140955092: mov      qword ptr [rsp], rdx
+0x140955096: mov      rax, qword ptr [rsp + 0x2b8]
+0x14095509e: nop      
+0x1409550a0: call     0x140957f00   ; main.drawSmoothCapsuleOnRGBA
+0x1409550a5: mov      rbx, qword ptr [rsp + 0x190]
+0x1409550ad: mov      rcx, qword ptr [rsp + 0x198]
+0x1409550b5: mov      rdi, qword ptr [rsp + 0x1a0]
+0x1409550bd: mov      rsi, qword ptr [rsp + 0x1a8]
+0x1409550c5: movzx    r8d, byte ptr [rsp + 0x1c8]
+0x1409550ce: movzx    r9d, byte ptr [rsp + 0x1c9]
+0x1409550d7: movzx    r10d, byte ptr [rsp + 0x1ca]
+0x1409550e0: movzx    r11d, byte ptr [rsp + 0x1cb]
+0x1409550e9: mov      rdx, qword ptr [rsp + 0x1d0]
+0x1409550f1: mov      qword ptr [rsp], rdx
+0x1409550f5: mov      rax, qword ptr [rsp + 0x2b8]
+0x1409550fd: nop      dword ptr [rax]
+0x140955100: call     0x140955a60   ; main.drawArrowHeadOnRGBA
+0x140955105: jmp      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x14095510a: cmp      rcx, 6
+0x14095510e: jne      0x14095520a   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x5ea
+0x140955114: cmp      dword ptr [rdx], 0x61736f6d
+0x14095511a: nop      word ptr [rax + rax]
+0x140955120: jne      0x1409551aa   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x58a
+0x140955126: cmp      word ptr [rdx + 4], 0x6369
+0x14095512c: jne      0x1409551aa   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x58a
+0x140955132: mov      rdx, qword ptr [rsp + 0x220]
+0x14095513a: mov      qword ptr [rsp], rdx
+0x14095513e: lea      rdi, [rsp + 8]
+0x140955143: lea      rsi, [rsp + 0x228]
+0x14095514b: mov      qword ptr [rsp - 0x10], rbp
+0x140955150: lea      rbp, [rsp - 0x10]
+0x140955155: call     0x140081a62   ; runtime.duffcopy+0x302
+0x14095515a: mov      rbp, qword ptr [rbp]
+0x14095515e: mov      rax, qword ptr [rsp + 0x2b8]
+0x140955166: mov      rbx, qword ptr [rsp + 0x2c0]
+0x14095516e: mov      rcx, qword ptr [rsp + 0x148]
+0x140955176: mov      rdi, qword ptr [rsp + 0x150]
+0x14095517e: mov      rsi, qword ptr [rsp + 0x158]
+0x140955186: mov      r8, qword ptr [rsp + 0x170]
+0x14095518e: mov      r9, qword ptr [rsp + 0x160]
+0x140955196: mov      r10, qword ptr [rsp + 0x168]
+0x14095519e: nop      
+0x1409551a0: call     0x140955500   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset
+0x1409551a5: jmp      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x1409551aa: cmp      dword ptr [rdx], 0x626d756e
+0x1409551b0: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x1409551b6: cmp      word ptr [rdx + 4], 0x7265
+0x1409551bc: nop      dword ptr [rax]
+0x1409551c0: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x1409551c6: mov      rcx, qword ptr [rsp + 0x178]
+0x1409551ce: mov      qword ptr [rsp], rcx
+0x1409551d2: lea      rdi, [rsp + 8]
+0x1409551d7: lea      rsi, [rsp + 0x180]
+0x1409551df: nop      
+0x1409551e0: mov      qword ptr [rsp - 0x10], rbp
+0x1409551e5: lea      rbp, [rsp - 0x10]
+0x1409551ea: call     0x140081a62   ; runtime.duffcopy+0x302
+0x1409551ef: mov      rbp, qword ptr [rbp]
+0x1409551f3: mov      rax, qword ptr [rsp + 0x2b8]
+0x1409551fb: nop      dword ptr [rax + rax]
+0x140955200: call     0x140956360   ; main.drawNumberOnRGBA
+0x140955205: jmp      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x14095520a: cmp      rcx, 7
+0x14095520e: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140955214: cmp      dword ptr [rdx], 0x696c6c65
+0x14095521a: nop      word ptr [rax + rax]
+0x140955220: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140955226: cmp      word ptr [rdx + 4], 0x7370
+0x14095522c: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x140955232: cmp      byte ptr [rdx + 6], 0x65
+0x140955236: jne      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x14095523c: mov      rbx, qword ptr [rsp + 0x190]
+0x140955244: mov      rcx, qword ptr [rsp + 0x198]
+0x14095524c: mov      rdx, qword ptr [rsp + 0x1a0]
+0x140955254: mov      r12, qword ptr [rsp + 0x1a8]
+0x14095525c: movzx    r9d, byte ptr [rsp + 0x1c9]
+0x140955265: movzx    r10d, byte ptr [rsp + 0x1ca]
+0x14095526e: movzx    r11d, byte ptr [rsp + 0x1cb]
+0x140955277: movzx    r8d, byte ptr [rsp + 0x1c8]
+0x140955280: mov      r13, qword ptr [rsp + 0x1d0]
+0x140955288: mov      qword ptr [rsp], r13
+0x14095528c: cmp      rdx, rbx
+0x14095528f: mov      rdi, rbx
+0x140955292: cmovl    rbx, rdx
+0x140955296: cmovg    rdi, rdx
+0x14095529a: cmp      rcx, r12
+0x14095529d: mov      rsi, rcx
+0x1409552a0: cmovg    rcx, r12
+0x1409552a4: cmovl    rsi, r12
+0x1409552a8: mov      rax, qword ptr [rsp + 0x2b8]
+0x1409552b0: call     0x140955f00   ; main.drawEllipseOnRGBA
+0x1409552b5: jmp      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x1409552b7: xor      eax, eax
+0x1409552b9: xor      ebx, ebx
+0x1409552bb: add      rsp, 0x210
+0x1409552c2: pop      rbp
+0x1409552c3: ret      
+0x1409552c4: xor      eax, eax
+0x1409552c6: xor      ebx, ebx
+0x1409552c8: add      rsp, 0x210
+0x1409552cf: pop      rbp
+0x1409552d0: ret      
+0x1409552d1: mov      rax, qword ptr [rsp + 0x140]
+0x1409552d9: inc      rax
+0x1409552dc: nop      dword ptr [rax]
+0x1409552e0: cmp      qword ptr [rsp + 0x1b8], rax
+0x1409552e8: jle      0x1409552c4   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6a4
+0x1409552ea: mov      qword ptr [rsp + 0x140], rax
+0x1409552f2: mov      rdx, qword ptr [rsp + 0x1b0]
+0x1409552fa: lea      r8, [rax - 1]
+0x1409552fe: mov      qword ptr [rsp + 0x170], r8
+0x140955306: shl      r8, 4
+0x14095530a: mov      qword ptr [rsp + 0x168], r8
+0x140955312: mov      r9, qword ptr [r8 + rdx]
+0x140955316: mov      rbx, qword ptr [r8 + rdx + 8]
+0x14095531b: shl      rax, 4
+0x14095531f: mov      qword ptr [rsp + 0x160], rax
+0x140955327: mov      rcx, qword ptr [rax + rdx]
+0x14095532b: mov      rdi, qword ptr [rax + rdx + 8]
+0x140955330: mov      rsi, qword ptr [rsp + 0x1d0]
+0x140955338: mov      rax, r9
+0x14095533b: nop      dword ptr [rax + rax]
+0x140955340: call     0x1409529e0   ; main.qrCodeAnnotationLinePaintBounds
+0x140955345: cmp      rax, rcx
+0x140955348: jl       0x140955357   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x737
+0x14095534a: mov      rdx, qword ptr [rsp + 0x2b8]
+0x140955352: jmp      0x1409552d1   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6b1
+0x140955357: cmp      rbx, rdi
+0x14095535a: jl       0x140955369   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x749
+0x14095535c: mov      rdx, qword ptr [rsp + 0x2b8]
+0x140955364: jmp      0x1409552d1   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6b1
+0x140955369: mov      rdx, qword ptr [rsp + 0x2b8]
+0x140955371: mov      r12, qword ptr [rdx + 0x30]
+0x140955375: mov      r13, qword ptr [rdx + 0x20]
+0x140955379: nop      dword ptr [rax]
+0x140955380: cmp      r13, r12
+0x140955383: jge      0x1409552d1   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6b1
+0x140955389: mov      r15, qword ptr [rdx + 0x28]
+0x14095538d: mov      rsi, qword ptr [rdx + 0x38]
+0x140955391: cmp      r15, rsi
+0x140955394: jge      0x1409552d1   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6b1
+0x14095539a: nop      word ptr [rax + rax]
+0x1409553a0: cmp      rax, r12
+0x1409553a3: jge      0x1409552d1   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6b1
+0x1409553a9: cmp      rcx, r13
+0x1409553ac: jle      0x1409552d1   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6b1
+0x1409553b2: cmp      rbx, rsi
+0x1409553b5: jge      0x1409552d1   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6b1
+0x1409553bb: nop      dword ptr [rax + rax]
+0x1409553c0: cmp      rdi, r15
+0x1409553c3: jle      0x1409552d1   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6b1
+0x1409553c9: mov      rcx, qword ptr [rsp + 0x1b8]
+0x1409553d1: mov      rax, qword ptr [rsp + 0x170]
+0x1409553d9: nop      dword ptr [rax]
+0x1409553e0: cmp      rcx, rax
+0x1409553e3: jbe      0x14095546e   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x84e
+0x1409553e9: mov      r12, qword ptr [rsp + 0x1b0]
+0x1409553f1: mov      r13, qword ptr [rsp + 0x168]
+0x1409553f9: mov      rbx, qword ptr [r13 + r12]
+0x1409553fe: mov      r13, qword ptr [r13 + r12 + 8]
+0x140955403: mov      rax, qword ptr [rsp + 0x140]
+0x14095540b: cmp      rax, rcx
+0x14095540e: jae      0x140955469   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x849
+0x140955410: mov      r15, qword ptr [rsp + 0x160]
+0x140955418: mov      rdi, qword ptr [r15 + r12]
+0x14095541c: mov      rsi, qword ptr [r15 + r12 + 8]
+0x140955421: movzx    r8d, byte ptr [rsp + 0x1c8]
+0x14095542a: movzx    r9d, byte ptr [rsp + 0x1c9]
+0x140955433: movzx    r10d, byte ptr [rsp + 0x1ca]
+0x14095543c: movzx    r11d, byte ptr [rsp + 0x1cb]
+0x140955445: mov      r12, qword ptr [rsp + 0x1d0]
+0x14095544d: mov      qword ptr [rsp], r12
+0x140955451: mov      rax, rdx
+0x140955454: mov      rcx, r13
+0x140955457: call     0x140957f00   ; main.drawSmoothCapsuleOnRGBA
+0x14095545c: mov      rdx, qword ptr [rsp + 0x2b8]
+0x140955464: jmp      0x1409552d1   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset+0x6b1
+0x140955469: call     0x140081400   ; runtime.panicIndex
+0x14095546e: call     0x140081400   ; runtime.panicIndex
+0x140955473: nop      
+0x140955474: mov      qword ptr [rsp + 0xa0], rax
+0x14095547c: mov      qword ptr [rsp + 0xa8], rbx
+0x140955484: mov      qword ptr [rsp + 0xb0], rcx
+0x14095548c: mov      qword ptr [rsp + 0xb8], rdi
+0x140955494: mov      qword ptr [rsp + 0xc0], rsi
+0x14095549c: mov      qword ptr [rsp + 0xc8], r8
+0x1409554a4: mov      qword ptr [rsp + 0xd0], r9
+0x1409554ac: mov      qword ptr [rsp + 0xd8], r10
+0x1409554b4: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409554b9: mov      rax, qword ptr [rsp + 0xa0]
+0x1409554c1: mov      rbx, qword ptr [rsp + 0xa8]
+0x1409554c9: mov      rcx, qword ptr [rsp + 0xb0]
+0x1409554d1: mov      rdi, qword ptr [rsp + 0xb8]
+0x1409554d9: mov      rsi, qword ptr [rsp + 0xc0]
+0x1409554e1: mov      r8, qword ptr [rsp + 0xc8]
+0x1409554e9: mov      r9, qword ptr [rsp + 0xd0]
+0x1409554f1: mov      r10, qword ptr [rsp + 0xd8]
+0x1409554f9: jmp      0x140954c20   ; main.drawQRCodeAnnotationStrokeOnImageWithOffset
+0x1409554fe: int3     
+0x1409554ff: int3     

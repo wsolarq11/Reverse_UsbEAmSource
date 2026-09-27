@@ -1,0 +1,6 @@
+0x140c6f12e: movabs   eax, dword ptr [0x97e6baa9e7bab8e4]
+0x140c6f137: movabs   al, byte ptr [0x8fe5b78ee895b3e6]
+0x140c6f140: xchg     esi, eax
+0x140c6f141: in       eax, 0xbd
+0x140c6f143: xchg     ebx, eax
+0x140c6f144: in       eax, 0x89

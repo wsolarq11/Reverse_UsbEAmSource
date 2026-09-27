@@ -1,0 +1,67 @@
+0x14078c600: cmp      rsp, qword ptr [r14 + 0x10]
+0x14078c604: jbe      0x14078c6c4   ; main.BootstrapService).captureScreenshotWithSaveFormat.func1+0xc4
+0x14078c60a: push     rbp
+0x14078c60b: mov      rbp, rsp
+0x14078c60e: sub      rsp, 0x30
+0x14078c612: mov      rcx, qword ptr [rdx + 8]
+0x14078c616: mov      rsi, qword ptr [rdx + 0x10]
+0x14078c61a: mov      rdx, qword ptr [rdx + 0x18]
+0x14078c61e: nop      
+0x14078c61f: lea      rdi, [rcx + 0x540]
+0x14078c626: xor      eax, eax
+0x14078c628: mov      r8d, 1
+0x14078c62e: lock cmpxchg dword ptr [rcx + 0x540], r8d
+0x14078c637: sete     r8b
+0x14078c63b: nop      dword ptr [rax + rax]
+0x14078c640: test     r8b, r8b
+0x14078c643: jne      0x14078c679   ; main.BootstrapService).captureScreenshotWithSaveFormat.func1+0x79
+0x14078c645: mov      qword ptr [rsp + 0x18], rcx
+0x14078c64a: mov      qword ptr [rsp + 0x28], rdi
+0x14078c64f: mov      qword ptr [rsp + 0x10], rdx
+0x14078c654: mov      qword ptr [rsp + 0x20], rsi
+0x14078c659: mov      rax, rdi
+0x14078c65c: nop      dword ptr [rax]
+0x14078c660: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x14078c665: mov      rcx, qword ptr [rsp + 0x18]
+0x14078c66a: mov      rdx, qword ptr [rsp + 0x10]
+0x14078c66f: mov      rsi, qword ptr [rsp + 0x20]
+0x14078c674: mov      rdi, qword ptr [rsp + 0x28]
+0x14078c679: mov      qword ptr [rcx + 0x288], rdx
+0x14078c680: cmp      dword ptr [rip + 0x14cecc9], 0
+0x14078c687: je       0x14078c69c   ; main.BootstrapService).captureScreenshotWithSaveFormat.func1+0x9c
+0x14078c689: mov      rdx, qword ptr [rcx + 0x280]
+0x14078c690: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14078c695: mov      qword ptr [r11], rsi
+0x14078c698: mov      qword ptr [r11 + 8], rdx
+0x14078c69c: mov      qword ptr [rcx + 0x280], rsi
+0x14078c6a3: nop      
+0x14078c6a4: nop      
+0x14078c6a5: mov      ebx, 0xffffffff
+0x14078c6aa: lock xadd dword ptr [rcx + 0x540], ebx
+0x14078c6b2: dec      ebx
+0x14078c6b4: je       0x14078c6be   ; main.BootstrapService).captureScreenshotWithSaveFormat.func1+0xbe
+0x14078c6b6: mov      rax, rdi
+0x14078c6b9: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x14078c6be: add      rsp, 0x30
+0x14078c6c2: pop      rbp
+0x14078c6c3: ret      
+0x14078c6c4: call     0x14007f0a0   ; runtime.morestack
+0x14078c6c9: jmp      0x14078c600   ; main.BootstrapService).captureScreenshotWithSaveFormat.func1
+0x14078c6ce: int3     
+0x14078c6cf: int3     
+0x14078c6d0: int3     
+0x14078c6d1: int3     
+0x14078c6d2: int3     
+0x14078c6d3: int3     
+0x14078c6d4: int3     
+0x14078c6d5: int3     
+0x14078c6d6: int3     
+0x14078c6d7: int3     
+0x14078c6d8: int3     
+0x14078c6d9: int3     
+0x14078c6da: int3     
+0x14078c6db: int3     
+0x14078c6dc: int3     
+0x14078c6dd: int3     
+0x14078c6de: int3     
+0x14078c6df: int3     

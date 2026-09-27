@@ -1,0 +1,250 @@
+0x1408ca720: lea      r12, [rsp - 0x10]
+0x1408ca725: cmp      r12, qword ptr [r14 + 0x10]
+0x1408ca729: jbe      0x1408caa94    ; main.validateLauncherUpdateAbsolutePath+0x374
+0x1408ca72f: push     rbp
+0x1408ca730: mov      rbp, rsp
+0x1408ca733: sub      rsp, 0x88
+0x1408ca73a: mov      qword ptr [rsp + 0x98], rax
+0x1408ca742: call     0x1400a2200    ; strings.TrimSpace
+0x1408ca747: test     rbx, rbx
+0x1408ca74a: je       0x1408ca765    ; main.validateLauncherUpdateAbsolutePath+0x45
+0x1408ca74c: mov      qword ptr [rsp + 0x50], rbx
+0x1408ca751: mov      qword ptr [rsp + 0x78], rax
+0x1408ca756: xor      ecx, ecx
+0x1408ca758: call     0x14009f100    ; strings.IndexRune
+0x1408ca75d: nop      dword ptr [rax]
+0x1408ca760: test     rax, rax
+0x1408ca763: jl       0x1408ca79a    ; main.validateLauncherUpdateAbsolutePath+0x7a
+0x1408ca765: lea      rax, [rip + 0x289c14]
+0x1408ca76c: call     0x14001ae20    ; runtime.newobject
+0x1408ca771: mov      qword ptr [rax + 8], 0xc
+0x1408ca779: lea      rcx, [rip + 0x3812d0]
+0x1408ca780: mov      qword ptr [rax], rcx
+0x1408ca783: xor      ebx, ebx
+0x1408ca785: lea      rcx, [rip + 0x908974]
+0x1408ca78c: mov      rdi, rax
+0x1408ca78f: xor      eax, eax
+0x1408ca791: add      rsp, 0x88
+0x1408ca798: pop      rbp
+0x1408ca799: ret      
+0x1408ca79a: nop      
+0x1408ca79b: mov      rax, qword ptr [rsp + 0x78]
+0x1408ca7a0: mov      rbx, qword ptr [rsp + 0x50]
+0x1408ca7a5: lea      rcx, [rip + 0x900494]
+0x1408ca7ac: mov      edi, 1
+0x1408ca7b1: lea      rsi, [rip + 0x368e77]
+0x1408ca7b8: mov      r8, rdi
+0x1408ca7bb: mov      r9, 0xffffffffffffffff
+0x1408ca7c2: call     0x1400a2340    ; strings.Replace
+0x1408ca7c7: call     0x1400a1500    ; strings.ToLower
+0x1408ca7cc: cmp      rbx, 2
+0x1408ca7d0: jl       0x1408ca7dc    ; main.validateLauncherUpdateAbsolutePath+0xbc
+0x1408ca7d2: cmp      word ptr [rax], 0x2f2f
+0x1408ca7d7: sete     cl
+0x1408ca7da: jmp      0x1408ca7e0    ; main.validateLauncherUpdateAbsolutePath+0xc0
+0x1408ca7dc: xor      ecx, ecx
+0x1408ca7de: nop      
+0x1408ca7e0: test     cl, cl
+0x1408ca7e2: je       0x1408ca7eb    ; main.validateLauncherUpdateAbsolutePath+0xcb
+0x1408ca7e4: mov      ecx, 1
+0x1408ca7e9: jmp      0x1408ca800    ; main.validateLauncherUpdateAbsolutePath+0xe0
+0x1408ca7eb: nop      
+0x1408ca7ec: cmp      rbx, 4
+0x1408ca7f0: jl       0x1408ca7fd    ; main.validateLauncherUpdateAbsolutePath+0xdd
+0x1408ca7f2: cmp      dword ptr [rax], 0x2f3f2f2f
+0x1408ca7f8: sete     cl
+0x1408ca7fb: jmp      0x1408ca800    ; main.validateLauncherUpdateAbsolutePath+0xe0
+0x1408ca7fd: xor      ecx, ecx
+0x1408ca7ff: nop      
+0x1408ca800: test     cl, cl
+0x1408ca802: je       0x1408ca80b    ; main.validateLauncherUpdateAbsolutePath+0xeb
+0x1408ca804: mov      ecx, 1
+0x1408ca809: jmp      0x1408ca820    ; main.validateLauncherUpdateAbsolutePath+0x100
+0x1408ca80b: nop      
+0x1408ca80c: cmp      rbx, 4
+0x1408ca810: jl       0x1408ca81d    ; main.validateLauncherUpdateAbsolutePath+0xfd
+0x1408ca812: cmp      dword ptr [rax], 0x2f2e2f2f
+0x1408ca818: sete     cl
+0x1408ca81b: jmp      0x1408ca820    ; main.validateLauncherUpdateAbsolutePath+0x100
+0x1408ca81d: xor      ecx, ecx
+0x1408ca81f: nop      
+0x1408ca820: test     cl, cl
+0x1408ca822: jne      0x1408ca844    ; main.validateLauncherUpdateAbsolutePath+0x124
+0x1408ca824: cmp      rbx, 8
+0x1408ca828: jl       0x1408ca83c    ; main.validateLauncherUpdateAbsolutePath+0x11c
+0x1408ca82a: movabs   rcx, 0x2f6563697665642f
+0x1408ca834: cmp      qword ptr [rax], rcx
+0x1408ca837: sete     cl
+0x1408ca83a: jmp      0x1408ca840    ; main.validateLauncherUpdateAbsolutePath+0x120
+0x1408ca83c: xor      ecx, ecx
+0x1408ca83e: nop      
+0x1408ca840: test     cl, cl
+0x1408ca842: je       0x1408ca879    ; main.validateLauncherUpdateAbsolutePath+0x159
+0x1408ca844: lea      rax, [rip + 0x289b35]
+0x1408ca84b: call     0x14001ae20    ; runtime.newobject
+0x1408ca850: mov      qword ptr [rax + 8], 0x1d
+0x1408ca858: lea      rcx, [rip + 0x3a2e25]
+0x1408ca85f: mov      qword ptr [rax], rcx
+0x1408ca862: xor      ebx, ebx
+0x1408ca864: lea      rcx, [rip + 0x908895]
+0x1408ca86b: mov      rdi, rax
+0x1408ca86e: xor      eax, eax
+0x1408ca870: add      rsp, 0x88
+0x1408ca877: pop      rbp
+0x1408ca878: ret      
+0x1408ca879: nop      
+0x1408ca87a: mov      rax, qword ptr [rsp + 0x78]
+0x1408ca87f: mov      rbx, qword ptr [rsp + 0x50]
+0x1408ca884: call     0x1401154c0    ; internal/filepathlite.Clean
+0x1408ca889: mov      qword ptr [rsp + 0x70], rax
+0x1408ca88e: mov      qword ptr [rsp + 0x48], rbx
+0x1408ca893: call     0x140116d20    ; internal/filepathlite.IsAbs
+0x1408ca898: nop      dword ptr [rax + rax]
+0x1408ca8a0: test     al, al
+0x1408ca8a2: je       0x1408ca9f3    ; main.validateLauncherUpdateAbsolutePath+0x2d3
+0x1408ca8a8: mov      rcx, qword ptr [rsp + 0x48]
+0x1408ca8ad: mov      rdx, qword ptr [rsp + 0x50]
+0x1408ca8b2: cmp      rcx, rdx
+0x1408ca8b5: je       0x1408ca8be    ; main.validateLauncherUpdateAbsolutePath+0x19e
+0x1408ca8b7: mov      eax, 1
+0x1408ca8bc: jmp      0x1408ca8d5    ; main.validateLauncherUpdateAbsolutePath+0x1b5
+0x1408ca8be: mov      rax, qword ptr [rsp + 0x70]
+0x1408ca8c3: mov      rbx, qword ptr [rsp + 0x78]
+0x1408ca8c8: call     0x140006280    ; runtime.memequal
+0x1408ca8cd: xor      eax, 1
+0x1408ca8d0: mov      rcx, qword ptr [rsp + 0x48]
+0x1408ca8d5: test     al, al
+0x1408ca8d7: jne      0x1408ca9f3    ; main.validateLauncherUpdateAbsolutePath+0x2d3
+0x1408ca8dd: nop      
+0x1408ca8de: mov      rax, qword ptr [rsp + 0x70]
+0x1408ca8e3: mov      rbx, rcx
+0x1408ca8e6: call     0x140116560    ; internal/filepathlite.VolumeName
+0x1408ca8eb: mov      rcx, qword ptr [rsp + 0x48]
+0x1408ca8f0: cmp      rbx, rcx
+0x1408ca8f3: jg       0x1408ca93b    ; main.validateLauncherUpdateAbsolutePath+0x21b
+0x1408ca8f5: mov      qword ptr [rsp + 0x40], rbx
+0x1408ca8fa: mov      rcx, rbx
+0x1408ca8fd: mov      rbx, rax
+0x1408ca900: mov      rax, qword ptr [rsp + 0x70]
+0x1408ca905: call     0x140006280    ; runtime.memequal
+0x1408ca90a: test     al, al
+0x1408ca90c: je       0x1408ca936    ; main.validateLauncherUpdateAbsolutePath+0x216
+0x1408ca90e: mov      rbx, qword ptr [rsp + 0x48]
+0x1408ca913: mov      rdx, qword ptr [rsp + 0x40]
+0x1408ca918: mov      rsi, rbx
+0x1408ca91b: sub      rsi, rdx
+0x1408ca91e: mov      r8, rsi
+0x1408ca921: neg      rsi
+0x1408ca924: sar      rsi, 0x3f
+0x1408ca928: and      rsi, rdx
+0x1408ca92b: mov      rdx, qword ptr [rsp + 0x70]
+0x1408ca930: lea      rax, [rsi + rdx]
+0x1408ca934: jmp      0x1408ca943    ; main.validateLauncherUpdateAbsolutePath+0x223
+0x1408ca936: mov      rcx, qword ptr [rsp + 0x48]
+0x1408ca93b: mov      r8, rcx
+0x1408ca93e: mov      rax, qword ptr [rsp + 0x70]
+0x1408ca943: mov      qword ptr [rsp + 0x38], r8
+0x1408ca948: mov      qword ptr [rsp + 0x68], rax
+0x1408ca94d: mov      rbx, r8
+0x1408ca950: lea      rcx, [rip + 0x900301]
+0x1408ca957: mov      edi, 1
+0x1408ca95c: nop      dword ptr [rax]
+0x1408ca960: call     0x140006860    ; internal/stringslite.Index
+0x1408ca965: test     rax, rax
+0x1408ca968: jge      0x1408ca9be    ; main.validateLauncherUpdateAbsolutePath+0x29e
+0x1408ca96a: mov      rdx, qword ptr [rsp + 0x38]
+0x1408ca96f: test     rdx, rdx
+0x1408ca972: je       0x1408ca99b    ; main.validateLauncherUpdateAbsolutePath+0x27b
+0x1408ca974: mov      rsi, qword ptr [rsp + 0x68]
+0x1408ca979: cmp      byte ptr [rsi], 0x5c
+0x1408ca97c: jne      0x1408ca9a0    ; main.validateLauncherUpdateAbsolutePath+0x280
+0x1408ca97e: lea      r8, [rdx - 1]
+0x1408ca982: mov      rdx, r8
+0x1408ca985: neg      rdx
+0x1408ca988: sar      rdx, 0x3f
+0x1408ca98c: and      edx, 1
+0x1408ca98f: lea      rax, [rdx + rsi]
+0x1408ca993: mov      rdx, r8
+0x1408ca996: mov      rsi, rax
+0x1408ca999: jmp      0x1408ca9a0    ; main.validateLauncherUpdateAbsolutePath+0x280
+0x1408ca99b: mov      rsi, qword ptr [rsp + 0x68]
+0x1408ca9a0: mov      rax, rsi
+0x1408ca9a3: mov      rbx, rdx
+0x1408ca9a6: lea      rcx, [rip + 0x7cc403]
+0x1408ca9ad: call     0x14009fde0    ; strings.FieldsFunc
+0x1408ca9b2: mov      qword ptr [rsp + 0x60], rbx
+0x1408ca9b7: xor      ecx, ecx
+0x1408ca9b9: jmp      0x1408caa41    ; main.validateLauncherUpdateAbsolutePath+0x321
+0x1408ca9be: lea      rax, [rip + 0x2899bb]
+0x1408ca9c5: call     0x14001ae20    ; runtime.newobject
+0x1408ca9ca: mov      qword ptr [rax + 8], 0x10
+0x1408ca9d2: lea      rcx, [rip + 0x38a851]
+0x1408ca9d9: mov      qword ptr [rax], rcx
+0x1408ca9dc: xor      ebx, ebx
+0x1408ca9de: lea      rcx, [rip + 0x90871b]
+0x1408ca9e5: mov      rdi, rax
+0x1408ca9e8: xor      eax, eax
+0x1408ca9ea: add      rsp, 0x88
+0x1408ca9f1: pop      rbp
+0x1408ca9f2: ret      
+0x1408ca9f3: lea      rax, [rip + 0x289986]
+0x1408ca9fa: call     0x14001ae20    ; runtime.newobject
+0x1408ca9ff: mov      qword ptr [rax + 8], 0x24
+0x1408caa07: lea      rcx, [rip + 0x3adc85]
+0x1408caa0e: mov      qword ptr [rax], rcx
+0x1408caa11: xor      ebx, ebx
+0x1408caa13: lea      rcx, [rip + 0x9086e6]
+0x1408caa1a: mov      rdi, rax
+0x1408caa1d: xor      eax, eax
+0x1408caa1f: add      rsp, 0x88
+0x1408caa26: pop      rbp
+0x1408caa27: ret      
+0x1408caa28: mov      rax, qword ptr [rsp + 0x80]
+0x1408caa30: add      rax, 0x10
+0x1408caa34: mov      rcx, qword ptr [rsp + 0x58]
+0x1408caa39: inc      rcx
+0x1408caa3c: mov      rbx, qword ptr [rsp + 0x60]
+0x1408caa41: cmp      rbx, rcx
+0x1408caa44: jle      0x1408caa7d    ; main.validateLauncherUpdateAbsolutePath+0x35d
+0x1408caa46: mov      qword ptr [rsp + 0x58], rcx
+0x1408caa4b: mov      qword ptr [rsp + 0x80], rax
+0x1408caa53: mov      rcx, qword ptr [rax]
+0x1408caa56: mov      rbx, qword ptr [rax + 8]
+0x1408caa5a: mov      rax, rcx
+0x1408caa5d: nop      dword ptr [rax]
+0x1408caa60: call     0x14074f500    ; main.validateWindowsArchiveSegment
+0x1408caa65: test     rax, rax
+0x1408caa68: je       0x1408caa28    ; main.validateLauncherUpdateAbsolutePath+0x308
+0x1408caa6a: mov      rcx, rax
+0x1408caa6d: mov      rdi, rbx
+0x1408caa70: xor      eax, eax
+0x1408caa72: xor      ebx, ebx
+0x1408caa74: add      rsp, 0x88
+0x1408caa7b: pop      rbp
+0x1408caa7c: ret      
+0x1408caa7d: mov      rax, qword ptr [rsp + 0x70]
+0x1408caa82: mov      rbx, qword ptr [rsp + 0x48]
+0x1408caa87: xor      ecx, ecx
+0x1408caa89: xor      edi, edi
+0x1408caa8b: add      rsp, 0x88
+0x1408caa92: pop      rbp
+0x1408caa93: ret      
+0x1408caa94: mov      qword ptr [rsp + 8], rax
+0x1408caa99: mov      qword ptr [rsp + 0x10], rbx
+0x1408caa9e: nop      
+0x1408caaa0: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408caaa5: mov      rax, qword ptr [rsp + 8]
+0x1408caaaa: mov      rbx, qword ptr [rsp + 0x10]
+0x1408caaaf: jmp      0x1408ca720    ; main.validateLauncherUpdateAbsolutePath
+0x1408caab4: int3     
+0x1408caab5: int3     
+0x1408caab6: int3     
+0x1408caab7: int3     
+0x1408caab8: int3     
+0x1408caab9: int3     
+0x1408caaba: int3     
+0x1408caabb: int3     
+0x1408caabc: int3     
+0x1408caabd: int3     
+0x1408caabe: int3     
+0x1408caabf: int3     

@@ -1,0 +1,108 @@
+0x1408a65a0: mov      r12, rsp
+0x1408a65a3: sub      r12, 0x1b58
+0x1408a65aa: jb       0x1408a673a    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x19a
+0x1408a65b0: cmp      r12, qword ptr [r14 + 0x10]
+0x1408a65b4: jbe      0x1408a673a    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x19a
+0x1408a65ba: push     rbp
+0x1408a65bb: mov      rbp, rsp
+0x1408a65be: sub      rsp, 0x1bd0
+0x1408a65c5: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x1408a65ca: lea      rdi, [rsp + 0x960]
+0x1408a65d2: mov      rsi, rsp
+0x1408a65d5: nop      word ptr [rax + rax]
+0x1408a65de: nop      
+0x1408a65e0: mov      qword ptr [rsp - 0x10], rbp
+0x1408a65e5: lea      rbp, [rsp - 0x10]
+0x1408a65ea: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x1408a65ef: mov      rbp, qword ptr [rbp]
+0x1408a65f3: movups   xmmword ptr [rsp + 0x1298], xmm15
+0x1408a65fc: lea      rdi, [rsp + 0x12a0]
+0x1408a6604: mov      ecx, 0x126
+0x1408a6609: xor      eax, eax
+0x1408a660b: rep stosq qword ptr [rdi], rax
+0x1408a660e: mov      rax, qword ptr [rsp + 0x970]
+0x1408a6616: mov      rbx, qword ptr [rsp + 0x978]
+0x1408a661e: xor      ecx, ecx
+0x1408a6620: xor      edi, edi
+0x1408a6622: mov      rsi, rdi
+0x1408a6625: call     0x140875e00    ; main.loadLauncherConfigOrDefaultIfMissing
+0x1408a662a: mov      rcx, qword ptr [rsp]
+0x1408a662e: mov      qword ptr [rsp + 0x1298], rcx
+0x1408a6636: lea      rdi, [rsp + 0x12a0]
+0x1408a663e: lea      rsi, [rsp + 8]
+0x1408a6643: mov      ecx, 0x126
+0x1408a6648: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1408a664b: mov      rcx, qword ptr [rsp + 0x1298]
+0x1408a6653: mov      qword ptr [rsp + 0x960], rcx
+0x1408a665b: lea      rdi, [rsp + 0x968]
+0x1408a6663: lea      rsi, [rsp + 0x12a0]
+0x1408a666b: mov      ecx, 0x126
+0x1408a6670: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1408a6673: test     rbx, rbx
+0x1408a6676: jne      0x1408a6725    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x185
+0x1408a667c: mov      rax, qword ptr [rsp + 0xa00]
+0x1408a6684: mov      rbx, qword ptr [rsp + 0xa08]
+0x1408a668c: call     0x140882680    ; main.normalizeAppLaunchPrivilegeMode
+0x1408a6691: cmp      rbx, 5
+0x1408a6695: jne      0x1408a66b3    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x113
+0x1408a6697: cmp      dword ptr [rax], 0x696d6461
+0x1408a669d: jne      0x1408a670a    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x16a
+0x1408a669f: cmp      byte ptr [rax + 4], 0x6e
+0x1408a66a3: jne      0x1408a670a    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x16a
+0x1408a66a5: mov      eax, 5
+0x1408a66aa: lea      rcx, [rip + 0x38f63e]
+0x1408a66b1: jmp      0x1408a6716    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x176
+0x1408a66b3: cmp      rbx, 8
+0x1408a66b7: jne      0x1408a66d6    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x136
+0x1408a66b9: movabs   rcx, 0x647261646e617473
+0x1408a66c3: cmp      qword ptr [rax], rcx
+0x1408a66c6: jne      0x1408a670a    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x16a
+0x1408a66c8: mov      eax, 8
+0x1408a66cd: lea      rcx, [rip + 0x395b38]
+0x1408a66d4: jmp      0x1408a6716    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x176
+0x1408a66d6: cmp      rbx, 0xe
+0x1408a66da: jne      0x1408a670a    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x16a
+0x1408a66dc: movabs   rcx, 0x614c776f6c6c6f66
+0x1408a66e6: cmp      qword ptr [rax], rcx
+0x1408a66e9: jne      0x1408a670a    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x16a
+0x1408a66eb: cmp      dword ptr [rax + 8], 0x68636e75
+0x1408a66f2: jne      0x1408a670a    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x16a
+0x1408a66f4: cmp      word ptr [rax + 0xc], 0x7265
+0x1408a66fa: jne      0x1408a670a    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x16a
+0x1408a66fc: mov      eax, 0xe
+0x1408a6701: lea      rcx, [rip + 0x3aa050]
+0x1408a6708: jmp      0x1408a6716    ; main.BootstrapService.loadAppLaunchPrivilegeDefault+0x176
+0x1408a670a: mov      eax, 8
+0x1408a670f: lea      rcx, [rip + 0x395af6]
+0x1408a6716: mov      rbx, rax
+0x1408a6719: mov      rax, rcx
+0x1408a671c: add      rsp, 0x1bd0
+0x1408a6723: pop      rbp
+0x1408a6724: ret      
+0x1408a6725: lea      rax, [rip + 0x395ae0]
+0x1408a672c: mov      ebx, 8
+0x1408a6731: add      rsp, 0x1bd0
+0x1408a6738: pop      rbp
+0x1408a6739: ret      
+0x1408a673a: mov      qword ptr [rsp + 8], rax
+0x1408a673f: nop      
+0x1408a6740: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408a6745: mov      rax, qword ptr [rsp + 8]
+0x1408a674a: jmp      0x1408a65a0    ; main.BootstrapService.loadAppLaunchPrivilegeDefault
+0x1408a674f: int3     
+0x1408a6750: int3     
+0x1408a6751: int3     
+0x1408a6752: int3     
+0x1408a6753: int3     
+0x1408a6754: int3     
+0x1408a6755: int3     
+0x1408a6756: int3     
+0x1408a6757: int3     
+0x1408a6758: int3     
+0x1408a6759: int3     
+0x1408a675a: int3     
+0x1408a675b: int3     
+0x1408a675c: int3     
+0x1408a675d: int3     
+0x1408a675e: int3     
+0x1408a675f: int3     

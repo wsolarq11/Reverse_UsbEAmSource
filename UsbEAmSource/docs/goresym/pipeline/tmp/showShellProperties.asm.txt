@@ -1,0 +1,101 @@
+0x1408aeea0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408aeea4: jbe      0x1408aeffd   ; main.showShellProperties+0x15d
+0x1408aeeaa: push     rbp
+0x1408aeeab: mov      rbp, rsp
+0x1408aeeae: sub      rsp, 0x50
+0x1408aeeb2: mov      qword ptr [rsp + 0x60], rax
+0x1408aeeb7: mov      qword ptr [rsp + 0x68], rbx
+0x1408aeebc: nop      dword ptr [rax]
+0x1408aeec0: call     0x140116560   ; internal/filepathlite.VolumeName
+0x1408aeec5: test     rbx, rbx
+0x1408aeec8: jne      0x1408aeedb   ; main.showShellProperties+0x3b
+0x1408aeeca: mov      rbx, qword ptr [rsp + 0x68]
+0x1408aeecf: mov      rax, qword ptr [rsp + 0x60]
+0x1408aeed4: mov      edx, 2
+0x1408aeed9: jmp      0x1408aef43   ; main.showShellProperties+0xa3
+0x1408aeedb: mov      qword ptr [rsp + 0x40], rax
+0x1408aeee0: mov      qword ptr [rsp + 0x28], rbx
+0x1408aeee5: mov      rax, qword ptr [rsp + 0x60]
+0x1408aeeea: mov      rbx, qword ptr [rsp + 0x68]
+0x1408aeeef: lea      rcx, [rip + 0x3847a9]
+0x1408aeef6: mov      edi, 2
+0x1408aeefb: nop      dword ptr [rax + rax]
+0x1408aef00: call     0x1400a2000   ; strings.TrimRight
+0x1408aef05: mov      rcx, qword ptr [rsp + 0x40]
+0x1408aef0a: mov      rdi, qword ptr [rsp + 0x28]
+0x1408aef0f: call     0x1400a2c40   ; strings.EqualFold
+0x1408aef14: movzx    edx, al
+0x1408aef17: test     rdx, rdx
+0x1408aef1a: mov      rbx, qword ptr [rsp + 0x68]
+0x1408aef1f: mov      rdx, qword ptr [rsp + 0x28]
+0x1408aef24: cmovne   rbx, rdx
+0x1408aef28: mov      rax, qword ptr [rsp + 0x60]
+0x1408aef2d: mov      rdx, qword ptr [rsp + 0x40]
+0x1408aef32: cmovne   rax, rdx
+0x1408aef36: mov      edx, 2
+0x1408aef3b: mov      esi, 4
+0x1408aef40: cmovne   edx, esi
+0x1408aef43: mov      dword ptr [rsp + 0x24], edx
+0x1408aef47: call     0x1400e5f00   ; syscall.UTF16FromString
+0x1408aef4c: test     rdi, rdi
+0x1408aef4f: je       0x1408aef55   ; main.showShellProperties+0xb5
+0x1408aef51: xor      eax, eax
+0x1408aef53: jmp      0x1408aef62   ; main.showShellProperties+0xc2
+0x1408aef55: test     rbx, rbx
+0x1408aef58: jbe      0x1408aeff2   ; main.showShellProperties+0x152
+0x1408aef5e: xor      edi, edi
+0x1408aef60: xor      esi, esi
+0x1408aef62: test     rdi, rdi
+0x1408aef65: jne      0x1408aefe6   ; main.showShellProperties+0x146
+0x1408aef67: mov      qword ptr [rsp + 0x38], rax
+0x1408aef6c: mov      ecx, dword ptr [rsp + 0x24]
+0x1408aef70: mov      ecx, ecx
+0x1408aef72: mov      qword ptr [rsp + 0x30], rcx
+0x1408aef77: mov      qword ptr [rsp + 0x48], rax
+0x1408aef7c: lea      rax, [rip + 0x24ebdd]
+0x1408aef83: call     0x14001ae20   ; runtime.newobject
+0x1408aef88: mov      rcx, qword ptr [rsp + 0x30]
+0x1408aef8d: mov      qword ptr [rax + 8], rcx
+0x1408aef91: mov      rcx, qword ptr [rsp + 0x48]
+0x1408aef96: mov      qword ptr [rax + 0x10], rcx
+0x1408aef9a: mov      qword ptr [rax + 0x18], 0
+0x1408aefa2: mov      rcx, qword ptr [rip + 0x1312a8f]
+0x1408aefa9: mov      rbx, rax
+0x1408aefac: mov      edi, 4
+0x1408aefb1: mov      rax, rcx
+0x1408aefb4: mov      rcx, rdi
+0x1408aefb7: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1408aefbc: nop      dword ptr [rax]
+0x1408aefc0: test     rax, rax
+0x1408aefc3: jne      0x1408aefdc   ; main.showShellProperties+0x13c
+0x1408aefc5: lea      rax, [rip + 0x3b623c]
+0x1408aefcc: mov      ebx, 0x18
+0x1408aefd1: call     0x1408af3a0   ; main.wrapWinError
+0x1408aefd6: add      rsp, 0x50
+0x1408aefda: pop      rbp
+0x1408aefdb: ret      
+0x1408aefdc: xor      eax, eax
+0x1408aefde: xor      ebx, ebx
+0x1408aefe0: add      rsp, 0x50
+0x1408aefe4: pop      rbp
+0x1408aefe5: ret      
+0x1408aefe6: mov      rax, rdi
+0x1408aefe9: mov      rbx, rsi
+0x1408aefec: add      rsp, 0x50
+0x1408aeff0: pop      rbp
+0x1408aeff1: ret      
+0x1408aeff2: xor      eax, eax
+0x1408aeff4: mov      rcx, rax
+0x1408aeff7: call     0x140081400   ; runtime.panicIndex
+0x1408aeffc: nop      
+0x1408aeffd: mov      qword ptr [rsp + 8], rax
+0x1408af002: mov      qword ptr [rsp + 0x10], rbx
+0x1408af007: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408af00c: mov      rax, qword ptr [rsp + 8]
+0x1408af011: mov      rbx, qword ptr [rsp + 0x10]
+0x1408af016: jmp      0x1408aeea0   ; main.showShellProperties
+0x1408af01b: int3     
+0x1408af01c: int3     
+0x1408af01d: int3     
+0x1408af01e: int3     
+0x1408af01f: int3     

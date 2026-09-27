@@ -1,0 +1,14 @@
+0x140918600: cmp      rsp, qword ptr [r14 + 0x10]
+0x140918604: jbe      0x140918690   ; main.oledBlackoutCollectVisibleMediaWindowCandidates+0x90
+0x14091860a: push     rbp
+0x14091860b: mov      rbp, rsp
+0x14091860e: sub      rsp, 0x60
+0x140918612: mov      qword ptr [rsp + 0x78], rbx
+0x140918617: mov      rsi, rbx
+0x14091861a: mov      r8, rcx
+0x14091861d: mov      r9, rdi
+0x140918620: xor      ebx, ebx
+0x140918622: mov      rcx, rbx
+0x140918625: mov      rdi, rax
+0x140918628: xor      eax, eax
+0x14091862a: call     0x1409186e0   ; main.oledBlackoutCollectScreenWindowCandidates

@@ -1,0 +1,82 @@
+0x140782bc0: lea      r12, [rsp - 0xf8]
+0x140782bc8: cmp      r12, qword ptr [r14 + 0x10]
+0x140782bcc: jbe      0x140782cf2    ; main.BootstrapService.executeMouseGestureWindowMove+0x132
+0x140782bd2: push     rbp
+0x140782bd3: mov      rbp, rsp
+0x140782bd6: sub      rsp, 0x170
+0x140782bdd: nop      dword ptr [rax]
+0x140782be0: test     rax, rax
+0x140782be3: je       0x140782cc1    ; main.BootstrapService.executeMouseGestureWindowMove+0x101
+0x140782be9: mov      rax, qword ptr [rax + 0x380]
+0x140782bf0: test     rax, rax
+0x140782bf3: je       0x140782cc1    ; main.BootstrapService.executeMouseGestureWindowMove+0x101
+0x140782bf9: call     0x1408ffbe0    ; main.oledBlackoutService.GetScreens
+0x140782bfe: mov      rdx, qword ptr [rsp + 0x180]
+0x140782c06: mov      rsi, qword ptr [rsp + 0x288]
+0x140782c0e: mov      qword ptr [rsp + 0x168], rsi
+0x140782c16: mov      edi, dword ptr [rsp + 0x290]
+0x140782c1d: mov      r8, qword ptr [rsp + 0x298]
+0x140782c25: mov      r9, qword ptr [rsp + 0x2a0]
+0x140782c2d: mov      r10, qword ptr [rsp + 0x2a8]
+0x140782c35: mov      r11, qword ptr [rsp + 0x2b0]
+0x140782c3d: mov      r12, qword ptr [rsp + 0x2b8]
+0x140782c45: mov      r13, qword ptr [rsp + 0x2c0]
+0x140782c4d: movzx    r15d, byte ptr [rsp + 0x2c8]
+0x140782c56: mov      qword ptr [rsp], rdx
+0x140782c5a: mov      edx, edi
+0x140782c5c: lea      rdi, [rsp + 8]
+0x140782c61: lea      rsi, [rsp + 0x188]
+0x140782c69: mov      qword ptr [rsp - 0x10], rbp
+0x140782c6e: lea      rbp, [rsp - 0x10]
+0x140782c73: call     0x140081a00    ; runtime.duffcopy+0x2a0
+0x140782c78: mov      rbp, qword ptr [rbp]
+0x140782c7c: mov      qword ptr [rsp + 0x108], rax
+0x140782c84: mov      qword ptr [rsp + 0x110], rbx
+0x140782c8c: mov      qword ptr [rsp + 0x118], rcx
+0x140782c94: mov      rax, qword ptr [rsp + 0x168]
+0x140782c9c: mov      ebx, edx
+0x140782c9e: mov      rcx, r8
+0x140782ca1: mov      rdi, r9
+0x140782ca4: mov      rsi, r10
+0x140782ca7: mov      r8, r11
+0x140782caa: mov      r9, r12
+0x140782cad: mov      r10, r13
+0x140782cb0: mov      r11d, r15d
+0x140782cb3: call     0x1408e7000    ; main.executeMouseGestureWindowMovePlatform
+0x140782cb8: add      rsp, 0x170
+0x140782cbf: pop      rbp
+0x140782cc0: ret      
+0x140782cc1: lea      rax, [rip + 0x3d16b8]
+0x140782cc8: call     0x14001ae20    ; runtime.newobject
+0x140782ccd: mov      qword ptr [rax + 8], 0x18
+0x140782cd5: lea      rcx, [rip + 0x4e210c]
+0x140782cdc: mov      qword ptr [rax], rcx
+0x140782cdf: mov      rbx, rax
+0x140782ce2: lea      rax, [rip + 0xa50417]
+0x140782ce9: add      rsp, 0x170
+0x140782cf0: pop      rbp
+0x140782cf1: ret      
+0x140782cf2: mov      qword ptr [rsp + 0x158], rax
+0x140782cfa: call     0x14007f140    ; runtime.morestack_noctxt
+0x140782cff: mov      rax, qword ptr [rsp + 0x158]
+0x140782d07: jmp      0x140782bc0    ; main.BootstrapService.executeMouseGestureWindowMove
+0x140782d0c: int3     
+0x140782d0d: int3     
+0x140782d0e: int3     
+0x140782d0f: int3     
+0x140782d10: int3     
+0x140782d11: int3     
+0x140782d12: int3     
+0x140782d13: int3     
+0x140782d14: int3     
+0x140782d15: int3     
+0x140782d16: int3     
+0x140782d17: int3     
+0x140782d18: int3     
+0x140782d19: int3     
+0x140782d1a: int3     
+0x140782d1b: int3     
+0x140782d1c: int3     
+0x140782d1d: int3     
+0x140782d1e: int3     
+0x140782d1f: int3     

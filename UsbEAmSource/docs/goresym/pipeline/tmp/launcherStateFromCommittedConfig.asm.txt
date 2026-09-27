@@ -1,0 +1,119 @@
+0x140776720: mov      r12, rsp
+0x140776723: sub      r12, 0x1e98
+0x14077672a: jb       0x1407768ea    ; main.BootstrapService.launcherStateFromCommittedConfig+0x1ca
+0x140776730: cmp      r12, qword ptr [r14 + 0x10]
+0x140776734: jbe      0x1407768ea    ; main.BootstrapService.launcherStateFromCommittedConfig+0x1ca
+0x14077673a: push     rbp
+0x14077673b: mov      rbp, rsp
+0x14077673e: sub      rsp, 0x1f10
+0x140776745: mov      qword ptr [rsp + 0x3270], rax
+0x14077674d: movups   xmmword ptr [rsp + 0x2858], xmm15
+0x140776756: lea      rdi, [rsp + 0x2860]
+0x14077675e: mov      ecx, 0x142
+0x140776763: mov      rdx, rax
+0x140776766: xor      eax, eax
+0x140776768: rep stosq qword ptr [rdi], rax
+0x14077676b: lea      rdi, [rsp + 0x14f8]
+0x140776773: lea      rdi, [rdi - 0x30]
+0x140776777: nop      word ptr [rax + rax]
+0x140776780: mov      qword ptr [rsp - 0x10], rbp
+0x140776785: lea      rbp, [rsp - 0x10]
+0x14077678a: call     0x140081702    ; runtime.duffzero+0x122
+0x14077678f: mov      rbp, qword ptr [rbp]
+0x140776793: mov      rax, rdx
+0x140776796: call     0x140774920    ; main.BootstrapService.snapshotForCommittedLauncherState
+0x14077679b: lea      rdi, [rsp + 0x14f8]
+0x1407767a3: mov      rsi, rsp
+0x1407767a6: mov      qword ptr [rsp - 0x10], rbp
+0x1407767ab: lea      rbp, [rsp - 0x10]
+0x1407767b0: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x1407767b5: mov      rbp, qword ptr [rbp]
+0x1407767b9: lea      rdi, [rsp + 0x1428]
+0x1407767c1: lea      rsi, [rsp + 0x14f8]
+0x1407767c9: mov      qword ptr [rsp - 0x10], rbp
+0x1407767ce: lea      rbp, [rsp - 0x10]
+0x1407767d3: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x1407767d8: mov      rbp, qword ptr [rbp]
+0x1407767dc: nop      dword ptr [rax]
+0x1407767e0: test     rax, rax
+0x1407767e3: je       0x14077680f    ; main.BootstrapService.launcherStateFromCommittedConfig+0xef
+0x1407767e5: movups   xmmword ptr [rsp + 0x2858], xmm15
+0x1407767ee: lea      rdi, [rsp + 0x2860]
+0x1407767f6: mov      ecx, 0x142
+0x1407767fb: mov      rdx, rax
+0x1407767fe: xor      eax, eax
+0x140776800: rep stosq qword ptr [rdi], rax
+0x140776803: mov      rax, rdx
+0x140776806: add      rsp, 0x1f10
+0x14077680d: pop      rbp
+0x14077680e: ret      
+0x14077680f: mov      rdx, qword ptr [rsp + 0x1f20]
+0x140776817: mov      qword ptr [rsp], rdx
+0x14077681b: lea      rdi, [rsp + 8]
+0x140776820: lea      rsi, [rsp + 0x1f28]
+0x140776828: mov      ecx, 0x126
+0x14077682d: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140776830: lea      rdi, [rsp + 0x938]
+0x140776838: lea      rsi, [rsp + 0x1428]
+0x140776840: mov      qword ptr [rsp - 0x10], rbp
+0x140776845: lea      rbp, [rsp - 0x10]
+0x14077684a: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x14077684f: mov      rbp, qword ptr [rbp]
+0x140776853: mov      rax, qword ptr [rsp + 0x3270]
+0x14077685b: nop      dword ptr [rax + rax]
+0x140776860: call     0x140776920    ; main.BootstrapService.launcherStateFromCommittedConfigWithSnapshot
+0x140776865: mov      rdx, qword ptr [rsp + 0xa08]
+0x14077686d: mov      qword ptr [rsp + 0x14f8], rdx
+0x140776875: lea      rdi, [rsp + 0x1500]
+0x14077687d: lea      rsi, [rsp + 0xa10]
+0x140776885: mov      ecx, 0x142
+0x14077688a: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14077688d: mov      rdx, qword ptr [rsp + 0x14f8]
+0x140776895: mov      qword ptr [rsp + 0x2858], rdx
+0x14077689d: lea      rdi, [rsp + 0x2860]
+0x1407768a5: lea      rsi, [rsp + 0x1500]
+0x1407768ad: mov      ecx, 0x142
+0x1407768b2: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407768b5: mov      rdx, qword ptr [rsp + 0x14f8]
+0x1407768bd: mov      qword ptr [rsp + 0x2858], rdx
+0x1407768c5: lea      rdi, [rsp + 0x2860]
+0x1407768cd: lea      rsi, [rsp + 0x1500]
+0x1407768d5: mov      ecx, 0x142
+0x1407768da: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407768dd: xor      eax, eax
+0x1407768df: xor      ebx, ebx
+0x1407768e1: add      rsp, 0x1f10
+0x1407768e8: pop      rbp
+0x1407768e9: ret      
+0x1407768ea: mov      qword ptr [rsp + 0x1358], rax
+0x1407768f2: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407768f7: mov      rax, qword ptr [rsp + 0x1358]
+0x1407768ff: nop      
+0x140776900: jmp      0x140776720    ; main.BootstrapService.launcherStateFromCommittedConfig
+0x140776905: int3     
+0x140776906: int3     
+0x140776907: int3     
+0x140776908: int3     
+0x140776909: int3     
+0x14077690a: int3     
+0x14077690b: int3     
+0x14077690c: int3     
+0x14077690d: int3     
+0x14077690e: int3     
+0x14077690f: int3     
+0x140776910: int3     
+0x140776911: int3     
+0x140776912: int3     
+0x140776913: int3     
+0x140776914: int3     
+0x140776915: int3     
+0x140776916: int3     
+0x140776917: int3     
+0x140776918: int3     
+0x140776919: int3     
+0x14077691a: int3     
+0x14077691b: int3     
+0x14077691c: int3     
+0x14077691d: int3     
+0x14077691e: int3     
+0x14077691f: int3     

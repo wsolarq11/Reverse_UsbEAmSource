@@ -1,0 +1,83 @@
+0x14078f100: cmp      rsp, qword ptr [r14 + 0x10]
+0x14078f104: jbe      0x14078f1fa    ; main.BootstrapService.CloseAllPinnedScreenshots+0xfa
+0x14078f10a: push     rbp
+0x14078f10b: mov      rbp, rsp
+0x14078f10e: sub      rsp, 0x30
+0x14078f112: movq     qword ptr [rsp + 0x28], xmm15
+0x14078f119: mov      qword ptr [rsp + 0x40], rax
+0x14078f11e: mov      byte ptr [rsp + 0x17], 0
+0x14078f123: movups   xmmword ptr [rsp + 0x18], xmm15
+0x14078f129: call     0x1409ef7c0    ; main.BootstrapService.beginWorkspaceDataOperation
+0x14078f12e: test     rbx, rbx
+0x14078f131: jne      0x14078f1cf    ; main.BootstrapService.CloseAllPinnedScreenshots+0xcf
+0x14078f137: mov      qword ptr [rsp + 0x28], rax
+0x14078f13c: mov      byte ptr [rsp + 0x17], 1
+0x14078f141: mov      rcx, qword ptr [rsp + 0x40]
+0x14078f146: mov      rax, qword ptr [rcx + 0x400]
+0x14078f14d: test     rax, rax
+0x14078f150: je       0x14078f181    ; main.BootstrapService.CloseAllPinnedScreenshots+0x81
+0x14078f152: call     0x140984e80    ; main.screenshotPinWindowService.CloseAll
+0x14078f157: mov      qword ptr [rsp + 0x18], rax
+0x14078f15c: mov      qword ptr [rsp + 0x20], rbx
+0x14078f161: mov      byte ptr [rsp + 0x17], 0
+0x14078f166: mov      rdx, qword ptr [rsp + 0x28]
+0x14078f16b: mov      rcx, qword ptr [rdx]
+0x14078f16e: call     rcx
+0x14078f170: mov      rax, qword ptr [rsp + 0x18]
+0x14078f175: mov      rbx, qword ptr [rsp + 0x20]
+0x14078f17a: add      rsp, 0x30
+0x14078f17e: pop      rbp
+0x14078f17f: nop      
+0x14078f180: ret      
+0x14078f181: lea      rax, [rip + 0x3c51f8]
+0x14078f188: call     0x14001ae20    ; runtime.newobject
+0x14078f18d: mov      qword ptr [rax + 8], 0x15
+0x14078f195: lea      rcx, [rip + 0x4d046f]
+0x14078f19c: mov      qword ptr [rax], rcx
+0x14078f19f: lea      rcx, [rip + 0xa43f5a]
+0x14078f1a6: mov      qword ptr [rsp + 0x18], rcx
+0x14078f1ab: mov      qword ptr [rsp + 0x20], rax
+0x14078f1b0: mov      byte ptr [rsp + 0x17], 0
+0x14078f1b5: mov      rdx, qword ptr [rsp + 0x28]
+0x14078f1ba: mov      rcx, qword ptr [rdx]
+0x14078f1bd: call     rcx
+0x14078f1bf: mov      rax, qword ptr [rsp + 0x18]
+0x14078f1c4: mov      rbx, qword ptr [rsp + 0x20]
+0x14078f1c9: add      rsp, 0x30
+0x14078f1cd: pop      rbp
+0x14078f1ce: ret      
+0x14078f1cf: mov      qword ptr [rsp + 0x18], rbx
+0x14078f1d4: mov      qword ptr [rsp + 0x20], rcx
+0x14078f1d9: mov      rax, rbx
+0x14078f1dc: mov      rbx, rcx
+0x14078f1df: add      rsp, 0x30
+0x14078f1e3: pop      rbp
+0x14078f1e4: ret      
+0x14078f1e5: call     0x1400435e0    ; runtime.deferreturn
+0x14078f1ea: mov      rax, qword ptr [rsp + 0x18]
+0x14078f1ef: mov      rbx, qword ptr [rsp + 0x20]
+0x14078f1f4: add      rsp, 0x30
+0x14078f1f8: pop      rbp
+0x14078f1f9: ret      
+0x14078f1fa: mov      qword ptr [rsp + 8], rax
+0x14078f1ff: nop      
+0x14078f200: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078f205: mov      rax, qword ptr [rsp + 8]
+0x14078f20a: jmp      0x14078f100    ; main.BootstrapService.CloseAllPinnedScreenshots
+0x14078f20f: int3     
+0x14078f210: int3     
+0x14078f211: int3     
+0x14078f212: int3     
+0x14078f213: int3     
+0x14078f214: int3     
+0x14078f215: int3     
+0x14078f216: int3     
+0x14078f217: int3     
+0x14078f218: int3     
+0x14078f219: int3     
+0x14078f21a: int3     
+0x14078f21b: int3     
+0x14078f21c: int3     
+0x14078f21d: int3     
+0x14078f21e: int3     
+0x14078f21f: int3     

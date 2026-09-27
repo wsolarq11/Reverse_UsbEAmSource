@@ -1,0 +1,67 @@
+0x140947040: cmp      rsp, qword ptr [r14 + 0x10]
+0x140947044: jbe      0x1409470d6   ; main.screenshotCurrentControlSelectionPreference+0x96
+0x14094704a: push     rbp
+0x14094704b: mov      rbp, rsp
+0x14094704e: sub      rsp, 0x28
+0x140947052: nop      
+0x140947053: lea      rax, [rip + 0x1b4be6]
+0x14094705a: call     0x14001ae20   ; runtime.newobject
+0x14094705f: mov      qword ptr [rax], 0x11
+0x140947066: movups   xmmword ptr [rax + 8], xmm15
+0x14094706b: mov      rcx, qword ptr [rip + 0x127ba7e]
+0x140947072: mov      rbx, rax
+0x140947075: mov      edi, 3
+0x14094707a: mov      rax, rcx
+0x14094707d: mov      rcx, rdi
+0x140947080: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140947085: mov      qword ptr [rsp + 0x20], rax
+0x14094708a: nop      
+0x14094708b: lea      rax, [rip + 0x1b4bae]
+0x140947092: call     0x14001ae20   ; runtime.newobject
+0x140947097: mov      qword ptr [rax], 0x12
+0x14094709e: movups   xmmword ptr [rax + 8], xmm15
+0x1409470a3: mov      rcx, qword ptr [rip + 0x127ba46]
+0x1409470aa: mov      rbx, rax
+0x1409470ad: mov      edi, 3
+0x1409470b2: mov      rax, rcx
+0x1409470b5: mov      rcx, rdi
+0x1409470b8: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409470bd: mov      rcx, qword ptr [rsp + 0x20]
+0x1409470c2: test     cx, cx
+0x1409470c5: setl     cl
+0x1409470c8: test     ax, ax
+0x1409470cb: setl     bl
+0x1409470ce: mov      eax, ecx
+0x1409470d0: add      rsp, 0x28
+0x1409470d4: pop      rbp
+0x1409470d5: ret      
+0x1409470d6: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409470db: nop      dword ptr [rax + rax]
+0x1409470e0: jmp      0x140947040   ; main.screenshotCurrentControlSelectionPreference
+0x1409470e5: int3     
+0x1409470e6: int3     
+0x1409470e7: int3     
+0x1409470e8: int3     
+0x1409470e9: int3     
+0x1409470ea: int3     
+0x1409470eb: int3     
+0x1409470ec: int3     
+0x1409470ed: int3     
+0x1409470ee: int3     
+0x1409470ef: int3     
+0x1409470f0: int3     
+0x1409470f1: int3     
+0x1409470f2: int3     
+0x1409470f3: int3     
+0x1409470f4: int3     
+0x1409470f5: int3     
+0x1409470f6: int3     
+0x1409470f7: int3     
+0x1409470f8: int3     
+0x1409470f9: int3     
+0x1409470fa: int3     
+0x1409470fb: int3     
+0x1409470fc: int3     
+0x1409470fd: int3     
+0x1409470fe: int3     
+0x1409470ff: int3     

@@ -1,0 +1,90 @@
+0x1407a9540: lea      r12, [rsp - 0x178]
+0x1407a9548: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a954c: jbe      0x1407a967c    ; main.BootstrapService.EnableDesktopReminder+0x13c
+0x1407a9552: push     rbp
+0x1407a9553: mov      rbp, rsp
+0x1407a9556: sub      rsp, 0x1f0
+0x1407a955d: mov      qword ptr [rsp + 0x2f0], rbx
+0x1407a9565: movups   xmmword ptr [rsp + 0x200], xmm15
+0x1407a956e: mov      edx, edi
+0x1407a9570: lea      rdi, [rsp + 0x208]
+0x1407a9578: lea      rdi, [rdi - 0x20]
+0x1407a957c: nop      dword ptr [rax]
+0x1407a9580: mov      qword ptr [rsp - 0x10], rbp
+0x1407a9585: lea      rbp, [rsp - 0x10]
+0x1407a958a: call     0x1400816fd    ; runtime.duffzero+0x11d
+0x1407a958f: mov      rbp, qword ptr [rbp]
+0x1407a9593: movups   xmmword ptr [rsp + 0x108], xmm15
+0x1407a959c: lea      rdi, [rsp + 0x110]
+0x1407a95a4: lea      rdi, [rdi - 0x20]
+0x1407a95a8: mov      qword ptr [rsp - 0x10], rbp
+0x1407a95ad: lea      rbp, [rsp - 0x10]
+0x1407a95b2: call     0x1400816fd    ; runtime.duffzero+0x11d
+0x1407a95b7: mov      rbp, qword ptr [rbp]
+0x1407a95bb: mov      rax, qword ptr [rax + 0x440]
+0x1407a95c2: mov      edi, edx
+0x1407a95c4: call     0x1407bc8c0    ; main.desktopWidgetService.EnableReminder
+0x1407a95c9: mov      rdx, qword ptr [rsp]
+0x1407a95cd: mov      qword ptr [rsp + 0x108], rdx
+0x1407a95d5: lea      rdi, [rsp + 0x110]
+0x1407a95dd: lea      rsi, [rsp + 8]
+0x1407a95e2: mov      qword ptr [rsp - 0x10], rbp
+0x1407a95e7: lea      rbp, [rsp - 0x10]
+0x1407a95ec: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x1407a95f1: mov      rbp, qword ptr [rbp]
+0x1407a95f5: mov      rdx, qword ptr [rsp + 0x108]
+0x1407a95fd: mov      qword ptr [rsp + 0x200], rdx
+0x1407a9605: lea      rdi, [rsp + 0x208]
+0x1407a960d: lea      rsi, [rsp + 0x110]
+0x1407a9615: nop      word ptr [rax + rax]
+0x1407a961e: nop      
+0x1407a9620: mov      qword ptr [rsp - 0x10], rbp
+0x1407a9625: lea      rbp, [rsp - 0x10]
+0x1407a962a: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x1407a962f: mov      rbp, qword ptr [rbp]
+0x1407a9633: mov      rdx, qword ptr [rsp + 0x108]
+0x1407a963b: mov      qword ptr [rsp + 0x200], rdx
+0x1407a9643: lea      rdi, [rsp + 0x208]
+0x1407a964b: lea      rsi, [rsp + 0x110]
+0x1407a9653: nop      word ptr [rax + rax]
+0x1407a965c: nop      dword ptr [rax]
+0x1407a9660: mov      qword ptr [rsp - 0x10], rbp
+0x1407a9665: lea      rbp, [rsp - 0x10]
+0x1407a966a: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x1407a966f: mov      rbp, qword ptr [rbp]
+0x1407a9673: add      rsp, 0x1f0
+0x1407a967a: pop      rbp
+0x1407a967b: ret      
+0x1407a967c: mov      qword ptr [rsp + 0xf0], rax
+0x1407a9684: mov      qword ptr [rsp + 0xf8], rbx
+0x1407a968c: mov      qword ptr [rsp + 0x100], rcx
+0x1407a9694: mov      byte ptr [rsp + 0x108], dil
+0x1407a969c: nop      dword ptr [rax]
+0x1407a96a0: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a96a5: mov      rax, qword ptr [rsp + 0xf0]
+0x1407a96ad: mov      rbx, qword ptr [rsp + 0xf8]
+0x1407a96b5: mov      rcx, qword ptr [rsp + 0x100]
+0x1407a96bd: movzx    edi, byte ptr [rsp + 0x108]
+0x1407a96c5: jmp      0x1407a9540    ; main.BootstrapService.EnableDesktopReminder
+0x1407a96ca: int3     
+0x1407a96cb: int3     
+0x1407a96cc: int3     
+0x1407a96cd: int3     
+0x1407a96ce: int3     
+0x1407a96cf: int3     
+0x1407a96d0: int3     
+0x1407a96d1: int3     
+0x1407a96d2: int3     
+0x1407a96d3: int3     
+0x1407a96d4: int3     
+0x1407a96d5: int3     
+0x1407a96d6: int3     
+0x1407a96d7: int3     
+0x1407a96d8: int3     
+0x1407a96d9: int3     
+0x1407a96da: int3     
+0x1407a96db: int3     
+0x1407a96dc: int3     
+0x1407a96dd: int3     
+0x1407a96de: int3     
+0x1407a96df: int3     

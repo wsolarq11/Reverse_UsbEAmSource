@@ -1,0 +1,197 @@
+0x140910980: cmp      rsp, qword ptr [r14 + 0x10]
+0x140910984: jbe      0x140910a97   ; main.failedOLEDBlackoutHotkeyUpdateResult+0x117
+0x14091098a: push     rbp
+0x14091098b: mov      rbp, rsp
+0x14091098e: sub      rsp, 0x48
+0x140910992: mov      qword ptr [rsp + 0x78], rsi
+0x140910997: mov      qword ptr [rsp + 0x70], rdi
+0x14091099c: mov      qword ptr [rsp + 0x58], rax
+0x1409109a1: mov      qword ptr [rsp + 0x60], rbx
+0x1409109a6: call     0x140076d40   ; runtime.makemap_small
+0x1409109ab: mov      rcx, qword ptr [rsp + 0x70]
+0x1409109b0: test     rcx, rcx
+0x1409109b3: je       0x1409109d8   ; main.failedOLEDBlackoutHotkeyUpdateResult+0x58
+0x1409109b5: mov      qword ptr [rsp + 0x30], rax
+0x1409109ba: mov      rcx, qword ptr [rcx + 0x18]
+0x1409109be: mov      rax, qword ptr [rsp + 0x78]
+0x1409109c3: call     rcx
+0x1409109c5: mov      qword ptr [rsp + 0x38], rax
+0x1409109ca: mov      qword ptr [rsp + 0x20], rbx
+0x1409109cf: mov      rcx, qword ptr [rsp + 0x58]
+0x1409109d4: xor      edx, edx
+0x1409109d6: jmp      0x140910a02   ; main.failedOLEDBlackoutHotkeyUpdateResult+0x82
+0x1409109d8: xor      ebx, ebx
+0x1409109da: mov      rcx, rbx
+0x1409109dd: mov      rdi, rax
+0x1409109e0: xor      eax, eax
+0x1409109e2: add      rsp, 0x48
+0x1409109e6: pop      rbp
+0x1409109e7: ret      
+0x1409109e8: mov      rcx, qword ptr [rsp + 0x40]
+0x1409109ed: add      rcx, 0x20
+0x1409109f1: mov      rsi, qword ptr [rsp + 0x28]
+0x1409109f6: inc      rsi
+0x1409109f9: mov      rax, r8
+0x1409109fc: mov      rbx, rdx
+0x1409109ff: mov      rdx, rsi
+0x140910a02: mov      rsi, qword ptr [rsp + 0x60]
+0x140910a07: cmp      rsi, rdx
+0x140910a0a: jle      0x140910a85   ; main.failedOLEDBlackoutHotkeyUpdateResult+0x105
+0x140910a0c: mov      qword ptr [rsp + 0x28], rdx
+0x140910a11: mov      qword ptr [rsp + 0x40], rcx
+0x140910a16: mov      rax, qword ptr [rcx]
+0x140910a19: mov      rbx, qword ptr [rcx + 8]
+0x140910a1d: nop      dword ptr [rax]
+0x140910a20: call     0x1400a2200   ; strings.TrimSpace
+0x140910a25: test     rbx, rbx
+0x140910a28: jne      0x140910a36   ; main.failedOLEDBlackoutHotkeyUpdateResult+0xb6
+0x140910a2a: mov      rdx, qword ptr [rsp + 0x20]
+0x140910a2f: mov      r8, qword ptr [rsp + 0x38]
+0x140910a34: jmp      0x1409109e8   ; main.failedOLEDBlackoutHotkeyUpdateResult+0x68
+0x140910a36: mov      rcx, rax
+0x140910a39: mov      rdi, rbx
+0x140910a3c: lea      rax, [rip + 0x237cdd]
+0x140910a43: mov      rbx, qword ptr [rsp + 0x30]
+0x140910a48: call     0x14000de60   ; runtime.mapassign_faststr
+0x140910a4d: mov      rdx, qword ptr [rsp + 0x20]
+0x140910a52: mov      qword ptr [rax + 8], rdx
+0x140910a56: cmp      dword ptr [rip + 0x134a8f3], 0
+0x140910a5d: jne      0x140910a66   ; main.failedOLEDBlackoutHotkeyUpdateResult+0xe6
+0x140910a5f: mov      r8, qword ptr [rsp + 0x38]
+0x140910a64: jmp      0x140910a7a   ; main.failedOLEDBlackoutHotkeyUpdateResult+0xfa
+0x140910a66: mov      rsi, qword ptr [rax]
+0x140910a69: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140910a6e: mov      r8, qword ptr [rsp + 0x38]
+0x140910a73: mov      qword ptr [r11], r8
+0x140910a76: mov      qword ptr [r11 + 8], rsi
+0x140910a7a: mov      qword ptr [rax], r8
+0x140910a7d: nop      dword ptr [rax]
+0x140910a80: jmp      0x1409109e8   ; main.failedOLEDBlackoutHotkeyUpdateResult+0x68
+0x140910a85: xor      eax, eax
+0x140910a87: xor      ebx, ebx
+0x140910a89: mov      rcx, rbx
+0x140910a8c: mov      rdi, qword ptr [rsp + 0x30]
+0x140910a91: add      rsp, 0x48
+0x140910a95: pop      rbp
+0x140910a96: ret      
+0x140910a97: mov      qword ptr [rsp + 8], rax
+0x140910a9c: mov      qword ptr [rsp + 0x10], rbx
+0x140910aa1: mov      qword ptr [rsp + 0x18], rcx
+0x140910aa6: mov      qword ptr [rsp + 0x20], rdi
+0x140910aab: mov      qword ptr [rsp + 0x28], rsi
+0x140910ab0: call     0x14007f140   ; runtime.morestack_noctxt
+0x140910ab5: mov      rax, qword ptr [rsp + 8]
+0x140910aba: mov      rbx, qword ptr [rsp + 0x10]
+0x140910abf: mov      rcx, qword ptr [rsp + 0x18]
+0x140910ac4: mov      rdi, qword ptr [rsp + 0x20]
+0x140910ac9: mov      rsi, qword ptr [rsp + 0x28]
+0x140910ace: jmp      0x140910980   ; main.failedOLEDBlackoutHotkeyUpdateResult
+0x140910ad3: int3     
+0x140910ad4: int3     
+0x140910ad5: int3     
+0x140910ad6: int3     
+0x140910ad7: int3     
+0x140910ad8: int3     
+0x140910ad9: int3     
+0x140910ada: int3     
+0x140910adb: int3     
+0x140910adc: int3     
+0x140910add: int3     
+0x140910ade: int3     
+0x140910adf: int3     
+0x140910ae0: test     rax, rax
+0x140910ae3: je       0x140910b4c   ; main.oledBlackoutOverlayWindow.boundsForScreen+0x6c
+0x140910ae5: cmp      qword ptr [rax + 0x48], 0
+0x140910aea: je       0x140910b4c   ; main.oledBlackoutOverlayWindow.boundsForScreen+0x6c
+0x140910aec: test     rbx, rbx
+0x140910aef: je       0x140910b35   ; main.oledBlackoutOverlayWindow.boundsForScreen+0x55
+0x140910af1: mov      rdx, qword ptr [rbx + 0x78]
+0x140910af5: mov      rsi, qword ptr [rbx + 0x80]
+0x140910afc: mov      r8, qword ptr [rbx + 0x70]
+0x140910b00: mov      r9, qword ptr [rbx + 0x68]
+0x140910b04: test     rdx, rdx
+0x140910b07: jle      0x140910b0e   ; main.oledBlackoutOverlayWindow.boundsForScreen+0x2e
+0x140910b09: test     rsi, rsi
+0x140910b0c: jg       0x140910b3f   ; main.oledBlackoutOverlayWindow.boundsForScreen+0x5f
+0x140910b0e: mov      r10, qword ptr [rbx + 0x58]
+0x140910b12: test     r10, r10
+0x140910b15: jle      0x140910b3f   ; main.oledBlackoutOverlayWindow.boundsForScreen+0x5f
+0x140910b17: mov      r11, qword ptr [rbx + 0x60]
+0x140910b1b: nop      dword ptr [rax + rax]
+0x140910b20: test     r11, r11
+0x140910b23: jle      0x140910b3f   ; main.oledBlackoutOverlayWindow.boundsForScreen+0x5f
+0x140910b25: mov      r8, qword ptr [rbx + 0x50]
+0x140910b29: mov      r9, qword ptr [rbx + 0x48]
+0x140910b2d: mov      rsi, r11
+0x140910b30: mov      rdx, r10
+0x140910b33: jmp      0x140910b3f   ; main.oledBlackoutOverlayWindow.boundsForScreen+0x5f
+0x140910b35: xor      esi, esi
+0x140910b37: xor      r9d, r9d
+0x140910b3a: xor      edx, edx
+0x140910b3c: xor      r8d, r8d
+0x140910b3f: mov      rax, r9
+0x140910b42: mov      rbx, r8
+0x140910b45: mov      rcx, rdx
+0x140910b48: mov      rdi, rsi
+0x140910b4b: ret      
+0x140910b4c: test     rbx, rbx
+0x140910b4f: je       0x140910b84   ; main.oledBlackoutOverlayWindow.boundsForScreen+0xa4
+0x140910b51: mov      rdx, qword ptr [rbx + 0x58]
+0x140910b55: test     rdx, rdx
+0x140910b58: jle      0x140910b6f   ; main.oledBlackoutOverlayWindow.boundsForScreen+0x8f
+0x140910b5a: mov      rsi, qword ptr [rbx + 0x60]
+0x140910b5e: nop      
+0x140910b60: test     rsi, rsi
+0x140910b63: jle      0x140910b6f   ; main.oledBlackoutOverlayWindow.boundsForScreen+0x8f
+0x140910b65: mov      r8, qword ptr [rbx + 0x50]
+0x140910b69: mov      r9, qword ptr [rbx + 0x48]
+0x140910b6d: jmp      0x140910b8e   ; main.oledBlackoutOverlayWindow.boundsForScreen+0xae
+0x140910b6f: mov      r8, qword ptr [rbx + 0x70]
+0x140910b73: mov      rdx, qword ptr [rbx + 0x78]
+0x140910b77: mov      rsi, qword ptr [rbx + 0x80]
+0x140910b7e: mov      r9, qword ptr [rbx + 0x68]
+0x140910b82: jmp      0x140910b8e   ; main.oledBlackoutOverlayWindow.boundsForScreen+0xae
+0x140910b84: xor      r8d, r8d
+0x140910b87: xor      r9d, r9d
+0x140910b8a: xor      esi, esi
+0x140910b8c: xor      edx, edx
+0x140910b8e: mov      rax, r9
+0x140910b91: mov      rbx, r8
+0x140910b94: mov      rcx, rdx
+0x140910b97: mov      rdi, rsi
+0x140910b9a: ret      
+0x140910b9b: int3     
+0x140910b9c: int3     
+0x140910b9d: int3     
+0x140910b9e: int3     
+0x140910b9f: int3     
+0x140910ba0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140910ba4: jbe      0x140910c9c   ; main.oledBlackoutOverlayWindow.SetBounds+0xfc
+0x140910baa: push     rbp
+0x140910bab: mov      rbp, rsp
+0x140910bae: sub      rsp, 0x48
+0x140910bb2: test     rax, rax
+0x140910bb5: je       0x140910c96   ; main.oledBlackoutOverlayWindow.SetBounds+0xf6
+0x140910bbb: mov      qword ptr [rax + 0x18], rbx
+0x140910bbf: mov      qword ptr [rax + 0x20], rcx
+0x140910bc3: mov      qword ptr [rax + 0x28], rdi
+0x140910bc7: mov      qword ptr [rax + 0x30], rsi
+0x140910bcb: mov      r8, qword ptr [rax + 0x48]
+0x140910bcf: test     r8, r8
+0x140910bd2: jne      0x140910c88   ; main.oledBlackoutOverlayWindow.SetBounds+0xe8
+0x140910bd8: mov      r8, qword ptr [rax + 0x38]
+0x140910bdc: nop      dword ptr [rax]
+0x140910be0: test     r8, r8
+0x140910be3: je       0x140910c82   ; main.oledBlackoutOverlayWindow.SetBounds+0xe2
+0x140910be9: mov      qword ptr [rsp + 0x58], rax
+0x140910bee: mov      qword ptr [rsp + 0x40], rbx
+0x140910bf3: mov      qword ptr [rsp + 0x38], rsi
+0x140910bf8: mov      qword ptr [rsp + 0x30], rdi
+0x140910bfd: mov      qword ptr [rsp + 0x28], rcx
+0x140910c02: mov      rbx, qword ptr [rax + 0x40]
+0x140910c06: mov      rdx, qword ptr [rip + 0x12b0f13]
+0x140910c0d: mov      rcx, qword ptr [rdx]
+0x140910c10: mov      rax, r8
+0x140910c13: call     rcx
+0x140910c15: mov      rcx, qword ptr [rsp + 0x58]
+0x140910c1a: mov      rsi, qword ptr [rcx + 0x38]

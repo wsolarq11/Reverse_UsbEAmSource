@@ -1,0 +1,63 @@
+0x1408904a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408904a4: jbe      0x14089050b   ; main.ensureLauncherConfigIconMigrationBackup+0x6b
+0x1408904a6: push     rbp
+0x1408904a7: mov      rbp, rsp
+0x1408904aa: sub      rsp, 0x38
+0x1408904ae: mov      qword ptr [rsp + 0x48], rax
+0x1408904b3: mov      qword ptr [rsp + 0x68], rsi
+0x1408904b8: mov      qword ptr [rsp + 0x60], rdi
+0x1408904bd: mov      qword ptr [rsp + 0x58], rcx
+0x1408904c2: call     0x1400a2200   ; strings.TrimSpace
+0x1408904c7: mov      rcx, rbx
+0x1408904ca: lea      rdi, [rip + 0x3dd074]
+0x1408904d1: mov      esi, 0x1d
+0x1408904d6: mov      rbx, rax
+0x1408904d9: xor      eax, eax
+0x1408904db: nop      dword ptr [rax + rax]
+0x1408904e0: call     0x14005fc00   ; runtime.concatstring2
+0x1408904e5: lea      rcx, [rip + 0x3dd059]
+0x1408904ec: mov      edi, 0x1d
+0x1408904f1: mov      rsi, qword ptr [rsp + 0x58]
+0x1408904f6: mov      r8, qword ptr [rsp + 0x60]
+0x1408904fb: mov      r9, qword ptr [rsp + 0x68]
+0x140890500: call     0x140890620   ; main.ensureLauncherConfigMigrationBackupFile
+0x140890505: add      rsp, 0x38
+0x140890509: pop      rbp
+0x14089050a: ret      
+0x14089050b: mov      qword ptr [rsp + 8], rax
+0x140890510: mov      qword ptr [rsp + 0x10], rbx
+0x140890515: mov      qword ptr [rsp + 0x18], rcx
+0x14089051a: mov      qword ptr [rsp + 0x20], rdi
+0x14089051f: mov      qword ptr [rsp + 0x28], rsi
+0x140890524: call     0x14007f140   ; runtime.morestack_noctxt
+0x140890529: mov      rax, qword ptr [rsp + 8]
+0x14089052e: mov      rbx, qword ptr [rsp + 0x10]
+0x140890533: mov      rcx, qword ptr [rsp + 0x18]
+0x140890538: mov      rdi, qword ptr [rsp + 0x20]
+0x14089053d: mov      rsi, qword ptr [rsp + 0x28]
+0x140890542: jmp      0x1408904a0   ; main.ensureLauncherConfigIconMigrationBackup
+0x140890547: int3     
+0x140890548: int3     
+0x140890549: int3     
+0x14089054a: int3     
+0x14089054b: int3     
+0x14089054c: int3     
+0x14089054d: int3     
+0x14089054e: int3     
+0x14089054f: int3     
+0x140890550: int3     
+0x140890551: int3     
+0x140890552: int3     
+0x140890553: int3     
+0x140890554: int3     
+0x140890555: int3     
+0x140890556: int3     
+0x140890557: int3     
+0x140890558: int3     
+0x140890559: int3     
+0x14089055a: int3     
+0x14089055b: int3     
+0x14089055c: int3     
+0x14089055d: int3     
+0x14089055e: int3     
+0x14089055f: int3     

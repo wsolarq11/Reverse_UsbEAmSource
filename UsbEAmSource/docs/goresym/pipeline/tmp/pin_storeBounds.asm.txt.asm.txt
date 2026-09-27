@@ -1,0 +1,31 @@
+0x140985cc0: lea      r12, [rsp - 0x218]
+0x140985cc8: cmp      r12, qword ptr [r14 + 0x10]
+0x140985ccc: jbe      0x140985ec2   ; main.screenshotPinWindowService.storeSnapshotBounds+0x202
+0x140985cd2: push     rbp
+0x140985cd3: mov      rbp, rsp
+0x140985cd6: sub      rsp, 0x290
+0x140985cdd: nop      dword ptr [rax]
+0x140985ce0: test     rax, rax
+0x140985ce3: je       0x140985eb9   ; main.screenshotPinWindowService.storeSnapshotBounds+0x1f9
+0x140985ce9: test     rbx, rbx
+0x140985cec: je       0x140985eb9   ; main.screenshotPinWindowService.storeSnapshotBounds+0x1f9
+0x140985cf2: mov      qword ptr [rsp + 0x2a0], rax
+0x140985cfa: mov      byte ptr [rsp + 0x2d0], r9b
+0x140985d02: mov      qword ptr [rsp + 0x108], r8
+0x140985d0a: mov      qword ptr [rsp + 0x100], rsi
+0x140985d12: mov      qword ptr [rsp + 0xf8], rdi
+0x140985d1a: mov      qword ptr [rsp + 0xf0], rcx
+0x140985d22: nop      
+0x140985d23: nop      
+0x140985d24: mov      rdx, rax
+0x140985d27: xor      eax, eax
+0x140985d29: mov      r10d, 1
+0x140985d2f: lock cmpxchg dword ptr [rdx], r10d
+0x140985d34: sete     r10b
+0x140985d38: test     r10b, r10b
+0x140985d3b: jne      0x140985d5d   ; main.screenshotPinWindowService.storeSnapshotBounds+0x9d
+0x140985d3d: mov      qword ptr [rsp + 0x2a8], rbx
+0x140985d45: mov      rax, rdx
+0x140985d48: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x140985d4d: mov      rdx, qword ptr [rsp + 0x2a0]
+0x140985d55: mov      rbx, qword ptr [rsp + 0x2a8]

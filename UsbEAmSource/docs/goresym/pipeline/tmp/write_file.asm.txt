@@ -1,0 +1,296 @@
+0x1407c47c0: lea      r12, [rsp - 0xf8]
+0x1407c47c8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407c47cc: jbe      0x1407c4d68   ; main.writeDesktopWidgetDocumentFile+0x5a8
+0x1407c47d2: push     rbp
+0x1407c47d3: mov      rbp, rsp
+0x1407c47d6: sub      rsp, 0x170
+0x1407c47dd: mov      qword ptr [rsp + 0x1e8], rax
+0x1407c47e5: movq     qword ptr [rsp + 0x168], xmm15
+0x1407c47ef: mov      byte ptr [rsp + 0xd7], 0
+0x1407c47f7: movups   xmmword ptr [rsp + 0x110], xmm15
+0x1407c4800: call     0x1400a2200   ; strings.TrimSpace
+0x1407c4805: test     rbx, rbx
+0x1407c4808: je       0x1407c4bab   ; main.writeDesktopWidgetDocumentFile+0x3eb
+0x1407c480e: mov      qword ptr [rsp + 0xe8], rbx
+0x1407c4816: mov      qword ptr [rsp + 0x128], rax
+0x1407c481e: mov      rax, qword ptr [rsp + 0x180]
+0x1407c4826: mov      qword ptr [rsp], rax
+0x1407c482a: lea      rdi, [rsp + 8]
+0x1407c482f: lea      rsi, [rsp + 0x188]
+0x1407c4837: nop      word ptr [rax + rax]
+0x1407c4840: mov      qword ptr [rsp - 0x10], rbp
+0x1407c4845: lea      rbp, [rsp - 0x10]
+0x1407c484a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c484f: mov      rbp, qword ptr [rbp]
+0x1407c4853: call     0x1407bfec0   ; main.normalizeDesktopWidgetDocument
+0x1407c4858: mov      rax, qword ptr [rsp + 0x68]
+0x1407c485d: mov      qword ptr [rsp + 0x180], rax
+0x1407c4865: lea      rdi, [rsp + 0x188]
+0x1407c486d: lea      rsi, [rsp + 0x70]
+0x1407c4872: nop      word ptr [rax + rax]
+0x1407c487b: nop      dword ptr [rax + rax]
+0x1407c4880: mov      qword ptr [rsp - 0x10], rbp
+0x1407c4885: lea      rbp, [rsp - 0x10]
+0x1407c488a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c488f: mov      rbp, qword ptr [rbp]
+0x1407c4893: mov      rax, qword ptr [rsp + 0x180]
+0x1407c489b: mov      qword ptr [rsp], rax
+0x1407c489f: lea      rdi, [rsp + 8]
+0x1407c48a4: lea      rsi, [rsp + 0x188]
+0x1407c48ac: mov      qword ptr [rsp - 0x10], rbp
+0x1407c48b1: lea      rbp, [rsp - 0x10]
+0x1407c48b6: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c48bb: mov      rbp, qword ptr [rbp]
+0x1407c48bf: nop      
+0x1407c48c0: call     0x1407c3940   ; main.validateDesktopWidgetDocument
+0x1407c48c5: test     rax, rax
+0x1407c48c8: jne      0x1407c4b92   ; main.writeDesktopWidgetDocumentFile+0x3d2
+0x1407c48ce: mov      rax, qword ptr [rsp + 0x128]
+0x1407c48d6: mov      rbx, qword ptr [rsp + 0xe8]
+0x1407c48de: nop      
+0x1407c48e0: call     0x140116440   ; internal/filepathlite.Dir
+0x1407c48e5: mov      ecx, 0x1ed
+0x1407c48ea: call     0x14012bbe0   ; os.MkdirAll
+0x1407c48ef: test     rax, rax
+0x1407c48f2: jne      0x1407c4b79   ; main.writeDesktopWidgetDocumentFile+0x3b9
+0x1407c48f8: lea      rax, [rip + 0x435b41]
+0x1407c48ff: lea      rbx, [rsp + 0x180]
+0x1407c4907: call     0x140017240   ; runtime.convT
+0x1407c490c: mov      rbx, rax
+0x1407c490f: xor      ecx, ecx
+0x1407c4911: xor      edi, edi
+0x1407c4913: lea      rsi, [rip + 0x46ed51]
+0x1407c491a: mov      r8d, 2
+0x1407c4920: lea      rax, [rip + 0x435b19]
+0x1407c4927: call     0x1405899c0   ; encoding/json.MarshalIndent
+0x1407c492c: test     rdi, rdi
+0x1407c492f: jne      0x1407c4b5a   ; main.writeDesktopWidgetDocumentFile+0x39a
+0x1407c4935: inc      rbx
+0x1407c4938: cmp      rcx, rbx
+0x1407c493b: jae      0x1407c494e   ; main.writeDesktopWidgetDocumentFile+0x18e
+0x1407c493d: mov      edi, 1
+0x1407c4942: lea      rsi, [rip + 0x325537]
+0x1407c4949: call     0x14007ad20   ; runtime.growslice
+0x1407c494e: mov      qword ptr [rsp + 0x138], rax
+0x1407c4956: mov      qword ptr [rsp + 0xf0], rbx
+0x1407c495e: mov      qword ptr [rsp + 0xf8], rcx
+0x1407c4966: mov      byte ptr [rbx + rax - 1], 0xa
+0x1407c496b: mov      rax, qword ptr [rsp + 0x128]
+0x1407c4973: mov      rbx, qword ptr [rsp + 0xe8]
+0x1407c497b: nop      dword ptr [rax + rax]
+0x1407c4980: call     0x140116440   ; internal/filepathlite.Dir
+0x1407c4985: lea      rcx, [rip + 0x49e515]
+0x1407c498c: mov      edi, 0x17
+0x1407c4991: call     0x14012eba0   ; os.CreateTemp
+0x1407c4996: test     rbx, rbx
+0x1407c4999: jne      0x1407c4b3b   ; main.writeDesktopWidgetDocumentFile+0x37b
+0x1407c499f: mov      qword ptr [rsp + 0x130], rax
+0x1407c49a7: mov      rdx, qword ptr [rax]
+0x1407c49aa: mov      rsi, qword ptr [rdx + 0x220]
+0x1407c49b1: mov      qword ptr [rsp + 0x108], rsi
+0x1407c49b9: mov      rdx, qword ptr [rdx + 0x228]
+0x1407c49c0: mov      qword ptr [rsp + 0xd8], rdx
+0x1407c49c8: nop      
+0x1407c49c9: mov      byte ptr [rsp + 0xd6], 1
+0x1407c49d1: lea      r8, [rip + 0x3c8]
+0x1407c49d8: mov      qword ptr [rsp + 0x140], r8
+0x1407c49e0: mov      qword ptr [rsp + 0x148], rax
+0x1407c49e8: lea      r8, [rsp + 0xd6]
+0x1407c49f0: mov      qword ptr [rsp + 0x150], r8
+0x1407c49f8: mov      qword ptr [rsp + 0x160], rdx
+0x1407c4a00: mov      qword ptr [rsp + 0x158], rsi
+0x1407c4a08: lea      rdx, [rsp + 0x140]
+0x1407c4a10: mov      qword ptr [rsp + 0x168], rdx
+0x1407c4a18: mov      byte ptr [rsp + 0xd7], 1
+0x1407c4a20: mov      rbx, qword ptr [rsp + 0x138]
+0x1407c4a28: mov      rcx, qword ptr [rsp + 0xf0]
+0x1407c4a30: mov      rdi, qword ptr [rsp + 0xf8]
+0x1407c4a38: call     0x140127fc0   ; os.File.Write
+0x1407c4a3d: nop      dword ptr [rax]
+0x1407c4a40: test     rbx, rbx
+0x1407c4a43: jne      0x1407c4afb   ; main.writeDesktopWidgetDocumentFile+0x33b
+0x1407c4a49: mov      rax, qword ptr [rsp + 0x130]
+0x1407c4a51: call     0x140129b20   ; os.File.Sync
+0x1407c4a56: test     rax, rax
+0x1407c4a59: jne      0x1407c4abb   ; main.writeDesktopWidgetDocumentFile+0x2fb
+0x1407c4a5b: mov      rcx, qword ptr [rsp + 0x130]
+0x1407c4a63: mov      rax, qword ptr [rcx]
+0x1407c4a66: call     0x14012a320   ; os.file.close
+0x1407c4a6b: test     rax, rax
+0x1407c4a6e: jne      0x1407c4a7b   ; main.writeDesktopWidgetDocumentFile+0x2bb
+0x1407c4a70: xor      eax, eax
+0x1407c4a72: xor      ecx, ecx
+0x1407c4a74: xor      edx, edx
+0x1407c4a76: jmp      0x1407c4c20   ; main.writeDesktopWidgetDocumentFile+0x460
+0x1407c4a7b: mov      qword ptr [rsp + 0x110], rax
+0x1407c4a83: mov      qword ptr [rsp + 0x118], rbx
+0x1407c4a8b: mov      byte ptr [rsp + 0xd7], 0
+0x1407c4a93: mov      rdx, qword ptr [rsp + 0x168]
+0x1407c4a9b: mov      rax, qword ptr [rdx]
+0x1407c4a9e: nop      
+0x1407c4aa0: call     rax
+0x1407c4aa2: mov      rax, qword ptr [rsp + 0x110]
+0x1407c4aaa: mov      rbx, qword ptr [rsp + 0x118]
+0x1407c4ab2: add      rsp, 0x170
+0x1407c4ab9: pop      rbp
+0x1407c4aba: ret      
+0x1407c4abb: mov      qword ptr [rsp + 0x110], rax
+0x1407c4ac3: mov      qword ptr [rsp + 0x118], rbx
+0x1407c4acb: mov      byte ptr [rsp + 0xd7], 0
+0x1407c4ad3: mov      rdx, qword ptr [rsp + 0x168]
+0x1407c4adb: mov      rax, qword ptr [rdx]
+0x1407c4ade: nop      
+0x1407c4ae0: call     rax
+0x1407c4ae2: mov      rax, qword ptr [rsp + 0x110]
+0x1407c4aea: mov      rbx, qword ptr [rsp + 0x118]
+0x1407c4af2: add      rsp, 0x170
+0x1407c4af9: pop      rbp
+0x1407c4afa: ret      
+0x1407c4afb: mov      qword ptr [rsp + 0x110], rbx
+0x1407c4b03: mov      qword ptr [rsp + 0x118], rcx
+0x1407c4b0b: mov      byte ptr [rsp + 0xd7], 0
+0x1407c4b13: mov      rdx, qword ptr [rsp + 0x168]
+0x1407c4b1b: mov      rax, qword ptr [rdx]
+0x1407c4b1e: nop      
+0x1407c4b20: call     rax
+0x1407c4b22: mov      rax, qword ptr [rsp + 0x110]
+0x1407c4b2a: mov      rbx, qword ptr [rsp + 0x118]
+0x1407c4b32: add      rsp, 0x170
+0x1407c4b39: pop      rbp
+0x1407c4b3a: ret      
+0x1407c4b3b: mov      qword ptr [rsp + 0x110], rbx
+0x1407c4b43: mov      qword ptr [rsp + 0x118], rcx
+0x1407c4b4b: mov      rax, rbx
+0x1407c4b4e: mov      rbx, rcx
+0x1407c4b51: add      rsp, 0x170
+0x1407c4b58: pop      rbp
+0x1407c4b59: ret      
+0x1407c4b5a: mov      qword ptr [rsp + 0x110], rdi
+0x1407c4b62: mov      qword ptr [rsp + 0x118], rsi
+0x1407c4b6a: mov      rax, rdi
+0x1407c4b6d: mov      rbx, rsi
+0x1407c4b70: add      rsp, 0x170
+0x1407c4b77: pop      rbp
+0x1407c4b78: ret      
+0x1407c4b79: mov      qword ptr [rsp + 0x110], rax
+0x1407c4b81: mov      qword ptr [rsp + 0x118], rbx
+0x1407c4b89: add      rsp, 0x170
+0x1407c4b90: pop      rbp
+0x1407c4b91: ret      
+0x1407c4b92: mov      qword ptr [rsp + 0x110], rax
+0x1407c4b9a: mov      qword ptr [rsp + 0x118], rbx
+0x1407c4ba2: add      rsp, 0x170
+0x1407c4ba9: pop      rbp
+0x1407c4baa: ret      
+0x1407c4bab: lea      rax, [rip + 0x38f7ce]
+0x1407c4bb2: call     0x14001ae20   ; runtime.newobject
+0x1407c4bb7: mov      qword ptr [rax + 8], 0x24
+0x1407c4bbf: lea      rcx, [rip + 0x4b3725]
+0x1407c4bc6: mov      qword ptr [rax], rcx
+0x1407c4bc9: lea      rcx, [rip + 0xa0e530]
+0x1407c4bd0: mov      qword ptr [rsp + 0x110], rcx
+0x1407c4bd8: mov      qword ptr [rsp + 0x118], rax
+0x1407c4be0: mov      rcx, qword ptr [rsp + 0x110]
+0x1407c4be8: mov      rbx, rax
+0x1407c4beb: mov      rax, rcx
+0x1407c4bee: add      rsp, 0x170
+0x1407c4bf5: pop      rbp
+0x1407c4bf6: ret      
+0x1407c4bf7: mov      eax, 0x2faf080
+0x1407c4bfc: nop      dword ptr [rax]
+0x1407c4c00: call     0x14007d0c0   ; time.Sleep
+0x1407c4c05: mov      rax, qword ptr [rsp + 0x100]
+0x1407c4c0d: inc      rax
+0x1407c4c10: mov      rcx, qword ptr [rsp + 0xe0]
+0x1407c4c18: mov      rdx, qword ptr [rsp + 0x120]
+0x1407c4c20: cmp      rax, 5
+0x1407c4c24: jge      0x1407c4d0c   ; main.writeDesktopWidgetDocumentFile+0x54c
+0x1407c4c2a: mov      qword ptr [rsp + 0x100], rax
+0x1407c4c32: nop      
+0x1407c4c33: mov      rax, qword ptr [rsp + 0x108]
+0x1407c4c3b: mov      rbx, qword ptr [rsp + 0xd8]
+0x1407c4c43: mov      rcx, qword ptr [rsp + 0x128]
+0x1407c4c4b: mov      rdi, qword ptr [rsp + 0xe8]
+0x1407c4c53: call     0x14012a840   ; os.rename
+0x1407c4c58: test     rax, rax
+0x1407c4c5b: je       0x1407c4ccd   ; main.writeDesktopWidgetDocumentFile+0x50d
+0x1407c4c5d: mov      qword ptr [rsp + 0xe0], rax
+0x1407c4c65: mov      qword ptr [rsp + 0x120], rbx
+0x1407c4c6d: mov      rcx, qword ptr [rip + 0x144bcfc]
+0x1407c4c74: mov      rdi, qword ptr [rip + 0x144bcfd]
+0x1407c4c7b: nop      dword ptr [rax + rax]
+0x1407c4c80: call     0x1400904a0   ; errors.Is
+0x1407c4c85: test     al, al
+0x1407c4c87: je       0x1407c4c90   ; main.writeDesktopWidgetDocumentFile+0x4d0
+0x1407c4c89: mov      eax, 1
+0x1407c4c8e: jmp      0x1407c4cb3   ; main.writeDesktopWidgetDocumentFile+0x4f3
+0x1407c4c90: mov      rcx, qword ptr [rip + 0x144bce9]
+0x1407c4c97: mov      rdi, qword ptr [rip + 0x144bcea]
+0x1407c4c9e: mov      rax, qword ptr [rsp + 0xe0]
+0x1407c4ca6: mov      rbx, qword ptr [rsp + 0x120]
+0x1407c4cae: call     0x1400904a0   ; errors.Is
+0x1407c4cb3: test     al, al
+0x1407c4cb5: jne      0x1407c4bf7   ; main.writeDesktopWidgetDocumentFile+0x437
+0x1407c4cbb: mov      rcx, qword ptr [rsp + 0xe0]
+0x1407c4cc3: mov      rdx, qword ptr [rsp + 0x120]
+0x1407c4ccb: jmp      0x1407c4d0c   ; main.writeDesktopWidgetDocumentFile+0x54c
+0x1407c4ccd: mov      byte ptr [rsp + 0xd6], 0
+0x1407c4cd5: movups   xmmword ptr [rsp + 0x110], xmm15
+0x1407c4cde: mov      byte ptr [rsp + 0xd7], 0
+0x1407c4ce6: mov      rdx, qword ptr [rsp + 0x168]
+0x1407c4cee: mov      rax, qword ptr [rdx]
+0x1407c4cf1: call     rax
+0x1407c4cf3: mov      rbx, qword ptr [rsp + 0x118]
+0x1407c4cfb: mov      rax, qword ptr [rsp + 0x110]
+0x1407c4d03: add      rsp, 0x170
+0x1407c4d0a: pop      rbp
+0x1407c4d0b: ret      
+0x1407c4d0c: mov      qword ptr [rsp + 0x110], rcx
+0x1407c4d14: mov      qword ptr [rsp + 0x118], rdx
+0x1407c4d1c: mov      byte ptr [rsp + 0xd7], 0
+0x1407c4d24: mov      rdx, qword ptr [rsp + 0x168]
+0x1407c4d2c: mov      rax, qword ptr [rdx]
+0x1407c4d2f: call     rax
+0x1407c4d31: mov      rax, qword ptr [rsp + 0x110]
+0x1407c4d39: mov      rbx, qword ptr [rsp + 0x118]
+0x1407c4d41: add      rsp, 0x170
+0x1407c4d48: pop      rbp
+0x1407c4d49: ret      
+0x1407c4d4a: call     0x1400435e0   ; runtime.deferreturn
+0x1407c4d4f: mov      rax, qword ptr [rsp + 0x110]
+0x1407c4d57: mov      rbx, qword ptr [rsp + 0x118]
+0x1407c4d5f: add      rsp, 0x170
+0x1407c4d66: pop      rbp
+0x1407c4d67: ret      
+0x1407c4d68: mov      qword ptr [rsp + 0x70], rax
+0x1407c4d6d: mov      qword ptr [rsp + 0x78], rbx
+0x1407c4d72: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407c4d77: mov      rax, qword ptr [rsp + 0x70]
+0x1407c4d7c: mov      rbx, qword ptr [rsp + 0x78]
+0x1407c4d81: jmp      0x1407c47c0   ; main.writeDesktopWidgetDocumentFile
+0x1407c4d86: int3     
+0x1407c4d87: int3     
+0x1407c4d88: int3     
+0x1407c4d89: int3     
+0x1407c4d8a: int3     
+0x1407c4d8b: int3     
+0x1407c4d8c: int3     
+0x1407c4d8d: int3     
+0x1407c4d8e: int3     
+0x1407c4d8f: int3     
+0x1407c4d90: int3     
+0x1407c4d91: int3     
+0x1407c4d92: int3     
+0x1407c4d93: int3     
+0x1407c4d94: int3     
+0x1407c4d95: int3     
+0x1407c4d96: int3     
+0x1407c4d97: int3     
+0x1407c4d98: int3     
+0x1407c4d99: int3     
+0x1407c4d9a: int3     
+0x1407c4d9b: int3     
+0x1407c4d9c: int3     
+0x1407c4d9d: int3     
+0x1407c4d9e: int3     
+0x1407c4d9f: int3     

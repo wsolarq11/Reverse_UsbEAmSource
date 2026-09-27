@@ -1,0 +1,74 @@
+0x1407a8fa0: lea      r12, [rsp - 0xa0]
+0x1407a8fa8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a8fac: jbe      0x1407a90dc    ; main.BootstrapService.ResetDesktopTimer+0x13c
+0x1407a8fb2: push     rbp
+0x1407a8fb3: mov      rbp, rsp
+0x1407a8fb6: sub      rsp, 0x118
+0x1407a8fbd: mov      qword ptr [rsp + 0x1a8], rbx
+0x1407a8fc5: movups   xmmword ptr [rsp + 0x128], xmm15
+0x1407a8fce: lea      rdi, [rsp + 0x130]
+0x1407a8fd6: lea      rdi, [rdi - 0x10]
+0x1407a8fda: nop      word ptr [rax + rax]
+0x1407a8fe0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a8fe5: lea      rbp, [rsp - 0x10]
+0x1407a8fea: call     0x140081726    ; runtime.duffzero+0x146
+0x1407a8fef: mov      rbp, qword ptr [rbp]
+0x1407a8ff3: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x1407a8ffc: lea      rdi, [rsp + 0xa8]
+0x1407a9004: lea      rdi, [rdi - 0x10]
+0x1407a9008: mov      qword ptr [rsp - 0x10], rbp
+0x1407a900d: lea      rbp, [rsp - 0x10]
+0x1407a9012: call     0x140081726    ; runtime.duffzero+0x146
+0x1407a9017: mov      rbp, qword ptr [rbp]
+0x1407a901b: mov      rax, qword ptr [rax + 0x440]
+0x1407a9022: lea      rdi, [rip + 0x48cbef]
+0x1407a9029: mov      esi, 5
+0x1407a902e: call     0x1407bafe0    ; main.desktopWidgetService.mutateTimer
+0x1407a9033: mov      rdx, qword ptr [rsp]
+0x1407a9037: mov      qword ptr [rsp + 0xa0], rdx
+0x1407a903f: lea      rdi, [rsp + 0xa8]
+0x1407a9047: lea      rsi, [rsp + 8]
+0x1407a904c: mov      qword ptr [rsp - 0x10], rbp
+0x1407a9051: lea      rbp, [rsp - 0x10]
+0x1407a9056: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x1407a905b: mov      rbp, qword ptr [rbp]
+0x1407a905f: mov      rdx, qword ptr [rsp + 0xa0]
+0x1407a9067: mov      qword ptr [rsp + 0x128], rdx
+0x1407a906f: lea      rdi, [rsp + 0x130]
+0x1407a9077: lea      rsi, [rsp + 0xa8]
+0x1407a907f: nop      
+0x1407a9080: mov      qword ptr [rsp - 0x10], rbp
+0x1407a9085: lea      rbp, [rsp - 0x10]
+0x1407a908a: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x1407a908f: mov      rbp, qword ptr [rbp]
+0x1407a9093: mov      rdx, qword ptr [rsp + 0xa0]
+0x1407a909b: mov      qword ptr [rsp + 0x128], rdx
+0x1407a90a3: lea      rdi, [rsp + 0x130]
+0x1407a90ab: lea      rsi, [rsp + 0xa8]
+0x1407a90b3: nop      word ptr [rax + rax]
+0x1407a90bc: nop      dword ptr [rax]
+0x1407a90c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a90c5: lea      rbp, [rsp - 0x10]
+0x1407a90ca: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x1407a90cf: mov      rbp, qword ptr [rbp]
+0x1407a90d3: add      rsp, 0x118
+0x1407a90da: pop      rbp
+0x1407a90db: ret      
+0x1407a90dc: mov      qword ptr [rsp + 0x80], rax
+0x1407a90e4: mov      qword ptr [rsp + 0x88], rbx
+0x1407a90ec: mov      qword ptr [rsp + 0x90], rcx
+0x1407a90f4: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a90f9: mov      rax, qword ptr [rsp + 0x80]
+0x1407a9101: mov      rbx, qword ptr [rsp + 0x88]
+0x1407a9109: mov      rcx, qword ptr [rsp + 0x90]
+0x1407a9111: jmp      0x1407a8fa0    ; main.BootstrapService.ResetDesktopTimer
+0x1407a9116: int3     
+0x1407a9117: int3     
+0x1407a9118: int3     
+0x1407a9119: int3     
+0x1407a911a: int3     
+0x1407a911b: int3     
+0x1407a911c: int3     
+0x1407a911d: int3     
+0x1407a911e: int3     
+0x1407a911f: int3     

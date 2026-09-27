@@ -1,0 +1,88 @@
+0x140795da0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140795da4: jbe      0x140795e97    ; main.BootstrapService.showLauncherFromSecondInstance+0xf7
+0x140795daa: push     rbp
+0x140795dab: mov      rbp, rsp
+0x140795dae: sub      rsp, 0x30
+0x140795db2: mov      qword ptr [rsp + 0x40], rax
+0x140795db7: call     0x140795c00    ; main.BootstrapService.ensureLauncherWindowForShow
+0x140795dbc: nop      dword ptr [rax]
+0x140795dc0: test     rax, rax
+0x140795dc3: je       0x140795dd9    ; main.BootstrapService.showLauncherFromSecondInstance+0x39
+0x140795dc5: mov      rdx, qword ptr [rax + 8]
+0x140795dc9: mov      r8, qword ptr [rip + 0x1430d90]
+0x140795dd0: mov      r9, qword ptr [r8]
+0x140795dd3: mov      r10d, dword ptr [rax + 0x10]
+0x140795dd7: jmp      0x140795e3d    ; main.BootstrapService.showLauncherFromSecondInstance+0x9d
+0x140795dd9: nop      
+0x140795dda: mov      rcx, qword ptr [rsp + 0x40]
+0x140795ddf: lea      rdx, [rcx + 0x540]
+0x140795de6: xor      eax, eax
+0x140795de8: mov      esi, 1
+0x140795ded: lock cmpxchg dword ptr [rcx + 0x540], esi
+0x140795df5: sete     sil
+0x140795df9: test     sil, sil
+0x140795dfc: jne      0x140795e15    ; main.BootstrapService.showLauncherFromSecondInstance+0x75
+0x140795dfe: mov      qword ptr [rsp + 0x28], rdx
+0x140795e03: mov      rax, rdx
+0x140795e06: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x140795e0b: mov      rcx, qword ptr [rsp + 0x40]
+0x140795e10: mov      rdx, qword ptr [rsp + 0x28]
+0x140795e15: mov      byte ptr [rcx + 0x44a], 1
+0x140795e1c: nop      
+0x140795e1d: nop      
+0x140795e1e: mov      ebx, 0xffffffff
+0x140795e23: lock xadd dword ptr [rcx + 0x540], ebx
+0x140795e2b: dec      ebx
+0x140795e2d: je       0x140795e37    ; main.BootstrapService.showLauncherFromSecondInstance+0x97
+0x140795e2f: mov      rax, rdx
+0x140795e32: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x140795e37: add      rsp, 0x30
+0x140795e3b: pop      rbp
+0x140795e3c: ret      
+0x140795e3d: mov      r11, r10
+0x140795e40: and      r10, r9
+0x140795e43: shl      r10, 4
+0x140795e47: mov      r12, qword ptr [r10 + r8 + 8]
+0x140795e4c: cmp      r12, rdx
+0x140795e4f: je       0x140795e75    ; main.BootstrapService.showLauncherFromSecondInstance+0xd5
+0x140795e51: lea      r10, [r11 + 1]
+0x140795e55: test     r12, r12
+0x140795e58: jne      0x140795e3d    ; main.BootstrapService.showLauncherFromSecondInstance+0x9d
+0x140795e5a: mov      qword ptr [rsp + 0x20], rbx
+0x140795e5f: lea      rax, [rip + 0x1430cfa]
+0x140795e66: mov      rbx, rdx
+0x140795e69: call     0x1400174a0    ; runtime.typeAssert
+0x140795e6e: mov      rbx, qword ptr [rsp + 0x20]
+0x140795e73: jmp      0x140795e7a    ; main.BootstrapService.showLauncherFromSecondInstance+0xda
+0x140795e75: mov      rax, qword ptr [r10 + r8 + 0x10]
+0x140795e7a: mov      rcx, rbx
+0x140795e7d: xor      edi, edi
+0x140795e7f: mov      esi, 1
+0x140795e84: mov      rbx, rax
+0x140795e87: mov      rax, qword ptr [rsp + 0x40]
+0x140795e8c: call     0x140796480    ; main.BootstrapService.showLauncherWindow
+0x140795e91: add      rsp, 0x30
+0x140795e95: pop      rbp
+0x140795e96: ret      
+0x140795e97: mov      qword ptr [rsp + 8], rax
+0x140795e9c: nop      dword ptr [rax]
+0x140795ea0: call     0x14007f140    ; runtime.morestack_noctxt
+0x140795ea5: mov      rax, qword ptr [rsp + 8]
+0x140795eaa: jmp      0x140795da0    ; main.BootstrapService.showLauncherFromSecondInstance
+0x140795eaf: int3     
+0x140795eb0: int3     
+0x140795eb1: int3     
+0x140795eb2: int3     
+0x140795eb3: int3     
+0x140795eb4: int3     
+0x140795eb5: int3     
+0x140795eb6: int3     
+0x140795eb7: int3     
+0x140795eb8: int3     
+0x140795eb9: int3     
+0x140795eba: int3     
+0x140795ebb: int3     
+0x140795ebc: int3     
+0x140795ebd: int3     
+0x140795ebe: int3     
+0x140795ebf: int3     

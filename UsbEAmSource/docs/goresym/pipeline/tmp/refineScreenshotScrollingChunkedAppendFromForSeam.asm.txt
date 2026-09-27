@@ -1,0 +1,60 @@
+0x14099ff00: cmp      rsp, qword ptr [r14 + 0x10]
+0x14099ff04: jbe      0x14099ff95   ; main.refineScreenshotScrollingChunkedAppendFromForSeam+0x95
+0x14099ff0a: push     rbp
+0x14099ff0b: mov      rbp, rsp
+0x14099ff0e: sub      rsp, 0x18
+0x14099ff12: test     rax, rax
+0x14099ff15: je       0x14099ff8c   ; main.refineScreenshotScrollingChunkedAppendFromForSeam+0x8c
+0x14099ff17: test     rbx, rbx
+0x14099ff1a: je       0x14099ff8c   ; main.refineScreenshotScrollingChunkedAppendFromForSeam+0x8c
+0x14099ff1c: mov      rdx, qword ptr [rax]
+0x14099ff1f: nop      
+0x14099ff20: test     rdx, rdx
+0x14099ff23: jle      0x14099ff2e   ; main.refineScreenshotScrollingChunkedAppendFromForSeam+0x2e
+0x14099ff25: mov      rsi, qword ptr [rax + 8]
+0x14099ff29: test     rsi, rsi
+0x14099ff2c: jg       0x14099ff32   ; main.refineScreenshotScrollingChunkedAppendFromForSeam+0x32
+0x14099ff2e: xor      edx, edx
+0x14099ff30: xor      esi, esi
+0x14099ff32: test     rdx, rdx
+0x14099ff35: jle      0x14099ff8c   ; main.refineScreenshotScrollingChunkedAppendFromForSeam+0x8c
+0x14099ff37: test     rsi, rsi
+0x14099ff3a: jle      0x14099ff8c   ; main.refineScreenshotScrollingChunkedAppendFromForSeam+0x8c
+0x14099ff3c: mov      rdx, qword ptr [rbx + 0x30]
+0x14099ff40: cmp      qword ptr [rbx + 0x20], rdx
+0x14099ff44: jge      0x14099ff8c   ; main.refineScreenshotScrollingChunkedAppendFromForSeam+0x8c
+0x14099ff46: mov      rdx, qword ptr [rbx + 0x38]
+0x14099ff4a: mov      rsi, qword ptr [rbx + 0x28]
+0x14099ff4e: cmp      rdx, rsi
+0x14099ff51: jle      0x14099ff8c   ; main.refineScreenshotScrollingChunkedAppendFromForSeam+0x8c
+0x14099ff53: mov      qword ptr [rsp + 0x30], rbx
+0x14099ff58: mov      qword ptr [rsp + 0x38], rcx
+0x14099ff5d: mov      ebx, 0x18
+0x14099ff62: call     0x14099ffc0   ; main.screenshotScrollingChunkedCanvas.tailImage
+0x14099ff67: test     rax, rax
+0x14099ff6a: je       0x14099ff81   ; main.refineScreenshotScrollingChunkedAppendFromForSeam+0x81
+0x14099ff6c: mov      rbx, qword ptr [rsp + 0x30]
+0x14099ff71: mov      rcx, qword ptr [rsp + 0x38]
+0x14099ff76: call     0x1409a3580   ; main.refineScreenshotScrollingAppendFromForSeam
+0x14099ff7b: add      rsp, 0x18
+0x14099ff7f: pop      rbp
+0x14099ff80: ret      
+0x14099ff81: mov      rax, qword ptr [rsp + 0x38]
+0x14099ff86: add      rsp, 0x18
+0x14099ff8a: pop      rbp
+0x14099ff8b: ret      
+0x14099ff8c: mov      rax, rcx
+0x14099ff8f: add      rsp, 0x18
+0x14099ff93: pop      rbp
+0x14099ff94: ret      
+0x14099ff95: mov      qword ptr [rsp + 8], rax
+0x14099ff9a: mov      qword ptr [rsp + 0x10], rbx
+0x14099ff9f: mov      qword ptr [rsp + 0x18], rcx
+0x14099ffa4: call     0x14007f140   ; runtime.morestack_noctxt
+0x14099ffa9: mov      rax, qword ptr [rsp + 8]
+0x14099ffae: mov      rbx, qword ptr [rsp + 0x10]
+0x14099ffb3: mov      rcx, qword ptr [rsp + 0x18]
+0x14099ffb8: jmp      0x14099ff00   ; main.refineScreenshotScrollingChunkedAppendFromForSeam
+0x14099ffbd: int3     
+0x14099ffbe: int3     
+0x14099ffbf: int3     

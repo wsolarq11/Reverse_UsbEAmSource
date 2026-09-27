@@ -1,0 +1,63 @@
+0x1407a5e20: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a5e24: jbe      0x1407a5e86   ; main.discoverPluginsUnlocked.func1+0x66
+0x1407a5e26: push     rbp
+0x1407a5e27: mov      rbp, rsp
+0x1407a5e2a: sub      rsp, 0x20
+0x1407a5e2e: mov      rcx, qword ptr [rdx + 0x10]
+0x1407a5e32: cmp      rax, rcx
+0x1407a5e35: jae      0x1407a5e80   ; main.discoverPluginsUnlocked.func1+0x60
+0x1407a5e37: mov      rdx, qword ptr [rdx + 8]
+0x1407a5e3b: imul     rsi, rax, 0x178
+0x1407a5e42: mov      rax, qword ptr [rsi + rdx]
+0x1407a5e46: mov      rsi, qword ptr [rsi + rdx + 8]
+0x1407a5e4b: cmp      rbx, rcx
+0x1407a5e4e: jae      0x1407a5e74   ; main.discoverPluginsUnlocked.func1+0x54
+0x1407a5e50: imul     r8, rbx, 0x178
+0x1407a5e57: mov      rcx, qword ptr [r8 + rdx]
+0x1407a5e5b: mov      rdi, qword ptr [r8 + rdx + 8]
+0x1407a5e60: mov      rbx, rsi
+0x1407a5e63: call     0x140005ea0   ; runtime.cmpstring
+0x1407a5e68: test     rax, rax
+0x1407a5e6b: setl     al
+0x1407a5e6e: add      rsp, 0x20
+0x1407a5e72: pop      rbp
+0x1407a5e73: ret      
+0x1407a5e74: mov      rax, rbx
+0x1407a5e77: call     0x140081400   ; runtime.panicIndex
+0x1407a5e7c: nop      dword ptr [rax]
+0x1407a5e80: call     0x140081400   ; runtime.panicIndex
+0x1407a5e85: nop      
+0x1407a5e86: mov      qword ptr [rsp + 8], rax
+0x1407a5e8b: mov      qword ptr [rsp + 0x10], rbx
+0x1407a5e90: call     0x14007f0a0   ; runtime.morestack
+0x1407a5e95: mov      rax, qword ptr [rsp + 8]
+0x1407a5e9a: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a5e9f: nop      
+0x1407a5ea0: jmp      0x1407a5e20   ; main.discoverPluginsUnlocked.func1
+0x1407a5ea5: int3     
+0x1407a5ea6: int3     
+0x1407a5ea7: int3     
+0x1407a5ea8: int3     
+0x1407a5ea9: int3     
+0x1407a5eaa: int3     
+0x1407a5eab: int3     
+0x1407a5eac: int3     
+0x1407a5ead: int3     
+0x1407a5eae: int3     
+0x1407a5eaf: int3     
+0x1407a5eb0: int3     
+0x1407a5eb1: int3     
+0x1407a5eb2: int3     
+0x1407a5eb3: int3     
+0x1407a5eb4: int3     
+0x1407a5eb5: int3     
+0x1407a5eb6: int3     
+0x1407a5eb7: int3     
+0x1407a5eb8: int3     
+0x1407a5eb9: int3     
+0x1407a5eba: int3     
+0x1407a5ebb: int3     
+0x1407a5ebc: int3     
+0x1407a5ebd: int3     
+0x1407a5ebe: int3     
+0x1407a5ebf: int3     

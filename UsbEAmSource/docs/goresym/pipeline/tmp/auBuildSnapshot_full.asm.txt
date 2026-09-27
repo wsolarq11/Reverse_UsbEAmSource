@@ -1,0 +1,219 @@
+0x140756220: lea      r12, [rsp - 0x58]
+0x140756225: cmp      r12, qword ptr [r14 + 0x10]
+0x140756229: jbe      0x140756642   ; main.audioClient.buildSessionSnapshot+0x422
+0x14075622f: push     rbp
+0x140756230: mov      rbp, rsp
+0x140756233: sub      rsp, 0xd0
+0x14075623a: mov      qword ptr [rsp + 0x160], rax
+0x140756242: mov      qword ptr [rsp + 0x168], rbx
+0x14075624a: mov      qword ptr [rsp + 0x170], rcx
+0x140756252: lea      rdi, [rsp + 0xe0]
+0x14075625a: nop      word ptr [rax + rax]
+0x140756260: mov      qword ptr [rsp - 0x10], rbp
+0x140756265: lea      rbp, [rsp - 0x10]
+0x14075626a: call     0x140081722   ; runtime.duffzero+0x142
+0x14075626f: mov      rbp, qword ptr [rbp]
+0x140756273: mov      rax, rbx
+0x140756276: call     0x140759ec0   ; main.audioIAudioSessionControl2.GetState
+0x14075627b: nop      dword ptr [rax + rax]
+0x140756280: test     rbx, rbx
+0x140756283: jne      0x140756606   ; main.audioClient.buildSessionSnapshot+0x3e6
+0x140756289: cmp      eax, 2
+0x14075628c: je       0x1407565de   ; main.audioClient.buildSessionSnapshot+0x3be
+0x140756292: mov      dword ptr [rsp + 0x44], eax
+0x140756296: mov      rax, qword ptr [rsp + 0x168]
+0x14075629e: nop      
+0x1407562a0: call     0x140759fc0   ; main.audioIAudioSessionControl2.GetDisplayName
+0x1407562a5: mov      qword ptr [rsp + 0xb8], rax
+0x1407562ad: mov      qword ptr [rsp + 0x78], rbx
+0x1407562b2: mov      rax, qword ptr [rsp + 0x168]
+0x1407562ba: call     0x14075a0c0   ; main.audioIAudioSessionControl2.GetSessionInstanceIdentifier
+0x1407562bf: mov      qword ptr [rsp + 0xa0], rax
+0x1407562c7: mov      qword ptr [rsp + 0x60], rbx
+0x1407562cc: mov      rax, qword ptr [rsp + 0x168]
+0x1407562d4: call     0x14075a1c0   ; main.audioIAudioSessionControl2.GetProcessID
+0x1407562d9: mov      dword ptr [rsp + 0x48], eax
+0x1407562dd: mov      rax, qword ptr [rsp + 0x168]
+0x1407562e5: call     0x14075a2c0   ; main.audioIAudioSessionControl2.IsSystemSoundsSession
+0x1407562ea: test     rbx, rbx
+0x1407562ed: je       0x1407562f1   ; main.audioClient.buildSessionSnapshot+0xd1
+0x1407562ef: xor      eax, eax
+0x1407562f1: mov      byte ptr [rsp + 0x41], al
+0x1407562f5: test     al, al
+0x1407562f7: je       0x1407562ff   ; main.audioClient.buildSessionSnapshot+0xdf
+0x1407562f9: xor      ebx, ebx
+0x1407562fb: xor      ecx, ecx
+0x1407562fd: jmp      0x140756310   ; main.audioClient.buildSessionSnapshot+0xf0
+0x1407562ff: mov      eax, dword ptr [rsp + 0x48]
+0x140756303: call     0x140758d20   ; main.resolveAudioSessionProcessPath
+0x140756308: mov      rcx, rax
+0x14075630b: movzx    eax, byte ptr [rsp + 0x41]
+0x140756310: mov      qword ptr [rsp + 0x50], rbx
+0x140756315: mov      qword ptr [rsp + 0x90], rcx
+0x14075631d: mov      rdi, rbx
+0x140756320: mov      rsi, qword ptr [rsp + 0xb8]
+0x140756328: mov      r8, qword ptr [rsp + 0x78]
+0x14075632d: mov      r9d, dword ptr [rsp + 0x48]
+0x140756332: mov      ebx, eax
+0x140756334: mov      rax, qword ptr [rsp + 0x160]
+0x14075633c: nop      dword ptr [rax]
+0x140756340: call     0x140757a00   ; main.audioClient.resolveSessionAppName
+0x140756345: mov      qword ptr [rsp + 0xc0], rax
+0x14075634d: mov      qword ptr [rsp + 0x80], rbx
+0x140756355: movzx    edx, byte ptr [rsp + 0x41]
+0x14075635a: test     dl, dl
+0x14075635c: je       0x140756364   ; main.audioClient.buildSessionSnapshot+0x144
+0x14075635e: xor      esi, esi
+0x140756360: xor      edi, edi
+0x140756362: jmp      0x14075638f   ; main.audioClient.buildSessionSnapshot+0x16f
+0x140756364: mov      rcx, qword ptr [rsp + 0x50]
+0x140756369: test     rcx, rcx
+0x14075636c: jne      0x140756374   ; main.audioClient.buildSessionSnapshot+0x154
+0x14075636e: xor      esi, esi
+0x140756370: xor      edi, edi
+0x140756372: jmp      0x14075638f   ; main.audioClient.buildSessionSnapshot+0x16f
+0x140756374: mov      rax, qword ptr [rsp + 0x160]
+0x14075637c: mov      rbx, qword ptr [rsp + 0x90]
+0x140756384: call     0x140757ca0   ; main.audioClient.resolveProcessIconData
+0x140756389: mov      rsi, rbx
+0x14075638c: mov      rdi, rax
+0x14075638f: mov      qword ptr [rsp + 0x70], rsi
+0x140756394: mov      qword ptr [rsp + 0xb0], rdi
+0x14075639c: mov      rax, qword ptr [rsp + 0x170]
+0x1407563a4: call     0x14075a480   ; main.audioISimpleAudioVolume.GetMasterVolume
+0x1407563a9: test     rax, rax
+0x1407563ac: jne      0x1407565ba   ; main.audioClient.buildSessionSnapshot+0x39a
+0x1407563b2: movss    dword ptr [rsp + 0x4c], xmm0
+0x1407563b8: mov      rax, qword ptr [rsp + 0x170]
+0x1407563c0: call     0x14075a660   ; main.audioISimpleAudioVolume.GetMute
+0x1407563c5: test     rbx, rbx
+0x1407563c8: je       0x140756402   ; main.audioClient.buildSessionSnapshot+0x1e2
+0x1407563ca: lea      rdi, [rsp + 0xe0]
+0x1407563d2: nop      word ptr [rax + rax]
+0x1407563db: nop      dword ptr [rax + rax]
+0x1407563e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407563e5: lea      rbp, [rsp - 0x10]
+0x1407563ea: call     0x140081722   ; runtime.duffzero+0x142
+0x1407563ef: mov      rbp, qword ptr [rbp]
+0x1407563f3: mov      rax, rbx
+0x1407563f6: mov      rbx, rcx
+0x1407563f9: add      rsp, 0xd0
+0x140756400: pop      rbp
+0x140756401: ret      
+0x140756402: mov      byte ptr [rsp + 0x43], al
+0x140756406: mov      rax, qword ptr [rsp + 0x160]
+0x14075640e: mov      ebx, dword ptr [rsp + 0x48]
+0x140756412: movzx    ecx, byte ptr [rsp + 0x41]
+0x140756417: call     0x140756860   ; main.audioClient.resolveSessionDeviceRouting
+0x14075641c: mov      qword ptr [rsp + 0x98], rax
+0x140756424: mov      qword ptr [rsp + 0xa8], rcx
+0x14075642c: mov      byte ptr [rsp + 0x42], sil
+0x140756431: mov      qword ptr [rsp + 0x58], rbx
+0x140756436: mov      qword ptr [rsp + 0x68], rdi
+0x14075643b: movzx    eax, byte ptr [rsp + 0x41]
+0x140756440: mov      rbx, qword ptr [rsp + 0x90]
+0x140756448: mov      rcx, qword ptr [rsp + 0x50]
+0x14075644d: mov      edi, dword ptr [rsp + 0x48]
+0x140756451: mov      rsi, qword ptr [rsp + 0xa0]
+0x140756459: mov      r8, qword ptr [rsp + 0x60]
+0x14075645e: mov      r9, qword ptr [rsp + 0xb8]
+0x140756466: mov      r10, qword ptr [rsp + 0x78]
+0x14075646b: call     0x1407588c0   ; main.audioBuildSessionGroupID
+0x140756470: mov      qword ptr [rsp + 0xc8], rax
+0x140756478: mov      qword ptr [rsp + 0x88], rbx
+0x140756480: movss    xmm0, dword ptr [rsp + 0x4c]
+0x140756486: call     0x140758c20   ; main.audioVolumeLevelToPercent
+0x14075648b: lea      rdi, [rsp + 0xe0]
+0x140756493: nop      word ptr [rax + rax]
+0x14075649c: nop      dword ptr [rax]
+0x1407564a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407564a5: lea      rbp, [rsp - 0x10]
+0x1407564aa: call     0x140081722   ; runtime.duffzero+0x142
+0x1407564af: mov      rbp, qword ptr [rbp]
+0x1407564b3: mov      rdx, qword ptr [rsp + 0xc8]
+0x1407564bb: mov      qword ptr [rsp + 0xe0], rdx
+0x1407564c3: mov      rdx, qword ptr [rsp + 0x88]
+0x1407564cb: mov      qword ptr [rsp + 0xe8], rdx
+0x1407564d3: mov      rdx, qword ptr [rsp + 0xc0]
+0x1407564db: mov      qword ptr [rsp + 0xf0], rdx
+0x1407564e3: mov      rdx, qword ptr [rsp + 0x80]
+0x1407564eb: mov      qword ptr [rsp + 0xf8], rdx
+0x1407564f3: mov      edx, dword ptr [rsp + 0x48]
+0x1407564f7: mov      dword ptr [rsp + 0x100], edx
+0x1407564fe: mov      rdx, qword ptr [rsp + 0x90]
+0x140756506: mov      qword ptr [rsp + 0x108], rdx
+0x14075650e: mov      rdx, qword ptr [rsp + 0x50]
+0x140756513: mov      qword ptr [rsp + 0x110], rdx
+0x14075651b: mov      rdx, qword ptr [rsp + 0xb0]
+0x140756523: mov      qword ptr [rsp + 0x118], rdx
+0x14075652b: mov      rdx, qword ptr [rsp + 0x70]
+0x140756530: mov      qword ptr [rsp + 0x120], rdx
+0x140756538: mov      qword ptr [rsp + 0x128], rax
+0x140756540: movzx    edx, byte ptr [rsp + 0x43]
+0x140756545: mov      byte ptr [rsp + 0x130], dl
+0x14075654c: mov      edx, dword ptr [rsp + 0x44]
+0x140756550: cmp      edx, 1
+0x140756553: sete     byte ptr [rsp + 0x131]
+0x14075655b: movzx    edx, byte ptr [rsp + 0x41]
+0x140756560: mov      byte ptr [rsp + 0x132], dl
+0x140756567: mov      rdx, qword ptr [rsp + 0x98]
+0x14075656f: mov      qword ptr [rsp + 0x138], rdx
+0x140756577: mov      rdx, qword ptr [rsp + 0x58]
+0x14075657c: mov      qword ptr [rsp + 0x140], rdx
+0x140756584: mov      rdx, qword ptr [rsp + 0xa8]
+0x14075658c: mov      qword ptr [rsp + 0x148], rdx
+0x140756594: mov      rdx, qword ptr [rsp + 0x68]
+0x140756599: mov      qword ptr [rsp + 0x150], rdx
+0x1407565a1: movzx    edx, byte ptr [rsp + 0x42]
+0x1407565a6: mov      byte ptr [rsp + 0x158], dl
+0x1407565ad: xor      eax, eax
+0x1407565af: xor      ebx, ebx
+0x1407565b1: add      rsp, 0xd0
+0x1407565b8: pop      rbp
+0x1407565b9: ret      
+0x1407565ba: lea      rdi, [rsp + 0xe0]
+0x1407565c2: mov      qword ptr [rsp - 0x10], rbp
+0x1407565c7: lea      rbp, [rsp - 0x10]
+0x1407565cc: call     0x140081722   ; runtime.duffzero+0x142
+0x1407565d1: mov      rbp, qword ptr [rbp]
+0x1407565d5: add      rsp, 0xd0
+0x1407565dc: pop      rbp
+0x1407565dd: ret      
+0x1407565de: lea      rdi, [rsp + 0xe0]
+0x1407565e6: mov      qword ptr [rsp - 0x10], rbp
+0x1407565eb: lea      rbp, [rsp - 0x10]
+0x1407565f0: call     0x140081722   ; runtime.duffzero+0x142
+0x1407565f5: mov      rbp, qword ptr [rbp]
+0x1407565f9: xor      eax, eax
+0x1407565fb: xor      ebx, ebx
+0x1407565fd: add      rsp, 0xd0
+0x140756604: pop      rbp
+0x140756605: ret      
+0x140756606: lea      rdi, [rsp + 0xe0]
+0x14075660e: nop      word ptr [rax + rax]
+0x140756617: nop      word ptr [rax + rax]
+0x140756620: mov      qword ptr [rsp - 0x10], rbp
+0x140756625: lea      rbp, [rsp - 0x10]
+0x14075662a: call     0x140081722   ; runtime.duffzero+0x142
+0x14075662f: mov      rbp, qword ptr [rbp]
+0x140756633: mov      rax, rbx
+0x140756636: mov      rbx, rcx
+0x140756639: add      rsp, 0xd0
+0x140756640: pop      rbp
+0x140756641: ret      
+0x140756642: mov      qword ptr [rsp + 0x88], rax
+0x14075664a: mov      qword ptr [rsp + 0x90], rbx
+0x140756652: mov      qword ptr [rsp + 0x98], rcx
+0x14075665a: mov      qword ptr [rsp + 0xa0], rdi
+0x140756662: mov      qword ptr [rsp + 0xa8], rsi
+0x14075666a: call     0x14007f140   ; runtime.morestack_noctxt
+0x14075666f: mov      rax, qword ptr [rsp + 0x88]
+0x140756677: mov      rbx, qword ptr [rsp + 0x90]
+0x14075667f: mov      rcx, qword ptr [rsp + 0x98]
+0x140756687: mov      rdi, qword ptr [rsp + 0xa0]
+0x14075668f: mov      rsi, qword ptr [rsp + 0xa8]
+0x140756697: jmp      0x140756220   ; main.audioClient.buildSessionSnapshot
+0x14075669c: int3     
+0x14075669d: int3     
+0x14075669e: int3     
+0x14075669f: int3     

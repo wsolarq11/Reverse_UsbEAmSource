@@ -1,0 +1,47 @@
+0x1407a1920: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a1924: jbe      0x1407a19ce   ; main.resolveLauncherConfigFilePath+0xae
+0x1407a192a: push     rbp
+0x1407a192b: mov      rbp, rsp
+0x1407a192e: sub      rsp, 0x48
+0x1407a1932: mov      qword ptr [rsp + 0x60], rbx
+0x1407a1937: mov      qword ptr [rsp + 0x58], rax
+0x1407a193c: lea      rax, [rip + 0x4bf88b]
+0x1407a1943: mov      ebx, 0x16
+0x1407a1948: call     0x140125a00   ; os.Getenv
+0x1407a194d: call     0x1400a2200   ; strings.TrimSpace
+0x1407a1952: test     rbx, rbx
+0x1407a1955: je       0x1407a1981   ; main.resolveLauncherConfigFilePath+0x61
+0x1407a1957: mov      qword ptr [rsp + 0x20], rax
+0x1407a195c: mov      qword ptr [rsp + 0x18], rbx
+0x1407a1961: call     0x1401cd5e0   ; path/filepath.abs
+0x1407a1966: test     rcx, rcx
+0x1407a1969: je       0x1407a197b   ; main.resolveLauncherConfigFilePath+0x5b
+0x1407a196b: mov      rax, qword ptr [rsp + 0x20]
+0x1407a1970: mov      rbx, qword ptr [rsp + 0x18]
+0x1407a1975: add      rsp, 0x48
+0x1407a1979: pop      rbp
+0x1407a197a: ret      
+0x1407a197b: add      rsp, 0x48
+0x1407a197f: pop      rbp
+0x1407a1980: ret      
+0x1407a1981: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1407a1987: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1407a198d: mov      rdx, qword ptr [rsp + 0x60]
+0x1407a1992: mov      qword ptr [rsp + 0x30], rdx
+0x1407a1997: mov      rdx, qword ptr [rsp + 0x58]
+0x1407a199c: mov      qword ptr [rsp + 0x28], rdx
+0x1407a19a1: mov      qword ptr [rsp + 0x40], 0x1b
+0x1407a19aa: lea      rdx, [rip + 0x4c829d]
+0x1407a19b1: mov      qword ptr [rsp + 0x38], rdx
+0x1407a19b6: lea      rax, [rsp + 0x28]
+0x1407a19bb: mov      ebx, 2
+0x1407a19c0: mov      rcx, rbx
+0x1407a19c3: call     0x1401cd660   ; path/filepath.join
+0x1407a19c8: add      rsp, 0x48
+0x1407a19cc: pop      rbp
+0x1407a19cd: ret      
+0x1407a19ce: mov      qword ptr [rsp + 8], rax
+0x1407a19d3: mov      qword ptr [rsp + 0x10], rbx
+0x1407a19d8: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a19dd: mov      rax, qword ptr [rsp + 8]
+0x1407a19e2: mov      rbx, qword ptr [rsp + 0x10]

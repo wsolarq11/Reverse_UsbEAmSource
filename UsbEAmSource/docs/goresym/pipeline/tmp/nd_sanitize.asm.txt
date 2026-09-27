@@ -1,0 +1,94 @@
+0x1408fb580: lea      r12, [rsp - 0xf0]
+0x1408fb588: cmp      r12, qword ptr [r14 + 0x10]
+0x1408fb58c: jbe      0x1408fb6bd   ; main.sanitizeDirectoryShortcutName+0x13d
+0x1408fb592: push     rbp
+0x1408fb593: mov      rbp, rsp
+0x1408fb596: sub      rsp, 0x168
+0x1408fb59d: mov      qword ptr [rsp + 0x178], rax
+0x1408fb5a5: mov      qword ptr [rsp + 0x190], rdi
+0x1408fb5ad: mov      qword ptr [rsp + 0x188], rcx
+0x1408fb5b5: call     0x1400a2200   ; strings.TrimSpace
+0x1408fb5ba: test     rbx, rbx
+0x1408fb5bd: jne      0x1408fb5d4   ; main.sanitizeDirectoryShortcutName+0x54
+0x1408fb5bf: mov      rax, qword ptr [rsp + 0x188]
+0x1408fb5c7: mov      rbx, qword ptr [rsp + 0x190]
+0x1408fb5cf: call     0x14088ca40   ; main.inferName
+0x1408fb5d4: mov      qword ptr [rsp + 0x28], rbx
+0x1408fb5d9: mov      qword ptr [rsp + 0x38], rax
+0x1408fb5de: lea      rdi, [rsp + 0x48]
+0x1408fb5e3: lea      rsi, [rip + 0x8e9526]
+0x1408fb5ea: mov      qword ptr [rsp - 0x10], rbp
+0x1408fb5ef: lea      rbp, [rsp - 0x10]
+0x1408fb5f4: call     0x1400819e4   ; runtime.duffcopy+0x284
+0x1408fb5f9: mov      rbp, qword ptr [rbp]
+0x1408fb5fd: xor      eax, eax
+0x1408fb5ff: mov      ebx, 0x12
+0x1408fb604: xor      ecx, ecx
+0x1408fb606: mov      rdi, rbx
+0x1408fb609: lea      rsi, [rip + 0x1ee7f0]
+0x1408fb610: call     0x14007ad20   ; runtime.growslice
+0x1408fb615: mov      qword ptr [rsp + 0x40], rax
+0x1408fb61a: mov      qword ptr [rsp + 0x30], rcx
+0x1408fb61f: mov      rbx, rax
+0x1408fb622: mov      ecx, 0x12
+0x1408fb627: lea      rdi, [rsp + 0x48]
+0x1408fb62c: mov      rsi, rcx
+0x1408fb62f: lea      rax, [rip + 0x1ee7ca]
+0x1408fb636: call     0x140077380   ; runtime.typedslicecopy
+0x1408fb63b: lea      rax, [rip + 0x2a0d5e]
+0x1408fb642: call     0x14001ae20   ; runtime.newobject
+0x1408fb647: mov      qword ptr [rax + 0x28], 0x12
+0x1408fb64f: mov      rdx, qword ptr [rsp + 0x30]
+0x1408fb654: mov      qword ptr [rax + 0x30], rdx
+0x1408fb658: cmp      dword ptr [rip + 0x135fcf1], 0
+0x1408fb65f: nop      
+0x1408fb660: jne      0x1408fb669   ; main.sanitizeDirectoryShortcutName+0xe9
+0x1408fb662: mov      rdx, qword ptr [rsp + 0x40]
+0x1408fb667: jmp      0x1408fb676   ; main.sanitizeDirectoryShortcutName+0xf6
+0x1408fb669: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408fb66e: mov      rdx, qword ptr [rsp + 0x40]
+0x1408fb673: mov      qword ptr [r11], rdx
+0x1408fb676: mov      qword ptr [rax + 0x20], rdx
+0x1408fb67a: mov      rbx, qword ptr [rsp + 0x38]
+0x1408fb67f: mov      rcx, qword ptr [rsp + 0x28]
+0x1408fb684: call     0x14009c2e0   ; strings.Replacer.Replace
+0x1408fb689: lea      rcx, [rip + 0x338035]
+0x1408fb690: mov      edi, 2
+0x1408fb695: call     0x1400a1c20   ; strings.Trim
+0x1408fb69a: test     rbx, rbx
+0x1408fb69d: jne      0x1408fb6b4   ; main.sanitizeDirectoryShortcutName+0x134
+0x1408fb69f: lea      rax, [rip + 0x35e8a2]
+0x1408fb6a6: mov      ebx, 0x12
+0x1408fb6ab: add      rsp, 0x168
+0x1408fb6b2: pop      rbp
+0x1408fb6b3: ret      
+0x1408fb6b4: add      rsp, 0x168
+0x1408fb6bb: pop      rbp
+0x1408fb6bc: ret      
+0x1408fb6bd: mov      qword ptr [rsp + 8], rax
+0x1408fb6c2: mov      qword ptr [rsp + 0x10], rbx
+0x1408fb6c7: mov      qword ptr [rsp + 0x18], rcx
+0x1408fb6cc: mov      qword ptr [rsp + 0x20], rdi
+0x1408fb6d1: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408fb6d6: mov      rax, qword ptr [rsp + 8]
+0x1408fb6db: mov      rbx, qword ptr [rsp + 0x10]
+0x1408fb6e0: mov      rcx, qword ptr [rsp + 0x18]
+0x1408fb6e5: mov      rdi, qword ptr [rsp + 0x20]
+0x1408fb6ea: jmp      0x1408fb580   ; main.sanitizeDirectoryShortcutName
+0x1408fb6ef: int3     
+0x1408fb6f0: int3     
+0x1408fb6f1: int3     
+0x1408fb6f2: int3     
+0x1408fb6f3: int3     
+0x1408fb6f4: int3     
+0x1408fb6f5: int3     
+0x1408fb6f6: int3     
+0x1408fb6f7: int3     
+0x1408fb6f8: int3     
+0x1408fb6f9: int3     
+0x1408fb6fa: int3     
+0x1408fb6fb: int3     
+0x1408fb6fc: int3     
+0x1408fb6fd: int3     
+0x1408fb6fe: int3     
+0x1408fb6ff: int3     

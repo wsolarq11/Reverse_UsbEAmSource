@@ -1,0 +1,66 @@
+0x140817760: mov      qword ptr [rsp + 8], rax
+0x140817765: cmp      rbx, 5
+0x140817769: jl       0x1408177c1   ; main.matchSplitArchiveExtension+0x61
+0x14081776b: movzx    ecx, byte ptr [rbx + rax - 4]
+0x140817770: cmp      cl, 0x2e
+0x140817773: jne      0x1408177bd   ; main.matchSplitArchiveExtension+0x5d
+0x140817775: movzx    ecx, byte ptr [rbx + rax - 3]
+0x14081777a: lea      edx, [rcx - 0x41]
+0x14081777d: nop      dword ptr [rax]
+0x140817780: cmp      dl, 0x19
+0x140817783: ja       0x140817788   ; main.matchSplitArchiveExtension+0x28
+0x140817785: add      ecx, 0x20
+0x140817788: cmp      cl, 0x72
+0x14081778b: je       0x140817795   ; main.matchSplitArchiveExtension+0x35
+0x14081778d: cmp      cl, 0x7a
+0x140817790: je       0x140817795   ; main.matchSplitArchiveExtension+0x35
+0x140817792: xor      eax, eax
+0x140817794: ret      
+0x140817795: movzx    ecx, byte ptr [rbx + rax - 2]
+0x14081779a: cmp      cl, 0x30
+0x14081779d: jb       0x1408177b4   ; main.matchSplitArchiveExtension+0x54
+0x14081779f: nop      
+0x1408177a0: cmp      cl, 0x39
+0x1408177a3: ja       0x1408177b4   ; main.matchSplitArchiveExtension+0x54
+0x1408177a5: movzx    ecx, byte ptr [rbx + rax - 1]
+0x1408177aa: cmp      cl, 0x30
+0x1408177ad: jb       0x1408177b4   ; main.matchSplitArchiveExtension+0x54
+0x1408177af: cmp      cl, 0x39
+0x1408177b2: jbe      0x1408177b7   ; main.matchSplitArchiveExtension+0x57
+0x1408177b4: xor      eax, eax
+0x1408177b6: ret      
+0x1408177b7: mov      eax, 1
+0x1408177bc: ret      
+0x1408177bd: xor      eax, eax
+0x1408177bf: nop      
+0x1408177c0: ret      
+0x1408177c1: xor      eax, eax
+0x1408177c3: ret      
+0x1408177c4: int3     
+0x1408177c5: int3     
+0x1408177c6: int3     
+0x1408177c7: int3     
+0x1408177c8: int3     
+0x1408177c9: int3     
+0x1408177ca: int3     
+0x1408177cb: int3     
+0x1408177cc: int3     
+0x1408177cd: int3     
+0x1408177ce: int3     
+0x1408177cf: int3     
+0x1408177d0: int3     
+0x1408177d1: int3     
+0x1408177d2: int3     
+0x1408177d3: int3     
+0x1408177d4: int3     
+0x1408177d5: int3     
+0x1408177d6: int3     
+0x1408177d7: int3     
+0x1408177d8: int3     
+0x1408177d9: int3     
+0x1408177da: int3     
+0x1408177db: int3     
+0x1408177dc: int3     
+0x1408177dd: int3     
+0x1408177de: int3     
+0x1408177df: int3     

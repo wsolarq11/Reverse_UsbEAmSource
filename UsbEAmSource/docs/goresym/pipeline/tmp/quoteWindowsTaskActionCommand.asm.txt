@@ -1,0 +1,86 @@
+0x1408b2960: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408b2964: jbe      0x1408b2a25   ; main.quoteWindowsTaskActionCommand+0xc5
+0x1408b296a: push     rbp
+0x1408b296b: mov      rbp, rsp
+0x1408b296e: sub      rsp, 0x48
+0x1408b2972: mov      qword ptr [rsp + 0x58], rax
+0x1408b2977: call     0x1400a2200   ; strings.TrimSpace
+0x1408b297c: nop      dword ptr [rax]
+0x1408b2980: test     rbx, rbx
+0x1408b2983: je       0x1408b2a1b   ; main.quoteWindowsTaskActionCommand+0xbb
+0x1408b2989: nop      
+0x1408b298a: cmp      byte ptr [rax], 0x22
+0x1408b298d: jne      0x1408b29c1   ; main.quoteWindowsTaskActionCommand+0x61
+0x1408b298f: mov      qword ptr [rsp + 0x38], rbx
+0x1408b2994: mov      qword ptr [rsp + 0x40], rax
+0x1408b2999: lea      rax, [rbx + rax]
+0x1408b299d: lea      rax, [rax - 1]
+0x1408b29a1: nop      
+0x1408b29a2: lea      rbx, [rip + 0x9182df]
+0x1408b29a9: mov      ecx, 1
+0x1408b29ae: call     0x140006280   ; runtime.memequal
+0x1408b29b3: test     al, al
+0x1408b29b5: jne      0x1408b2a0b   ; main.quoteWindowsTaskActionCommand+0xab
+0x1408b29b7: mov      rax, qword ptr [rsp + 0x40]
+0x1408b29bc: mov      rbx, qword ptr [rsp + 0x38]
+0x1408b29c1: lea      rcx, [rip + 0x9182c0]
+0x1408b29c8: mov      edi, 1
+0x1408b29cd: lea      rsi, [rip + 0x380ce1]
+0x1408b29d4: mov      r8d, 2
+0x1408b29da: mov      r9, 0xffffffffffffffff
+0x1408b29e1: call     0x1400a2340   ; strings.Replace
+0x1408b29e6: mov      ecx, 1
+0x1408b29eb: mov      rdi, rax
+0x1408b29ee: mov      rsi, rbx
+0x1408b29f1: lea      r8, [rip + 0x918290]
+0x1408b29f8: mov      r9, rcx
+0x1408b29fb: xor      eax, eax
+0x1408b29fd: mov      rbx, r8
+0x1408b2a00: call     0x14005fca0   ; runtime.concatstring3
+0x1408b2a05: add      rsp, 0x48
+0x1408b2a09: pop      rbp
+0x1408b2a0a: ret      
+0x1408b2a0b: mov      rax, qword ptr [rsp + 0x40]
+0x1408b2a10: mov      rbx, qword ptr [rsp + 0x38]
+0x1408b2a15: add      rsp, 0x48
+0x1408b2a19: pop      rbp
+0x1408b2a1a: ret      
+0x1408b2a1b: xor      eax, eax
+0x1408b2a1d: xor      ebx, ebx
+0x1408b2a1f: add      rsp, 0x48
+0x1408b2a23: pop      rbp
+0x1408b2a24: ret      
+0x1408b2a25: mov      qword ptr [rsp + 8], rax
+0x1408b2a2a: mov      qword ptr [rsp + 0x10], rbx
+0x1408b2a2f: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408b2a34: mov      rax, qword ptr [rsp + 8]
+0x1408b2a39: mov      rbx, qword ptr [rsp + 0x10]
+0x1408b2a3e: nop      
+0x1408b2a40: jmp      0x1408b2960   ; main.quoteWindowsTaskActionCommand
+0x1408b2a45: int3     
+0x1408b2a46: int3     
+0x1408b2a47: int3     
+0x1408b2a48: int3     
+0x1408b2a49: int3     
+0x1408b2a4a: int3     
+0x1408b2a4b: int3     
+0x1408b2a4c: int3     
+0x1408b2a4d: int3     
+0x1408b2a4e: int3     
+0x1408b2a4f: int3     
+0x1408b2a50: int3     
+0x1408b2a51: int3     
+0x1408b2a52: int3     
+0x1408b2a53: int3     
+0x1408b2a54: int3     
+0x1408b2a55: int3     
+0x1408b2a56: int3     
+0x1408b2a57: int3     
+0x1408b2a58: int3     
+0x1408b2a59: int3     
+0x1408b2a5a: int3     
+0x1408b2a5b: int3     
+0x1408b2a5c: int3     
+0x1408b2a5d: int3     
+0x1408b2a5e: int3     
+0x1408b2a5f: int3     

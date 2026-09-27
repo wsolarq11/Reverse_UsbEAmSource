@@ -1,0 +1,80 @@
+0x1408a9320: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a9324: jbe      0x1408a93dc   ; main.isWindowsAbsoluteFilesystemPath+0xbc
+0x1408a932a: push     rbp
+0x1408a932b: mov      rbp, rsp
+0x1408a932e: sub      rsp, 0x10
+0x1408a9332: mov      qword ptr [rsp + 0x20], rax
+0x1408a9337: call     0x1400a2200   ; strings.TrimSpace
+0x1408a933c: nop      dword ptr [rax]
+0x1408a9340: test     rbx, rbx
+0x1408a9343: je       0x1408a93d4   ; main.isWindowsAbsoluteFilesystemPath+0xb4
+0x1408a9349: cmp      rbx, 2
+0x1408a934d: jl       0x1408a9359   ; main.isWindowsAbsoluteFilesystemPath+0x39
+0x1408a934f: cmp      word ptr [rax], 0x5c5c
+0x1408a9354: sete     cl
+0x1408a9357: jmp      0x1408a935b   ; main.isWindowsAbsoluteFilesystemPath+0x3b
+0x1408a9359: xor      ecx, ecx
+0x1408a935b: test     cl, cl
+0x1408a935d: jne      0x1408a9376   ; main.isWindowsAbsoluteFilesystemPath+0x56
+0x1408a935f: nop      
+0x1408a9360: cmp      rbx, 2
+0x1408a9364: jl       0x1408a9370   ; main.isWindowsAbsoluteFilesystemPath+0x50
+0x1408a9366: cmp      word ptr [rax], 0x2f2f
+0x1408a936b: sete     cl
+0x1408a936e: jmp      0x1408a9372   ; main.isWindowsAbsoluteFilesystemPath+0x52
+0x1408a9370: xor      ecx, ecx
+0x1408a9372: test     cl, cl
+0x1408a9374: je       0x1408a9381   ; main.isWindowsAbsoluteFilesystemPath+0x61
+0x1408a9376: mov      eax, 1
+0x1408a937b: add      rsp, 0x10
+0x1408a937f: pop      rbp
+0x1408a9380: ret      
+0x1408a9381: cmp      rbx, 3
+0x1408a9385: jl       0x1408a93cc   ; main.isWindowsAbsoluteFilesystemPath+0xac
+0x1408a9387: movzx    ecx, byte ptr [rax]
+0x1408a938a: lea      edx, [rcx - 0x61]
+0x1408a938d: cmp      dl, 0x19
+0x1408a9390: jbe      0x1408a939a   ; main.isWindowsAbsoluteFilesystemPath+0x7a
+0x1408a9392: add      ecx, -0x41
+0x1408a9395: cmp      cl, 0x19
+0x1408a9398: ja       0x1408a93c4   ; main.isWindowsAbsoluteFilesystemPath+0xa4
+0x1408a939a: cmp      byte ptr [rax + 1], 0x3a
+0x1408a939e: nop      
+0x1408a93a0: jne      0x1408a93ba   ; main.isWindowsAbsoluteFilesystemPath+0x9a
+0x1408a93a2: movzx    ecx, byte ptr [rax + 2]
+0x1408a93a6: cmp      cl, 0x5c
+0x1408a93a9: jne      0x1408a93b2   ; main.isWindowsAbsoluteFilesystemPath+0x92
+0x1408a93ab: mov      ecx, 1
+0x1408a93b0: jmp      0x1408a93bc   ; main.isWindowsAbsoluteFilesystemPath+0x9c
+0x1408a93b2: cmp      cl, 0x2f
+0x1408a93b5: sete     cl
+0x1408a93b8: jmp      0x1408a93bc   ; main.isWindowsAbsoluteFilesystemPath+0x9c
+0x1408a93ba: xor      ecx, ecx
+0x1408a93bc: mov      eax, ecx
+0x1408a93be: add      rsp, 0x10
+0x1408a93c2: pop      rbp
+0x1408a93c3: ret      
+0x1408a93c4: xor      eax, eax
+0x1408a93c6: add      rsp, 0x10
+0x1408a93ca: pop      rbp
+0x1408a93cb: ret      
+0x1408a93cc: xor      eax, eax
+0x1408a93ce: add      rsp, 0x10
+0x1408a93d2: pop      rbp
+0x1408a93d3: ret      
+0x1408a93d4: xor      eax, eax
+0x1408a93d6: add      rsp, 0x10
+0x1408a93da: pop      rbp
+0x1408a93db: ret      
+0x1408a93dc: mov      qword ptr [rsp + 8], rax
+0x1408a93e1: mov      qword ptr [rsp + 0x10], rbx
+0x1408a93e6: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a93eb: mov      rax, qword ptr [rsp + 8]
+0x1408a93f0: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a93f5: jmp      0x1408a9320   ; main.isWindowsAbsoluteFilesystemPath
+0x1408a93fa: int3     
+0x1408a93fb: int3     
+0x1408a93fc: int3     
+0x1408a93fd: int3     
+0x1408a93fe: int3     
+0x1408a93ff: int3     

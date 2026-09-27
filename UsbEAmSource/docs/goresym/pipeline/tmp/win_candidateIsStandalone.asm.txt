@@ -1,0 +1,261 @@
+0x1409158c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409158c4: jbe      0x140915c7c   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x3bc
+0x1409158ca: push     rbp
+0x1409158cb: mov      rbp, rsp
+0x1409158ce: sub      rsp, 0x50
+0x1409158d2: mov      qword ptr [rsp + 0x60], rax
+0x1409158d7: mov      dword ptr [rsp + 0x68], ebx
+0x1409158db: mov      qword ptr [rsp + 0x70], rcx
+0x1409158e0: mov      qword ptr [rsp + 0x78], rdi
+0x1409158e5: mov      qword ptr [rsp + 0x80], rsi
+0x1409158ed: mov      qword ptr [rsp + 0x88], r8
+0x1409158f5: mov      qword ptr [rsp + 0x90], r9
+0x1409158fd: mov      qword ptr [rsp + 0x98], r10
+0x140915905: mov      rax, qword ptr [rsp + 0x70]
+0x14091590a: mov      rbx, qword ptr [rsp + 0x78]
+0x14091590f: call     0x1408fddc0   ; main.normalizeOLEDBlackoutMediaPauseExclusionProcessName
+0x140915914: cmp      rbx, 0xa
+0x140915918: jg       0x1409159ae   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0xee
+0x14091591e: nop      
+0x140915920: cmp      rbx, 9
+0x140915924: jne      0x140915965   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0xa5
+0x140915926: movabs   rcx, 0x78652e6576617262
+0x140915930: cmp      qword ptr [rax], rcx
+0x140915933: jne      0x14091593f   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x7f
+0x140915935: cmp      byte ptr [rax + 8], 0x65
+0x140915939: je       0x140915a89   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1c9
+0x14091593f: movabs   rcx, 0x78652e617265706f
+0x140915949: cmp      qword ptr [rax], rcx
+0x14091594c: jne      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x140915952: cmp      byte ptr [rax + 8], 0x65
+0x140915956: je       0x140915a89   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1c9
+0x14091595c: nop      dword ptr [rax]
+0x140915960: jmp      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x140915965: cmp      rbx, 0xa
+0x140915969: jne      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x14091596f: movabs   rcx, 0x652e656d6f726863
+0x140915979: cmp      qword ptr [rax], rcx
+0x14091597c: jne      0x14091598a   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0xca
+0x14091597e: cmp      word ptr [rax + 8], 0x6578
+0x140915984: je       0x140915a89   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1c9
+0x14091598a: movabs   rcx, 0x652e65676465736d
+0x140915994: cmp      qword ptr [rax], rcx
+0x140915997: jne      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x14091599d: cmp      word ptr [rax + 8], 0x6578
+0x1409159a3: je       0x140915a89   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1c9
+0x1409159a9: jmp      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x1409159ae: cmp      rbx, 0xb
+0x1409159b2: jne      0x140915a25   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x165
+0x1409159b4: movabs   rcx, 0x2e726573776f7262
+0x1409159be: nop      
+0x1409159c0: cmp      qword ptr [rax], rcx
+0x1409159c3: jne      0x1409159d7   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x117
+0x1409159c5: cmp      word ptr [rax + 8], 0x7865
+0x1409159cb: jne      0x1409159d7   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x117
+0x1409159cd: cmp      byte ptr [rax + 0xa], 0x65
+0x1409159d1: je       0x140915a89   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1c9
+0x1409159d7: movabs   rcx, 0x2e786f6665726966
+0x1409159e1: cmp      qword ptr [rax], rcx
+0x1409159e4: jne      0x1409159f8   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x138
+0x1409159e6: cmp      word ptr [rax + 8], 0x7865
+0x1409159ec: jne      0x1409159f8   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x138
+0x1409159ee: cmp      byte ptr [rax + 0xa], 0x65
+0x1409159f2: je       0x140915a89   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1c9
+0x1409159f8: movabs   rcx, 0x2e69646c61766976
+0x140915a02: cmp      qword ptr [rax], rcx
+0x140915a05: jne      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x140915a0b: cmp      word ptr [rax + 8], 0x7865
+0x140915a11: jne      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x140915a17: cmp      byte ptr [rax + 0xa], 0x65
+0x140915a1b: je       0x140915a89   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1c9
+0x140915a1d: nop      dword ptr [rax]
+0x140915a20: jmp      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x140915a25: cmp      rbx, 0xc
+0x140915a29: jne      0x140915a65   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1a5
+0x140915a2b: movabs   rcx, 0x6d75696d6f726863
+0x140915a35: cmp      qword ptr [rax], rcx
+0x140915a38: jne      0x140915a43   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x183
+0x140915a3a: cmp      dword ptr [rax + 8], 0x6578652e
+0x140915a41: je       0x140915a89   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1c9
+0x140915a43: movabs   rcx, 0x78675f617265706f
+0x140915a4d: cmp      qword ptr [rax], rcx
+0x140915a50: jne      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x140915a56: cmp      dword ptr [rax + 8], 0x6578652e
+0x140915a5d: je       0x140915a89   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1c9
+0x140915a5f: nop      
+0x140915a60: jmp      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x140915a65: cmp      rbx, 0x11
+0x140915a69: jne      0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x140915a6f: lea      rbx, [rip + 0x3419fd]
+0x140915a76: mov      ecx, 0x11
+0x140915a7b: nop      dword ptr [rax + rax]
+0x140915a80: call     0x140006280   ; runtime.memequal
+0x140915a85: test     al, al
+0x140915a87: je       0x140915afe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x23e
+0x140915a89: mov      rax, qword ptr [rsp + 0x90]
+0x140915a91: mov      rbx, qword ptr [rsp + 0x98]
+0x140915a99: call     0x1400a2200   ; strings.TrimSpace
+0x140915a9e: nop      
+0x140915aa0: call     0x1400a1500   ; strings.ToLower
+0x140915aa5: test     rbx, rbx
+0x140915aa8: je       0x140915af6   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x236
+0x140915aaa: mov      qword ptr [rsp + 0x18], rbx
+0x140915aaf: mov      qword ptr [rsp + 0x38], rax
+0x140915ab4: cmp      rbx, 5
+0x140915ab8: jge      0x140915abe   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x1fe
+0x140915aba: xor      ecx, ecx
+0x140915abc: jmp      0x140915adb   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x21b
+0x140915abe: lea      rbx, [rip + 0x320275]
+0x140915ac5: mov      ecx, 5
+0x140915aca: call     0x140006280   ; runtime.memequal
+0x140915acf: mov      rbx, qword ptr [rsp + 0x18]
+0x140915ad4: mov      ecx, eax
+0x140915ad6: mov      rax, qword ptr [rsp + 0x38]
+0x140915adb: test     cl, cl
+0x140915add: jne      0x140915af6   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x236
+0x140915adf: mov      rdx, qword ptr [rip + 0x12b0e1a]
+0x140915ae6: mov      rsi, qword ptr [rip + 0x12b0e1b]
+0x140915aed: mov      qword ptr [rsp + 0x30], rsi
+0x140915af2: xor      ecx, ecx
+0x140915af4: jmp      0x140915b10   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x250
+0x140915af6: xor      eax, eax
+0x140915af8: add      rsp, 0x50
+0x140915afc: pop      rbp
+0x140915afd: ret      
+0x140915afe: xor      eax, eax
+0x140915b00: add      rsp, 0x50
+0x140915b04: pop      rbp
+0x140915b05: ret      
+0x140915b06: add      rdx, 0x10
+0x140915b0a: inc      rcx
+0x140915b0d: mov      rbx, r10
+0x140915b10: cmp      rcx, rsi
+0x140915b13: jge      0x140915c65   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x3a5
+0x140915b19: mov      qword ptr [rsp + 0x28], rcx
+0x140915b1e: mov      qword ptr [rsp + 0x48], rdx
+0x140915b23: mov      rdi, qword ptr [rdx + 8]
+0x140915b27: mov      qword ptr [rsp + 0x20], rdi
+0x140915b2c: mov      r8, qword ptr [rdx]
+0x140915b2f: mov      qword ptr [rsp + 0x40], r8
+0x140915b34: cmp      rbx, rdi
+0x140915b37: jl       0x140915b9e   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x2de
+0x140915b39: mov      r9, rbx
+0x140915b3c: sub      rbx, rdi
+0x140915b3f: nop      
+0x140915b40: cmp      r9, rbx
+0x140915b43: jb       0x140915c70   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x3b0
+0x140915b49: mov      r10, r9
+0x140915b4c: sub      r9, rbx
+0x140915b4f: mov      r11, r9
+0x140915b52: neg      r9
+0x140915b55: sar      r9, 0x3f
+0x140915b59: and      r9, rbx
+0x140915b5c: add      r9, rax
+0x140915b5f: nop      
+0x140915b60: cmp      rdi, r11
+0x140915b63: je       0x140915b69   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x2a9
+0x140915b65: xor      ebx, ebx
+0x140915b67: jmp      0x140915ba3   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x2e3
+0x140915b69: mov      rax, r9
+0x140915b6c: mov      rbx, r8
+0x140915b6f: mov      rcx, r11
+0x140915b72: call     0x140006280   ; runtime.memequal
+0x140915b77: mov      rcx, qword ptr [rsp + 0x28]
+0x140915b7c: mov      rdx, qword ptr [rsp + 0x48]
+0x140915b81: mov      rsi, qword ptr [rsp + 0x30]
+0x140915b86: mov      rdi, qword ptr [rsp + 0x20]
+0x140915b8b: mov      r8, qword ptr [rsp + 0x40]
+0x140915b90: mov      r10, qword ptr [rsp + 0x18]
+0x140915b95: mov      ebx, eax
+0x140915b97: mov      rax, qword ptr [rsp + 0x38]
+0x140915b9c: jmp      0x140915ba3   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x2e3
+0x140915b9e: mov      r10, rbx
+0x140915ba1: xor      ebx, ebx
+0x140915ba3: test     bl, bl
+0x140915ba5: jne      0x140915c5d   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x39d
+0x140915bab: cmp      rdi, 3
+0x140915baf: jl       0x140915c26   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x366
+0x140915bb1: mov      rax, r8
+0x140915bb4: lea      rbx, [rip + 0x31e15e]
+0x140915bbb: mov      ecx, 3
+0x140915bc0: call     0x140006280   ; runtime.memequal
+0x140915bc5: test     al, al
+0x140915bc7: je       0x140915c03   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x343
+0x140915bc9: mov      rdi, qword ptr [rsp + 0x20]
+0x140915bce: add      rdi, -3
+0x140915bd2: mov      rdx, rdi
+0x140915bd5: neg      rdx
+0x140915bd8: sar      rdx, 0x3f
+0x140915bdc: and      edx, 3
+0x140915bdf: mov      rsi, qword ptr [rsp + 0x40]
+0x140915be4: lea      r8, [rdx + rsi]
+0x140915be8: mov      rax, qword ptr [rsp + 0x38]
+0x140915bed: mov      rcx, qword ptr [rsp + 0x28]
+0x140915bf2: mov      rdx, qword ptr [rsp + 0x48]
+0x140915bf7: mov      rsi, qword ptr [rsp + 0x30]
+0x140915bfc: mov      r10, qword ptr [rsp + 0x18]
+0x140915c01: jmp      0x140915c26   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x366
+0x140915c03: mov      rax, qword ptr [rsp + 0x38]
+0x140915c08: mov      rcx, qword ptr [rsp + 0x28]
+0x140915c0d: mov      rdx, qword ptr [rsp + 0x48]
+0x140915c12: mov      rsi, qword ptr [rsp + 0x30]
+0x140915c17: mov      rdi, qword ptr [rsp + 0x20]
+0x140915c1c: mov      r8, qword ptr [rsp + 0x40]
+0x140915c21: mov      r10, qword ptr [rsp + 0x18]
+0x140915c26: cmp      r10, rdi
+0x140915c29: je       0x140915c2f   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x36f
+0x140915c2b: xor      ebx, ebx
+0x140915c2d: jmp      0x140915c55   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x395
+0x140915c2f: mov      rbx, r8
+0x140915c32: mov      rcx, r10
+0x140915c35: call     0x140006280   ; runtime.memequal
+0x140915c3a: mov      rcx, qword ptr [rsp + 0x28]
+0x140915c3f: mov      rdx, qword ptr [rsp + 0x48]
+0x140915c44: mov      rsi, qword ptr [rsp + 0x30]
+0x140915c49: mov      r10, qword ptr [rsp + 0x18]
+0x140915c4e: mov      ebx, eax
+0x140915c50: mov      rax, qword ptr [rsp + 0x38]
+0x140915c55: test     bl, bl
+0x140915c57: je       0x140915b06   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow+0x246
+0x140915c5d: xor      eax, eax
+0x140915c5f: add      rsp, 0x50
+0x140915c63: pop      rbp
+0x140915c64: ret      
+0x140915c65: mov      eax, 1
+0x140915c6a: add      rsp, 0x50
+0x140915c6e: pop      rbp
+0x140915c6f: ret      
+0x140915c70: mov      rax, rbx
+0x140915c73: mov      rcx, r9
+0x140915c76: call     0x1400814c0   ; runtime.panicSliceB
+0x140915c7b: nop      
+0x140915c7c: mov      qword ptr [rsp + 8], rax
+0x140915c81: mov      dword ptr [rsp + 0x10], ebx
+0x140915c85: mov      qword ptr [rsp + 0x18], rcx
+0x140915c8a: mov      qword ptr [rsp + 0x20], rdi
+0x140915c8f: mov      qword ptr [rsp + 0x28], rsi
+0x140915c94: mov      qword ptr [rsp + 0x30], r8
+0x140915c99: mov      qword ptr [rsp + 0x38], r9
+0x140915c9e: mov      qword ptr [rsp + 0x40], r10
+0x140915ca3: call     0x14007f140   ; runtime.morestack_noctxt
+0x140915ca8: mov      rax, qword ptr [rsp + 8]
+0x140915cad: mov      ebx, dword ptr [rsp + 0x10]
+0x140915cb1: mov      rcx, qword ptr [rsp + 0x18]
+0x140915cb6: mov      rdi, qword ptr [rsp + 0x20]
+0x140915cbb: mov      rsi, qword ptr [rsp + 0x28]
+0x140915cc0: mov      r8, qword ptr [rsp + 0x30]
+0x140915cc5: mov      r9, qword ptr [rsp + 0x38]
+0x140915cca: mov      r10, qword ptr [rsp + 0x40]
+0x140915ccf: jmp      0x1409158c0   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow
+0x140915cd4: int3     
+0x140915cd5: int3     
+0x140915cd6: int3     
+0x140915cd7: int3     
+0x140915cd8: int3     
+0x140915cd9: int3     
+0x140915cda: int3     
+0x140915cdb: int3     
+0x140915cdc: int3     
+0x140915cdd: int3     
+0x140915cde: int3     
+0x140915cdf: int3     

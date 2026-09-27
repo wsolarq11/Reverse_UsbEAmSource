@@ -1,0 +1,37 @@
+0x14097f7e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14097f7e4: jbe      0x14097f82b   ; main.screenshotImageMemoryBudget).Reserve.func2+0x4b
+0x14097f7e6: push     rbp
+0x14097f7e7: mov      rbp, rsp
+0x14097f7ea: sub      rsp, 0x28
+0x14097f7ee: mov      rcx, qword ptr [rdx + 0x10]
+0x14097f7f2: mov      rsi, qword ptr [rdx + 0x18]
+0x14097f7f6: mov      rax, qword ptr [rdx + 8]
+0x14097f7fa: lea      rdx, [rip + 0x3f]
+0x14097f801: mov      qword ptr [rsp + 0x10], rdx
+0x14097f806: mov      qword ptr [rsp + 0x18], rcx
+0x14097f80b: mov      qword ptr [rsp + 0x20], rsi
+0x14097f810: mov      ecx, dword ptr [rax]
+0x14097f812: test     ecx, ecx
+0x14097f814: jne      0x14097f825   ; main.screenshotImageMemoryBudget).Reserve.func2+0x45
+0x14097f816: lea      rbx, [rsp + 0x10]
+0x14097f81b: nop      dword ptr [rax + rax]
+0x14097f820: call     0x140092520   ; sync.Once.doSlow
+0x14097f825: add      rsp, 0x28
+0x14097f829: pop      rbp
+0x14097f82a: ret      
+0x14097f82b: call     0x14007f0a0   ; runtime.morestack
+0x14097f830: jmp      0x14097f7e0   ; main.screenshotImageMemoryBudget).Reserve.func2
+0x14097f832: int3     
+0x14097f833: int3     
+0x14097f834: int3     
+0x14097f835: int3     
+0x14097f836: int3     
+0x14097f837: int3     
+0x14097f838: int3     
+0x14097f839: int3     
+0x14097f83a: int3     
+0x14097f83b: int3     
+0x14097f83c: int3     
+0x14097f83d: int3     
+0x14097f83e: int3     
+0x14097f83f: int3     

@@ -1,0 +1,367 @@
+0x1407aa960: lea      r12, [rsp - 0x240]
+0x1407aa968: cmp      r12, qword ptr [r14 + 0x10]
+0x1407aa96c: jbe      0x1407ab0c0   ; main.buildDesktopWorldClockSnapshot+0x760
+0x1407aa972: push     rbp
+0x1407aa973: mov      rbp, rsp
+0x1407aa976: sub      rsp, 0x2b8
+0x1407aa97d: mov      qword ptr [rsp + 0x2c8], rax
+0x1407aa985: mov      qword ptr [rsp + 0x2f0], r8
+0x1407aa98d: movups   xmmword ptr [rsp + 0x90], xmm15
+0x1407aa996: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1407aa99f: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1407aa9a8: bt       rdi, 0x3f
+0x1407aa9ad: jae      0x1407aa9c6   ; main.buildDesktopWorldClockSnapshot+0x66
+0x1407aa9af: lea      rdx, [rdi + rdi]
+0x1407aa9b3: shr      rdx, 0x1f
+0x1407aa9b7: movabs   r9, 0xdd7b17f80
+0x1407aa9c1: add      rdx, r9
+0x1407aa9c4: jmp      0x1407aa9d3   ; main.buildDesktopWorldClockSnapshot+0x73
+0x1407aa9c6: movabs   r9, 0xdd7b17f80
+0x1407aa9d0: mov      rdx, rsi
+0x1407aa9d3: mov      qword ptr [rsp + 0x2c8], rax
+0x1407aa9db: mov      qword ptr [rsp + 0x2d0], rbx
+0x1407aa9e3: test     rdx, rdx
+0x1407aa9e6: jne      0x1407aaa1f   ; main.buildDesktopWorldClockSnapshot+0xbf
+0x1407aa9e8: mov      rdx, rdi
+0x1407aa9eb: and      edi, 0x3fffffff
+0x1407aa9f1: test     edi, edi
+0x1407aa9f3: jne      0x1407aaa22   ; main.buildDesktopWorldClockSnapshot+0xc2
+0x1407aa9f5: call     0x140104fc0   ; time.Now
+0x1407aa9fa: movabs   r9, 0xdd7b17f80
+0x1407aaa04: mov      rdx, rax
+0x1407aaa07: mov      rsi, rbx
+0x1407aaa0a: mov      r8, rcx
+0x1407aaa0d: mov      rax, qword ptr [rsp + 0x2c8]
+0x1407aaa15: mov      rbx, qword ptr [rsp + 0x2d0]
+0x1407aaa1d: jmp      0x1407aaa22   ; main.buildDesktopWorldClockSnapshot+0xc2
+0x1407aaa1f: mov      rdx, rdi
+0x1407aaa22: cmp      rbx, 0x18
+0x1407aaa26: jg       0x1407aabc5   ; main.buildDesktopWorldClockSnapshot+0x265
+0x1407aaa2c: mov      qword ptr [rsp + 0x150], r8
+0x1407aaa34: mov      qword ptr [rsp + 0x88], rsi
+0x1407aaa3c: mov      qword ptr [rsp + 0x80], rdx
+0x1407aaa44: mov      qword ptr [rsp + 0xd8], rdx
+0x1407aaa4c: mov      qword ptr [rsp + 0xe0], rsi
+0x1407aaa54: mov      qword ptr [rsp + 0xe8], r8
+0x1407aaa5c: nop      
+0x1407aaa5d: nop      
+0x1407aaa5e: bt       rdx, 0x3f
+0x1407aaa63: jae      0x1407aaa89   ; main.buildDesktopWorldClockSnapshot+0x129
+0x1407aaa65: mov      r10, rdx
+0x1407aaa68: and      edx, 0x3fffffff
+0x1407aaa6e: lea      r11, [r10 + r10]
+0x1407aaa72: shr      r11, 0x1f
+0x1407aaa76: add      r11, r9
+0x1407aaa79: mov      qword ptr [rsp + 0xe0], r11
+0x1407aaa81: mov      qword ptr [rsp + 0xd8], rdx
+0x1407aaa89: mov      qword ptr [rsp + 0xe8], 0
+0x1407aaa95: mov      rax, qword ptr [rsp + 0xd8]
+0x1407aaa9d: mov      rbx, qword ptr [rsp + 0xe0]
+0x1407aaaa5: xor      ecx, ecx
+0x1407aaaa7: lea      rdi, [rip + 0x4cc5df]
+0x1407aaaae: mov      esi, 0x23
+0x1407aaab3: call     0x1400f2cc0   ; time.Time.Format
+0x1407aaab8: mov      qword ptr [rsp + 0x148], rax
+0x1407aaac0: mov      qword ptr [rsp + 0x78], rbx
+0x1407aaac5: lea      rax, [rip + 0x428774]
+0x1407aaacc: xor      ebx, ebx
+0x1407aaace: mov      rcx, qword ptr [rsp + 0x2d0]
+0x1407aaad6: call     0x14007ac40   ; runtime.makeslice
+0x1407aaadb: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x1407aaae4: movups   xmmword ptr [rsp + 0x100], xmm15
+0x1407aaaed: movups   xmmword ptr [rsp + 0x110], xmm15
+0x1407aaaf6: mov      rdx, qword ptr [rsp + 0x148]
+0x1407aaafe: mov      qword ptr [rsp + 0xf8], rdx
+0x1407aab06: mov      rdx, qword ptr [rsp + 0x78]
+0x1407aab0b: mov      qword ptr [rsp + 0x100], rdx
+0x1407aab13: mov      qword ptr [rsp + 0x108], rax
+0x1407aab1b: mov      rbx, qword ptr [rsp + 0x2d0]
+0x1407aab23: mov      qword ptr [rsp + 0x118], rbx
+0x1407aab2b: movups   xmmword ptr [rsp + 0x270], xmm15
+0x1407aab34: movups   xmmword ptr [rsp + 0x280], xmm15
+0x1407aab3d: movups   xmmword ptr [rsp + 0x290], xmm15
+0x1407aab46: cmp      rbx, 8
+0x1407aab4a: jg       0x1407aab95   ; main.buildDesktopWorldClockSnapshot+0x235
+0x1407aab4c: movups   xmmword ptr [rsp + 0x1a8], xmm15
+0x1407aab55: lea      rdi, [rsp + 0x1b0]
+0x1407aab5d: nop      dword ptr [rax]
+0x1407aab60: mov      qword ptr [rsp - 0x10], rbp
+0x1407aab65: lea      rbp, [rsp - 0x10]
+0x1407aab6a: call     0x14008170b   ; runtime.duffzero+0x12b
+0x1407aab6f: mov      rbp, qword ptr [rbp]
+0x1407aab73: movabs   rdx, 0x8080808080808080
+0x1407aab7d: mov      qword ptr [rsp + 0x1a8], rdx
+0x1407aab85: lea      rdx, [rsp + 0x1a8]
+0x1407aab8d: mov      qword ptr [rsp + 0x280], rdx
+0x1407aab95: lea      rax, [rip + 0x39df04]
+0x1407aab9c: lea      rcx, [rsp + 0x270]
+0x1407aaba4: call     0x140076d80   ; runtime.makemap
+0x1407aaba9: mov      qword ptr [rsp + 0xf0], rax
+0x1407aabb1: mov      rdx, qword ptr [rsp + 0x2c8]
+0x1407aabb9: xor      ecx, ecx
+0x1407aabbb: nop      dword ptr [rax + rax]
+0x1407aabc0: jmp      0x1407aac4b   ; main.buildDesktopWorldClockSnapshot+0x2eb
+0x1407aabc5: lea      rax, [rip + 0x3a97b4]
+0x1407aabcc: call     0x14001ae20   ; runtime.newobject
+0x1407aabd1: mov      qword ptr [rax + 8], 0x1f
+0x1407aabd9: lea      rcx, [rip + 0x4c619c]
+0x1407aabe0: mov      qword ptr [rax], rcx
+0x1407aabe3: movups   xmmword ptr [rsp + 0x90], xmm15
+0x1407aabec: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1407aabf5: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1407aabfe: mov      rcx, qword ptr [rsp + 0x90]
+0x1407aac06: mov      rdx, qword ptr [rsp + 0xa0]
+0x1407aac0e: xor      ebx, ebx
+0x1407aac10: mov      rdi, rbx
+0x1407aac13: mov      rsi, rbx
+0x1407aac16: lea      r8, [rip + 0xa284e3]
+0x1407aac1d: mov      r9, rax
+0x1407aac20: mov      rax, rcx
+0x1407aac23: mov      rcx, rdx
+0x1407aac26: add      rsp, 0x2b8
+0x1407aac2d: pop      rbp
+0x1407aac2e: ret      
+0x1407aac2f: mov      rdx, qword ptr [rsp + 0x140]
+0x1407aac37: add      rdx, 0x20
+0x1407aac3b: mov      rcx, qword ptr [rsp + 0x78]
+0x1407aac40: inc      rcx
+0x1407aac43: mov      rax, qword ptr [rsp + 0xf0]
+0x1407aac4b: mov      r10, qword ptr [rsp + 0x2d0]
+0x1407aac53: cmp      r10, rcx
+0x1407aac56: jle      0x1407ab045   ; main.buildDesktopWorldClockSnapshot+0x6e5
+0x1407aac5c: mov      qword ptr [rsp + 0x78], rcx
+0x1407aac61: mov      qword ptr [rsp + 0x140], rdx
+0x1407aac69: mov      rax, qword ptr [rdx]
+0x1407aac6c: mov      rbx, qword ptr [rdx + 8]
+0x1407aac70: mov      rcx, qword ptr [rdx + 0x10]
+0x1407aac74: mov      qword ptr [rsp + 0x148], rcx
+0x1407aac7c: mov      rcx, qword ptr [rdx + 0x18]
+0x1407aac80: mov      qword ptr [rsp + 0x70], rcx
+0x1407aac85: call     0x1400a2200   ; strings.TrimSpace
+0x1407aac8a: test     rbx, rbx
+0x1407aac8d: je       0x1407aac2f   ; main.buildDesktopWorldClockSnapshot+0x2cf
+0x1407aac8f: mov      qword ptr [rsp + 0x40], rbx
+0x1407aac94: mov      qword ptr [rsp + 0xb8], rax
+0x1407aac9c: mov      rcx, rax
+0x1407aac9f: mov      rdi, rbx
+0x1407aaca2: lea      rax, [rip + 0x39ddf7]
+0x1407aaca9: mov      rbx, qword ptr [rsp + 0xf0]
+0x1407aacb1: call     0x14000dbc0   ; runtime.mapaccess2_faststr
+0x1407aacb6: test     bl, bl
+0x1407aacb8: jne      0x1407aac2f   ; main.buildDesktopWorldClockSnapshot+0x2cf
+0x1407aacbe: mov      rax, qword ptr [rsp + 0xb8]
+0x1407aacc6: mov      rbx, qword ptr [rsp + 0x40]
+0x1407aaccb: call     0x1400ffc00   ; time.LoadLocation
+0x1407aacd0: test     rbx, rbx
+0x1407aacd3: jne      0x1407aafa5   ; main.buildDesktopWorldClockSnapshot+0x645
+0x1407aacd9: mov      qword ptr [rsp + 0x120], rax
+0x1407aace1: lea      rax, [rip + 0x39ddb8]
+0x1407aace8: mov      rbx, qword ptr [rsp + 0xf0]
+0x1407aacf0: mov      rcx, qword ptr [rsp + 0xb8]
+0x1407aacf8: mov      rdi, qword ptr [rsp + 0x40]
+0x1407aacfd: nop      dword ptr [rax]
+0x1407aad00: call     0x14000de60   ; runtime.mapassign_faststr
+0x1407aad05: test     byte ptr [rax], al
+0x1407aad07: mov      rdx, qword ptr [rsp + 0x80]
+0x1407aad0f: mov      qword ptr [rsp + 0xc0], rdx
+0x1407aad17: mov      rsi, qword ptr [rsp + 0x88]
+0x1407aad1f: mov      qword ptr [rsp + 0xc8], rsi
+0x1407aad27: mov      r8, qword ptr [rsp + 0x150]
+0x1407aad2f: mov      qword ptr [rsp + 0xd0], r8
+0x1407aad37: mov      rcx, qword ptr [rsp + 0x120]
+0x1407aad3f: nop      
+0x1407aad40: test     rcx, rcx
+0x1407aad43: je       0x1407ab0ac   ; main.buildDesktopWorldClockSnapshot+0x74c
+0x1407aad49: nop      
+0x1407aad4a: nop      
+0x1407aad4b: lea      rdi, [rip + 0x14431ee]
+0x1407aad52: cmp      rcx, rdi
+0x1407aad55: mov      r9d, 0
+0x1407aad5b: cmove    rcx, r9
+0x1407aad5f: bt       rdx, 0x3f
+0x1407aad64: jae      0x1407aad94   ; main.buildDesktopWorldClockSnapshot+0x434
+0x1407aad66: mov      r10, rdx
+0x1407aad69: and      edx, 0x3fffffff
+0x1407aad6f: lea      r11, [r10 + r10]
+0x1407aad73: shr      r11, 0x1f
+0x1407aad77: movabs   r12, 0xdd7b17f80
+0x1407aad81: add      r11, r12
+0x1407aad84: mov      qword ptr [rsp + 0xc8], r11
+0x1407aad8c: mov      qword ptr [rsp + 0xc0], rdx
+0x1407aad94: mov      qword ptr [rsp + 0x128], rcx
+0x1407aad9c: mov      qword ptr [rsp + 0xd0], rcx
+0x1407aada4: mov      rax, qword ptr [rsp + 0xc0]
+0x1407aadac: mov      qword ptr [rsp + 0x68], rax
+0x1407aadb1: mov      rbx, qword ptr [rsp + 0xc8]
+0x1407aadb9: mov      qword ptr [rsp + 0x60], rbx
+0x1407aadbe: nop      
+0x1407aadc0: call     0x1400fc0a0   ; time.Time.Zone
+0x1407aadc5: mov      qword ptr [rsp + 0x48], rcx
+0x1407aadca: mov      rax, qword ptr [rsp + 0x148]
+0x1407aadd2: mov      rbx, qword ptr [rsp + 0x70]
+0x1407aadd7: call     0x1400a2200   ; strings.TrimSpace
+0x1407aaddc: mov      qword ptr [rsp + 0x148], rax
+0x1407aade4: mov      qword ptr [rsp + 0x70], rbx
+0x1407aade9: mov      rax, qword ptr [rsp + 0x68]
+0x1407aadee: mov      rbx, qword ptr [rsp + 0x60]
+0x1407aadf3: mov      rcx, qword ptr [rsp + 0x128]
+0x1407aadfb: lea      rdi, [rip + 0x4bbc59]
+0x1407aae02: mov      esi, 0x19
+0x1407aae07: call     0x1400f2cc0   ; time.Time.Format
+0x1407aae0c: mov      qword ptr [rsp + 0x138], rax
+0x1407aae14: mov      qword ptr [rsp + 0x58], rbx
+0x1407aae19: mov      rax, qword ptr [rsp + 0x48]
+0x1407aae1e: nop      
+0x1407aae20: call     0x1407ab120   ; main.desktopTimezoneOffset
+0x1407aae25: mov      qword ptr [rsp + 0x130], rax
+0x1407aae2d: mov      qword ptr [rsp + 0x50], rbx
+0x1407aae32: mov      rax, qword ptr [rsp + 0x68]
+0x1407aae37: mov      rbx, qword ptr [rsp + 0x60]
+0x1407aae3c: mov      rcx, qword ptr [rsp + 0x128]
+0x1407aae44: call     0x1400fd100   ; time.Time.IsDST
+0x1407aae49: lea      rdi, [rsp + 0x158]
+0x1407aae51: lea      rdi, [rdi - 0x30]
+0x1407aae55: nop      word ptr [rax + rax]
+0x1407aae5e: nop      
+0x1407aae60: mov      qword ptr [rsp - 0x10], rbp
+0x1407aae65: lea      rbp, [rsp - 0x10]
+0x1407aae6a: call     0x140081730   ; runtime.duffzero+0x150
+0x1407aae6f: mov      rbp, qword ptr [rbp]
+0x1407aae73: mov      rdx, qword ptr [rsp + 0xb8]
+0x1407aae7b: mov      qword ptr [rsp + 0x158], rdx
+0x1407aae83: mov      rdx, qword ptr [rsp + 0x40]
+0x1407aae88: mov      qword ptr [rsp + 0x160], rdx
+0x1407aae90: mov      rdx, qword ptr [rsp + 0x148]
+0x1407aae98: mov      qword ptr [rsp + 0x168], rdx
+0x1407aaea0: mov      rdx, qword ptr [rsp + 0x70]
+0x1407aaea5: mov      qword ptr [rsp + 0x170], rdx
+0x1407aaead: mov      rdx, qword ptr [rsp + 0x138]
+0x1407aaeb5: mov      qword ptr [rsp + 0x178], rdx
+0x1407aaebd: mov      rdx, qword ptr [rsp + 0x58]
+0x1407aaec2: mov      qword ptr [rsp + 0x180], rdx
+0x1407aaeca: mov      rdx, qword ptr [rsp + 0x130]
+0x1407aaed2: mov      qword ptr [rsp + 0x188], rdx
+0x1407aaeda: mov      rdx, qword ptr [rsp + 0x50]
+0x1407aaedf: mov      qword ptr [rsp + 0x190], rdx
+0x1407aaee7: mov      rdx, qword ptr [rsp + 0x48]
+0x1407aaeec: mov      qword ptr [rsp + 0x198], rdx
+0x1407aaef4: mov      byte ptr [rsp + 0x1a0], al
+0x1407aaefb: mov      rcx, qword ptr [rsp + 0x118]
+0x1407aaf03: mov      rbx, qword ptr [rsp + 0x110]
+0x1407aaf0b: inc      rbx
+0x1407aaf0e: mov      rax, qword ptr [rsp + 0x108]
+0x1407aaf16: cmp      rcx, rbx
+0x1407aaf19: jae      0x1407aaf3c   ; main.buildDesktopWorldClockSnapshot+0x5dc
+0x1407aaf1b: mov      edi, 1
+0x1407aaf20: lea      rsi, [rip + 0x428319]
+0x1407aaf27: call     0x14007ad20   ; runtime.growslice
+0x1407aaf2c: mov      qword ptr [rsp + 0x118], rcx
+0x1407aaf34: mov      qword ptr [rsp + 0x108], rax
+0x1407aaf3c: mov      qword ptr [rsp + 0x110], rbx
+0x1407aaf44: lea      rdx, [rbx + rbx*4]
+0x1407aaf48: shl      rdx, 4
+0x1407aaf4c: lea      rdi, [rdx + rax]
+0x1407aaf50: lea      rdi, [rdi - 0x50]
+0x1407aaf54: cmp      dword ptr [rip + 0x14b03f5], 0
+0x1407aaf5b: je       0x1407aaf84   ; main.buildDesktopWorldClockSnapshot+0x624
+0x1407aaf5d: mov      qword ptr [rsp + 0x2b0], rdi
+0x1407aaf65: lea      rax, [rip + 0x4282d4]
+0x1407aaf6c: mov      rbx, rdi
+0x1407aaf6f: lea      rcx, [rsp + 0x158]
+0x1407aaf77: call     0x14001b620   ; runtime.wbMove
+0x1407aaf7c: mov      rdi, qword ptr [rsp + 0x2b0]
+0x1407aaf84: lea      rsi, [rsp + 0x158]
+0x1407aaf8c: mov      qword ptr [rsp - 0x10], rbp
+0x1407aaf91: lea      rbp, [rsp - 0x10]
+0x1407aaf96: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x1407aaf9b: mov      rbp, qword ptr [rbp]
+0x1407aaf9f: nop      
+0x1407aafa0: jmp      0x1407aac2f   ; main.buildDesktopWorldClockSnapshot+0x2cf
+0x1407aafa5: movups   xmmword ptr [rsp + 0x2a0], xmm15
+0x1407aafae: mov      rax, qword ptr [rsp + 0xb8]
+0x1407aafb6: mov      rbx, qword ptr [rsp + 0x40]
+0x1407aafbb: nop      dword ptr [rax + rax]
+0x1407aafc0: call     0x140076660   ; runtime.convTstring
+0x1407aafc5: lea      rcx, [rip + 0x33ee34]
+0x1407aafcc: mov      qword ptr [rsp + 0x2a0], rcx
+0x1407aafd4: mov      qword ptr [rsp + 0x2a8], rax
+0x1407aafdc: lea      rax, [rip + 0x4ca5b2]
+0x1407aafe3: mov      ebx, 0x22
+0x1407aafe8: lea      rcx, [rsp + 0x2a0]
+0x1407aaff0: mov      edi, 1
+0x1407aaff5: mov      rsi, rdi
+0x1407aaff8: call     0x140133280   ; fmt.Errorf
+0x1407aaffd: movups   xmmword ptr [rsp + 0x90], xmm15
+0x1407ab006: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1407ab00f: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1407ab018: mov      rcx, qword ptr [rsp + 0x90]
+0x1407ab020: mov      rdx, qword ptr [rsp + 0xa0]
+0x1407ab028: xor      edi, edi
+0x1407ab02a: mov      rsi, rdi
+0x1407ab02d: mov      r8, rax
+0x1407ab030: mov      r9, rbx
+0x1407ab033: mov      rax, rcx
+0x1407ab036: mov      rbx, rsi
+0x1407ab039: mov      rcx, rdx
+0x1407ab03c: add      rsp, 0x2b8
+0x1407ab043: pop      rbp
+0x1407ab044: ret      
+0x1407ab045: mov      rdx, qword ptr [rsp + 0xf8]
+0x1407ab04d: mov      qword ptr [rsp + 0x90], rdx
+0x1407ab055: movups   xmm0, xmmword ptr [rsp + 0x100]
+0x1407ab05d: movups   xmmword ptr [rsp + 0x98], xmm0
+0x1407ab065: movups   xmm0, xmmword ptr [rsp + 0x110]
+0x1407ab06d: movups   xmmword ptr [rsp + 0xa8], xmm0
+0x1407ab075: mov      rax, qword ptr [rsp + 0x90]
+0x1407ab07d: mov      rbx, qword ptr [rsp + 0x98]
+0x1407ab085: mov      rcx, qword ptr [rsp + 0xa0]
+0x1407ab08d: mov      rdi, qword ptr [rsp + 0xa8]
+0x1407ab095: mov      rsi, qword ptr [rsp + 0xb0]
+0x1407ab09d: xor      r8d, r8d
+0x1407ab0a0: xor      r9d, r9d
+0x1407ab0a3: add      rsp, 0x2b8
+0x1407ab0aa: pop      rbp
+0x1407ab0ab: ret      
+0x1407ab0ac: lea      rax, [rip + 0x33ed4d]
+0x1407ab0b3: lea      rbx, [rip + 0xa238c6]
+0x1407ab0ba: call     0x1400789c0   ; runtime.gopanic
+0x1407ab0bf: nop      
+0x1407ab0c0: mov      qword ptr [rsp + 8], rax
+0x1407ab0c5: mov      qword ptr [rsp + 0x10], rbx
+0x1407ab0ca: mov      qword ptr [rsp + 0x18], rcx
+0x1407ab0cf: mov      qword ptr [rsp + 0x20], rdi
+0x1407ab0d4: mov      qword ptr [rsp + 0x28], rsi
+0x1407ab0d9: mov      qword ptr [rsp + 0x30], r8
+0x1407ab0de: nop      
+0x1407ab0e0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407ab0e5: mov      rax, qword ptr [rsp + 8]
+0x1407ab0ea: mov      rbx, qword ptr [rsp + 0x10]
+0x1407ab0ef: mov      rcx, qword ptr [rsp + 0x18]
+0x1407ab0f4: mov      rdi, qword ptr [rsp + 0x20]
+0x1407ab0f9: mov      rsi, qword ptr [rsp + 0x28]
+0x1407ab0fe: mov      r8, qword ptr [rsp + 0x30]
+0x1407ab103: jmp      0x1407aa960   ; main.buildDesktopWorldClockSnapshot
+0x1407ab108: int3     
+0x1407ab109: int3     
+0x1407ab10a: int3     
+0x1407ab10b: int3     
+0x1407ab10c: int3     
+0x1407ab10d: int3     
+0x1407ab10e: int3     
+0x1407ab10f: int3     
+0x1407ab110: int3     
+0x1407ab111: int3     
+0x1407ab112: int3     
+0x1407ab113: int3     
+0x1407ab114: int3     
+0x1407ab115: int3     
+0x1407ab116: int3     
+0x1407ab117: int3     
+0x1407ab118: int3     
+0x1407ab119: int3     
+0x1407ab11a: int3     
+0x1407ab11b: int3     
+0x1407ab11c: int3     
+0x1407ab11d: int3     
+0x1407ab11e: int3     
+0x1407ab11f: int3     

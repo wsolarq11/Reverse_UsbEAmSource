@@ -1,0 +1,156 @@
+0x14078a720: lea      r12, [rsp - 0x1a0]
+0x14078a728: cmp      r12, qword ptr [r14 + 0x10]
+0x14078a72c: jbe      0x14078a9cc    ; main.BootstrapService.CaptureScreenshotWindow+0x2ac
+0x14078a732: push     rbp
+0x14078a733: mov      rbp, rsp
+0x14078a736: sub      rsp, 0x218
+0x14078a73d: mov      qword ptr [rsp + 0x2b8], rdi
+0x14078a745: mov      qword ptr [rsp + 0x2a0], rax
+0x14078a74d: movups   xmmword ptr [rsp + 0x228], xmm15
+0x14078a756: mov      rdx, rdi
+0x14078a759: lea      rdi, [rsp + 0x230]
+0x14078a761: lea      rdi, [rdi - 0x10]
+0x14078a765: mov      qword ptr [rsp - 0x10], rbp
+0x14078a76a: lea      rbp, [rsp - 0x10]
+0x14078a76f: call     0x140081726    ; runtime.duffzero+0x146
+0x14078a774: mov      rbp, qword ptr [rbp]
+0x14078a778: movups   xmmword ptr [rsp + 0x180], xmm15
+0x14078a781: lea      rdi, [rsp + 0x188]
+0x14078a789: lea      rdi, [rdi - 0x10]
+0x14078a78d: nop      word ptr [rax + rax]
+0x14078a796: nop      word ptr [rax + rax]
+0x14078a79f: nop      
+0x14078a7a0: mov      qword ptr [rsp - 0x10], rbp
+0x14078a7a5: lea      rbp, [rsp - 0x10]
+0x14078a7aa: call     0x140081726    ; runtime.duffzero+0x146
+0x14078a7af: mov      rbp, qword ptr [rbp]
+0x14078a7b3: lea      r8, [rip + 0x286]
+0x14078a7ba: mov      qword ptr [rsp + 0x1f8], r8
+0x14078a7c2: mov      qword ptr [rsp + 0x200], rax
+0x14078a7ca: mov      qword ptr [rsp + 0x208], rbx
+0x14078a7d2: mov      byte ptr [rsp + 0x210], cl
+0x14078a7d9: mov      rbx, rdx
+0x14078a7dc: mov      rcx, rsi
+0x14078a7df: lea      rdi, [rsp + 0x1f8]
+0x14078a7e7: call     0x14078c180    ; main.BootstrapService.captureScreenshotWithSaveFormat
+0x14078a7ec: mov      qword ptr [rsp + 0xf8], rax
+0x14078a7f4: mov      qword ptr [rsp + 0x178], rbx
+0x14078a7fc: mov      rdx, qword ptr [rsp]
+0x14078a800: mov      qword ptr [rsp + 0x180], rdx
+0x14078a808: lea      rdi, [rsp + 0x188]
+0x14078a810: lea      rsi, [rsp + 8]
+0x14078a815: nop      word ptr [rax + rax]
+0x14078a81e: nop      
+0x14078a820: mov      qword ptr [rsp - 0x10], rbp
+0x14078a825: lea      rbp, [rsp - 0x10]
+0x14078a82a: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x14078a82f: mov      rbp, qword ptr [rbp]
+0x14078a833: mov      rdx, qword ptr [rsp + 0x180]
+0x14078a83b: mov      qword ptr [rsp + 0x100], rdx
+0x14078a843: lea      rdi, [rsp + 0x108]
+0x14078a84b: lea      rsi, [rsp + 0x188]
+0x14078a853: nop      word ptr [rax + rax]
+0x14078a85c: nop      dword ptr [rax]
+0x14078a860: mov      qword ptr [rsp - 0x10], rbp
+0x14078a865: lea      rbp, [rsp - 0x10]
+0x14078a86a: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x14078a86f: mov      rbp, qword ptr [rbp]
+0x14078a873: test     rax, rax
+0x14078a876: jne      0x14078a905    ; main.BootstrapService.CaptureScreenshotWindow+0x1e5
+0x14078a87c: mov      rcx, qword ptr [rsp + 0x180]
+0x14078a884: mov      qword ptr [rsp], rcx
+0x14078a888: lea      rdi, [rsp + 8]
+0x14078a88d: lea      rsi, [rsp + 0x188]
+0x14078a895: nop      word ptr [rax + rax]
+0x14078a89e: nop      
+0x14078a8a0: mov      qword ptr [rsp - 0x10], rbp
+0x14078a8a5: lea      rbp, [rsp - 0x10]
+0x14078a8aa: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x14078a8af: mov      rbp, qword ptr [rbp]
+0x14078a8b3: mov      rax, qword ptr [rsp + 0x2a0]
+0x14078a8bb: nop      dword ptr [rax + rax]
+0x14078a8c0: call     0x140797140    ; main.BootstrapService.attachScreenshotAssetURLIfNeeded
+0x14078a8c5: mov      rcx, qword ptr [rsp + 0x78]
+0x14078a8ca: mov      qword ptr [rsp + 0x100], rcx
+0x14078a8d2: lea      rdi, [rsp + 0x108]
+0x14078a8da: lea      rsi, [rsp + 0x80]
+0x14078a8e2: mov      qword ptr [rsp - 0x10], rbp
+0x14078a8e7: lea      rbp, [rsp - 0x10]
+0x14078a8ec: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x14078a8f1: mov      rbp, qword ptr [rbp]
+0x14078a8f5: mov      rax, qword ptr [rsp + 0xf8]
+0x14078a8fd: mov      rbx, qword ptr [rsp + 0x178]
+0x14078a905: mov      rdx, qword ptr [rsp + 0x100]
+0x14078a90d: mov      qword ptr [rsp], rdx
+0x14078a911: lea      rdi, [rsp + 8]
+0x14078a916: lea      rsi, [rsp + 0x108]
+0x14078a91e: nop      
+0x14078a920: mov      qword ptr [rsp - 0x10], rbp
+0x14078a925: lea      rbp, [rsp - 0x10]
+0x14078a92a: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x14078a92f: mov      rbp, qword ptr [rbp]
+0x14078a933: mov      rcx, rbx
+0x14078a936: mov      rbx, rax
+0x14078a939: mov      rax, qword ptr [rsp + 0x2a0]
+0x14078a941: call     0x140796ce0    ; main.BootstrapService.emitScreenshotCaptured
+0x14078a946: mov      rdx, qword ptr [rsp + 0x100]
+0x14078a94e: mov      qword ptr [rsp + 0x228], rdx
+0x14078a956: lea      rdi, [rsp + 0x230]
+0x14078a95e: lea      rsi, [rsp + 0x108]
+0x14078a966: mov      qword ptr [rsp - 0x10], rbp
+0x14078a96b: lea      rbp, [rsp - 0x10]
+0x14078a970: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x14078a975: mov      rbp, qword ptr [rbp]
+0x14078a979: mov      rdx, qword ptr [rsp + 0x100]
+0x14078a981: mov      qword ptr [rsp + 0x228], rdx
+0x14078a989: lea      rdi, [rsp + 0x230]
+0x14078a991: lea      rsi, [rsp + 0x108]
+0x14078a999: nop      dword ptr [rax]
+0x14078a9a0: mov      qword ptr [rsp - 0x10], rbp
+0x14078a9a5: lea      rbp, [rsp - 0x10]
+0x14078a9aa: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x14078a9af: mov      rbp, qword ptr [rbp]
+0x14078a9b3: mov      rax, qword ptr [rsp + 0xf8]
+0x14078a9bb: mov      rbx, qword ptr [rsp + 0x178]
+0x14078a9c3: add      rsp, 0x218
+0x14078a9ca: pop      rbp
+0x14078a9cb: ret      
+0x14078a9cc: mov      qword ptr [rsp + 0x80], rax
+0x14078a9d4: mov      qword ptr [rsp + 0x88], rbx
+0x14078a9dc: mov      byte ptr [rsp + 0x90], cl
+0x14078a9e3: mov      qword ptr [rsp + 0x98], rdi
+0x14078a9eb: mov      qword ptr [rsp + 0xa0], rsi
+0x14078a9f3: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078a9f8: mov      rax, qword ptr [rsp + 0x80]
+0x14078aa00: mov      rbx, qword ptr [rsp + 0x88]
+0x14078aa08: movzx    ecx, byte ptr [rsp + 0x90]
+0x14078aa10: mov      rdi, qword ptr [rsp + 0x98]
+0x14078aa18: mov      rsi, qword ptr [rsp + 0xa0]
+0x14078aa20: jmp      0x14078a720    ; main.BootstrapService.CaptureScreenshotWindow
+0x14078aa25: int3     
+0x14078aa26: int3     
+0x14078aa27: int3     
+0x14078aa28: int3     
+0x14078aa29: int3     
+0x14078aa2a: int3     
+0x14078aa2b: int3     
+0x14078aa2c: int3     
+0x14078aa2d: int3     
+0x14078aa2e: int3     
+0x14078aa2f: int3     
+0x14078aa30: int3     
+0x14078aa31: int3     
+0x14078aa32: int3     
+0x14078aa33: int3     
+0x14078aa34: int3     
+0x14078aa35: int3     
+0x14078aa36: int3     
+0x14078aa37: int3     
+0x14078aa38: int3     
+0x14078aa39: int3     
+0x14078aa3a: int3     
+0x14078aa3b: int3     
+0x14078aa3c: int3     
+0x14078aa3d: int3     
+0x14078aa3e: int3     
+0x14078aa3f: int3     

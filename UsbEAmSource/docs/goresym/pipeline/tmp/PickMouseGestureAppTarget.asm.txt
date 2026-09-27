@@ -1,0 +1,112 @@
+0x140783c60: lea      r12, [rsp - 0x2f8]
+0x140783c68: cmp      r12, qword ptr [r14 + 0x10]
+0x140783c6c: jbe      0x140783e4c    ; main.BootstrapService.PickMouseGestureAppTarget+0x1ec
+0x140783c72: push     rbp
+0x140783c73: mov      rbp, rsp
+0x140783c76: sub      rsp, 0x370
+0x140783c7d: mov      qword ptr [rsp + 0x498], rax
+0x140783c85: movups   xmmword ptr [rsp + 0x380], xmm15
+0x140783c8e: lea      rdi, [rsp + 0x388]
+0x140783c96: lea      rdi, [rdi - 0x30]
+0x140783c9a: nop      word ptr [rax + rax]
+0x140783ca0: mov      qword ptr [rsp - 0x10], rbp
+0x140783ca5: lea      rbp, [rsp - 0x10]
+0x140783caa: call     0x1400816eb    ; runtime.duffzero+0x10b
+0x140783caf: mov      rbp, qword ptr [rbp]
+0x140783cb3: movups   xmmword ptr [rsp + 0x248], xmm15
+0x140783cbc: lea      rdi, [rsp + 0x250]
+0x140783cc4: lea      rdi, [rdi - 0x30]
+0x140783cc8: mov      qword ptr [rsp - 0x10], rbp
+0x140783ccd: lea      rbp, [rsp - 0x10]
+0x140783cd2: call     0x1400816eb    ; runtime.duffzero+0x10b
+0x140783cd7: mov      rbp, qword ptr [rbp]
+0x140783cdb: lea      rcx, [rip + 0x19e]
+0x140783ce2: mov      qword ptr [rsp + 0x360], rcx
+0x140783cea: mov      qword ptr [rsp + 0x368], rax
+0x140783cf2: mov      rax, qword ptr [rax + 0x390]
+0x140783cf9: lea      rbx, [rsp + 0x360]
+0x140783d01: call     0x1408e1800    ; main.mouseGestureService.PickAppTarget
+0x140783d06: mov      qword ptr [rsp + 0x238], rax
+0x140783d0e: mov      qword ptr [rsp + 0x240], rbx
+0x140783d16: mov      rcx, qword ptr [rsp]
+0x140783d1a: mov      qword ptr [rsp + 0x248], rcx
+0x140783d22: lea      rdi, [rsp + 0x250]
+0x140783d2a: lea      rsi, [rsp + 8]
+0x140783d2f: nop      word ptr [rax + rax]
+0x140783d38: nop      dword ptr [rax + rax]
+0x140783d40: mov      qword ptr [rsp - 0x10], rbp
+0x140783d45: lea      rbp, [rsp - 0x10]
+0x140783d4a: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140783d4f: mov      rbp, qword ptr [rbp]
+0x140783d53: mov      rcx, qword ptr [rsp + 0x248]
+0x140783d5b: mov      qword ptr [rsp], rcx
+0x140783d5f: lea      rdi, [rsp + 8]
+0x140783d64: lea      rsi, [rsp + 0x250]
+0x140783d6c: mov      qword ptr [rsp - 0x10], rbp
+0x140783d71: lea      rbp, [rsp - 0x10]
+0x140783d76: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140783d7b: mov      rbp, qword ptr [rbp]
+0x140783d7f: mov      rax, qword ptr [rsp + 0x498]
+0x140783d87: call     0x1407848c0    ; main.BootstrapService.attachMouseGestureAppProfileIconURL
+0x140783d8c: mov      rcx, qword ptr [rsp + 0x118]
+0x140783d94: mov      qword ptr [rsp + 0x248], rcx
+0x140783d9c: lea      rdi, [rsp + 0x250]
+0x140783da4: lea      rsi, [rsp + 0x120]
+0x140783dac: mov      qword ptr [rsp - 0x10], rbp
+0x140783db1: lea      rbp, [rsp - 0x10]
+0x140783db6: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140783dbb: mov      rbp, qword ptr [rbp]
+0x140783dbf: mov      rcx, qword ptr [rsp + 0x248]
+0x140783dc7: mov      qword ptr [rsp + 0x380], rcx
+0x140783dcf: lea      rdi, [rsp + 0x388]
+0x140783dd7: lea      rsi, [rsp + 0x250]
+0x140783ddf: nop      
+0x140783de0: mov      qword ptr [rsp - 0x10], rbp
+0x140783de5: lea      rbp, [rsp - 0x10]
+0x140783dea: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140783def: mov      rbp, qword ptr [rbp]
+0x140783df3: mov      rcx, qword ptr [rsp + 0x248]
+0x140783dfb: mov      qword ptr [rsp + 0x380], rcx
+0x140783e03: lea      rdi, [rsp + 0x388]
+0x140783e0b: lea      rsi, [rsp + 0x250]
+0x140783e13: nop      word ptr [rax + rax]
+0x140783e1c: nop      dword ptr [rax]
+0x140783e20: mov      qword ptr [rsp - 0x10], rbp
+0x140783e25: lea      rbp, [rsp - 0x10]
+0x140783e2a: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140783e2f: mov      rbp, qword ptr [rbp]
+0x140783e33: mov      rax, qword ptr [rsp + 0x238]
+0x140783e3b: mov      rbx, qword ptr [rsp + 0x240]
+0x140783e43: add      rsp, 0x370
+0x140783e4a: pop      rbp
+0x140783e4b: ret      
+0x140783e4c: mov      qword ptr [rsp + 0x120], rax
+0x140783e54: call     0x14007f140    ; runtime.morestack_noctxt
+0x140783e59: mov      rax, qword ptr [rsp + 0x120]
+0x140783e61: jmp      0x140783c60    ; main.BootstrapService.PickMouseGestureAppTarget
+0x140783e66: int3     
+0x140783e67: int3     
+0x140783e68: int3     
+0x140783e69: int3     
+0x140783e6a: int3     
+0x140783e6b: int3     
+0x140783e6c: int3     
+0x140783e6d: int3     
+0x140783e6e: int3     
+0x140783e6f: int3     
+0x140783e70: int3     
+0x140783e71: int3     
+0x140783e72: int3     
+0x140783e73: int3     
+0x140783e74: int3     
+0x140783e75: int3     
+0x140783e76: int3     
+0x140783e77: int3     
+0x140783e78: int3     
+0x140783e79: int3     
+0x140783e7a: int3     
+0x140783e7b: int3     
+0x140783e7c: int3     
+0x140783e7d: int3     
+0x140783e7e: int3     
+0x140783e7f: int3     

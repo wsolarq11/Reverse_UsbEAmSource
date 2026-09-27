@@ -1,0 +1,31 @@
+0x140775620: cmp      rsp, qword ptr [r14 + 0x10]
+0x140775624: jbe      0x14077563e    ; main.BootstrapService.GetLanguageMessages+0x1e
+0x140775626: push     rbp
+0x140775627: mov      rbp, rsp
+0x14077562a: sub      rsp, 0x18
+0x14077562e: call     0x1407a2720    ; main.BootstrapService.languageDirectories
+0x140775633: call     0x1407a3300    ; main.loadLanguageMessages
+0x140775638: add      rsp, 0x18
+0x14077563c: pop      rbp
+0x14077563d: ret      
+0x14077563e: mov      qword ptr [rsp + 8], rax
+0x140775643: call     0x14007f140    ; runtime.morestack_noctxt
+0x140775648: mov      rax, qword ptr [rsp + 8]
+0x14077564d: jmp      0x140775620    ; main.BootstrapService.GetLanguageMessages
+0x14077564f: int3     
+0x140775650: int3     
+0x140775651: int3     
+0x140775652: int3     
+0x140775653: int3     
+0x140775654: int3     
+0x140775655: int3     
+0x140775656: int3     
+0x140775657: int3     
+0x140775658: int3     
+0x140775659: int3     
+0x14077565a: int3     
+0x14077565b: int3     
+0x14077565c: int3     
+0x14077565d: int3     
+0x14077565e: int3     
+0x14077565f: int3     

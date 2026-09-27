@@ -1,0 +1,34 @@
+0x140777680: test     r9, r9
+0x140777683: jg       0x14077768d   ; main.BootstrapService).SaveConfig.func1+0x14d
+0x140777685: mov      r9d, 0xa
+0x14077768b: jmp      0x140777699   ; main.BootstrapService).SaveConfig.func1+0x159
+0x14077768d: cmp      r9, 0x64
+0x140777691: jle      0x140777699   ; main.BootstrapService).SaveConfig.func1+0x159
+0x140777693: mov      r9d, 0x64
+0x140777699: mov      qword ptr [rsp + 0x940], r9
+0x1407776a1: lea      rax, [rip + 0x375298]
+0x1407776a8: xor      ebx, ebx
+0x1407776aa: mov      ecx, 2
+0x1407776af: call     0x14007ac40   ; runtime.makeslice
+0x1407776b4: mov      qword ptr [rsp + 0xbd8], rax
+0x1407776bc: movzx    ebx, byte ptr [rsp + 0x93c]
+0x1407776c4: movzx    edx, byte ptr [rsp + 0x93d]
+0x1407776cc: cmp      bl, dl
+0x1407776ce: jne      0x14077770d   ; main.BootstrapService).SaveConfig.func1+0x1cd
+0x1407776d0: test     bl, bl
+0x1407776d2: je       0x1407776fb   ; main.BootstrapService).SaveConfig.func1+0x1bb
+0x1407776d4: mov      rcx, qword ptr [rsp + 0x940]
+0x1407776dc: mov      rsi, qword ptr [rsp + 0x948]
+0x1407776e4: cmp      rcx, rsi
+0x1407776e7: jne      0x140777715   ; main.BootstrapService).SaveConfig.func1+0x1d5
+0x1407776e9: mov      rdx, rax
+0x1407776ec: mov      r8, qword ptr [rsp + 0x9a8]
+0x1407776f4: xor      eax, eax
+0x1407776f6: jmp      0x1407777a6   ; main.BootstrapService).SaveConfig.func1+0x266
+0x1407776fb: mov      rdx, rax
+0x1407776fe: mov      r8, qword ptr [rsp + 0x9a8]
+0x140777706: xor      eax, eax
+0x140777708: jmp      0x1407777a6   ; main.BootstrapService).SaveConfig.func1+0x266
+0x14077770d: mov      rcx, qword ptr [rsp + 0x940]
+0x140777715: mov      rax, qword ptr [rsp + 0x9a8]
+0x14077771d: nop      dword ptr [rax]

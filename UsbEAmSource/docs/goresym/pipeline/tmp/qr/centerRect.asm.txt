@@ -1,0 +1,36 @@
+0x140953fe0: nop      
+0x140953fe1: sub      rcx, rax
+0x140953fe4: sub      rcx, rsi
+0x140953fe7: mov      rdx, rcx
+0x140953fea: shr      rcx, 0x3f
+0x140953fee: add      rdx, rcx
+0x140953ff1: sar      rdx, 1
+0x140953ff4: add      rax, rdx
+0x140953ff7: lea      rcx, [rsi + rax]
+0x140953ffb: sub      rdi, rbx
+0x140953ffe: sub      rdi, r8
+0x140954001: mov      rdx, rdi
+0x140954004: shr      rdi, 0x3f
+0x140954008: add      rdx, rdi
+0x14095400b: sar      rdx, 1
+0x14095400e: add      rbx, rdx
+0x140954011: lea      rdi, [r8 + rbx]
+0x140954015: cmp      rcx, rax
+0x140954018: mov      rdx, rax
+0x14095401b: cmovl    rdx, rcx
+0x14095401f: cmovl    rcx, rax
+0x140954023: cmp      rdi, rbx
+0x140954026: mov      rsi, rbx
+0x140954029: cmovl    rsi, rdi
+0x14095402d: cmovl    rdi, rbx
+0x140954031: mov      rax, rdx
+0x140954034: mov      rbx, rsi
+0x140954037: ret      
+0x140954038: int3     
+0x140954039: int3     
+0x14095403a: int3     
+0x14095403b: int3     
+0x14095403c: int3     
+0x14095403d: int3     
+0x14095403e: int3     
+0x14095403f: int3     

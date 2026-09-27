@@ -1,0 +1,30 @@
+0x140933b70: push     0x548b4860
+0x140933b75: and      al, 0x40
+0x140933b77: mov      qword ptr [rax + 0x78], rdx
+0x140933b7b: mov      qword ptr [rax + 0x70], r10
+0x140933b7f: mov      rdx, rax
+0x140933b82: mov      eax, 8
+0x140933b87: mov      rbx, rax
+0x140933b8a: lea      rdi, [rip + 0x89686f]
+0x140933b91: mov      esi, 1
+0x140933b96: mov      rax, rdx
+0x140933b99: call     0x1400a0140   ; strings.Join
+0x140933b9e: add      rsp, 0x120
+0x140933ba5: pop      rbp
+0x140933ba6: ret      
+0x140933ba7: mov      qword ptr [rsp + 8], rax
+0x140933bac: mov      qword ptr [rsp + 0x10], rbx
+0x140933bb1: mov      qword ptr [rsp + 0x18], rcx
+0x140933bb6: mov      qword ptr [rsp + 0x20], rdi
+0x140933bbb: mov      byte ptr [rsp + 0x28], sil
+0x140933bc0: movsd    qword ptr [rsp + 0x30], xmm0
+0x140933bc6: movsd    qword ptr [rsp + 0x38], xmm1
+0x140933bcc: movsd    qword ptr [rsp + 0x40], xmm2
+0x140933bd2: movsd    qword ptr [rsp + 0x48], xmm3
+0x140933bd8: movsd    qword ptr [rsp + 0x50], xmm4
+0x140933bde: movsd    qword ptr [rsp + 0x58], xmm5
+0x140933be4: call     0x14007f140   ; runtime.morestack_noctxt
+0x140933be9: mov      rax, qword ptr [rsp + 8]
+0x140933bee: mov      rbx, qword ptr [rsp + 0x10]
+0x140933bf3: mov      rcx, qword ptr [rsp + 0x18]
+0x140933bf8: mov      rdi, qword ptr [rsp + 0x20]

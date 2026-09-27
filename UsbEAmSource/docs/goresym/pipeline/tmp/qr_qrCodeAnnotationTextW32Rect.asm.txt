@@ -1,0 +1,32 @@
+0x14094fe00: lea      r12, [rsp - 0x28]
+0x14094fe05: cmp      r12, qword ptr [r14 + 0x10]
+0x14094fe09: jbe      0x14094fe61   ; main.qrCodeAnnotationTextW32Rect+0x61
+0x14094fe0b: push     rbp
+0x14094fe0c: mov      rbp, rsp
+0x14094fe0f: sub      rsp, 0xa0
+0x14094fe16: mov      rcx, qword ptr [rsp + 0xb0]
+0x14094fe1e: mov      qword ptr [rsp], rcx
+0x14094fe22: lea      rdi, [rsp + 8]
+0x14094fe27: lea      rsi, [rsp + 0xb8]
+0x14094fe2f: nop      word ptr [rax + rax]
+0x14094fe38: nop      dword ptr [rax + rax]
+0x14094fe40: mov      qword ptr [rsp - 0x10], rbp
+0x14094fe45: lea      rbp, [rsp - 0x10]
+0x14094fe4a: call     0x140081a62   ; runtime.duffcopy+0x302
+0x14094fe4f: mov      rbp, qword ptr [rbp]
+0x14094fe53: call     0x14094fe80   ; main.qrCodeAnnotationTextBoundsForHDC
+0x14094fe58: add      rsp, 0xa0
+0x14094fe5f: pop      rbp
+0x14094fe60: ret      
+0x14094fe61: mov      qword ptr [rsp + 0xa0], rax
+0x14094fe69: call     0x14007f140   ; runtime.morestack_noctxt
+0x14094fe6e: mov      rax, qword ptr [rsp + 0xa0]
+0x14094fe76: jmp      0x14094fe00   ; main.qrCodeAnnotationTextW32Rect
+0x14094fe78: int3     
+0x14094fe79: int3     
+0x14094fe7a: int3     
+0x14094fe7b: int3     
+0x14094fe7c: int3     
+0x14094fe7d: int3     
+0x14094fe7e: int3     
+0x14094fe7f: int3     

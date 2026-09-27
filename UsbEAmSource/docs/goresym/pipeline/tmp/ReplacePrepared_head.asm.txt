@@ -1,0 +1,93 @@
+0x140899980: mov      r12, rsp
+0x140899983: sub      r12, 0x2f90
+0x14089998a: jb       0x14089aa91   ; main.launcherConfigStore.ReplacePrepared+0x1111
+0x140899990: cmp      r12, qword ptr [r14 + 0x10]
+0x140899994: jbe      0x14089aa91   ; main.launcherConfigStore.ReplacePrepared+0x1111
+0x14089999a: push     rbp
+0x14089999b: mov      rbp, rsp
+0x14089999e: sub      rsp, 0x3008
+0x1408999a5: mov      qword ptr [rsp + 0x42a0], rdi
+0x1408999ad: movq     qword ptr [rsp + 0x3000], xmm15
+0x1408999b7: mov      byte ptr [rsp + 0x129f], 0
+0x1408999bf: movups   xmmword ptr [rsp + 0x3950], xmm15
+0x1408999c8: mov      rdx, rdi
+0x1408999cb: lea      rdi, [rsp + 0x3958]
+0x1408999d3: mov      r9, rcx
+0x1408999d6: mov      ecx, 0x126
+0x1408999db: mov      r10, rax
+0x1408999de: xor      eax, eax
+0x1408999e0: rep stosq qword ptr [rdi], rax
+0x1408999e3: movups   xmmword ptr [rsp + 0x1308], xmm15
+0x1408999ec: test     r10, r10
+0x1408999ef: je       0x14089a81f   ; main.launcherConfigStore.ReplacePrepared+0xe9f
+0x1408999f5: mov      qword ptr [rsp + 0x2670], r10
+0x1408999fd: mov      qword ptr [rsp + 0x4290], rbx
+0x140899a05: mov      qword ptr [rsp + 0x42b0], r8
+0x140899a0d: mov      qword ptr [rsp + 0x42a8], rsi
+0x140899a15: mov      qword ptr [rsp + 0x2668], rdx
+0x140899a1d: nop      dword ptr [rax]
+0x140899a20: test     r9, r9
+0x140899a23: je       0x14089a6c2   ; main.launcherConfigStore.ReplacePrepared+0xd42
+0x140899a29: mov      qword ptr [rsp + 0x2660], r9
+0x140899a31: nop      
+0x140899a32: lea      rcx, [r10 + 0x3c]
+0x140899a36: mov      qword ptr [rsp + 0x1338], rcx
+0x140899a3e: xor      eax, eax
+0x140899a40: mov      edi, 1
+0x140899a45: lock cmpxchg dword ptr [r10 + 0x3c], edi
+0x140899a4b: sete     r11b
+0x140899a4f: test     r11b, r11b
+0x140899a52: jne      0x140899a5c   ; main.launcherConfigStore.ReplacePrepared+0xdc
+0x140899a54: mov      rax, rcx
+0x140899a57: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x140899a5c: lea      rax, [rip + 0x3705fd]
+0x140899a63: call     0x14001ae20   ; runtime.newobject
+0x140899a68: mov      qword ptr [rsp + 0x2ff0], rax
+0x140899a70: movups   xmmword ptr [rsp + 0x1d08], xmm15
+0x140899a79: lea      rdi, [rsp + 0x1d10]
+0x140899a81: mov      ecx, 0x126
+0x140899a86: xor      eax, eax
+0x140899a88: rep stosq qword ptr [rdi], rax
+0x140899a8b: mov      rax, qword ptr [rsp + 0x2670]
+0x140899a93: call     0x140898d40   ; main.launcherConfigStore.loadUnlocked
+0x140899a98: mov      byte ptr [rsp + 0x129e], al
+0x140899a9f: mov      qword ptr [rsp + 0x12f8], rbx
+0x140899aa7: mov      qword ptr [rsp + 0x1cb8], rcx
+0x140899aaf: mov      rdx, qword ptr [rsp]
+0x140899ab3: mov      qword ptr [rsp + 0x1d08], rdx
+0x140899abb: lea      rdi, [rsp + 0x1d10]
+0x140899ac3: lea      rsi, [rsp + 8]
+0x140899ac8: mov      rdx, rcx
+0x140899acb: mov      ecx, 0x126
+0x140899ad0: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140899ad3: mov      rcx, qword ptr [rsp + 0x1d08]
+0x140899adb: mov      qword ptr [rsp + 0x2698], rcx
+0x140899ae3: lea      rdi, [rsp + 0x26a0]
+0x140899aeb: lea      rsi, [rsp + 0x1d10]
+0x140899af3: mov      ecx, 0x126
+0x140899af8: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140899afb: cmp      dword ptr [rip + 0x13c184e], 0
+0x140899b02: je       0x140899b3d   ; main.launcherConfigStore.ReplacePrepared+0x1bd
+0x140899b04: lea      rax, [rip + 0x370555]
+0x140899b0b: mov      rbx, qword ptr [rsp + 0x2ff0]
+0x140899b13: lea      rcx, [rsp + 0x2698]
+0x140899b1b: nop      dword ptr [rax + rax]
+0x140899b20: call     0x14001b620   ; runtime.wbMove
+0x140899b25: movzx    eax, byte ptr [rsp + 0x129e]
+0x140899b2d: mov      rdx, qword ptr [rsp + 0x1cb8]
+0x140899b35: mov      rbx, qword ptr [rsp + 0x12f8]
+0x140899b3d: mov      r8, qword ptr [rsp + 0x2698]
+0x140899b45: mov      rdi, qword ptr [rsp + 0x2ff0]
+0x140899b4d: mov      qword ptr [rdi], r8
+0x140899b50: lea      r8, [rdi + 8]
+0x140899b54: lea      rsi, [rsp + 0x26a0]
+0x140899b5c: mov      ecx, 0x126
+0x140899b61: mov      r9, rdi
+0x140899b64: mov      rdi, r8
+0x140899b67: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140899b6a: test     rbx, rbx
+0x140899b6d: je       0x140899be1   ; main.launcherConfigStore.ReplacePrepared+0x261
+0x140899b6f: nop      
+0x140899b70: nop      
+0x140899b71: mov      esi, 0xffffffff
+0x140899b76: mov      r8, qword ptr [rsp + 0x2670]

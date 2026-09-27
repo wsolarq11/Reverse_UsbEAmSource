@@ -1,0 +1,91 @@
+0x1409b6f00: lea      r12, [rsp - 0x10]
+0x1409b6f05: cmp      r12, qword ptr [r14 + 0x10]
+0x1409b6f09: jbe      0x1409b7036   ; main.waitForScreenshotCOMQueryWorkers+0x136
+0x1409b6f0f: push     rbp
+0x1409b6f10: mov      rbp, rsp
+0x1409b6f13: sub      rsp, 0x88
+0x1409b6f1a: mov      qword ptr [rsp + 0xc0], r8
+0x1409b6f22: mov      qword ptr [rsp + 0xa0], rbx
+0x1409b6f2a: mov      qword ptr [rsp + 0x98], rax
+0x1409b6f32: mov      qword ptr [rsp + 0x48], rdi
+0x1409b6f37: mov      qword ptr [rsp + 0x40], rsi
+0x1409b6f3c: mov      qword ptr [rsp + 0x60], r8
+0x1409b6f41: xor      ecx, ecx
+0x1409b6f43: jmp      0x1409b6f71   ; main.waitForScreenshotCOMQueryWorkers+0x71
+0x1409b6f45: call     0x14007d380   ; time.stopTimer
+0x1409b6f4a: mov      rcx, qword ptr [rsp + 0x38]
+0x1409b6f4f: inc      rcx
+0x1409b6f52: mov      rax, qword ptr [rsp + 0x98]
+0x1409b6f5a: mov      rbx, qword ptr [rsp + 0xa0]
+0x1409b6f62: mov      rsi, qword ptr [rsp + 0x40]
+0x1409b6f67: mov      rdi, qword ptr [rsp + 0x48]
+0x1409b6f6c: mov      r8, qword ptr [rsp + 0x60]
+0x1409b6f71: cmp      rbx, rcx
+0x1409b6f74: jle      0x1409b7014   ; main.waitForScreenshotCOMQueryWorkers+0x114
+0x1409b6f7a: mov      qword ptr [rsp + 0x38], rcx
+0x1409b6f7f: mov      rdx, qword ptr [rax + rcx*8]
+0x1409b6f83: mov      qword ptr [rsp + 0x50], rdx
+0x1409b6f88: mov      rax, rdi
+0x1409b6f8b: mov      rbx, rsi
+0x1409b6f8e: mov      rcx, r8
+0x1409b6f91: call     0x1400fbcc0   ; time.Until
+0x1409b6f96: test     rax, rax
+0x1409b6f99: jle      0x1409b7009   ; main.waitForScreenshotCOMQueryWorkers+0x109
+0x1409b6f9b: nop      dword ptr [rax + rax]
+0x1409b6fa0: call     0x1400f9840   ; time.NewTimer
+0x1409b6fa5: mov      qword ptr [rsp + 0x58], rax
+0x1409b6faa: mov      rcx, qword ptr [rax]
+0x1409b6fad: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1409b6fb3: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1409b6fb9: mov      rdx, qword ptr [rsp + 0x50]
+0x1409b6fbe: mov      qword ptr [rsp + 0x78], rdx
+0x1409b6fc3: mov      qword ptr [rsp + 0x68], rcx
+0x1409b6fc8: lea      rax, [rsp + 0x68]
+0x1409b6fcd: lea      rbx, [rsp + 0x30]
+0x1409b6fd2: xor      ecx, ecx
+0x1409b6fd4: xor      edi, edi
+0x1409b6fd6: mov      esi, 2
+0x1409b6fdb: mov      r8d, 1
+0x1409b6fe1: call     0x140058c60   ; runtime.selectgo
+0x1409b6fe6: test     rax, rax
+0x1409b6fe9: je       0x1409b6ffe   ; main.waitForScreenshotCOMQueryWorkers+0xfe
+0x1409b6feb: nop      
+0x1409b6fec: nop      
+0x1409b6fed: mov      rax, qword ptr [rsp + 0x58]
+0x1409b6ff2: cmp      byte ptr [rax + 8], 0
+0x1409b6ff6: jne      0x1409b6f45   ; main.waitForScreenshotCOMQueryWorkers+0x45
+0x1409b6ffc: jmp      0x1409b7022   ; main.waitForScreenshotCOMQueryWorkers+0x122
+0x1409b6ffe: xor      eax, eax
+0x1409b7000: add      rsp, 0x88
+0x1409b7007: pop      rbp
+0x1409b7008: ret      
+0x1409b7009: xor      eax, eax
+0x1409b700b: add      rsp, 0x88
+0x1409b7012: pop      rbp
+0x1409b7013: ret      
+0x1409b7014: mov      eax, 1
+0x1409b7019: add      rsp, 0x88
+0x1409b7020: pop      rbp
+0x1409b7021: ret      
+0x1409b7022: lea      rax, [rip + 0x132dd7]
+0x1409b7029: lea      rbx, [rip + 0x817960]
+0x1409b7030: call     0x1400789c0   ; runtime.gopanic
+0x1409b7035: nop      
+0x1409b7036: mov      qword ptr [rsp + 8], rax
+0x1409b703b: mov      qword ptr [rsp + 0x10], rbx
+0x1409b7040: mov      qword ptr [rsp + 0x18], rcx
+0x1409b7045: mov      qword ptr [rsp + 0x20], rdi
+0x1409b704a: mov      qword ptr [rsp + 0x28], rsi
+0x1409b704f: mov      qword ptr [rsp + 0x30], r8
+0x1409b7054: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409b7059: mov      rax, qword ptr [rsp + 8]
+0x1409b705e: mov      rbx, qword ptr [rsp + 0x10]
+0x1409b7063: mov      rcx, qword ptr [rsp + 0x18]
+0x1409b7068: mov      rdi, qword ptr [rsp + 0x20]
+0x1409b706d: mov      rsi, qword ptr [rsp + 0x28]
+0x1409b7072: mov      r8, qword ptr [rsp + 0x30]
+0x1409b7077: jmp      0x1409b6f00   ; main.waitForScreenshotCOMQueryWorkers
+0x1409b707c: int3     
+0x1409b707d: int3     
+0x1409b707e: int3     
+0x1409b707f: int3     

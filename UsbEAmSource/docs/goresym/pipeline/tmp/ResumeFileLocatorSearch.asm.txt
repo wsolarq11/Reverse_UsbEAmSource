@@ -1,0 +1,45 @@
+0x140786920: lea      r12, [rsp - 0x2f0]
+0x140786928: cmp      r12, qword ptr [r14 + 0x10]
+0x14078692c: jbe      0x1407869e2    ; main.BootstrapService.ResumeFileLocatorSearch+0xc2
+0x140786932: push     rbp
+0x140786933: mov      rbp, rsp
+0x140786936: sub      rsp, 0x368
+0x14078693d: lea      rdi, [rsp + 0x378]
+0x140786945: lea      rdi, [rdi - 0x10]
+0x140786949: mov      qword ptr [rsp - 0x10], rbp
+0x14078694e: lea      rbp, [rsp - 0x10]
+0x140786953: call     0x1400816b3    ; runtime.duffzero+0xd3
+0x140786958: mov      rbp, qword ptr [rbp]
+0x14078695c: mov      rax, qword ptr [rax + 0x438]
+0x140786963: call     0x1407d0000    ; main.fileLocatorService.ResumeSearch
+0x140786968: lea      rdi, [rsp + 0x1b8]
+0x140786970: mov      rsi, rsp
+0x140786973: nop      word ptr [rax + rax]
+0x14078697c: nop      dword ptr [rax]
+0x140786980: mov      qword ptr [rsp - 0x10], rbp
+0x140786985: lea      rbp, [rsp - 0x10]
+0x14078698a: call     0x140081966    ; runtime.duffcopy+0x206
+0x14078698f: mov      rbp, qword ptr [rbp]
+0x140786993: lea      rdi, [rsp + 0x378]
+0x14078699b: lea      rsi, [rsp + 0x1b8]
+0x1407869a3: mov      qword ptr [rsp - 0x10], rbp
+0x1407869a8: lea      rbp, [rsp - 0x10]
+0x1407869ad: call     0x140081966    ; runtime.duffcopy+0x206
+0x1407869b2: mov      rbp, qword ptr [rbp]
+0x1407869b6: lea      rdi, [rsp + 0x378]
+0x1407869be: lea      rsi, [rsp + 0x1b8]
+0x1407869c6: mov      qword ptr [rsp - 0x10], rbp
+0x1407869cb: lea      rbp, [rsp - 0x10]
+0x1407869d0: call     0x140081966    ; runtime.duffcopy+0x206
+0x1407869d5: mov      rbp, qword ptr [rbp]
+0x1407869d9: add      rsp, 0x368
+0x1407869e0: pop      rbp
+0x1407869e1: ret      
+0x1407869e2: mov      qword ptr [rsp + 0x1b8], rax
+0x1407869ea: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407869ef: mov      rax, qword ptr [rsp + 0x1b8]
+0x1407869f7: jmp      0x140786920    ; main.BootstrapService.ResumeFileLocatorSearch
+0x1407869fc: int3     
+0x1407869fd: int3     
+0x1407869fe: int3     
+0x1407869ff: int3     

@@ -1,0 +1,52 @@
+0x1408c5620: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408c5624: jbe      0x1408c5684    ; main.BootstrapService.CompleteLauncherUpdateStartup+0x64
+0x1408c5626: push     rbp
+0x1408c5627: mov      rbp, rsp
+0x1408c562a: sub      rsp, 0x20
+0x1408c562e: call     0x1408c5500    ; main.launcherUpdateHealthHandshakePending
+0x1408c5633: test     al, al
+0x1408c5635: je       0x1408c567a    ; main.BootstrapService.CompleteLauncherUpdateStartup+0x5a
+0x1408c5637: call     0x1408c24c0    ; main.sendLauncherUpdateHealthFromEnvironment
+0x1408c563c: mov      qword ptr [rsp + 0x10], rax
+0x1408c5641: mov      qword ptr [rsp + 0x18], rbx
+0x1408c5646: nop      
+0x1408c5647: lea      rax, [rip + 0x3a15e8]
+0x1408c564e: mov      ebx, 0x19
+0x1408c5653: call     0x1400e3460    ; syscall.Unsetenv
+0x1408c5658: nop      
+0x1408c5659: lea      rax, [rip + 0x3a2d29]
+0x1408c5660: mov      ebx, 0x1a
+0x1408c5665: call     0x1400e3460    ; syscall.Unsetenv
+0x1408c566a: mov      rax, qword ptr [rsp + 0x10]
+0x1408c566f: mov      rbx, qword ptr [rsp + 0x18]
+0x1408c5674: add      rsp, 0x20
+0x1408c5678: pop      rbp
+0x1408c5679: ret      
+0x1408c567a: xor      eax, eax
+0x1408c567c: xor      ebx, ebx
+0x1408c567e: add      rsp, 0x20
+0x1408c5682: pop      rbp
+0x1408c5683: ret      
+0x1408c5684: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408c5689: jmp      0x1408c5620    ; main.BootstrapService.CompleteLauncherUpdateStartup
+0x1408c568b: int3     
+0x1408c568c: int3     
+0x1408c568d: int3     
+0x1408c568e: int3     
+0x1408c568f: int3     
+0x1408c5690: int3     
+0x1408c5691: int3     
+0x1408c5692: int3     
+0x1408c5693: int3     
+0x1408c5694: int3     
+0x1408c5695: int3     
+0x1408c5696: int3     
+0x1408c5697: int3     
+0x1408c5698: int3     
+0x1408c5699: int3     
+0x1408c569a: int3     
+0x1408c569b: int3     
+0x1408c569c: int3     
+0x1408c569d: int3     
+0x1408c569e: int3     
+0x1408c569f: int3     

@@ -1,0 +1,80 @@
+0x140915ce0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140915ce4: jbe      0x140915d9f   ; main.oledBlackoutWalkActiveRenderSessionsContext+0xbf
+0x140915cea: push     rbp
+0x140915ceb: mov      rbp, rsp
+0x140915cee: sub      rsp, 0x40
+0x140915cf2: mov      qword ptr [rsp + 0x50], rax
+0x140915cf7: mov      qword ptr [rsp + 0x58], rbx
+0x140915cfc: mov      qword ptr [rsp + 0x60], rcx
+0x140915d01: test     rax, rax
+0x140915d04: jne      0x140915d14   ; main.oledBlackoutWalkActiveRenderSessionsContext+0x34
+0x140915d06: lea      rax, [rip + 0x8c2953]
+0x140915d0d: lea      rbx, [rip + 0x1344cac]
+0x140915d14: mov      qword ptr [rsp + 0x10], rax
+0x140915d19: mov      qword ptr [rsp + 0x38], rbx
+0x140915d1e: mov      rcx, qword ptr [rax + 0x28]
+0x140915d22: mov      rax, rbx
+0x140915d25: call     rcx
+0x140915d27: test     rax, rax
+0x140915d2a: jne      0x140915d99   ; main.oledBlackoutWalkActiveRenderSessionsContext+0xb9
+0x140915d2c: mov      rcx, qword ptr [rsp + 0x60]
+0x140915d31: test     rcx, rcx
+0x140915d34: je       0x140915d6b   ; main.oledBlackoutWalkActiveRenderSessionsContext+0x8b
+0x140915d36: lea      rdx, [rip + 0xa3]
+0x140915d3d: mov      qword ptr [rsp + 0x18], rdx
+0x140915d42: mov      rdx, qword ptr [rsp + 0x10]
+0x140915d47: mov      qword ptr [rsp + 0x20], rdx
+0x140915d4c: mov      rdx, qword ptr [rsp + 0x38]
+0x140915d51: mov      qword ptr [rsp + 0x28], rdx
+0x140915d56: mov      qword ptr [rsp + 0x30], rcx
+0x140915d5b: lea      rax, [rsp + 0x18]
+0x140915d60: call     0x1407581e0   ; main.withAudioCOM
+0x140915d65: add      rsp, 0x40
+0x140915d69: pop      rbp
+0x140915d6a: ret      
+0x140915d6b: lea      rax, [rip + 0x23e60e]
+0x140915d72: call     0x14001ae20   ; runtime.newobject
+0x140915d77: mov      qword ptr [rax + 8], 0x21
+0x140915d7f: lea      rcx, [rip + 0x35e0f0]
+0x140915d86: mov      qword ptr [rax], rcx
+0x140915d89: mov      rbx, rax
+0x140915d8c: lea      rax, [rip + 0x8bd36d]
+0x140915d93: add      rsp, 0x40
+0x140915d97: pop      rbp
+0x140915d98: ret      
+0x140915d99: add      rsp, 0x40
+0x140915d9d: pop      rbp
+0x140915d9e: ret      
+0x140915d9f: mov      qword ptr [rsp + 8], rax
+0x140915da4: mov      qword ptr [rsp + 0x10], rbx
+0x140915da9: mov      qword ptr [rsp + 0x18], rcx
+0x140915dae: call     0x14007f140   ; runtime.morestack_noctxt
+0x140915db3: mov      rax, qword ptr [rsp + 8]
+0x140915db8: mov      rbx, qword ptr [rsp + 0x10]
+0x140915dbd: mov      rcx, qword ptr [rsp + 0x18]
+0x140915dc2: jmp      0x140915ce0   ; main.oledBlackoutWalkActiveRenderSessionsContext
+0x140915dc7: int3     
+0x140915dc8: int3     
+0x140915dc9: int3     
+0x140915dca: int3     
+0x140915dcb: int3     
+0x140915dcc: int3     
+0x140915dcd: int3     
+0x140915dce: int3     
+0x140915dcf: int3     
+0x140915dd0: int3     
+0x140915dd1: int3     
+0x140915dd2: int3     
+0x140915dd3: int3     
+0x140915dd4: int3     
+0x140915dd5: int3     
+0x140915dd6: int3     
+0x140915dd7: int3     
+0x140915dd8: int3     
+0x140915dd9: int3     
+0x140915dda: int3     
+0x140915ddb: int3     
+0x140915ddc: int3     
+0x140915ddd: int3     
+0x140915dde: int3     
+0x140915ddf: int3     

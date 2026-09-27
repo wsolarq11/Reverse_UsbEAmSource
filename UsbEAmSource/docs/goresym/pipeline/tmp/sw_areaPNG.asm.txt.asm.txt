@@ -1,0 +1,22 @@
+0x1409b75a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409b75a4: jbe      0x1409b75f5   ; main.captureScreenshotAreaPNGForServiceWithControlsAndLauncherVisibility+0x55
+0x1409b75a6: push     rbp
+0x1409b75a7: mov      rbp, rsp
+0x1409b75aa: sub      rsp, 0x48
+0x1409b75ae: movups   xmmword ptr [rsp + 0x20], xmm15
+0x1409b75b4: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1409b75ba: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1409b75c0: lea      rdx, [rip + 0x99]
+0x1409b75c7: mov      qword ptr [rsp + 0x20], rdx
+0x1409b75cc: mov      byte ptr [rsp + 0x28], sil
+0x1409b75d1: mov      byte ptr [rsp + 0x29], r8b
+0x1409b75d6: mov      qword ptr [rsp + 0x30], rax
+0x1409b75db: mov      byte ptr [rsp + 0x38], dil
+0x1409b75e0: mov      qword ptr [rsp + 0x40], r9
+0x1409b75e5: lea      rdi, [rsp + 0x20]
+0x1409b75ea: call     0x1409b94c0   ; main.captureScreenshotWithLauncherVisibility
+0x1409b75ef: add      rsp, 0x48
+0x1409b75f3: pop      rbp
+0x1409b75f4: ret      
+0x1409b75f5: mov      qword ptr [rsp + 8], rax
+0x1409b75fa: mov      qword ptr [rsp + 0x10], rbx

@@ -1,0 +1,214 @@
+0x1409b1ca0: lea      r12, [rsp - 0x68]
+0x1409b1ca5: cmp      r12, qword ptr [r14 + 0x10]
+0x1409b1ca9: jbe      0x1409b204c   ; main.readScreenshotUIAElementHitInfo+0x3ac
+0x1409b1caf: push     rbp
+0x1409b1cb0: mov      rbp, rsp
+0x1409b1cb3: sub      rsp, 0xe0
+0x1409b1cba: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1409b1cc0: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1409b1cc6: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1409b1ccc: test     rax, rax
+0x1409b1ccf: je       0x1409b1ff6   ; main.readScreenshotUIAElementHitInfo+0x356
+0x1409b1cd5: cmp      qword ptr [rax], 0
+0x1409b1cd9: je       0x1409b1ff6   ; main.readScreenshotUIAElementHitInfo+0x356
+0x1409b1cdf: mov      qword ptr [rsp + 0xf0], rax
+0x1409b1ce7: mov      dword ptr [rsp + 0x3c], 0
+0x1409b1cef: mov      qword ptr [rsp + 0xd8], rax
+0x1409b1cf7: lea      rdx, [rsp + 0x3c]
+0x1409b1cfc: mov      qword ptr [rsp + 0xd0], rdx
+0x1409b1d04: movups   xmmword ptr [rsp + 0x90], xmm15
+0x1409b1d0d: mov      rdx, qword ptr [rsp + 0xd8]
+0x1409b1d15: mov      qword ptr [rsp + 0x90], rdx
+0x1409b1d1d: mov      rdx, qword ptr [rsp + 0xd0]
+0x1409b1d25: mov      qword ptr [rsp + 0x98], rdx
+0x1409b1d2d: mov      rdx, qword ptr [rax]
+0x1409b1d30: mov      rax, qword ptr [rdx + 0xa8]
+0x1409b1d37: lea      rbx, [rsp + 0x90]
+0x1409b1d3f: mov      ecx, 2
+0x1409b1d44: mov      rdi, rcx
+0x1409b1d47: call     0x14007cf60   ; syscall.SyscallN
+0x1409b1d4c: test     eax, eax
+0x1409b1d4e: jl       0x1409b1f7c   ; main.readScreenshotUIAElementHitInfo+0x2dc
+0x1409b1d54: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1409b1d5a: mov      rdx, qword ptr [rsp + 0xf0]
+0x1409b1d62: mov      qword ptr [rsp + 0xc8], rdx
+0x1409b1d6a: lea      rsi, [rsp + 0x28]
+0x1409b1d6f: mov      qword ptr [rsp + 0xc0], rsi
+0x1409b1d77: movups   xmmword ptr [rsp + 0x90], xmm15
+0x1409b1d80: mov      rsi, qword ptr [rsp + 0xc8]
+0x1409b1d88: mov      qword ptr [rsp + 0x90], rsi
+0x1409b1d90: mov      rsi, qword ptr [rsp + 0xc0]
+0x1409b1d98: mov      qword ptr [rsp + 0x98], rsi
+0x1409b1da0: mov      rdx, qword ptr [rdx]
+0x1409b1da3: mov      rax, qword ptr [rdx + 0x158]
+0x1409b1daa: lea      rbx, [rsp + 0x90]
+0x1409b1db2: mov      ecx, 2
+0x1409b1db7: mov      rdi, rcx
+0x1409b1dba: call     0x14007cf60   ; syscall.SyscallN
+0x1409b1dbf: nop      
+0x1409b1dc0: test     eax, eax
+0x1409b1dc2: jl       0x1409b1f05   ; main.readScreenshotUIAElementHitInfo+0x265
+0x1409b1dc8: movsxd   rdx, dword ptr [rsp + 0x28]
+0x1409b1dcd: movsxd   rsi, dword ptr [rsp + 0x2c]
+0x1409b1dd2: movsxd   r8, dword ptr [rsp + 0x30]
+0x1409b1dd7: movsxd   r9, dword ptr [rsp + 0x34]
+0x1409b1ddc: nop      
+0x1409b1ddd: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1409b1de3: movups   xmmword ptr [rsp + 0x70], xmm15
+0x1409b1de9: movups   xmmword ptr [rsp + 0x80], xmm15
+0x1409b1df2: cmp      rdx, r8
+0x1409b1df5: mov      r10, rdx
+0x1409b1df8: cmovg    rdx, r8
+0x1409b1dfc: mov      qword ptr [rsp + 0x68], rdx
+0x1409b1e01: cmovg    r8, r10
+0x1409b1e05: cmp      rsi, r9
+0x1409b1e08: mov      rdx, rsi
+0x1409b1e0b: cmovg    rsi, r9
+0x1409b1e0f: mov      qword ptr [rsp + 0x70], rsi
+0x1409b1e14: mov      qword ptr [rsp + 0x78], r8
+0x1409b1e19: cmovg    r9, rdx
+0x1409b1e1d: mov      qword ptr [rsp + 0x80], r9
+0x1409b1e25: mov      edx, dword ptr [rsp + 0x3c]
+0x1409b1e29: mov      dword ptr [rsp + 0x88], edx
+0x1409b1e30: mov      byte ptr [rsp + 0x8c], 1
+0x1409b1e38: mov      dword ptr [rsp + 0x38], 0
+0x1409b1e40: mov      rdx, qword ptr [rsp + 0xf0]
+0x1409b1e48: mov      qword ptr [rsp + 0xb8], rdx
+0x1409b1e50: lea      rsi, [rsp + 0x38]
+0x1409b1e55: mov      qword ptr [rsp + 0xb0], rsi
+0x1409b1e5d: movups   xmmword ptr [rsp + 0x90], xmm15
+0x1409b1e66: mov      rsi, qword ptr [rsp + 0xb8]
+0x1409b1e6e: mov      qword ptr [rsp + 0x90], rsi
+0x1409b1e76: mov      rsi, qword ptr [rsp + 0xb0]
+0x1409b1e7e: mov      qword ptr [rsp + 0x98], rsi
+0x1409b1e86: mov      rdx, qword ptr [rdx]
+0x1409b1e89: mov      rax, qword ptr [rdx + 0x108]
+0x1409b1e90: lea      rbx, [rsp + 0x90]
+0x1409b1e98: mov      ecx, 2
+0x1409b1e9d: mov      rdi, rcx
+0x1409b1ea0: call     0x14007cf60   ; syscall.SyscallN
+0x1409b1ea5: nop      
+0x1409b1ea6: test     eax, eax
+0x1409b1ea8: jl       0x1409b1eb7   ; main.readScreenshotUIAElementHitInfo+0x217
+0x1409b1eaa: cmp      dword ptr [rsp + 0x38], 0
+0x1409b1eaf: setne    byte ptr [rsp + 0x8c]
+0x1409b1eb7: mov      rdx, qword ptr [rsp + 0x68]
+0x1409b1ebc: mov      qword ptr [rsp + 0x40], rdx
+0x1409b1ec1: movups   xmm0, xmmword ptr [rsp + 0x70]
+0x1409b1ec6: movups   xmmword ptr [rsp + 0x48], xmm0
+0x1409b1ecb: movups   xmm0, xmmword ptr [rsp + 0x80]
+0x1409b1ed3: movups   xmmword ptr [rsp + 0x58], xmm0
+0x1409b1ed8: mov      rax, qword ptr [rsp + 0x40]
+0x1409b1edd: mov      rbx, qword ptr [rsp + 0x48]
+0x1409b1ee2: mov      rcx, qword ptr [rsp + 0x50]
+0x1409b1ee7: mov      rdi, qword ptr [rsp + 0x58]
+0x1409b1eec: mov      esi, dword ptr [rsp + 0x60]
+0x1409b1ef0: movzx    r8d, byte ptr [rsp + 0x64]
+0x1409b1ef6: xor      r9d, r9d
+0x1409b1ef9: xor      r10d, r10d
+0x1409b1efc: add      rsp, 0xe0
+0x1409b1f03: pop      rbp
+0x1409b1f04: ret      
+0x1409b1f05: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x1409b1f0e: call     0x1400173c0   ; runtime.convT32
+0x1409b1f13: lea      rcx, [rip + 0x138066]
+0x1409b1f1a: mov      qword ptr [rsp + 0xa0], rcx
+0x1409b1f22: mov      qword ptr [rsp + 0xa8], rax
+0x1409b1f2a: lea      rax, [rip + 0x2c6ac2]
+0x1409b1f31: mov      ebx, 0x24
+0x1409b1f36: lea      rcx, [rsp + 0xa0]
+0x1409b1f3e: mov      edi, 1
+0x1409b1f43: mov      rsi, rdi
+0x1409b1f46: call     0x140133280   ; fmt.Errorf
+0x1409b1f4b: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1409b1f51: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1409b1f57: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1409b1f5d: xor      ecx, ecx
+0x1409b1f5f: mov      rdi, rcx
+0x1409b1f62: xor      esi, esi
+0x1409b1f64: xor      r8d, r8d
+0x1409b1f67: mov      r9, rax
+0x1409b1f6a: mov      r10, rbx
+0x1409b1f6d: mov      rax, rcx
+0x1409b1f70: mov      rbx, rax
+0x1409b1f73: add      rsp, 0xe0
+0x1409b1f7a: pop      rbp
+0x1409b1f7b: ret      
+0x1409b1f7c: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x1409b1f85: call     0x1400173c0   ; runtime.convT32
+0x1409b1f8a: lea      rcx, [rip + 0x137fef]
+0x1409b1f91: mov      qword ptr [rsp + 0xa0], rcx
+0x1409b1f99: mov      qword ptr [rsp + 0xa8], rax
+0x1409b1fa1: lea      rax, [rip + 0x2c6a27]
+0x1409b1fa8: mov      ebx, 0x24
+0x1409b1fad: lea      rcx, [rsp + 0xa0]
+0x1409b1fb5: mov      edi, 1
+0x1409b1fba: mov      rsi, rdi
+0x1409b1fbd: nop      dword ptr [rax]
+0x1409b1fc0: call     0x140133280   ; fmt.Errorf
+0x1409b1fc5: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1409b1fcb: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1409b1fd1: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1409b1fd7: xor      ecx, ecx
+0x1409b1fd9: mov      rdi, rcx
+0x1409b1fdc: xor      esi, esi
+0x1409b1fde: xor      r8d, r8d
+0x1409b1fe1: mov      r9, rax
+0x1409b1fe4: mov      r10, rbx
+0x1409b1fe7: mov      rax, rcx
+0x1409b1fea: mov      rbx, rax
+0x1409b1fed: add      rsp, 0xe0
+0x1409b1ff4: pop      rbp
+0x1409b1ff5: ret      
+0x1409b1ff6: lea      rax, [rip + 0x1a2383]
+0x1409b1ffd: nop      dword ptr [rax]
+0x1409b2000: call     0x14001ae20   ; runtime.newobject
+0x1409b2005: mov      qword ptr [rax + 8], 0x16
+0x1409b200d: lea      rcx, [rip + 0x2af514]
+0x1409b2014: mov      qword ptr [rax], rcx
+0x1409b2017: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1409b201d: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1409b2023: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1409b2029: xor      ebx, ebx
+0x1409b202b: mov      rcx, rbx
+0x1409b202e: mov      rdi, rcx
+0x1409b2031: xor      esi, esi
+0x1409b2033: xor      r8d, r8d
+0x1409b2036: lea      r9, [rip + 0x8210c3]
+0x1409b203d: mov      r10, rax
+0x1409b2040: mov      rax, rcx
+0x1409b2043: add      rsp, 0xe0
+0x1409b204a: pop      rbp
+0x1409b204b: ret      
+0x1409b204c: mov      qword ptr [rsp + 8], rax
+0x1409b2051: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409b2056: mov      rax, qword ptr [rsp + 8]
+0x1409b205b: nop      dword ptr [rax + rax]
+0x1409b2060: jmp      0x1409b1ca0   ; main.readScreenshotUIAElementHitInfo
+0x1409b2065: int3     
+0x1409b2066: int3     
+0x1409b2067: int3     
+0x1409b2068: int3     
+0x1409b2069: int3     
+0x1409b206a: int3     
+0x1409b206b: int3     
+0x1409b206c: int3     
+0x1409b206d: int3     
+0x1409b206e: int3     
+0x1409b206f: int3     
+0x1409b2070: int3     
+0x1409b2071: int3     
+0x1409b2072: int3     
+0x1409b2073: int3     
+0x1409b2074: int3     
+0x1409b2075: int3     
+0x1409b2076: int3     
+0x1409b2077: int3     
+0x1409b2078: int3     
+0x1409b2079: int3     
+0x1409b207a: int3     
+0x1409b207b: int3     
+0x1409b207c: int3     
+0x1409b207d: int3     
+0x1409b207e: int3     
+0x1409b207f: int3     

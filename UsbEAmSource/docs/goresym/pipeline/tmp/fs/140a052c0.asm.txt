@@ -1,0 +1,40 @@
+0x140a052c0: push     rbp
+0x140a052c1: mov      rbp, rsp
+0x140a052c4: sub      rsp, 0x28
+0x140a052c8: mov      r12, qword ptr [r14 + 0x20]
+0x140a052cc: test     r12, r12
+0x140a052cf: jne      0x140a05300
+0x140a052d1: test     rax, rax
+0x140a052d4: je       0x140a052fa
+0x140a052d6: mov      rcx, qword ptr [rax]
+0x140a052d9: mov      qword ptr [rsp], rcx
+0x140a052dd: movups   xmm0, xmmword ptr [rax + 8]
+0x140a052e1: movups   xmmword ptr [rsp + 8], xmm0
+0x140a052e6: movups   xmm0, xmmword ptr [rax + 0x18]
+0x140a052ea: movups   xmmword ptr [rsp + 0x18], xmm0
+0x140a052ef: mov      rax, qword ptr [rsp + 8]
+0x140a052f4: add      rsp, 0x28
+0x140a052f8: pop      rbp
+0x140a052f9: ret      
+0x140a052fa: call     0x140015dc0
+0x140a052ff: nop      
+0x140a05300: lea      r13, [rsp + 0x38]
+0x140a05305: cmp      qword ptr [r12], r13
+0x140a05309: jne      0x140a052d1
+0x140a0530b: mov      qword ptr [r12], rsp
+0x140a0530f: jmp      0x140a052d1
+0x140a05311: int3     
+0x140a05312: int3     
+0x140a05313: int3     
+0x140a05314: int3     
+0x140a05315: int3     
+0x140a05316: int3     
+0x140a05317: int3     
+0x140a05318: int3     
+0x140a05319: int3     
+0x140a0531a: int3     
+0x140a0531b: int3     
+0x140a0531c: int3     
+0x140a0531d: int3     
+0x140a0531e: int3     
+0x140a0531f: int3     

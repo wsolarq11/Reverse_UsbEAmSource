@@ -1,0 +1,252 @@
+0x1407a7320: lea      r12, [rsp - 0x230]
+0x1407a7328: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a732c: jbe      0x1407a78ae   ; main.desktopWidgetService.TestReminderNotification+0x58e
+0x1407a7332: push     rbp
+0x1407a7333: mov      rbp, rsp
+0x1407a7336: sub      rsp, 0x2a8
+0x1407a733d: nop      dword ptr [rax]
+0x1407a7340: test     rax, rax
+0x1407a7343: je       0x1407a76b9   ; main.desktopWidgetService.TestReminderNotification+0x399
+0x1407a7349: cmp      qword ptr [rax], 0
+0x1407a734d: je       0x1407a76b9   ; main.desktopWidgetService.TestReminderNotification+0x399
+0x1407a7353: mov      qword ptr [rsp + 0x310], rax
+0x1407a735b: movups   xmmword ptr [rsp + 0x1d0], xmm15
+0x1407a7364: lea      rdi, [rsp + 0x1d8]
+0x1407a736c: lea      rdi, [rdi - 0x20]
+0x1407a7370: nop      word ptr [rax + rax]
+0x1407a7379: nop      dword ptr [rax]
+0x1407a7380: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7385: lea      rbp, [rsp - 0x10]
+0x1407a738a: call     0x14008172b   ; runtime.duffzero+0x14b
+0x1407a738f: mov      rbp, qword ptr [rbp]
+0x1407a7393: mov      rax, qword ptr [rax]
+0x1407a7396: call     0x1407c0420   ; main.launcherWidgetStore.Read
+0x1407a739b: mov      rdx, qword ptr [rsp]
+0x1407a739f: mov      qword ptr [rsp + 0x1d0], rdx
+0x1407a73a7: lea      rdi, [rsp + 0x1d8]
+0x1407a73af: lea      rsi, [rsp + 8]
+0x1407a73b4: nop      word ptr [rax + rax]
+0x1407a73bd: nop      dword ptr [rax]
+0x1407a73c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a73c5: lea      rbp, [rsp - 0x10]
+0x1407a73ca: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407a73cf: mov      rbp, qword ptr [rbp]
+0x1407a73d3: mov      rdx, qword ptr [rsp + 0x1d0]
+0x1407a73db: mov      qword ptr [rsp + 0x88], rdx
+0x1407a73e3: lea      rdi, [rsp + 0x90]
+0x1407a73eb: lea      rsi, [rsp + 0x1d8]
+0x1407a73f3: nop      word ptr [rax + rax]
+0x1407a73fc: nop      dword ptr [rax]
+0x1407a7400: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7405: lea      rbp, [rsp - 0x10]
+0x1407a740a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407a740f: mov      rbp, qword ptr [rbp]
+0x1407a7413: test     rbx, rbx
+0x1407a7416: jne      0x1407a76aa   ; main.desktopWidgetService.TestReminderNotification+0x38a
+0x1407a741c: mov      rax, qword ptr [rsp + 0x2b8]
+0x1407a7424: mov      rbx, qword ptr [rsp + 0x2c0]
+0x1407a742c: call     0x1400a2200   ; strings.TrimSpace
+0x1407a7431: mov      qword ptr [rsp + 0x298], rax
+0x1407a7439: mov      qword ptr [rsp + 0x2a0], rbx
+0x1407a7441: movups   xmmword ptr [rsp + 0x1d0], xmm15
+0x1407a744a: lea      rdi, [rsp + 0x1d8]
+0x1407a7452: nop      word ptr [rax + rax]
+0x1407a745b: nop      dword ptr [rax + rax]
+0x1407a7460: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7465: lea      rbp, [rsp - 0x10]
+0x1407a746a: call     0x14008170b   ; runtime.duffzero+0x12b
+0x1407a746f: mov      rbp, qword ptr [rbp]
+0x1407a7473: mov      rbx, qword ptr [rsp + 0xa8]
+0x1407a747b: lea      rax, [rip + 0x3a221e]
+0x1407a7482: lea      rcx, [rsp + 0x298]
+0x1407a748a: call     0x14000e720   ; runtime.mapaccess2
+0x1407a748f: mov      rcx, qword ptr [rax]
+0x1407a7492: mov      qword ptr [rsp + 0x1d0], rcx
+0x1407a749a: lea      rsi, [rax + 8]
+0x1407a749e: lea      rdi, [rsp + 0x1d8]
+0x1407a74a6: mov      qword ptr [rsp - 0x10], rbp
+0x1407a74ab: lea      rbp, [rsp - 0x10]
+0x1407a74b0: call     0x140081a38   ; runtime.duffcopy+0x2d8
+0x1407a74b5: mov      rbp, qword ptr [rbp]
+0x1407a74b9: mov      rcx, qword ptr [rsp + 0x1d0]
+0x1407a74c1: mov      qword ptr [rsp + 0x88], rcx
+0x1407a74c9: lea      rdi, [rsp + 0x90]
+0x1407a74d1: lea      rsi, [rsp + 0x1d8]
+0x1407a74d9: nop      dword ptr [rax]
+0x1407a74e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a74e5: lea      rbp, [rsp - 0x10]
+0x1407a74ea: call     0x140081a38   ; runtime.duffcopy+0x2d8
+0x1407a74ef: mov      rbp, qword ptr [rbp]
+0x1407a74f3: test     bl, bl
+0x1407a74f5: je       0x1407a7678   ; main.desktopWidgetService.TestReminderNotification+0x358
+0x1407a74fb: cmp      qword ptr [rsp + 0xa0], 8
+0x1407a7504: jne      0x1407a7678   ; main.desktopWidgetService.TestReminderNotification+0x358
+0x1407a750a: mov      rdx, qword ptr [rsp + 0x98]
+0x1407a7512: movabs   r8, 0x7265646e696d6572
+0x1407a751c: nop      dword ptr [rax]
+0x1407a7520: cmp      qword ptr [rdx], r8
+0x1407a7523: jne      0x1407a7678   ; main.desktopWidgetService.TestReminderNotification+0x358
+0x1407a7529: mov      rax, qword ptr [rsp + 0x2e8]
+0x1407a7531: mov      rbx, qword ptr [rsp + 0x2f0]
+0x1407a7539: mov      rcx, qword ptr [rsp + 0x2f8]
+0x1407a7541: mov      rdi, qword ptr [rsp + 0x300]
+0x1407a7549: mov      rsi, qword ptr [rsp + 0x308]
+0x1407a7551: call     0x1407a6660   ; main.normalizeDesktopReminderAudio
+0x1407a7556: mov      qword ptr [rsp + 0x1d0], rax
+0x1407a755e: mov      qword ptr [rsp + 0x1d8], rbx
+0x1407a7566: mov      qword ptr [rsp + 0x1e0], rcx
+0x1407a756e: mov      qword ptr [rsp + 0x1e8], rdi
+0x1407a7576: mov      qword ptr [rsp + 0x1f0], rsi
+0x1407a757e: mov      rdx, qword ptr [rsp + 0x1d0]
+0x1407a7586: mov      qword ptr [rsp + 0x160], rdx
+0x1407a758e: movups   xmm0, xmmword ptr [rsp + 0x1d8]
+0x1407a7596: movups   xmmword ptr [rsp + 0x168], xmm0
+0x1407a759e: movups   xmm0, xmmword ptr [rsp + 0x1e8]
+0x1407a75a6: movups   xmmword ptr [rsp + 0x178], xmm0
+0x1407a75ae: mov      rax, qword ptr [rsp + 0x160]
+0x1407a75b6: mov      rbx, qword ptr [rsp + 0x168]
+0x1407a75be: mov      rcx, qword ptr [rsp + 0x170]
+0x1407a75c6: mov      rdi, qword ptr [rsp + 0x178]
+0x1407a75ce: mov      rsi, qword ptr [rsp + 0x180]
+0x1407a75d6: call     0x1407a68c0   ; main.validateDesktopReminderAudio
+0x1407a75db: nop      dword ptr [rax + rax]
+0x1407a75e0: test     rax, rax
+0x1407a75e3: jne      0x1407a766f   ; main.desktopWidgetService.TestReminderNotification+0x34f
+0x1407a75e9: mov      rax, qword ptr [rsp + 0x2c8]
+0x1407a75f1: mov      rbx, qword ptr [rsp + 0x2d0]
+0x1407a75f9: call     0x1400a2200   ; strings.TrimSpace
+0x1407a75fe: mov      qword ptr [rsp + 0x298], rax
+0x1407a7606: mov      qword ptr [rsp + 0x2a0], rbx
+0x1407a760e: movups   xmmword ptr [rsp + 0x1b0], xmm15
+0x1407a7617: movups   xmmword ptr [rsp + 0x1c0], xmm15
+0x1407a7620: mov      rcx, qword ptr [rsp + 0x2a0]
+0x1407a7628: mov      rdx, qword ptr [rsp + 0x298]
+0x1407a7630: mov      qword ptr [rsp + 0x1b8], rcx
+0x1407a7638: mov      qword ptr [rsp + 0x1b0], rdx
+0x1407a7640: mov      rcx, qword ptr [rsp + 0xa8]
+0x1407a7648: mov      rdx, qword ptr [rsp + 0xb0]
+0x1407a7650: mov      qword ptr [rsp + 0x1c8], rdx
+0x1407a7658: mov      qword ptr [rsp + 0x1c0], rcx
+0x1407a7660: lea      rcx, [rsp + 0x1b0]
+0x1407a7668: xor      eax, eax
+0x1407a766a: jmp      0x1407a7701   ; main.desktopWidgetService.TestReminderNotification+0x3e1
+0x1407a766f: add      rsp, 0x2a8
+0x1407a7676: pop      rbp
+0x1407a7677: ret      
+0x1407a7678: lea      rax, [rip + 0x3acd01]
+0x1407a767f: nop      
+0x1407a7680: call     0x14001ae20   ; runtime.newobject
+0x1407a7685: mov      qword ptr [rax + 8], 0x1d
+0x1407a768d: lea      rcx, [rip + 0x4c5e3d]
+0x1407a7694: mov      qword ptr [rax], rcx
+0x1407a7697: mov      rbx, rax
+0x1407a769a: lea      rax, [rip + 0xa2ba5f]
+0x1407a76a1: add      rsp, 0x2a8
+0x1407a76a8: pop      rbp
+0x1407a76a9: ret      
+0x1407a76aa: mov      rax, rbx
+0x1407a76ad: mov      rbx, rcx
+0x1407a76b0: add      rsp, 0x2a8
+0x1407a76b7: pop      rbp
+0x1407a76b8: ret      
+0x1407a76b9: lea      rax, [rip + 0x3accc0]
+0x1407a76c0: call     0x14001ae20   ; runtime.newobject
+0x1407a76c5: mov      qword ptr [rax + 8], 0x1b
+0x1407a76cd: lea      rcx, [rip + 0x4c2595]
+0x1407a76d4: mov      qword ptr [rax], rcx
+0x1407a76d7: mov      rbx, rax
+0x1407a76da: lea      rax, [rip + 0xa2ba1f]
+0x1407a76e1: add      rsp, 0x2a8
+0x1407a76e8: pop      rbp
+0x1407a76e9: ret      
+0x1407a76ea: mov      rcx, qword ptr [rsp + 0x188]
+0x1407a76f2: add      rcx, 0x10
+0x1407a76f6: mov      rax, qword ptr [rsp + 0x80]
+0x1407a76fe: inc      rax
+0x1407a7701: cmp      rax, 2
+0x1407a7705: jge      0x1407a772c   ; main.desktopWidgetService.TestReminderNotification+0x40c
+0x1407a7707: mov      qword ptr [rsp + 0x80], rax
+0x1407a770f: mov      qword ptr [rsp + 0x188], rcx
+0x1407a7717: mov      rax, qword ptr [rcx]
+0x1407a771a: mov      rbx, qword ptr [rcx + 8]
+0x1407a771e: nop      
+0x1407a7720: call     0x1400a2200   ; strings.TrimSpace
+0x1407a7725: test     rbx, rbx
+0x1407a7728: je       0x1407a76ea   ; main.desktopWidgetService.TestReminderNotification+0x3ca
+0x1407a772a: jmp      0x1407a7730   ; main.desktopWidgetService.TestReminderNotification+0x410
+0x1407a772c: xor      ebx, ebx
+0x1407a772e: xor      eax, eax
+0x1407a7730: lea      rcx, [rip + 0x494a05]
+0x1407a7737: mov      edi, 8
+0x1407a773c: nop      dword ptr [rax]
+0x1407a7740: call     0x1407bef80   ; main.normalizeDesktopWidgetTitle
+0x1407a7745: mov      qword ptr [rsp + 0x150], rax
+0x1407a774d: mov      qword ptr [rsp + 0x70], rbx
+0x1407a7752: mov      rax, qword ptr [rsp + 0x2d8]
+0x1407a775a: mov      rbx, qword ptr [rsp + 0x2e0]
+0x1407a7762: call     0x1400a2200   ; strings.TrimSpace
+0x1407a7767: mov      qword ptr [rsp + 0x298], rax
+0x1407a776f: mov      qword ptr [rsp + 0x2a0], rbx
+0x1407a7777: movups   xmmword ptr [rsp + 0x190], xmm15
+0x1407a7780: movups   xmmword ptr [rsp + 0x1a0], xmm15
+0x1407a7789: mov      rdx, qword ptr [rsp + 0x2a0]
+0x1407a7791: mov      rsi, qword ptr [rsp + 0x298]
+0x1407a7799: mov      qword ptr [rsp + 0x198], rdx
+0x1407a77a1: mov      qword ptr [rsp + 0x190], rsi
+0x1407a77a9: mov      qword ptr [rsp + 0x1a8], 0x12
+0x1407a77b5: lea      rdx, [rip + 0x4b24e0]
+0x1407a77bc: mov      qword ptr [rsp + 0x1a0], rdx
+0x1407a77c4: lea      rdx, [rsp + 0x190]
+0x1407a77cc: xor      eax, eax
+0x1407a77ce: jmp      0x1407a77e7   ; main.desktopWidgetService.TestReminderNotification+0x4c7
+0x1407a77d0: mov      rdx, qword ptr [rsp + 0x188]
+0x1407a77d8: add      rdx, 0x10
+0x1407a77dc: mov      rax, qword ptr [rsp + 0x80]
+0x1407a77e4: inc      rax
+0x1407a77e7: cmp      rax, 2
+0x1407a77eb: jge      0x1407a7810   ; main.desktopWidgetService.TestReminderNotification+0x4f0
+0x1407a77ed: mov      qword ptr [rsp + 0x80], rax
+0x1407a77f5: mov      qword ptr [rsp + 0x188], rdx
+0x1407a77fd: mov      rax, qword ptr [rdx]
+0x1407a7800: mov      rbx, qword ptr [rdx + 8]
+0x1407a7804: call     0x1400a2200   ; strings.TrimSpace
+0x1407a7809: test     rbx, rbx
+0x1407a780c: je       0x1407a77d0   ; main.desktopWidgetService.TestReminderNotification+0x4b0
+0x1407a780e: jmp      0x1407a7814   ; main.desktopWidgetService.TestReminderNotification+0x4f4
+0x1407a7810: xor      ebx, ebx
+0x1407a7812: xor      eax, eax
+0x1407a7814: mov      rcx, qword ptr [rsp + 0x70]
+0x1407a7819: mov      rdi, rax
+0x1407a781c: mov      rsi, rbx
+0x1407a781f: lea      r8, [rsp + 0x160]
+0x1407a7827: mov      rax, qword ptr [rsp + 0x310]
+0x1407a782f: mov      rbx, qword ptr [rsp + 0x150]
+0x1407a7837: call     0x1407a6f20   ; main.desktopWidgetService.deliverNotification
+0x1407a783c: nop      dword ptr [rax]
+0x1407a7840: test     rbx, rbx
+0x1407a7843: je       0x1407a78a1   ; main.desktopWidgetService.TestReminderNotification+0x581
+0x1407a7845: mov      qword ptr [rsp + 0x78], rbx
+0x1407a784a: mov      qword ptr [rsp + 0x158], rax
+0x1407a7852: lea      rax, [rip + 0x3acb27]
+0x1407a7859: call     0x14001ae20   ; runtime.newobject
+0x1407a785e: mov      rcx, qword ptr [rsp + 0x78]
+0x1407a7863: mov      qword ptr [rax + 8], rcx
+0x1407a7867: cmp      dword ptr [rip + 0x14b3ae2], 0
+0x1407a786e: jne      0x1407a787a   ; main.desktopWidgetService.TestReminderNotification+0x55a
+0x1407a7870: mov      rcx, qword ptr [rsp + 0x158]
+0x1407a7878: jmp      0x1407a788a   ; main.desktopWidgetService.TestReminderNotification+0x56a
+0x1407a787a: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407a787f: mov      rcx, qword ptr [rsp + 0x158]
+0x1407a7887: mov      qword ptr [r11], rcx
+0x1407a788a: mov      qword ptr [rax], rcx
+0x1407a788d: mov      rbx, rax
+0x1407a7890: lea      rax, [rip + 0xa2b869]
+0x1407a7897: add      rsp, 0x2a8
+0x1407a789e: pop      rbp
+0x1407a789f: nop      
+0x1407a78a0: ret      
+0x1407a78a1: xor      eax, eax
+0x1407a78a3: xor      ebx, ebx
+0x1407a78a5: add      rsp, 0x2a8
+0x1407a78ac: pop      rbp
+0x1407a78ad: ret      

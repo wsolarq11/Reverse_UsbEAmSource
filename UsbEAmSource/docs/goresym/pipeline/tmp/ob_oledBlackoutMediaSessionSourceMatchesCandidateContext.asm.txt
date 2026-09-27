@@ -1,0 +1,254 @@
+0x14091eb60: cmp      rsp, qword ptr [r14 + 0x10]
+0x14091eb64: jbe      0x14091eef8   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x398
+0x14091eb6a: push     rbp
+0x14091eb6b: mov      rbp, rsp
+0x14091eb6e: sub      rsp, 0x40
+0x14091eb72: mov      qword ptr [rsp + 0xa0], rcx
+0x14091eb7a: mov      qword ptr [rsp + 0xb0], rsi
+0x14091eb82: mov      qword ptr [rsp + 0xa8], rdi
+0x14091eb8a: mov      qword ptr [rsp + 0x98], rbx
+0x14091eb92: mov      qword ptr [rsp + 0x90], rax
+0x14091eb9a: mov      rcx, qword ptr [rax + 0x28]
+0x14091eb9e: mov      rax, rbx
+0x14091eba1: call     rcx
+0x14091eba3: test     rax, rax
+0x14091eba6: jne      0x14091eeea   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x38a
+0x14091ebac: mov      rax, qword ptr [rsp + 0xa8]
+0x14091ebb4: mov      rbx, qword ptr [rsp + 0xb0]
+0x14091ebbc: nop      dword ptr [rax]
+0x14091ebc0: call     0x1400a2200   ; strings.TrimSpace
+0x14091ebc5: call     0x1400a1500   ; strings.ToLower
+0x14091ebca: test     rbx, rbx
+0x14091ebcd: je       0x14091eede   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x37e
+0x14091ebd3: mov      qword ptr [rsp + 0x20], rbx
+0x14091ebd8: mov      qword ptr [rsp + 0x30], rax
+0x14091ebdd: mov      rax, qword ptr [rsp + 0x60]
+0x14091ebe2: mov      rbx, qword ptr [rsp + 0x68]
+0x14091ebe7: call     0x1408fddc0   ; main.normalizeOLEDBlackoutMediaPauseExclusionProcessName
+0x14091ebec: cmp      rbx, 0xa
+0x14091ebf0: jg       0x14091ec8b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x12b
+0x14091ebf6: cmp      rbx, 9
+0x14091ebfa: jne      0x14091ec40   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0xe0
+0x14091ebfc: movabs   rdx, 0x78652e6576617262
+0x14091ec06: cmp      qword ptr [rax], rdx
+0x14091ec09: jne      0x14091ec15   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0xb5
+0x14091ec0b: cmp      byte ptr [rax + 8], 0x65
+0x14091ec0f: je       0x14091ed4b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1eb
+0x14091ec15: movabs   rdx, 0x78652e617265706f
+0x14091ec1f: nop      
+0x14091ec20: cmp      qword ptr [rax], rdx
+0x14091ec23: jne      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ec29: cmp      byte ptr [rax + 8], 0x65
+0x14091ec2d: je       0x14091ed4b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1eb
+0x14091ec33: jmp      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ec38: nop      dword ptr [rax + rax]
+0x14091ec40: cmp      rbx, 0xa
+0x14091ec44: jne      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ec4a: movabs   rdx, 0x652e656d6f726863
+0x14091ec54: cmp      qword ptr [rax], rdx
+0x14091ec57: jne      0x14091ec66   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x106
+0x14091ec59: cmp      word ptr [rax + 8], 0x6578
+0x14091ec5f: nop      
+0x14091ec60: je       0x14091ed4b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1eb
+0x14091ec66: movabs   rdx, 0x652e65676465736d
+0x14091ec70: cmp      qword ptr [rax], rdx
+0x14091ec73: jne      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ec79: cmp      word ptr [rax + 8], 0x6578
+0x14091ec7f: nop      
+0x14091ec80: je       0x14091ed4b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1eb
+0x14091ec86: jmp      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ec8b: cmp      rbx, 0xb
+0x14091ec8f: jne      0x14091ecf5   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x195
+0x14091ec91: movabs   rdx, 0x2e726573776f7262
+0x14091ec9b: nop      dword ptr [rax + rax]
+0x14091eca0: cmp      qword ptr [rax], rdx
+0x14091eca3: jne      0x14091ecb7   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x157
+0x14091eca5: cmp      word ptr [rax + 8], 0x7865
+0x14091ecab: jne      0x14091ecb7   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x157
+0x14091ecad: cmp      byte ptr [rax + 0xa], 0x65
+0x14091ecb1: je       0x14091ed4b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1eb
+0x14091ecb7: movabs   rdx, 0x2e786f6665726966
+0x14091ecc1: cmp      qword ptr [rax], rdx
+0x14091ecc4: jne      0x14091ecd4   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x174
+0x14091ecc6: cmp      word ptr [rax + 8], 0x7865
+0x14091eccc: jne      0x14091ecd4   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x174
+0x14091ecce: cmp      byte ptr [rax + 0xa], 0x65
+0x14091ecd2: je       0x14091ed4b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1eb
+0x14091ecd4: movabs   rdx, 0x2e69646c61766976
+0x14091ecde: nop      
+0x14091ece0: cmp      qword ptr [rax], rdx
+0x14091ece3: jne      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ece5: cmp      word ptr [rax + 8], 0x7865
+0x14091eceb: jne      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091eced: cmp      byte ptr [rax + 0xa], 0x65
+0x14091ecf1: je       0x14091ed4b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1eb
+0x14091ecf3: jmp      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ecf5: cmp      rbx, 0xc
+0x14091ecf9: jne      0x14091ed30   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1d0
+0x14091ecfb: movabs   rdx, 0x6d75696d6f726863
+0x14091ed05: cmp      qword ptr [rax], rdx
+0x14091ed08: jne      0x14091ed13   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1b3
+0x14091ed0a: cmp      dword ptr [rax + 8], 0x6578652e
+0x14091ed11: je       0x14091ed4b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1eb
+0x14091ed13: movabs   rdx, 0x78675f617265706f
+0x14091ed1d: nop      dword ptr [rax]
+0x14091ed20: cmp      qword ptr [rax], rdx
+0x14091ed23: jne      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ed25: cmp      dword ptr [rax + 8], 0x6578652e
+0x14091ed2c: je       0x14091ed4b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1eb
+0x14091ed2e: jmp      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ed30: cmp      rbx, 0x11
+0x14091ed34: jne      0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ed36: lea      rbx, [rip + 0x338736]
+0x14091ed3d: mov      ecx, 0x11
+0x14091ed42: call     0x140006280   ; runtime.memequal
+0x14091ed47: test     al, al
+0x14091ed49: je       0x14091ed52   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f2
+0x14091ed4b: mov      eax, 1
+0x14091ed50: jmp      0x14091ed54   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x1f4
+0x14091ed52: xor      eax, eax
+0x14091ed54: test     al, al
+0x14091ed56: je       0x14091ed9b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x23b
+0x14091ed58: mov      rax, qword ptr [rsp + 0xa0]
+0x14091ed60: mov      rbx, qword ptr [rsp + 0x90]
+0x14091ed68: mov      rcx, qword ptr [rsp + 0x98]
+0x14091ed70: call     0x140920800   ; main.oledBlackoutGSMTCSession.GetMediaTitleContext
+0x14091ed75: test     rcx, rcx
+0x14091ed78: jne      0x14091eed0   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x370
+0x14091ed7e: mov      rcx, qword ptr [rsp + 0x80]
+0x14091ed86: mov      rdi, qword ptr [rsp + 0x88]
+0x14091ed8e: call     0x14091cea0   ; main.oledBlackoutMediaTitleMatchesWindowTitle
+0x14091ed93: test     al, al
+0x14091ed95: je       0x14091eec4   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x364
+0x14091ed9b: mov      ecx, dword ptr [rsp + 0x58]
+0x14091ed9f: mov      rax, qword ptr [rsp + 0x30]
+0x14091eda4: mov      rbx, qword ptr [rsp + 0x20]
+0x14091eda9: call     0x14091cde0   ; main.oledBlackoutMediaSessionSourceContainsPID
+0x14091edae: test     al, al
+0x14091edb0: jne      0x14091eeb5   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x355
+0x14091edb6: mov      rbx, qword ptr [rsp + 0x78]
+0x14091edbb: nop      dword ptr [rax + rax]
+0x14091edc0: test     rbx, rbx
+0x14091edc3: jne      0x14091edcc   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x26c
+0x14091edc5: mov      rcx, qword ptr [rsp + 0x20]
+0x14091edca: jmp      0x14091ee08   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x2a8
+0x14091edcc: mov      rax, qword ptr [rsp + 0x70]
+0x14091edd1: call     0x1400a2200   ; strings.TrimSpace
+0x14091edd6: call     0x1400a1500   ; strings.ToLower
+0x14091eddb: mov      rcx, qword ptr [rsp + 0x20]
+0x14091ede0: cmp      rbx, rcx
+0x14091ede3: je       0x14091ede9   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x289
+0x14091ede5: xor      eax, eax
+0x14091ede7: jmp      0x14091ee00   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x2a0
+0x14091ede9: mov      rbx, rax
+0x14091edec: mov      rax, qword ptr [rsp + 0x30]
+0x14091edf1: call     0x140006280   ; runtime.memequal
+0x14091edf6: mov      rcx, qword ptr [rsp + 0x20]
+0x14091edfb: nop      dword ptr [rax + rax]
+0x14091ee00: test     al, al
+0x14091ee02: jne      0x14091eea6   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x346
+0x14091ee08: mov      rbx, qword ptr [rsp + 0x68]
+0x14091ee0d: test     rbx, rbx
+0x14091ee10: je       0x14091ee8b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x32b
+0x14091ee12: mov      rax, qword ptr [rsp + 0x60]
+0x14091ee17: call     0x1408fde40   ; main.oledBlackoutMediaPausePathBase
+0x14091ee1c: nop      dword ptr [rax]
+0x14091ee20: cmp      rbx, 4
+0x14091ee24: jl       0x14091ee67   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x307
+0x14091ee26: mov      qword ptr [rsp + 0x28], rbx
+0x14091ee2b: mov      qword ptr [rsp + 0x38], rax
+0x14091ee30: lea      rax, [rbx + rax]
+0x14091ee34: lea      rax, [rax - 4]
+0x14091ee38: lea      rbx, [rip + 0x31592f]
+0x14091ee3f: mov      ecx, 4
+0x14091ee44: call     0x140006280   ; runtime.memequal
+0x14091ee49: test     al, al
+0x14091ee4b: je       0x14091ee5d   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x2fd
+0x14091ee4d: mov      rbx, qword ptr [rsp + 0x28]
+0x14091ee52: add      rbx, -4
+0x14091ee56: mov      rax, qword ptr [rsp + 0x38]
+0x14091ee5b: jmp      0x14091ee67   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x307
+0x14091ee5d: mov      rax, qword ptr [rsp + 0x38]
+0x14091ee62: mov      rbx, qword ptr [rsp + 0x28]
+0x14091ee67: call     0x1400a1500   ; strings.ToLower
+0x14091ee6c: test     rbx, rbx
+0x14091ee6f: je       0x14091ee8b   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x32b
+0x14091ee71: mov      rcx, rax
+0x14091ee74: mov      rdi, rbx
+0x14091ee77: mov      rax, qword ptr [rsp + 0x30]
+0x14091ee7c: mov      rbx, qword ptr [rsp + 0x20]
+0x14091ee81: call     0x140006860   ; internal/stringslite.Index
+0x14091ee86: test     rax, rax
+0x14091ee89: jge      0x14091ee97   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext+0x337
+0x14091ee8b: xor      eax, eax
+0x14091ee8d: xor      ebx, ebx
+0x14091ee8f: xor      ecx, ecx
+0x14091ee91: add      rsp, 0x40
+0x14091ee95: pop      rbp
+0x14091ee96: ret      
+0x14091ee97: mov      eax, 1
+0x14091ee9c: xor      ebx, ebx
+0x14091ee9e: xor      ecx, ecx
+0x14091eea0: add      rsp, 0x40
+0x14091eea4: pop      rbp
+0x14091eea5: ret      
+0x14091eea6: mov      eax, 1
+0x14091eeab: xor      ebx, ebx
+0x14091eead: xor      ecx, ecx
+0x14091eeaf: add      rsp, 0x40
+0x14091eeb3: pop      rbp
+0x14091eeb4: ret      
+0x14091eeb5: mov      eax, 1
+0x14091eeba: xor      ebx, ebx
+0x14091eebc: xor      ecx, ecx
+0x14091eebe: add      rsp, 0x40
+0x14091eec2: pop      rbp
+0x14091eec3: ret      
+0x14091eec4: xor      eax, eax
+0x14091eec6: xor      ebx, ebx
+0x14091eec8: xor      ecx, ecx
+0x14091eeca: add      rsp, 0x40
+0x14091eece: pop      rbp
+0x14091eecf: ret      
+0x14091eed0: xor      eax, eax
+0x14091eed2: mov      rbx, rcx
+0x14091eed5: mov      rcx, rdi
+0x14091eed8: add      rsp, 0x40
+0x14091eedc: pop      rbp
+0x14091eedd: ret      
+0x14091eede: xor      eax, eax
+0x14091eee0: xor      ebx, ebx
+0x14091eee2: xor      ecx, ecx
+0x14091eee4: add      rsp, 0x40
+0x14091eee8: pop      rbp
+0x14091eee9: ret      
+0x14091eeea: mov      rcx, rbx
+0x14091eeed: mov      rbx, rax
+0x14091eef0: xor      eax, eax
+0x14091eef2: add      rsp, 0x40
+0x14091eef6: pop      rbp
+0x14091eef7: ret      
+0x14091eef8: mov      qword ptr [rsp + 0x48], rax
+0x14091eefd: mov      qword ptr [rsp + 0x50], rbx
+0x14091ef02: mov      qword ptr [rsp + 0x58], rcx
+0x14091ef07: mov      qword ptr [rsp + 0x60], rdi
+0x14091ef0c: mov      qword ptr [rsp + 0x68], rsi
+0x14091ef11: call     0x14007f140   ; runtime.morestack_noctxt
+0x14091ef16: mov      rax, qword ptr [rsp + 0x48]
+0x14091ef1b: mov      rbx, qword ptr [rsp + 0x50]
+0x14091ef20: mov      rcx, qword ptr [rsp + 0x58]
+0x14091ef25: mov      rdi, qword ptr [rsp + 0x60]
+0x14091ef2a: mov      rsi, qword ptr [rsp + 0x68]
+0x14091ef2f: jmp      0x14091eb60   ; main.oledBlackoutMediaSessionSourceMatchesCandidateContext
+0x14091ef34: int3     
+0x14091ef35: int3     
+0x14091ef36: int3     
+0x14091ef37: int3     
+0x14091ef38: int3     
+0x14091ef39: int3     
+0x14091ef3a: int3     
+0x14091ef3b: int3     
+0x14091ef3c: int3     
+0x14091ef3d: int3     
+0x14091ef3e: int3     
+0x14091ef3f: int3     

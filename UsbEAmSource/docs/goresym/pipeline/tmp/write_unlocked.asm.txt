@@ -1,0 +1,135 @@
+0x1407c3260: lea      r12, [rsp - 0xc0]
+0x1407c3268: cmp      r12, qword ptr [r14 + 0x10]
+0x1407c326c: jbe      0x1407c34c2   ; main.launcherWidgetStore.writeUnlocked+0x262
+0x1407c3272: push     rbp
+0x1407c3273: mov      rbp, rsp
+0x1407c3276: sub      rsp, 0x138
+0x1407c327d: mov      qword ptr [rsp + 0x1b0], rax
+0x1407c3285: mov      rax, qword ptr [rsp + 0x148]
+0x1407c328d: mov      qword ptr [rsp], rax
+0x1407c3291: lea      rdi, [rsp + 8]
+0x1407c3296: lea      rsi, [rsp + 0x150]
+0x1407c329e: nop      
+0x1407c32a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c32a5: lea      rbp, [rsp - 0x10]
+0x1407c32aa: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c32af: mov      rbp, qword ptr [rbp]
+0x1407c32b3: call     0x1407bfec0   ; main.normalizeDesktopWidgetDocument
+0x1407c32b8: mov      rax, qword ptr [rsp + 0x68]
+0x1407c32bd: mov      qword ptr [rsp + 0x148], rax
+0x1407c32c5: lea      rdi, [rsp + 0x150]
+0x1407c32cd: lea      rsi, [rsp + 0x70]
+0x1407c32d2: nop      word ptr [rax + rax]
+0x1407c32db: nop      dword ptr [rax + rax]
+0x1407c32e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c32e5: lea      rbp, [rsp - 0x10]
+0x1407c32ea: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c32ef: mov      rbp, qword ptr [rbp]
+0x1407c32f3: mov      rax, qword ptr [rsp + 0x148]
+0x1407c32fb: mov      qword ptr [rsp], rax
+0x1407c32ff: lea      rdi, [rsp + 8]
+0x1407c3304: lea      rsi, [rsp + 0x150]
+0x1407c330c: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3311: lea      rbp, [rsp - 0x10]
+0x1407c3316: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c331b: mov      rbp, qword ptr [rbp]
+0x1407c331f: nop      
+0x1407c3320: call     0x1407c3940   ; main.validateDesktopWidgetDocument
+0x1407c3325: test     rax, rax
+0x1407c3328: jne      0x1407c34b9   ; main.launcherWidgetStore.writeUnlocked+0x259
+0x1407c332e: mov      rcx, qword ptr [rsp + 0x1b0]
+0x1407c3336: mov      r8, qword ptr [rcx + 0x98]
+0x1407c333d: nop      dword ptr [rax]
+0x1407c3340: test     r8, r8
+0x1407c3343: jne      0x1407c334c   ; main.launcherWidgetStore.writeUnlocked+0xec
+0x1407c3345: lea      r8, [rip + 0x8d3a84]
+0x1407c334c: mov      r9, qword ptr [rsp + 0x148]
+0x1407c3354: mov      r10, qword ptr [r8]
+0x1407c3357: mov      rbx, qword ptr [rcx + 8]
+0x1407c335b: mov      rax, qword ptr [rcx]
+0x1407c335e: mov      qword ptr [rsp], r9
+0x1407c3362: lea      rdi, [rsp + 8]
+0x1407c3367: lea      rsi, [rsp + 0x150]
+0x1407c336f: nop      word ptr [rax + rax]
+0x1407c3378: nop      dword ptr [rax + rax]
+0x1407c3380: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3385: lea      rbp, [rsp - 0x10]
+0x1407c338a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c338f: mov      rbp, qword ptr [rbp]
+0x1407c3393: mov      rdx, r8
+0x1407c3396: call     r10
+0x1407c3399: nop      dword ptr [rax]
+0x1407c33a0: test     rax, rax
+0x1407c33a3: jne      0x1407c34b0   ; main.launcherWidgetStore.writeUnlocked+0x250
+0x1407c33a9: mov      rax, qword ptr [rsp + 0x148]
+0x1407c33b1: nop      
+0x1407c33b2: mov      qword ptr [rsp], rax
+0x1407c33b6: lea      rdi, [rsp + 8]
+0x1407c33bb: lea      rsi, [rsp + 0x150]
+0x1407c33c3: mov      qword ptr [rsp - 0x10], rbp
+0x1407c33c8: lea      rbp, [rsp - 0x10]
+0x1407c33cd: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c33d2: mov      rbp, qword ptr [rbp]
+0x1407c33d6: call     0x1407c34e0   ; main.cloneDesktopWidgetDocument
+0x1407c33db: mov      rax, qword ptr [rsp + 0x68]
+0x1407c33e0: mov      qword ptr [rsp + 0xd0], rax
+0x1407c33e8: lea      rdi, [rsp + 0xd8]
+0x1407c33f0: lea      rsi, [rsp + 0x70]
+0x1407c33f5: nop      word ptr [rax + rax]
+0x1407c33fe: nop      
+0x1407c3400: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3405: lea      rbp, [rsp - 0x10]
+0x1407c340a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c340f: mov      rbp, qword ptr [rbp]
+0x1407c3413: cmp      dword ptr [rip + 0x1497f36], 0
+0x1407c341a: je       0x1407c344e   ; main.launcherWidgetStore.writeUnlocked+0x1ee
+0x1407c341c: mov      rbx, qword ptr [rsp + 0x1b0]
+0x1407c3424: lea      rdx, [rbx + 0x20]
+0x1407c3428: mov      rsi, qword ptr [rbx + 0x90]
+0x1407c342f: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407c3434: mov      qword ptr [r11], rsi
+0x1407c3437: lea      rax, [rip + 0x437002]
+0x1407c343e: mov      rbx, rdx
+0x1407c3441: lea      rcx, [rsp + 0xd0]
+0x1407c3449: call     0x14001b620   ; runtime.wbMove
+0x1407c344e: mov      rcx, qword ptr [rsp + 0xd0]
+0x1407c3456: mov      rdi, qword ptr [rsp + 0x1b0]
+0x1407c345e: mov      qword ptr [rdi + 0x20], rcx
+0x1407c3462: lea      rcx, [rdi + 0x28]
+0x1407c3466: lea      rsi, [rsp + 0xd8]
+0x1407c346e: mov      rax, rdi
+0x1407c3471: mov      rdi, rcx
+0x1407c3474: nop      word ptr [rax + rax]
+0x1407c347d: nop      dword ptr [rax]
+0x1407c3480: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3485: lea      rbp, [rsp - 0x10]
+0x1407c348a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c348f: mov      rbp, qword ptr [rbp]
+0x1407c3493: mov      byte ptr [rax + 0x19], 1
+0x1407c3497: movups   xmmword ptr [rax + 0x88], xmm15
+0x1407c349f: mov      byte ptr [rax + 0x18], 1
+0x1407c34a3: xor      eax, eax
+0x1407c34a5: xor      ebx, ebx
+0x1407c34a7: add      rsp, 0x138
+0x1407c34ae: pop      rbp
+0x1407c34af: ret      
+0x1407c34b0: add      rsp, 0x138
+0x1407c34b7: pop      rbp
+0x1407c34b8: ret      
+0x1407c34b9: add      rsp, 0x138
+0x1407c34c0: pop      rbp
+0x1407c34c1: ret      
+0x1407c34c2: mov      qword ptr [rsp + 0x70], rax
+0x1407c34c7: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407c34cc: mov      rax, qword ptr [rsp + 0x70]
+0x1407c34d1: jmp      0x1407c3260   ; main.launcherWidgetStore.writeUnlocked
+0x1407c34d6: int3     
+0x1407c34d7: int3     
+0x1407c34d8: int3     
+0x1407c34d9: int3     
+0x1407c34da: int3     
+0x1407c34db: int3     
+0x1407c34dc: int3     
+0x1407c34dd: int3     
+0x1407c34de: int3     
+0x1407c34df: int3     

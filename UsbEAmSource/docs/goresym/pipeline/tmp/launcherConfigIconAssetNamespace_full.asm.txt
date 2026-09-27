@@ -1,0 +1,177 @@
+0x1408a26a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a26a4: jbe      0x1408a28a2   ; main.launcherConfigIconAssetNamespace+0x202
+0x1408a26aa: push     rbp
+0x1408a26ab: mov      rbp, rsp
+0x1408a26ae: sub      rsp, 0x18
+0x1408a26b2: mov      qword ptr [rsp + 0x30], rbx
+0x1408a26b7: mov      qword ptr [rsp + 0x28], rax
+0x1408a26bc: nop      dword ptr [rax]
+0x1408a26c0: cmp      rbx, 0xa
+0x1408a26c4: jge      0x1408a26ca   ; main.launcherConfigIconAssetNamespace+0x2a
+0x1408a26c6: xor      ecx, ecx
+0x1408a26c8: jmp      0x1408a26e7   ; main.launcherConfigIconAssetNamespace+0x47
+0x1408a26ca: lea      rbx, [rip + 0x3a1ad2]
+0x1408a26d1: mov      ecx, 0xa
+0x1408a26d6: call     0x140006280   ; runtime.memequal
+0x1408a26db: mov      rbx, qword ptr [rsp + 0x30]
+0x1408a26e0: mov      ecx, eax
+0x1408a26e2: mov      rax, qword ptr [rsp + 0x28]
+0x1408a26e7: test     cl, cl
+0x1408a26e9: jne      0x1408a2716   ; main.launcherConfigIconAssetNamespace+0x76
+0x1408a26eb: cmp      rbx, 0x11
+0x1408a26ef: jge      0x1408a26f5   ; main.launcherConfigIconAssetNamespace+0x55
+0x1408a26f1: xor      ecx, ecx
+0x1408a26f3: jmp      0x1408a2712   ; main.launcherConfigIconAssetNamespace+0x72
+0x1408a26f5: lea      rbx, [rip + 0x3b4c9a]
+0x1408a26fc: mov      ecx, 0x11
+0x1408a2701: call     0x140006280   ; runtime.memequal
+0x1408a2706: mov      rbx, qword ptr [rsp + 0x30]
+0x1408a270b: mov      ecx, eax
+0x1408a270d: mov      rax, qword ptr [rsp + 0x28]
+0x1408a2712: test     cl, cl
+0x1408a2714: je       0x1408a2728   ; main.launcherConfigIconAssetNamespace+0x88
+0x1408a2716: lea      rax, [rip + 0x3bb286]
+0x1408a271d: mov      ebx, 0x14
+0x1408a2722: add      rsp, 0x18
+0x1408a2726: pop      rbp
+0x1408a2727: ret      
+0x1408a2728: nop      
+0x1408a2729: cmp      rbx, 0x17
+0x1408a272d: jl       0x1408a2757   ; main.launcherConfigIconAssetNamespace+0xb7
+0x1408a272f: lea      rbx, [rip + 0x3c07de]
+0x1408a2736: mov      ecx, 0x17
+0x1408a273b: nop      dword ptr [rax + rax]
+0x1408a2740: call     0x140006280   ; runtime.memequal
+0x1408a2745: test     al, al
+0x1408a2747: jne      0x1408a2890   ; main.launcherConfigIconAssetNamespace+0x1f0
+0x1408a274d: mov      rax, qword ptr [rsp + 0x28]
+0x1408a2752: mov      rbx, qword ptr [rsp + 0x30]
+0x1408a2757: nop      
+0x1408a2758: cmp      rbx, 0x19
+0x1408a275c: jl       0x1408a2781   ; main.launcherConfigIconAssetNamespace+0xe1
+0x1408a275e: lea      rbx, [rip + 0x3c449f]
+0x1408a2765: mov      ecx, 0x19
+0x1408a276a: call     0x140006280   ; runtime.memequal
+0x1408a276f: test     al, al
+0x1408a2771: jne      0x1408a287e   ; main.launcherConfigIconAssetNamespace+0x1de
+0x1408a2777: mov      rax, qword ptr [rsp + 0x28]
+0x1408a277c: mov      rbx, qword ptr [rsp + 0x30]
+0x1408a2781: nop      
+0x1408a2782: cmp      rbx, 0x13
+0x1408a2786: jl       0x1408a27b2   ; main.launcherConfigIconAssetNamespace+0x112
+0x1408a2788: lea      rbx, [rip + 0x3b94b3]
+0x1408a278f: mov      ecx, 0x13
+0x1408a2794: call     0x140006280   ; runtime.memequal
+0x1408a2799: nop      dword ptr [rax]
+0x1408a27a0: test     al, al
+0x1408a27a2: jne      0x1408a286c   ; main.launcherConfigIconAssetNamespace+0x1cc
+0x1408a27a8: mov      rax, qword ptr [rsp + 0x28]
+0x1408a27ad: mov      rbx, qword ptr [rsp + 0x30]
+0x1408a27b2: nop      
+0x1408a27b3: cmp      rbx, 0x12
+0x1408a27b7: jl       0x1408a27dc   ; main.launcherConfigIconAssetNamespace+0x13c
+0x1408a27b9: lea      rbx, [rip + 0x3b7668]
+0x1408a27c0: mov      ecx, 0x12
+0x1408a27c5: call     0x140006280   ; runtime.memequal
+0x1408a27ca: test     al, al
+0x1408a27cc: jne      0x1408a285a   ; main.launcherConfigIconAssetNamespace+0x1ba
+0x1408a27d2: mov      rax, qword ptr [rsp + 0x28]
+0x1408a27d7: mov      rbx, qword ptr [rsp + 0x30]
+0x1408a27dc: nop      
+0x1408a27dd: nop      dword ptr [rax]
+0x1408a27e0: cmp      rbx, 0x22
+0x1408a27e4: jl       0x1408a2805   ; main.launcherConfigIconAssetNamespace+0x165
+0x1408a27e6: lea      rbx, [rip + 0x3d311c]
+0x1408a27ed: mov      ecx, 0x22
+0x1408a27f2: call     0x140006280   ; runtime.memequal
+0x1408a27f7: test     al, al
+0x1408a27f9: jne      0x1408a2848   ; main.launcherConfigIconAssetNamespace+0x1a8
+0x1408a27fb: mov      rax, qword ptr [rsp + 0x28]
+0x1408a2800: mov      rbx, qword ptr [rsp + 0x30]
+0x1408a2805: cmp      rbx, 0x20
+0x1408a2809: jne      0x1408a2824   ; main.launcherConfigIconAssetNamespace+0x184
+0x1408a280b: lea      rbx, [rip + 0x3cfcd4]
+0x1408a2812: mov      ecx, 0x20
+0x1408a2817: call     0x140006280   ; runtime.memequal
+0x1408a281c: nop      dword ptr [rax]
+0x1408a2820: test     al, al
+0x1408a2822: jne      0x1408a2836   ; main.launcherConfigIconAssetNamespace+0x196
+0x1408a2824: lea      rax, [rip + 0x3a4d45]
+0x1408a282b: mov      ebx, 0xb
+0x1408a2830: add      rsp, 0x18
+0x1408a2834: pop      rbp
+0x1408a2835: ret      
+0x1408a2836: lea      rax, [rip + 0x3bea6d]
+0x1408a283d: mov      ebx, 0x16
+0x1408a2842: add      rsp, 0x18
+0x1408a2846: pop      rbp
+0x1408a2847: ret      
+0x1408a2848: lea      rax, [rip + 0x3b75eb]
+0x1408a284f: mov      ebx, 0x12
+0x1408a2854: add      rsp, 0x18
+0x1408a2858: pop      rbp
+0x1408a2859: ret      
+0x1408a285a: lea      rax, [rip + 0x3b04e5]
+0x1408a2861: mov      ebx, 0xf
+0x1408a2866: add      rsp, 0x18
+0x1408a286a: pop      rbp
+0x1408a286b: ret      
+0x1408a286c: lea      rax, [rip + 0x3be92f]
+0x1408a2873: mov      ebx, 0x16
+0x1408a2878: add      rsp, 0x18
+0x1408a287c: pop      rbp
+0x1408a287d: ret      
+0x1408a287e: lea      rax, [rip + 0x3a916b]
+0x1408a2885: mov      ebx, 0xc
+0x1408a288a: add      rsp, 0x18
+0x1408a288e: pop      rbp
+0x1408a288f: ret      
+0x1408a2890: lea      rax, [rip + 0x3999ad]
+0x1408a2897: mov      ebx, 8
+0x1408a289c: add      rsp, 0x18
+0x1408a28a0: pop      rbp
+0x1408a28a1: ret      
+0x1408a28a2: mov      qword ptr [rsp + 8], rax
+0x1408a28a7: mov      qword ptr [rsp + 0x10], rbx
+0x1408a28ac: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a28b1: mov      rax, qword ptr [rsp + 8]
+0x1408a28b6: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a28bb: nop      dword ptr [rax + rax]
+0x1408a28c0: jmp      0x1408a26a0   ; main.launcherConfigIconAssetNamespace
+0x1408a28c5: int3     
+0x1408a28c6: int3     
+0x1408a28c7: int3     
+0x1408a28c8: int3     
+0x1408a28c9: int3     
+0x1408a28ca: int3     
+0x1408a28cb: int3     
+0x1408a28cc: int3     
+0x1408a28cd: int3     
+0x1408a28ce: int3     
+0x1408a28cf: int3     
+0x1408a28d0: int3     
+0x1408a28d1: int3     
+0x1408a28d2: int3     
+0x1408a28d3: int3     
+0x1408a28d4: int3     
+0x1408a28d5: int3     
+0x1408a28d6: int3     
+0x1408a28d7: int3     
+0x1408a28d8: int3     
+0x1408a28d9: int3     
+0x1408a28da: int3     
+0x1408a28db: int3     
+0x1408a28dc: int3     
+0x1408a28dd: int3     
+0x1408a28de: int3     
+0x1408a28df: int3     
+0x1408a28e0: lea      r12, [rsp - 0x168]
+0x1408a28e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1408a28ec: jbe      0x1408a2dde   ; main.BootstrapService.buildLauncherConfigIconResource+0x4fe
+0x1408a28f2: push     rbp
+0x1408a28f3: mov      rbp, rsp
+0x1408a28f6: sub      rsp, 0x1e0
+0x1408a28fd: mov      qword ptr [rsp + 0x218], r8
+0x1408a2905: mov      qword ptr [rsp + 0x1f0], rax
+0x1408a290d: mov      qword ptr [rsp + 0x210], rsi
+0x1408a2915: mov      qword ptr [rsp + 0x208], rdi

@@ -1,0 +1,56 @@
+0x140797080: cmp      rsp, qword ptr [r14 + 0x10]
+0x140797084: jbe      0x14079712b   ; main.BootstrapService.emitScreenshotCaptureAccepted+0xab
+0x14079708a: push     rbp
+0x14079708b: mov      rbp, rsp
+0x14079708e: sub      rsp, 0x38
+0x140797092: test     rax, rax
+0x140797095: je       0x1407970be   ; main.BootstrapService.emitScreenshotCaptureAccepted+0x3e
+0x140797097: xor      ebx, ebx
+0x140797099: xor      ecx, ecx
+0x14079709b: nop      dword ptr [rax + rax]
+0x1407970a0: call     0x140795920   ; main.BootstrapService.resolveLauncherWindow
+0x1407970a5: test     rax, rax
+0x1407970a8: je       0x1407970c4   ; main.BootstrapService.emitScreenshotCaptureAccepted+0x44
+0x1407970aa: mov      rdx, qword ptr [rax + 8]
+0x1407970ae: mov      r9, qword ptr [rip + 0x142fb2b]
+0x1407970b5: mov      r10, qword ptr [r9]
+0x1407970b8: mov      r11d, dword ptr [rax + 0x10]
+0x1407970bc: jmp      0x1407970eb   ; main.BootstrapService.emitScreenshotCaptureAccepted+0x6b
+0x1407970be: add      rsp, 0x38
+0x1407970c2: pop      rbp
+0x1407970c3: ret      
+0x1407970c4: test     rax, rax
+0x1407970c7: je       0x1407970e5   ; main.BootstrapService.emitScreenshotCaptureAccepted+0x65
+0x1407970c9: mov      rdx, qword ptr [rax + 0x20]
+0x1407970cd: mov      rax, rbx
+0x1407970d0: lea      rbx, [rip + 0x4e11a8]
+0x1407970d7: mov      ecx, 0x24
+0x1407970dc: xor      edi, edi
+0x1407970de: xor      esi, esi
+0x1407970e0: mov      r8, rsi
+0x1407970e3: call     rdx
+0x1407970e5: add      rsp, 0x38
+0x1407970e9: pop      rbp
+0x1407970ea: ret      
+0x1407970eb: mov      r12, r11
+0x1407970ee: and      r11, r10
+0x1407970f1: shl      r11, 4
+0x1407970f5: mov      r13, qword ptr [r11 + r9 + 8]
+0x1407970fa: cmp      r13, rdx
+0x1407970fd: je       0x140797124   ; main.BootstrapService.emitScreenshotCaptureAccepted+0xa4
+0x1407970ff: lea      r11, [r12 + 1]
+0x140797104: test     r13, r13
+0x140797107: jne      0x1407970eb   ; main.BootstrapService.emitScreenshotCaptureAccepted+0x6b
+0x140797109: mov      qword ptr [rsp + 0x30], rbx
+0x14079710e: lea      rax, [rip + 0x142facb]
+0x140797115: mov      rbx, rdx
+0x140797118: call     0x1400174a0   ; runtime.typeAssert
+0x14079711d: mov      rbx, qword ptr [rsp + 0x30]
+0x140797122: jmp      0x1407970c4   ; main.BootstrapService.emitScreenshotCaptureAccepted+0x44
+0x140797124: mov      rax, qword ptr [r11 + r9 + 0x10]
+0x140797129: jmp      0x1407970c4   ; main.BootstrapService.emitScreenshotCaptureAccepted+0x44
+0x14079712b: mov      qword ptr [rsp + 8], rax
+0x140797130: call     0x14007f140   ; runtime.morestack_noctxt
+0x140797135: mov      rax, qword ptr [rsp + 8]
+0x14079713a: jmp      0x140797080   ; main.BootstrapService.emitScreenshotCaptureAccepted
+0x14079713f: int3     

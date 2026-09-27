@@ -1,0 +1,59 @@
+0x1408a55c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a55c4: jbe      0x1408a55fc   ; main.launcherSecondInstanceShouldReveal+0x3c
+0x1408a55c6: push     rbp
+0x1408a55c7: mov      rbp, rsp
+0x1408a55ca: sub      rsp, 0x18
+0x1408a55ce: mov      qword ptr [rsp + 0x28], rax
+0x1408a55d3: cmp      rbx, 1
+0x1408a55d7: jg       0x1408a55e4   ; main.launcherSecondInstanceShouldReveal+0x24
+0x1408a55d9: mov      eax, 1
+0x1408a55de: add      rsp, 0x18
+0x1408a55e2: pop      rbp
+0x1408a55e3: ret      
+0x1408a55e4: dec      rcx
+0x1408a55e7: add      rax, 0x10
+0x1408a55eb: dec      rbx
+0x1408a55ee: call     0x1408af720   ; main.launcherStartedForStartupTray
+0x1408a55f3: xor      eax, 1
+0x1408a55f6: add      rsp, 0x18
+0x1408a55fa: pop      rbp
+0x1408a55fb: ret      
+0x1408a55fc: mov      qword ptr [rsp + 8], rax
+0x1408a5601: mov      qword ptr [rsp + 0x10], rbx
+0x1408a5606: mov      qword ptr [rsp + 0x18], rcx
+0x1408a560b: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a5610: mov      rax, qword ptr [rsp + 8]
+0x1408a5615: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a561a: mov      rcx, qword ptr [rsp + 0x18]
+0x1408a561f: nop      
+0x1408a5620: jmp      0x1408a55c0   ; main.launcherSecondInstanceShouldReveal
+0x1408a5622: int3     
+0x1408a5623: int3     
+0x1408a5624: int3     
+0x1408a5625: int3     
+0x1408a5626: int3     
+0x1408a5627: int3     
+0x1408a5628: int3     
+0x1408a5629: int3     
+0x1408a562a: int3     
+0x1408a562b: int3     
+0x1408a562c: int3     
+0x1408a562d: int3     
+0x1408a562e: int3     
+0x1408a562f: int3     
+0x1408a5630: int3     
+0x1408a5631: int3     
+0x1408a5632: int3     
+0x1408a5633: int3     
+0x1408a5634: int3     
+0x1408a5635: int3     
+0x1408a5636: int3     
+0x1408a5637: int3     
+0x1408a5638: int3     
+0x1408a5639: int3     
+0x1408a563a: int3     
+0x1408a563b: int3     
+0x1408a563c: int3     
+0x1408a563d: int3     
+0x1408a563e: int3     
+0x1408a563f: int3     

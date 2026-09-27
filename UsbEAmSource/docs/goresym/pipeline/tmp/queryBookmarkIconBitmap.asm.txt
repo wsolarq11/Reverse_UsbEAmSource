@@ -1,0 +1,123 @@
+0x140760560: cmp      rsp, qword ptr [r14 + 0x10]
+0x140760564: jbe      0x14076072b    ; main.queryBookmarkIconBitmap+0x1cb
+0x14076056a: push     rbp
+0x14076056b: mov      rbp, rsp
+0x14076056e: sub      rsp, 0x70
+0x140760572: mov      qword ptr [rsp + 0x88], rbx
+0x14076057a: nop      word ptr [rax + rax]
+0x140760580: test     rax, rax
+0x140760583: je       0x14076071c    ; main.queryBookmarkIconBitmap+0x1bc
+0x140760589: mov      qword ptr [rsp + 0x80], rax
+0x140760591: mov      byte ptr [rsp + 0x98], dil
+0x140760599: mov      rax, rbx
+0x14076059c: mov      rbx, rcx
+0x14076059f: nop      
+0x1407605a0: call     0x1400a2200    ; strings.TrimSpace
+0x1407605a5: test     rbx, rbx
+0x1407605a8: je       0x14076070d    ; main.queryBookmarkIconBitmap+0x1ad
+0x1407605ae: movzx    ecx, byte ptr [rsp + 0x98]
+0x1407605b6: test     cl, cl
+0x1407605b8: je       0x14076061e    ; main.queryBookmarkIconBitmap+0xbe
+0x1407605ba: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1407605c0: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1407605c6: lea      rcx, [rip + 0x389a73]
+0x1407605cd: mov      qword ptr [rsp + 0x48], rcx
+0x1407605d2: lea      rcx, [rip + 0xa6cf5f]
+0x1407605d9: mov      qword ptr [rsp + 0x50], rcx
+0x1407605de: nop      
+0x1407605e0: call     0x140076660    ; runtime.convTstring
+0x1407605e5: lea      rcx, [rip + 0x389814]
+0x1407605ec: mov      qword ptr [rsp + 0x58], rcx
+0x1407605f1: mov      qword ptr [rsp + 0x60], rax
+0x1407605f6: mov      rax, qword ptr [rsp + 0x80]
+0x1407605fe: lea      rbx, [rip + 0x53667d]
+0x140760605: mov      ecx, 0x150
+0x14076060a: lea      rdi, [rsp + 0x48]
+0x14076060f: mov      esi, 2
+0x140760614: mov      r8, rsi
+0x140760617: call     0x1401f9b20    ; database/sql.DB.QueryRow
+0x14076061c: jmp      0x14076067e    ; main.queryBookmarkIconBitmap+0x11e
+0x14076061e: movups   xmmword ptr [rsp + 0x48], xmm15
+0x140760624: movups   xmmword ptr [rsp + 0x58], xmm15
+0x14076062a: lea      rcx, [rip + 0x389a0f]
+0x140760631: mov      qword ptr [rsp + 0x48], rcx
+0x140760636: lea      rcx, [rip + 0xa6cefb]
+0x14076063d: mov      qword ptr [rsp + 0x50], rcx
+0x140760642: call     0x140076660    ; runtime.convTstring
+0x140760647: lea      rcx, [rip + 0x3897b2]
+0x14076064e: mov      qword ptr [rsp + 0x58], rcx
+0x140760653: mov      qword ptr [rsp + 0x60], rax
+0x140760658: mov      rax, qword ptr [rsp + 0x80]
+0x140760660: lea      rbx, [rip + 0x5363a3]
+0x140760667: mov      ecx, 0x12c
+0x14076066c: lea      rdi, [rsp + 0x48]
+0x140760671: mov      esi, 2
+0x140760676: mov      r8, rsi
+0x140760679: call     0x1401f9b20    ; database/sql.DB.QueryRow
+0x14076067e: mov      qword ptr [rsp + 0x30], rax
+0x140760683: lea      rax, [rip + 0x37bb36]
+0x14076068a: call     0x14001ae20    ; runtime.newobject
+0x14076068f: mov      qword ptr [rsp + 0x68], rax
+0x140760694: lea      rcx, [rip + 0x3798e5]
+0x14076069b: mov      qword ptr [rsp + 0x38], rcx
+0x1407606a0: mov      qword ptr [rsp + 0x40], rax
+0x1407606a5: mov      rax, qword ptr [rsp + 0x30]
+0x1407606aa: lea      rbx, [rsp + 0x38]
+0x1407606af: mov      ecx, 1
+0x1407606b4: mov      rdi, rcx
+0x1407606b7: call     0x140200ee0    ; database/sql.Row.Scan
+0x1407606bc: nop      dword ptr [rax]
+0x1407606c0: test     rax, rax
+0x1407606c3: jne      0x1407606d3    ; main.queryBookmarkIconBitmap+0x173
+0x1407606c5: mov      rdx, qword ptr [rsp + 0x68]
+0x1407606ca: mov      rbx, qword ptr [rdx + 8]
+0x1407606ce: test     rbx, rbx
+0x1407606d1: jne      0x1407606e2    ; main.queryBookmarkIconBitmap+0x182
+0x1407606d3: xor      eax, eax
+0x1407606d5: xor      ebx, ebx
+0x1407606d7: mov      rcx, rbx
+0x1407606da: xor      edi, edi
+0x1407606dc: add      rsp, 0x70
+0x1407606e0: pop      rbp
+0x1407606e1: ret      
+0x1407606e2: mov      rax, qword ptr [rdx]
+0x1407606e5: mov      rcx, qword ptr [rdx + 0x10]
+0x1407606e9: xor      edi, edi
+0x1407606eb: xor      esi, esi
+0x1407606ed: call     0x14075e040    ; main.validateBookmarkIconContent
+0x1407606f2: mov      rdx, qword ptr [rsp + 0x68]
+0x1407606f7: mov      rax, qword ptr [rdx]
+0x1407606fa: mov      rbx, qword ptr [rdx + 8]
+0x1407606fe: mov      rdx, qword ptr [rdx + 0x10]
+0x140760702: mov      edi, ecx
+0x140760704: mov      rcx, rdx
+0x140760707: add      rsp, 0x70
+0x14076070b: pop      rbp
+0x14076070c: ret      
+0x14076070d: xor      eax, eax
+0x14076070f: xor      ebx, ebx
+0x140760711: mov      rcx, rbx
+0x140760714: xor      edi, edi
+0x140760716: add      rsp, 0x70
+0x14076071a: pop      rbp
+0x14076071b: ret      
+0x14076071c: xor      eax, eax
+0x14076071e: xor      ebx, ebx
+0x140760720: mov      rcx, rbx
+0x140760723: xor      edi, edi
+0x140760725: add      rsp, 0x70
+0x140760729: pop      rbp
+0x14076072a: ret      
+0x14076072b: mov      qword ptr [rsp + 8], rax
+0x140760730: mov      qword ptr [rsp + 0x10], rbx
+0x140760735: mov      qword ptr [rsp + 0x18], rcx
+0x14076073a: mov      byte ptr [rsp + 0x20], dil
+0x14076073f: nop      
+0x140760740: call     0x14007f140    ; runtime.morestack_noctxt
+0x140760745: mov      rax, qword ptr [rsp + 8]
+0x14076074a: mov      rbx, qword ptr [rsp + 0x10]
+0x14076074f: mov      rcx, qword ptr [rsp + 0x18]
+0x140760754: movzx    edi, byte ptr [rsp + 0x20]
+0x140760759: jmp      0x140760560    ; main.queryBookmarkIconBitmap
+0x14076075e: int3     
+0x14076075f: int3     

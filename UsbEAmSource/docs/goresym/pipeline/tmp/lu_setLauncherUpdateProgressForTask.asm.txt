@@ -1,0 +1,68 @@
+0x1408b6d00: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408b6d04: jbe      0x1408b6d96   ; main.BootstrapService.setLauncherUpdateProgressForTask+0x96
+0x1408b6d0a: push     rbp
+0x1408b6d0b: mov      rbp, rsp
+0x1408b6d0e: sub      rsp, 0x40
+0x1408b6d12: mov      qword ptr [rsp + 0x60], rcx
+0x1408b6d17: mov      qword ptr [rsp + 0x80], r9
+0x1408b6d1f: nop      
+0x1408b6d20: test     rax, rax
+0x1408b6d23: je       0x1408b6d57   ; main.BootstrapService.setLauncherUpdateProgressForTask+0x57
+0x1408b6d25: mov      qword ptr [rsp + 0x50], rax
+0x1408b6d2a: mov      qword ptr [rsp + 0x70], rsi
+0x1408b6d2f: mov      qword ptr [rsp + 0x78], r8
+0x1408b6d34: mov      qword ptr [rsp + 0x88], r10
+0x1408b6d3c: mov      qword ptr [rsp + 0x80], r9
+0x1408b6d44: mov      qword ptr [rsp + 0x68], rdi
+0x1408b6d49: mov      qword ptr [rsp + 0x60], rcx
+0x1408b6d4e: call     0x1408b72a0   ; main.BootstrapService.isLauncherUpdateTaskActive
+0x1408b6d53: test     al, al
+0x1408b6d55: jne      0x1408b6d5d   ; main.BootstrapService.setLauncherUpdateProgressForTask+0x5d
+0x1408b6d57: add      rsp, 0x40
+0x1408b6d5b: pop      rbp
+0x1408b6d5c: ret      
+0x1408b6d5d: mov      rax, qword ptr [rsp + 0x50]
+0x1408b6d62: mov      ebx, 1
+0x1408b6d67: mov      rcx, qword ptr [rsp + 0x60]
+0x1408b6d6c: mov      rdi, qword ptr [rsp + 0x68]
+0x1408b6d71: mov      rsi, qword ptr [rsp + 0x70]
+0x1408b6d76: mov      r8, qword ptr [rsp + 0x78]
+0x1408b6d7b: mov      r9, qword ptr [rsp + 0x80]
+0x1408b6d83: mov      r10, qword ptr [rsp + 0x88]
+0x1408b6d8b: call     0x1408b6e00   ; main.BootstrapService.setLauncherUpdateProgressState
+0x1408b6d90: add      rsp, 0x40
+0x1408b6d94: pop      rbp
+0x1408b6d95: ret      
+0x1408b6d96: mov      qword ptr [rsp + 8], rax
+0x1408b6d9b: mov      qword ptr [rsp + 0x10], rbx
+0x1408b6da0: mov      qword ptr [rsp + 0x18], rcx
+0x1408b6da5: mov      qword ptr [rsp + 0x20], rdi
+0x1408b6daa: mov      qword ptr [rsp + 0x28], rsi
+0x1408b6daf: mov      qword ptr [rsp + 0x30], r8
+0x1408b6db4: mov      qword ptr [rsp + 0x38], r9
+0x1408b6db9: mov      qword ptr [rsp + 0x40], r10
+0x1408b6dbe: nop      
+0x1408b6dc0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408b6dc5: mov      rax, qword ptr [rsp + 8]
+0x1408b6dca: mov      rbx, qword ptr [rsp + 0x10]
+0x1408b6dcf: mov      rcx, qword ptr [rsp + 0x18]
+0x1408b6dd4: mov      rdi, qword ptr [rsp + 0x20]
+0x1408b6dd9: mov      rsi, qword ptr [rsp + 0x28]
+0x1408b6dde: mov      r8, qword ptr [rsp + 0x30]
+0x1408b6de3: mov      r9, qword ptr [rsp + 0x38]
+0x1408b6de8: mov      r10, qword ptr [rsp + 0x40]
+0x1408b6ded: jmp      0x1408b6d00   ; main.BootstrapService.setLauncherUpdateProgressForTask
+0x1408b6df2: int3     
+0x1408b6df3: int3     
+0x1408b6df4: int3     
+0x1408b6df5: int3     
+0x1408b6df6: int3     
+0x1408b6df7: int3     
+0x1408b6df8: int3     
+0x1408b6df9: int3     
+0x1408b6dfa: int3     
+0x1408b6dfb: int3     
+0x1408b6dfc: int3     
+0x1408b6dfd: int3     
+0x1408b6dfe: int3     
+0x1408b6dff: int3     

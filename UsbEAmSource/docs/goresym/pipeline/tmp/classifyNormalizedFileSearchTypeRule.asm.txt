@@ -1,0 +1,81 @@
+0x1408162c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408162c4: jbe      0x14081638d   ; main.classifyNormalizedFileSearchTypeRule+0xcd
+0x1408162ca: push     rbp
+0x1408162cb: mov      rbp, rsp
+0x1408162ce: sub      rsp, 0x20
+0x1408162d2: mov      qword ptr [rsp + 0x30], rax
+0x1408162d7: mov      qword ptr [rsp + 0x38], rbx
+0x1408162dc: nop      dword ptr [rax]
+0x1408162e0: cmp      rbx, 0x11
+0x1408162e4: jne      0x140816305   ; main.classifyNormalizedFileSearchTypeRule+0x45
+0x1408162e6: lea      rbx, [rip + 0x440fff]
+0x1408162ed: mov      ecx, 0x11
+0x1408162f2: call     0x140006280   ; runtime.memequal
+0x1408162f7: test     al, al
+0x1408162f9: jne      0x140816378   ; main.classifyNormalizedFileSearchTypeRule+0xb8
+0x1408162fb: mov      rax, qword ptr [rsp + 0x30]
+0x140816300: mov      rbx, qword ptr [rsp + 0x38]
+0x140816305: nop      
+0x140816306: lea      rcx, [rip + 0x41d9d9]
+0x14081630d: mov      edi, 3
+0x140816312: call     0x14009f4c0   ; strings.IndexAny
+0x140816317: test     rax, rax
+0x14081631a: jge      0x140816363   ; main.classifyNormalizedFileSearchTypeRule+0xa3
+0x14081631c: mov      rax, qword ptr [rsp + 0x30]
+0x140816321: mov      rbx, qword ptr [rsp + 0x38]
+0x140816326: lea      rcx, [rip + 0x9b48fb]
+0x14081632d: mov      edi, 1
+0x140816332: call     0x140006860   ; internal/stringslite.Index
+0x140816337: test     rax, rax
+0x14081633a: jl       0x140816351   ; main.classifyNormalizedFileSearchTypeRule+0x91
+0x14081633c: mov      eax, 1
+0x140816341: mov      rbx, qword ptr [rsp + 0x30]
+0x140816346: mov      rcx, qword ptr [rsp + 0x38]
+0x14081634b: add      rsp, 0x20
+0x14081634f: pop      rbp
+0x140816350: ret      
+0x140816351: xor      eax, eax
+0x140816353: mov      rbx, qword ptr [rsp + 0x30]
+0x140816358: mov      rcx, qword ptr [rsp + 0x38]
+0x14081635d: add      rsp, 0x20
+0x140816361: pop      rbp
+0x140816362: ret      
+0x140816363: mov      eax, 2
+0x140816368: mov      rbx, qword ptr [rsp + 0x30]
+0x14081636d: mov      rcx, qword ptr [rsp + 0x38]
+0x140816372: add      rsp, 0x20
+0x140816376: pop      rbp
+0x140816377: ret      
+0x140816378: mov      eax, 3
+0x14081637d: mov      rbx, qword ptr [rsp + 0x30]
+0x140816382: mov      rcx, qword ptr [rsp + 0x38]
+0x140816387: add      rsp, 0x20
+0x14081638b: pop      rbp
+0x14081638c: ret      
+0x14081638d: mov      qword ptr [rsp + 8], rax
+0x140816392: mov      qword ptr [rsp + 0x10], rbx
+0x140816397: call     0x14007f140   ; runtime.morestack_noctxt
+0x14081639c: mov      rax, qword ptr [rsp + 8]
+0x1408163a1: mov      rbx, qword ptr [rsp + 0x10]
+0x1408163a6: jmp      0x1408162c0   ; main.classifyNormalizedFileSearchTypeRule
+0x1408163ab: int3     
+0x1408163ac: int3     
+0x1408163ad: int3     
+0x1408163ae: int3     
+0x1408163af: int3     
+0x1408163b0: int3     
+0x1408163b1: int3     
+0x1408163b2: int3     
+0x1408163b3: int3     
+0x1408163b4: int3     
+0x1408163b5: int3     
+0x1408163b6: int3     
+0x1408163b7: int3     
+0x1408163b8: int3     
+0x1408163b9: int3     
+0x1408163ba: int3     
+0x1408163bb: int3     
+0x1408163bc: int3     
+0x1408163bd: int3     
+0x1408163be: int3     
+0x1408163bf: int3     

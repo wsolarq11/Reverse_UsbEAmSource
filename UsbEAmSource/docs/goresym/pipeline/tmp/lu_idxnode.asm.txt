@@ -1,0 +1,50 @@
+0x1407e78a0: movzx    eax, word ptr [rax + 0x16]
+0x1407e78a4: and      eax, 1
+0x1407e78a7: ret      
+0x1407e78a8: int3     
+0x1407e78a9: int3     
+0x1407e78aa: int3     
+0x1407e78ab: int3     
+0x1407e78ac: int3     
+0x1407e78ad: int3     
+0x1407e78ae: int3     
+0x1407e78af: int3     
+0x1407e78b0: int3     
+0x1407e78b1: int3     
+0x1407e78b2: int3     
+0x1407e78b3: int3     
+0x1407e78b4: int3     
+0x1407e78b5: int3     
+0x1407e78b6: int3     
+0x1407e78b7: int3     
+0x1407e78b8: int3     
+0x1407e78b9: int3     
+0x1407e78ba: int3     
+0x1407e78bb: int3     
+0x1407e78bc: int3     
+0x1407e78bd: int3     
+0x1407e78be: int3     
+0x1407e78bf: int3     
+0x1407e78c0: movzx    ecx, word ptr [rax + 0x16]
+0x1407e78c4: test     cx, 2
+0x1407e78c9: setne    al
+0x1407e78cc: ret      
+0x1407e78cd: int3     
+0x1407e78ce: int3     
+0x1407e78cf: int3     
+0x1407e78d0: int3     
+0x1407e78d1: int3     
+0x1407e78d2: int3     
+0x1407e78d3: int3     
+0x1407e78d4: int3     
+0x1407e78d5: int3     
+0x1407e78d6: int3     
+0x1407e78d7: int3     
+0x1407e78d8: int3     
+0x1407e78d9: int3     
+0x1407e78da: int3     
+0x1407e78db: int3     
+0x1407e78dc: int3     
+0x1407e78dd: int3     
+0x1407e78de: int3     
+0x1407e78df: int3     

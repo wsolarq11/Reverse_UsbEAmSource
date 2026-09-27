@@ -1,0 +1,308 @@
+0x14094eec0: lea      r12, [rsp - 0x10]
+0x14094eec5: cmp      r12, qword ptr [r14 + 0x10]
+0x14094eec9: jbe      0x14094f3d8   ; main.drawQRCodeAnnotationEllipse+0x518
+0x14094eecf: push     rbp
+0x14094eed0: mov      rbp, rsp
+0x14094eed3: sub      rsp, 0x88
+0x14094eeda: mov      rdx, rdi
+0x14094eedd: sub      rdi, rbx
+0x14094eee0: cmp      rdi, 2
+0x14094eee4: jl       0x14094f1d1   ; main.drawQRCodeAnnotationEllipse+0x311
+0x14094eeea: mov      r8, rsi
+0x14094eeed: sub      rsi, rcx
+0x14094eef0: cmp      rsi, 2
+0x14094eef4: jl       0x14094f1d1   ; main.drawQRCodeAnnotationEllipse+0x311
+0x14094eefa: mov      qword ptr [rsp + 0x98], rax
+0x14094ef02: lea      rax, [rbx + rdx]
+0x14094ef06: xorps    xmm0, xmm0
+0x14094ef09: cvtsi2sd xmm0, rax
+0x14094ef0e: lea      rax, [rcx + r8]
+0x14094ef12: xorps    xmm1, xmm1
+0x14094ef15: cvtsi2sd xmm1, rax
+0x14094ef1a: xorps    xmm2, xmm2
+0x14094ef1d: cvtsi2sd xmm2, rdi
+0x14094ef22: movsd    xmm3, qword ptr [rip + 0x87e756]
+0x14094ef2a: mulsd    xmm2, xmm3
+0x14094ef2e: movsd    qword ptr [rsp + 0x30], xmm2
+0x14094ef34: xorps    xmm4, xmm4
+0x14094ef37: cvtsi2sd xmm4, rsi
+0x14094ef3c: mulsd    xmm4, xmm3
+0x14094ef40: movsd    qword ptr [rsp + 0x28], xmm4
+0x14094ef46: mulsd    xmm0, xmm3
+0x14094ef4a: movsd    qword ptr [rsp + 0x48], xmm0
+0x14094ef50: mulsd    xmm1, xmm3
+0x14094ef54: movsd    qword ptr [rsp + 0x40], xmm1
+0x14094ef5a: movsd    qword ptr [rsp], xmm2
+0x14094ef5f: movsd    qword ptr [rsp + 8], xmm4
+0x14094ef65: call     0x1400a5700   ; math.archMax
+0x14094ef6a: xorps    xmm15, xmm15
+0x14094ef6e: mov      r14, qword ptr [rip + 0x130c003]
+0x14094ef75: mov      r14, qword ptr gs:[r14]
+0x14094ef79: mov      r14, qword ptr [r14]
+0x14094ef7c: movsd    xmm0, qword ptr [rip + 0x87e6e4]
+0x14094ef84: mulsd    xmm0, qword ptr [rsp + 0x10]
+0x14094ef8a: movq     rcx, xmm0
+0x14094ef8f: mov      rax, rcx
+0x14094ef92: shr      rax, 0x34
+0x14094ef96: and      eax, 0x7ff
+0x14094ef9b: nop      
+0x14094ef9c: nop      dword ptr [rax]
+0x14094efa0: cmp      rax, 0x3ff
+0x14094efa6: jae      0x14094efd1   ; main.drawQRCodeAnnotationEllipse+0x111
+0x14094efa8: movabs   rdx, 0x8000000000000000
+0x14094efb2: and      rcx, rdx
+0x14094efb5: movabs   rbx, 0x3ff0000000000000
+0x14094efbf: or       rbx, rcx
+0x14094efc2: cmp      rax, 0x3fe
+0x14094efc8: cmove    rcx, rbx
+0x14094efcc: mov      rbx, rcx
+0x14094efcf: jmp      0x14094f00e   ; main.drawQRCodeAnnotationEllipse+0x14e
+0x14094efd1: cmp      rax, 0x433
+0x14094efd7: jae      0x14094f00b   ; main.drawQRCodeAnnotationEllipse+0x14b
+0x14094efd9: lea      rdx, [rax - 0x3ff]
+0x14094efe0: mov      rax, rcx
+0x14094efe3: mov      rcx, rdx
+0x14094efe6: movabs   rbx, 0x8000000000000
+0x14094eff0: shr      rbx, cl
+0x14094eff3: add      rbx, rax
+0x14094eff6: movabs   rsi, 0xfffffffffffff
+0x14094f000: shr      rsi, cl
+0x14094f003: not      rsi
+0x14094f006: and      rbx, rsi
+0x14094f009: jmp      0x14094f00e   ; main.drawQRCodeAnnotationEllipse+0x14e
+0x14094f00b: mov      rbx, rcx
+0x14094f00e: movsd    xmm0, qword ptr [rsp + 0x48]
+0x14094f014: movsd    xmm1, qword ptr [rsp + 0x30]
+0x14094f01a: movups   xmm2, xmm0
+0x14094f01d: addsd    xmm0, xmm1
+0x14094f021: movq     xmm3, rbx
+0x14094f026: cvttsd2si rdx, xmm3
+0x14094f02b: movq     rcx, xmm0
+0x14094f030: mov      rbx, rcx
+0x14094f033: shr      rbx, 0x34
+0x14094f037: and      ebx, 0x7ff
+0x14094f03d: nop      
+0x14094f03e: cmp      rdx, 0x18
+0x14094f042: mov      esi, 0x18
+0x14094f047: cmovg    rsi, rdx
+0x14094f04b: cmp      rbx, 0x3ff
+0x14094f052: jae      0x14094f080   ; main.drawQRCodeAnnotationEllipse+0x1c0
+0x14094f054: movabs   rdx, 0x8000000000000000
+0x14094f05e: and      rcx, rdx
+0x14094f061: movabs   rdi, 0x3ff0000000000000
+0x14094f06b: or       rdi, rcx
+0x14094f06e: cmp      rbx, 0x3fe
+0x14094f075: cmove    rcx, rdi
+0x14094f079: mov      rbx, rcx
+0x14094f07c: jmp      0x14094f0be   ; main.drawQRCodeAnnotationEllipse+0x1fe
+0x14094f07e: nop      
+0x14094f080: cmp      rbx, 0x433
+0x14094f087: jae      0x14094f0bb   ; main.drawQRCodeAnnotationEllipse+0x1fb
+0x14094f089: lea      rdx, [rbx - 0x3ff]
+0x14094f090: mov      rax, rcx
+0x14094f093: mov      rcx, rdx
+0x14094f096: movabs   rbx, 0x8000000000000
+0x14094f0a0: shr      rbx, cl
+0x14094f0a3: add      rbx, rax
+0x14094f0a6: movabs   rdi, 0xfffffffffffff
+0x14094f0b0: shr      rdi, cl
+0x14094f0b3: not      rdi
+0x14094f0b6: and      rbx, rdi
+0x14094f0b9: jmp      0x14094f0be   ; main.drawQRCodeAnnotationEllipse+0x1fe
+0x14094f0bb: mov      rbx, rcx
+0x14094f0be: mov      qword ptr [rsp + 0x20], rsi
+0x14094f0c3: movsd    xmm0, qword ptr [rsp + 0x40]
+0x14094f0c9: movq     rcx, xmm0
+0x14094f0ce: mov      rdx, rcx
+0x14094f0d1: shr      rdx, 0x34
+0x14094f0d5: and      edx, 0x7ff
+0x14094f0db: nop      
+0x14094f0dc: nop      dword ptr [rax]
+0x14094f0e0: cmp      rdx, 0x3ff
+0x14094f0e7: jae      0x14094f113   ; main.drawQRCodeAnnotationEllipse+0x253
+0x14094f0e9: movabs   rdi, 0x8000000000000000
+0x14094f0f3: and      rcx, rdi
+0x14094f0f6: movabs   r8, 0x3ff0000000000000
+0x14094f100: or       r8, rcx
+0x14094f103: cmp      rdx, 0x3fe
+0x14094f10a: cmove    rcx, r8
+0x14094f10e: mov      rdi, rcx
+0x14094f111: jmp      0x14094f151   ; main.drawQRCodeAnnotationEllipse+0x291
+0x14094f113: cmp      rdx, 0x433
+0x14094f11a: jae      0x14094f14e   ; main.drawQRCodeAnnotationEllipse+0x28e
+0x14094f11c: add      rdx, -0x3ff
+0x14094f123: mov      rax, rcx
+0x14094f126: mov      rcx, rdx
+0x14094f129: movabs   rdi, 0x8000000000000
+0x14094f133: shr      rdi, cl
+0x14094f136: add      rdi, rax
+0x14094f139: movabs   r8, 0xfffffffffffff
+0x14094f143: shr      r8, cl
+0x14094f146: not      r8
+0x14094f149: and      rdi, r8
+0x14094f14c: jmp      0x14094f151   ; main.drawQRCodeAnnotationEllipse+0x291
+0x14094f14e: mov      rdi, rcx
+0x14094f151: movq     xmm0, rbx
+0x14094f156: cvttsd2si rcx, xmm0
+0x14094f15b: mov      qword ptr [rsp + 0x68], rcx
+0x14094f160: movq     xmm0, rdi
+0x14094f165: cvttsd2si rcx, xmm0
+0x14094f16a: mov      qword ptr [rsp + 0x60], rcx
+0x14094f16f: mov      qword ptr [rsp + 0x80], 0
+0x14094f17b: lea      rax, [rip + 0x1ae9de]
+0x14094f182: call     0x14001ae20   ; runtime.newobject
+0x14094f187: mov      rcx, qword ptr [rsp + 0x98]
+0x14094f18f: mov      qword ptr [rax], rcx
+0x14094f192: mov      rcx, qword ptr [rsp + 0x68]
+0x14094f197: mov      qword ptr [rax + 8], rcx
+0x14094f19b: mov      rcx, qword ptr [rsp + 0x60]
+0x14094f1a0: mov      qword ptr [rax + 0x10], rcx
+0x14094f1a4: mov      rcx, qword ptr [rsp + 0x80]
+0x14094f1ac: mov      qword ptr [rax + 0x18], rcx
+0x14094f1b0: mov      rcx, qword ptr [rip + 0x1273529]
+0x14094f1b7: mov      rbx, rax
+0x14094f1ba: mov      edi, 4
+0x14094f1bf: mov      rax, rcx
+0x14094f1c2: mov      rcx, rdi
+0x14094f1c5: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14094f1ca: mov      eax, 1
+0x14094f1cf: jmp      0x14094f24f   ; main.drawQRCodeAnnotationEllipse+0x38f
+0x14094f1d1: add      rsp, 0x88
+0x14094f1d8: pop      rbp
+0x14094f1d9: ret      
+0x14094f1da: mov      rcx, qword ptr [rsp + 0x50]
+0x14094f1df: movq     xmm0, rcx
+0x14094f1e4: cvttsd2si rcx, xmm0
+0x14094f1e9: movsxd   rcx, ecx
+0x14094f1ec: mov      qword ptr [rsp + 0x78], rcx
+0x14094f1f1: movq     xmm0, rbx
+0x14094f1f6: cvttsd2si rcx, xmm0
+0x14094f1fb: movsxd   rcx, ecx
+0x14094f1fe: mov      qword ptr [rsp + 0x70], rcx
+0x14094f203: nop      
+0x14094f204: lea      rax, [rip + 0x1aca35]
+0x14094f20b: call     0x14001ae20   ; runtime.newobject
+0x14094f210: mov      rcx, qword ptr [rsp + 0x98]
+0x14094f218: mov      qword ptr [rax], rcx
+0x14094f21b: mov      rcx, qword ptr [rsp + 0x78]
+0x14094f220: mov      qword ptr [rax + 8], rcx
+0x14094f224: mov      rcx, qword ptr [rsp + 0x70]
+0x14094f229: mov      qword ptr [rax + 0x10], rcx
+0x14094f22d: mov      rcx, qword ptr [rip + 0x12734a4]
+0x14094f234: mov      rbx, rax
+0x14094f237: mov      edi, 3
+0x14094f23c: mov      rax, rcx
+0x14094f23f: mov      rcx, rdi
+0x14094f242: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14094f247: mov      rax, qword ptr [rsp + 0x38]
+0x14094f24c: inc      rax
+0x14094f24f: mov      rcx, qword ptr [rsp + 0x20]
+0x14094f254: cmp      rax, rcx
+0x14094f257: jg       0x14094f3cf   ; main.drawQRCodeAnnotationEllipse+0x50f
+0x14094f25d: mov      qword ptr [rsp + 0x38], rax
+0x14094f262: xorps    xmm0, xmm0
+0x14094f265: cvtsi2sd xmm0, rax
+0x14094f26a: movsd    xmm1, qword ptr [rip + 0x87e4ae]
+0x14094f272: mulsd    xmm0, xmm1
+0x14094f276: xorps    xmm1, xmm1
+0x14094f279: cvtsi2sd xmm1, rcx
+0x14094f27e: divsd    xmm0, xmm1
+0x14094f282: movsd    qword ptr [rsp + 0x58], xmm0
+0x14094f288: call     0x1400a4a40   ; math.cos
+0x14094f28d: movsd    xmm1, qword ptr [rsp + 0x30]
+0x14094f293: mulsd    xmm0, xmm1
+0x14094f297: movsd    xmm2, qword ptr [rsp + 0x48]
+0x14094f29d: addsd    xmm0, xmm2
+0x14094f2a1: movq     rcx, xmm0
+0x14094f2a6: mov      rax, rcx
+0x14094f2a9: shr      rax, 0x34
+0x14094f2ad: and      eax, 0x7ff
+0x14094f2b2: nop      
+0x14094f2b3: cmp      rax, 0x3ff
+0x14094f2b9: jae      0x14094f2e4   ; main.drawQRCodeAnnotationEllipse+0x424
+0x14094f2bb: movabs   rdx, 0x8000000000000000
+0x14094f2c5: and      rcx, rdx
+0x14094f2c8: movabs   rbx, 0x3ff0000000000000
+0x14094f2d2: or       rbx, rcx
+0x14094f2d5: cmp      rax, 0x3fe
+0x14094f2db: cmove    rcx, rbx
+0x14094f2df: mov      rdx, rcx
+0x14094f2e2: jmp      0x14094f320   ; main.drawQRCodeAnnotationEllipse+0x460
+0x14094f2e4: cmp      rax, 0x433
+0x14094f2ea: jae      0x14094f31d   ; main.drawQRCodeAnnotationEllipse+0x45d
+0x14094f2ec: add      rax, -0x3ff
+0x14094f2f2: mov      rdx, rcx
+0x14094f2f5: mov      rcx, rax
+0x14094f2f8: movabs   rbx, 0x8000000000000
+0x14094f302: shr      rbx, cl
+0x14094f305: add      rdx, rbx
+0x14094f308: movabs   rbx, 0xfffffffffffff
+0x14094f312: shr      rbx, cl
+0x14094f315: not      rbx
+0x14094f318: and      rdx, rbx
+0x14094f31b: jmp      0x14094f320   ; main.drawQRCodeAnnotationEllipse+0x460
+0x14094f31d: mov      rdx, rcx
+0x14094f320: mov      qword ptr [rsp + 0x50], rdx
+0x14094f325: movsd    xmm0, qword ptr [rsp + 0x58]
+0x14094f32b: call     0x1400a4ca0   ; math.sin
+0x14094f330: movsd    xmm1, qword ptr [rsp + 0x28]
+0x14094f336: mulsd    xmm0, xmm1
+0x14094f33a: movsd    xmm2, qword ptr [rsp + 0x40]
+0x14094f340: addsd    xmm0, xmm2
+0x14094f344: movq     rcx, xmm0
+0x14094f349: mov      rax, rcx
+0x14094f34c: shr      rax, 0x34
+0x14094f350: and      eax, 0x7ff
+0x14094f355: nop      
+0x14094f356: cmp      rax, 0x3ff
+0x14094f35c: jae      0x14094f38a   ; main.drawQRCodeAnnotationEllipse+0x4ca
+0x14094f35e: movabs   rdx, 0x8000000000000000
+0x14094f368: and      rcx, rdx
+0x14094f36b: movabs   rbx, 0x3ff0000000000000
+0x14094f375: or       rbx, rcx
+0x14094f378: cmp      rax, 0x3fe
+0x14094f37e: cmove    rcx, rbx
+0x14094f382: mov      rbx, rcx
+0x14094f385: jmp      0x14094f1da   ; main.drawQRCodeAnnotationEllipse+0x31a
+0x14094f38a: cmp      rax, 0x433
+0x14094f390: jae      0x14094f3c7   ; main.drawQRCodeAnnotationEllipse+0x507
+0x14094f392: lea      rdx, [rax - 0x3ff]
+0x14094f399: mov      rax, rcx
+0x14094f39c: mov      rcx, rdx
+0x14094f39f: movabs   rbx, 0x8000000000000
+0x14094f3a9: shr      rbx, cl
+0x14094f3ac: add      rbx, rax
+0x14094f3af: movabs   rsi, 0xfffffffffffff
+0x14094f3b9: shr      rsi, cl
+0x14094f3bc: not      rsi
+0x14094f3bf: and      rbx, rsi
+0x14094f3c2: jmp      0x14094f1da   ; main.drawQRCodeAnnotationEllipse+0x31a
+0x14094f3c7: mov      rbx, rcx
+0x14094f3ca: jmp      0x14094f1da   ; main.drawQRCodeAnnotationEllipse+0x31a
+0x14094f3cf: add      rsp, 0x88
+0x14094f3d6: pop      rbp
+0x14094f3d7: ret      
+0x14094f3d8: mov      qword ptr [rsp + 8], rax
+0x14094f3dd: mov      qword ptr [rsp + 0x10], rbx
+0x14094f3e2: mov      qword ptr [rsp + 0x18], rcx
+0x14094f3e7: mov      qword ptr [rsp + 0x20], rdi
+0x14094f3ec: mov      qword ptr [rsp + 0x28], rsi
+0x14094f3f1: call     0x14007f140   ; runtime.morestack_noctxt
+0x14094f3f6: mov      rax, qword ptr [rsp + 8]
+0x14094f3fb: mov      rbx, qword ptr [rsp + 0x10]
+0x14094f400: mov      rcx, qword ptr [rsp + 0x18]
+0x14094f405: mov      rdi, qword ptr [rsp + 0x20]
+0x14094f40a: mov      rsi, qword ptr [rsp + 0x28]
+0x14094f40f: jmp      0x14094eec0   ; main.drawQRCodeAnnotationEllipse
+0x14094f414: int3     
+0x14094f415: int3     
+0x14094f416: int3     
+0x14094f417: int3     
+0x14094f418: int3     
+0x14094f419: int3     
+0x14094f41a: int3     
+0x14094f41b: int3     
+0x14094f41c: int3     
+0x14094f41d: int3     
+0x14094f41e: int3     
+0x14094f41f: int3     

@@ -1,0 +1,135 @@
+0x1409148c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409148c4: jbe      0x140914a68   ; main.oledBlackoutFocusWindowNow+0x1a8
+0x1409148ca: push     rbp
+0x1409148cb: mov      rbp, rsp
+0x1409148ce: sub      rsp, 0x38
+0x1409148d2: mov      qword ptr [rsp + 0x48], rax
+0x1409148d7: mov      qword ptr [rsp + 0x50], rbx
+0x1409148dc: nop      dword ptr [rax]
+0x1409148e0: test     rax, rax
+0x1409148e3: je       0x140914a62   ; main.oledBlackoutFocusWindowNow+0x1a2
+0x1409148e9: mov      qword ptr [rsp + 0x50], rbx
+0x1409148ee: mov      qword ptr [rsp + 0x48], rax
+0x1409148f3: mov      rcx, qword ptr [rax + 0x130]
+0x1409148fa: mov      rax, rbx
+0x1409148fd: call     rcx
+0x1409148ff: mov      qword ptr [rsp + 0x30], rax
+0x140914904: test     rax, rax
+0x140914907: je       0x1409149a7   ; main.oledBlackoutFocusWindowNow+0xe7
+0x14091490d: mov      qword ptr [rsp + 0x28], rax
+0x140914912: nop      
+0x140914913: lea      rax, [rip + 0x1e9066]
+0x14091491a: call     0x14001ae20   ; runtime.newobject
+0x14091491f: mov      rcx, qword ptr [rsp + 0x28]
+0x140914924: mov      qword ptr [rax], rcx
+0x140914927: mov      rcx, qword ptr [rip + 0x12adfaa]
+0x14091492e: mov      rbx, rax
+0x140914931: mov      edi, 1
+0x140914936: mov      rax, rcx
+0x140914939: mov      rcx, rdi
+0x14091493c: nop      dword ptr [rax]
+0x140914940: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140914945: nop      
+0x140914946: lea      rax, [rip + 0x1e9033]
+0x14091494d: call     0x14001ae20   ; runtime.newobject
+0x140914952: mov      rcx, qword ptr [rsp + 0x28]
+0x140914957: mov      qword ptr [rax], rcx
+0x14091495a: mov      rcx, qword ptr [rip + 0x12adf67]
+0x140914961: mov      rbx, rax
+0x140914964: mov      edi, 1
+0x140914969: mov      rax, rcx
+0x14091496c: mov      rcx, rdi
+0x14091496f: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140914974: nop      
+0x140914975: lea      rax, [rip + 0x1e9004]
+0x14091497c: nop      dword ptr [rax]
+0x140914980: call     0x14001ae20   ; runtime.newobject
+0x140914985: mov      rcx, qword ptr [rsp + 0x28]
+0x14091498a: mov      qword ptr [rax], rcx
+0x14091498d: mov      rcx, qword ptr [rip + 0x12adf3c]
+0x140914994: mov      rbx, rax
+0x140914997: mov      edi, 1
+0x14091499c: mov      rax, rcx
+0x14091499f: mov      rcx, rdi
+0x1409149a2: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409149a7: mov      rcx, qword ptr [rsp + 0x48]
+0x1409149ac: mov      rcx, qword ptr [rcx + 0x70]
+0x1409149b0: mov      rax, qword ptr [rsp + 0x50]
+0x1409149b5: call     rcx
+0x1409149b7: mov      rcx, qword ptr [rsp + 0x30]
+0x1409149bc: nop      dword ptr [rax]
+0x1409149c0: test     rcx, rcx
+0x1409149c3: je       0x140914a5c   ; main.oledBlackoutFocusWindowNow+0x19c
+0x1409149c9: mov      rcx, qword ptr [rsp + 0x48]
+0x1409149ce: mov      rcx, qword ptr [rcx + 0xe8]
+0x1409149d5: mov      rax, qword ptr [rsp + 0x50]
+0x1409149da: call     rcx
+0x1409149dc: nop      dword ptr [rax]
+0x1409149e0: test     al, al
+0x1409149e2: jne      0x140914a5c   ; main.oledBlackoutFocusWindowNow+0x19c
+0x1409149e4: mov      rcx, qword ptr [rsp + 0x30]
+0x1409149e9: mov      qword ptr [rsp + 0x20], rcx
+0x1409149ee: nop      
+0x1409149ef: lea      rax, [rip + 0x1e8f8a]
+0x1409149f6: call     0x14001ae20   ; runtime.newobject
+0x1409149fb: mov      rcx, qword ptr [rsp + 0x20]
+0x140914a00: mov      qword ptr [rax], rcx
+0x140914a03: mov      rcx, qword ptr [rip + 0x12adec6]
+0x140914a0a: mov      rbx, rax
+0x140914a0d: mov      edi, 1
+0x140914a12: mov      rax, rcx
+0x140914a15: mov      rcx, rdi
+0x140914a18: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140914a1d: nop      
+0x140914a1e: lea      rax, [rip + 0x1e8f5b]
+0x140914a25: call     0x14001ae20   ; runtime.newobject
+0x140914a2a: mov      rcx, qword ptr [rsp + 0x20]
+0x140914a2f: mov      qword ptr [rax], rcx
+0x140914a32: mov      rcx, qword ptr [rip + 0x12ade87]
+0x140914a39: mov      rbx, rax
+0x140914a3c: mov      edi, 1
+0x140914a41: mov      rax, rcx
+0x140914a44: mov      rcx, rdi
+0x140914a47: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140914a4c: mov      rcx, qword ptr [rsp + 0x48]
+0x140914a51: mov      rcx, qword ptr [rcx + 0x70]
+0x140914a55: mov      rax, qword ptr [rsp + 0x50]
+0x140914a5a: call     rcx
+0x140914a5c: add      rsp, 0x38
+0x140914a60: pop      rbp
+0x140914a61: ret      
+0x140914a62: add      rsp, 0x38
+0x140914a66: pop      rbp
+0x140914a67: ret      
+0x140914a68: mov      qword ptr [rsp + 8], rax
+0x140914a6d: mov      qword ptr [rsp + 0x10], rbx
+0x140914a72: call     0x14007f140   ; runtime.morestack_noctxt
+0x140914a77: mov      rax, qword ptr [rsp + 8]
+0x140914a7c: mov      rbx, qword ptr [rsp + 0x10]
+0x140914a81: jmp      0x1409148c0   ; main.oledBlackoutFocusWindowNow
+0x140914a86: int3     
+0x140914a87: int3     
+0x140914a88: int3     
+0x140914a89: int3     
+0x140914a8a: int3     
+0x140914a8b: int3     
+0x140914a8c: int3     
+0x140914a8d: int3     
+0x140914a8e: int3     
+0x140914a8f: int3     
+0x140914a90: int3     
+0x140914a91: int3     
+0x140914a92: int3     
+0x140914a93: int3     
+0x140914a94: int3     
+0x140914a95: int3     
+0x140914a96: int3     
+0x140914a97: int3     
+0x140914a98: int3     
+0x140914a99: int3     
+0x140914a9a: int3     
+0x140914a9b: int3     
+0x140914a9c: int3     
+0x140914a9d: int3     
+0x140914a9e: int3     
+0x140914a9f: int3     

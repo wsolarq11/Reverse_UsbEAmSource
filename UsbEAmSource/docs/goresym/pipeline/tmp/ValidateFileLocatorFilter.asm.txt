@@ -1,0 +1,79 @@
+0x140786c20: lea      r12, [rsp - 8]
+0x140786c25: cmp      r12, qword ptr [r14 + 0x10]
+0x140786c29: jbe      0x140786ce6    ; main.BootstrapService.ValidateFileLocatorFilter+0xc6
+0x140786c2f: push     rbp
+0x140786c30: mov      rbp, rsp
+0x140786c33: add      rsp, -0x80
+0x140786c37: mov      qword ptr [rsp + 0x98], rbx
+0x140786c3f: mov      qword ptr [rsp + 0xa0], rcx
+0x140786c47: mov      qword ptr [rsp + 0xa8], rdi
+0x140786c4f: mov      qword ptr [rsp + 0xb0], rsi
+0x140786c57: mov      qword ptr [rsp + 0xb8], r8
+0x140786c5f: mov      qword ptr [rsp + 0xc0], r9
+0x140786c67: mov      qword ptr [rsp + 0xc8], r10
+0x140786c6f: mov      qword ptr [rsp + 0xd0], r11
+0x140786c77: test     byte ptr [rax], al
+0x140786c79: movups   xmm0, xmmword ptr [rsp + 0x98]
+0x140786c81: movups   xmmword ptr [rsp + 0x40], xmm0
+0x140786c86: movups   xmm0, xmmword ptr [rsp + 0xa8]
+0x140786c8e: movups   xmmword ptr [rsp + 0x50], xmm0
+0x140786c93: movups   xmm0, xmmword ptr [rsp + 0xb8]
+0x140786c9b: movups   xmmword ptr [rsp + 0x60], xmm0
+0x140786ca0: movups   xmm0, xmmword ptr [rsp + 0xc8]
+0x140786ca8: movups   xmmword ptr [rsp + 0x70], xmm0
+0x140786cad: mov      rax, qword ptr [rsp + 0x40]
+0x140786cb2: mov      rbx, qword ptr [rsp + 0x48]
+0x140786cb7: mov      rcx, qword ptr [rsp + 0x50]
+0x140786cbc: mov      rdi, qword ptr [rsp + 0x58]
+0x140786cc1: mov      rsi, qword ptr [rsp + 0x60]
+0x140786cc6: mov      r8, qword ptr [rsp + 0x68]
+0x140786ccb: mov      r9, qword ptr [rsp + 0x70]
+0x140786cd0: mov      r10, qword ptr [rsp + 0x78]
+0x140786cd5: call     0x1407d3400    ; main.buildFileLocatorPathFilter
+0x140786cda: mov      rax, rbx
+0x140786cdd: mov      rbx, rcx
+0x140786ce0: sub      rsp, -0x80
+0x140786ce4: pop      rbp
+0x140786ce5: ret      
+0x140786ce6: mov      qword ptr [rsp + 8], rax
+0x140786ceb: mov      qword ptr [rsp + 0x10], rbx
+0x140786cf0: mov      qword ptr [rsp + 0x18], rcx
+0x140786cf5: mov      qword ptr [rsp + 0x20], rdi
+0x140786cfa: mov      qword ptr [rsp + 0x28], rsi
+0x140786cff: mov      qword ptr [rsp + 0x30], r8
+0x140786d04: mov      qword ptr [rsp + 0x38], r9
+0x140786d09: mov      qword ptr [rsp + 0x40], r10
+0x140786d0e: mov      qword ptr [rsp + 0x48], r11
+0x140786d13: call     0x14007f140    ; runtime.morestack_noctxt
+0x140786d18: mov      rax, qword ptr [rsp + 8]
+0x140786d1d: mov      rbx, qword ptr [rsp + 0x10]
+0x140786d22: mov      rcx, qword ptr [rsp + 0x18]
+0x140786d27: mov      rdi, qword ptr [rsp + 0x20]
+0x140786d2c: mov      rsi, qword ptr [rsp + 0x28]
+0x140786d31: mov      r8, qword ptr [rsp + 0x30]
+0x140786d36: mov      r9, qword ptr [rsp + 0x38]
+0x140786d3b: mov      r10, qword ptr [rsp + 0x40]
+0x140786d40: mov      r11, qword ptr [rsp + 0x48]
+0x140786d45: jmp      0x140786c20    ; main.BootstrapService.ValidateFileLocatorFilter
+0x140786d4a: int3     
+0x140786d4b: int3     
+0x140786d4c: int3     
+0x140786d4d: int3     
+0x140786d4e: int3     
+0x140786d4f: int3     
+0x140786d50: int3     
+0x140786d51: int3     
+0x140786d52: int3     
+0x140786d53: int3     
+0x140786d54: int3     
+0x140786d55: int3     
+0x140786d56: int3     
+0x140786d57: int3     
+0x140786d58: int3     
+0x140786d59: int3     
+0x140786d5a: int3     
+0x140786d5b: int3     
+0x140786d5c: int3     
+0x140786d5d: int3     
+0x140786d5e: int3     
+0x140786d5f: int3     

@@ -1,0 +1,91 @@
+0x140874400: cmp      rsp, qword ptr [r14 + 0x10]
+0x140874404: jbe      0x140874506   ; main.newLauncherAssetID+0x106
+0x14087440a: push     rbp
+0x14087440b: mov      rbp, rsp
+0x14087440e: sub      rsp, 0x68
+0x140874412: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140874418: lea      rax, [rsp + 0x28]
+0x14087441d: mov      ebx, 0x10
+0x140874422: mov      rcx, rbx
+0x140874425: call     0x14025e5a0
+0x14087442a: test     rbx, rbx
+0x14087442d: jne      0x140874442   ; main.newLauncherAssetID+0x42
+0x14087442f: movups   xmmword ptr [rsp + 0x38], xmm15
+0x140874435: movups   xmmword ptr [rsp + 0x48], xmm15
+0x14087443b: xor      eax, eax
+0x14087443d: xor      ecx, ecx
+0x14087443f: nop      
+0x140874440: jmp      0x140874492   ; main.newLauncherAssetID+0x92
+0x140874442: movups   xmmword ptr [rsp + 0x58], xmm15
+0x140874448: je       0x14087444e   ; main.newLauncherAssetID+0x4e
+0x14087444a: mov      rbx, qword ptr [rbx + 8]
+0x14087444e: mov      qword ptr [rsp + 0x58], rbx
+0x140874453: mov      qword ptr [rsp + 0x60], rcx
+0x140874458: lea      rax, [rip + 0x3f769d]
+0x14087445f: mov      ebx, 0x1c
+0x140874464: lea      rcx, [rsp + 0x58]
+0x140874469: mov      edi, 1
+0x14087446e: mov      rsi, rdi
+0x140874471: call     0x140133280
+0x140874476: mov      rcx, rax
+0x140874479: mov      rdi, rbx
+0x14087447c: xor      eax, eax
+0x14087447e: xor      ebx, ebx
+0x140874480: add      rsp, 0x68
+0x140874484: pop      rbp
+0x140874485: ret      
+0x140874486: mov      byte ptr [rsp + rcx + 0x39], sil
+0x14087448b: inc      rax
+0x14087448e: add      rcx, 2
+0x140874492: cmp      rax, 0x10
+0x140874496: jge      0x1408744cd   ; main.newLauncherAssetID+0xcd
+0x140874498: movzx    edx, byte ptr [rsp + rax + 0x28]
+0x14087449d: mov      esi, edx
+0x14087449f: shr      dl, 4
+0x1408744a2: movzx    edx, dl
+0x1408744a5: lea      rdi, [rip + 0x3e0c6e]
+0x1408744ac: movzx    edx, byte ptr [rdi + rdx]
+0x1408744b0: cmp      rcx, 0x20
+0x1408744b4: jae      0x1408744f5   ; main.newLauncherAssetID+0xf5
+0x1408744b6: mov      byte ptr [rsp + rcx + 0x38], dl
+0x1408744ba: lea      rdx, [rcx + 1]
+0x1408744be: and      esi, 0xf
+0x1408744c1: movzx    esi, byte ptr [rsi + rdi]
+0x1408744c5: cmp      rdx, 0x20
+0x1408744c9: jb       0x140874486   ; main.newLauncherAssetID+0x86
+0x1408744cb: jmp      0x1408744e8   ; main.newLauncherAssetID+0xe8
+0x1408744cd: xor      eax, eax
+0x1408744cf: lea      rbx, [rsp + 0x38]
+0x1408744d4: mov      ecx, 0x20
+0x1408744d9: call     0x1400603c0
+0x1408744de: xor      ecx, ecx
+0x1408744e0: xor      edi, edi
+0x1408744e2: add      rsp, 0x68
+0x1408744e6: pop      rbp
+0x1408744e7: ret      
+0x1408744e8: mov      eax, 0x20
+0x1408744ed: mov      rcx, rax
+0x1408744f0: call     0x140081400
+0x1408744f5: mov      rax, rcx
+0x1408744f8: mov      ecx, 0x20
+0x1408744fd: nop      dword ptr [rax]
+0x140874500: call     0x140081400
+0x140874505: nop      
+0x140874506: call     0x14007f140
+0x14087450b: jmp      0x140874400   ; main.newLauncherAssetID
+0x140874510: int3     
+0x140874511: int3     
+0x140874512: int3     
+0x140874513: int3     
+0x140874514: int3     
+0x140874515: int3     
+0x140874516: int3     
+0x140874517: int3     
+0x140874518: int3     
+0x140874519: int3     
+0x14087451a: int3     
+0x14087451b: int3     
+0x14087451c: int3     
+0x14087451d: int3     
+0x14087451e: int3     
+0x14087451f: int3     

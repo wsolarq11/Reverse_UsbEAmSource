@@ -1,0 +1,96 @@
+0x140951e00: cmp      rsp, qword ptr [r14 + 0x10]
+0x140951e04: jbe      0x140951efe   ; main.averageQRCodeAnnotationColor+0xfe
+0x140951e0a: push     rbp
+0x140951e0b: mov      rbp, rsp
+0x140951e0e: sub      rsp, 0x50
+0x140951e12: mov      qword ptr [rsp + 0x60], rax
+0x140951e17: mov      qword ptr [rsp + 0x48], rsi
+0x140951e1c: mov      qword ptr [rsp + 0x40], rdi
+0x140951e21: mov      qword ptr [rsp + 0x38], rbx
+0x140951e26: xor      edx, edx
+0x140951e28: xor      r8d, r8d
+0x140951e2b: xor      r9d, r9d
+0x140951e2e: xor      r10d, r10d
+0x140951e31: jmp      0x140951e39   ; main.averageQRCodeAnnotationColor+0x39
+0x140951e33: inc      rcx
+0x140951e36: mov      rbx, r11
+0x140951e39: cmp      rsi, rcx
+0x140951e3c: jle      0x140951e4b   ; main.averageQRCodeAnnotationColor+0x4b
+0x140951e3e: mov      qword ptr [rsp + 0x28], rcx
+0x140951e43: mov      r11, rbx
+0x140951e46: jmp      0x140951ef4   ; main.averageQRCodeAnnotationColor+0xf4
+0x140951e4b: test     edx, edx
+0x140951e4d: jne      0x140951e61   ; main.averageQRCodeAnnotationColor+0x61
+0x140951e4f: xor      eax, eax
+0x140951e51: mov      ebx, eax
+0x140951e53: mov      ecx, eax
+0x140951e55: mov      edi, 0xffffffff
+0x140951e5a: add      rsp, 0x50
+0x140951e5e: pop      rbp
+0x140951e5f: nop      
+0x140951e60: ret      
+0x140951e61: mov      eax, r8d
+0x140951e64: mov      esi, edx
+0x140951e66: xor      edx, edx
+0x140951e68: div      esi
+0x140951e6a: mov      ecx, eax
+0x140951e6c: mov      eax, r9d
+0x140951e6f: xor      edx, edx
+0x140951e71: div      esi
+0x140951e73: mov      edx, eax
+0x140951e75: mov      eax, r10d
+0x140951e78: mov      ebx, edx
+0x140951e7a: xor      edx, edx
+0x140951e7c: div      esi
+0x140951e7e: mov      edi, 0xffffffff
+0x140951e83: mov      edx, eax
+0x140951e85: mov      eax, ecx
+0x140951e87: mov      ecx, edx
+0x140951e89: add      rsp, 0x50
+0x140951e8d: pop      rbp
+0x140951e8e: ret      
+0x140951e8f: mov      qword ptr [rsp + 0x30], rbx
+0x140951e94: mov      dword ptr [rsp + 0x24], r10d
+0x140951e99: mov      dword ptr [rsp + 0x1c], r9d
+0x140951e9e: mov      dword ptr [rsp + 0x18], r8d
+0x140951ea3: mov      dword ptr [rsp + 0x20], edx
+0x140951ea7: call     0x1401a1720   ; image.RGBA.RGBAAt
+0x140951eac: movzx    edx, al
+0x140951eaf: movzx    esi, bl
+0x140951eb2: movzx    edi, cl
+0x140951eb5: mov      r8d, dword ptr [rsp + 0x18]
+0x140951eba: add      r8d, edx
+0x140951ebd: mov      edx, dword ptr [rsp + 0x1c]
+0x140951ec1: lea      r9d, [rsi + rdx]
+0x140951ec5: mov      edx, dword ptr [rsp + 0x24]
+0x140951ec9: lea      r10d, [rdi + rdx]
+0x140951ecd: mov      rbx, qword ptr [rsp + 0x30]
+0x140951ed2: inc      rbx
+0x140951ed5: mov      edx, dword ptr [rsp + 0x20]
+0x140951ed9: inc      edx
+0x140951edb: mov      rax, qword ptr [rsp + 0x60]
+0x140951ee0: mov      rcx, qword ptr [rsp + 0x28]
+0x140951ee5: mov      rsi, qword ptr [rsp + 0x48]
+0x140951eea: mov      rdi, qword ptr [rsp + 0x40]
+0x140951eef: mov      r11, qword ptr [rsp + 0x38]
+0x140951ef4: cmp      rdi, rbx
+0x140951ef7: jg       0x140951e8f   ; main.averageQRCodeAnnotationColor+0x8f
+0x140951ef9: jmp      0x140951e33   ; main.averageQRCodeAnnotationColor+0x33
+0x140951efe: mov      qword ptr [rsp + 8], rax
+0x140951f03: mov      qword ptr [rsp + 0x10], rbx
+0x140951f08: mov      qword ptr [rsp + 0x18], rcx
+0x140951f0d: mov      qword ptr [rsp + 0x20], rdi
+0x140951f12: mov      qword ptr [rsp + 0x28], rsi
+0x140951f17: call     0x14007f140   ; runtime.morestack_noctxt
+0x140951f1c: mov      rax, qword ptr [rsp + 8]
+0x140951f21: mov      rbx, qword ptr [rsp + 0x10]
+0x140951f26: mov      rcx, qword ptr [rsp + 0x18]
+0x140951f2b: mov      rdi, qword ptr [rsp + 0x20]
+0x140951f30: mov      rsi, qword ptr [rsp + 0x28]
+0x140951f35: jmp      0x140951e00   ; main.averageQRCodeAnnotationColor
+0x140951f3a: int3     
+0x140951f3b: int3     
+0x140951f3c: int3     
+0x140951f3d: int3     
+0x140951f3e: int3     
+0x140951f3f: int3     

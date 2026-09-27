@@ -1,0 +1,141 @@
+0x1409b6800: lea      r12, [rsp - 0x178]
+0x1409b6808: cmp      r12, qword ptr [r14 + 0x10]
+0x1409b680c: jbe      0x1409b6ee7   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x6e7
+0x1409b6812: push     rbp
+0x1409b6813: mov      rbp, rsp
+0x1409b6816: sub      rsp, 0x1f0
+0x1409b681d: nop      dword ptr [rax]
+0x1409b6820: test     rax, rax
+0x1409b6823: je       0x1409b68e2   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0xe2
+0x1409b6829: mov      qword ptr [rsp + 0x200], rax
+0x1409b6831: nop      
+0x1409b6832: nop      
+0x1409b6833: mov      rcx, rax
+0x1409b6836: xor      eax, eax
+0x1409b6838: mov      edx, 1
+0x1409b683d: lock cmpxchg dword ptr [rcx], edx
+0x1409b6841: sete     dl
+0x1409b6844: test     dl, dl
+0x1409b6846: jne      0x1409b6858   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x58
+0x1409b6848: mov      rax, rcx
+0x1409b684b: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1409b6850: mov      rcx, qword ptr [rsp + 0x200]
+0x1409b6858: mov      byte ptr [rcx + 0xc8], 1
+0x1409b685f: mov      qword ptr [rcx + 0x78], 0
+0x1409b6867: mov      rdx, qword ptr [rcx + 0x90]
+0x1409b686e: inc      rdx
+0x1409b6871: cmp      rdx, 4
+0x1409b6875: ja       0x1409b6893   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x93
+0x1409b6877: movups   xmmword ptr [rsp + 0x120], xmm15
+0x1409b6880: movups   xmmword ptr [rsp + 0x130], xmm15
+0x1409b6889: lea      rax, [rsp + 0x120]
+0x1409b6891: jmp      0x1409b68bc   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0xbc
+0x1409b6893: mov      qword ptr [rsp + 0x88], rdx
+0x1409b689b: lea      rax, [rip + 0x110fde]
+0x1409b68a2: xor      ebx, ebx
+0x1409b68a4: mov      rcx, rdx
+0x1409b68a7: call     0x14007ac40   ; runtime.makeslice
+0x1409b68ac: mov      rcx, qword ptr [rsp + 0x200]
+0x1409b68b4: mov      rdx, qword ptr [rsp + 0x88]
+0x1409b68bc: mov      r8, qword ptr [rcx + 0x88]
+0x1409b68c3: mov      qword ptr [rsp + 0xd8], r8
+0x1409b68cb: mov      r9, qword ptr [rcx + 0x90]
+0x1409b68d2: mov      qword ptr [rsp + 0x80], r9
+0x1409b68da: xor      ebx, ebx
+0x1409b68dc: xor      esi, esi
+0x1409b68de: xor      edi, edi
+0x1409b68e0: jmp      0x1409b6900   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x100
+0x1409b68e2: xor      eax, eax
+0x1409b68e4: xor      ebx, ebx
+0x1409b68e6: mov      rcx, rbx
+0x1409b68e9: add      rsp, 0x1f0
+0x1409b68f0: pop      rbp
+0x1409b68f1: ret      
+0x1409b68f2: inc      rbx
+0x1409b68f5: mov      rdi, r11
+0x1409b68f8: nop      dword ptr [rax + rax]
+0x1409b6900: cmp      rbx, r9
+0x1409b6903: jge      0x1409b6a0d   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x20d
+0x1409b6909: mov      r10, qword ptr [r8 + rbx*8]
+0x1409b690d: test     r10, r10
+0x1409b6910: je       0x1409b6a05   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x205
+0x1409b6916: cmp      byte ptr [r10 + 0x30], 0
+0x1409b691b: nop      dword ptr [rax + rax]
+0x1409b6920: jne      0x1409b69f9   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x1f9
+0x1409b6926: mov      byte ptr [r10 + 0x30], 3
+0x1409b692b: lea      r11, [rdi + 1]
+0x1409b692f: cmp      rdx, r11
+0x1409b6932: jae      0x1409b69cd   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x1cd
+0x1409b6938: mov      qword ptr [rsp + 0x88], rbx
+0x1409b6940: mov      qword ptr [rsp + 0x98], r10
+0x1409b6948: mov      byte ptr [rsp + 0x47], sil
+0x1409b694d: cmp      r11, 4
+0x1409b6951: jg       0x1409b6983   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x183
+0x1409b6953: test     sil, sil
+0x1409b6956: jne      0x1409b6983   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x183
+0x1409b6958: test     rdi, rdi
+0x1409b695b: jne      0x1409b6983   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x183
+0x1409b695d: movups   xmmword ptr [rsp + 0x100], xmm15
+0x1409b6966: movups   xmmword ptr [rsp + 0x110], xmm15
+0x1409b696f: lea      rax, [rsp + 0x100]
+0x1409b6977: mov      edx, 4
+0x1409b697c: mov      esi, 1
+0x1409b6981: jmp      0x1409b69cd   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x1cd
+0x1409b6983: mov      rbx, r11
+0x1409b6986: mov      rcx, rdx
+0x1409b6989: mov      edi, 1
+0x1409b698e: lea      rsi, [rip + 0x110eeb]
+0x1409b6995: call     0x14007ad20   ; runtime.growslice
+0x1409b699a: mov      r8, qword ptr [rsp + 0xd8]
+0x1409b69a2: mov      r9, qword ptr [rsp + 0x80]
+0x1409b69aa: mov      r10, qword ptr [rsp + 0x98]
+0x1409b69b2: mov      r11, rbx
+0x1409b69b5: mov      rdx, rcx
+0x1409b69b8: movzx    esi, byte ptr [rsp + 0x47]
+0x1409b69bd: mov      rcx, qword ptr [rsp + 0x200]
+0x1409b69c5: mov      rbx, qword ptr [rsp + 0x88]
+0x1409b69cd: cmp      dword ptr [rip + 0x12a497c], 0
+0x1409b69d4: je       0x1409b69ef   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x1ef
+0x1409b69d6: mov      r12, qword ptr [rax + r11*8 - 8]
+0x1409b69db: mov      rdi, r11
+0x1409b69de: nop      
+0x1409b69e0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409b69e5: mov      qword ptr [r11], r10
+0x1409b69e8: mov      qword ptr [r11 + 8], r12
+0x1409b69ec: mov      r11, rdi
+0x1409b69ef: mov      qword ptr [rax + r11*8 - 8], r10
+0x1409b69f4: jmp      0x1409b68f2   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0xf2
+0x1409b69f9: mov      r11, rdi
+0x1409b69fc: nop      dword ptr [rax]
+0x1409b6a00: jmp      0x1409b68f2   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0xf2
+0x1409b6a05: mov      r11, rdi
+0x1409b6a08: jmp      0x1409b68f2   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0xf2
+0x1409b6a0d: movups   xmmword ptr [rcx + 0x90], xmm15
+0x1409b6a15: cmp      dword ptr [rip + 0x12a4934], 0
+0x1409b6a1c: je       0x1409b6a2d   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x22d
+0x1409b6a1e: mov      r8, qword ptr [rcx + 0x88]
+0x1409b6a25: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409b6a2a: mov      qword ptr [r11], r8
+0x1409b6a2d: mov      qword ptr [rcx + 0x88], 0
+0x1409b6a38: mov      r8, qword ptr [rcx + 0xa0]
+0x1409b6a3f: nop      
+0x1409b6a40: test     r8, r8
+0x1409b6a43: je       0x1409b6abb   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x2bb
+0x1409b6a45: cmp      byte ptr [r8 + 0x30], 0
+0x1409b6a4a: jne      0x1409b6ab6   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x2b6
+0x1409b6a4c: mov      byte ptr [r8 + 0x30], 3
+0x1409b6a51: lea      rbx, [rdi + 1]
+0x1409b6a55: mov      r8, qword ptr [rcx + 0xa0]
+0x1409b6a5c: nop      dword ptr [rax]
+0x1409b6a60: cmp      rdx, rbx
+0x1409b6a63: jae      0x1409b6a95   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x295
+0x1409b6a65: mov      qword ptr [rsp + 0xd0], r8
+0x1409b6a6d: mov      rcx, rdx
+0x1409b6a70: mov      edi, 1
+0x1409b6a75: lea      rsi, [rip + 0x110e04]
+0x1409b6a7c: nop      dword ptr [rax]
+0x1409b6a80: call     0x14007ad20   ; runtime.growslice
+0x1409b6a85: mov      rcx, qword ptr [rsp + 0x200]
+0x1409b6a8d: mov      r8, qword ptr [rsp + 0xd0]
+0x1409b6a95: cmp      dword ptr [rip + 0x12a48b4], 0
+0x1409b6a9c: je       0x1409b6aaf   ; main.screenshotCOMQueryWorkerPool.beginShutdown+0x2af

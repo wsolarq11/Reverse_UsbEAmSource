@@ -1,0 +1,70 @@
+0x1408cb440: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408cb444: jbe      0x1408cb4b7    ; main.replaceLauncherUpdateMetadataFile+0x77
+0x1408cb446: push     rbp
+0x1408cb447: mov      rbp, rsp
+0x1408cb44a: sub      rsp, 0x20
+0x1408cb44e: mov      qword ptr [rsp + 0x30], rax
+0x1408cb453: mov      qword ptr [rsp + 0x48], rdi
+0x1408cb458: mov      qword ptr [rsp + 0x40], rcx
+0x1408cb45d: nop      dword ptr [rax]
+0x1408cb460: call     0x140194220    ; golang.org/x/sys/windows.UTF16PtrFromString
+0x1408cb465: test     rbx, rbx
+0x1408cb468: jne      0x1408cb4ab    ; main.replaceLauncherUpdateMetadataFile+0x6b
+0x1408cb46a: mov      qword ptr [rsp + 0x18], rax
+0x1408cb46f: mov      rax, qword ptr [rsp + 0x40]
+0x1408cb474: mov      rbx, qword ptr [rsp + 0x48]
+0x1408cb479: call     0x140194220    ; golang.org/x/sys/windows.UTF16PtrFromString
+0x1408cb47e: nop      
+0x1408cb480: test     rbx, rbx
+0x1408cb483: je       0x1408cb491    ; main.replaceLauncherUpdateMetadataFile+0x51
+0x1408cb485: mov      rax, rbx
+0x1408cb488: mov      rbx, rcx
+0x1408cb48b: add      rsp, 0x20
+0x1408cb48f: pop      rbp
+0x1408cb490: ret      
+0x1408cb491: mov      rbx, rax
+0x1408cb494: mov      ecx, 9
+0x1408cb499: mov      rax, qword ptr [rsp + 0x18]
+0x1408cb49e: nop      
+0x1408cb4a0: call     0x140198660    ; golang.org/x/sys/windows.MoveFileEx
+0x1408cb4a5: add      rsp, 0x20
+0x1408cb4a9: pop      rbp
+0x1408cb4aa: ret      
+0x1408cb4ab: mov      rax, rbx
+0x1408cb4ae: mov      rbx, rcx
+0x1408cb4b1: add      rsp, 0x20
+0x1408cb4b5: pop      rbp
+0x1408cb4b6: ret      
+0x1408cb4b7: mov      qword ptr [rsp + 8], rax
+0x1408cb4bc: mov      qword ptr [rsp + 0x10], rbx
+0x1408cb4c1: mov      qword ptr [rsp + 0x18], rcx
+0x1408cb4c6: mov      qword ptr [rsp + 0x20], rdi
+0x1408cb4cb: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408cb4d0: mov      rax, qword ptr [rsp + 8]
+0x1408cb4d5: mov      rbx, qword ptr [rsp + 0x10]
+0x1408cb4da: mov      rcx, qword ptr [rsp + 0x18]
+0x1408cb4df: mov      rdi, qword ptr [rsp + 0x20]
+0x1408cb4e4: jmp      0x1408cb440    ; main.replaceLauncherUpdateMetadataFile
+0x1408cb4e9: int3     
+0x1408cb4ea: int3     
+0x1408cb4eb: int3     
+0x1408cb4ec: int3     
+0x1408cb4ed: int3     
+0x1408cb4ee: int3     
+0x1408cb4ef: int3     
+0x1408cb4f0: int3     
+0x1408cb4f1: int3     
+0x1408cb4f2: int3     
+0x1408cb4f3: int3     
+0x1408cb4f4: int3     
+0x1408cb4f5: int3     
+0x1408cb4f6: int3     
+0x1408cb4f7: int3     
+0x1408cb4f8: int3     
+0x1408cb4f9: int3     
+0x1408cb4fa: int3     
+0x1408cb4fb: int3     
+0x1408cb4fc: int3     
+0x1408cb4fd: int3     
+0x1408cb4fe: int3     
+0x1408cb4ff: int3     

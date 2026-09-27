@@ -1,0 +1,162 @@
+0x140995300: cmp      rsp, qword ptr [r14 + 0x10]
+0x140995304: jbe      0x1409954f8   ; main.screenshotPNGIDATChunkWriter.Write+0x1f8
+0x14099530a: push     rbp
+0x14099530b: mov      rbp, rsp
+0x14099530e: sub      rsp, 0x68
+0x140995312: mov      qword ptr [rsp + 0x80], rbx
+0x14099531a: test     rax, rax
+0x14099531d: je       0x140995334   ; main.screenshotPNGIDATChunkWriter.Write+0x34
+0x14099531f: cmp      qword ptr [rax], 0
+0x140995323: je       0x140995334   ; main.screenshotPNGIDATChunkWriter.Write+0x34
+0x140995325: cmp      byte ptr [rax + 0x30], 0
+0x140995329: jne      0x140995334   ; main.screenshotPNGIDATChunkWriter.Write+0x34
+0x14099532b: mov      qword ptr [rsp + 0x78], rax
+0x140995330: xor      edx, edx
+0x140995332: jmp      0x140995376   ; main.screenshotPNGIDATChunkWriter.Write+0x76
+0x140995334: lea      rax, [rip + 0x1bf045]
+0x14099533b: nop      dword ptr [rax + rax]
+0x140995340: call     0x14001ae20   ; runtime.newobject
+0x140995345: mov      qword ptr [rax + 8], 0x1b
+0x14099534d: lea      rcx, [rip + 0x2d50fe]
+0x140995354: mov      qword ptr [rax], rcx
+0x140995357: lea      rbx, [rip + 0x83dda2]
+0x14099535e: mov      rcx, rax
+0x140995361: xor      eax, eax
+0x140995363: add      rsp, 0x68
+0x140995367: pop      rbp
+0x140995368: ret      
+0x140995369: mov      qword ptr [rax + 0x10], r10
+0x14099536d: mov      rcx, r8
+0x140995370: mov      rbx, rdx
+0x140995373: mov      rdx, rsi
+0x140995376: test     rcx, rcx
+0x140995379: je       0x1409954df   ; main.screenshotPNGIDATChunkWriter.Write+0x1df
+0x14099537f: mov      qword ptr [rsp + 0x60], rbx
+0x140995384: mov      qword ptr [rsp + 0x50], rcx
+0x140995389: mov      qword ptr [rsp + 0x48], rdi
+0x14099538e: mov      qword ptr [rsp + 0x28], rdx
+0x140995393: mov      r8, qword ptr [rax + 0x28]
+0x140995397: sub      r8, qword ptr [rax + 0x18]
+0x14099539b: nop      dword ptr [rax + rax]
+0x1409953a0: test     r8, r8
+0x1409953a3: jg       0x1409953d3   ; main.screenshotPNGIDATChunkWriter.Write+0xd3
+0x1409953a5: call     0x1409955a0   ; main.screenshotPNGIDATChunkWriter.flush
+0x1409953aa: test     rax, rax
+0x1409953ad: jne      0x1409954ce   ; main.screenshotPNGIDATChunkWriter.Write+0x1ce
+0x1409953b3: mov      r9, qword ptr [rsp + 0x78]
+0x1409953b8: mov      r8, qword ptr [r9 + 0x28]
+0x1409953bc: mov      rax, r9
+0x1409953bf: mov      rcx, qword ptr [rsp + 0x50]
+0x1409953c4: mov      rdx, qword ptr [rsp + 0x28]
+0x1409953c9: mov      rbx, qword ptr [rsp + 0x60]
+0x1409953ce: mov      rdi, qword ptr [rsp + 0x48]
+0x1409953d3: cmp      r8, rcx
+0x1409953d6: mov      r9, rcx
+0x1409953d9: cmovl    r9, r8
+0x1409953dd: nop      dword ptr [rax]
+0x1409953e0: cmp      rdi, r9
+0x1409953e3: jb       0x1409954ec   ; main.screenshotPNGIDATChunkWriter.Write+0x1ec
+0x1409953e9: mov      qword ptr [rsp + 0x30], r9
+0x1409953ee: mov      r8, qword ptr [rax + 0x20]
+0x1409953f2: mov      r10, qword ptr [rax + 0x18]
+0x1409953f6: lea      r11, [r10 + r9]
+0x1409953fa: mov      r12, qword ptr [rax + 0x10]
+0x1409953fe: nop      
+0x140995400: cmp      r8, r11
+0x140995403: jae      0x14099543d   ; main.screenshotPNGIDATChunkWriter.Write+0x13d
+0x140995405: mov      qword ptr [rsp + 0x40], r10
+0x14099540a: mov      rax, r12
+0x14099540d: mov      rbx, r11
+0x140995410: mov      rcx, r8
+0x140995413: mov      rdi, r9
+0x140995416: lea      rsi, [rip + 0x154a63]
+0x14099541d: nop      dword ptr [rax]
+0x140995420: call     0x14007ad20   ; runtime.growslice
+0x140995425: mov      r9, qword ptr [rsp + 0x30]
+0x14099542a: mov      r10, qword ptr [rsp + 0x40]
+0x14099542f: mov      r12, rax
+0x140995432: mov      r11, rbx
+0x140995435: mov      r8, rcx
+0x140995438: mov      rbx, qword ptr [rsp + 0x60]
+0x14099543d: mov      qword ptr [rsp + 0x40], r11
+0x140995442: mov      qword ptr [rsp + 0x38], r8
+0x140995447: mov      qword ptr [rsp + 0x58], r12
+0x14099544c: lea      rax, [r10 + r12]
+0x140995450: mov      rcx, r9
+0x140995453: call     0x140081e00   ; runtime.memmove
+0x140995458: mov      rdx, qword ptr [rsp + 0x40]
+0x14099545d: mov      rax, qword ptr [rsp + 0x78]
+0x140995462: mov      qword ptr [rax + 0x18], rdx
+0x140995466: mov      rdx, qword ptr [rsp + 0x38]
+0x14099546b: mov      qword ptr [rax + 0x20], rdx
+0x14099546f: mov      rdx, qword ptr [rsp + 0x48]
+0x140995474: mov      rsi, qword ptr [rsp + 0x30]
+0x140995479: sub      rdx, rsi
+0x14099547c: mov      rdi, rdx
+0x14099547f: neg      rdx
+0x140995482: sar      rdx, 0x3f
+0x140995486: and      rdx, rsi
+0x140995489: mov      r8, qword ptr [rsp + 0x60]
+0x14099548e: add      rdx, r8
+0x140995491: mov      r8, qword ptr [rsp + 0x50]
+0x140995496: sub      r8, rsi
+0x140995499: mov      r9, qword ptr [rsp + 0x28]
+0x14099549e: add      rsi, r9
+0x1409954a1: cmp      dword ptr [rip + 0x12c5ea8], 0
+0x1409954a8: jne      0x1409954b4   ; main.screenshotPNGIDATChunkWriter.Write+0x1b4
+0x1409954aa: mov      r10, qword ptr [rsp + 0x58]
+0x1409954af: jmp      0x140995369   ; main.screenshotPNGIDATChunkWriter.Write+0x69
+0x1409954b4: mov      r9, qword ptr [rax + 0x10]
+0x1409954b8: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409954bd: mov      r10, qword ptr [rsp + 0x58]
+0x1409954c2: mov      qword ptr [r11], r10
+0x1409954c5: mov      qword ptr [r11 + 8], r9
+0x1409954c9: jmp      0x140995369   ; main.screenshotPNGIDATChunkWriter.Write+0x69
+0x1409954ce: mov      rcx, rbx
+0x1409954d1: mov      rbx, rax
+0x1409954d4: mov      rax, qword ptr [rsp + 0x28]
+0x1409954d9: add      rsp, 0x68
+0x1409954dd: pop      rbp
+0x1409954de: ret      
+0x1409954df: mov      rax, rdx
+0x1409954e2: xor      ebx, ebx
+0x1409954e4: xor      ecx, ecx
+0x1409954e6: add      rsp, 0x68
+0x1409954ea: pop      rbp
+0x1409954eb: ret      
+0x1409954ec: mov      rcx, r9
+0x1409954ef: mov      rdx, rdi
+0x1409954f2: call     0x140081480   ; runtime.panicSliceAcap
+0x1409954f7: nop      
+0x1409954f8: mov      qword ptr [rsp + 8], rax
+0x1409954fd: mov      qword ptr [rsp + 0x10], rbx
+0x140995502: mov      qword ptr [rsp + 0x18], rcx
+0x140995507: mov      qword ptr [rsp + 0x20], rdi
+0x14099550c: call     0x14007f140   ; runtime.morestack_noctxt
+0x140995511: mov      rax, qword ptr [rsp + 8]
+0x140995516: mov      rbx, qword ptr [rsp + 0x10]
+0x14099551b: mov      rcx, qword ptr [rsp + 0x18]
+0x140995520: mov      rdi, qword ptr [rsp + 0x20]
+0x140995525: jmp      0x140995300   ; main.screenshotPNGIDATChunkWriter.Write
+0x14099552a: int3     
+0x14099552b: int3     
+0x14099552c: int3     
+0x14099552d: int3     
+0x14099552e: int3     
+0x14099552f: int3     
+0x140995530: int3     
+0x140995531: int3     
+0x140995532: int3     
+0x140995533: int3     
+0x140995534: int3     
+0x140995535: int3     
+0x140995536: int3     
+0x140995537: int3     
+0x140995538: int3     
+0x140995539: int3     
+0x14099553a: int3     
+0x14099553b: int3     
+0x14099553c: int3     
+0x14099553d: int3     
+0x14099553e: int3     
+0x14099553f: int3     

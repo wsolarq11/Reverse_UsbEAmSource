@@ -1,0 +1,28 @@
+0x1408c5500: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408c5504: jbe      0x1408c5558    ; main.launcherUpdateHealthHandshakePending+0x58
+0x1408c5506: push     rbp
+0x1408c5507: mov      rbp, rsp
+0x1408c550a: sub      rsp, 0x10
+0x1408c550e: lea      rax, [rip + 0x3a1721]
+0x1408c5515: mov      ebx, 0x19
+0x1408c551a: call     0x140125a00    ; os.Getenv
+0x1408c551f: nop      
+0x1408c5520: call     0x1400a2200    ; strings.TrimSpace
+0x1408c5525: test     rbx, rbx
+0x1408c5528: je       0x1408c5531    ; main.launcherUpdateHealthHandshakePending+0x31
+0x1408c552a: mov      ecx, 1
+0x1408c552f: jmp      0x1408c5550    ; main.launcherUpdateHealthHandshakePending+0x50
+0x1408c5531: lea      rax, [rip + 0x3a2e51]
+0x1408c5538: mov      ebx, 0x1a
+0x1408c553d: nop      dword ptr [rax]
+0x1408c5540: call     0x140125a00    ; os.Getenv
+0x1408c5545: call     0x1400a2200    ; strings.TrimSpace
+0x1408c554a: test     rbx, rbx
+0x1408c554d: setne    cl
+0x1408c5550: mov      eax, ecx
+0x1408c5552: add      rsp, 0x10
+0x1408c5556: pop      rbp
+0x1408c5557: ret      
+0x1408c5558: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408c555d: jmp      0x1408c5500    ; main.launcherUpdateHealthHandshakePending
+0x1408c555f: int3     

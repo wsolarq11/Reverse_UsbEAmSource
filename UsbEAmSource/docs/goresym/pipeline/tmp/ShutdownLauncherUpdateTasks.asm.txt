@@ -1,0 +1,77 @@
+0x1408c5400: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408c5404: jbe      0x1408c54e1    ; main.BootstrapService.ShutdownLauncherUpdateTasks+0xe1
+0x1408c540a: push     rbp
+0x1408c540b: mov      rbp, rsp
+0x1408c540e: sub      rsp, 0x28
+0x1408c5412: test     rax, rax
+0x1408c5415: je       0x1408c54db    ; main.BootstrapService.ShutdownLauncherUpdateTasks+0xdb
+0x1408c541b: mov      qword ptr [rsp + 0x38], rax
+0x1408c5420: nop      
+0x1408c5421: lea      rcx, [rax + 0x540]
+0x1408c5428: mov      rdx, rax
+0x1408c542b: xor      eax, eax
+0x1408c542d: mov      esi, 1
+0x1408c5432: lock cmpxchg dword ptr [rdx + 0x540], esi
+0x1408c543a: sete     sil
+0x1408c543e: nop      
+0x1408c5440: test     sil, sil
+0x1408c5443: jne      0x1408c545c    ; main.BootstrapService.ShutdownLauncherUpdateTasks+0x5c
+0x1408c5445: mov      qword ptr [rsp + 0x20], rcx
+0x1408c544a: mov      rax, rcx
+0x1408c544d: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x1408c5452: mov      rcx, qword ptr [rsp + 0x20]
+0x1408c5457: mov      rdx, qword ptr [rsp + 0x38]
+0x1408c545c: mov      byte ptr [rdx + 0x4f0], 1
+0x1408c5463: nop      
+0x1408c5464: nop      
+0x1408c5465: mov      ebx, 0xffffffff
+0x1408c546a: lock xadd dword ptr [rdx + 0x540], ebx
+0x1408c5472: dec      ebx
+0x1408c5474: je       0x1408c5483    ; main.BootstrapService.ShutdownLauncherUpdateTasks+0x83
+0x1408c5476: mov      rax, rcx
+0x1408c5479: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x1408c547e: mov      rdx, qword ptr [rsp + 0x38]
+0x1408c5483: mov      rax, rdx
+0x1408c5486: call     0x1408b7da0    ; main.BootstrapService.cancelLauncherUpdateTask
+0x1408c548b: mov      qword ptr [rsp + 0x18], rbx
+0x1408c5490: mov      qword ptr [rsp + 0x10], rcx
+0x1408c5495: test     al, al
+0x1408c5497: je       0x1408c54b2    ; main.BootstrapService.ShutdownLauncherUpdateTasks+0xb2
+0x1408c5499: test     rdi, rdi
+0x1408c549c: je       0x1408c54b2    ; main.BootstrapService.ShutdownLauncherUpdateTasks+0xb2
+0x1408c549e: mov      rax, rdi
+0x1408c54a1: xor      ebx, ebx
+0x1408c54a3: call     0x140012620    ; runtime.chanrecv1
+0x1408c54a8: mov      rcx, qword ptr [rsp + 0x10]
+0x1408c54ad: mov      rbx, qword ptr [rsp + 0x18]
+0x1408c54b2: mov      rax, rbx
+0x1408c54b5: mov      rbx, rcx
+0x1408c54b8: call     0x1400a2200    ; strings.TrimSpace
+0x1408c54bd: nop      dword ptr [rax]
+0x1408c54c0: test     rbx, rbx
+0x1408c54c3: je       0x1408c54d5    ; main.BootstrapService.ShutdownLauncherUpdateTasks+0xd5
+0x1408c54c5: nop      
+0x1408c54c6: mov      rax, qword ptr [rsp + 0x18]
+0x1408c54cb: mov      rbx, qword ptr [rsp + 0x10]
+0x1408c54d0: call     0x14012c720    ; os.removeAll
+0x1408c54d5: add      rsp, 0x28
+0x1408c54d9: pop      rbp
+0x1408c54da: ret      
+0x1408c54db: add      rsp, 0x28
+0x1408c54df: pop      rbp
+0x1408c54e0: ret      
+0x1408c54e1: mov      qword ptr [rsp + 8], rax
+0x1408c54e6: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408c54eb: mov      rax, qword ptr [rsp + 8]
+0x1408c54f0: jmp      0x1408c5400    ; main.BootstrapService.ShutdownLauncherUpdateTasks
+0x1408c54f5: int3     
+0x1408c54f6: int3     
+0x1408c54f7: int3     
+0x1408c54f8: int3     
+0x1408c54f9: int3     
+0x1408c54fa: int3     
+0x1408c54fb: int3     
+0x1408c54fc: int3     
+0x1408c54fd: int3     
+0x1408c54fe: int3     
+0x1408c54ff: int3     

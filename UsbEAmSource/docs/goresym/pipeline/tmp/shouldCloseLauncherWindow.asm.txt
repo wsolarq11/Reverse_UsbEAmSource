@@ -1,0 +1,74 @@
+0x14079a2e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14079a2e4: jbe      0x14079a390    ; main.BootstrapService.shouldCloseLauncherWindow+0xb0
+0x14079a2ea: push     rbp
+0x14079a2eb: mov      rbp, rsp
+0x14079a2ee: sub      rsp, 0x30
+0x14079a2f2: movq     qword ptr [rsp + 0x28], xmm15
+0x14079a2f9: mov      byte ptr [rsp + 0xf], 0
+0x14079a2fe: mov      byte ptr [rsp + 0xe], 0
+0x14079a303: nop      
+0x14079a304: mov      rcx, rax
+0x14079a307: xor      eax, eax
+0x14079a309: mov      ebx, 1
+0x14079a30e: lock cmpxchg dword ptr [rcx + 0x540], ebx
+0x14079a316: sete     bl
+0x14079a319: test     bl, bl
+0x14079a31b: jne      0x14079a333    ; main.BootstrapService.shouldCloseLauncherWindow+0x53
+0x14079a31d: mov      qword ptr [rsp + 0x20], rcx
+0x14079a322: lea      rax, [rcx + 0x540]
+0x14079a329: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14079a32e: mov      rcx, qword ptr [rsp + 0x20]
+0x14079a333: lea      rax, [rip + 0x86]
+0x14079a33a: mov      qword ptr [rsp + 0x10], rax
+0x14079a33f: lea      rax, [rcx + 0x540]
+0x14079a346: mov      qword ptr [rsp + 0x18], rax
+0x14079a34b: lea      rdx, [rsp + 0x10]
+0x14079a350: mov      qword ptr [rsp + 0x28], rdx
+0x14079a355: mov      byte ptr [rsp + 0xf], 1
+0x14079a35a: movzx    eax, byte ptr [rcx + 0x44b]
+0x14079a361: mov      byte ptr [rsp + 0xe], al
+0x14079a365: mov      byte ptr [rsp + 0xf], 0
+0x14079a36a: mov      rax, qword ptr [rsp + 0x10]
+0x14079a36f: call     rax
+0x14079a371: movzx    eax, byte ptr [rsp + 0xe]
+0x14079a376: add      rsp, 0x30
+0x14079a37a: pop      rbp
+0x14079a37b: ret      
+0x14079a37c: nop      dword ptr [rax]
+0x14079a380: call     0x1400435e0    ; runtime.deferreturn
+0x14079a385: movzx    eax, byte ptr [rsp + 0xe]
+0x14079a38a: add      rsp, 0x30
+0x14079a38e: pop      rbp
+0x14079a38f: ret      
+0x14079a390: mov      qword ptr [rsp + 8], rax
+0x14079a395: call     0x14007f140    ; runtime.morestack_noctxt
+0x14079a39a: mov      rax, qword ptr [rsp + 8]
+0x14079a39f: nop      
+0x14079a3a0: jmp      0x14079a2e0    ; main.BootstrapService.shouldCloseLauncherWindow
+0x14079a3a5: int3     
+0x14079a3a6: int3     
+0x14079a3a7: int3     
+0x14079a3a8: int3     
+0x14079a3a9: int3     
+0x14079a3aa: int3     
+0x14079a3ab: int3     
+0x14079a3ac: int3     
+0x14079a3ad: int3     
+0x14079a3ae: int3     
+0x14079a3af: int3     
+0x14079a3b0: int3     
+0x14079a3b1: int3     
+0x14079a3b2: int3     
+0x14079a3b3: int3     
+0x14079a3b4: int3     
+0x14079a3b5: int3     
+0x14079a3b6: int3     
+0x14079a3b7: int3     
+0x14079a3b8: int3     
+0x14079a3b9: int3     
+0x14079a3ba: int3     
+0x14079a3bb: int3     
+0x14079a3bc: int3     
+0x14079a3bd: int3     
+0x14079a3be: int3     
+0x14079a3bf: int3     

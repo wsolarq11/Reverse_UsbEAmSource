@@ -1,0 +1,105 @@
+0x140781be0: lea      r12, [rsp - 0x330]
+0x140781be8: cmp      r12, qword ptr [r14 + 0x10]
+0x140781bec: jbe      0x140781d69    ; main.BootstrapService.GetMouseGestureState+0x189
+0x140781bf2: push     rbp
+0x140781bf3: mov      rbp, rsp
+0x140781bf6: sub      rsp, 0x3a8
+0x140781bfd: mov      qword ptr [rsp + 0x4c8], rax
+0x140781c05: lea      rdi, [rsp + 0x3b8]
+0x140781c0d: lea      rdi, [rdi - 0x30]
+0x140781c11: nop      word ptr [rax + rax]
+0x140781c1a: nop      word ptr [rax + rax]
+0x140781c20: mov      qword ptr [rsp - 0x10], rbp
+0x140781c25: lea      rbp, [rsp - 0x10]
+0x140781c2a: call     0x1400816eb    ; runtime.duffzero+0x10b
+0x140781c2f: mov      rbp, qword ptr [rbp]
+0x140781c33: mov      rax, qword ptr [rax + 0x390]
+0x140781c3a: call     0x1408e1e40    ; main.mouseGestureService.buildState
+0x140781c3f: lea      rdi, [rsp + 0x298]
+0x140781c47: mov      rsi, rsp
+0x140781c4a: mov      qword ptr [rsp - 0x10], rbp
+0x140781c4f: lea      rbp, [rsp - 0x10]
+0x140781c54: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140781c59: mov      rbp, qword ptr [rbp]
+0x140781c5d: lea      rdi, [rsp + 0x188]
+0x140781c65: lea      rsi, [rsp + 0x298]
+0x140781c6d: nop      word ptr [rax + rax]
+0x140781c76: nop      word ptr [rax + rax]
+0x140781c7f: nop      
+0x140781c80: mov      qword ptr [rsp - 0x10], rbp
+0x140781c85: lea      rbp, [rsp - 0x10]
+0x140781c8a: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140781c8f: mov      rbp, qword ptr [rbp]
+0x140781c93: mov      rdi, rsp
+0x140781c96: lea      rsi, [rsp + 0x1a8]
+0x140781c9e: nop      
+0x140781ca0: mov      qword ptr [rsp - 0x10], rbp
+0x140781ca5: lea      rbp, [rsp - 0x10]
+0x140781caa: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x140781caf: mov      rbp, qword ptr [rbp]
+0x140781cb3: mov      rax, qword ptr [rsp + 0x4c8]
+0x140781cbb: nop      dword ptr [rax + rax]
+0x140781cc0: call     0x140784000    ; main.BootstrapService.attachMouseGestureConfigIconURLs
+0x140781cc5: lea      rdi, [rsp + 0x298]
+0x140781ccd: lea      rsi, [rsp + 0xc0]
+0x140781cd5: nop      word ptr [rax + rax]
+0x140781cde: nop      
+0x140781ce0: mov      qword ptr [rsp - 0x10], rbp
+0x140781ce5: lea      rbp, [rsp - 0x10]
+0x140781cea: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x140781cef: mov      rbp, qword ptr [rbp]
+0x140781cf3: lea      rdi, [rsp + 0x1a8]
+0x140781cfb: lea      rsi, [rsp + 0x298]
+0x140781d03: mov      qword ptr [rsp - 0x10], rbp
+0x140781d08: lea      rbp, [rsp - 0x10]
+0x140781d0d: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x140781d12: mov      rbp, qword ptr [rbp]
+0x140781d16: lea      rdi, [rsp + 0x3b8]
+0x140781d1e: lea      rsi, [rsp + 0x188]
+0x140781d26: mov      qword ptr [rsp - 0x10], rbp
+0x140781d2b: lea      rbp, [rsp - 0x10]
+0x140781d30: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140781d35: mov      rbp, qword ptr [rbp]
+0x140781d39: lea      rdi, [rsp + 0x3b8]
+0x140781d41: lea      rsi, [rsp + 0x188]
+0x140781d49: mov      qword ptr [rsp - 0x10], rbp
+0x140781d4e: lea      rbp, [rsp - 0x10]
+0x140781d53: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140781d58: mov      rbp, qword ptr [rbp]
+0x140781d5c: xor      eax, eax
+0x140781d5e: xor      ebx, ebx
+0x140781d60: add      rsp, 0x3a8
+0x140781d67: pop      rbp
+0x140781d68: ret      
+0x140781d69: mov      qword ptr [rsp + 0x118], rax
+0x140781d71: call     0x14007f140    ; runtime.morestack_noctxt
+0x140781d76: mov      rax, qword ptr [rsp + 0x118]
+0x140781d7e: nop      
+0x140781d80: jmp      0x140781be0    ; main.BootstrapService.GetMouseGestureState
+0x140781d85: int3     
+0x140781d86: int3     
+0x140781d87: int3     
+0x140781d88: int3     
+0x140781d89: int3     
+0x140781d8a: int3     
+0x140781d8b: int3     
+0x140781d8c: int3     
+0x140781d8d: int3     
+0x140781d8e: int3     
+0x140781d8f: int3     
+0x140781d90: int3     
+0x140781d91: int3     
+0x140781d92: int3     
+0x140781d93: int3     
+0x140781d94: int3     
+0x140781d95: int3     
+0x140781d96: int3     
+0x140781d97: int3     
+0x140781d98: int3     
+0x140781d99: int3     
+0x140781d9a: int3     
+0x140781d9b: int3     
+0x140781d9c: int3     
+0x140781d9d: int3     
+0x140781d9e: int3     
+0x140781d9f: int3     

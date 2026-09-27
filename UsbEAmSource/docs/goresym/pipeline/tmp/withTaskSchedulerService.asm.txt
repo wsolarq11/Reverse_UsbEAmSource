@@ -1,0 +1,240 @@
+0x1408b14e0: lea      r12, [rsp - 0xc8]
+0x1408b14e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1408b14ec: jbe      0x1408b1834   ; main.withTaskSchedulerService+0x354
+0x1408b14f2: push     rbp
+0x1408b14f3: mov      rbp, rsp
+0x1408b14f6: sub      rsp, 0x140
+0x1408b14fd: mov      qword ptr [rsp + 0x150], rax
+0x1408b1505: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x1408b150e: call     0x140052560   ; runtime.LockOSThread
+0x1408b1513: lea      rax, [rip + 0x7e58f6]
+0x1408b151a: mov      qword ptr [rsp + 0xd8], rax
+0x1408b1522: lea      rax, [rsp + 0xc0]
+0x1408b152a: call     0x1400430a0   ; runtime.deferprocStack
+0x1408b152f: call     0x1405edea0   ; github.com/go-ole/go-ole.coInitialize
+0x1408b1534: test     rax, rax
+0x1408b1537: je       0x1408b15a7   ; main.withTaskSchedulerService+0xc7
+0x1408b1539: movups   xmmword ptr [rsp + 0x130], xmm15
+0x1408b1542: je       0x1408b1548   ; main.withTaskSchedulerService+0x68
+0x1408b1544: mov      rax, qword ptr [rax + 8]
+0x1408b1548: mov      qword ptr [rsp + 0x130], rax
+0x1408b1550: mov      qword ptr [rsp + 0x138], rbx
+0x1408b1558: lea      rax, [rip + 0x3cc8ee]
+0x1408b155f: mov      ebx, 0x27
+0x1408b1564: lea      rcx, [rsp + 0x130]
+0x1408b156c: mov      edi, 1
+0x1408b1571: mov      rsi, rdi
+0x1408b1574: call     0x140133280   ; fmt.Errorf
+0x1408b1579: mov      qword ptr [rsp + 0xf8], rax
+0x1408b1581: mov      qword ptr [rsp + 0x100], rbx
+0x1408b1589: call     0x1400435e0   ; runtime.deferreturn
+0x1408b158e: mov      rax, qword ptr [rsp + 0xf8]
+0x1408b1596: mov      rbx, qword ptr [rsp + 0x100]
+0x1408b159e: add      rsp, 0x140
+0x1408b15a5: pop      rbp
+0x1408b15a6: ret      
+0x1408b15a7: lea      rcx, [rip + 0x7e5372]
+0x1408b15ae: mov      qword ptr [rsp + 0xa8], rcx
+0x1408b15b6: lea      rax, [rsp + 0x90]
+0x1408b15be: nop      
+0x1408b15c0: call     0x1400430a0   ; runtime.deferprocStack
+0x1408b15c5: lea      rax, [rip + 0x3a3c1e]
+0x1408b15cc: mov      ebx, 0x10
+0x1408b15d1: call     0x1406d7f40   ; github.com/go-ole/go-ole/oleutil.CreateObject
+0x1408b15d6: test     rbx, rbx
+0x1408b15d9: je       0x1408b1649   ; main.withTaskSchedulerService+0x169
+0x1408b15db: movups   xmmword ptr [rsp + 0x130], xmm15
+0x1408b15e4: je       0x1408b15ea   ; main.withTaskSchedulerService+0x10a
+0x1408b15e6: mov      rbx, qword ptr [rbx + 8]
+0x1408b15ea: mov      qword ptr [rsp + 0x130], rbx
+0x1408b15f2: mov      qword ptr [rsp + 0x138], rcx
+0x1408b15fa: lea      rax, [rip + 0x3d1a7c]
+0x1408b1601: mov      ebx, 0x2c
+0x1408b1606: lea      rcx, [rsp + 0x130]
+0x1408b160e: mov      edi, 1
+0x1408b1613: mov      rsi, rdi
+0x1408b1616: call     0x140133280   ; fmt.Errorf
+0x1408b161b: mov      qword ptr [rsp + 0xf8], rax
+0x1408b1623: mov      qword ptr [rsp + 0x100], rbx
+0x1408b162b: call     0x1400435e0   ; runtime.deferreturn
+0x1408b1630: mov      rax, qword ptr [rsp + 0xf8]
+0x1408b1638: mov      rbx, qword ptr [rsp + 0x100]
+0x1408b1640: add      rsp, 0x140
+0x1408b1647: pop      rbp
+0x1408b1648: ret      
+0x1408b1649: mov      qword ptr [rsp + 0x108], rax
+0x1408b1651: lea      rcx, [rip + 0x268]
+0x1408b1658: mov      qword ptr [rsp + 0x120], rcx
+0x1408b1660: mov      qword ptr [rsp + 0x128], rax
+0x1408b1668: lea      rcx, [rsp + 0x120]
+0x1408b1670: mov      qword ptr [rsp + 0x78], rcx
+0x1408b1675: lea      rax, [rsp + 0x60]
+0x1408b167a: call     0x1400430a0   ; runtime.deferprocStack
+0x1408b167f: mov      rbx, qword ptr [rip + 0x135e982]
+0x1408b1686: mov      rax, qword ptr [rsp + 0x108]
+0x1408b168e: call     0x1405f1d60   ; github.com/go-ole/go-ole.queryInterface
+0x1408b1693: test     rbx, rbx
+0x1408b1696: je       0x1408b1706   ; main.withTaskSchedulerService+0x226
+0x1408b1698: movups   xmmword ptr [rsp + 0x130], xmm15
+0x1408b16a1: je       0x1408b16a7   ; main.withTaskSchedulerService+0x1c7
+0x1408b16a3: mov      rbx, qword ptr [rbx + 8]
+0x1408b16a7: mov      qword ptr [rsp + 0x130], rbx
+0x1408b16af: mov      qword ptr [rsp + 0x138], rcx
+0x1408b16b7: lea      rax, [rip + 0x3d19eb]
+0x1408b16be: mov      ebx, 0x2c
+0x1408b16c3: lea      rcx, [rsp + 0x130]
+0x1408b16cb: mov      edi, 1
+0x1408b16d0: mov      rsi, rdi
+0x1408b16d3: call     0x140133280   ; fmt.Errorf
+0x1408b16d8: mov      qword ptr [rsp + 0xf8], rax
+0x1408b16e0: mov      qword ptr [rsp + 0x100], rbx
+0x1408b16e8: call     0x1400435e0   ; runtime.deferreturn
+0x1408b16ed: mov      rax, qword ptr [rsp + 0xf8]
+0x1408b16f5: mov      rbx, qword ptr [rsp + 0x100]
+0x1408b16fd: add      rsp, 0x140
+0x1408b1704: pop      rbp
+0x1408b1705: ret      
+0x1408b1706: mov      qword ptr [rsp + 0xf0], rax
+0x1408b170e: test     byte ptr [rax], al
+0x1408b1710: lea      rcx, [rip + 0x149]
+0x1408b1717: mov      qword ptr [rsp + 0x110], rcx
+0x1408b171f: mov      qword ptr [rsp + 0x118], rax
+0x1408b1727: lea      rcx, [rsp + 0x110]
+0x1408b172f: mov      qword ptr [rsp + 0x48], rcx
+0x1408b1734: lea      rax, [rsp + 0x30]
+0x1408b1739: call     0x1400430a0   ; runtime.deferprocStack
+0x1408b173e: mov      rax, qword ptr [rsp + 0xf0]
+0x1408b1746: lea      rbx, [rip + 0x387d42]
+0x1408b174d: mov      ecx, 7
+0x1408b1752: xor      edi, edi
+0x1408b1754: xor      esi, esi
+0x1408b1756: mov      r8, rsi
+0x1408b1759: call     0x1408b1920   ; main.callTaskSchedulerMethod
+0x1408b175e: nop      
+0x1408b1760: test     rax, rax
+0x1408b1763: je       0x1408b17d3   ; main.withTaskSchedulerService+0x2f3
+0x1408b1765: movups   xmmword ptr [rsp + 0x130], xmm15
+0x1408b176e: je       0x1408b1774   ; main.withTaskSchedulerService+0x294
+0x1408b1770: mov      rax, qword ptr [rax + 8]
+0x1408b1774: mov      qword ptr [rsp + 0x130], rax
+0x1408b177c: mov      qword ptr [rsp + 0x138], rbx
+0x1408b1784: lea      rax, [rip + 0x3c9b79]
+0x1408b178b: mov      ebx, 0x26
+0x1408b1790: lea      rcx, [rsp + 0x130]
+0x1408b1798: mov      edi, 1
+0x1408b179d: mov      rsi, rdi
+0x1408b17a0: call     0x140133280   ; fmt.Errorf
+0x1408b17a5: mov      qword ptr [rsp + 0xf8], rax
+0x1408b17ad: mov      qword ptr [rsp + 0x100], rbx
+0x1408b17b5: call     0x1400435e0   ; runtime.deferreturn
+0x1408b17ba: mov      rax, qword ptr [rsp + 0xf8]
+0x1408b17c2: mov      rbx, qword ptr [rsp + 0x100]
+0x1408b17ca: add      rsp, 0x140
+0x1408b17d1: pop      rbp
+0x1408b17d2: ret      
+0x1408b17d3: mov      rdx, qword ptr [rsp + 0x150]
+0x1408b17db: mov      rcx, qword ptr [rdx]
+0x1408b17de: mov      rax, qword ptr [rsp + 0xf0]
+0x1408b17e6: call     rcx
+0x1408b17e8: mov      qword ptr [rsp + 0xf8], rax
+0x1408b17f0: mov      qword ptr [rsp + 0x100], rbx
+0x1408b17f8: call     0x1400435e0   ; runtime.deferreturn
+0x1408b17fd: mov      rax, qword ptr [rsp + 0xf8]
+0x1408b1805: mov      rbx, qword ptr [rsp + 0x100]
+0x1408b180d: add      rsp, 0x140
+0x1408b1814: pop      rbp
+0x1408b1815: ret      
+0x1408b1816: call     0x1400435e0   ; runtime.deferreturn
+0x1408b181b: mov      rax, qword ptr [rsp + 0xf8]
+0x1408b1823: mov      rbx, qword ptr [rsp + 0x100]
+0x1408b182b: add      rsp, 0x140
+0x1408b1832: pop      rbp
+0x1408b1833: ret      
+0x1408b1834: mov      qword ptr [rsp + 8], rax
+0x1408b1839: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408b183e: mov      rax, qword ptr [rsp + 8]
+0x1408b1843: jmp      0x1408b14e0   ; main.withTaskSchedulerService
+0x1408b1848: int3     
+0x1408b1849: int3     
+0x1408b184a: int3     
+0x1408b184b: int3     
+0x1408b184c: int3     
+0x1408b184d: int3     
+0x1408b184e: int3     
+0x1408b184f: int3     
+0x1408b1850: int3     
+0x1408b1851: int3     
+0x1408b1852: int3     
+0x1408b1853: int3     
+0x1408b1854: int3     
+0x1408b1855: int3     
+0x1408b1856: int3     
+0x1408b1857: int3     
+0x1408b1858: int3     
+0x1408b1859: int3     
+0x1408b185a: int3     
+0x1408b185b: int3     
+0x1408b185c: int3     
+0x1408b185d: int3     
+0x1408b185e: int3     
+0x1408b185f: int3     
+0x1408b1860: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408b1864: jbe      0x1408b188b   ; main.withTaskSchedulerService.deferwrap2+0x2b
+0x1408b1866: push     rbp
+0x1408b1867: mov      rbp, rsp
+0x1408b186a: sub      rsp, 8
+0x1408b186e: mov      r12, qword ptr [r14 + 0x20]
+0x1408b1872: test     r12, r12
+0x1408b1875: jne      0x1408b1892   ; main.withTaskSchedulerService.deferwrap2+0x32
+0x1408b1877: mov      rax, qword ptr [rdx + 8]
+0x1408b187b: nop      dword ptr [rax + rax]
+0x1408b1880: call     0x1405f1a60   ; github.com/go-ole/go-ole.IUnknown.Release
+0x1408b1885: add      rsp, 8
+0x1408b1889: pop      rbp
+0x1408b188a: ret      
+0x1408b188b: call     0x14007f0a0   ; runtime.morestack
+0x1408b1890: jmp      0x1408b1860   ; main.withTaskSchedulerService.deferwrap2
+0x1408b1892: lea      r13, [rsp + 0x18]
+0x1408b1897: cmp      qword ptr [r12], r13
+0x1408b189b: jne      0x1408b1877   ; main.withTaskSchedulerService.deferwrap2+0x17
+0x1408b189d: mov      qword ptr [r12], rsp
+0x1408b18a1: jmp      0x1408b1877   ; main.withTaskSchedulerService.deferwrap2+0x17
+0x1408b18a3: int3     
+0x1408b18a4: int3     
+0x1408b18a5: int3     
+0x1408b18a6: int3     
+0x1408b18a7: int3     
+0x1408b18a8: int3     
+0x1408b18a9: int3     
+0x1408b18aa: int3     
+0x1408b18ab: int3     
+0x1408b18ac: int3     
+0x1408b18ad: int3     
+0x1408b18ae: int3     
+0x1408b18af: int3     
+0x1408b18b0: int3     
+0x1408b18b1: int3     
+0x1408b18b2: int3     
+0x1408b18b3: int3     
+0x1408b18b4: int3     
+0x1408b18b5: int3     
+0x1408b18b6: int3     
+0x1408b18b7: int3     
+0x1408b18b8: int3     
+0x1408b18b9: int3     
+0x1408b18ba: int3     
+0x1408b18bb: int3     
+0x1408b18bc: int3     
+0x1408b18bd: int3     
+0x1408b18be: int3     
+0x1408b18bf: int3     
+0x1408b18c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408b18c4: jbe      0x1408b18eb   ; main.withTaskSchedulerService.deferwrap1+0x2b
+0x1408b18c6: push     rbp
+0x1408b18c7: mov      rbp, rsp
+0x1408b18ca: sub      rsp, 8
+0x1408b18ce: mov      r12, qword ptr [r14 + 0x20]
+0x1408b18d2: test     r12, r12
+0x1408b18d5: jne      0x1408b18f2   ; main.withTaskSchedulerService.deferwrap1+0x32
+0x1408b18d7: mov      rax, qword ptr [rdx + 8]
+0x1408b18db: nop      dword ptr [rax + rax]

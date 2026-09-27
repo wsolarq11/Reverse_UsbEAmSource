@@ -1,0 +1,57 @@
+{
+  "L85": {
+    "va": "0x140c5d97b",
+    "hex": "77696e646f774d616e6167656d656e74546f6f6ce4b88de694afe68c81e79a84",
+    "utf8": "windowManagementTool不支持的"
+  },
+  "L130": {
+    "va": "0x140c5d97b",
+    "hex": "77696e646f774d616e6167656d656e74546f6f6ce4b88de694afe68c81e79a84",
+    "utf8": "windowManagementTool不支持的"
+  },
+  "L131": {
+    "va": "0x140c54ffa",
+    "hex": "77696e646f774d616e6167656d656e74556e7265676973746572486f744b6579",
+    "utf8": "windowManagementUnregisterHotKey"
+  },
+  "L134": {
+    "va": "0x140c47544",
+    "hex": "77696e646f77546f6f6c7373746172742d6d656e753a6c61756e6368436f756e",
+    "utf8": "windowToolsstart-menu:launchCoun"
+  },
+  "L187": {
+    "va": "0x140c551aa",
+    "hex": "6d6f75736547657374757265546f6f6ce590afe58aa8e5a4b1e8b4a53a202577",
+    "utf8": "mouseGestureTool启动失败: %w"
+  },
+  "L188": {
+    "va": "0x140c4deef",
+    "hex": "6d6f75736547657374757265734f70656e436c6970626f61726447657457696e",
+    "utf8": "mouseGesturesOpenClipboardGetWin"
+  },
+  "L191": {
+    "va": "0x140c3c224",
+    "hex": "67657374757265737265736f6c76656473686f727463757469636f6e44617461",
+    "utf8": "gesturesresolvedshortcuticonData"
+  },
+  "L283": {
+    "va": "0x140c5d97b",
+    "hex": "77696e646f774d616e6167656d656e74546f6f6ce4b88de694afe68c81e79a84",
+    "utf8": "windowManagementTool不支持的"
+  },
+  "L368": {
+    "va": "0x140c5d97b",
+    "hex": "77696e646f774d616e6167656d656e74546f6f6ce4b88de694afe68c81e79a84",
+    "utf8": "windowManagementTool不支持的"
+  },
+  "L381": {
+    "va": "0x140c376aa",
+    "hex": "77696e646f77416c742b256475706c6f616462617365363469636f6e735b5573",
+    "utf8": "windowAlt+%duploadbase64icons[Us"
+  },
+  "L399": {
+    "va": "0x140c3942d",
+    "hex": "706f696e7465727461726765743a687474703a2f2f42726f7773657266617669",
+    "utf8": "pointertarget:http://Browserfavi"
+  }
+}

@@ -1,0 +1,81 @@
+0x140979560: cmp      rsp, qword ptr [r14 + 0x10]
+0x140979564: jbe      0x140979681   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0x121
+0x14097956a: push     rbp
+0x14097956b: mov      rbp, rsp
+0x14097956e: sub      rsp, 0x20
+0x140979572: mov      qword ptr [rsp + 0x30], rax
+0x140979577: nop      word ptr [rax + rax]
+0x140979580: test     rbx, rbx
+0x140979583: je       0x140979625   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0xc5
+0x140979589: mov      rcx, qword ptr [rbx + 8]
+0x14097958d: test     rcx, rcx
+0x140979590: je       0x140979625   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0xc5
+0x140979596: mov      qword ptr [rsp + 0x38], rbx
+0x14097959b: mov      rax, qword ptr [rip + 0x12486fe]
+0x1409795a2: mov      rbx, rcx
+0x1409795a5: call     0x14097f5a0   ; main.screenshotImageMemoryBudget.Reserve
+0x1409795aa: test     rbx, rbx
+0x1409795ad: jne      0x14097961f   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0xbf
+0x1409795af: mov      qword ptr [rsp + 0x10], rax
+0x1409795b4: mov      rax, qword ptr [rsp + 0x38]
+0x1409795b9: call     0x140957320   ; main.cloneRGBAImage
+0x1409795be: mov      rcx, qword ptr [rsp + 0x30]
+0x1409795c3: mov      rdx, qword ptr [rcx + 0x50]
+0x1409795c7: test     rdx, rdx
+0x1409795ca: je       0x1409795e0   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0x80
+0x1409795cc: mov      qword ptr [rsp + 0x18], rax
+0x1409795d1: mov      rax, qword ptr [rdx]
+0x1409795d4: call     rax
+0x1409795d6: mov      rax, qword ptr [rsp + 0x18]
+0x1409795db: mov      rcx, qword ptr [rsp + 0x30]
+0x1409795e0: cmp      dword ptr [rip + 0x12e1d69], 0
+0x1409795e7: jne      0x1409795f0   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0x90
+0x1409795e9: mov      rdx, qword ptr [rsp + 0x10]
+0x1409795ee: jmp      0x140979611   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0xb1
+0x1409795f0: mov      rdx, qword ptr [rcx + 0x48]
+0x1409795f4: mov      rbx, qword ptr [rcx + 0x50]
+0x1409795f8: call     0x1400810a0   ; runtime.gcWriteBarrier4
+0x1409795fd: mov      qword ptr [r11], rax
+0x140979600: mov      qword ptr [r11 + 8], rdx
+0x140979604: mov      rdx, qword ptr [rsp + 0x10]
+0x140979609: mov      qword ptr [r11 + 0x10], rdx
+0x14097960d: mov      qword ptr [r11 + 0x18], rbx
+0x140979611: mov      qword ptr [rcx + 0x48], rax
+0x140979615: mov      qword ptr [rcx + 0x50], rdx
+0x140979619: add      rsp, 0x20
+0x14097961d: pop      rbp
+0x14097961e: ret      
+0x14097961f: add      rsp, 0x20
+0x140979623: pop      rbp
+0x140979624: ret      
+0x140979625: test     byte ptr [rax], al
+0x140979627: cmp      dword ptr [rip + 0x12e1d22], 0
+0x14097962e: je       0x14097963c   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0xdc
+0x140979630: mov      rcx, qword ptr [rax + 0x48]
+0x140979634: call     0x140081040   ; runtime.gcWriteBarrier1
+0x140979639: mov      qword ptr [r11], rcx
+0x14097963c: mov      qword ptr [rax + 0x48], 0
+0x140979644: mov      rdx, qword ptr [rax + 0x50]
+0x140979648: test     rdx, rdx
+0x14097964b: je       0x14097967b   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0x11b
+0x14097964d: mov      rax, qword ptr [rdx]
+0x140979650: call     rax
+0x140979652: cmp      dword ptr [rip + 0x12e1cf7], 0
+0x140979659: jne      0x140979662   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0x102
+0x14097965b: mov      rax, qword ptr [rsp + 0x30]
+0x140979660: jmp      0x140979673   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked+0x113
+0x140979662: mov      rax, qword ptr [rsp + 0x30]
+0x140979667: mov      rcx, qword ptr [rax + 0x50]
+0x14097966b: call     0x140081040   ; runtime.gcWriteBarrier1
+0x140979670: mov      qword ptr [r11], rcx
+0x140979673: mov      qword ptr [rax + 0x50], 0
+0x14097967b: add      rsp, 0x20
+0x14097967f: pop      rbp
+0x140979680: ret      
+0x140979681: mov      qword ptr [rsp + 8], rax
+0x140979686: mov      qword ptr [rsp + 0x10], rbx
+0x14097968b: call     0x14007f140   ; runtime.morestack_noctxt
+0x140979690: mov      rax, qword ptr [rsp + 8]
+0x140979695: mov      rbx, qword ptr [rsp + 0x10]
+0x14097969a: jmp      0x140979560   ; main.screenshotDXGIOutputCaptureEntry.updateLastFrameLocked
+0x14097969f: int3     

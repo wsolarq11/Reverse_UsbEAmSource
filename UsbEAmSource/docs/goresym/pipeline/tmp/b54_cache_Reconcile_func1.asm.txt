@@ -1,0 +1,58 @@
+0x1409786e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409786e4: jbe      0x14097874d   ; main.screenshotDXGIOutputCaptureCache).Reconcile.func1+0x6d
+0x1409786e6: push     rbp
+0x1409786e7: mov      rbp, rsp
+0x1409786ea: sub      rsp, 0x30
+0x1409786ee: mov      rcx, qword ptr [rdx + 0x10]
+0x1409786f2: cmp      rax, rcx
+0x1409786f5: jae      0x140978747   ; main.screenshotDXGIOutputCaptureCache).Reconcile.func1+0x67
+0x1409786f7: mov      rdx, qword ptr [rdx + 8]
+0x1409786fb: lea      r9, [rax + rax*2]
+0x1409786ff: shl      r9, 4
+0x140978703: mov      rax, qword ptr [rdx + r9 + 0x18]
+0x140978708: mov      r10, qword ptr [rdx + r9 + 0x20]
+0x14097870d: mov      r9, qword ptr [rdx + r9 + 0x28]
+0x140978712: cmp      rbx, rcx
+0x140978715: jae      0x14097873f   ; main.screenshotDXGIOutputCaptureCache).Reconcile.func1+0x5f
+0x140978717: lea      r11, [rbx + rbx*2]
+0x14097871b: shl      r11, 4
+0x14097871f: mov      rdi, qword ptr [rdx + r11 + 0x18]
+0x140978724: mov      rsi, qword ptr [rdx + r11 + 0x20]
+0x140978729: mov      r8, qword ptr [rdx + r11 + 0x28]
+0x14097872e: mov      rbx, r10
+0x140978731: mov      rcx, r9
+0x140978734: call     0x1400fa040   ; time.Time.Before
+0x140978739: add      rsp, 0x30
+0x14097873d: pop      rbp
+0x14097873e: ret      
+0x14097873f: mov      rax, rbx
+0x140978742: call     0x140081400   ; runtime.panicIndex
+0x140978747: call     0x140081400   ; runtime.panicIndex
+0x14097874c: nop      
+0x14097874d: mov      qword ptr [rsp + 8], rax
+0x140978752: mov      qword ptr [rsp + 0x10], rbx
+0x140978757: call     0x14007f0a0   ; runtime.morestack
+0x14097875c: mov      rax, qword ptr [rsp + 8]
+0x140978761: mov      rbx, qword ptr [rsp + 0x10]
+0x140978766: jmp      0x1409786e0   ; main.screenshotDXGIOutputCaptureCache).Reconcile.func1
+0x14097876b: int3     
+0x14097876c: int3     
+0x14097876d: int3     
+0x14097876e: int3     
+0x14097876f: int3     
+0x140978770: int3     
+0x140978771: int3     
+0x140978772: int3     
+0x140978773: int3     
+0x140978774: int3     
+0x140978775: int3     
+0x140978776: int3     
+0x140978777: int3     
+0x140978778: int3     
+0x140978779: int3     
+0x14097877a: int3     
+0x14097877b: int3     
+0x14097877c: int3     
+0x14097877d: int3     
+0x14097877e: int3     
+0x14097877f: int3     

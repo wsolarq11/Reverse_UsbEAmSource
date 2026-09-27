@@ -1,0 +1,268 @@
+0x1408c9000: lea      r12, [rsp - 0x68]
+0x1408c9005: cmp      r12, qword ptr [r14 + 0x10]
+0x1408c9009: jbe      0x1408c9519    ; main.hashLauncherUpdateFile+0x519
+0x1408c900f: push     rbp
+0x1408c9010: mov      rbp, rsp
+0x1408c9013: sub      rsp, 0xe0
+0x1408c901a: mov      qword ptr [rsp + 0xf0], rax
+0x1408c9022: movq     qword ptr [rsp + 0xd8], xmm15
+0x1408c902c: mov      byte ptr [rsp + 0x3f], 0
+0x1408c9031: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x1408c903a: mov      qword ptr [rsp + 0x40], 0
+0x1408c9043: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1408c904c: nop      
+0x1408c904d: xor      ecx, ecx
+0x1408c904f: xor      edi, edi
+0x1408c9051: call     0x140128960    ; os.OpenFile
+0x1408c9056: test     rbx, rbx
+0x1408c9059: jne      0x1408c91e3    ; main.hashLauncherUpdateFile+0x1e3
+0x1408c905f: mov      qword ptr [rsp + 0x98], rax
+0x1408c9067: lea      rcx, [rip + 0x4d2]
+0x1408c906e: mov      qword ptr [rsp + 0xc8], rcx
+0x1408c9076: mov      qword ptr [rsp + 0xd0], rax
+0x1408c907e: lea      rcx, [rsp + 0xc8]
+0x1408c9086: mov      qword ptr [rsp + 0xd8], rcx
+0x1408c908e: mov      byte ptr [rsp + 0x3f], 1
+0x1408c9093: call     0x14012da00    ; os.File.Stat
+0x1408c9098: nop      dword ptr [rax + rax]
+0x1408c90a0: test     rcx, rcx
+0x1408c90a3: jne      0x1408c9181    ; main.hashLauncherUpdateFile+0x181
+0x1408c90a9: mov      qword ptr [rsp + 0xb8], rbx
+0x1408c90b1: mov      qword ptr [rsp + 0x60], rax
+0x1408c90b6: mov      rcx, qword ptr [rax + 0x28]
+0x1408c90ba: mov      rax, rbx
+0x1408c90bd: call     rcx
+0x1408c90bf: nop      
+0x1408c90c0: test     eax, 0x8f280000
+0x1408c90c5: jne      0x1408c90fa    ; main.hashLauncherUpdateFile+0xfa
+0x1408c90c7: nop      
+0x1408c90c8: nop      
+0x1408c90c9: lea      rax, [rip + 0x301b30]
+0x1408c90d0: call     0x14001ae20    ; runtime.newobject
+0x1408c90d5: mov      qword ptr [rsp + 0xc0], rax
+0x1408c90dd: nop      dword ptr [rax]
+0x1408c90e0: call     0x140a0c1e0    ; crypto/internal/fips140/sha256.Digest.Reset
+0x1408c90e5: mov      rcx, qword ptr [rip + 0x12fde74]
+0x1408c90ec: mov      rdx, qword ptr [rcx]
+0x1408c90ef: mov      ebx, dword ptr [rip + 0x91129b]
+0x1408c90f5: jmp      0x1408c9232    ; main.hashLauncherUpdateFile+0x232
+0x1408c90fa: lea      rax, [rip + 0x28b27f]
+0x1408c9101: call     0x14001ae20    ; runtime.newobject
+0x1408c9106: mov      qword ptr [rax + 8], 0x1e
+0x1408c910e: lea      rcx, [rip + 0x3a61a6]
+0x1408c9115: mov      qword ptr [rax], rcx
+0x1408c9118: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x1408c9121: mov      qword ptr [rsp + 0x40], 0
+0x1408c912a: lea      rcx, [rip + 0x909fcf]
+0x1408c9131: mov      qword ptr [rsp + 0x88], rcx
+0x1408c9139: mov      qword ptr [rsp + 0x90], rax
+0x1408c9141: mov      byte ptr [rsp + 0x3f], 0
+0x1408c9146: mov      rdx, qword ptr [rsp + 0xd8]
+0x1408c914e: mov      rcx, qword ptr [rdx]
+0x1408c9151: call     rcx
+0x1408c9153: mov      rcx, qword ptr [rsp + 0x40]
+0x1408c9158: mov      rdi, qword ptr [rsp + 0x88]
+0x1408c9160: mov      rbx, qword ptr [rsp + 0xa8]
+0x1408c9168: mov      rsi, qword ptr [rsp + 0x90]
+0x1408c9170: mov      rax, qword ptr [rsp + 0xa0]
+0x1408c9178: add      rsp, 0xe0
+0x1408c917f: pop      rbp
+0x1408c9180: ret      
+0x1408c9181: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x1408c918a: mov      qword ptr [rsp + 0x40], 0
+0x1408c9193: mov      qword ptr [rsp + 0x88], rcx
+0x1408c919b: mov      qword ptr [rsp + 0x90], rdi
+0x1408c91a3: mov      byte ptr [rsp + 0x3f], 0
+0x1408c91a8: mov      rdx, qword ptr [rsp + 0xd8]
+0x1408c91b0: mov      rax, qword ptr [rdx]
+0x1408c91b3: call     rax
+0x1408c91b5: mov      rcx, qword ptr [rsp + 0x40]
+0x1408c91ba: mov      rdi, qword ptr [rsp + 0x88]
+0x1408c91c2: mov      rax, qword ptr [rsp + 0xa0]
+0x1408c91ca: mov      rbx, qword ptr [rsp + 0xa8]
+0x1408c91d2: mov      rsi, qword ptr [rsp + 0x90]
+0x1408c91da: add      rsp, 0xe0
+0x1408c91e1: pop      rbp
+0x1408c91e2: ret      
+0x1408c91e3: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x1408c91ec: mov      qword ptr [rsp + 0x40], 0
+0x1408c91f5: mov      qword ptr [rsp + 0x88], rbx
+0x1408c91fd: mov      qword ptr [rsp + 0x90], rcx
+0x1408c9205: mov      rdx, qword ptr [rsp + 0x40]
+0x1408c920a: mov      rax, qword ptr [rsp + 0xa0]
+0x1408c9212: mov      r8, qword ptr [rsp + 0xa8]
+0x1408c921a: mov      rdi, rbx
+0x1408c921d: mov      rsi, rcx
+0x1408c9220: mov      rbx, r8
+0x1408c9223: mov      rcx, rdx
+0x1408c9226: add      rsp, 0xe0
+0x1408c922d: pop      rbp
+0x1408c922e: ret      
+0x1408c922f: mov      rbx, r10
+0x1408c9232: mov      r10, rbx
+0x1408c9235: and      rbx, rdx
+0x1408c9238: shl      rbx, 4
+0x1408c923c: mov      r11, qword ptr [rbx + rcx + 8]
+0x1408c9241: lea      r12, [rip + 0x308038]
+0x1408c9248: cmp      r11, r12
+0x1408c924b: je       0x1408c9267    ; main.hashLauncherUpdateFile+0x267
+0x1408c924d: inc      r10
+0x1408c9250: test     r11, r11
+0x1408c9253: jne      0x1408c922f    ; main.hashLauncherUpdateFile+0x22f
+0x1408c9255: lea      rax, [rip + 0x12fdd04]
+0x1408c925c: mov      rbx, r12
+0x1408c925f: nop      
+0x1408c9260: call     0x1400174a0    ; runtime.typeAssert
+0x1408c9265: jmp      0x1408c926c    ; main.hashLauncherUpdateFile+0x26c
+0x1408c9267: mov      rax, qword ptr [rbx + rcx + 0x10]
+0x1408c926c: mov      rbx, qword ptr [rsp + 0xc0]
+0x1408c9274: lea      rcx, [rip + 0x909a25]
+0x1408c927b: mov      rdi, qword ptr [rsp + 0x98]
+0x1408c9283: xor      esi, esi
+0x1408c9285: xor      r8d, r8d
+0x1408c9288: mov      r9, r8
+0x1408c928b: call     0x140098100    ; io.copyBuffer
+0x1408c9290: test     rbx, rbx
+0x1408c9293: jne      0x1408c93b2    ; main.hashLauncherUpdateFile+0x3b2
+0x1408c9299: mov      qword ptr [rsp + 0x50], rax
+0x1408c929e: mov      rcx, qword ptr [rsp + 0x60]
+0x1408c92a3: mov      rcx, qword ptr [rcx + 0x38]
+0x1408c92a7: mov      rax, qword ptr [rsp + 0xb8]
+0x1408c92af: call     rcx
+0x1408c92b1: mov      rcx, qword ptr [rsp + 0x50]
+0x1408c92b6: cmp      rcx, rax
+0x1408c92b9: jne      0x1408c932b    ; main.hashLauncherUpdateFile+0x32b
+0x1408c92bb: mov      rax, qword ptr [rsp + 0xc0]
+0x1408c92c3: xor      ebx, ebx
+0x1408c92c5: xor      ecx, ecx
+0x1408c92c7: mov      rdi, rcx
+0x1408c92ca: call     0x140a0c5a0    ; crypto/internal/fips140/sha256.Digest.Sum
+0x1408c92cf: lea      rcx, [rbx + rbx]
+0x1408c92d3: cmp      rcx, 0x20
+0x1408c92d7: ja       0x1408c92ec    ; main.hashLauncherUpdateFile+0x2ec
+0x1408c92d9: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1408c92df: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1408c92e5: lea      rdx, [rsp + 0x68]
+0x1408c92ea: jmp      0x1408c9322    ; main.hashLauncherUpdateFile+0x322
+0x1408c92ec: mov      qword ptr [rsp + 0x58], rbx
+0x1408c92f1: mov      qword ptr [rsp + 0xb0], rax
+0x1408c92f9: mov      qword ptr [rsp + 0x48], rcx
+0x1408c92fe: lea      rax, [rip + 0x220b7b]
+0x1408c9305: mov      rbx, rcx
+0x1408c9308: call     0x14007ac40    ; runtime.makeslice
+0x1408c930d: mov      rcx, qword ptr [rsp + 0x48]
+0x1408c9312: mov      rbx, qword ptr [rsp + 0x58]
+0x1408c9317: mov      rdx, rax
+0x1408c931a: mov      rax, qword ptr [rsp + 0xb0]
+0x1408c9322: xor      esi, esi
+0x1408c9324: xor      edi, edi
+0x1408c9326: jmp      0x1408c9420    ; main.hashLauncherUpdateFile+0x420
+0x1408c932b: lea      rax, [rip + 0x28b04e]
+0x1408c9332: call     0x14001ae20    ; runtime.newobject
+0x1408c9337: mov      qword ptr [rax + 8], 0x24
+0x1408c933f: lea      rcx, [rip + 0x3af305]
+0x1408c9346: mov      qword ptr [rax], rcx
+0x1408c9349: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x1408c9352: mov      qword ptr [rsp + 0x40], 0
+0x1408c935b: lea      rcx, [rip + 0x909d9e]
+0x1408c9362: mov      qword ptr [rsp + 0x88], rcx
+0x1408c936a: mov      qword ptr [rsp + 0x90], rax
+0x1408c9372: mov      byte ptr [rsp + 0x3f], 0
+0x1408c9377: mov      rdx, qword ptr [rsp + 0xd8]
+0x1408c937f: mov      rcx, qword ptr [rdx]
+0x1408c9382: call     rcx
+0x1408c9384: mov      rcx, qword ptr [rsp + 0x40]
+0x1408c9389: mov      rdi, qword ptr [rsp + 0x88]
+0x1408c9391: mov      rbx, qword ptr [rsp + 0xa8]
+0x1408c9399: mov      rsi, qword ptr [rsp + 0x90]
+0x1408c93a1: mov      rax, qword ptr [rsp + 0xa0]
+0x1408c93a9: add      rsp, 0xe0
+0x1408c93b0: pop      rbp
+0x1408c93b1: ret      
+0x1408c93b2: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x1408c93bb: mov      qword ptr [rsp + 0x40], 0
+0x1408c93c4: mov      qword ptr [rsp + 0x88], rbx
+0x1408c93cc: mov      qword ptr [rsp + 0x90], rcx
+0x1408c93d4: mov      byte ptr [rsp + 0x3f], 0
+0x1408c93d9: mov      rdx, qword ptr [rsp + 0xd8]
+0x1408c93e1: mov      rax, qword ptr [rdx]
+0x1408c93e4: call     rax
+0x1408c93e6: mov      rcx, qword ptr [rsp + 0x40]
+0x1408c93eb: mov      rdi, qword ptr [rsp + 0x88]
+0x1408c93f3: mov      rax, qword ptr [rsp + 0xa0]
+0x1408c93fb: mov      rbx, qword ptr [rsp + 0xa8]
+0x1408c9403: mov      rsi, qword ptr [rsp + 0x90]
+0x1408c940b: add      rsp, 0xe0
+0x1408c9412: pop      rbp
+0x1408c9413: ret      
+0x1408c9414: mov      byte ptr [rdi + rdx + 1], r9b
+0x1408c9419: inc      rsi
+0x1408c941c: add      rdi, 2
+0x1408c9420: cmp      rbx, rsi
+0x1408c9423: jle      0x1408c9467    ; main.hashLauncherUpdateFile+0x467
+0x1408c9425: movzx    r8d, byte ptr [rsi + rax]
+0x1408c942a: mov      r9d, r8d
+0x1408c942d: shr      r8b, 4
+0x1408c9431: movzx    r8d, r8b
+0x1408c9435: lea      r10, [rip + 0x38bcde]
+0x1408c943c: movzx    r8d, byte ptr [r10 + r8]
+0x1408c9441: cmp      rdi, rcx
+0x1408c9444: jae      0x1408c94dc    ; main.hashLauncherUpdateFile+0x4dc
+0x1408c944a: mov      byte ptr [rdx + rdi], r8b
+0x1408c944e: lea      r8, [rdi + 1]
+0x1408c9452: and      r9d, 0xf
+0x1408c9456: movzx    r9d, byte ptr [r9 + r10]
+0x1408c945b: nop      dword ptr [rax + rax]
+0x1408c9460: cmp      r8, rcx
+0x1408c9463: jb       0x1408c9414    ; main.hashLauncherUpdateFile+0x414
+0x1408c9465: jmp      0x1408c94d4    ; main.hashLauncherUpdateFile+0x4d4
+0x1408c9467: xor      eax, eax
+0x1408c9469: mov      rbx, rdx
+0x1408c946c: call     0x1400603c0    ; runtime.slicebytetostring
+0x1408c9471: mov      qword ptr [rsp + 0xa0], rax
+0x1408c9479: mov      qword ptr [rsp + 0xa8], rbx
+0x1408c9481: mov      rdx, qword ptr [rsp + 0x50]
+0x1408c9486: mov      qword ptr [rsp + 0x40], rdx
+0x1408c948b: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1408c9494: mov      byte ptr [rsp + 0x3f], 0
+0x1408c9499: mov      rdx, qword ptr [rsp + 0xd8]
+0x1408c94a1: mov      rsi, qword ptr [rdx]
+0x1408c94a4: call     rsi
+0x1408c94a6: mov      rcx, qword ptr [rsp + 0x40]
+0x1408c94ab: mov      rdi, qword ptr [rsp + 0x88]
+0x1408c94b3: mov      rax, qword ptr [rsp + 0xa0]
+0x1408c94bb: mov      rbx, qword ptr [rsp + 0xa8]
+0x1408c94c3: mov      rsi, qword ptr [rsp + 0x90]
+0x1408c94cb: add      rsp, 0xe0
+0x1408c94d2: pop      rbp
+0x1408c94d3: ret      
+0x1408c94d4: mov      rax, r8
+0x1408c94d7: call     0x140081400    ; runtime.panicIndex
+0x1408c94dc: mov      rax, rdi
+0x1408c94df: nop      
+0x1408c94e0: call     0x140081400    ; runtime.panicIndex
+0x1408c94e5: nop      
+0x1408c94e6: call     0x1400435e0    ; runtime.deferreturn
+0x1408c94eb: mov      rax, qword ptr [rsp + 0xa0]
+0x1408c94f3: mov      rbx, qword ptr [rsp + 0xa8]
+0x1408c94fb: mov      rcx, qword ptr [rsp + 0x40]
+0x1408c9500: mov      rdi, qword ptr [rsp + 0x88]
+0x1408c9508: mov      rsi, qword ptr [rsp + 0x90]
+0x1408c9510: add      rsp, 0xe0
+0x1408c9517: pop      rbp
+0x1408c9518: ret      
+0x1408c9519: mov      qword ptr [rsp + 8], rax
+0x1408c951e: mov      qword ptr [rsp + 0x10], rbx
+0x1408c9523: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408c9528: mov      rax, qword ptr [rsp + 8]
+0x1408c952d: mov      rbx, qword ptr [rsp + 0x10]
+0x1408c9532: jmp      0x1408c9000    ; main.hashLauncherUpdateFile
+0x1408c9537: int3     
+0x1408c9538: int3     
+0x1408c9539: int3     
+0x1408c953a: int3     
+0x1408c953b: int3     
+0x1408c953c: int3     
+0x1408c953d: int3     
+0x1408c953e: int3     
+0x1408c953f: int3     

@@ -1,0 +1,107 @@
+0x140781820: lea      r12, [rsp - 0xa60]
+0x140781828: cmp      r12, qword ptr [r14 + 0x10]
+0x14078182c: jbe      0x1407819c2    ; main.BootstrapService.ToggleWindowManagementBorderless+0x1a2
+0x140781832: push     rbp
+0x140781833: mov      rbp, rsp
+0x140781836: sub      rsp, 0xad8
+0x14078183d: mov      qword ptr [rsp + 0xd98], rax
+0x140781845: lea      rdi, [rsp + 0xae8]
+0x14078184d: lea      rdi, [rdi - 0x10]
+0x140781851: nop      word ptr [rax + rax]
+0x14078185a: nop      word ptr [rax + rax]
+0x140781860: mov      qword ptr [rsp - 0x10], rbp
+0x140781865: lea      rbp, [rsp - 0x10]
+0x14078186a: call     0x140081657    ; runtime.duffzero+0x77
+0x14078186f: mov      rbp, qword ptr [rbp]
+0x140781873: lea      rdi, [rsp + 0x828]
+0x14078187b: lea      rdi, [rdi - 0x10]
+0x14078187f: nop      
+0x140781880: mov      qword ptr [rsp - 0x10], rbp
+0x140781885: lea      rbp, [rsp - 0x10]
+0x14078188a: call     0x140081657    ; runtime.duffzero+0x77
+0x14078188f: mov      rbp, qword ptr [rbp]
+0x140781893: mov      rax, qword ptr [rax + 0x388]
+0x14078189a: call     0x1409e2d20    ; main.windowManagementService.ToggleBorderless
+0x14078189f: lea      rdi, [rsp + 0x828]
+0x1407818a7: mov      rsi, rsp
+0x1407818aa: mov      qword ptr [rsp - 0x10], rbp
+0x1407818af: lea      rbp, [rsp - 0x10]
+0x1407818b4: call     0x140081886    ; runtime.duffcopy+0x126
+0x1407818b9: mov      rbp, qword ptr [rbp]
+0x1407818bd: lea      rdi, [rsp + 0x578]
+0x1407818c5: lea      rsi, [rsp + 0x828]
+0x1407818cd: nop      word ptr [rax + rax]
+0x1407818d6: nop      word ptr [rax + rax]
+0x1407818df: nop      
+0x1407818e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407818e5: lea      rbp, [rsp - 0x10]
+0x1407818ea: call     0x140081886    ; runtime.duffcopy+0x126
+0x1407818ef: mov      rbp, qword ptr [rbp]
+0x1407818f3: lea      rdi, [rsp + 0x828]
+0x1407818fb: lea      rdi, [rdi - 0x10]
+0x1407818ff: nop      
+0x140781900: mov      qword ptr [rsp - 0x10], rbp
+0x140781905: lea      rbp, [rsp - 0x10]
+0x14078190a: call     0x140081657    ; runtime.duffzero+0x77
+0x14078190f: mov      rbp, qword ptr [rbp]
+0x140781913: mov      rdi, rsp
+0x140781916: lea      rsi, [rsp + 0x578]
+0x14078191e: nop      
+0x140781920: mov      qword ptr [rsp - 0x10], rbp
+0x140781925: lea      rbp, [rsp - 0x10]
+0x14078192a: call     0x140081886    ; runtime.duffcopy+0x126
+0x14078192f: mov      rbp, qword ptr [rbp]
+0x140781933: mov      rcx, rbx
+0x140781936: mov      rbx, rax
+0x140781939: mov      rax, qword ptr [rsp + 0xd98]
+0x140781941: call     0x1408a4a80    ; main.BootstrapService.persistAndRefreshWindowManagementState
+0x140781946: lea      rdi, [rsp + 0x828]
+0x14078194e: lea      rsi, [rsp + 0x2b0]
+0x140781956: nop      word ptr [rax + rax]
+0x14078195f: nop      
+0x140781960: mov      qword ptr [rsp - 0x10], rbp
+0x140781965: lea      rbp, [rsp - 0x10]
+0x14078196a: call     0x140081886    ; runtime.duffcopy+0x126
+0x14078196f: mov      rbp, qword ptr [rbp]
+0x140781973: lea      rdi, [rsp + 0xae8]
+0x14078197b: lea      rsi, [rsp + 0x828]
+0x140781983: mov      qword ptr [rsp - 0x10], rbp
+0x140781988: lea      rbp, [rsp - 0x10]
+0x14078198d: call     0x140081886    ; runtime.duffcopy+0x126
+0x140781992: mov      rbp, qword ptr [rbp]
+0x140781996: lea      rdi, [rsp + 0xae8]
+0x14078199e: lea      rsi, [rsp + 0x828]
+0x1407819a6: mov      qword ptr [rsp - 0x10], rbp
+0x1407819ab: lea      rbp, [rsp - 0x10]
+0x1407819b0: call     0x140081886    ; runtime.duffcopy+0x126
+0x1407819b5: mov      rbp, qword ptr [rbp]
+0x1407819b9: add      rsp, 0xad8
+0x1407819c0: pop      rbp
+0x1407819c1: ret      
+0x1407819c2: mov      qword ptr [rsp + 0x2b8], rax
+0x1407819ca: mov      byte ptr [rsp + 0x2c0], bl
+0x1407819d1: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407819d6: mov      rax, qword ptr [rsp + 0x2b8]
+0x1407819de: movzx    ebx, byte ptr [rsp + 0x2c0]
+0x1407819e6: jmp      0x140781820    ; main.BootstrapService.ToggleWindowManagementBorderless
+0x1407819eb: int3     
+0x1407819ec: int3     
+0x1407819ed: int3     
+0x1407819ee: int3     
+0x1407819ef: int3     
+0x1407819f0: int3     
+0x1407819f1: int3     
+0x1407819f2: int3     
+0x1407819f3: int3     
+0x1407819f4: int3     
+0x1407819f5: int3     
+0x1407819f6: int3     
+0x1407819f7: int3     
+0x1407819f8: int3     
+0x1407819f9: int3     
+0x1407819fa: int3     
+0x1407819fb: int3     
+0x1407819fc: int3     
+0x1407819fd: int3     
+0x1407819fe: int3     
+0x1407819ff: int3     

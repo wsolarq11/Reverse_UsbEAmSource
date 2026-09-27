@@ -1,0 +1,92 @@
+0x140979820: lea      r12, [rsp - 0x70]
+0x140979825: cmp      r12, qword ptr [r14 + 0x10]
+0x140979829: jbe      0x140979a34   ; main.screenshotDXGIOutputCaptureCacheKey+0x214
+0x14097982f: push     rbp
+0x140979830: mov      rbp, rsp
+0x140979833: sub      rsp, 0xe8
+0x14097983a: mov      rax, qword ptr [rsp + 0x118]
+0x140979842: mov      rbx, qword ptr [rsp + 0x120]
+0x14097984a: call     0x1400a2200   ; strings.TrimSpace
+0x14097984f: mov      qword ptr [rsp + 0xe0], rax
+0x140979857: mov      qword ptr [rsp + 0x38], rbx
+0x14097985c: mov      rcx, qword ptr [rsp + 0x138]
+0x140979864: mov      rdx, qword ptr [rsp + 0x140]
+0x14097986c: sub      rcx, qword ptr [rsp + 0x128]
+0x140979874: mov      qword ptr [rsp + 0x30], rcx
+0x140979879: sub      rdx, qword ptr [rsp + 0x130]
+0x140979881: mov      qword ptr [rsp + 0x28], rdx
+0x140979886: lea      rdi, [rsp + 0x40]
+0x14097988b: lea      rdi, [rdi - 0x20]
+0x14097988f: nop      word ptr [rax + rax]
+0x140979898: nop      dword ptr [rax + rax]
+0x1409798a0: mov      qword ptr [rsp - 0x10], rbp
+0x1409798a5: lea      rbp, [rsp - 0x10]
+0x1409798aa: call     0x140081714   ; runtime.duffzero+0x134
+0x1409798af: mov      rbp, qword ptr [rbp]
+0x1409798b3: mov      rax, qword ptr [rsp + 0xf8]
+0x1409798bb: nop      dword ptr [rax + rax]
+0x1409798c0: call     0x1400765e0   ; runtime.convT64
+0x1409798c5: lea      rcx, [rip + 0x170774]
+0x1409798cc: mov      qword ptr [rsp + 0x40], rcx
+0x1409798d1: mov      qword ptr [rsp + 0x48], rax
+0x1409798d6: mov      rax, qword ptr [rsp + 0x100]
+0x1409798de: nop      
+0x1409798e0: call     0x1400765e0   ; runtime.convT64
+0x1409798e5: lea      rcx, [rip + 0x170754]
+0x1409798ec: mov      qword ptr [rsp + 0x50], rcx
+0x1409798f1: mov      qword ptr [rsp + 0x58], rax
+0x1409798f6: mov      rax, qword ptr [rsp + 0xe0]
+0x1409798fe: mov      rbx, qword ptr [rsp + 0x38]
+0x140979903: call     0x140076660   ; runtime.convTstring
+0x140979908: lea      rcx, [rip + 0x1704f1]
+0x14097990f: mov      qword ptr [rsp + 0x60], rcx
+0x140979914: mov      qword ptr [rsp + 0x68], rax
+0x140979919: movzx    ecx, byte ptr [rsp + 0x158]
+0x140979921: lea      rdx, [rip + 0x1708d8]
+0x140979928: mov      qword ptr [rsp + 0x70], rdx
+0x14097992d: lea      rdx, [rip + 0x879dec]
+0x140979934: lea      rcx, [rdx + rcx*8]
+0x140979938: mov      qword ptr [rsp + 0x78], rcx
+0x14097993d: mov      eax, dword ptr [rsp + 0x154]
+0x140979944: call     0x1400173c0   ; runtime.convT32
+0x140979949: lea      rcx, [rip + 0x170630]
+0x140979950: mov      qword ptr [rsp + 0x80], rcx
+0x140979958: mov      qword ptr [rsp + 0x88], rax
+0x140979960: mov      eax, dword ptr [rsp + 0x148]
+0x140979967: call     0x1400173c0   ; runtime.convT32
+0x14097996c: lea      rcx, [rip + 0x17060d]
+0x140979973: mov      qword ptr [rsp + 0x90], rcx
+0x14097997b: mov      qword ptr [rsp + 0x98], rax
+0x140979983: mov      rax, qword ptr [rsp + 0x128]
+0x14097998b: call     0x1400765e0   ; runtime.convT64
+0x140979990: lea      rcx, [rip + 0x1706a9]
+0x140979997: mov      qword ptr [rsp + 0xa0], rcx
+0x14097999f: mov      qword ptr [rsp + 0xa8], rax
+0x1409799a7: mov      rax, qword ptr [rsp + 0x130]
+0x1409799af: call     0x1400765e0   ; runtime.convT64
+0x1409799b4: lea      rcx, [rip + 0x170685]
+0x1409799bb: mov      qword ptr [rsp + 0xb0], rcx
+0x1409799c3: mov      qword ptr [rsp + 0xb8], rax
+0x1409799cb: mov      rax, qword ptr [rsp + 0x30]
+0x1409799d0: call     0x1400765e0   ; runtime.convT64
+0x1409799d5: lea      rcx, [rip + 0x170664]
+0x1409799dc: mov      qword ptr [rsp + 0xc0], rcx
+0x1409799e4: mov      qword ptr [rsp + 0xc8], rax
+0x1409799ec: mov      rax, qword ptr [rsp + 0x28]
+0x1409799f1: call     0x1400765e0   ; runtime.convT64
+0x1409799f6: lea      rcx, [rip + 0x170643]
+0x1409799fd: mov      qword ptr [rsp + 0xd0], rcx
+0x140979a05: mov      qword ptr [rsp + 0xd8], rax
+0x140979a0d: lea      rax, [rip + 0x2f3daf]
+0x140979a14: mov      ebx, 0x1d
+0x140979a19: lea      rcx, [rsp + 0x40]
+0x140979a1e: mov      edi, 0xa
+0x140979a23: mov      rsi, rdi
+0x140979a26: call     0x140136340   ; fmt.Sprintf
+0x140979a2b: add      rsp, 0xe8
+0x140979a32: pop      rbp
+0x140979a33: ret      
+0x140979a34: call     0x14007f140   ; runtime.morestack_noctxt
+0x140979a39: jmp      0x140979820   ; main.screenshotDXGIOutputCaptureCacheKey
+0x140979a3e: int3     
+0x140979a3f: int3     

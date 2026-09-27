@@ -1,0 +1,42 @@
+0x140a064c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140a064c4: jbe      0x140a064ec    ; main.BootstrapService.persistScreenshotCornerRadius-fm+0x2c
+0x140a064c6: push     rbp
+0x140a064c7: mov      rbp, rsp
+0x140a064ca: sub      rsp, 0x10
+0x140a064ce: mov      r12, qword ptr [r14 + 0x20]
+0x140a064d2: test     r12, r12
+0x140a064d5: jne      0x140a064fd    ; main.BootstrapService.persistScreenshotCornerRadius-fm+0x3d
+0x140a064d7: mov      rcx, qword ptr [rdx + 8]
+0x140a064db: mov      rbx, rax
+0x140a064de: mov      rax, rcx
+0x140a064e1: call     0x14078d080    ; main.BootstrapService.persistScreenshotCornerRadius
+0x140a064e6: add      rsp, 0x10
+0x140a064ea: pop      rbp
+0x140a064eb: ret      
+0x140a064ec: mov      qword ptr [rsp + 8], rax
+0x140a064f1: call     0x14007f0a0    ; runtime.morestack
+0x140a064f6: mov      rax, qword ptr [rsp + 8]
+0x140a064fb: jmp      0x140a064c0    ; main.BootstrapService.persistScreenshotCornerRadius-fm
+0x140a064fd: lea      r13, [rsp + 0x20]
+0x140a06502: cmp      qword ptr [r12], r13
+0x140a06506: jne      0x140a064d7    ; main.BootstrapService.persistScreenshotCornerRadius-fm+0x17
+0x140a06508: mov      qword ptr [r12], rsp
+0x140a0650c: jmp      0x140a064d7    ; main.BootstrapService.persistScreenshotCornerRadius-fm+0x17
+0x140a0650e: int3     
+0x140a0650f: int3     
+0x140a06510: int3     
+0x140a06511: int3     
+0x140a06512: int3     
+0x140a06513: int3     
+0x140a06514: int3     
+0x140a06515: int3     
+0x140a06516: int3     
+0x140a06517: int3     
+0x140a06518: int3     
+0x140a06519: int3     
+0x140a0651a: int3     
+0x140a0651b: int3     
+0x140a0651c: int3     
+0x140a0651d: int3     
+0x140a0651e: int3     
+0x140a0651f: int3     

@@ -1,0 +1,273 @@
+0x140761740: lea      r12, [rsp - 0x150]
+0x140761748: cmp      r12, qword ptr [r14 + 0x10]
+0x14076174c: jbe      0x140761bf6    ; main.bookmarkIconRootCandidates+0x4b6
+0x140761752: push     rbp
+0x140761753: mov      rbp, rsp
+0x140761756: sub      rsp, 0x1c8
+0x14076175d: mov      qword ptr [rsp + 0x1d8], rax
+0x140761765: call     0x140761e40    ; main.normalizeBookmarkIconURL
+0x14076176a: test     rbx, rbx
+0x14076176d: je       0x140761b59    ; main.bookmarkIconRootCandidates+0x419
+0x140761773: call     0x140264d80    ; net/url.Parse
+0x140761778: nop      dword ptr [rax + rax]
+0x140761780: test     rbx, rbx
+0x140761783: jne      0x140761b49    ; main.bookmarkIconRootCandidates+0x409
+0x140761789: mov      qword ptr [rsp + 0x90], rax
+0x140761791: mov      rcx, qword ptr [rax + 0x28]
+0x140761795: mov      rbx, qword ptr [rax + 0x30]
+0x140761799: mov      rax, rcx
+0x14076179c: nop      dword ptr [rax]
+0x1407617a0: call     0x140268de0    ; net/url.splitHostPort
+0x1407617a5: call     0x1400a2200    ; strings.TrimSpace
+0x1407617aa: test     rbx, rbx
+0x1407617ad: je       0x140761b39    ; main.bookmarkIconRootCandidates+0x3f9
+0x1407617b3: mov      qword ptr [rsp + 0x50], rbx
+0x1407617b8: mov      qword ptr [rsp + 0x98], rax
+0x1407617c0: mov      rcx, qword ptr [rsp + 0x90]
+0x1407617c8: mov      rax, qword ptr [rcx]
+0x1407617cb: mov      rbx, qword ptr [rcx + 8]
+0x1407617cf: call     0x1400a2200    ; strings.TrimSpace
+0x1407617d4: call     0x1400a1500    ; strings.ToLower
+0x1407617d9: test     rbx, rbx
+0x1407617dc: jne      0x1407617ea    ; main.bookmarkIconRootCandidates+0xaa
+0x1407617de: lea      rax, [rip + 0x4d43fc]
+0x1407617e5: mov      ebx, 5
+0x1407617ea: mov      qword ptr [rsp + 0x70], rax
+0x1407617ef: mov      qword ptr [rsp + 0x48], rbx
+0x1407617f4: lea      rax, [rip + 0x388605]
+0x1407617fb: xor      ebx, ebx
+0x1407617fd: mov      ecx, 4
+0x140761802: call     0x14007ac40    ; runtime.makeslice
+0x140761807: mov      qword ptr [rsp + 0x78], rax
+0x14076180c: mov      qword ptr [rsp + 0x80], 0
+0x140761818: mov      qword ptr [rsp + 0x88], 4
+0x140761824: movups   xmmword ptr [rsp + 0x188], xmm15
+0x14076182d: movups   xmmword ptr [rsp + 0x198], xmm15
+0x140761836: movups   xmmword ptr [rsp + 0x1a8], xmm15
+0x14076183f: movups   xmmword ptr [rsp + 0xc0], xmm15
+0x140761848: lea      rdi, [rsp + 0xc8]
+0x140761850: nop      word ptr [rax + rax]
+0x140761859: nop      dword ptr [rax]
+0x140761860: mov      qword ptr [rsp - 0x10], rbp
+0x140761865: lea      rbp, [rsp - 0x10]
+0x14076186a: call     0x14008170b    ; runtime.duffzero+0x12b
+0x14076186f: mov      rbp, qword ptr [rbp]
+0x140761873: movabs   rdx, 0x8080808080808080
+0x14076187d: mov      qword ptr [rsp + 0xc0], rdx
+0x140761885: lea      rdx, [rsp + 0xc0]
+0x14076188d: mov      qword ptr [rsp + 0x198], rdx
+0x140761895: call     0x1400797c0    ; runtime.rand
+0x14076189a: mov      qword ptr [rsp + 0x190], rax
+0x1407618a2: lea      rdx, [rip + 0x377]
+0x1407618a9: mov      qword ptr [rsp + 0xa8], rdx
+0x1407618b1: lea      rsi, [rsp + 0x188]
+0x1407618b9: mov      qword ptr [rsp + 0xb0], rsi
+0x1407618c1: lea      rsi, [rsp + 0x78]
+0x1407618c6: mov      qword ptr [rsp + 0xb8], rsi
+0x1407618ce: mov      rsi, qword ptr [rsp + 0x90]
+0x1407618d6: mov      rcx, qword ptr [rsi + 0x28]
+0x1407618da: mov      rdi, qword ptr [rsi + 0x30]
+0x1407618de: mov      rax, qword ptr [rsp + 0x70]
+0x1407618e3: mov      rbx, qword ptr [rsp + 0x48]
+0x1407618e8: lea      rdx, [rsp + 0xa8]
+0x1407618f0: lea      rsi, [rip + 0x329]
+0x1407618f7: call     rsi
+0x1407618f9: mov      rdx, qword ptr [rsp + 0x90]
+0x140761901: mov      rcx, qword ptr [rdx + 0x30]
+0x140761905: mov      rdi, qword ptr [rsp + 0x50]
+0x14076190a: cmp      rdi, rcx
+0x14076190d: jne      0x14076192e    ; main.bookmarkIconRootCandidates+0x1ee
+0x14076190f: mov      rax, qword ptr [rdx + 0x28]
+0x140761913: mov      rbx, qword ptr [rsp + 0x98]
+0x14076191b: nop      dword ptr [rax + rax]
+0x140761920: call     0x140006280    ; runtime.memequal
+0x140761925: test     al, al
+0x140761927: jne      0x140761952    ; main.bookmarkIconRootCandidates+0x212
+0x140761929: mov      rdi, qword ptr [rsp + 0x50]
+0x14076192e: mov      rsi, qword ptr [rsp + 0xa8]
+0x140761936: mov      rax, qword ptr [rsp + 0x70]
+0x14076193b: mov      rbx, qword ptr [rsp + 0x48]
+0x140761940: mov      rcx, qword ptr [rsp + 0x98]
+0x140761948: lea      rdx, [rsp + 0xa8]
+0x140761950: call     rsi
+0x140761952: mov      rax, qword ptr [rsp + 0x98]
+0x14076195a: mov      rbx, qword ptr [rsp + 0x50]
+0x14076195f: nop      
+0x140761960: call     0x1400a1500    ; strings.ToLower
+0x140761965: cmp      rbx, 4
+0x140761969: jl       0x140761977    ; main.bookmarkIconRootCandidates+0x237
+0x14076196b: cmp      dword ptr [rax], 0x2e777777
+0x140761971: sete     sil
+0x140761975: jmp      0x140761979    ; main.bookmarkIconRootCandidates+0x239
+0x140761977: xor      esi, esi
+0x140761979: test     sil, sil
+0x14076197c: je       0x1407619e5    ; main.bookmarkIconRootCandidates+0x2a5
+0x14076197e: mov      rsi, qword ptr [rsp + 0x50]
+0x140761983: cmp      rsi, 4
+0x140761987: jl       0x1407619b7    ; main.bookmarkIconRootCandidates+0x277
+0x140761989: mov      r8, qword ptr [rsp + 0x98]
+0x140761991: cmp      dword ptr [r8], 0x2e777777
+0x140761998: jne      0x1407619bf    ; main.bookmarkIconRootCandidates+0x27f
+0x14076199a: lea      rbx, [rsi - 4]
+0x14076199e: mov      rsi, rbx
+0x1407619a1: neg      rsi
+0x1407619a4: sar      rsi, 0x3f
+0x1407619a8: and      esi, 4
+0x1407619ab: lea      rax, [r8 + rsi]
+0x1407619af: mov      rsi, rbx
+0x1407619b2: mov      r8, rax
+0x1407619b5: jmp      0x1407619bf    ; main.bookmarkIconRootCandidates+0x27f
+0x1407619b7: mov      r8, qword ptr [rsp + 0x98]
+0x1407619bf: mov      r9, qword ptr [rsp + 0xa8]
+0x1407619c7: mov      rax, qword ptr [rsp + 0x70]
+0x1407619cc: mov      rbx, qword ptr [rsp + 0x48]
+0x1407619d1: mov      rcx, r8
+0x1407619d4: mov      rdi, rsi
+0x1407619d7: lea      rdx, [rsp + 0xa8]
+0x1407619df: nop      
+0x1407619e0: call     r9
+0x1407619e3: jmp      0x140761a43    ; main.bookmarkIconRootCandidates+0x303
+0x1407619e5: mov      rax, qword ptr [rsp + 0x98]
+0x1407619ed: mov      rbx, qword ptr [rsp + 0x50]
+0x1407619f2: call     0x140764180    ; main.bookmarkIconSupportsWWWVariant
+0x1407619f7: test     al, al
+0x1407619f9: je       0x140761a43    ; main.bookmarkIconRootCandidates+0x303
+0x1407619fb: lea      rax, [rsp + 0x28]
+0x140761a00: lea      rbx, [rip + 0x4d2d83]
+0x140761a07: mov      ecx, 4
+0x140761a0c: mov      rdi, qword ptr [rsp + 0x98]
+0x140761a14: mov      rsi, qword ptr [rsp + 0x50]
+0x140761a19: call     0x14005fc00    ; runtime.concatstring2
+0x140761a1e: mov      rdx, qword ptr [rsp + 0xa8]
+0x140761a26: mov      rcx, rax
+0x140761a29: mov      rdi, rbx
+0x140761a2c: mov      rax, qword ptr [rsp + 0x70]
+0x140761a31: mov      rbx, qword ptr [rsp + 0x48]
+0x140761a36: mov      rsi, rdx
+0x140761a39: lea      rdx, [rsp + 0xa8]
+0x140761a41: call     rsi
+0x140761a43: mov      rdx, qword ptr [rsp + 0x48]
+0x140761a48: cmp      rdx, 5
+0x140761a4c: jne      0x140761a8c    ; main.bookmarkIconRootCandidates+0x34c
+0x140761a4e: mov      rdx, qword ptr [rsp + 0x70]
+0x140761a53: cmp      dword ptr [rdx], 0x70747468
+0x140761a59: jne      0x140761a7e    ; main.bookmarkIconRootCandidates+0x33e
+0x140761a5b: cmp      byte ptr [rdx + 4], 0x73
+0x140761a5f: nop      
+0x140761a60: jne      0x140761a70    ; main.bookmarkIconRootCandidates+0x330
+0x140761a62: mov      eax, 4
+0x140761a67: lea      rcx, [rip + 0x4d2d20]
+0x140761a6e: jmp      0x140761a98    ; main.bookmarkIconRootCandidates+0x358
+0x140761a70: mov      eax, 5
+0x140761a75: lea      rcx, [rip + 0x4d4165]
+0x140761a7c: jmp      0x140761a98    ; main.bookmarkIconRootCandidates+0x358
+0x140761a7e: mov      eax, 5
+0x140761a83: lea      rcx, [rip + 0x4d4157]
+0x140761a8a: jmp      0x140761a98    ; main.bookmarkIconRootCandidates+0x358
+0x140761a8c: mov      eax, 5
+0x140761a91: lea      rcx, [rip + 0x4d4149]
+0x140761a98: mov      qword ptr [rsp + 0x58], rax
+0x140761a9d: mov      qword ptr [rsp + 0xa0], rcx
+0x140761aa5: mov      rdi, qword ptr [rsp + 0x80]
+0x140761aad: test     rdi, rdi
+0x140761ab0: jne      0x140761abd    ; main.bookmarkIconRootCandidates+0x37d
+0x140761ab2: xor      ebx, ebx
+0x140761ab4: lea      rdx, [rsp + 0x60]
+0x140761ab9: xor      esi, esi
+0x140761abb: jmp      0x140761ae3    ; main.bookmarkIconRootCandidates+0x3a3
+0x140761abd: mov      qword ptr [rsp + 0x68], rdi
+0x140761ac2: lea      rax, [rsp + 0x60]
+0x140761ac7: mov      rbx, rdi
+0x140761aca: xor      ecx, ecx
+0x140761acc: lea      rsi, [rip + 0x38832d]
+0x140761ad3: call     0x14007ad20    ; runtime.growslice
+0x140761ad8: mov      rdi, qword ptr [rsp + 0x68]
+0x140761add: mov      rdx, rax
+0x140761ae0: mov      rsi, rcx
+0x140761ae3: mov      qword ptr [rsp + 0x68], rbx
+0x140761ae8: mov      qword ptr [rsp + 0x1c0], rdx
+0x140761af0: mov      r8, qword ptr [rsp + 0x80]
+0x140761af8: sub      rdi, r8
+0x140761afb: mov      r9, rdi
+0x140761afe: sub      rdi, rsi
+0x140761b01: mov      rcx, rbx
+0x140761b04: sub      rcx, r9
+0x140761b07: mov      r10, qword ptr [rsp + 0x78]
+0x140761b0c: shl      r9, 4
+0x140761b10: sar      rdi, 0x3f
+0x140761b14: and      rdi, r9
+0x140761b17: lea      rbx, [rdx + rdi]
+0x140761b1b: lea      rax, [rip + 0x3882de]
+0x140761b22: mov      rdi, r10
+0x140761b25: mov      rsi, r8
+0x140761b28: call     0x140077380    ; runtime.typedslicecopy
+0x140761b2d: mov      rdx, qword ptr [rsp + 0x1c0]
+0x140761b35: xor      eax, eax
+0x140761b37: jmp      0x140761b7d    ; main.bookmarkIconRootCandidates+0x43d
+0x140761b39: xor      eax, eax
+0x140761b3b: xor      ebx, ebx
+0x140761b3d: mov      rcx, rbx
+0x140761b40: add      rsp, 0x1c8
+0x140761b47: pop      rbp
+0x140761b48: ret      
+0x140761b49: xor      eax, eax
+0x140761b4b: xor      ebx, ebx
+0x140761b4d: mov      rcx, rbx
+0x140761b50: add      rsp, 0x1c8
+0x140761b57: pop      rbp
+0x140761b58: ret      
+0x140761b59: xor      eax, eax
+0x140761b5b: xor      ebx, ebx
+0x140761b5d: mov      rcx, rbx
+0x140761b60: add      rsp, 0x1c8
+0x140761b67: pop      rbp
+0x140761b68: ret      
+0x140761b69: mov      rdx, qword ptr [rsp + 0x1b8]
+0x140761b71: add      rdx, 0x10
+0x140761b75: mov      rax, qword ptr [rsp + 0x60]
+0x140761b7a: inc      rax
+0x140761b7d: mov      rsi, qword ptr [rsp + 0x68]
+0x140761b82: cmp      rax, rsi
+0x140761b85: jge      0x140761bd8    ; main.bookmarkIconRootCandidates+0x498
+0x140761b87: mov      qword ptr [rsp + 0x60], rax
+0x140761b8c: mov      qword ptr [rsp + 0x1b8], rdx
+0x140761b94: mov      rax, qword ptr [rdx]
+0x140761b97: mov      rbx, qword ptr [rdx + 8]
+0x140761b9b: nop      dword ptr [rax + rax]
+0x140761ba0: call     0x140264d80    ; net/url.Parse
+0x140761ba5: test     rbx, rbx
+0x140761ba8: jne      0x140761b69    ; main.bookmarkIconRootCandidates+0x429
+0x140761baa: mov      rdi, qword ptr [rax + 0x30]
+0x140761bae: test     rdi, rdi
+0x140761bb1: je       0x140761b69    ; main.bookmarkIconRootCandidates+0x429
+0x140761bb3: mov      rcx, qword ptr [rax + 0x28]
+0x140761bb7: mov      rsi, qword ptr [rsp + 0xa8]
+0x140761bbf: mov      rax, qword ptr [rsp + 0xa0]
+0x140761bc7: mov      rbx, qword ptr [rsp + 0x58]
+0x140761bcc: lea      rdx, [rsp + 0xa8]
+0x140761bd4: call     rsi
+0x140761bd6: jmp      0x140761b69    ; main.bookmarkIconRootCandidates+0x429
+0x140761bd8: mov      rax, qword ptr [rsp + 0x78]
+0x140761bdd: mov      rbx, qword ptr [rsp + 0x80]
+0x140761be5: mov      rcx, qword ptr [rsp + 0x88]
+0x140761bed: add      rsp, 0x1c8
+0x140761bf4: pop      rbp
+0x140761bf5: ret      
+0x140761bf6: mov      qword ptr [rsp + 8], rax
+0x140761bfb: mov      qword ptr [rsp + 0x10], rbx
+0x140761c00: call     0x14007f140    ; runtime.morestack_noctxt
+0x140761c05: mov      rax, qword ptr [rsp + 8]
+0x140761c0a: mov      rbx, qword ptr [rsp + 0x10]
+0x140761c0f: jmp      0x140761740    ; main.bookmarkIconRootCandidates
+0x140761c14: int3     
+0x140761c15: int3     
+0x140761c16: int3     
+0x140761c17: int3     
+0x140761c18: int3     
+0x140761c19: int3     
+0x140761c1a: int3     
+0x140761c1b: int3     
+0x140761c1c: int3     
+0x140761c1d: int3     
+0x140761c1e: int3     
+0x140761c1f: int3     

@@ -1,0 +1,165 @@
+0x1407d09a0: lea      r12, [rsp - 0x1a0]
+0x1407d09a8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407d09ac: jbe      0x1407d0c66   ; main.fileLocatorService.waitIfPaused+0x2c6
+0x1407d09b2: push     rbp
+0x1407d09b3: mov      rbp, rsp
+0x1407d09b6: sub      rsp, 0x218
+0x1407d09bd: mov      qword ptr [rsp + 0x258], r9
+0x1407d09c5: movq     qword ptr [rsp + 0x210], xmm15
+0x1407d09cf: mov      qword ptr [rsp + 0x228], rax
+0x1407d09d7: mov      qword ptr [rsp + 0x240], rdi
+0x1407d09df: mov      qword ptr [rsp + 0x1f8], r9
+0x1407d09e7: mov      qword ptr [rsp + 0x28], r8
+0x1407d09ec: mov      qword ptr [rsp + 0x238], rcx
+0x1407d09f4: mov      qword ptr [rsp + 0x230], rbx
+0x1407d09fc: mov      qword ptr [rsp + 0x20], rsi
+0x1407d0a01: mov      byte ptr [rsp + 0x1f], 0
+0x1407d0a06: movups   xmmword ptr [rsp + 0x30], xmm15
+0x1407d0a0c: test     byte ptr [rax], al
+0x1407d0a0e: call     0x140093540   ; sync.RWMutex.Lock
+0x1407d0a13: lea      rcx, [rip + 0x2a6]
+0x1407d0a1a: mov      qword ptr [rsp + 0x200], rcx
+0x1407d0a22: mov      rsi, qword ptr [rsp + 0x228]
+0x1407d0a2a: mov      qword ptr [rsp + 0x208], rsi
+0x1407d0a32: lea      rcx, [rsp + 0x200]
+0x1407d0a3a: mov      qword ptr [rsp + 0x210], rcx
+0x1407d0a42: mov      byte ptr [rsp + 0x1f], 1
+0x1407d0a47: mov      rcx, qword ptr [rsp + 0x1f8]
+0x1407d0a4f: mov      rdx, qword ptr [rsp + 0x28]
+0x1407d0a54: mov      rbx, qword ptr [rsp + 0x20]
+0x1407d0a59: mov      rdi, qword ptr [rsp + 0x240]
+0x1407d0a61: jmp      0x1407d0ac7   ; main.fileLocatorService.waitIfPaused+0x127
+0x1407d0a63: mov      rdi, qword ptr [rsp + 0x1f0]
+0x1407d0a6b: lea      rsi, [rsp + 0x40]
+0x1407d0a70: nop      word ptr [rax + rax]
+0x1407d0a79: nop      dword ptr [rax]
+0x1407d0a80: mov      qword ptr [rsp - 0x10], rbp
+0x1407d0a85: lea      rbp, [rsp - 0x10]
+0x1407d0a8a: call     0x140081966   ; runtime.duffcopy+0x206
+0x1407d0a8f: mov      rbp, qword ptr [rbp]
+0x1407d0a93: mov      rcx, qword ptr [rsp + 0x228]
+0x1407d0a9b: mov      rax, qword ptr [rcx + 0x18]
+0x1407d0a9f: nop      
+0x1407d0aa0: call     0x140091d00   ; sync.Cond.Wait
+0x1407d0aa5: mov      rcx, qword ptr [rsp + 0x1f8]
+0x1407d0aad: mov      rdx, qword ptr [rsp + 0x28]
+0x1407d0ab2: mov      rbx, qword ptr [rsp + 0x20]
+0x1407d0ab7: mov      rsi, qword ptr [rsp + 0x228]
+0x1407d0abf: mov      rdi, qword ptr [rsp + 0x240]
+0x1407d0ac7: cmp      qword ptr [rsi + 0x20], rdi
+0x1407d0acb: jne      0x1407d0b29   ; main.fileLocatorService.waitIfPaused+0x189
+0x1407d0acd: cmp      byte ptr [rsi + 0x118], 0
+0x1407d0ad4: je       0x1407d0b25   ; main.fileLocatorService.waitIfPaused+0x185
+0x1407d0ad6: cmp      byte ptr [rsi + 0x119], 0
+0x1407d0add: jne      0x1407d0ae3   ; main.fileLocatorService.waitIfPaused+0x143
+0x1407d0adf: xor      eax, eax
+0x1407d0ae1: jmp      0x1407d0b2b   ; main.fileLocatorService.waitIfPaused+0x18b
+0x1407d0ae3: mov      rcx, qword ptr [rsp + 0x230]
+0x1407d0aeb: mov      rcx, qword ptr [rcx + 0x28]
+0x1407d0aef: mov      rax, qword ptr [rsp + 0x238]
+0x1407d0af7: call     rcx
+0x1407d0af9: test     rax, rax
+0x1407d0afc: sete     cl
+0x1407d0aff: mov      rdx, qword ptr [rsp + 0x28]
+0x1407d0b04: mov      rbx, qword ptr [rsp + 0x20]
+0x1407d0b09: mov      rsi, qword ptr [rsp + 0x228]
+0x1407d0b11: mov      rdi, qword ptr [rsp + 0x240]
+0x1407d0b19: mov      eax, ecx
+0x1407d0b1b: mov      rcx, qword ptr [rsp + 0x1f8]
+0x1407d0b23: jmp      0x1407d0b2b   ; main.fileLocatorService.waitIfPaused+0x18b
+0x1407d0b25: xor      eax, eax
+0x1407d0b27: jmp      0x1407d0b2b   ; main.fileLocatorService.waitIfPaused+0x18b
+0x1407d0b29: xor      eax, eax
+0x1407d0b2b: test     al, al
+0x1407d0b2d: je       0x1407d0bac   ; main.fileLocatorService.waitIfPaused+0x20c
+0x1407d0b2f: add      rsi, 0x28
+0x1407d0b33: mov      qword ptr [rsp + 0x1f0], rsi
+0x1407d0b3b: lea      rdi, [rsp + 0x40]
+0x1407d0b40: mov      qword ptr [rsp - 0x10], rbp
+0x1407d0b45: lea      rbp, [rsp - 0x10]
+0x1407d0b4a: call     0x140081966   ; runtime.duffcopy+0x206
+0x1407d0b4f: mov      rbp, qword ptr [rbp]
+0x1407d0b53: mov      rax, rbx
+0x1407d0b56: mov      rbx, rdx
+0x1407d0b59: call     0x1400fbbe0   ; time.Since
+0x1407d0b5e: mov      rcx, rax
+0x1407d0b61: movabs   rax, 0x431bde82d7b634db
+0x1407d0b6b: imul     rcx
+0x1407d0b6e: sar      rdx, 0x12
+0x1407d0b72: sar      rcx, 0x3f
+0x1407d0b76: sub      rdx, rcx
+0x1407d0b79: mov      qword ptr [rsp + 0x158], rdx
+0x1407d0b81: cmp      dword ptr [rip + 0x148a7c8], 0
+0x1407d0b88: je       0x1407d0a63   ; main.fileLocatorService.waitIfPaused+0xc3
+0x1407d0b8e: lea      rax, [rip + 0x44474b]
+0x1407d0b95: mov      rbx, qword ptr [rsp + 0x1f0]
+0x1407d0b9d: lea      rcx, [rsp + 0x40]
+0x1407d0ba2: call     0x14001b620   ; runtime.wbMove
+0x1407d0ba7: jmp      0x1407d0a63   ; main.fileLocatorService.waitIfPaused+0xc3
+0x1407d0bac: mov      rcx, qword ptr [rsp + 0x230]
+0x1407d0bb4: mov      rcx, qword ptr [rcx + 0x28]
+0x1407d0bb8: mov      rax, qword ptr [rsp + 0x238]
+0x1407d0bc0: call     rcx
+0x1407d0bc2: test     rax, rax
+0x1407d0bc5: jne      0x1407d0be6   ; main.fileLocatorService.waitIfPaused+0x246
+0x1407d0bc7: mov      rax, qword ptr [rsp + 0x240]
+0x1407d0bcf: mov      rcx, qword ptr [rsp + 0x228]
+0x1407d0bd7: cmp      qword ptr [rcx + 0x20], rax
+0x1407d0bdb: jne      0x1407d0be6   ; main.fileLocatorService.waitIfPaused+0x246
+0x1407d0bdd: cmp      byte ptr [rcx + 0x118], 0
+0x1407d0be4: jne      0x1407d0c23   ; main.fileLocatorService.waitIfPaused+0x283
+0x1407d0be6: mov      rax, qword ptr [rip + 0x13f3933]
+0x1407d0bed: mov      rcx, qword ptr [rip + 0x13f3934]
+0x1407d0bf4: mov      qword ptr [rsp + 0x30], rax
+0x1407d0bf9: mov      qword ptr [rsp + 0x38], rcx
+0x1407d0bfe: mov      byte ptr [rsp + 0x1f], 0
+0x1407d0c03: mov      rdx, qword ptr [rsp + 0x210]
+0x1407d0c0b: mov      rax, qword ptr [rdx]
+0x1407d0c0e: call     rax
+0x1407d0c10: mov      rax, qword ptr [rsp + 0x30]
+0x1407d0c15: mov      rbx, qword ptr [rsp + 0x38]
+0x1407d0c1a: add      rsp, 0x218
+0x1407d0c21: pop      rbp
+0x1407d0c22: ret      
+0x1407d0c23: movups   xmmword ptr [rsp + 0x30], xmm15
+0x1407d0c29: mov      byte ptr [rsp + 0x1f], 0
+0x1407d0c2e: mov      rdx, qword ptr [rsp + 0x210]
+0x1407d0c36: mov      rax, qword ptr [rdx]
+0x1407d0c39: call     rax
+0x1407d0c3b: mov      rbx, qword ptr [rsp + 0x38]
+0x1407d0c40: mov      rax, qword ptr [rsp + 0x30]
+0x1407d0c45: add      rsp, 0x218
+0x1407d0c4c: pop      rbp
+0x1407d0c4d: ret      
+0x1407d0c4e: call     0x1400435e0   ; runtime.deferreturn
+0x1407d0c53: mov      rax, qword ptr [rsp + 0x30]
+0x1407d0c58: mov      rbx, qword ptr [rsp + 0x38]
+0x1407d0c5d: add      rsp, 0x218
+0x1407d0c64: pop      rbp
+0x1407d0c65: ret      
+0x1407d0c66: mov      qword ptr [rsp + 8], rax
+0x1407d0c6b: mov      qword ptr [rsp + 0x10], rbx
+0x1407d0c70: mov      qword ptr [rsp + 0x18], rcx
+0x1407d0c75: mov      qword ptr [rsp + 0x20], rdi
+0x1407d0c7a: mov      qword ptr [rsp + 0x28], rsi
+0x1407d0c7f: mov      qword ptr [rsp + 0x30], r8
+0x1407d0c84: mov      qword ptr [rsp + 0x38], r9
+0x1407d0c89: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407d0c8e: mov      rax, qword ptr [rsp + 8]
+0x1407d0c93: mov      rbx, qword ptr [rsp + 0x10]
+0x1407d0c98: mov      rcx, qword ptr [rsp + 0x18]
+0x1407d0c9d: mov      rdi, qword ptr [rsp + 0x20]
+0x1407d0ca2: mov      rsi, qword ptr [rsp + 0x28]
+0x1407d0ca7: mov      r8, qword ptr [rsp + 0x30]
+0x1407d0cac: mov      r9, qword ptr [rsp + 0x38]
+0x1407d0cb1: jmp      0x1407d09a0   ; main.fileLocatorService.waitIfPaused
+0x1407d0cb6: int3     
+0x1407d0cb7: int3     
+0x1407d0cb8: int3     
+0x1407d0cb9: int3     
+0x1407d0cba: int3     
+0x1407d0cbb: int3     
+0x1407d0cbc: int3     
+0x1407d0cbd: int3     
+0x1407d0cbe: int3     
+0x1407d0cbf: int3     

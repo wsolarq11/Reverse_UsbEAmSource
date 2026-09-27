@@ -1,0 +1,118 @@
+0x1409c8120: lea      r12, [rsp - 0x18]
+0x1409c8125: cmp      r12, qword ptr [r14 + 0x10]
+0x1409c8129: jbe      0x1409c82f3   ; main.normalizeTwoFactorOpaqueIconPayloadWithDecoder+0x1d3
+0x1409c812f: push     rbp
+0x1409c8130: mov      rbp, rsp
+0x1409c8133: sub      rsp, 0x90
+0x1409c813a: mov      qword ptr [rsp + 0xa0], rax
+0x1409c8142: mov      rsi, qword ptr [rcx]
+0x1409c8145: mov      rdx, rcx
+0x1409c8148: call     rsi
+0x1409c814a: test     rdi, rdi
+0x1409c814d: jne      0x1409c8154   ; main.normalizeTwoFactorOpaqueIconPayloadWithDecoder+0x34
+0x1409c814f: test     rbx, rbx
+0x1409c8152: jne      0x1409c8163   ; main.normalizeTwoFactorOpaqueIconPayloadWithDecoder+0x43
+0x1409c8154: xor      eax, eax
+0x1409c8156: xor      ebx, ebx
+0x1409c8158: xor      ecx, ecx
+0x1409c815a: add      rsp, 0x90
+0x1409c8161: pop      rbp
+0x1409c8162: ret      
+0x1409c8163: mov      qword ptr [rsp + 0x60], rcx
+0x1409c8168: mov      qword ptr [rsp + 0x58], rbx
+0x1409c816d: mov      qword ptr [rsp + 0x80], rax
+0x1409c8175: mov      rcx, rbx
+0x1409c8178: mov      rbx, rax
+0x1409c817b: xor      eax, eax
+0x1409c817d: nop      dword ptr [rax]
+0x1409c8180: call     0x1400603c0   ; runtime.slicebytetostring
+0x1409c8185: call     0x1400a2200   ; strings.TrimSpace
+0x1409c818a: mov      qword ptr [rsp + 0x70], rax
+0x1409c818f: mov      qword ptr [rsp + 0x48], rbx
+0x1409c8194: call     0x1400a1500   ; strings.ToLower
+0x1409c8199: nop      
+0x1409c819a: nop      word ptr [rax + rax]
+0x1409c81a0: cmp      rbx, 0xb
+0x1409c81a4: jl       0x1409c81bf   ; main.normalizeTwoFactorOpaqueIconPayloadWithDecoder+0x9f
+0x1409c81a6: lea      rbx, [rip + 0x27f38c]
+0x1409c81ad: mov      ecx, 0xb
+0x1409c81b2: call     0x140006280   ; runtime.memequal
+0x1409c81b7: test     al, al
+0x1409c81b9: jne      0x1409c82ca   ; main.normalizeTwoFactorOpaqueIconPayloadWithDecoder+0x1aa
+0x1409c81bf: mov      rax, qword ptr [rip + 0x124767a]
+0x1409c81c6: mov      rbx, qword ptr [rsp + 0x80]
+0x1409c81ce: mov      rcx, qword ptr [rsp + 0x58]
+0x1409c81d3: mov      rdi, qword ptr [rsp + 0x60]
+0x1409c81d8: call     0x14019a860   ; encoding/base64.Encoding.EncodeToString
+0x1409c81dd: mov      qword ptr [rsp + 0x88], rax
+0x1409c81e5: mov      qword ptr [rsp + 0x68], rbx
+0x1409c81ea: mov      rax, qword ptr [rsp + 0x80]
+0x1409c81f2: mov      rbx, qword ptr [rsp + 0x58]
+0x1409c81f7: mov      rcx, qword ptr [rsp + 0x60]
+0x1409c81fc: nop      dword ptr [rax]
+0x1409c8200: call     0x140338880   ; net/http.DetectContentType
+0x1409c8205: call     0x1400a2200   ; strings.TrimSpace
+0x1409c820a: mov      qword ptr [rsp + 0x78], rax
+0x1409c820f: mov      qword ptr [rsp + 0x50], rbx
+0x1409c8214: call     0x1400a1500   ; strings.ToLower
+0x1409c8219: nop      
+0x1409c821a: nop      word ptr [rax + rax]
+0x1409c8220: cmp      rbx, 6
+0x1409c8224: jl       0x1409c823b   ; main.normalizeTwoFactorOpaqueIconPayloadWithDecoder+0x11b
+0x1409c8226: lea      rbx, [rip + 0x26f3c3]
+0x1409c822d: mov      ecx, 6
+0x1409c8232: call     0x140006280   ; runtime.memequal
+0x1409c8237: test     al, al
+0x1409c8239: jne      0x1409c8269   ; main.normalizeTwoFactorOpaqueIconPayloadWithDecoder+0x149
+0x1409c823b: xor      eax, eax
+0x1409c823d: lea      rbx, [rip + 0x271324]
+0x1409c8244: mov      ecx, 7
+0x1409c8249: mov      rdi, qword ptr [rsp + 0x88]
+0x1409c8251: mov      rsi, qword ptr [rsp + 0x68]
+0x1409c8256: call     0x14005fc00   ; runtime.concatstring2
+0x1409c825b: mov      ecx, 1
+0x1409c8260: add      rsp, 0x90
+0x1409c8267: pop      rbp
+0x1409c8268: ret      
+0x1409c8269: xor      eax, eax
+0x1409c826b: lea      rbx, [rip + 0x26d965]
+0x1409c8272: mov      ecx, 5
+0x1409c8277: mov      rdi, qword ptr [rsp + 0x78]
+0x1409c827c: mov      rsi, qword ptr [rsp + 0x50]
+0x1409c8281: lea      r8, [rip + 0x273e44]
+0x1409c8288: mov      r9d, 8
+0x1409c828e: mov      r10, qword ptr [rsp + 0x88]
+0x1409c8296: mov      r11, qword ptr [rsp + 0x68]
+0x1409c829b: nop      dword ptr [rax + rax]
+0x1409c82a0: call     0x14005fd60   ; runtime.concatstring4
+0x1409c82a5: mov      rcx, rax
+0x1409c82a8: mov      rdi, rbx
+0x1409c82ab: lea      rax, [rip + 0x26c6d4]
+0x1409c82b2: mov      ebx, 4
+0x1409c82b7: call     0x1409c7e00   ; main.sanitizeTwoFactorEntryIconData
+0x1409c82bc: mov      ecx, 1
+0x1409c82c1: add      rsp, 0x90
+0x1409c82c8: pop      rbp
+0x1409c82c9: ret      
+0x1409c82ca: lea      rax, [rip + 0x26c6b5]
+0x1409c82d1: mov      ebx, 4
+0x1409c82d6: mov      rcx, qword ptr [rsp + 0x70]
+0x1409c82db: mov      rdi, qword ptr [rsp + 0x48]
+0x1409c82e0: call     0x1409c7e00   ; main.sanitizeTwoFactorEntryIconData
+0x1409c82e5: mov      ecx, 1
+0x1409c82ea: add      rsp, 0x90
+0x1409c82f1: pop      rbp
+0x1409c82f2: ret      
+0x1409c82f3: mov      qword ptr [rsp + 8], rax
+0x1409c82f8: mov      qword ptr [rsp + 0x10], rbx
+0x1409c82fd: mov      qword ptr [rsp + 0x18], rcx
+0x1409c8302: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409c8307: mov      rax, qword ptr [rsp + 8]
+0x1409c830c: mov      rbx, qword ptr [rsp + 0x10]
+0x1409c8311: mov      rcx, qword ptr [rsp + 0x18]
+0x1409c8316: jmp      0x1409c8120   ; main.normalizeTwoFactorOpaqueIconPayloadWithDecoder
+0x1409c831b: int3     
+0x1409c831c: int3     
+0x1409c831d: int3     
+0x1409c831e: int3     
+0x1409c831f: int3     

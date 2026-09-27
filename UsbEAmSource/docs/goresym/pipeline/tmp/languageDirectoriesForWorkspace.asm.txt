@@ -1,0 +1,71 @@
+0x1407a27a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a27a4: jbe      0x1407a2838   ; main.languageDirectoriesForWorkspace+0x98
+0x1407a27aa: push     rbp
+0x1407a27ab: mov      rbp, rsp
+0x1407a27ae: sub      rsp, 0x20
+0x1407a27b2: mov      rax, qword ptr [rsp + 0x60]
+0x1407a27b7: mov      rbx, qword ptr [rsp + 0x68]
+0x1407a27bc: nop      dword ptr [rax]
+0x1407a27c0: call     0x1400a2200   ; strings.TrimSpace
+0x1407a27c5: test     rbx, rbx
+0x1407a27c8: jne      0x1407a27d9   ; main.languageDirectoriesForWorkspace+0x39
+0x1407a27ca: mov      rax, qword ptr [rsp + 0x50]
+0x1407a27cf: mov      rbx, qword ptr [rsp + 0x58]
+0x1407a27d4: call     0x1400a2200   ; strings.TrimSpace
+0x1407a27d9: test     rbx, rbx
+0x1407a27dc: je       0x1407a282b   ; main.languageDirectoriesForWorkspace+0x8b
+0x1407a27de: mov      qword ptr [rsp + 0x18], rax
+0x1407a27e3: mov      qword ptr [rsp + 0x10], rbx
+0x1407a27e8: lea      rax, [rip + 0x35b131]
+0x1407a27ef: call     0x14001ae20   ; runtime.newobject
+0x1407a27f4: mov      rcx, qword ptr [rsp + 0x10]
+0x1407a27f9: mov      qword ptr [rax + 8], rcx
+0x1407a27fd: cmp      dword ptr [rip + 0x14b8b4c], 0
+0x1407a2804: jne      0x1407a280d   ; main.languageDirectoriesForWorkspace+0x6d
+0x1407a2806: mov      rdx, qword ptr [rsp + 0x18]
+0x1407a280b: jmp      0x1407a281a   ; main.languageDirectoriesForWorkspace+0x7a
+0x1407a280d: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407a2812: mov      rdx, qword ptr [rsp + 0x18]
+0x1407a2817: mov      qword ptr [r11], rdx
+0x1407a281a: mov      qword ptr [rax], rdx
+0x1407a281d: mov      ebx, 1
+0x1407a2822: mov      rcx, rbx
+0x1407a2825: add      rsp, 0x20
+0x1407a2829: pop      rbp
+0x1407a282a: ret      
+0x1407a282b: xor      eax, eax
+0x1407a282d: xor      ebx, ebx
+0x1407a282f: mov      rcx, rbx
+0x1407a2832: add      rsp, 0x20
+0x1407a2836: pop      rbp
+0x1407a2837: ret      
+0x1407a2838: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a283d: nop      dword ptr [rax]
+0x1407a2840: jmp      0x1407a27a0   ; main.languageDirectoriesForWorkspace
+0x1407a2845: int3     
+0x1407a2846: int3     
+0x1407a2847: int3     
+0x1407a2848: int3     
+0x1407a2849: int3     
+0x1407a284a: int3     
+0x1407a284b: int3     
+0x1407a284c: int3     
+0x1407a284d: int3     
+0x1407a284e: int3     
+0x1407a284f: int3     
+0x1407a2850: int3     
+0x1407a2851: int3     
+0x1407a2852: int3     
+0x1407a2853: int3     
+0x1407a2854: int3     
+0x1407a2855: int3     
+0x1407a2856: int3     
+0x1407a2857: int3     
+0x1407a2858: int3     
+0x1407a2859: int3     
+0x1407a285a: int3     
+0x1407a285b: int3     
+0x1407a285c: int3     
+0x1407a285d: int3     
+0x1407a285e: int3     
+0x1407a285f: int3     

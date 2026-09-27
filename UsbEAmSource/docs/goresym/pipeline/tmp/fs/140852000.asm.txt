@@ -1,0 +1,32 @@
+0x140852000: cmp      rsp, qword ptr [r14 + 0x10]
+0x140852004: jbe      0x14085204d
+0x140852006: push     rbp
+0x140852007: mov      rbp, rsp
+0x14085200a: sub      rsp, 0x28
+0x14085200e: test     eax, eax
+0x140852010: jne      0x14085201c
+0x140852012: xor      eax, eax
+0x140852014: xor      ebx, ebx
+0x140852016: add      rsp, 0x28
+0x14085201a: pop      rbp
+0x14085201b: ret      
+0x14085201c: mov      edx, eax
+0x14085201e: movabs   r8, 0xe7791f700
+0x140852028: lea      rbx, [rdx + r8]
+0x14085202c: mov      rcx, qword ptr [rip + 0x1370c8d]
+0x140852033: nop      
+0x140852034: xor      eax, eax
+0x140852036: lea      rdi, [rip + 0x409b80]
+0x14085203d: mov      esi, 0x13
+0x140852042: call     0x1400f2cc0
+0x140852047: add      rsp, 0x28
+0x14085204b: pop      rbp
+0x14085204c: ret      
+0x14085204d: mov      dword ptr [rsp + 8], eax
+0x140852051: call     0x14007f140
+0x140852056: mov      eax, dword ptr [rsp + 8]
+0x14085205a: jmp      0x140852000
+0x14085205c: int3     
+0x14085205d: int3     
+0x14085205e: int3     
+0x14085205f: int3     

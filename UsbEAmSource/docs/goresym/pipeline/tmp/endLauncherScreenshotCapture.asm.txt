@@ -1,0 +1,68 @@
+0x140796c20: cmp      rsp, qword ptr [r14 + 0x10]
+0x140796c24: jbe      0x140796c83   ; main.BootstrapService.endLauncherScreenshotCapture+0x63
+0x140796c26: push     rbp
+0x140796c27: mov      rbp, rsp
+0x140796c2a: sub      rsp, 0x18
+0x140796c2e: mov      qword ptr [rsp + 0x30], rbx
+0x140796c33: mov      qword ptr [rsp + 0x38], rcx
+0x140796c38: mov      byte ptr [rsp + 0x40], dil
+0x140796c3d: mov      qword ptr [rsp + 0x48], rsi
+0x140796c42: mov      qword ptr [rsp + 0x50], r8
+0x140796c47: test     dil, dil
+0x140796c4a: je       0x140796c7d   ; main.BootstrapService.endLauncherScreenshotCapture+0x5d
+0x140796c4c: mov      rdx, qword ptr [rsp + 0x30]
+0x140796c51: test     rdx, rdx
+0x140796c54: je       0x140796c7d   ; main.BootstrapService.endLauncherScreenshotCapture+0x5d
+0x140796c56: mov      rdx, qword ptr [rdx + 0x68]
+0x140796c5a: mov      rax, rcx
+0x140796c5d: mov      rbx, rsi
+0x140796c60: mov      rcx, r8
+0x140796c63: call     rdx
+0x140796c65: mov      rdx, qword ptr [rsp + 0x30]
+0x140796c6a: mov      rax, qword ptr [rsp + 0x38]
+0x140796c6f: mov      rdx, qword ptr [rdx + 0x60]
+0x140796c73: xor      ebx, ebx
+0x140796c75: call     rdx
+0x140796c77: add      rsp, 0x18
+0x140796c7b: pop      rbp
+0x140796c7c: ret      
+0x140796c7d: add      rsp, 0x18
+0x140796c81: pop      rbp
+0x140796c82: ret      
+0x140796c83: mov      qword ptr [rsp + 8], rax
+0x140796c88: mov      qword ptr [rsp + 0x10], rbx
+0x140796c8d: mov      qword ptr [rsp + 0x18], rcx
+0x140796c92: mov      byte ptr [rsp + 0x20], dil
+0x140796c97: mov      qword ptr [rsp + 0x28], rsi
+0x140796c9c: mov      qword ptr [rsp + 0x30], r8
+0x140796ca1: call     0x14007f140   ; runtime.morestack_noctxt
+0x140796ca6: mov      rax, qword ptr [rsp + 8]
+0x140796cab: mov      rbx, qword ptr [rsp + 0x10]
+0x140796cb0: mov      rcx, qword ptr [rsp + 0x18]
+0x140796cb5: movzx    edi, byte ptr [rsp + 0x20]
+0x140796cba: mov      rsi, qword ptr [rsp + 0x28]
+0x140796cbf: mov      r8, qword ptr [rsp + 0x30]
+0x140796cc4: jmp      0x140796c20   ; main.BootstrapService.endLauncherScreenshotCapture
+0x140796cc9: int3     
+0x140796cca: int3     
+0x140796ccb: int3     
+0x140796ccc: int3     
+0x140796ccd: int3     
+0x140796cce: int3     
+0x140796ccf: int3     
+0x140796cd0: int3     
+0x140796cd1: int3     
+0x140796cd2: int3     
+0x140796cd3: int3     
+0x140796cd4: int3     
+0x140796cd5: int3     
+0x140796cd6: int3     
+0x140796cd7: int3     
+0x140796cd8: int3     
+0x140796cd9: int3     
+0x140796cda: int3     
+0x140796cdb: int3     
+0x140796cdc: int3     
+0x140796cdd: int3     
+0x140796cde: int3     
+0x140796cdf: int3     

@@ -1,0 +1,109 @@
+0x1409d3280: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409d3284: jbe      0x1409d33b6   ; main.buildHOTPValue+0x136
+0x1409d328a: push     rbp
+0x1409d328b: mov      rbp, rsp
+0x1409d328e: sub      rsp, 0x38
+0x1409d3292: mov      qword ptr [rsp + 0x48], rax
+0x1409d3297: mov      qword ptr [rsp + 0x68], rsi
+0x1409d329c: mov      qword ptr [rsp + 0x60], rdi
+0x1409d32a1: mov      rdi, rsi
+0x1409d32a4: mov      rsi, r8
+0x1409d32a7: call     0x1409d3400   ; main.newTwoFactorHMAC
+0x1409d32ac: test     rcx, rcx
+0x1409d32af: jne      0x1409d3379   ; main.buildHOTPValue+0xf9
+0x1409d32b5: mov      qword ptr [rsp + 0x30], rbx
+0x1409d32ba: mov      qword ptr [rsp + 0x28], rax
+0x1409d32bf: lea      rax, [rip + 0x116bba]
+0x1409d32c6: mov      ebx, 8
+0x1409d32cb: mov      rcx, rbx
+0x1409d32ce: call     0x14007ac40   ; runtime.makeslice
+0x1409d32d3: mov      rdx, qword ptr [rsp + 0x60]
+0x1409d32d8: bswap    rdx
+0x1409d32db: nop      
+0x1409d32dc: mov      qword ptr [rax], rdx
+0x1409d32df: mov      rdx, qword ptr [rsp + 0x28]
+0x1409d32e4: mov      rdx, qword ptr [rdx + 0x20]
+0x1409d32e8: mov      rbx, rax
+0x1409d32eb: mov      ecx, 8
+0x1409d32f0: mov      rdi, rcx
+0x1409d32f3: mov      rax, qword ptr [rsp + 0x30]
+0x1409d32f8: call     rdx
+0x1409d32fa: test     rbx, rbx
+0x1409d32fd: jne      0x1409d3371   ; main.buildHOTPValue+0xf1
+0x1409d32ff: mov      rdx, qword ptr [rsp + 0x28]
+0x1409d3304: mov      rdx, qword ptr [rdx + 0x18]
+0x1409d3308: mov      rax, qword ptr [rsp + 0x30]
+0x1409d330d: xor      ebx, ebx
+0x1409d330f: xor      ecx, ecx
+0x1409d3311: mov      rdi, rcx
+0x1409d3314: call     rdx
+0x1409d3316: lea      rdx, [rbx - 1]
+0x1409d331a: nop      word ptr [rax + rax]
+0x1409d3320: cmp      rbx, rdx
+0x1409d3323: jbe      0x1409d33aa   ; main.buildHOTPValue+0x12a
+0x1409d3329: movzx    esi, byte ptr [rbx + rax - 1]
+0x1409d332e: mov      edi, esi
+0x1409d3330: and      esi, 0xf
+0x1409d3333: add      esi, 4
+0x1409d3336: movzx    esi, sil
+0x1409d333a: cmp      rcx, rsi
+0x1409d333d: jb       0x1409d339f   ; main.buildHOTPValue+0x11f
+0x1409d333f: and      edi, 0xf
+0x1409d3342: cmp      rsi, rdi
+0x1409d3345: jb       0x1409d3394   ; main.buildHOTPValue+0x114
+0x1409d3347: sub      rsi, rdi
+0x1409d334a: mov      rdx, rdi
+0x1409d334d: sub      rdi, rcx
+0x1409d3350: sar      rdi, 0x3f
+0x1409d3354: and      rdx, rdi
+0x1409d3357: cmp      rsi, 3
+0x1409d335b: jbe      0x1409d3387   ; main.buildHOTPValue+0x107
+0x1409d335d: mov      eax, dword ptr [rax + rdx]
+0x1409d3360: bswap    eax
+0x1409d3362: and      eax, 0x7fffffff
+0x1409d3367: xor      ebx, ebx
+0x1409d3369: xor      ecx, ecx
+0x1409d336b: add      rsp, 0x38
+0x1409d336f: pop      rbp
+0x1409d3370: ret      
+0x1409d3371: xor      eax, eax
+0x1409d3373: add      rsp, 0x38
+0x1409d3377: pop      rbp
+0x1409d3378: ret      
+0x1409d3379: xor      eax, eax
+0x1409d337b: mov      rbx, rcx
+0x1409d337e: mov      rcx, rdi
+0x1409d3381: add      rsp, 0x38
+0x1409d3385: pop      rbp
+0x1409d3386: ret      
+0x1409d3387: mov      eax, 3
+0x1409d338c: mov      rcx, rsi
+0x1409d338f: call     0x140081400   ; runtime.panicIndex
+0x1409d3394: mov      rax, rdi
+0x1409d3397: mov      rcx, rsi
+0x1409d339a: call     0x1400814c0   ; runtime.panicSliceB
+0x1409d339f: mov      rdx, rcx
+0x1409d33a2: mov      rcx, rsi
+0x1409d33a5: call     0x140081480   ; runtime.panicSliceAcap
+0x1409d33aa: mov      rax, rdx
+0x1409d33ad: mov      rcx, rbx
+0x1409d33b0: call     0x140081400   ; runtime.panicIndex
+0x1409d33b5: nop      
+0x1409d33b6: mov      qword ptr [rsp + 8], rax
+0x1409d33bb: mov      qword ptr [rsp + 0x10], rbx
+0x1409d33c0: mov      qword ptr [rsp + 0x18], rcx
+0x1409d33c5: mov      qword ptr [rsp + 0x20], rdi
+0x1409d33ca: mov      qword ptr [rsp + 0x28], rsi
+0x1409d33cf: mov      qword ptr [rsp + 0x30], r8
+0x1409d33d4: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d33d9: mov      rax, qword ptr [rsp + 8]
+0x1409d33de: mov      rbx, qword ptr [rsp + 0x10]
+0x1409d33e3: mov      rcx, qword ptr [rsp + 0x18]
+0x1409d33e8: mov      rdi, qword ptr [rsp + 0x20]
+0x1409d33ed: mov      rsi, qword ptr [rsp + 0x28]
+0x1409d33f2: mov      r8, qword ptr [rsp + 0x30]
+0x1409d33f7: jmp      0x1409d3280   ; main.buildHOTPValue
+0x1409d33fc: int3     
+0x1409d33fd: int3     
+0x1409d33fe: int3     
+0x1409d33ff: int3     

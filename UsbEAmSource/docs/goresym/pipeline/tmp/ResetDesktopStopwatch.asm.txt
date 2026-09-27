@@ -1,0 +1,68 @@
+0x1407a93a0: lea      r12, [rsp - 0x40]
+0x1407a93a5: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a93a9: jbe      0x1407a94aa    ; main.BootstrapService.ResetDesktopStopwatch+0x10a
+0x1407a93af: push     rbp
+0x1407a93b0: mov      rbp, rsp
+0x1407a93b3: sub      rsp, 0xb8
+0x1407a93ba: mov      qword ptr [rsp + 0xe0], rbx
+0x1407a93c2: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1407a93c8: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1407a93ce: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1407a93d4: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1407a93da: mov      rax, qword ptr [rax + 0x440]
+0x1407a93e1: lea      rdi, [rip + 0x48c830]
+0x1407a93e8: mov      esi, 5
+0x1407a93ed: call     0x1407bb980    ; main.desktopWidgetService.mutateStopwatch
+0x1407a93f2: mov      rdx, qword ptr [rsp]
+0x1407a93f6: mov      r11, qword ptr [rsp + 8]
+0x1407a93fb: mov      qword ptr [rsp + 0x78], rax
+0x1407a9400: mov      qword ptr [rsp + 0x80], rbx
+0x1407a9408: mov      qword ptr [rsp + 0x88], rcx
+0x1407a9410: mov      qword ptr [rsp + 0x90], rdi
+0x1407a9418: mov      qword ptr [rsp + 0x98], rsi
+0x1407a9420: mov      qword ptr [rsp + 0xa0], r8
+0x1407a9428: mov      qword ptr [rsp + 0xa8], r9
+0x1407a9430: mov      qword ptr [rsp + 0xb0], r10
+0x1407a9438: movups   xmm0, xmmword ptr [rsp + 0x78]
+0x1407a943d: movups   xmmword ptr [rsp + 0x38], xmm0
+0x1407a9442: movups   xmm0, xmmword ptr [rsp + 0x88]
+0x1407a944a: movups   xmmword ptr [rsp + 0x48], xmm0
+0x1407a944f: movups   xmm0, xmmword ptr [rsp + 0x98]
+0x1407a9457: movups   xmmword ptr [rsp + 0x58], xmm0
+0x1407a945c: movups   xmm0, xmmword ptr [rsp + 0xa8]
+0x1407a9464: movups   xmmword ptr [rsp + 0x68], xmm0
+0x1407a9469: mov      rax, qword ptr [rsp + 0x38]
+0x1407a946e: mov      rbx, qword ptr [rsp + 0x40]
+0x1407a9473: mov      rcx, qword ptr [rsp + 0x48]
+0x1407a9478: mov      rdi, qword ptr [rsp + 0x50]
+0x1407a947d: mov      rsi, qword ptr [rsp + 0x58]
+0x1407a9482: mov      r8, qword ptr [rsp + 0x60]
+0x1407a9487: mov      r9, qword ptr [rsp + 0x68]
+0x1407a948c: mov      r10, qword ptr [rsp + 0x70]
+0x1407a9491: mov      qword ptr [rsp + 0xc8], rdx
+0x1407a9499: mov      qword ptr [rsp + 0xd0], r11
+0x1407a94a1: add      rsp, 0xb8
+0x1407a94a8: pop      rbp
+0x1407a94a9: ret      
+0x1407a94aa: mov      qword ptr [rsp + 0x18], rax
+0x1407a94af: mov      qword ptr [rsp + 0x20], rbx
+0x1407a94b4: mov      qword ptr [rsp + 0x28], rcx
+0x1407a94b9: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a94be: mov      rax, qword ptr [rsp + 0x18]
+0x1407a94c3: mov      rbx, qword ptr [rsp + 0x20]
+0x1407a94c8: mov      rcx, qword ptr [rsp + 0x28]
+0x1407a94cd: jmp      0x1407a93a0    ; main.BootstrapService.ResetDesktopStopwatch
+0x1407a94d2: int3     
+0x1407a94d3: int3     
+0x1407a94d4: int3     
+0x1407a94d5: int3     
+0x1407a94d6: int3     
+0x1407a94d7: int3     
+0x1407a94d8: int3     
+0x1407a94d9: int3     
+0x1407a94da: int3     
+0x1407a94db: int3     
+0x1407a94dc: int3     
+0x1407a94dd: int3     
+0x1407a94de: int3     
+0x1407a94df: int3     

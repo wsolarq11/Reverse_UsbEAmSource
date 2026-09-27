@@ -1,0 +1,123 @@
+0x140882880: cmp      rsp, qword ptr [r14 + 0x10]
+0x140882884: jbe      0x1408829d1   ; main.resolveEffectiveAppLaunchPrivilege+0x151
+0x14088288a: push     rbp
+0x14088288b: mov      rbp, rsp
+0x14088288e: sub      rsp, 0x10
+0x140882892: mov      qword ptr [rsp + 0x20], rax
+0x140882897: mov      qword ptr [rsp + 0x38], rdi
+0x14088289c: mov      qword ptr [rsp + 0x30], rcx
+0x1408828a1: call     0x140882680   ; main.normalizeAppLaunchPrivilegeMode
+0x1408828a6: cmp      rbx, 5
+0x1408828aa: jne      0x1408828cc   ; main.resolveEffectiveAppLaunchPrivilege+0x4c
+0x1408828ac: cmp      dword ptr [rax], 0x696d6461
+0x1408828b2: jne      0x14088292f   ; main.resolveEffectiveAppLaunchPrivilege+0xaf
+0x1408828b4: cmp      byte ptr [rax + 4], 0x6e
+0x1408828b8: jne      0x14088292f   ; main.resolveEffectiveAppLaunchPrivilege+0xaf
+0x1408828ba: lea      rax, [rip + 0x3b342e]
+0x1408828c1: mov      ebx, 5
+0x1408828c6: add      rsp, 0x10
+0x1408828ca: pop      rbp
+0x1408828cb: ret      
+0x1408828cc: cmp      rbx, 8
+0x1408828d0: jne      0x1408828f7   ; main.resolveEffectiveAppLaunchPrivilege+0x77
+0x1408828d2: movabs   rcx, 0x647261646e617473
+0x1408828dc: nop      dword ptr [rax]
+0x1408828e0: cmp      qword ptr [rax], rcx
+0x1408828e3: jne      0x14088292f   ; main.resolveEffectiveAppLaunchPrivilege+0xaf
+0x1408828e5: lea      rax, [rip + 0x3b9920]
+0x1408828ec: mov      ebx, 8
+0x1408828f1: add      rsp, 0x10
+0x1408828f5: pop      rbp
+0x1408828f6: ret      
+0x1408828f7: cmp      rbx, 0xe
+0x1408828fb: jne      0x14088292f   ; main.resolveEffectiveAppLaunchPrivilege+0xaf
+0x1408828fd: movabs   rcx, 0x614c776f6c6c6f66
+0x140882907: cmp      qword ptr [rax], rcx
+0x14088290a: jne      0x14088292f   ; main.resolveEffectiveAppLaunchPrivilege+0xaf
+0x14088290c: cmp      dword ptr [rax + 8], 0x68636e75
+0x140882913: jne      0x14088292f   ; main.resolveEffectiveAppLaunchPrivilege+0xaf
+0x140882915: cmp      word ptr [rax + 0xc], 0x7265
+0x14088291b: jne      0x14088292f   ; main.resolveEffectiveAppLaunchPrivilege+0xaf
+0x14088291d: lea      rax, [rip + 0x3cde34]
+0x140882924: mov      ebx, 0xe
+0x140882929: add      rsp, 0x10
+0x14088292d: pop      rbp
+0x14088292e: ret      
+0x14088292f: mov      rax, qword ptr [rsp + 0x30]
+0x140882934: mov      rbx, qword ptr [rsp + 0x38]
+0x140882939: call     0x140882680   ; main.normalizeAppLaunchPrivilegeMode
+0x14088293e: nop      
+0x140882940: cmp      rbx, 5
+0x140882944: jne      0x140882962   ; main.resolveEffectiveAppLaunchPrivilege+0xe2
+0x140882946: cmp      dword ptr [rax], 0x696d6461
+0x14088294c: jne      0x1408829b9   ; main.resolveEffectiveAppLaunchPrivilege+0x139
+0x14088294e: cmp      byte ptr [rax + 4], 0x6e
+0x140882952: jne      0x1408829b9   ; main.resolveEffectiveAppLaunchPrivilege+0x139
+0x140882954: mov      eax, 5
+0x140882959: lea      rcx, [rip + 0x3b338f]
+0x140882960: jmp      0x1408829c5   ; main.resolveEffectiveAppLaunchPrivilege+0x145
+0x140882962: cmp      rbx, 8
+0x140882966: jne      0x140882985   ; main.resolveEffectiveAppLaunchPrivilege+0x105
+0x140882968: movabs   rcx, 0x647261646e617473
+0x140882972: cmp      qword ptr [rax], rcx
+0x140882975: jne      0x1408829b9   ; main.resolveEffectiveAppLaunchPrivilege+0x139
+0x140882977: mov      eax, 8
+0x14088297c: lea      rcx, [rip + 0x3b9889]
+0x140882983: jmp      0x1408829c5   ; main.resolveEffectiveAppLaunchPrivilege+0x145
+0x140882985: cmp      rbx, 0xe
+0x140882989: jne      0x1408829b9   ; main.resolveEffectiveAppLaunchPrivilege+0x139
+0x14088298b: movabs   rcx, 0x614c776f6c6c6f66
+0x140882995: cmp      qword ptr [rax], rcx
+0x140882998: jne      0x1408829b9   ; main.resolveEffectiveAppLaunchPrivilege+0x139
+0x14088299a: cmp      dword ptr [rax + 8], 0x68636e75
+0x1408829a1: jne      0x1408829b9   ; main.resolveEffectiveAppLaunchPrivilege+0x139
+0x1408829a3: cmp      word ptr [rax + 0xc], 0x7265
+0x1408829a9: jne      0x1408829b9   ; main.resolveEffectiveAppLaunchPrivilege+0x139
+0x1408829ab: mov      eax, 0xe
+0x1408829b0: lea      rcx, [rip + 0x3cdda1]
+0x1408829b7: jmp      0x1408829c5   ; main.resolveEffectiveAppLaunchPrivilege+0x145
+0x1408829b9: mov      eax, 8
+0x1408829be: lea      rcx, [rip + 0x3b9847]
+0x1408829c5: mov      rbx, rax
+0x1408829c8: mov      rax, rcx
+0x1408829cb: add      rsp, 0x10
+0x1408829cf: pop      rbp
+0x1408829d0: ret      
+0x1408829d1: mov      qword ptr [rsp + 8], rax
+0x1408829d6: mov      qword ptr [rsp + 0x10], rbx
+0x1408829db: mov      qword ptr [rsp + 0x18], rcx
+0x1408829e0: mov      qword ptr [rsp + 0x20], rdi
+0x1408829e5: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408829ea: mov      rax, qword ptr [rsp + 8]
+0x1408829ef: mov      rbx, qword ptr [rsp + 0x10]
+0x1408829f4: mov      rcx, qword ptr [rsp + 0x18]
+0x1408829f9: mov      rdi, qword ptr [rsp + 0x20]
+0x1408829fe: nop      
+0x140882a00: jmp      0x140882880   ; main.resolveEffectiveAppLaunchPrivilege
+0x140882a05: int3     
+0x140882a06: int3     
+0x140882a07: int3     
+0x140882a08: int3     
+0x140882a09: int3     
+0x140882a0a: int3     
+0x140882a0b: int3     
+0x140882a0c: int3     
+0x140882a0d: int3     
+0x140882a0e: int3     
+0x140882a0f: int3     
+0x140882a10: int3     
+0x140882a11: int3     
+0x140882a12: int3     
+0x140882a13: int3     
+0x140882a14: int3     
+0x140882a15: int3     
+0x140882a16: int3     
+0x140882a17: int3     
+0x140882a18: int3     
+0x140882a19: int3     
+0x140882a1a: int3     
+0x140882a1b: int3     
+0x140882a1c: int3     
+0x140882a1d: int3     
+0x140882a1e: int3     
+0x140882a1f: int3     

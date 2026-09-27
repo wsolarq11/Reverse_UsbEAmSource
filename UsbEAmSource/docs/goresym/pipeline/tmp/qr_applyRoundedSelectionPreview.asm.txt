@@ -1,0 +1,272 @@
+0x140949200: lea      r12, [rsp - 0x88]
+0x140949208: cmp      r12, qword ptr [r14 + 0x10]
+0x14094920c: jbe      0x1409496f2   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x4f2
+0x140949212: push     rbp
+0x140949213: mov      rbp, rsp
+0x140949216: sub      rsp, 0x100
+0x14094921d: test     byte ptr [rax], al
+0x14094921f: mov      rdx, qword ptr [rsp + 0x110]
+0x140949227: mov      r9, qword ptr [rsp + 0x120]
+0x14094922f: cmp      rdx, r9
+0x140949232: jl       0x140949246   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x46
+0x140949234: mov      r10, qword ptr [rsp + 0x118]
+0x14094923c: mov      r11, qword ptr [rsp + 0x128]
+0x140949244: jmp      0x14094925b   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x5b
+0x140949246: mov      r10, qword ptr [rsp + 0x118]
+0x14094924e: mov      r11, qword ptr [rsp + 0x128]
+0x140949256: cmp      r10, r11
+0x140949259: jl       0x140949262   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x62
+0x14094925b: xor      r12d, r12d
+0x14094925e: nop      
+0x140949260: jmp      0x140949292   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x92
+0x140949262: sub      r9, rdx
+0x140949265: mov      r13, r11
+0x140949268: sub      r11, r10
+0x14094926b: cmp      r11, r9
+0x14094926e: cmovl    r9, r11
+0x140949272: mov      r11, r9
+0x140949275: sar      r9, 0x3f
+0x140949279: shr      r9, 0x3e
+0x14094927d: add      r9, r11
+0x140949280: sar      r9, 2
+0x140949284: mov      r11, r13
+0x140949287: mov      r12, r9
+0x14094928a: mov      r9, qword ptr [rsp + 0x120]
+0x140949292: mov      r13, qword ptr [rax + 0x198]
+0x140949299: test     r13, r13
+0x14094929c: jge      0x1409492a3   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0xa3
+0x14094929e: xor      r12d, r12d
+0x1409492a1: jmp      0x1409492ab   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0xab
+0x1409492a3: cmp      r12, r13
+0x1409492a6: jl       0x1409492ab   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0xab
+0x1409492a8: mov      r12, r13
+0x1409492ab: test     r12, r12
+0x1409492ae: je       0x1409493a5   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x1a5
+0x1409492b4: test     rbx, rbx
+0x1409492b7: je       0x1409493a5   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x1a5
+0x1409492bd: nop      dword ptr [rax]
+0x1409492c0: cmp      rcx, rsi
+0x1409492c3: jge      0x1409493a5   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x1a5
+0x1409492c9: cmp      rdi, r8
+0x1409492cc: jge      0x1409493a5   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x1a5
+0x1409492d2: cmp      qword ptr [rax + 0x28], 0
+0x1409492d7: je       0x1409493a5   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x1a5
+0x1409492dd: mov      qword ptr [rsp + 0x130], rax
+0x1409492e5: mov      qword ptr [rsp + 0x138], rbx
+0x1409492ed: mov      qword ptr [rsp + 0x68], r12
+0x1409492f2: mov      qword ptr [rsp + 0xe0], r8
+0x1409492fa: mov      qword ptr [rsp + 0xd8], rsi
+0x140949302: mov      qword ptr [rsp + 0xd0], rdi
+0x14094930a: mov      qword ptr [rsp + 0xc8], rcx
+0x140949312: mov      rax, qword ptr [rip + 0x127891f]
+0x140949319: sub      rsi, rcx
+0x14094931c: mov      qword ptr [rsp + 0x78], rsi
+0x140949321: sub      r8, rdi
+0x140949324: mov      qword ptr [rsp + 0x70], r8
+0x140949329: nop      
+0x14094932a: xor      ebx, ebx
+0x14094932c: xor      ecx, ecx
+0x14094932e: mov      rdi, rcx
+0x140949331: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x140949336: mov      rax, qword ptr [rsp + 0x138]
+0x14094933e: mov      rbx, qword ptr [rsp + 0x78]
+0x140949343: mov      rcx, qword ptr [rsp + 0x70]
+0x140949348: call     0x14074cc00   ; main.buildRGBAFromDIBBits
+0x14094934d: mov      qword ptr [rsp + 0xf0], rax
+0x140949355: mov      rax, qword ptr [rsp + 0x130]
+0x14094935d: mov      rbx, qword ptr [rsp + 0x68]
+0x140949362: call     0x140949740   ; main.qrCodeScreenSelectionSession.roundedCornerMask
+0x140949367: mov      qword ptr [rsp + 0xe8], rax
+0x14094936f: mov      rax, qword ptr [rsp + 0x110]
+0x140949377: mov      rbx, qword ptr [rsp + 0x118]
+0x14094937f: mov      rcx, qword ptr [rsp + 0x120]
+0x140949387: mov      rdi, qword ptr [rsp + 0x128]
+0x14094938f: mov      rsi, qword ptr [rsp + 0x68]
+0x140949394: call     0x14095be80   ; main.qrCodeRoundedCornerRects
+0x140949399: mov      qword ptr [rsp + 0xc0], rbx
+0x1409493a1: xor      ecx, ecx
+0x1409493a3: jmp      0x1409493cd   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x1cd
+0x1409493a5: add      rsp, 0x100
+0x1409493ac: pop      rbp
+0x1409493ad: ret      
+0x1409493ae: mov      rax, qword ptr [rsp + 0xf8]
+0x1409493b6: add      rax, 0x20
+0x1409493ba: mov      rcx, qword ptr [rsp + 0xb8]
+0x1409493c2: inc      rcx
+0x1409493c5: mov      rbx, qword ptr [rsp + 0xc0]
+0x1409493cd: cmp      rbx, rcx
+0x1409493d0: jle      0x140949465   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x265
+0x1409493d6: mov      qword ptr [rsp + 0xb8], rcx
+0x1409493de: mov      qword ptr [rsp + 0xf8], rax
+0x1409493e6: mov      rdx, qword ptr [rax]
+0x1409493e9: mov      rbx, qword ptr [rax + 8]
+0x1409493ed: mov      rcx, qword ptr [rax + 0x10]
+0x1409493f1: mov      rdi, qword ptr [rax + 0x18]
+0x1409493f5: mov      rax, rdx
+0x1409493f8: mov      rsi, qword ptr [rsp + 0xc8]
+0x140949400: mov      r8, qword ptr [rsp + 0xd0]
+0x140949408: mov      r9, qword ptr [rsp + 0xd8]
+0x140949410: mov      r10, qword ptr [rsp + 0xe0]
+0x140949418: call     0x1401a1160   ; image.Rectangle.Intersect
+0x14094941d: mov      qword ptr [rsp + 0xb0], rax
+0x140949425: mov      qword ptr [rsp + 0xa8], rcx
+0x14094942d: mov      qword ptr [rsp + 0xa0], rdi
+0x140949435: mov      rdx, qword ptr [rsp + 0x110]
+0x14094943d: mov      r11, qword ptr [rsp + 0x118]
+0x140949445: mov      r12, qword ptr [rsp + 0x120]
+0x14094944d: mov      r13, qword ptr [rsp + 0x128]
+0x140949455: mov      r15, qword ptr [rsp + 0xe8]
+0x14094945d: nop      dword ptr [rax]
+0x140949460: jmp      0x140949589   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x389
+0x140949465: mov      rax, qword ptr [rsp + 0x110]
+0x14094946d: mov      rbx, qword ptr [rsp + 0x118]
+0x140949475: mov      rcx, qword ptr [rsp + 0x120]
+0x14094947d: mov      rdi, qword ptr [rsp + 0x128]
+0x140949485: mov      esi, 2
+0x14094948a: call     0x1401a10e0   ; image.Rectangle.Inset
+0x14094948f: mov      rdx, qword ptr [rsp + 0x68]
+0x140949494: lea      r8, [rdx - 2]
+0x140949498: test     r8, r8
+0x14094949b: mov      r9d, 0
+0x1409494a1: cmovg    r9, r8
+0x1409494a5: cmp      rax, rcx
+0x1409494a8: jge      0x1409494af   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x2af
+0x1409494aa: cmp      rbx, rdi
+0x1409494ad: jl       0x1409494b3   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x2b3
+0x1409494af: xor      ecx, ecx
+0x1409494b1: jmp      0x1409494d2   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x2d2
+0x1409494b3: sub      rcx, rax
+0x1409494b6: sub      rdi, rbx
+0x1409494b9: cmp      rdi, rcx
+0x1409494bc: cmovl    rcx, rdi
+0x1409494c0: mov      rsi, rcx
+0x1409494c3: sar      rcx, 0x3f
+0x1409494c7: shr      rcx, 0x3e
+0x1409494cb: add      rcx, rsi
+0x1409494ce: sar      rcx, 2
+0x1409494d2: cmp      rcx, r9
+0x1409494d5: cmovl    r9, rcx
+0x1409494d9: mov      rax, qword ptr [rsp + 0x130]
+0x1409494e1: mov      rbx, r9
+0x1409494e4: call     0x140949800   ; main.qrCodeScreenSelectionSession.roundedCornerInnerMask
+0x1409494e9: mov      rcx, qword ptr [rsp + 0x68]
+0x1409494ee: mov      qword ptr [rsp], rcx
+0x1409494f2: mov      rcx, qword ptr [rsp + 0xe8]
+0x1409494fa: mov      qword ptr [rsp + 8], rcx
+0x1409494ff: mov      qword ptr [rsp + 0x10], rax
+0x140949504: mov      rax, qword ptr [rsp + 0xf0]
+0x14094950c: mov      rbx, qword ptr [rsp + 0xc8]
+0x140949514: mov      rcx, qword ptr [rsp + 0xd0]
+0x14094951c: mov      rdi, qword ptr [rsp + 0xd8]
+0x140949524: mov      rsi, qword ptr [rsp + 0xe0]
+0x14094952c: mov      r8, qword ptr [rsp + 0x110]
+0x140949534: mov      r9, qword ptr [rsp + 0x118]
+0x14094953c: mov      r10, qword ptr [rsp + 0x120]
+0x140949544: mov      r11, qword ptr [rsp + 0x128]
+0x14094954c: call     0x14095c520   ; main.drawQRCodeRoundedSelectionBorderOnImage
+0x140949551: mov      rax, qword ptr [rsp + 0xf0]
+0x140949559: mov      rbx, qword ptr [rsp + 0x138]
+0x140949561: call     0x140957760   ; main.copyRGBAToQRCodeDIBBits
+0x140949566: mov      rax, qword ptr [rip + 0x12786cb]
+0x14094956d: nop      
+0x14094956e: xor      ebx, ebx
+0x140949570: xor      ecx, ecx
+0x140949572: mov      rdi, rcx
+0x140949575: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x14094957a: add      rsp, 0x100
+0x140949581: pop      rbp
+0x140949582: ret      
+0x140949583: inc      rbx
+0x140949586: mov      rax, rsi
+0x140949589: cmp      rdi, rbx
+0x14094958c: jle      0x1409493ae   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x1ae
+0x140949592: mov      qword ptr [rsp + 0x80], rbx
+0x14094959a: mov      rsi, rax
+0x14094959d: jmp      0x1409495f2   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x3f2
+0x14094959f: mov      rax, qword ptr [rsp + 0x88]
+0x1409495a7: inc      rax
+0x1409495aa: mov      rcx, qword ptr [rsp + 0xa8]
+0x1409495b2: mov      rdx, qword ptr [rsp + 0x110]
+0x1409495ba: mov      rbx, qword ptr [rsp + 0x80]
+0x1409495c2: mov      rsi, qword ptr [rsp + 0xb0]
+0x1409495ca: mov      rdi, qword ptr [rsp + 0xa0]
+0x1409495d2: mov      r11, qword ptr [rsp + 0x118]
+0x1409495da: mov      r12, qword ptr [rsp + 0x120]
+0x1409495e2: mov      r13, qword ptr [rsp + 0x128]
+0x1409495ea: mov      r15, qword ptr [rsp + 0xe8]
+0x1409495f2: cmp      rcx, rax
+0x1409495f5: jle      0x140949583   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x383
+0x1409495f7: mov      qword ptr [rsp + 0x88], rax
+0x1409495ff: mov      rcx, rdx
+0x140949602: mov      rdi, r11
+0x140949605: mov      rsi, r12
+0x140949608: mov      r8, r13
+0x14094960b: mov      r9, r15
+0x14094960e: call     0x14095c3c0   ; main.qrCodeRoundedCornerMaskCoverage
+0x140949613: cmp      al, 0xff
+0x140949615: je       0x14094959f   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x39f
+0x140949617: mov      byte ptr [rsp + 0x63], al
+0x14094961b: mov      rbx, qword ptr [rsp + 0x88]
+0x140949623: mov      rdx, qword ptr [rsp + 0xc8]
+0x14094962b: mov      rsi, rbx
+0x14094962e: sub      rsi, rdx
+0x140949631: mov      qword ptr [rsp + 0x98], rsi
+0x140949639: mov      rcx, qword ptr [rsp + 0x80]
+0x140949641: mov      rdx, qword ptr [rsp + 0xd0]
+0x140949649: mov      rdi, rcx
+0x14094964c: sub      rdi, rdx
+0x14094964f: mov      qword ptr [rsp + 0x90], rdi
+0x140949657: mov      rax, qword ptr [rsp + 0xf0]
+0x14094965f: mov      rbx, rsi
+0x140949662: mov      rcx, rdi
+0x140949665: call     0x1401a1720   ; image.RGBA.RGBAAt
+0x14094966a: mov      byte ptr [rsp + 0x67], al
+0x14094966e: mov      byte ptr [rsp + 0x66], bl
+0x140949672: mov      byte ptr [rsp + 0x65], cl
+0x140949676: mov      byte ptr [rsp + 0x64], dil
+0x14094967b: mov      rdx, qword ptr [rsp + 0x130]
+0x140949683: mov      rax, qword ptr [rdx + 0x28]
+0x140949687: mov      rbx, qword ptr [rsp + 0x88]
+0x14094968f: mov      rcx, qword ptr [rsp + 0x80]
+0x140949697: call     0x1401a1720   ; image.RGBA.RGBAAt
+0x14094969c: mov      esi, eax
+0x14094969e: mov      r8d, ebx
+0x1409496a1: mov      r9d, ecx
+0x1409496a4: mov      r10d, edi
+0x1409496a7: movzx    r11d, byte ptr [rsp + 0x63]
+0x1409496ad: movzx    eax, byte ptr [rsp + 0x67]
+0x1409496b2: movzx    ebx, byte ptr [rsp + 0x66]
+0x1409496b7: movzx    ecx, byte ptr [rsp + 0x65]
+0x1409496bc: movzx    edi, byte ptr [rsp + 0x64]
+0x1409496c1: call     0x14095d080   ; main.blendQRCodeRGBAByCoverage
+0x1409496c6: mov      esi, ebx
+0x1409496c8: mov      r8d, ecx
+0x1409496cb: mov      r9d, edi
+0x1409496ce: mov      rbx, qword ptr [rsp + 0x98]
+0x1409496d6: mov      rcx, qword ptr [rsp + 0x90]
+0x1409496de: mov      edi, eax
+0x1409496e0: mov      rax, qword ptr [rsp + 0xf0]
+0x1409496e8: call     0x1401a19e0   ; image.RGBA.SetRGBA
+0x1409496ed: jmp      0x14094959f   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview+0x39f
+0x1409496f2: mov      qword ptr [rsp + 0x28], rax
+0x1409496f7: mov      qword ptr [rsp + 0x30], rbx
+0x1409496fc: mov      qword ptr [rsp + 0x38], rcx
+0x140949701: mov      qword ptr [rsp + 0x40], rdi
+0x140949706: mov      qword ptr [rsp + 0x48], rsi
+0x14094970b: mov      qword ptr [rsp + 0x50], r8
+0x140949710: call     0x14007f140   ; runtime.morestack_noctxt
+0x140949715: mov      rax, qword ptr [rsp + 0x28]
+0x14094971a: mov      rbx, qword ptr [rsp + 0x30]
+0x14094971f: mov      rcx, qword ptr [rsp + 0x38]
+0x140949724: mov      rdi, qword ptr [rsp + 0x40]
+0x140949729: mov      rsi, qword ptr [rsp + 0x48]
+0x14094972e: mov      r8, qword ptr [rsp + 0x50]
+0x140949733: jmp      0x140949200   ; main.qrCodeScreenSelectionSession.applyRoundedSelectionPreview
+0x140949738: int3     
+0x140949739: int3     
+0x14094973a: int3     
+0x14094973b: int3     
+0x14094973c: int3     
+0x14094973d: int3     
+0x14094973e: int3     
+0x14094973f: int3     

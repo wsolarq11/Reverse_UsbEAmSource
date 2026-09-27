@@ -1,0 +1,27 @@
+0x1409b24a0: jmp      0x1409b24a5   ; main.screenshotUIADeepestElementHitInfoAtPoint+0x425
+0x1409b24a2: test     rax, rax
+0x1409b24a5: je       0x1409b24ac   ; main.screenshotUIADeepestElementHitInfoAtPoint+0x42c
+0x1409b24a7: call     0x1409b3240   ; main.releaseScreenshotUIAElement
+0x1409b24ac: mov      rdx, qword ptr [rsp + 0xf8]
+0x1409b24b4: mov      qword ptr [rsp + 0x58], rdx
+0x1409b24b9: movups   xmm0, xmmword ptr [rsp + 0x100]
+0x1409b24c1: movups   xmmword ptr [rsp + 0x60], xmm0
+0x1409b24c6: movups   xmm0, xmmword ptr [rsp + 0x110]
+0x1409b24ce: movups   xmmword ptr [rsp + 0x70], xmm0
+0x1409b24d3: mov      rax, qword ptr [rsp + 0x58]
+0x1409b24d8: mov      rbx, qword ptr [rsp + 0x60]
+0x1409b24dd: mov      rcx, qword ptr [rsp + 0x68]
+0x1409b24e2: mov      rdi, qword ptr [rsp + 0x70]
+0x1409b24e7: mov      esi, dword ptr [rsp + 0x78]
+0x1409b24eb: movzx    r8d, byte ptr [rsp + 0x7c]
+0x1409b24f1: add      rsp, 0xe8
+0x1409b24f8: pop      rbp
+0x1409b24f9: ret      
+0x1409b24fa: mov      qword ptr [rsp + 0x30], rax
+0x1409b24ff: mov      qword ptr [rsp + 0x38], rbx
+0x1409b2504: mov      dword ptr [rsp + 0x40], ecx
+0x1409b2508: mov      dword ptr [rsp + 0x44], edi
+0x1409b250c: mov      qword ptr [rsp + 0x48], rsi
+0x1409b2511: mov      qword ptr [rsp + 0x50], r8
+0x1409b2516: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409b251b: mov      rax, qword ptr [rsp + 0x30]

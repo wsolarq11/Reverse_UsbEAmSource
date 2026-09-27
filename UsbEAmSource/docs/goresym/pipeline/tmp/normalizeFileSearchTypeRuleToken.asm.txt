@@ -1,0 +1,69 @@
+0x140815be0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140815be4: jbe      0x140815e9f   ; main.normalizeFileSearchTypeRuleToken+0x2bf
+0x140815bea: push     rbp
+0x140815beb: mov      rbp, rsp
+0x140815bee: sub      rsp, 0x58
+0x140815bf2: mov      qword ptr [rsp + 0x68], rax
+0x140815bf7: call     0x1400a2200   ; strings.TrimSpace
+0x140815bfc: nop      dword ptr [rax]
+0x140815c00: test     rbx, rbx
+0x140815c03: je       0x140815c15   ; main.normalizeFileSearchTypeRuleToken+0x35
+0x140815c05: mov      qword ptr [rsp + 0x20], rbx
+0x140815c0a: mov      qword ptr [rsp + 0x48], rax
+0x140815c0f: xor      ecx, ecx
+0x140815c11: xor      edx, edx
+0x140815c13: jmp      0x140815c27   ; main.normalizeFileSearchTypeRuleToken+0x47
+0x140815c15: xor      eax, eax
+0x140815c17: xor      ebx, ebx
+0x140815c19: xor      ecx, ecx
+0x140815c1b: add      rsp, 0x58
+0x140815c1f: pop      rbp
+0x140815c20: ret      
+0x140815c21: inc      rdx
+0x140815c24: mov      rcx, rsi
+0x140815c27: cmp      rbx, rcx
+0x140815c2a: jle      0x140815c59   ; main.normalizeFileSearchTypeRuleToken+0x79
+0x140815c2c: movzx    esi, byte ptr [rax + rcx]
+0x140815c30: cmp      esi, 0x7f
+0x140815c33: jg       0x140815c3b   ; main.normalizeFileSearchTypeRuleToken+0x5b
+0x140815c35: lea      rsi, [rcx + 1]
+0x140815c39: jmp      0x140815c21   ; main.normalizeFileSearchTypeRuleToken+0x41
+0x140815c3b: mov      qword ptr [rsp + 0x28], rdx
+0x140815c40: call     0x1400733c0   ; runtime.decoderune
+0x140815c45: mov      rax, qword ptr [rsp + 0x48]
+0x140815c4a: mov      rdx, qword ptr [rsp + 0x28]
+0x140815c4f: mov      rsi, rbx
+0x140815c52: mov      rbx, qword ptr [rsp + 0x20]
+0x140815c57: jmp      0x140815c21   ; main.normalizeFileSearchTypeRuleToken+0x41
+0x140815c59: cmp      rdx, 0x40
+0x140815c5d: jg       0x140815c15   ; main.normalizeFileSearchTypeRuleToken+0x35
+0x140815c5f: xor      ecx, ecx
+0x140815c61: jmp      0x140815c66   ; main.normalizeFileSearchTypeRuleToken+0x86
+0x140815c63: mov      rcx, rsi
+0x140815c66: cmp      rbx, rcx
+0x140815c69: jle      0x140815cd2   ; main.normalizeFileSearchTypeRuleToken+0xf2
+0x140815c6b: movzx    edx, byte ptr [rax + rcx]
+0x140815c6f: cmp      edx, 0x7f
+0x140815c72: jg       0x140815c7a   ; main.normalizeFileSearchTypeRuleToken+0x9a
+0x140815c74: lea      rsi, [rcx + 1]
+0x140815c78: jmp      0x140815c8e   ; main.normalizeFileSearchTypeRuleToken+0xae
+0x140815c7a: call     0x1400733c0   ; runtime.decoderune
+0x140815c7f: mov      edx, eax
+0x140815c81: mov      rsi, rbx
+0x140815c84: mov      rax, qword ptr [rsp + 0x48]
+0x140815c89: mov      rbx, qword ptr [rsp + 0x20]
+0x140815c8e: cmp      edx, 0x2f
+0x140815c91: je       0x140815cc6   ; main.normalizeFileSearchTypeRuleToken+0xe6
+0x140815c93: cmp      edx, 0x5c
+0x140815c96: je       0x140815cc6   ; main.normalizeFileSearchTypeRuleToken+0xe6
+0x140815c98: cmp      edx, 0x3a
+0x140815c9b: je       0x140815cc6   ; main.normalizeFileSearchTypeRuleToken+0xe6
+0x140815c9d: nop      dword ptr [rax]
+0x140815ca0: cmp      edx, 0xff
+0x140815ca6: ja       0x140815cbd   ; main.normalizeFileSearchTypeRuleToken+0xdd
+0x140815ca8: movzx    edx, dl
+0x140815cab: lea      rdi, [rip + 0x11568ae]
+0x140815cb2: movzx    edx, byte ptr [rdi + rdx]
+0x140815cb6: test     dl, 1
+0x140815cb9: je       0x140815c63   ; main.normalizeFileSearchTypeRuleToken+0x83
+0x140815cbb: jmp      0x140815cc6   ; main.normalizeFileSearchTypeRuleToken+0xe6

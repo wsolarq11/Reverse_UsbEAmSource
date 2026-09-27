@@ -1,0 +1,33 @@
+0x140788760: cmp      rsp, qword ptr [r14 + 0x10]
+0x140788764: jbe      0x140788785    ; main.BootstrapService.ExportTwoFactorEntries+0x25
+0x140788766: push     rbp
+0x140788767: mov      rbp, rsp
+0x14078876a: sub      rsp, 0x20
+0x14078876e: mov      qword ptr [rsp + 0x38], rbx
+0x140788773: mov      rax, qword ptr [rax + 0x370]
+0x14078877a: call     0x1409cf140    ; main.twoFactorService.ExportEntries
+0x14078877f: add      rsp, 0x20
+0x140788783: pop      rbp
+0x140788784: ret      
+0x140788785: mov      qword ptr [rsp + 8], rax
+0x14078878a: mov      qword ptr [rsp + 0x10], rbx
+0x14078878f: mov      qword ptr [rsp + 0x18], rcx
+0x140788794: mov      qword ptr [rsp + 0x20], rdi
+0x140788799: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078879e: mov      rax, qword ptr [rsp + 8]
+0x1407887a3: mov      rbx, qword ptr [rsp + 0x10]
+0x1407887a8: mov      rcx, qword ptr [rsp + 0x18]
+0x1407887ad: mov      rdi, qword ptr [rsp + 0x20]
+0x1407887b2: jmp      0x140788760    ; main.BootstrapService.ExportTwoFactorEntries
+0x1407887b4: int3     
+0x1407887b5: int3     
+0x1407887b6: int3     
+0x1407887b7: int3     
+0x1407887b8: int3     
+0x1407887b9: int3     
+0x1407887ba: int3     
+0x1407887bb: int3     
+0x1407887bc: int3     
+0x1407887bd: int3     
+0x1407887be: int3     
+0x1407887bf: int3     

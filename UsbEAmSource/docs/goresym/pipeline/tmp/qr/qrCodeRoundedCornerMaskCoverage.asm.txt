@@ -1,0 +1,113 @@
+0x14095c3c0: push     rbp
+0x14095c3c1: mov      rbp, rsp
+0x14095c3c4: sub      rsp, 0x20
+0x14095c3c8: cmp      rax, rcx
+0x14095c3cb: jl       0x14095c509   ; main.qrCodeRoundedCornerMaskCoverage+0x149
+0x14095c3d1: cmp      rsi, rax
+0x14095c3d4: jle      0x14095c509   ; main.qrCodeRoundedCornerMaskCoverage+0x149
+0x14095c3da: nop      word ptr [rax + rax]
+0x14095c3e0: cmp      rbx, rdi
+0x14095c3e3: jl       0x14095c509   ; main.qrCodeRoundedCornerMaskCoverage+0x149
+0x14095c3e9: cmp      r8, rbx
+0x14095c3ec: jle      0x14095c509   ; main.qrCodeRoundedCornerMaskCoverage+0x149
+0x14095c3f2: test     r9, r9
+0x14095c3f5: je       0x14095c4fe   ; main.qrCodeRoundedCornerMaskCoverage+0x13e
+0x14095c3fb: mov      rdx, qword ptr [r9 + 0x30]
+0x14095c3ff: mov      r10, qword ptr [r9 + 0x20]
+0x14095c403: cmp      rdx, r10
+0x14095c406: jle      0x14095c4fe   ; main.qrCodeRoundedCornerMaskCoverage+0x13e
+0x14095c40c: mov      r11, qword ptr [r9 + 0x28]
+0x14095c410: mov      r12, qword ptr [r9 + 0x38]
+0x14095c414: cmp      r11, r12
+0x14095c417: jge      0x14095c4fe   ; main.qrCodeRoundedCornerMaskCoverage+0x13e
+0x14095c41d: mov      r13, rdx
+0x14095c420: sub      rdx, r10
+0x14095c423: mov      r15, r12
+0x14095c426: sub      r12, r11
+0x14095c429: cmp      r12, rdx
+0x14095c42c: cmovl    rdx, r12
+0x14095c430: test     rdx, rdx
+0x14095c433: jle      0x14095c4f3   ; main.qrCodeRoundedCornerMaskCoverage+0x133
+0x14095c439: mov      qword ptr [rsp + 0x60], r9
+0x14095c43e: mov      qword ptr [rsp + 0x18], rsi
+0x14095c443: mov      qword ptr [rsp + 0x10], r8
+0x14095c448: lea      r12, [rcx + rdx]
+0x14095c44c: sub      rsi, rdx
+0x14095c44f: lea      r9, [rdi + rdx]
+0x14095c453: sub      r8, rdx
+0x14095c456: cmp      rax, r12
+0x14095c459: jl       0x14095c469   ; main.qrCodeRoundedCornerMaskCoverage+0xa9
+0x14095c45b: nop      dword ptr [rax + rax]
+0x14095c460: cmp      rax, rsi
+0x14095c463: jl       0x14095c4e8   ; main.qrCodeRoundedCornerMaskCoverage+0x128
+0x14095c469: cmp      rbx, r9
+0x14095c46c: jl       0x14095c473   ; main.qrCodeRoundedCornerMaskCoverage+0xb3
+0x14095c46e: cmp      rbx, r8
+0x14095c471: jl       0x14095c4e8   ; main.qrCodeRoundedCornerMaskCoverage+0x128
+0x14095c473: mov      rdx, rax
+0x14095c476: sub      rax, rcx
+0x14095c479: cmp      rdx, rsi
+0x14095c47c: jl       0x14095c489   ; main.qrCodeRoundedCornerMaskCoverage+0xc9
+0x14095c47e: mov      rax, qword ptr [rsp + 0x18]
+0x14095c483: sub      rax, rdx
+0x14095c486: dec      rax
+0x14095c489: mov      rdx, rbx
+0x14095c48c: sub      rbx, rdi
+0x14095c48f: cmp      rdx, r8
+0x14095c492: jl       0x14095c49f   ; main.qrCodeRoundedCornerMaskCoverage+0xdf
+0x14095c494: mov      rbx, qword ptr [rsp + 0x10]
+0x14095c499: sub      rbx, rdx
+0x14095c49c: dec      rbx
+0x14095c49f: lea      rdx, [rax + r10]
+0x14095c4a3: lea      rsi, [r11 + rbx]
+0x14095c4a7: cmp      r10, rdx
+0x14095c4aa: jg       0x14095c4de   ; main.qrCodeRoundedCornerMaskCoverage+0x11e
+0x14095c4ac: cmp      r13, rdx
+0x14095c4af: jle      0x14095c4de   ; main.qrCodeRoundedCornerMaskCoverage+0x11e
+0x14095c4b1: cmp      r11, rsi
+0x14095c4b4: jg       0x14095c4de   ; main.qrCodeRoundedCornerMaskCoverage+0x11e
+0x14095c4b6: cmp      r15, rsi
+0x14095c4b9: jle      0x14095c4de   ; main.qrCodeRoundedCornerMaskCoverage+0x11e
+0x14095c4bb: mov      rdx, qword ptr [rsp + 0x60]
+0x14095c4c0: mov      rcx, qword ptr [rdx + 8]
+0x14095c4c4: mov      rsi, qword ptr [rdx + 0x18]
+0x14095c4c8: imul     rbx, rsi
+0x14095c4cc: add      rax, rbx
+0x14095c4cf: nop      
+0x14095c4d0: cmp      rcx, rax
+0x14095c4d3: jbe      0x14095c511   ; main.qrCodeRoundedCornerMaskCoverage+0x151
+0x14095c4d5: mov      rcx, qword ptr [rdx]
+0x14095c4d8: movzx    ecx, byte ptr [rcx + rax]
+0x14095c4dc: jmp      0x14095c4e0   ; main.qrCodeRoundedCornerMaskCoverage+0x120
+0x14095c4de: xor      ecx, ecx
+0x14095c4e0: mov      eax, ecx
+0x14095c4e2: add      rsp, 0x20
+0x14095c4e6: pop      rbp
+0x14095c4e7: ret      
+0x14095c4e8: mov      eax, 0xffffffff
+0x14095c4ed: add      rsp, 0x20
+0x14095c4f1: pop      rbp
+0x14095c4f2: ret      
+0x14095c4f3: mov      eax, 0xffffffff
+0x14095c4f8: add      rsp, 0x20
+0x14095c4fc: pop      rbp
+0x14095c4fd: ret      
+0x14095c4fe: mov      eax, 0xffffffff
+0x14095c503: add      rsp, 0x20
+0x14095c507: pop      rbp
+0x14095c508: ret      
+0x14095c509: xor      eax, eax
+0x14095c50b: add      rsp, 0x20
+0x14095c50f: pop      rbp
+0x14095c510: ret      
+0x14095c511: call     0x140081400   ; runtime.panicIndex
+0x14095c516: nop      
+0x14095c517: int3     
+0x14095c518: int3     
+0x14095c519: int3     
+0x14095c51a: int3     
+0x14095c51b: int3     
+0x14095c51c: int3     
+0x14095c51d: int3     
+0x14095c51e: int3     
+0x14095c51f: int3     

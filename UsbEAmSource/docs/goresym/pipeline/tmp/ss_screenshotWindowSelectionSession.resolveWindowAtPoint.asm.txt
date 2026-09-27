@@ -1,0 +1,56 @@
+0x1409be420: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409be424: jbe      0x1409be45d   ; main.screenshotWindowSelectionSession.resolveWindowAtPoint+0x3d
+0x1409be426: push     rbp
+0x1409be427: mov      rbp, rsp
+0x1409be42a: sub      rsp, 0x20
+0x1409be42e: add      rbx, qword ptr [rax]
+0x1409be431: mov      qword ptr [rsp + 0x18], rbx
+0x1409be436: add      rcx, qword ptr [rax + 8]
+0x1409be43a: mov      qword ptr [rsp + 0x10], rcx
+0x1409be43f: nop      
+0x1409be440: call     0x1409bc040   ; main.screenshotWindowSelectionSession.windowHandle
+0x1409be445: mov      rbx, qword ptr [rsp + 0x10]
+0x1409be44a: mov      rcx, rax
+0x1409be44d: mov      rax, qword ptr [rsp + 0x18]
+0x1409be452: call     0x1409c19c0   ; main.screenshotTopWindowAtPoint
+0x1409be457: add      rsp, 0x20
+0x1409be45b: pop      rbp
+0x1409be45c: ret      
+0x1409be45d: mov      qword ptr [rsp + 8], rax
+0x1409be462: mov      qword ptr [rsp + 0x10], rbx
+0x1409be467: mov      qword ptr [rsp + 0x18], rcx
+0x1409be46c: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409be471: mov      rax, qword ptr [rsp + 8]
+0x1409be476: mov      rbx, qword ptr [rsp + 0x10]
+0x1409be47b: mov      rcx, qword ptr [rsp + 0x18]
+0x1409be480: jmp      0x1409be420   ; main.screenshotWindowSelectionSession.resolveWindowAtPoint
+0x1409be482: int3     
+0x1409be483: int3     
+0x1409be484: int3     
+0x1409be485: int3     
+0x1409be486: int3     
+0x1409be487: int3     
+0x1409be488: int3     
+0x1409be489: int3     
+0x1409be48a: int3     
+0x1409be48b: int3     
+0x1409be48c: int3     
+0x1409be48d: int3     
+0x1409be48e: int3     
+0x1409be48f: int3     
+0x1409be490: int3     
+0x1409be491: int3     
+0x1409be492: int3     
+0x1409be493: int3     
+0x1409be494: int3     
+0x1409be495: int3     
+0x1409be496: int3     
+0x1409be497: int3     
+0x1409be498: int3     
+0x1409be499: int3     
+0x1409be49a: int3     
+0x1409be49b: int3     
+0x1409be49c: int3     
+0x1409be49d: int3     
+0x1409be49e: int3     
+0x1409be49f: int3     

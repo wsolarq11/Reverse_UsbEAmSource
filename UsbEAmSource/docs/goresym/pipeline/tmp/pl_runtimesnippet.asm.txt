@@ -1,0 +1,128 @@
+0x140923a00: cmp      rsp, qword ptr [r14 + 0x10]
+0x140923a04: jbe      0x140923a9c   ; main.buildPluginRuntimeSnippet+0x9c
+0x140923a0a: push     rbp
+0x140923a0b: mov      rbp, rsp
+0x140923a0e: sub      rsp, 0x48
+0x140923a12: mov      qword ptr [rsp + 0x58], rax
+0x140923a17: mov      qword ptr [rsp + 0x68], rcx
+0x140923a1c: mov      qword ptr [rsp + 0x70], rdi
+0x140923a21: mov      rdx, qword ptr [rip + 0x12ec688]
+0x140923a28: mov      rcx, rbx
+0x140923a2b: mov      rbx, rax
+0x140923a2e: mov      rax, rdx
+0x140923a31: call     0x14009c2e0   ; strings.Replacer.Replace
+0x140923a36: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140923a3c: movups   xmmword ptr [rsp + 0x38], xmm15
+0x140923a42: call     0x140076660   ; runtime.convTstring
+0x140923a47: lea      rdx, [rip + 0x1c63b2]
+0x140923a4e: mov      qword ptr [rsp + 0x28], rdx
+0x140923a53: mov      qword ptr [rsp + 0x30], rax
+0x140923a58: mov      rax, qword ptr [rsp + 0x68]
+0x140923a5d: mov      rbx, qword ptr [rsp + 0x70]
+0x140923a62: call     0x140076660   ; runtime.convTstring
+0x140923a67: lea      rdx, [rip + 0x1c6392]
+0x140923a6e: mov      qword ptr [rsp + 0x38], rdx
+0x140923a73: mov      qword ptr [rsp + 0x40], rax
+0x140923a78: lea      rax, [rip + 0x3e89bb]
+0x140923a7f: mov      ebx, 0x9db2
+0x140923a84: lea      rcx, [rsp + 0x28]
+0x140923a89: mov      edi, 2
+0x140923a8e: mov      rsi, rdi
+0x140923a91: call     0x140136340   ; fmt.Sprintf
+0x140923a96: add      rsp, 0x48
+0x140923a9a: pop      rbp
+0x140923a9b: ret      
+0x140923a9c: mov      qword ptr [rsp + 8], rax
+0x140923aa1: mov      qword ptr [rsp + 0x10], rbx
+0x140923aa6: mov      qword ptr [rsp + 0x18], rcx
+0x140923aab: mov      qword ptr [rsp + 0x20], rdi
+0x140923ab0: call     0x14007f140   ; runtime.morestack_noctxt
+0x140923ab5: mov      rax, qword ptr [rsp + 8]
+0x140923aba: mov      rbx, qword ptr [rsp + 0x10]
+0x140923abf: mov      rcx, qword ptr [rsp + 0x18]
+0x140923ac4: mov      rdi, qword ptr [rsp + 0x20]
+0x140923ac9: jmp      0x140923a00   ; main.buildPluginRuntimeSnippet
+0x140923ace: int3     
+0x140923acf: int3     
+0x140923ad0: int3     
+0x140923ad1: int3     
+0x140923ad2: int3     
+0x140923ad3: int3     
+0x140923ad4: int3     
+0x140923ad5: int3     
+0x140923ad6: int3     
+0x140923ad7: int3     
+0x140923ad8: int3     
+0x140923ad9: int3     
+0x140923ada: int3     
+0x140923adb: int3     
+0x140923adc: int3     
+0x140923add: int3     
+0x140923ade: int3     
+0x140923adf: int3     
+0x140923ae0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140923ae4: jbe      0x140923b0b   ; main.urlPathEscape+0x2b
+0x140923ae6: push     rbp
+0x140923ae7: mov      rbp, rsp
+0x140923aea: sub      rsp, 0x18
+0x140923aee: mov      qword ptr [rsp + 0x28], rax
+0x140923af3: call     0x1400a2200   ; strings.TrimSpace
+0x140923af8: mov      ecx, 2
+0x140923afd: nop      dword ptr [rax]
+0x140923b00: call     0x1402647a0   ; net/url.escape
+0x140923b05: add      rsp, 0x18
+0x140923b09: pop      rbp
+0x140923b0a: ret      
+0x140923b0b: mov      qword ptr [rsp + 8], rax
+0x140923b10: mov      qword ptr [rsp + 0x10], rbx
+0x140923b15: call     0x14007f140   ; runtime.morestack_noctxt
+0x140923b1a: mov      rax, qword ptr [rsp + 8]
+0x140923b1f: mov      rbx, qword ptr [rsp + 0x10]
+0x140923b24: jmp      0x140923ae0   ; main.urlPathEscape
+0x140923b26: int3     
+0x140923b27: int3     
+0x140923b28: int3     
+0x140923b29: int3     
+0x140923b2a: int3     
+0x140923b2b: int3     
+0x140923b2c: int3     
+0x140923b2d: int3     
+0x140923b2e: int3     
+0x140923b2f: int3     
+0x140923b30: int3     
+0x140923b31: int3     
+0x140923b32: int3     
+0x140923b33: int3     
+0x140923b34: int3     
+0x140923b35: int3     
+0x140923b36: int3     
+0x140923b37: int3     
+0x140923b38: int3     
+0x140923b39: int3     
+0x140923b3a: int3     
+0x140923b3b: int3     
+0x140923b3c: int3     
+0x140923b3d: int3     
+0x140923b3e: int3     
+0x140923b3f: int3     
+0x140923b40: cmp      rsp, qword ptr [r14 + 0x10]
+0x140923b44: jbe      0x140923ba6   ; main.pluginPathHasReparsePoint+0x66
+0x140923b46: push     rbp
+0x140923b47: mov      rbp, rsp
+0x140923b4a: sub      rsp, 0x10
+0x140923b4e: mov      qword ptr [rsp + 0x20], rax
+0x140923b53: call     0x1400e5f00   ; syscall.UTF16FromString
+0x140923b58: test     rdi, rdi
+0x140923b5b: je       0x140923b62   ; main.pluginPathHasReparsePoint+0x22
+0x140923b5d: xor      eax, eax
+0x140923b5f: nop      
+0x140923b60: jmp      0x140923b69   ; main.pluginPathHasReparsePoint+0x29
+0x140923b62: test     rbx, rbx
+0x140923b65: jbe      0x140923b9b   ; main.pluginPathHasReparsePoint+0x5b
+0x140923b67: xor      edi, edi
+0x140923b69: test     rdi, rdi
+0x140923b6c: jne      0x140923b90   ; main.pluginPathHasReparsePoint+0x50
+0x140923b6e: call     0x140196f60   ; golang.org/x/sys/windows.GetFileAttributes
+0x140923b73: test     rbx, rbx
+0x140923b76: je       0x140923b83   ; main.pluginPathHasReparsePoint+0x43
+0x140923b78: mov      eax, 1

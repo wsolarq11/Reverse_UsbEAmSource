@@ -1,0 +1,170 @@
+0x14097da60: push     rbp
+0x14097da61: mov      rbp, rsp
+0x14097da64: sub      rsp, 0x38
+0x14097da68: test     rax, rax
+0x14097da6b: je       0x14097dae4   ; main.screenshotRGBAImageLooksNearlyBlack+0x84
+0x14097da6d: mov      rdx, qword ptr [rax + 0x30]
+0x14097da71: mov      rbx, qword ptr [rax + 0x20]
+0x14097da75: cmp      rbx, rdx
+0x14097da78: jge      0x14097dae4   ; main.screenshotRGBAImageLooksNearlyBlack+0x84
+0x14097da7a: mov      rsi, qword ptr [rax + 0x28]
+0x14097da7e: mov      rdi, qword ptr [rax + 0x38]
+0x14097da82: cmp      rdi, rsi
+0x14097da85: jle      0x14097dae4   ; main.screenshotRGBAImageLooksNearlyBlack+0x84
+0x14097da87: sub      rdx, rbx
+0x14097da8a: cmp      rdx, 0x10
+0x14097da8e: jge      0x14097da95   ; main.screenshotRGBAImageLooksNearlyBlack+0x35
+0x14097da90: mov      rcx, rdx
+0x14097da93: jmp      0x14097da9d   ; main.screenshotRGBAImageLooksNearlyBlack+0x3d
+0x14097da95: mov      rcx, rdx
+0x14097da98: mov      edx, 0x10
+0x14097da9d: sub      rdi, rsi
+0x14097daa0: cmp      rdi, 0x10
+0x14097daa4: jge      0x14097daab   ; main.screenshotRGBAImageLooksNearlyBlack+0x4b
+0x14097daa6: mov      r8, rdi
+0x14097daa9: jmp      0x14097dab3   ; main.screenshotRGBAImageLooksNearlyBlack+0x53
+0x14097daab: mov      r8, rdi
+0x14097daae: mov      edi, 0x10
+0x14097dab3: test     rdx, rdx
+0x14097dab6: jle      0x14097dadc   ; main.screenshotRGBAImageLooksNearlyBlack+0x7c
+0x14097dab8: test     rdi, rdi
+0x14097dabb: jle      0x14097dadc   ; main.screenshotRGBAImageLooksNearlyBlack+0x7c
+0x14097dabd: mov      qword ptr [rsp + 0x48], rax
+0x14097dac2: mov      qword ptr [rsp + 0x30], r8
+0x14097dac7: mov      qword ptr [rsp + 0x20], rdi
+0x14097dacc: mov      qword ptr [rsp + 0x28], rsi
+0x14097dad1: xor      r9d, r9d
+0x14097dad4: xor      r10d, r10d
+0x14097dad7: xor      r11d, r11d
+0x14097dada: jmp      0x14097daf2   ; main.screenshotRGBAImageLooksNearlyBlack+0x92
+0x14097dadc: xor      eax, eax
+0x14097dade: add      rsp, 0x38
+0x14097dae2: pop      rbp
+0x14097dae3: ret      
+0x14097dae4: xor      eax, eax
+0x14097dae6: add      rsp, 0x38
+0x14097daea: pop      rbp
+0x14097daeb: ret      
+0x14097daec: inc      r9
+0x14097daef: mov      rsi, r12
+0x14097daf2: cmp      r9, rdi
+0x14097daf5: jge      0x14097db40   ; main.screenshotRGBAImageLooksNearlyBlack+0xe0
+0x14097daf7: cmp      rdi, 1
+0x14097dafb: jg       0x14097db02   ; main.screenshotRGBAImageLooksNearlyBlack+0xa2
+0x14097dafd: mov      r12, rsi
+0x14097db00: jmp      0x14097db2e   ; main.screenshotRGBAImageLooksNearlyBlack+0xce
+0x14097db02: lea      r12, [r8 - 1]
+0x14097db06: imul     r12, r9
+0x14097db0a: lea      r13, [rdi - 1]
+0x14097db0e: mov      r15, rax
+0x14097db11: mov      rax, r12
+0x14097db14: mov      r12, rdx
+0x14097db17: cqo      
+0x14097db19: idiv     r13
+0x14097db1c: lea      rdx, [rsi + rax]
+0x14097db20: mov      rax, r15
+0x14097db23: mov      rsi, rdx
+0x14097db26: mov      rdx, r12
+0x14097db29: mov      r12, qword ptr [rsp + 0x28]
+0x14097db2e: mov      qword ptr [rsp + 0x18], r9
+0x14097db33: mov      qword ptr [rsp + 0x10], rsi
+0x14097db38: xor      r13d, r13d
+0x14097db3b: jmp      0x14097db89   ; main.screenshotRGBAImageLooksNearlyBlack+0x129
+0x14097db3d: nop      dword ptr [rax]
+0x14097db40: test     r10, r10
+0x14097db43: jne      0x14097db4d   ; main.screenshotRGBAImageLooksNearlyBlack+0xed
+0x14097db45: xor      eax, eax
+0x14097db47: add      rsp, 0x38
+0x14097db4b: pop      rbp
+0x14097db4c: ret      
+0x14097db4d: imul     rcx, r11, 0x3e8
+0x14097db54: imul     rdx, r10, 0x3e3
+0x14097db5b: cmp      rdx, rcx
+0x14097db5e: setle    al
+0x14097db61: add      rsp, 0x38
+0x14097db65: pop      rbp
+0x14097db66: ret      
+0x14097db67: inc      r13
+0x14097db6a: inc      r10
+0x14097db6d: mov      rbx, r15
+0x14097db70: mov      rsi, qword ptr [rsp + 0x10]
+0x14097db75: mov      rdi, qword ptr [rsp + 0x20]
+0x14097db7a: mov      r8, qword ptr [rsp + 0x30]
+0x14097db7f: mov      r9, qword ptr [rsp + 0x18]
+0x14097db84: mov      r12, qword ptr [rsp + 0x28]
+0x14097db89: cmp      r13, rdx
+0x14097db8c: jge      0x14097daec   ; main.screenshotRGBAImageLooksNearlyBlack+0x8c
+0x14097db92: cmp      rdx, 1
+0x14097db96: jg       0x14097db9d   ; main.screenshotRGBAImageLooksNearlyBlack+0x13d
+0x14097db98: mov      r15, rbx
+0x14097db9b: jmp      0x14097dbd3   ; main.screenshotRGBAImageLooksNearlyBlack+0x173
+0x14097db9d: lea      r15, [rcx - 1]
+0x14097dba1: imul     r15, r13
+0x14097dba5: lea      r8, [rdx - 1]
+0x14097dba9: mov      rax, r15
+0x14097dbac: mov      r15, rdx
+0x14097dbaf: cqo      
+0x14097dbb1: idiv     r8
+0x14097dbb4: lea      rdx, [rbx + rax]
+0x14097dbb8: mov      rax, qword ptr [rsp + 0x48]
+0x14097dbbd: mov      r8, qword ptr [rsp + 0x30]
+0x14097dbc2: mov      rax, rdx
+0x14097dbc5: mov      rdx, r15
+0x14097dbc8: mov      r15, rbx
+0x14097dbcb: mov      rbx, rax
+0x14097dbce: mov      rax, qword ptr [rsp + 0x48]
+0x14097dbd3: mov      r8, qword ptr [rax + 8]
+0x14097dbd7: sub      rsi, r12
+0x14097dbda: mov      rdi, qword ptr [rax + 0x18]
+0x14097dbde: imul     rdi, rsi
+0x14097dbe2: sub      rbx, r15
+0x14097dbe5: lea      rsi, [rdi + rbx*4]
+0x14097dbe9: nop      
+0x14097dbea: cmp      r8, rsi
+0x14097dbed: jbe      0x14097dc67   ; main.screenshotRGBAImageLooksNearlyBlack+0x207
+0x14097dbef: mov      r9, qword ptr [rax]
+0x14097dbf2: movzx    r12d, byte ptr [r9 + rsi]
+0x14097dbf7: nop      word ptr [rax + rax]
+0x14097dc00: cmp      r12b, 3
+0x14097dc04: ja       0x14097db67   ; main.screenshotRGBAImageLooksNearlyBlack+0x107
+0x14097dc0a: lea      r12, [rdi + rbx*4]
+0x14097dc0e: lea      r12, [r12 + 1]
+0x14097dc13: cmp      r8, r12
+0x14097dc16: jbe      0x14097dc5c   ; main.screenshotRGBAImageLooksNearlyBlack+0x1fc
+0x14097dc18: movzx    r12d, byte ptr [rsi + r9 + 1]
+0x14097dc1e: nop      
+0x14097dc20: cmp      r12b, 3
+0x14097dc24: ja       0x14097db67   ; main.screenshotRGBAImageLooksNearlyBlack+0x107
+0x14097dc2a: lea      rbx, [rdi + rbx*4]
+0x14097dc2e: lea      rbx, [rbx + 2]
+0x14097dc32: cmp      r8, rbx
+0x14097dc35: jbe      0x14097dc51   ; main.screenshotRGBAImageLooksNearlyBlack+0x1f1
+0x14097dc37: movzx    ebx, byte ptr [rsi + r9 + 2]
+0x14097dc3d: nop      dword ptr [rax]
+0x14097dc40: cmp      bl, 3
+0x14097dc43: ja       0x14097db67   ; main.screenshotRGBAImageLooksNearlyBlack+0x107
+0x14097dc49: inc      r11
+0x14097dc4c: jmp      0x14097db67   ; main.screenshotRGBAImageLooksNearlyBlack+0x107
+0x14097dc51: mov      rax, rbx
+0x14097dc54: mov      rcx, r8
+0x14097dc57: call     0x140081400   ; runtime.panicIndex
+0x14097dc5c: mov      rax, r12
+0x14097dc5f: mov      rcx, r8
+0x14097dc62: call     0x140081400   ; runtime.panicIndex
+0x14097dc67: mov      rax, rsi
+0x14097dc6a: mov      rcx, r8
+0x14097dc6d: call     0x140081400   ; runtime.panicIndex
+0x14097dc72: nop      
+0x14097dc73: int3     
+0x14097dc74: int3     
+0x14097dc75: int3     
+0x14097dc76: int3     
+0x14097dc77: int3     
+0x14097dc78: int3     
+0x14097dc79: int3     
+0x14097dc7a: int3     
+0x14097dc7b: int3     
+0x14097dc7c: int3     
+0x14097dc7d: int3     
+0x14097dc7e: int3     
+0x14097dc7f: int3     

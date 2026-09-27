@@ -1,0 +1,114 @@
+0x14099f120: cmp      rsp, qword ptr [r14 + 0x10]
+0x14099f124: jbe      0x14099f296   ; main.newScreenshotScrollingChunkedCanvas+0x176
+0x14099f12a: push     rbp
+0x14099f12b: mov      rbp, rsp
+0x14099f12e: sub      rsp, 0x60
+0x14099f132: test     rax, rax
+0x14099f135: je       0x14099f266   ; main.newScreenshotScrollingChunkedCanvas+0x146
+0x14099f13b: mov      rcx, qword ptr [rax + 0x30]
+0x14099f13f: mov      r8, qword ptr [rax + 0x20]
+0x14099f143: cmp      r8, rcx
+0x14099f146: jge      0x14099f266   ; main.newScreenshotScrollingChunkedCanvas+0x146
+0x14099f14c: mov      r9, qword ptr [rax + 0x28]
+0x14099f150: mov      rdi, qword ptr [rax + 0x38]
+0x14099f154: cmp      r9, rdi
+0x14099f157: jge      0x14099f266   ; main.newScreenshotScrollingChunkedCanvas+0x146
+0x14099f15d: sub      rcx, r8
+0x14099f160: nop      
+0x14099f161: nop      
+0x14099f162: sub      rdi, r9
+0x14099f165: test     rcx, rcx
+0x14099f168: jle      0x14099f17f   ; main.newScreenshotScrollingChunkedCanvas+0x5f
+0x14099f16a: test     rdi, rdi
+0x14099f16d: jle      0x14099f17f   ; main.newScreenshotScrollingChunkedCanvas+0x5f
+0x14099f16f: mov      rdx, rcx
+0x14099f172: imul     rdx, rdi
+0x14099f176: cmp      rdx, 0x7270e00
+0x14099f17d: jle      0x14099f1af   ; main.newScreenshotScrollingChunkedCanvas+0x8f
+0x14099f17f: lea      rax, [rip + 0x1b51fa]
+0x14099f186: call     0x14001ae20   ; runtime.newobject
+0x14099f18b: mov      qword ptr [rax + 8], 0x1b
+0x14099f193: lea      rcx, [rip + 0x2cb324]
+0x14099f19a: mov      qword ptr [rax], rcx
+0x14099f19d: lea      rbx, [rip + 0x833f5c]
+0x14099f1a4: mov      rcx, rax
+0x14099f1a7: xor      eax, eax
+0x14099f1a9: add      rsp, 0x60
+0x14099f1ad: pop      rbp
+0x14099f1ae: ret      
+0x14099f1af: mov      qword ptr [rsp + 0x48], rcx
+0x14099f1b4: mov      qword ptr [rsp + 0x40], rdi
+0x14099f1b9: nop      
+0x14099f1ba: mov      rsi, rax
+0x14099f1bd: mov      r10, rbx
+0x14099f1c0: xor      eax, eax
+0x14099f1c2: mov      rbx, rax
+0x14099f1c5: call     0x14099f2c0   ; main.newScreenshotScrollingCanvasChunk
+0x14099f1ca: test     rbx, rbx
+0x14099f1cd: jne      0x14099f25e   ; main.newScreenshotScrollingChunkedCanvas+0x13e
+0x14099f1d3: mov      qword ptr [rsp + 0x50], rax
+0x14099f1d8: lea      rax, [rip + 0x1f9e01]
+0x14099f1df: nop      
+0x14099f1e0: call     0x14001ae20   ; runtime.newobject
+0x14099f1e5: mov      qword ptr [rsp + 0x58], rax
+0x14099f1ea: mov      rcx, qword ptr [rsp + 0x48]
+0x14099f1ef: mov      qword ptr [rax], rcx
+0x14099f1f2: mov      rcx, qword ptr [rsp + 0x40]
+0x14099f1f7: mov      qword ptr [rax + 8], rcx
+0x14099f1fb: lea      rax, [rip + 0x15ecbe]
+0x14099f202: call     0x14001ae20   ; runtime.newobject
+0x14099f207: cmp      dword ptr [rip + 0x12bc142], 0
+0x14099f20e: jne      0x14099f21c   ; main.newScreenshotScrollingChunkedCanvas+0xfc
+0x14099f210: mov      rdx, qword ptr [rsp + 0x58]
+0x14099f215: mov      rdi, qword ptr [rsp + 0x50]
+0x14099f21a: jmp      0x14099f23a   ; main.newScreenshotScrollingChunkedCanvas+0x11a
+0x14099f21c: mov      rdx, qword ptr [rsp + 0x58]
+0x14099f221: mov      rsi, qword ptr [rdx + 0x10]
+0x14099f225: call     0x140081080   ; runtime.gcWriteBarrier3
+0x14099f22a: mov      rdi, qword ptr [rsp + 0x50]
+0x14099f22f: mov      qword ptr [r11], rdi
+0x14099f232: mov      qword ptr [r11 + 8], rax
+0x14099f236: mov      qword ptr [r11 + 0x10], rsi
+0x14099f23a: mov      qword ptr [rax], rdi
+0x14099f23d: mov      qword ptr [rdx + 0x18], 1
+0x14099f245: mov      qword ptr [rdx + 0x20], 1
+0x14099f24d: mov      qword ptr [rdx + 0x10], rax
+0x14099f251: mov      rax, rdx
+0x14099f254: xor      ebx, ebx
+0x14099f256: xor      ecx, ecx
+0x14099f258: add      rsp, 0x60
+0x14099f25c: pop      rbp
+0x14099f25d: ret      
+0x14099f25e: xor      eax, eax
+0x14099f260: add      rsp, 0x60
+0x14099f264: pop      rbp
+0x14099f265: ret      
+0x14099f266: lea      rax, [rip + 0x1b5113]
+0x14099f26d: call     0x14001ae20   ; runtime.newobject
+0x14099f272: mov      qword ptr [rax + 8], 0x15
+0x14099f27a: lea      rcx, [rip + 0x2c0750]
+0x14099f281: mov      qword ptr [rax], rcx
+0x14099f284: lea      rbx, [rip + 0x833e75]
+0x14099f28b: mov      rcx, rax
+0x14099f28e: xor      eax, eax
+0x14099f290: add      rsp, 0x60
+0x14099f294: pop      rbp
+0x14099f295: ret      
+0x14099f296: mov      qword ptr [rsp + 8], rax
+0x14099f29b: mov      qword ptr [rsp + 0x10], rbx
+0x14099f2a0: call     0x14007f140   ; runtime.morestack_noctxt
+0x14099f2a5: mov      rax, qword ptr [rsp + 8]
+0x14099f2aa: mov      rbx, qword ptr [rsp + 0x10]
+0x14099f2af: jmp      0x14099f120   ; main.newScreenshotScrollingChunkedCanvas
+0x14099f2b4: int3     
+0x14099f2b5: int3     
+0x14099f2b6: int3     
+0x14099f2b7: int3     
+0x14099f2b8: int3     
+0x14099f2b9: int3     
+0x14099f2ba: int3     
+0x14099f2bb: int3     
+0x14099f2bc: int3     
+0x14099f2bd: int3     
+0x14099f2be: int3     
+0x14099f2bf: int3     

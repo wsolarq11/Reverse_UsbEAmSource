@@ -1,0 +1,106 @@
+0x140913f20: cmp      rsp, qword ptr [r14 + 0x10]
+0x140913f24: jbe      0x140914058   ; main.windowsOLEDBlackoutCursorController.request+0x138
+0x140913f2a: push     rbp
+0x140913f2b: mov      rbp, rsp
+0x140913f2e: sub      rsp, 0x28
+0x140913f32: mov      byte ptr [rsp + 0x40], bl
+0x140913f36: mov      byte ptr [rsp + 0x41], cl
+0x140913f3a: mov      byte ptr [rsp + 0x42], dil
+0x140913f3f: mov      qword ptr [rsp + 0x48], rsi
+0x140913f44: test     rax, rax
+0x140913f47: je       0x14091402a   ; main.windowsOLEDBlackoutCursorController.request+0x10a
+0x140913f4d: mov      qword ptr [rsp + 0x38], rax
+0x140913f52: nop      
+0x140913f53: lea      rcx, [rax + 0x20]
+0x140913f57: mov      qword ptr [rsp + 0x10], rcx
+0x140913f5c: mov      rdx, rax
+0x140913f5f: xor      eax, eax
+0x140913f61: mov      esi, 1
+0x140913f66: lock cmpxchg dword ptr [rdx + 0x20], esi
+0x140913f6b: sete     sil
+0x140913f6f: test     sil, sil
+0x140913f72: jne      0x140913f86   ; main.windowsOLEDBlackoutCursorController.request+0x66
+0x140913f74: mov      rax, rcx
+0x140913f77: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x140913f7c: mov      rcx, qword ptr [rsp + 0x10]
+0x140913f81: mov      rdx, qword ptr [rsp + 0x38]
+0x140913f86: cmp      byte ptr [rdx + 0x28], 0
+0x140913f8a: je       0x140913fb9   ; main.windowsOLEDBlackoutCursorController.request+0x99
+0x140913f8c: nop      
+0x140913f8d: nop      
+0x140913f8e: mov      ebx, 0xffffffff
+0x140913f93: lock xadd dword ptr [rdx + 0x20], ebx
+0x140913f98: dec      ebx
+0x140913f9a: je       0x140913fa5   ; main.windowsOLEDBlackoutCursorController.request+0x85
+0x140913f9c: mov      rax, rcx
+0x140913f9f: nop      
+0x140913fa0: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x140913fa5: mov      rax, qword ptr [rip + 0x12afda4]
+0x140913fac: mov      rbx, qword ptr [rip + 0x12afda5]
+0x140913fb3: add      rsp, 0x28
+0x140913fb7: pop      rbp
+0x140913fb8: ret      
+0x140913fb9: lea      rax, [rip + 0x1d8f40]
+0x140913fc0: mov      ebx, 1
+0x140913fc5: call     0x1400114c0   ; runtime.makechan
+0x140913fca: mov      qword ptr [rsp + 0x48], rax
+0x140913fcf: mov      rcx, qword ptr [rsp + 0x38]
+0x140913fd4: mov      rax, qword ptr [rcx]
+0x140913fd7: lea      rbx, [rsp + 0x40]
+0x140913fdc: nop      dword ptr [rax]
+0x140913fe0: call     0x1400116e0   ; runtime.chansend1
+0x140913fe5: nop      
+0x140913fe6: nop      
+0x140913fe7: mov      ebx, 0xffffffff
+0x140913fec: mov      rcx, qword ptr [rsp + 0x38]
+0x140913ff1: lock xadd dword ptr [rcx + 0x20], ebx
+0x140913ff6: dec      ebx
+0x140913ff8: je       0x140914005   ; main.windowsOLEDBlackoutCursorController.request+0xe5
+0x140913ffa: mov      rax, qword ptr [rsp + 0x10]
+0x140913fff: nop      
+0x140914000: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x140914005: movups   xmmword ptr [rsp + 0x18], xmm15
+0x14091400b: mov      rax, qword ptr [rsp + 0x48]
+0x140914010: lea      rbx, [rsp + 0x18]
+0x140914015: call     0x140012620   ; runtime.chanrecv1
+0x14091401a: mov      rax, qword ptr [rsp + 0x18]
+0x14091401f: mov      rbx, qword ptr [rsp + 0x20]
+0x140914024: add      rsp, 0x28
+0x140914028: pop      rbp
+0x140914029: ret      
+0x14091402a: lea      rax, [rip + 0x24034f]
+0x140914031: call     0x14001ae20   ; runtime.newobject
+0x140914036: mov      qword ptr [rax + 8], 0x18
+0x14091403e: lea      rcx, [rip + 0x35132b]
+0x140914045: mov      qword ptr [rax], rcx
+0x140914048: mov      rbx, rax
+0x14091404b: lea      rax, [rip + 0x8bf0ae]
+0x140914052: add      rsp, 0x28
+0x140914056: pop      rbp
+0x140914057: ret      
+0x140914058: mov      qword ptr [rsp + 8], rax
+0x14091405d: mov      byte ptr [rsp + 0x10], bl
+0x140914061: mov      byte ptr [rsp + 0x11], cl
+0x140914065: mov      byte ptr [rsp + 0x12], dil
+0x14091406a: mov      qword ptr [rsp + 0x18], rsi
+0x14091406f: call     0x14007f140   ; runtime.morestack_noctxt
+0x140914074: mov      rax, qword ptr [rsp + 8]
+0x140914079: movzx    ebx, byte ptr [rsp + 0x10]
+0x14091407e: movzx    ecx, byte ptr [rsp + 0x11]
+0x140914083: movzx    edi, byte ptr [rsp + 0x12]
+0x140914088: mov      rsi, qword ptr [rsp + 0x18]
+0x14091408d: jmp      0x140913f20   ; main.windowsOLEDBlackoutCursorController.request
+0x140914092: int3     
+0x140914093: int3     
+0x140914094: int3     
+0x140914095: int3     
+0x140914096: int3     
+0x140914097: int3     
+0x140914098: int3     
+0x140914099: int3     
+0x14091409a: int3     
+0x14091409b: int3     
+0x14091409c: int3     
+0x14091409d: int3     
+0x14091409e: int3     
+0x14091409f: int3     

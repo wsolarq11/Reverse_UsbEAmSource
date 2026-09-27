@@ -1,0 +1,107 @@
+0x1407e19c0: lea      r12, [rsp - 0x40]
+0x1407e19c5: cmp      r12, qword ptr [r14 + 0x10]
+0x1407e19c9: jbe      0x1407e1c1d   ; main.shouldPrioritizeSearchTerm+0x25d
+0x1407e19cf: push     rbp
+0x1407e19d0: mov      rbp, rsp
+0x1407e19d3: sub      rsp, 0xb8
+0x1407e19da: mov      qword ptr [rsp + 0xc8], rax
+0x1407e19e2: test     r8d, r8d
+0x1407e19e5: jle      0x1407e1a00   ; main.shouldPrioritizeSearchTerm+0x40
+0x1407e19e7: test     r9d, r9d
+0x1407e19ea: jle      0x1407e1a00   ; main.shouldPrioritizeSearchTerm+0x40
+0x1407e19ec: cmp      r9d, r8d
+0x1407e19ef: je       0x1407e1a00   ; main.shouldPrioritizeSearchTerm+0x40
+0x1407e19f1: setg     al
+0x1407e19f4: add      rsp, 0xb8
+0x1407e19fb: pop      rbp
+0x1407e19fc: ret      
+0x1407e19fd: nop      dword ptr [rax]
+0x1407e1a00: cmp      rbx, rdi
+0x1407e1a03: jbe      0x1407e1c11   ; main.shouldPrioritizeSearchTerm+0x251
+0x1407e1a09: imul     rdx, rdi, 0x38
+0x1407e1a0d: mov      r8, qword ptr [rax + rdx]
+0x1407e1a11: mov      qword ptr [rsp + 0x80], r8
+0x1407e1a19: lea      r8, [rax + rdx]
+0x1407e1a1d: lea      r8, [r8 + 8]
+0x1407e1a21: movups   xmm0, xmmword ptr [r8]
+0x1407e1a25: movups   xmmword ptr [rsp + 0x88], xmm0
+0x1407e1a2d: lea      r8, [rax + rdx]
+0x1407e1a31: lea      r8, [r8 + 0x18]
+0x1407e1a35: movups   xmm0, xmmword ptr [r8]
+0x1407e1a39: movups   xmmword ptr [rsp + 0x98], xmm0
+0x1407e1a41: lea      rdx, [rax + rdx]
+0x1407e1a45: lea      rdx, [rdx + 0x28]
+0x1407e1a49: movups   xmm0, xmmword ptr [rdx]
+0x1407e1a4c: movups   xmmword ptr [rsp + 0xa8], xmm0
+0x1407e1a54: cmp      rbx, rsi
+0x1407e1a57: jbe      0x1407e1c06   ; main.shouldPrioritizeSearchTerm+0x246
+0x1407e1a5d: imul     rcx, rsi, 0x38
+0x1407e1a61: mov      rdx, qword ptr [rax + rcx]
+0x1407e1a65: mov      qword ptr [rsp + 0x48], rdx
+0x1407e1a6a: lea      rdx, [rax + rcx]
+0x1407e1a6e: lea      rdx, [rdx + 8]
+0x1407e1a72: movups   xmm0, xmmword ptr [rdx]
+0x1407e1a75: movups   xmmword ptr [rsp + 0x50], xmm0
+0x1407e1a7a: lea      rdx, [rax + rcx]
+0x1407e1a7e: lea      rdx, [rdx + 0x18]
+0x1407e1a82: movups   xmm0, xmmword ptr [rdx]
+0x1407e1a85: movups   xmmword ptr [rsp + 0x60], xmm0
+0x1407e1a8a: lea      rcx, [rax + rcx]
+0x1407e1a8e: lea      rcx, [rcx + 0x28]
+0x1407e1a92: movups   xmm0, xmmword ptr [rcx]
+0x1407e1a95: movups   xmmword ptr [rsp + 0x70], xmm0
+0x1407e1a9a: mov      rcx, qword ptr [rsp + 0x80]
+0x1407e1aa2: mov      qword ptr [rsp + 0x10], rcx
+0x1407e1aa7: movups   xmm0, xmmword ptr [rsp + 0x88]
+0x1407e1aaf: movups   xmmword ptr [rsp + 0x18], xmm0
+0x1407e1ab4: movups   xmm0, xmmword ptr [rsp + 0x98]
+0x1407e1abc: movups   xmmword ptr [rsp + 0x28], xmm0
+0x1407e1ac1: movups   xmm0, xmmword ptr [rsp + 0xa8]
+0x1407e1ac9: movups   xmmword ptr [rsp + 0x38], xmm0
+0x1407e1ace: mov      rcx, qword ptr [rsp + 0x28]
+0x1407e1ad3: mov      rdx, qword ptr [rsp + 0x48]
+0x1407e1ad8: mov      qword ptr [rsp + 0x10], rdx
+0x1407e1add: movups   xmm0, xmmword ptr [rsp + 0x50]
+0x1407e1ae2: movups   xmmword ptr [rsp + 0x18], xmm0
+0x1407e1ae7: movups   xmm0, xmmword ptr [rsp + 0x60]
+0x1407e1aec: movups   xmmword ptr [rsp + 0x28], xmm0
+0x1407e1af1: movups   xmm0, xmmword ptr [rsp + 0x70]
+0x1407e1af6: movups   xmmword ptr [rsp + 0x38], xmm0
+0x1407e1afb: cmp      rcx, 1
+0x1407e1aff: setg     dl
+0x1407e1b02: cmp      qword ptr [rsp + 0x28], 1
+0x1407e1b08: setg     bl
+0x1407e1b0b: cmp      bl, dl
+0x1407e1b0d: jne      0x1407e1b53   ; main.shouldPrioritizeSearchTerm+0x193
+0x1407e1b0f: mov      rcx, qword ptr [rsp + 0x80]
+0x1407e1b17: mov      qword ptr [rsp + 0x10], rcx
+0x1407e1b1c: movups   xmm0, xmmword ptr [rsp + 0x88]
+0x1407e1b24: movups   xmmword ptr [rsp + 0x18], xmm0
+0x1407e1b29: movups   xmm0, xmmword ptr [rsp + 0x98]
+0x1407e1b31: movups   xmmword ptr [rsp + 0x28], xmm0
+0x1407e1b36: movups   xmm0, xmmword ptr [rsp + 0xa8]
+0x1407e1b3e: movups   xmmword ptr [rsp + 0x38], xmm0
+0x1407e1b43: mov      rcx, qword ptr [rsp + 0x20]
+0x1407e1b48: mov      rdx, qword ptr [rsp + 0x28]
+0x1407e1b4d: xor      eax, eax
+0x1407e1b4f: xor      ebx, ebx
+0x1407e1b51: jmp      0x1407e1b74   ; main.shouldPrioritizeSearchTerm+0x1b4
+0x1407e1b53: cmp      rcx, 1
+0x1407e1b57: setle    al
+0x1407e1b5a: add      rsp, 0xb8
+0x1407e1b61: pop      rbp
+0x1407e1b62: ret      
+0x1407e1b63: mov      r8, rcx
+0x1407e1b66: mov      r8, qword ptr [r8 + 8]
+0x1407e1b6a: add      rbx, r8
+0x1407e1b6d: add      rcx, 0x18
+0x1407e1b71: inc      rax
+0x1407e1b74: cmp      rax, rdx
+0x1407e1b77: jl       0x1407e1b63   ; main.shouldPrioritizeSearchTerm+0x1a3
+0x1407e1b79: mov      rcx, qword ptr [rsp + 0x48]
+0x1407e1b7e: mov      qword ptr [rsp + 0x10], rcx
+0x1407e1b83: movups   xmm0, xmmword ptr [rsp + 0x50]
+0x1407e1b88: movups   xmmword ptr [rsp + 0x18], xmm0
+0x1407e1b8d: movups   xmm0, xmmword ptr [rsp + 0x60]
+0x1407e1b92: movups   xmmword ptr [rsp + 0x28], xmm0
+0x1407e1b97: movups   xmm0, xmmword ptr [rsp + 0x70]

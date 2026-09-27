@@ -1,0 +1,53 @@
+0x14081f780: mov      r12, rsp
+0x14081f783: sub      r12, 0x1660
+0x14081f78a: jb       0x14081f875
+0x14081f790: cmp      r12, qword ptr [r14 + 0x10]
+0x14081f794: jbe      0x14081f875
+0x14081f79a: push     rbp
+0x14081f79b: mov      rbp, rsp
+0x14081f79e: sub      rsp, 0x16d8
+0x14081f7a5: movups   xmmword ptr [rsp + 8], xmm15
+0x14081f7ab: movups   xmmword ptr [rsp + 0x18], xmm15
+0x14081f7b1: movups   xmmword ptr [rsp + 0x28], xmm15
+0x14081f7b7: lea      rdi, [rsp + 0x38]
+0x14081f7bc: mov      ecx, 0x2d2
+0x14081f7c1: xor      eax, eax
+0x14081f7c3: rep stosq qword ptr [rdi], rax
+0x14081f7c6: lea      rax, [rsp + 0x38]
+0x14081f7cb: call     0x14003d0e0
+0x14081f7d0: mov      rdx, qword ptr [rsp + 0x70]
+0x14081f7d5: mov      qword ptr [rsp + 0x16c8], rdx
+0x14081f7dd: mov      rdx, qword ptr [rsp + 0x88]
+0x14081f7e5: mov      qword ptr [rsp + 0x16d0], rdx
+0x14081f7ed: call     0x14081fce0
+0x14081f7f2: movups   xmmword ptr [rsp + 8], xmm15
+0x14081f7f8: movups   xmmword ptr [rsp + 0x18], xmm15
+0x14081f7fe: movups   xmmword ptr [rsp + 0x28], xmm15
+0x14081f804: mov      rdx, qword ptr [rsp + 0x16c8]
+0x14081f80c: mov      rsi, qword ptr [rsp + 0x16d0]
+0x14081f814: mov      r8, rdx
+0x14081f817: sub      rdx, rsi
+0x14081f81a: mov      r9, qword ptr [rsp + 0x68]
+0x14081f81f: mov      qword ptr [rsp + 8], r9
+0x14081f824: mov      r9, qword ptr [rsp + 0x70]
+0x14081f829: mov      qword ptr [rsp + 0x10], r9
+0x14081f82e: mov      rcx, qword ptr [rsp + 0x88]
+0x14081f836: mov      qword ptr [rsp + 0x18], rcx
+0x14081f83b: cmp      rsi, r8
+0x14081f83e: mov      edi, 0
+0x14081f843: cmovb    rdi, rdx
+0x14081f847: mov      qword ptr [rsp + 0x20], rdi
+0x14081f84c: mov      qword ptr [rsp + 0x28], rax
+0x14081f851: mov      qword ptr [rsp + 0x30], rbx
+0x14081f856: mov      rdx, qword ptr [rsp + 8]
+0x14081f85b: mov      rsi, qword ptr [rsp + 0x10]
+0x14081f860: mov      r8, rbx
+0x14081f863: mov      rbx, rsi
+0x14081f866: mov      rsi, rax
+0x14081f869: mov      rax, rdx
+0x14081f86c: add      rsp, 0x16d8
+0x14081f873: pop      rbp
+0x14081f874: ret      
+0x14081f875: call     0x14007f140
+0x14081f87a: jmp      0x14081f780
+0x14081f87f: int3     

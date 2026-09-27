@@ -1,0 +1,80 @@
+0x1408a9a40: lea      r12, [rsp - 0x100]
+0x1408a9a48: cmp      r12, qword ptr [r14 + 0x10]
+0x1408a9a4c: jbe      0x1408a9b61   ; main.startApplicationWindowsStandard+0x121
+0x1408a9a52: push     rbp
+0x1408a9a53: mov      rbp, rsp
+0x1408a9a56: sub      rsp, 0x178
+0x1408a9a5d: nop      dword ptr [rax]
+0x1408a9a60: call     0x1408ad900   ; main.isProcessElevated
+0x1408a9a65: test     al, al
+0x1408a9a67: je       0x1408a9ae1   ; main.startApplicationWindowsStandard+0xa1
+0x1408a9a69: mov      rax, qword ptr [rsp + 0x188]
+0x1408a9a71: mov      qword ptr [rsp], rax
+0x1408a9a75: lea      rdi, [rsp + 8]
+0x1408a9a7a: lea      rsi, [rsp + 0x190]
+0x1408a9a82: mov      qword ptr [rsp - 0x10], rbp
+0x1408a9a87: lea      rbp, [rsp - 0x10]
+0x1408a9a8c: call     0x1400819ac   ; runtime.duffcopy+0x24c
+0x1408a9a91: mov      rbp, qword ptr [rbp]
+0x1408a9a95: call     0x1408a9400   ; main.startApplicationViaExplorer
+0x1408a9a9a: mov      rcx, qword ptr [rsp + 0x188]
+0x1408a9aa2: mov      qword ptr [rsp], rcx
+0x1408a9aa6: lea      rdi, [rsp + 8]
+0x1408a9aab: lea      rsi, [rsp + 0x190]
+0x1408a9ab3: nop      word ptr [rax + rax]
+0x1408a9abc: nop      dword ptr [rax]
+0x1408a9ac0: mov      qword ptr [rsp - 0x10], rbp
+0x1408a9ac5: lea      rbp, [rsp - 0x10]
+0x1408a9aca: call     0x1400819ac   ; runtime.duffcopy+0x24c
+0x1408a9acf: mov      rbp, qword ptr [rbp]
+0x1408a9ad3: call     0x1408acd60   ; main.retryLaunchAsAdminIfElevationRequired
+0x1408a9ad8: add      rsp, 0x178
+0x1408a9adf: pop      rbp
+0x1408a9ae0: ret      
+0x1408a9ae1: mov      rax, qword ptr [rsp + 0x188]
+0x1408a9ae9: mov      qword ptr [rsp], rax
+0x1408a9aed: lea      rdi, [rsp + 8]
+0x1408a9af2: lea      rsi, [rsp + 0x190]
+0x1408a9afa: nop      word ptr [rax + rax]
+0x1408a9b00: mov      qword ptr [rsp - 0x10], rbp
+0x1408a9b05: lea      rbp, [rsp - 0x10]
+0x1408a9b0a: call     0x1400819ac   ; runtime.duffcopy+0x24c
+0x1408a9b0f: mov      rbp, qword ptr [rbp]
+0x1408a9b13: call     0x1408a7020   ; main.startApplicationUsingCurrentPrivileges
+0x1408a9b18: mov      rcx, qword ptr [rsp + 0x188]
+0x1408a9b20: mov      qword ptr [rsp], rcx
+0x1408a9b24: lea      rdi, [rsp + 8]
+0x1408a9b29: lea      rsi, [rsp + 0x190]
+0x1408a9b31: nop      word ptr [rax + rax]
+0x1408a9b3a: nop      word ptr [rax + rax]
+0x1408a9b40: mov      qword ptr [rsp - 0x10], rbp
+0x1408a9b45: lea      rbp, [rsp - 0x10]
+0x1408a9b4a: call     0x1400819ac   ; runtime.duffcopy+0x24c
+0x1408a9b4f: mov      rbp, qword ptr [rbp]
+0x1408a9b53: call     0x1408acd60   ; main.retryLaunchAsAdminIfElevationRequired
+0x1408a9b58: add      rsp, 0x178
+0x1408a9b5f: pop      rbp
+0x1408a9b60: ret      
+0x1408a9b61: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a9b66: jmp      0x1408a9a40   ; main.startApplicationWindowsStandard
+0x1408a9b6b: int3     
+0x1408a9b6c: int3     
+0x1408a9b6d: int3     
+0x1408a9b6e: int3     
+0x1408a9b6f: int3     
+0x1408a9b70: int3     
+0x1408a9b71: int3     
+0x1408a9b72: int3     
+0x1408a9b73: int3     
+0x1408a9b74: int3     
+0x1408a9b75: int3     
+0x1408a9b76: int3     
+0x1408a9b77: int3     
+0x1408a9b78: int3     
+0x1408a9b79: int3     
+0x1408a9b7a: int3     
+0x1408a9b7b: int3     
+0x1408a9b7c: int3     
+0x1408a9b7d: int3     
+0x1408a9b7e: int3     
+0x1408a9b7f: int3     

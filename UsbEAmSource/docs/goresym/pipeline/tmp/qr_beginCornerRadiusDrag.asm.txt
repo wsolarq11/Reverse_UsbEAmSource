@@ -1,0 +1,66 @@
+0x14093bba0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14093bba4: jbe      0x14093bc89   ; main.qrCodeScreenSelectionSession.beginCornerRadiusDrag+0xe9
+0x14093bbaa: push     rbp
+0x14093bbab: mov      rbp, rsp
+0x14093bbae: sub      rsp, 0x30
+0x14093bbb2: cmp      byte ptr [rax + 0x269], 0
+0x14093bbb9: je       0x14093bc81   ; main.qrCodeScreenSelectionSession.beginCornerRadiusDrag+0xe1
+0x14093bbbf: cmp      byte ptr [rax + 0x26a], 0
+0x14093bbc6: jne      0x14093bc81   ; main.qrCodeScreenSelectionSession.beginCornerRadiusDrag+0xe1
+0x14093bbcc: mov      qword ptr [rsp + 0x40], rax
+0x14093bbd1: mov      qword ptr [rsp + 0x48], rbx
+0x14093bbd6: mov      qword ptr [rsp + 0x28], rdi
+0x14093bbdb: mov      qword ptr [rsp + 0x20], rcx
+0x14093bbe0: call     0x14093c080   ; main.qrCodeScreenSelectionSession.cornerRadiusSliderHitRect
+0x14093bbe5: mov      rdx, qword ptr [rsp + 0x20]
+0x14093bbea: cmp      rax, rdx
+0x14093bbed: jg       0x14093bc81   ; main.qrCodeScreenSelectionSession.beginCornerRadiusDrag+0xe1
+0x14093bbf3: cmp      rcx, rdx
+0x14093bbf6: jle      0x14093bc81   ; main.qrCodeScreenSelectionSession.beginCornerRadiusDrag+0xe1
+0x14093bbfc: mov      rcx, qword ptr [rsp + 0x28]
+0x14093bc01: cmp      rbx, rcx
+0x14093bc04: jg       0x14093bc81   ; main.qrCodeScreenSelectionSession.beginCornerRadiusDrag+0xe1
+0x14093bc06: cmp      rdi, rcx
+0x14093bc09: jle      0x14093bc81   ; main.qrCodeScreenSelectionSession.beginCornerRadiusDrag+0xe1
+0x14093bc0b: mov      rcx, qword ptr [rsp + 0x40]
+0x14093bc10: mov      word ptr [rcx + 0x1a0], 0x101
+0x14093bc19: mov      rdx, qword ptr [rcx + 0x198]
+0x14093bc20: mov      qword ptr [rcx + 0x1a8], rdx
+0x14093bc27: mov      byte ptr [rcx + 0x168], 0
+0x14093bc2e: nop      
+0x14093bc2f: lea      rax, [rip + 0x1c1d4a]
+0x14093bc36: call     0x14001ae20   ; runtime.newobject
+0x14093bc3b: mov      rcx, qword ptr [rsp + 0x48]
+0x14093bc40: mov      qword ptr [rax], rcx
+0x14093bc43: mov      rcx, qword ptr [rip + 0x1286cbe]
+0x14093bc4a: mov      rbx, rax
+0x14093bc4d: mov      edi, 1
+0x14093bc52: mov      rax, rcx
+0x14093bc55: mov      rcx, rdi
+0x14093bc58: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14093bc5d: mov      rax, qword ptr [rsp + 0x40]
+0x14093bc62: mov      rbx, qword ptr [rsp + 0x48]
+0x14093bc67: mov      rcx, qword ptr [rsp + 0x20]
+0x14093bc6c: mov      rdi, qword ptr [rsp + 0x28]
+0x14093bc71: call     0x14093bcc0   ; main.qrCodeScreenSelectionSession.updateCornerRadiusDrag
+0x14093bc76: mov      eax, 1
+0x14093bc7b: add      rsp, 0x30
+0x14093bc7f: pop      rbp
+0x14093bc80: ret      
+0x14093bc81: xor      eax, eax
+0x14093bc83: add      rsp, 0x30
+0x14093bc87: pop      rbp
+0x14093bc88: ret      
+0x14093bc89: mov      qword ptr [rsp + 8], rax
+0x14093bc8e: mov      qword ptr [rsp + 0x10], rbx
+0x14093bc93: mov      qword ptr [rsp + 0x18], rcx
+0x14093bc98: mov      qword ptr [rsp + 0x20], rdi
+0x14093bc9d: nop      dword ptr [rax]
+0x14093bca0: call     0x14007f140   ; runtime.morestack_noctxt
+0x14093bca5: mov      rax, qword ptr [rsp + 8]
+0x14093bcaa: mov      rbx, qword ptr [rsp + 0x10]
+0x14093bcaf: mov      rcx, qword ptr [rsp + 0x18]
+0x14093bcb4: mov      rdi, qword ptr [rsp + 0x20]
+0x14093bcb9: jmp      0x14093bba0   ; main.qrCodeScreenSelectionSession.beginCornerRadiusDrag
+0x14093bcbe: int3     
+0x14093bcbf: int3     

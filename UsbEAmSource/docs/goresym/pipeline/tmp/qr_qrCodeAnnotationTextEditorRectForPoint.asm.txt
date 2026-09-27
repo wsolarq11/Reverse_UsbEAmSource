@@ -1,0 +1,50 @@
+0x14094cbc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14094cbc4: jbe      0x14094cbe4   ; main.qrCodeAnnotationTextEditorRectForPoint+0x24
+0x14094cbc6: push     rbp
+0x14094cbc7: mov      rbp, rsp
+0x14094cbca: sub      rsp, 0x48
+0x14094cbce: call     0x14094cc40   ; main.qrCodeAnnotationTextEditorRawRectForPointWithLimit
+0x14094cbd3: mov      r11d, 8
+0x14094cbd9: call     0x14094d120   ; main.clampQRCodeAnnotationRect
+0x14094cbde: add      rsp, 0x48
+0x14094cbe2: pop      rbp
+0x14094cbe3: ret      
+0x14094cbe4: mov      qword ptr [rsp + 8], rax
+0x14094cbe9: mov      qword ptr [rsp + 0x10], rbx
+0x14094cbee: mov      qword ptr [rsp + 0x18], rcx
+0x14094cbf3: mov      qword ptr [rsp + 0x20], rdi
+0x14094cbf8: mov      qword ptr [rsp + 0x28], rsi
+0x14094cbfd: mov      qword ptr [rsp + 0x30], r8
+0x14094cc02: call     0x14007f140   ; runtime.morestack_noctxt
+0x14094cc07: mov      rax, qword ptr [rsp + 8]
+0x14094cc0c: mov      rbx, qword ptr [rsp + 0x10]
+0x14094cc11: mov      rcx, qword ptr [rsp + 0x18]
+0x14094cc16: mov      rdi, qword ptr [rsp + 0x20]
+0x14094cc1b: mov      rsi, qword ptr [rsp + 0x28]
+0x14094cc20: mov      r8, qword ptr [rsp + 0x30]
+0x14094cc25: jmp      0x14094cbc0   ; main.qrCodeAnnotationTextEditorRectForPoint
+0x14094cc27: int3     
+0x14094cc28: int3     
+0x14094cc29: int3     
+0x14094cc2a: int3     
+0x14094cc2b: int3     
+0x14094cc2c: int3     
+0x14094cc2d: int3     
+0x14094cc2e: int3     
+0x14094cc2f: int3     
+0x14094cc30: int3     
+0x14094cc31: int3     
+0x14094cc32: int3     
+0x14094cc33: int3     
+0x14094cc34: int3     
+0x14094cc35: int3     
+0x14094cc36: int3     
+0x14094cc37: int3     
+0x14094cc38: int3     
+0x14094cc39: int3     
+0x14094cc3a: int3     
+0x14094cc3b: int3     
+0x14094cc3c: int3     
+0x14094cc3d: int3     
+0x14094cc3e: int3     
+0x14094cc3f: int3     

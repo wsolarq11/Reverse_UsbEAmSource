@@ -1,0 +1,80 @@
+0x14084dd40: cmp      rsp, qword ptr [r14 + 0x10]
+0x14084dd44: jbe      0x14084ddec
+0x14084dd4a: push     rbp
+0x14084dd4b: mov      rbp, rsp
+0x14084dd4e: sub      rsp, 0x28
+0x14084dd52: mov      qword ptr [rsp + 0x38], rax
+0x14084dd57: mov      qword ptr [rsp + 0x40], rbx
+0x14084dd5c: nop      dword ptr [rax]
+0x14084dd60: call     0x14083eb40
+0x14084dd65: test     al, al
+0x14084dd67: jne      0x14084dde1
+0x14084dd69: call     0x140104fc0
+0x14084dd6e: mov      rdi, rcx
+0x14084dd71: mov      esi, 0x77359400
+0x14084dd76: mov      rcx, rbx
+0x14084dd79: mov      rbx, rax
+0x14084dd7c: mov      rax, qword ptr [rsp + 0x38]
+0x14084dd81: call     0x14083ebe0
+0x14084dd86: test     al, al
+0x14084dd88: jne      0x14084ddd5
+0x14084dd8a: mov      rcx, qword ptr [rsp + 0x40]
+0x14084dd8f: test     rcx, rcx
+0x14084dd92: je       0x14084ddca
+0x14084dd94: mov      rcx, qword ptr [rcx]
+0x14084dd97: test     rcx, rcx
+0x14084dd9a: jg       0x14084dda3
+0x14084dd9c: mov      ecx, 0x200000
+0x14084dda1: jmp      0x14084ddc1
+0x14084dda3: cmp      rcx, 0x40000
+0x14084ddaa: jge      0x14084ddb3
+0x14084ddac: mov      ecx, 0x40000
+0x14084ddb1: jmp      0x14084ddc1
+0x14084ddb3: cmp      rcx, 0x400000
+0x14084ddba: jle      0x14084ddc1
+0x14084ddbc: mov      ecx, 0x400000
+0x14084ddc1: mov      rax, rcx
+0x14084ddc4: add      rsp, 0x28
+0x14084ddc8: pop      rbp
+0x14084ddc9: ret      
+0x14084ddca: mov      eax, 0x200000
+0x14084ddcf: add      rsp, 0x28
+0x14084ddd3: pop      rbp
+0x14084ddd4: ret      
+0x14084ddd5: mov      eax, 0x100000
+0x14084ddda: add      rsp, 0x28
+0x14084ddde: pop      rbp
+0x14084dddf: nop      
+0x14084dde0: ret      
+0x14084dde1: mov      eax, 0x40000
+0x14084dde6: add      rsp, 0x28
+0x14084ddea: pop      rbp
+0x14084ddeb: ret      
+0x14084ddec: mov      qword ptr [rsp + 8], rax
+0x14084ddf1: mov      qword ptr [rsp + 0x10], rbx
+0x14084ddf6: call     0x14007f140
+0x14084ddfb: mov      rax, qword ptr [rsp + 8]
+0x14084de00: mov      rbx, qword ptr [rsp + 0x10]
+0x14084de05: jmp      0x14084dd40
+0x14084de0a: int3     
+0x14084de0b: int3     
+0x14084de0c: int3     
+0x14084de0d: int3     
+0x14084de0e: int3     
+0x14084de0f: int3     
+0x14084de10: int3     
+0x14084de11: int3     
+0x14084de12: int3     
+0x14084de13: int3     
+0x14084de14: int3     
+0x14084de15: int3     
+0x14084de16: int3     
+0x14084de17: int3     
+0x14084de18: int3     
+0x14084de19: int3     
+0x14084de1a: int3     
+0x14084de1b: int3     
+0x14084de1c: int3     
+0x14084de1d: int3     
+0x14084de1e: int3     
+0x14084de1f: int3     

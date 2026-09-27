@@ -1,0 +1,46 @@
+0x1408ca680: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ca684: jbe      0x1408ca6f1    ; main.validateLauncherUpdateNonce+0x71
+0x1408ca686: push     rbp
+0x1408ca687: mov      rbp, rsp
+0x1408ca68a: sub      rsp, 0x10
+0x1408ca68e: mov      qword ptr [rsp + 0x20], rax
+0x1408ca693: mov      qword ptr [rsp + 0x30], rcx
+0x1408ca698: call     0x1400a2200    ; strings.TrimSpace
+0x1408ca69d: nop      dword ptr [rax]
+0x1408ca6a0: call     0x140261500    ; encoding/hex.DecodeString
+0x1408ca6a5: test     rdi, rdi
+0x1408ca6a8: jne      0x1408ca6b4    ; main.validateLauncherUpdateNonce+0x34
+0x1408ca6aa: mov      rcx, qword ptr [rsp + 0x30]
+0x1408ca6af: cmp      rbx, rcx
+0x1408ca6b2: je       0x1408ca6e7    ; main.validateLauncherUpdateNonce+0x67
+0x1408ca6b4: lea      rax, [rip + 0x289cc5]
+0x1408ca6bb: nop      dword ptr [rax + rax]
+0x1408ca6c0: call     0x14001ae20    ; runtime.newobject
+0x1408ca6c5: mov      qword ptr [rax + 8], 0x1b
+0x1408ca6cd: lea      rcx, [rip + 0x39fa1e]
+0x1408ca6d4: mov      qword ptr [rax], rcx
+0x1408ca6d7: mov      rbx, rax
+0x1408ca6da: lea      rax, [rip + 0x908a1f]
+0x1408ca6e1: add      rsp, 0x10
+0x1408ca6e5: pop      rbp
+0x1408ca6e6: ret      
+0x1408ca6e7: xor      eax, eax
+0x1408ca6e9: xor      ebx, ebx
+0x1408ca6eb: add      rsp, 0x10
+0x1408ca6ef: pop      rbp
+0x1408ca6f0: ret      
+0x1408ca6f1: mov      qword ptr [rsp + 8], rax
+0x1408ca6f6: mov      qword ptr [rsp + 0x10], rbx
+0x1408ca6fb: mov      qword ptr [rsp + 0x18], rcx
+0x1408ca700: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408ca705: mov      rax, qword ptr [rsp + 8]
+0x1408ca70a: mov      rbx, qword ptr [rsp + 0x10]
+0x1408ca70f: mov      rcx, qword ptr [rsp + 0x18]
+0x1408ca714: jmp      0x1408ca680    ; main.validateLauncherUpdateNonce
+0x1408ca719: int3     
+0x1408ca71a: int3     
+0x1408ca71b: int3     
+0x1408ca71c: int3     
+0x1408ca71d: int3     
+0x1408ca71e: int3     
+0x1408ca71f: int3     

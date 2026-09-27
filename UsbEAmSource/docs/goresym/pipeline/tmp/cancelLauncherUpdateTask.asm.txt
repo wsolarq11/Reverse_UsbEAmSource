@@ -1,0 +1,92 @@
+0x1408b7da0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408b7da4: jbe      0x1408b7ee8    ; main.BootstrapService.cancelLauncherUpdateTask+0x148
+0x1408b7daa: push     rbp
+0x1408b7dab: mov      rbp, rsp
+0x1408b7dae: sub      rsp, 0x40
+0x1408b7db2: test     rax, rax
+0x1408b7db5: je       0x1408b7eda    ; main.BootstrapService.cancelLauncherUpdateTask+0x13a
+0x1408b7dbb: nop      
+0x1408b7dbc: lea      rsi, [rax + 0x540]
+0x1408b7dc3: mov      rcx, rax
+0x1408b7dc6: xor      eax, eax
+0x1408b7dc8: mov      r8d, 1
+0x1408b7dce: lock cmpxchg dword ptr [rcx + 0x540], r8d
+0x1408b7dd7: sete     r8b
+0x1408b7ddb: nop      dword ptr [rax + rax]
+0x1408b7de0: test     r8b, r8b
+0x1408b7de3: jne      0x1408b7e01    ; main.BootstrapService.cancelLauncherUpdateTask+0x61
+0x1408b7de5: mov      qword ptr [rsp + 0x38], rcx
+0x1408b7dea: mov      qword ptr [rsp + 0x20], rsi
+0x1408b7def: mov      rax, rsi
+0x1408b7df2: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x1408b7df7: mov      rcx, qword ptr [rsp + 0x38]
+0x1408b7dfc: mov      rsi, qword ptr [rsp + 0x20]
+0x1408b7e01: mov      rdx, qword ptr [rcx + 0x4c8]
+0x1408b7e08: mov      r8, qword ptr [rcx + 0x4e0]
+0x1408b7e0f: mov      r9, qword ptr [rcx + 0x4d8]
+0x1408b7e16: mov      rdi, qword ptr [rcx + 0x4e8]
+0x1408b7e1d: nop      dword ptr [rax]
+0x1408b7e20: test     rdx, rdx
+0x1408b7e23: je       0x1408b7e5f    ; main.BootstrapService.cancelLauncherUpdateTask+0xbf
+0x1408b7e25: cmp      dword ptr [rip + 0x13a3524], 0
+0x1408b7e2c: je       0x1408b7e4c    ; main.BootstrapService.cancelLauncherUpdateTask+0xac
+0x1408b7e2e: mov      r10, qword ptr [rcx + 0x4c8]
+0x1408b7e35: mov      r11, qword ptr [rcx + 0x4d8]
+0x1408b7e3c: mov      rax, r11
+0x1408b7e3f: nop      
+0x1408b7e40: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1408b7e45: mov      qword ptr [r11], r10
+0x1408b7e48: mov      qword ptr [r11 + 8], rax
+0x1408b7e4c: mov      qword ptr [rcx + 0x4c8], 0
+0x1408b7e57: movups   xmmword ptr [rcx + 0x4d8], xmm15
+0x1408b7e5f: mov      qword ptr [rsp + 0x28], rdi
+0x1408b7e64: mov      qword ptr [rsp + 0x18], r9
+0x1408b7e69: mov      qword ptr [rsp + 0x10], r8
+0x1408b7e6e: nop      
+0x1408b7e6f: nop      
+0x1408b7e70: mov      ebx, 0xffffffff
+0x1408b7e75: lock xadd dword ptr [rcx + 0x540], ebx
+0x1408b7e7d: nop      dword ptr [rax]
+0x1408b7e80: dec      ebx
+0x1408b7e82: jne      0x1408b7e89    ; main.BootstrapService.cancelLauncherUpdateTask+0xe9
+0x1408b7e84: test     rdx, rdx
+0x1408b7e87: jmp      0x1408b7ead    ; main.BootstrapService.cancelLauncherUpdateTask+0x10d
+0x1408b7e89: mov      qword ptr [rsp + 0x30], rdx
+0x1408b7e8e: mov      rax, rsi
+0x1408b7e91: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x1408b7e96: mov      rdx, qword ptr [rsp + 0x30]
+0x1408b7e9b: test     rdx, rdx
+0x1408b7e9e: mov      rdi, qword ptr [rsp + 0x28]
+0x1408b7ea3: mov      r8, qword ptr [rsp + 0x10]
+0x1408b7ea8: mov      r9, qword ptr [rsp + 0x18]
+0x1408b7ead: je       0x1408b7ece    ; main.BootstrapService.cancelLauncherUpdateTask+0x12e
+0x1408b7eaf: mov      rax, qword ptr [rdx]
+0x1408b7eb2: call     rax
+0x1408b7eb4: mov      eax, 1
+0x1408b7eb9: mov      rbx, qword ptr [rsp + 0x18]
+0x1408b7ebe: mov      rcx, qword ptr [rsp + 0x10]
+0x1408b7ec3: mov      rdi, qword ptr [rsp + 0x28]
+0x1408b7ec8: add      rsp, 0x40
+0x1408b7ecc: pop      rbp
+0x1408b7ecd: ret      
+0x1408b7ece: xor      eax, eax
+0x1408b7ed0: xor      ebx, ebx
+0x1408b7ed2: xor      ecx, ecx
+0x1408b7ed4: add      rsp, 0x40
+0x1408b7ed8: pop      rbp
+0x1408b7ed9: ret      
+0x1408b7eda: xor      eax, eax
+0x1408b7edc: xor      ebx, ebx
+0x1408b7ede: xor      ecx, ecx
+0x1408b7ee0: xor      edi, edi
+0x1408b7ee2: add      rsp, 0x40
+0x1408b7ee6: pop      rbp
+0x1408b7ee7: ret      
+0x1408b7ee8: mov      qword ptr [rsp + 8], rax
+0x1408b7eed: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408b7ef2: mov      rax, qword ptr [rsp + 8]
+0x1408b7ef7: jmp      0x1408b7da0    ; main.BootstrapService.cancelLauncherUpdateTask
+0x1408b7efc: int3     
+0x1408b7efd: int3     
+0x1408b7efe: int3     
+0x1408b7eff: int3     

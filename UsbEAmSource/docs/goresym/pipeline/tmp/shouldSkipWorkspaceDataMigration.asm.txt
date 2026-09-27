@@ -1,0 +1,73 @@
+0x14077d720: cmp      rsp, qword ptr [r14 + 0x10]
+0x14077d724: jbe      0x14077d7b1   ; main.shouldSkipWorkspaceDataMigration+0x91
+0x14077d72a: push     rbp
+0x14077d72b: mov      rbp, rsp
+0x14077d72e: sub      rsp, 0x18
+0x14077d732: mov      qword ptr [rsp + 0x28], rax
+0x14077d737: call     0x1401154c0   ; internal/filepathlite.Clean
+0x14077d73c: lea      rcx, [rip + 0x91960d]
+0x14077d743: call     0x14009fde0   ; strings.FieldsFunc
+0x14077d748: test     rbx, rbx
+0x14077d74b: je       0x14077d7a9   ; main.shouldSkipWorkspaceDataMigration+0x89
+0x14077d74d: mov      rcx, qword ptr [rax]
+0x14077d750: mov      rbx, qword ptr [rax + 8]
+0x14077d754: mov      rax, rcx
+0x14077d757: call     0x1400a2200   ; strings.TrimSpace
+0x14077d75c: nop      dword ptr [rax]
+0x14077d760: call     0x1400a1500   ; strings.ToLower
+0x14077d765: cmp      rbx, 6
+0x14077d769: jne      0x14077d780   ; main.shouldSkipWorkspaceDataMigration+0x60
+0x14077d76b: cmp      dword ptr [rax], 0x67756c70
+0x14077d771: jne      0x14077d7a1   ; main.shouldSkipWorkspaceDataMigration+0x81
+0x14077d773: cmp      word ptr [rax + 4], 0x6e69
+0x14077d779: je       0x14077d795   ; main.shouldSkipWorkspaceDataMigration+0x75
+0x14077d77b: jmp      0x14077d7a1   ; main.shouldSkipWorkspaceDataMigration+0x81
+0x14077d77d: nop      dword ptr [rax]
+0x14077d780: cmp      rbx, 8
+0x14077d784: jne      0x14077d7a1   ; main.shouldSkipWorkspaceDataMigration+0x81
+0x14077d786: movabs   rcx, 0x65676175676e616c
+0x14077d790: cmp      qword ptr [rax], rcx
+0x14077d793: jne      0x14077d7a1   ; main.shouldSkipWorkspaceDataMigration+0x81
+0x14077d795: mov      eax, 1
+0x14077d79a: add      rsp, 0x18
+0x14077d79e: pop      rbp
+0x14077d79f: nop      
+0x14077d7a0: ret      
+0x14077d7a1: xor      eax, eax
+0x14077d7a3: add      rsp, 0x18
+0x14077d7a7: pop      rbp
+0x14077d7a8: ret      
+0x14077d7a9: xor      eax, eax
+0x14077d7ab: add      rsp, 0x18
+0x14077d7af: pop      rbp
+0x14077d7b0: ret      
+0x14077d7b1: mov      qword ptr [rsp + 8], rax
+0x14077d7b6: mov      qword ptr [rsp + 0x10], rbx
+0x14077d7bb: nop      dword ptr [rax + rax]
+0x14077d7c0: call     0x14007f140   ; runtime.morestack_noctxt
+0x14077d7c5: mov      rax, qword ptr [rsp + 8]
+0x14077d7ca: mov      rbx, qword ptr [rsp + 0x10]
+0x14077d7cf: jmp      0x14077d720   ; main.shouldSkipWorkspaceDataMigration
+0x14077d7d4: int3     
+0x14077d7d5: int3     
+0x14077d7d6: int3     
+0x14077d7d7: int3     
+0x14077d7d8: int3     
+0x14077d7d9: int3     
+0x14077d7da: int3     
+0x14077d7db: int3     
+0x14077d7dc: int3     
+0x14077d7dd: int3     
+0x14077d7de: int3     
+0x14077d7df: int3     
+0x14077d7e0: lea      r12, [rsp - 0xb0]
+0x14077d7e8: cmp      r12, qword ptr [r14 + 0x10]
+0x14077d7ec: jbe      0x14077d91c   ; main.BootstrapService.ResolveShortcut+0x13c
+0x14077d7f2: push     rbp
+0x14077d7f3: mov      rbp, rsp
+0x14077d7f6: sub      rsp, 0x128
+0x14077d7fd: mov      qword ptr [rsp + 0x1c8], rbx
+0x14077d805: movups   xmmword ptr [rsp + 0x138], xmm15
+0x14077d80e: lea      rdi, [rsp + 0x140]
+0x14077d816: nop      word ptr [rax + rax]
+0x14077d81f: nop      

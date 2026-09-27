@@ -1,0 +1,586 @@
+0x1408cc320: lea      r12, [rsp - 0xe0]
+0x1408cc328: cmp      r12, qword ptr [r14 + 0x10]
+0x1408cc32c: jbe      0x1408cce8f    ; main.launcherUpdateTransaction.applyFile+0xb6f
+0x1408cc332: push     rbp
+0x1408cc333: mov      rbp, rsp
+0x1408cc336: sub      rsp, 0x158
+0x1408cc33d: mov      rcx, qword ptr [rax + 0x90]
+0x1408cc344: cmp      rbx, rcx
+0x1408cc347: jae      0x1408cce86    ; main.launcherUpdateTransaction.applyFile+0xb66
+0x1408cc34d: mov      rdx, qword ptr [rax + 0x88]
+0x1408cc354: shl      rbx, 6
+0x1408cc358: mov      rsi, qword ptr [rdx + rbx + 0x20]
+0x1408cc35d: lea      r8, [rdx + rbx]
+0x1408cc361: mov      r9, qword ptr [rdx + rbx + 0x18]
+0x1408cc366: cmp      rsi, 7
+0x1408cc36a: jne      0x1408cc385    ; main.launcherUpdateTransaction.applyFile+0x65
+0x1408cc36c: cmp      dword ptr [r9], 0x646e6570
+0x1408cc373: jne      0x1408cc385    ; main.launcherUpdateTransaction.applyFile+0x65
+0x1408cc375: cmp      word ptr [r9 + 4], 0x6e69
+0x1408cc37c: jne      0x1408cc385    ; main.launcherUpdateTransaction.applyFile+0x65
+0x1408cc37e: cmp      byte ptr [r9 + 6], 0x67
+0x1408cc383: je       0x1408cc3dd    ; main.launcherUpdateTransaction.applyFile+0xbd
+0x1408cc385: movups   xmmword ptr [rsp + 0x140], xmm15
+0x1408cc38e: mov      rax, qword ptr [rbx + rdx]
+0x1408cc392: mov      rbx, qword ptr [rbx + rdx + 8]
+0x1408cc397: call     0x140076660    ; runtime.convTstring
+0x1408cc39c: lea      rcx, [rip + 0x21da5d]
+0x1408cc3a3: mov      qword ptr [rsp + 0x140], rcx
+0x1408cc3ab: mov      qword ptr [rsp + 0x148], rax
+0x1408cc3b3: lea      rax, [rip + 0x3a97d5]
+0x1408cc3ba: mov      ebx, 0x22
+0x1408cc3bf: lea      rcx, [rsp + 0x140]
+0x1408cc3c7: mov      edi, 1
+0x1408cc3cc: mov      rsi, rdi
+0x1408cc3cf: call     0x140133280    ; fmt.Errorf
+0x1408cc3d4: add      rsp, 0x158
+0x1408cc3db: pop      rbp
+0x1408cc3dc: ret      
+0x1408cc3dd: mov      qword ptr [rsp + 0x168], rax
+0x1408cc3e5: mov      qword ptr [rsp + 0xc8], r8
+0x1408cc3ed: mov      qword ptr [rsp + 0x150], rdx
+0x1408cc3f5: mov      qword ptr [rsp + 0x88], rbx
+0x1408cc3fd: mov      rax, qword ptr [rbx + rdx]
+0x1408cc401: mov      rbx, qword ptr [rbx + rdx + 8]
+0x1408cc406: nop      
+0x1408cc407: mov      ecx, 0x2f
+0x1408cc40c: mov      edi, 0x5c
+0x1408cc411: call     0x140116180    ; internal/filepathlite.replaceStringByte
+0x1408cc416: movups   xmmword ptr [rsp + 0x120], xmm15
+0x1408cc41f: movups   xmmword ptr [rsp + 0x130], xmm15
+0x1408cc428: mov      rdx, qword ptr [rsp + 0x168]
+0x1408cc430: mov      rsi, qword ptr [rdx + 0x28]
+0x1408cc434: mov      rdx, qword ptr [rdx + 0x30]
+0x1408cc438: mov      qword ptr [rsp + 0x128], rdx
+0x1408cc440: mov      qword ptr [rsp + 0x120], rsi
+0x1408cc448: mov      qword ptr [rsp + 0x138], rbx
+0x1408cc450: mov      qword ptr [rsp + 0x130], rax
+0x1408cc458: lea      rax, [rsp + 0x120]
+0x1408cc460: mov      ebx, 2
+0x1408cc465: mov      rcx, rbx
+0x1408cc468: call     0x1401cd660    ; path/filepath.join
+0x1408cc46d: mov      qword ptr [rsp + 0xa0], rax
+0x1408cc475: mov      qword ptr [rsp + 0x50], rbx
+0x1408cc47a: mov      rdx, qword ptr [rsp + 0x150]
+0x1408cc482: mov      rsi, qword ptr [rsp + 0x88]
+0x1408cc48a: mov      rax, qword ptr [rsi + rdx]
+0x1408cc48e: mov      rbx, qword ptr [rsi + rdx + 8]
+0x1408cc493: nop      
+0x1408cc494: mov      ecx, 0x2f
+0x1408cc499: mov      edi, 0x5c
+0x1408cc49e: nop      
+0x1408cc4a0: call     0x140116180    ; internal/filepathlite.replaceStringByte
+0x1408cc4a5: movups   xmmword ptr [rsp + 0x100], xmm15
+0x1408cc4ae: movups   xmmword ptr [rsp + 0x110], xmm15
+0x1408cc4b7: mov      rdx, qword ptr [rsp + 0x168]
+0x1408cc4bf: mov      rsi, qword ptr [rdx + 0x50]
+0x1408cc4c3: mov      rdx, qword ptr [rdx + 0x48]
+0x1408cc4c7: mov      qword ptr [rsp + 0x108], rsi
+0x1408cc4cf: mov      qword ptr [rsp + 0x100], rdx
+0x1408cc4d7: mov      qword ptr [rsp + 0x118], rbx
+0x1408cc4df: mov      qword ptr [rsp + 0x110], rax
+0x1408cc4e7: lea      rax, [rsp + 0x100]
+0x1408cc4ef: mov      ebx, 2
+0x1408cc4f4: mov      rcx, rbx
+0x1408cc4f7: call     0x1401cd660    ; path/filepath.join
+0x1408cc4fc: mov      qword ptr [rsp + 0x98], rax
+0x1408cc504: mov      qword ptr [rsp + 0x48], rbx
+0x1408cc509: mov      rdx, qword ptr [rsp + 0x168]
+0x1408cc511: mov      rax, qword ptr [rdx + 0x28]
+0x1408cc515: mov      rbx, qword ptr [rdx + 0x30]
+0x1408cc519: mov      rcx, qword ptr [rsp + 0xa0]
+0x1408cc521: mov      rdi, qword ptr [rsp + 0x50]
+0x1408cc526: call     0x140750be0    ; main.isPathInsideDirectory
+0x1408cc52b: test     al, al
+0x1408cc52d: jne      0x1408cc536    ; main.launcherUpdateTransaction.applyFile+0x216
+0x1408cc52f: mov      eax, 1
+0x1408cc534: jmp      0x1408cc585    ; main.launcherUpdateTransaction.applyFile+0x265
+0x1408cc536: mov      rdx, qword ptr [rsp + 0x168]
+0x1408cc53e: mov      rax, qword ptr [rdx + 0x48]
+0x1408cc542: mov      rbx, qword ptr [rdx + 0x50]
+0x1408cc546: mov      rcx, qword ptr [rsp + 0x98]
+0x1408cc54e: mov      rdi, qword ptr [rsp + 0x48]
+0x1408cc553: call     0x140750be0    ; main.isPathInsideDirectory
+0x1408cc558: test     al, al
+0x1408cc55a: jne      0x1408cc563    ; main.launcherUpdateTransaction.applyFile+0x243
+0x1408cc55c: mov      eax, 1
+0x1408cc561: jmp      0x1408cc585    ; main.launcherUpdateTransaction.applyFile+0x265
+0x1408cc563: mov      rcx, qword ptr [rsp + 0x150]
+0x1408cc56b: mov      rdx, qword ptr [rsp + 0x88]
+0x1408cc573: mov      rax, qword ptr [rdx + rcx]
+0x1408cc577: mov      rbx, qword ptr [rdx + rcx + 8]
+0x1408cc57c: nop      dword ptr [rax]
+0x1408cc580: call     0x1408cae60    ; main.launcherUpdatePathProtected
+0x1408cc585: test     al, al
+0x1408cc587: jne      0x1408cce19    ; main.launcherUpdateTransaction.applyFile+0xaf9
+0x1408cc58d: mov      rax, qword ptr [rsp + 0xa0]
+0x1408cc595: mov      rbx, qword ptr [rsp + 0x50]
+0x1408cc59a: call     0x140116440    ; internal/filepathlite.Dir
+0x1408cc59f: mov      rcx, qword ptr [rsp + 0x168]
+0x1408cc5a7: mov      rdx, qword ptr [rcx + 0x28]
+0x1408cc5ab: mov      rcx, qword ptr [rcx + 0x30]
+0x1408cc5af: mov      rdi, rbx
+0x1408cc5b2: mov      rbx, rcx
+0x1408cc5b5: mov      rcx, rax
+0x1408cc5b8: mov      rax, rdx
+0x1408cc5bb: nop      dword ptr [rax + rax]
+0x1408cc5c0: call     0x1408cf720    ; main.ensureLauncherUpdateParentDirectoriesSafe
+0x1408cc5c5: test     rax, rax
+0x1408cc5c8: jne      0x1408cce10    ; main.launcherUpdateTransaction.applyFile+0xaf0
+0x1408cc5ce: mov      rax, qword ptr [rsp + 0xa0]
+0x1408cc5d6: mov      rbx, qword ptr [rsp + 0x50]
+0x1408cc5db: nop      dword ptr [rax + rax]
+0x1408cc5e0: call     0x14012d9a0    ; os.Lstat
+0x1408cc5e5: test     rcx, rcx
+0x1408cc5e8: je       0x1408cc634    ; main.launcherUpdateTransaction.applyFile+0x314
+0x1408cc5ea: mov      qword ptr [rsp + 0xc0], rdi
+0x1408cc5f2: mov      qword ptr [rsp + 0x70], rcx
+0x1408cc5f7: mov      rdx, qword ptr [rip + 0x1344392]
+0x1408cc5fe: mov      rsi, qword ptr [rip + 0x1344393]
+0x1408cc605: mov      rax, rcx
+0x1408cc608: mov      rbx, rdi
+0x1408cc60b: mov      rcx, rdx
+0x1408cc60e: mov      rdi, rsi
+0x1408cc611: call     0x1400904a0    ; errors.Is
+0x1408cc616: test     al, al
+0x1408cc618: jne      0x1408cc723    ; main.launcherUpdateTransaction.applyFile+0x403
+0x1408cc61e: mov      rax, qword ptr [rsp + 0x70]
+0x1408cc623: mov      rbx, qword ptr [rsp + 0xc0]
+0x1408cc62b: add      rsp, 0x158
+0x1408cc632: pop      rbp
+0x1408cc633: ret      
+0x1408cc634: mov      qword ptr [rsp + 0x78], rax
+0x1408cc639: mov      qword ptr [rsp + 0xd0], rbx
+0x1408cc641: mov      rcx, qword ptr [rax + 0x28]
+0x1408cc645: mov      rax, rbx
+0x1408cc648: call     rcx
+0x1408cc64a: bt       eax, 0x1b
+0x1408cc64e: jae      0x1408cc657    ; main.launcherUpdateTransaction.applyFile+0x337
+0x1408cc650: mov      eax, 1
+0x1408cc655: jmp      0x1408cc66a    ; main.launcherUpdateTransaction.applyFile+0x34a
+0x1408cc657: mov      rcx, qword ptr [rsp + 0x78]
+0x1408cc65c: mov      rcx, qword ptr [rcx + 0x18]
+0x1408cc660: mov      rax, qword ptr [rsp + 0xd0]
+0x1408cc668: call     rcx
+0x1408cc66a: test     al, al
+0x1408cc66c: jne      0x1408ccda8    ; main.launcherUpdateTransaction.applyFile+0xa88
+0x1408cc672: mov      rax, qword ptr [rsp + 0xa0]
+0x1408cc67a: mov      rbx, qword ptr [rsp + 0x50]
+0x1408cc67f: nop      
+0x1408cc680: call     0x1408cb340    ; main.launcherUpdatePathHasReparsePoint
+0x1408cc685: test     rbx, rbx
+0x1408cc688: jne      0x1408cc697    ; main.launcherUpdateTransaction.applyFile+0x377
+0x1408cc68a: test     al, al
+0x1408cc68c: je       0x1408cc70e    ; main.launcherUpdateTransaction.applyFile+0x3ee
+0x1408cc692: test     rbx, rbx
+0x1408cc695: je       0x1408cc6a6    ; main.launcherUpdateTransaction.applyFile+0x386
+0x1408cc697: mov      rax, rbx
+0x1408cc69a: mov      rbx, rcx
+0x1408cc69d: add      rsp, 0x158
+0x1408cc6a4: pop      rbp
+0x1408cc6a5: ret      
+0x1408cc6a6: movups   xmmword ptr [rsp + 0x140], xmm15
+0x1408cc6af: mov      rcx, qword ptr [rsp + 0x150]
+0x1408cc6b7: mov      rdx, qword ptr [rsp + 0x88]
+0x1408cc6bf: mov      rax, qword ptr [rdx + rcx]
+0x1408cc6c3: mov      rbx, qword ptr [rdx + rcx + 8]
+0x1408cc6c8: call     0x140076660    ; runtime.convTstring
+0x1408cc6cd: lea      rcx, [rip + 0x21d72c]
+0x1408cc6d4: mov      qword ptr [rsp + 0x140], rcx
+0x1408cc6dc: mov      qword ptr [rsp + 0x148], rax
+0x1408cc6e4: lea      rax, [rip + 0x3a7620]
+0x1408cc6eb: mov      ebx, 0x21
+0x1408cc6f0: lea      rcx, [rsp + 0x140]
+0x1408cc6f8: mov      edi, 1
+0x1408cc6fd: mov      rsi, rdi
+0x1408cc700: call     0x140133280    ; fmt.Errorf
+0x1408cc705: add      rsp, 0x158
+0x1408cc70c: pop      rbp
+0x1408cc70d: ret      
+0x1408cc70e: mov      rcx, qword ptr [rsp + 0x88]
+0x1408cc716: mov      rdx, qword ptr [rsp + 0x150]
+0x1408cc71e: mov      byte ptr [rdx + rcx + 0x11], 1
+0x1408cc723: mov      rax, qword ptr [rsp + 0x98]
+0x1408cc72b: mov      rbx, qword ptr [rsp + 0x48]
+0x1408cc730: call     0x140116440    ; internal/filepathlite.Dir
+0x1408cc735: mov      ecx, 0x1c0
+0x1408cc73a: call     0x14012bbe0    ; os.MkdirAll
+0x1408cc73f: nop      
+0x1408cc740: test     rax, rax
+0x1408cc743: jne      0x1408ccd9f    ; main.launcherUpdateTransaction.applyFile+0xa7f
+0x1408cc749: mov      rcx, qword ptr [rsp + 0x88]
+0x1408cc751: mov      rdx, qword ptr [rsp + 0x150]
+0x1408cc759: movzx    ebx, byte ptr [rdx + rcx + 0x11]
+0x1408cc75e: nop      
+0x1408cc760: test     bl, bl
+0x1408cc762: je       0x1408cc922    ; main.launcherUpdateTransaction.applyFile+0x602
+0x1408cc768: mov      qword ptr [rdx + rcx + 0x20], 0xd
+0x1408cc771: cmp      dword ptr [rip + 0x138ebd8], 0
+0x1408cc778: je       0x1408cc788    ; main.launcherUpdateTransaction.applyFile+0x468
+0x1408cc77a: mov      rbx, qword ptr [rcx + rdx + 0x18]
+0x1408cc77f: nop      
+0x1408cc780: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408cc785: mov      qword ptr [r11], rbx
+0x1408cc788: lea      rbx, [rip + 0x38195b]
+0x1408cc78f: mov      qword ptr [rdx + rcx + 0x18], rbx
+0x1408cc794: mov      rax, qword ptr [rsp + 0x168]
+0x1408cc79c: nop      dword ptr [rax]
+0x1408cc7a0: call     0x1408cf480    ; main.launcherUpdateTransaction.persist
+0x1408cc7a5: test     rax, rax
+0x1408cc7a8: jne      0x1408cc919    ; main.launcherUpdateTransaction.applyFile+0x5f9
+0x1408cc7ae: mov      rax, qword ptr [rsp + 0xa0]
+0x1408cc7b6: mov      rbx, qword ptr [rsp + 0x50]
+0x1408cc7bb: mov      rcx, qword ptr [rsp + 0x98]
+0x1408cc7c3: mov      rdi, qword ptr [rsp + 0x48]
+0x1408cc7c8: call     0x14012a840    ; os.rename
+0x1408cc7cd: test     rax, rax
+0x1408cc7d0: je       0x1408cc83e    ; main.launcherUpdateTransaction.applyFile+0x51e
+0x1408cc7d2: mov      qword ptr [rsp + 0xb0], rbx
+0x1408cc7da: mov      qword ptr [rsp + 0x60], rax
+0x1408cc7df: mov      rcx, qword ptr [rsp + 0x88]
+0x1408cc7e7: mov      rdx, qword ptr [rsp + 0x150]
+0x1408cc7ef: mov      qword ptr [rdx + rcx + 0x20], 7
+0x1408cc7f8: cmp      dword ptr [rip + 0x138eb51], 0
+0x1408cc7ff: nop      
+0x1408cc800: je       0x1408cc80f    ; main.launcherUpdateTransaction.applyFile+0x4ef
+0x1408cc802: mov      rsi, qword ptr [rcx + rdx + 0x18]
+0x1408cc807: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408cc80c: mov      qword ptr [r11], rsi
+0x1408cc80f: lea      rbx, [rip + 0x36cb3e]
+0x1408cc816: mov      qword ptr [rdx + rcx + 0x18], rbx
+0x1408cc81b: mov      rax, qword ptr [rsp + 0x168]
+0x1408cc823: call     0x1408cf480    ; main.launcherUpdateTransaction.persist
+0x1408cc828: mov      rax, qword ptr [rsp + 0x60]
+0x1408cc82d: mov      rbx, qword ptr [rsp + 0xb0]
+0x1408cc835: add      rsp, 0x158
+0x1408cc83c: pop      rbp
+0x1408cc83d: ret      
+0x1408cc83e: mov      rcx, qword ptr [rsp + 0x88]
+0x1408cc846: mov      rdx, qword ptr [rsp + 0x150]
+0x1408cc84e: mov      qword ptr [rdx + rcx + 0x20], 9
+0x1408cc857: cmp      dword ptr [rip + 0x138eaf2], 0
+0x1408cc85e: nop      
+0x1408cc860: je       0x1408cc86f    ; main.launcherUpdateTransaction.applyFile+0x54f
+0x1408cc862: mov      rbx, qword ptr [rcx + rdx + 0x18]
+0x1408cc867: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408cc86c: mov      qword ptr [r11], rbx
+0x1408cc86f: lea      rbx, [rip + 0x372f9e]
+0x1408cc876: mov      qword ptr [rdx + rcx + 0x18], rbx
+0x1408cc87b: mov      rax, qword ptr [rsp + 0x168]
+0x1408cc883: call     0x1408cf480    ; main.launcherUpdateTransaction.persist
+0x1408cc888: test     rax, rax
+0x1408cc88b: je       0x1408cc969    ; main.launcherUpdateTransaction.applyFile+0x649
+0x1408cc891: mov      qword ptr [rsp + 0xd8], rbx
+0x1408cc899: mov      qword ptr [rsp + 0x80], rax
+0x1408cc8a1: nop      
+0x1408cc8a2: mov      rax, qword ptr [rsp + 0x98]
+0x1408cc8aa: mov      rbx, qword ptr [rsp + 0x48]
+0x1408cc8af: mov      rcx, qword ptr [rsp + 0xa0]
+0x1408cc8b7: mov      rdi, qword ptr [rsp + 0x50]
+0x1408cc8bc: nop      dword ptr [rax]
+0x1408cc8c0: call     0x14012a840    ; os.rename
+0x1408cc8c5: mov      rdx, qword ptr [rsp + 0x88]
+0x1408cc8cd: mov      rsi, qword ptr [rsp + 0x150]
+0x1408cc8d5: mov      qword ptr [rsi + rdx + 0x20], 8
+0x1408cc8de: cmp      dword ptr [rip + 0x138ea6b], 0
+0x1408cc8e5: je       0x1408cc8f4    ; main.launcherUpdateTransaction.applyFile+0x5d4
+0x1408cc8e7: mov      rcx, qword ptr [rdx + rsi + 0x18]
+0x1408cc8ec: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408cc8f1: mov      qword ptr [r11], rcx
+0x1408cc8f4: lea      rcx, [rip + 0x36f9b1]
+0x1408cc8fb: mov      qword ptr [rsi + rdx + 0x18], rcx
+0x1408cc900: mov      rax, qword ptr [rsp + 0x80]
+0x1408cc908: mov      rbx, qword ptr [rsp + 0xd8]
+0x1408cc910: add      rsp, 0x158
+0x1408cc917: pop      rbp
+0x1408cc918: ret      
+0x1408cc919: add      rsp, 0x158
+0x1408cc920: pop      rbp
+0x1408cc921: ret      
+0x1408cc922: mov      qword ptr [rdx + rcx + 0x20], 9
+0x1408cc92b: cmp      dword ptr [rip + 0x138ea1e], 0
+0x1408cc932: je       0x1408cc941    ; main.launcherUpdateTransaction.applyFile+0x621
+0x1408cc934: mov      rbx, qword ptr [rcx + rdx + 0x18]
+0x1408cc939: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408cc93e: mov      qword ptr [r11], rbx
+0x1408cc941: lea      rbx, [rip + 0x372ecc]
+0x1408cc948: mov      qword ptr [rdx + rcx + 0x18], rbx
+0x1408cc94d: mov      rax, qword ptr [rsp + 0x168]
+0x1408cc955: call     0x1408cf480    ; main.launcherUpdateTransaction.persist
+0x1408cc95a: nop      word ptr [rax + rax]
+0x1408cc960: test     rax, rax
+0x1408cc963: jne      0x1408ccd96    ; main.launcherUpdateTransaction.applyFile+0xa76
+0x1408cc969: mov      rdx, qword ptr [rsp + 0x88]
+0x1408cc971: mov      rsi, qword ptr [rsp + 0x150]
+0x1408cc979: movzx    r8d, byte ptr [rsi + rdx + 0x10]
+0x1408cc97f: nop      
+0x1408cc980: test     r8b, r8b
+0x1408cc983: je       0x1408cc9ce    ; main.launcherUpdateTransaction.applyFile+0x6ae
+0x1408cc985: mov      qword ptr [rsi + rdx + 0x20], 7
+0x1408cc98e: cmp      dword ptr [rip + 0x138e9bb], 0
+0x1408cc995: je       0x1408cc9a8    ; main.launcherUpdateTransaction.applyFile+0x688
+0x1408cc997: mov      rcx, qword ptr [rdx + rsi + 0x18]
+0x1408cc99c: nop      dword ptr [rax]
+0x1408cc9a0: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408cc9a5: mov      qword ptr [r11], rcx
+0x1408cc9a8: lea      rcx, [rip + 0x36cb03]
+0x1408cc9af: mov      qword ptr [rsi + rdx + 0x18], rcx
+0x1408cc9b4: mov      rax, qword ptr [rsp + 0x168]
+0x1408cc9bc: nop      dword ptr [rax]
+0x1408cc9c0: call     0x1408cf480    ; main.launcherUpdateTransaction.persist
+0x1408cc9c5: add      rsp, 0x158
+0x1408cc9cc: pop      rbp
+0x1408cc9cd: ret      
+0x1408cc9ce: mov      rbx, qword ptr [rdx + rsi + 8]
+0x1408cc9d3: mov      rax, qword ptr [rdx + rsi]
+0x1408cc9d7: nop      
+0x1408cc9d8: mov      ecx, 0x2f
+0x1408cc9dd: mov      edi, 0x5c
+0x1408cc9e2: call     0x140116180    ; internal/filepathlite.replaceStringByte
+0x1408cc9e7: movups   xmmword ptr [rsp + 0xe0], xmm15
+0x1408cc9f0: movups   xmmword ptr [rsp + 0xf0], xmm15
+0x1408cc9f9: mov      rdx, qword ptr [rsp + 0x168]
+0x1408cca01: mov      rsi, qword ptr [rdx + 0x38]
+0x1408cca05: mov      rdx, qword ptr [rdx + 0x40]
+0x1408cca09: mov      qword ptr [rsp + 0xe8], rdx
+0x1408cca11: mov      qword ptr [rsp + 0xe0], rsi
+0x1408cca19: mov      qword ptr [rsp + 0xf8], rbx
+0x1408cca21: mov      qword ptr [rsp + 0xf0], rax
+0x1408cca29: lea      rax, [rsp + 0xe0]
+0x1408cca31: mov      ebx, 2
+0x1408cca36: mov      rcx, rbx
+0x1408cca39: call     0x1401cd660    ; path/filepath.join
+0x1408cca3e: mov      qword ptr [rsp + 0x90], rax
+0x1408cca46: mov      qword ptr [rsp + 0x40], rbx
+0x1408cca4b: mov      rdx, qword ptr [rsp + 0x168]
+0x1408cca53: mov      rsi, qword ptr [rdx + 0x38]
+0x1408cca57: mov      rdx, qword ptr [rdx + 0x40]
+0x1408cca5b: mov      rcx, rax
+0x1408cca5e: mov      rdi, rbx
+0x1408cca61: mov      rax, rsi
+0x1408cca64: mov      rbx, rdx
+0x1408cca67: call     0x140750be0    ; main.isPathInsideDirectory
+0x1408cca6c: test     al, al
+0x1408cca6e: je       0x1408ccd2e    ; main.launcherUpdateTransaction.applyFile+0xa0e
+0x1408cca74: mov      rax, qword ptr [rsp + 0x90]
+0x1408cca7c: mov      rbx, qword ptr [rsp + 0x40]
+0x1408cca81: call     0x1408c9000    ; main.hashLauncherUpdateFile
+0x1408cca86: test     rdi, rdi
+0x1408cca89: jne      0x1408cccee    ; main.launcherUpdateTransaction.applyFile+0x9ce
+0x1408cca8f: mov      rdx, qword ptr [rsp + 0x88]
+0x1408cca97: mov      r10, qword ptr [rsp + 0x150]
+0x1408cca9f: mov      r11, qword ptr [r10 + rdx + 0x28]
+0x1408ccaa4: cmp      r11, rcx
+0x1408ccaa7: je       0x1408ccab0    ; main.launcherUpdateTransaction.applyFile+0x790
+0x1408ccaa9: mov      eax, 1
+0x1408ccaae: jmp      0x1408ccad2    ; main.launcherUpdateTransaction.applyFile+0x7b2
+0x1408ccab0: mov      rcx, qword ptr [r10 + rdx + 0x30]
+0x1408ccab5: mov      rdi, qword ptr [r10 + rdx + 0x38]
+0x1408ccaba: call     0x1400a2c40    ; strings.EqualFold
+0x1408ccabf: xor      eax, 1
+0x1408ccac2: mov      rdx, qword ptr [rsp + 0x88]
+0x1408ccaca: mov      r10, qword ptr [rsp + 0x150]
+0x1408ccad2: test     al, al
+0x1408ccad4: jne      0x1408ccc61    ; main.launcherUpdateTransaction.applyFile+0x941
+0x1408ccada: mov      rdx, qword ptr [rsp + 0x168]
+0x1408ccae2: mov      r8, qword ptr [rdx + 8]
+0x1408ccae6: mov      r9, qword ptr [rdx + 0x10]
+0x1408ccaea: xor      eax, eax
+0x1408ccaec: mov      rbx, qword ptr [rsp + 0xa0]
+0x1408ccaf4: mov      rcx, qword ptr [rsp + 0x50]
+0x1408ccaf9: lea      rdi, [rip + 0x37ef5c]
+0x1408ccb00: mov      esi, 0xc
+0x1408ccb05: call     0x14005fca0    ; runtime.concatstring3
+0x1408ccb0a: mov      qword ptr [rsp + 0xb8], rax
+0x1408ccb12: mov      qword ptr [rsp + 0x68], rbx
+0x1408ccb17: call     0x14012a5c0    ; os.Remove
+0x1408ccb1c: mov      rax, qword ptr [rsp + 0x90]
+0x1408ccb24: mov      rbx, qword ptr [rsp + 0x40]
+0x1408ccb29: mov      rcx, qword ptr [rsp + 0xb8]
+0x1408ccb31: mov      rdi, qword ptr [rsp + 0x68]
+0x1408ccb36: call     0x1408bd2c0    ; main.copyLauncherUpdateFile
+0x1408ccb3b: nop      dword ptr [rax + rax]
+0x1408ccb40: test     rax, rax
+0x1408ccb43: jne      0x1408ccc22    ; main.launcherUpdateTransaction.applyFile+0x902
+0x1408ccb49: mov      rax, qword ptr [rsp + 0xb8]
+0x1408ccb51: mov      rbx, qword ptr [rsp + 0x68]
+0x1408ccb56: mov      rcx, qword ptr [rsp + 0xa0]
+0x1408ccb5e: mov      rdi, qword ptr [rsp + 0x50]
+0x1408ccb63: call     0x14012a840    ; os.rename
+0x1408ccb68: test     rax, rax
+0x1408ccb6b: jne      0x1408ccbbe    ; main.launcherUpdateTransaction.applyFile+0x89e
+0x1408ccb6d: mov      rcx, qword ptr [rsp + 0x88]
+0x1408ccb75: mov      rdx, qword ptr [rsp + 0x150]
+0x1408ccb7d: mov      qword ptr [rdx + rcx + 0x20], 8
+0x1408ccb86: cmp      dword ptr [rip + 0x138e7c3], 0
+0x1408ccb8d: je       0x1408ccb9c    ; main.launcherUpdateTransaction.applyFile+0x87c
+0x1408ccb8f: mov      rbx, qword ptr [rcx + rdx + 0x18]
+0x1408ccb94: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408ccb99: mov      qword ptr [r11], rbx
+0x1408ccb9c: lea      rbx, [rip + 0x36f711]
+0x1408ccba3: mov      qword ptr [rdx + rcx + 0x18], rbx
+0x1408ccba8: mov      rax, qword ptr [rsp + 0x168]
+0x1408ccbb0: call     0x1408cf480    ; main.launcherUpdateTransaction.persist
+0x1408ccbb5: add      rsp, 0x158
+0x1408ccbbc: pop      rbp
+0x1408ccbbd: ret      
+0x1408ccbbe: mov      qword ptr [rsp + 0x58], rax
+0x1408ccbc3: mov      qword ptr [rsp + 0xa8], rbx
+0x1408ccbcb: mov      rax, qword ptr [rsp + 0xb8]
+0x1408ccbd3: mov      rbx, qword ptr [rsp + 0x68]
+0x1408ccbd8: call     0x14012a5c0    ; os.Remove
+0x1408ccbdd: mov      rax, qword ptr [rsp + 0x168]
+0x1408ccbe5: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408ccbed: mov      rcx, qword ptr [rsp + 0xa0]
+0x1408ccbf5: mov      rdi, qword ptr [rsp + 0x50]
+0x1408ccbfa: mov      rsi, qword ptr [rsp + 0x98]
+0x1408ccc02: mov      r8, qword ptr [rsp + 0x48]
+0x1408ccc07: mov      r9, qword ptr [rsp + 0x58]
+0x1408ccc0c: mov      r10, qword ptr [rsp + 0xa8]
+0x1408ccc14: call     0x1408ccec0    ; main.launcherUpdateTransaction.failAfterBackup
+0x1408ccc19: add      rsp, 0x158
+0x1408ccc20: pop      rbp
+0x1408ccc21: ret      
+0x1408ccc22: mov      rcx, qword ptr [rsp + 0xa0]
+0x1408ccc2a: mov      rdi, qword ptr [rsp + 0x50]
+0x1408ccc2f: mov      rsi, qword ptr [rsp + 0x98]
+0x1408ccc37: mov      r8, qword ptr [rsp + 0x48]
+0x1408ccc3c: mov      r9, rax
+0x1408ccc3f: mov      r10, rbx
+0x1408ccc42: mov      rax, qword ptr [rsp + 0x168]
+0x1408ccc4a: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408ccc52: call     0x1408ccec0    ; main.launcherUpdateTransaction.failAfterBackup
+0x1408ccc57: add      rsp, 0x158
+0x1408ccc5e: pop      rbp
+0x1408ccc5f: nop      
+0x1408ccc60: ret      
+0x1408ccc61: movups   xmmword ptr [rsp + 0x140], xmm15
+0x1408ccc6a: mov      rax, qword ptr [rdx + r10]
+0x1408ccc6e: mov      rbx, qword ptr [rdx + r10 + 8]
+0x1408ccc73: call     0x140076660    ; runtime.convTstring
+0x1408ccc78: lea      rcx, [rip + 0x21d181]
+0x1408ccc7f: mov      qword ptr [rsp + 0x140], rcx
+0x1408ccc87: mov      qword ptr [rsp + 0x148], rax
+0x1408ccc8f: lea      rax, [rip + 0x3ad247]
+0x1408ccc96: mov      ebx, 0x25
+0x1408ccc9b: lea      rcx, [rsp + 0x140]
+0x1408ccca3: mov      edi, 1
+0x1408ccca8: mov      rsi, rdi
+0x1408cccab: call     0x140133280    ; fmt.Errorf
+0x1408cccb0: mov      rcx, qword ptr [rsp + 0xa0]
+0x1408cccb8: mov      rdi, qword ptr [rsp + 0x50]
+0x1408cccbd: mov      rsi, qword ptr [rsp + 0x98]
+0x1408cccc5: mov      r8, qword ptr [rsp + 0x48]
+0x1408cccca: mov      r9, rax
+0x1408ccccd: mov      r10, rbx
+0x1408cccd0: mov      rax, qword ptr [rsp + 0x168]
+0x1408cccd8: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408ccce0: call     0x1408ccec0    ; main.launcherUpdateTransaction.failAfterBackup
+0x1408ccce5: add      rsp, 0x158
+0x1408cccec: pop      rbp
+0x1408ccced: ret      
+0x1408cccee: mov      rax, qword ptr [rsp + 0x168]
+0x1408cccf6: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408cccfe: mov      rcx, qword ptr [rsp + 0xa0]
+0x1408ccd06: mov      r8, qword ptr [rsp + 0x48]
+0x1408ccd0b: mov      r9, rdi
+0x1408ccd0e: mov      r10, rsi
+0x1408ccd11: mov      rdi, qword ptr [rsp + 0x50]
+0x1408ccd16: mov      rsi, qword ptr [rsp + 0x98]
+0x1408ccd1e: nop      
+0x1408ccd20: call     0x1408ccec0    ; main.launcherUpdateTransaction.failAfterBackup
+0x1408ccd25: add      rsp, 0x158
+0x1408ccd2c: pop      rbp
+0x1408ccd2d: ret      
+0x1408ccd2e: movups   xmmword ptr [rsp + 0x140], xmm15
+0x1408ccd37: mov      rcx, qword ptr [rsp + 0x150]
+0x1408ccd3f: mov      rdx, qword ptr [rsp + 0x88]
+0x1408ccd47: mov      rax, qword ptr [rdx + rcx]
+0x1408ccd4b: mov      rbx, qword ptr [rdx + rcx + 8]
+0x1408ccd50: call     0x140076660    ; runtime.convTstring
+0x1408ccd55: lea      rcx, [rip + 0x21d0a4]
+0x1408ccd5c: mov      qword ptr [rsp + 0x140], rcx
+0x1408ccd64: mov      qword ptr [rsp + 0x148], rax
+0x1408ccd6c: lea      rax, [rip + 0x3a4237]
+0x1408ccd73: mov      ebx, 0x1f
+0x1408ccd78: lea      rcx, [rsp + 0x140]
+0x1408ccd80: mov      edi, 1
+0x1408ccd85: mov      rsi, rdi
+0x1408ccd88: call     0x140133280    ; fmt.Errorf
+0x1408ccd8d: add      rsp, 0x158
+0x1408ccd94: pop      rbp
+0x1408ccd95: ret      
+0x1408ccd96: add      rsp, 0x158
+0x1408ccd9d: pop      rbp
+0x1408ccd9e: ret      
+0x1408ccd9f: add      rsp, 0x158
+0x1408ccda6: pop      rbp
+0x1408ccda7: ret      
+0x1408ccda8: movups   xmmword ptr [rsp + 0x140], xmm15
+0x1408ccdb1: mov      rcx, qword ptr [rsp + 0x150]
+0x1408ccdb9: mov      rdx, qword ptr [rsp + 0x88]
+0x1408ccdc1: mov      rax, qword ptr [rdx + rcx]
+0x1408ccdc5: mov      rbx, qword ptr [rdx + rcx + 8]
+0x1408ccdca: call     0x140076660    ; runtime.convTstring
+0x1408ccdcf: lea      rcx, [rip + 0x21d02a]
+0x1408ccdd6: mov      qword ptr [rsp + 0x140], rcx
+0x1408ccdde: mov      qword ptr [rsp + 0x148], rax
+0x1408ccde6: lea      rax, [rip + 0x3a8dc4]
+0x1408ccded: mov      ebx, 0x22
+0x1408ccdf2: lea      rcx, [rsp + 0x140]
+0x1408ccdfa: mov      edi, 1
+0x1408ccdff: mov      rsi, rdi
+0x1408cce02: call     0x140133280    ; fmt.Errorf
+0x1408cce07: add      rsp, 0x158
+0x1408cce0e: pop      rbp
+0x1408cce0f: ret      
+0x1408cce10: add      rsp, 0x158
+0x1408cce17: pop      rbp
+0x1408cce18: ret      
+0x1408cce19: movups   xmmword ptr [rsp + 0x140], xmm15
+0x1408cce22: mov      rcx, qword ptr [rsp + 0x150]
+0x1408cce2a: mov      rdx, qword ptr [rsp + 0x88]
+0x1408cce32: mov      rax, qword ptr [rdx + rcx]
+0x1408cce36: mov      rbx, qword ptr [rdx + rcx + 8]
+0x1408cce3b: nop      dword ptr [rax + rax]
+0x1408cce40: call     0x140076660    ; runtime.convTstring
+0x1408cce45: lea      rcx, [rip + 0x21cfb4]
+0x1408cce4c: mov      qword ptr [rsp + 0x140], rcx
+0x1408cce54: mov      qword ptr [rsp + 0x148], rax
+0x1408cce5c: lea      rax, [rip + 0x3b2357]
+0x1408cce63: mov      ebx, 0x28
+0x1408cce68: lea      rcx, [rsp + 0x140]
+0x1408cce70: mov      edi, 1
+0x1408cce75: mov      rsi, rdi
+0x1408cce78: call     0x140133280    ; fmt.Errorf
+0x1408cce7d: add      rsp, 0x158
+0x1408cce84: pop      rbp
+0x1408cce85: ret      
+0x1408cce86: mov      rax, rbx
+0x1408cce89: call     0x140081400    ; runtime.panicIndex
+0x1408cce8e: nop      
+0x1408cce8f: mov      qword ptr [rsp + 8], rax
+0x1408cce94: mov      qword ptr [rsp + 0x10], rbx
+0x1408cce99: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408cce9e: mov      rax, qword ptr [rsp + 8]
+0x1408ccea3: mov      rbx, qword ptr [rsp + 0x10]
+0x1408ccea8: jmp      0x1408cc320    ; main.launcherUpdateTransaction.applyFile
+0x1408ccead: int3     
+0x1408cceae: int3     
+0x1408cceaf: int3     
+0x1408cceb0: int3     
+0x1408cceb1: int3     
+0x1408cceb2: int3     
+0x1408cceb3: int3     
+0x1408cceb4: int3     
+0x1408cceb5: int3     
+0x1408cceb6: int3     
+0x1408cceb7: int3     
+0x1408cceb8: int3     
+0x1408cceb9: int3     
+0x1408cceba: int3     
+0x1408ccebb: int3     
+0x1408ccebc: int3     
+0x1408ccebd: int3     
+0x1408ccebe: int3     
+0x1408ccebf: int3     

@@ -1,0 +1,81 @@
+0x1409d8520: lea      r12, [rsp - 0x70]
+0x1409d8525: cmp      r12, qword ptr [r14 + 0x10]
+0x1409d8529: jbe      0x1409d8603   ; main.buildTwoFactorProvisioningURI+0xe3
+0x1409d852f: push     rbp
+0x1409d8530: mov      rbp, rsp
+0x1409d8533: sub      rsp, 0xe8
+0x1409d853a: mov      qword ptr [rsp + 0x1d8], rcx
+0x1409d8542: mov      qword ptr [rsp + 0x1d0], rbx
+0x1409d854a: mov      qword ptr [rsp + 0x1c8], rax
+0x1409d8552: mov      rax, qword ptr [rsp + 0x108]
+0x1409d855a: mov      rbx, qword ptr [rsp + 0x110]
+0x1409d8562: call     0x1409c7ca0   ; main.sanitizeTwoFactorKind
+0x1409d8567: cmp      rbx, 5
+0x1409d856b: jne      0x1409d85bf   ; main.buildTwoFactorProvisioningURI+0x9f
+0x1409d856d: cmp      dword ptr [rax], 0x61657473
+0x1409d8573: jne      0x1409d85bf   ; main.buildTwoFactorProvisioningURI+0x9f
+0x1409d8575: cmp      byte ptr [rax + 4], 0x6d
+0x1409d8579: jne      0x1409d85bf   ; main.buildTwoFactorProvisioningURI+0x9f
+0x1409d857b: mov      rdi, rsp
+0x1409d857e: lea      rsi, [rsp + 0xf8]
+0x1409d8586: mov      qword ptr [rsp - 0x10], rbp
+0x1409d858b: lea      rbp, [rsp - 0x10]
+0x1409d8590: call     0x140081a2a   ; runtime.duffcopy+0x2ca
+0x1409d8595: mov      rbp, qword ptr [rbp]
+0x1409d8599: mov      rax, qword ptr [rsp + 0x1c8]
+0x1409d85a1: mov      rbx, qword ptr [rsp + 0x1d0]
+0x1409d85a9: mov      rcx, qword ptr [rsp + 0x1d8]
+0x1409d85b1: call     0x1409d8d80   ; main.buildSteamProvisioningURI
+0x1409d85b6: add      rsp, 0xe8
+0x1409d85bd: pop      rbp
+0x1409d85be: ret      
+0x1409d85bf: mov      rdi, rsp
+0x1409d85c2: lea      rsi, [rsp + 0xf8]
+0x1409d85ca: mov      qword ptr [rsp - 0x10], rbp
+0x1409d85cf: lea      rbp, [rsp - 0x10]
+0x1409d85d4: call     0x140081a2a   ; runtime.duffcopy+0x2ca
+0x1409d85d9: mov      rbp, qword ptr [rbp]
+0x1409d85dd: mov      rax, qword ptr [rsp + 0x1c8]
+0x1409d85e5: mov      rbx, qword ptr [rsp + 0x1d0]
+0x1409d85ed: mov      rcx, qword ptr [rsp + 0x1d8]
+0x1409d85f5: call     0x1409d8660   ; main.buildTOTPProvisioningURI
+0x1409d85fa: add      rsp, 0xe8
+0x1409d8601: pop      rbp
+0x1409d8602: ret      
+0x1409d8603: mov      qword ptr [rsp + 0xd8], rax
+0x1409d860b: mov      qword ptr [rsp + 0xe0], rbx
+0x1409d8613: mov      qword ptr [rsp + 0xe8], rcx
+0x1409d861b: nop      dword ptr [rax + rax]
+0x1409d8620: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d8625: mov      rax, qword ptr [rsp + 0xd8]
+0x1409d862d: mov      rbx, qword ptr [rsp + 0xe0]
+0x1409d8635: mov      rcx, qword ptr [rsp + 0xe8]
+0x1409d863d: nop      dword ptr [rax]
+0x1409d8640: jmp      0x1409d8520   ; main.buildTwoFactorProvisioningURI
+0x1409d8645: int3     
+0x1409d8646: int3     
+0x1409d8647: int3     
+0x1409d8648: int3     
+0x1409d8649: int3     
+0x1409d864a: int3     
+0x1409d864b: int3     
+0x1409d864c: int3     
+0x1409d864d: int3     
+0x1409d864e: int3     
+0x1409d864f: int3     
+0x1409d8650: int3     
+0x1409d8651: int3     
+0x1409d8652: int3     
+0x1409d8653: int3     
+0x1409d8654: int3     
+0x1409d8655: int3     
+0x1409d8656: int3     
+0x1409d8657: int3     
+0x1409d8658: int3     
+0x1409d8659: int3     
+0x1409d865a: int3     
+0x1409d865b: int3     
+0x1409d865c: int3     
+0x1409d865d: int3     
+0x1409d865e: int3     
+0x1409d865f: int3     

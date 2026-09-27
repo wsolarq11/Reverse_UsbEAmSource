@@ -1,0 +1,246 @@
+0x1407a6f20: lea      r12, [rsp - 0x40]
+0x1407a6f25: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a6f29: jbe      0x1407a71fc   ; main.desktopWidgetService.deliverNotification+0x2dc
+0x1407a6f2f: push     rbp
+0x1407a6f30: mov      rbp, rsp
+0x1407a6f33: sub      rsp, 0xb8
+0x1407a6f3a: mov      qword ptr [rsp + 0xd0], rbx
+0x1407a6f42: mov      qword ptr [rsp + 0xe0], rdi
+0x1407a6f4a: test     rax, rax
+0x1407a6f4d: je       0x1407a71e7   ; main.desktopWidgetService.deliverNotification+0x2c7
+0x1407a6f53: mov      qword ptr [rsp + 0xc8], rax
+0x1407a6f5b: mov      qword ptr [rsp + 0xf0], r8
+0x1407a6f63: mov      rdx, qword ptr [rax + 8]
+0x1407a6f67: test     rdx, rdx
+0x1407a6f6a: je       0x1407a6f7f   ; main.desktopWidgetService.deliverNotification+0x5f
+0x1407a6f6c: mov      rax, qword ptr [rax + 0x10]
+0x1407a6f70: mov      rdx, qword ptr [rdx + 0x18]
+0x1407a6f74: test     r8, r8
+0x1407a6f77: setne    r8b
+0x1407a6f7b: call     rdx
+0x1407a6f7d: jmp      0x1407a6fa8   ; main.desktopWidgetService.deliverNotification+0x88
+0x1407a6f7f: nop      
+0x1407a6f80: lea      rax, [rip + 0x3ad3f9]
+0x1407a6f87: call     0x14001ae20   ; runtime.newobject
+0x1407a6f8c: mov      qword ptr [rax + 8], 0x15
+0x1407a6f94: lea      rcx, [rip + 0x4b86af]
+0x1407a6f9b: mov      qword ptr [rax], rcx
+0x1407a6f9e: mov      rbx, rax
+0x1407a6fa1: lea      rax, [rip + 0xa2c158]
+0x1407a6fa8: mov      rdx, qword ptr [rsp + 0xf0]
+0x1407a6fb0: test     rdx, rdx
+0x1407a6fb3: je       0x1407a7053   ; main.desktopWidgetService.deliverNotification+0x133
+0x1407a6fb9: mov      qword ptr [rsp + 0x30], rax
+0x1407a6fbe: mov      qword ptr [rsp + 0x38], rbx
+0x1407a6fc3: mov      r9, qword ptr [rsp + 0xc8]
+0x1407a6fcb: cmp      qword ptr [r9 + 0x18], 0
+0x1407a6fd0: je       0x1407a7018   ; main.desktopWidgetService.deliverNotification+0xf8
+0x1407a6fd2: mov      r10, qword ptr [rdx]
+0x1407a6fd5: mov      qword ptr [rsp + 0x60], r10
+0x1407a6fda: movups   xmm0, xmmword ptr [rdx + 8]
+0x1407a6fde: movups   xmmword ptr [rsp + 0x68], xmm0
+0x1407a6fe3: movups   xmm0, xmmword ptr [rdx + 0x18]
+0x1407a6fe7: movups   xmmword ptr [rsp + 0x78], xmm0
+0x1407a6fec: mov      rdx, qword ptr [r9 + 0x18]
+0x1407a6ff0: mov      rax, qword ptr [r9 + 0x20]
+0x1407a6ff4: mov      rdx, qword ptr [rdx + 0x18]
+0x1407a6ff8: mov      rbx, qword ptr [rsp + 0x60]
+0x1407a6ffd: mov      rcx, qword ptr [rsp + 0x68]
+0x1407a7002: mov      rdi, qword ptr [rsp + 0x70]
+0x1407a7007: mov      rsi, qword ptr [rsp + 0x78]
+0x1407a700c: mov      r8, qword ptr [rsp + 0x80]
+0x1407a7014: call     rdx
+0x1407a7016: jmp      0x1407a7041   ; main.desktopWidgetService.deliverNotification+0x121
+0x1407a7018: nop      
+0x1407a7019: lea      rax, [rip + 0x3ad360]
+0x1407a7020: call     0x14001ae20   ; runtime.newobject
+0x1407a7025: mov      qword ptr [rax + 8], 0x15
+0x1407a702d: lea      rcx, [rip + 0x4b862b]
+0x1407a7034: mov      qword ptr [rax], rcx
+0x1407a7037: mov      rbx, rax
+0x1407a703a: lea      rax, [rip + 0xa2c0bf]
+0x1407a7041: mov      rcx, rax
+0x1407a7044: mov      rdx, rbx
+0x1407a7047: mov      rax, qword ptr [rsp + 0x30]
+0x1407a704c: mov      rbx, qword ptr [rsp + 0x38]
+0x1407a7051: jmp      0x1407a7060   ; main.desktopWidgetService.deliverNotification+0x140
+0x1407a7053: xor      ecx, ecx
+0x1407a7055: xor      edx, edx
+0x1407a7057: nop      word ptr [rax + rax]
+0x1407a7060: test     rax, rax
+0x1407a7063: je       0x1407a7120   ; main.desktopWidgetService.deliverNotification+0x200
+0x1407a7069: movups   xmmword ptr [rsp + 0x50], xmm15
+0x1407a706f: je       0x1407a7075   ; main.desktopWidgetService.deliverNotification+0x155
+0x1407a7071: mov      rax, qword ptr [rax + 8]
+0x1407a7075: mov      qword ptr [rsp + 0x50], rax
+0x1407a707a: mov      qword ptr [rsp + 0x58], rbx
+0x1407a707f: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1407a7088: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1407a7091: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1407a709a: lea      rdx, [rip + 0x21f]
+0x1407a70a1: mov      qword ptr [rsp + 0x88], rdx
+0x1407a70a9: mov      qword ptr [rsp + 0x98], 0x22
+0x1407a70b5: lea      rdx, [rip + 0x4ce495]
+0x1407a70bc: mov      qword ptr [rsp + 0x90], rdx
+0x1407a70c4: mov      qword ptr [rsp + 0xa8], 1
+0x1407a70d0: mov      qword ptr [rsp + 0xb0], 1
+0x1407a70dc: lea      rdx, [rsp + 0x50]
+0x1407a70e1: mov      qword ptr [rsp + 0xa0], rdx
+0x1407a70e9: mov      rax, qword ptr [rip + 0x1468d50]
+0x1407a70f0: xor      ebx, ebx
+0x1407a70f2: mov      ecx, 2
+0x1407a70f7: lea      rdi, [rsp + 0x88]
+0x1407a70ff: nop      
+0x1407a7100: call     0x1402e3d00   ; log.Logger.output
+0x1407a7105: lea      rax, [rip + 0x4cc863]
+0x1407a710c: mov      ebx, 0x21
+0x1407a7111: add      rsp, 0xb8
+0x1407a7118: pop      rbp
+0x1407a7119: ret      
+0x1407a711a: nop      word ptr [rax + rax]
+0x1407a7120: test     rcx, rcx
+0x1407a7123: je       0x1407a71da   ; main.desktopWidgetService.deliverNotification+0x2ba
+0x1407a7129: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1407a712f: je       0x1407a7135   ; main.desktopWidgetService.deliverNotification+0x215
+0x1407a7131: mov      rcx, qword ptr [rcx + 8]
+0x1407a7135: mov      qword ptr [rsp + 0x40], rcx
+0x1407a713a: mov      qword ptr [rsp + 0x48], rdx
+0x1407a713f: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1407a7148: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1407a7151: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1407a715a: lea      rdx, [rip + 0xff]
+0x1407a7161: mov      qword ptr [rsp + 0x88], rdx
+0x1407a7169: mov      qword ptr [rsp + 0x98], 0x28
+0x1407a7175: lea      rdx, [rip + 0x4d7d96]
+0x1407a717c: mov      qword ptr [rsp + 0x90], rdx
+0x1407a7184: mov      qword ptr [rsp + 0xa8], 1
+0x1407a7190: mov      qword ptr [rsp + 0xb0], 1
+0x1407a719c: lea      rdx, [rsp + 0x40]
+0x1407a71a1: mov      qword ptr [rsp + 0xa0], rdx
+0x1407a71a9: mov      rax, qword ptr [rip + 0x1468c90]
+0x1407a71b0: xor      ebx, ebx
+0x1407a71b2: mov      ecx, 2
+0x1407a71b7: lea      rdi, [rsp + 0x88]
+0x1407a71bf: nop      
+0x1407a71c0: call     0x1402e3d00   ; log.Logger.output
+0x1407a71c5: lea      rax, [rip + 0x4ce3a7]
+0x1407a71cc: mov      ebx, 0x22
+0x1407a71d1: add      rsp, 0xb8
+0x1407a71d8: pop      rbp
+0x1407a71d9: ret      
+0x1407a71da: xor      eax, eax
+0x1407a71dc: xor      ebx, ebx
+0x1407a71de: add      rsp, 0xb8
+0x1407a71e5: pop      rbp
+0x1407a71e6: ret      
+0x1407a71e7: lea      rax, [rip + 0x4cc781]
+0x1407a71ee: mov      ebx, 0x21
+0x1407a71f3: add      rsp, 0xb8
+0x1407a71fa: pop      rbp
+0x1407a71fb: ret      
+0x1407a71fc: mov      qword ptr [rsp + 8], rax
+0x1407a7201: mov      qword ptr [rsp + 0x10], rbx
+0x1407a7206: mov      qword ptr [rsp + 0x18], rcx
+0x1407a720b: mov      qword ptr [rsp + 0x20], rdi
+0x1407a7210: mov      qword ptr [rsp + 0x28], rsi
+0x1407a7215: mov      qword ptr [rsp + 0x30], r8
+0x1407a721a: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a721f: mov      rax, qword ptr [rsp + 8]
+0x1407a7224: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a7229: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a722e: mov      rdi, qword ptr [rsp + 0x20]
+0x1407a7233: mov      rsi, qword ptr [rsp + 0x28]
+0x1407a7238: mov      r8, qword ptr [rsp + 0x30]
+0x1407a723d: nop      dword ptr [rax]
+0x1407a7240: jmp      0x1407a6f20   ; main.desktopWidgetService.deliverNotification
+0x1407a7245: int3     
+0x1407a7246: int3     
+0x1407a7247: int3     
+0x1407a7248: int3     
+0x1407a7249: int3     
+0x1407a724a: int3     
+0x1407a724b: int3     
+0x1407a724c: int3     
+0x1407a724d: int3     
+0x1407a724e: int3     
+0x1407a724f: int3     
+0x1407a7250: int3     
+0x1407a7251: int3     
+0x1407a7252: int3     
+0x1407a7253: int3     
+0x1407a7254: int3     
+0x1407a7255: int3     
+0x1407a7256: int3     
+0x1407a7257: int3     
+0x1407a7258: int3     
+0x1407a7259: int3     
+0x1407a725a: int3     
+0x1407a725b: int3     
+0x1407a725c: int3     
+0x1407a725d: int3     
+0x1407a725e: int3     
+0x1407a725f: int3     
+0x1407a7260: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a7264: jbe      0x1407a7292   ; main.desktopWidgetService).deliverNotification.Printf.func2+0x32
+0x1407a7266: push     rbp
+0x1407a7267: mov      rbp, rsp
+0x1407a726a: sub      rsp, 0x40
+0x1407a726e: mov      qword ptr [rsp + 0x50], rax
+0x1407a7273: mov      rdi, qword ptr [rdx + 8]
+0x1407a7277: mov      rsi, qword ptr [rdx + 0x10]
+0x1407a727b: mov      r8, qword ptr [rdx + 0x18]
+0x1407a727f: mov      r9, qword ptr [rdx + 0x20]
+0x1407a7283: mov      r10, qword ptr [rdx + 0x28]
+0x1407a7287: call     0x140136420   ; fmt.Appendf
+0x1407a728c: add      rsp, 0x40
+0x1407a7290: pop      rbp
+0x1407a7291: ret      
+0x1407a7292: mov      qword ptr [rsp + 8], rax
+0x1407a7297: mov      qword ptr [rsp + 0x10], rbx
+0x1407a729c: mov      qword ptr [rsp + 0x18], rcx
+0x1407a72a1: call     0x14007f0a0   ; runtime.morestack
+0x1407a72a6: mov      rax, qword ptr [rsp + 8]
+0x1407a72ab: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a72b0: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a72b5: jmp      0x1407a7260   ; main.desktopWidgetService).deliverNotification.Printf.func2
+0x1407a72b7: int3     
+0x1407a72b8: int3     
+0x1407a72b9: int3     
+0x1407a72ba: int3     
+0x1407a72bb: int3     
+0x1407a72bc: int3     
+0x1407a72bd: int3     
+0x1407a72be: int3     
+0x1407a72bf: int3     
+0x1407a72c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a72c4: jbe      0x1407a72f2   ; main.desktopWidgetService).deliverNotification.Printf.func1+0x32
+0x1407a72c6: push     rbp
+0x1407a72c7: mov      rbp, rsp
+0x1407a72ca: sub      rsp, 0x40
+0x1407a72ce: mov      qword ptr [rsp + 0x50], rax
+0x1407a72d3: mov      rdi, qword ptr [rdx + 8]
+0x1407a72d7: mov      rsi, qword ptr [rdx + 0x10]
+0x1407a72db: mov      r8, qword ptr [rdx + 0x18]
+0x1407a72df: mov      r9, qword ptr [rdx + 0x20]
+0x1407a72e3: mov      r10, qword ptr [rdx + 0x28]
+0x1407a72e7: call     0x140136420   ; fmt.Appendf
+0x1407a72ec: add      rsp, 0x40
+0x1407a72f0: pop      rbp
+0x1407a72f1: ret      
+0x1407a72f2: mov      qword ptr [rsp + 8], rax
+0x1407a72f7: mov      qword ptr [rsp + 0x10], rbx
+0x1407a72fc: mov      qword ptr [rsp + 0x18], rcx
+0x1407a7301: call     0x14007f0a0   ; runtime.morestack
+0x1407a7306: mov      rax, qword ptr [rsp + 8]
+0x1407a730b: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a7310: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a7315: jmp      0x1407a72c0   ; main.desktopWidgetService).deliverNotification.Printf.func1
+0x1407a7317: int3     
+0x1407a7318: int3     
+0x1407a7319: int3     
+0x1407a731a: int3     
+0x1407a731b: int3     
+0x1407a731c: int3     
+0x1407a731d: int3     
+0x1407a731e: int3     
+0x1407a731f: int3     

@@ -1,0 +1,124 @@
+0x140874760: lea      r12, [rsp - 0x50]
+0x140874765: cmp      r12, qword ptr [r14 + 0x10]
+0x140874769: jbe      0x140874972    ; main.defaultFileLocatorFilterValue+0x212
+0x14087476f: push     rbp
+0x140874770: mov      rbp, rsp
+0x140874773: sub      rsp, 0xc8
+0x14087477a: mov      rcx, qword ptr [rip + 0x1352147]
+0x140874781: cmp      rcx, 2
+0x140874785: ja       0x14087479d    ; main.defaultFileLocatorFilterValue+0x3d
+0x140874787: movups   xmmword ptr [rsp + 0x78], xmm15
+0x14087478d: movups   xmmword ptr [rsp + 0x88], xmm15
+0x140874796: lea      rax, [rsp + 0x78]
+0x14087479b: jmp      0x1408747b5    ; main.defaultFileLocatorFilterValue+0x55
+0x14087479d: mov      qword ptr [rsp + 0x68], rcx
+0x1408747a2: lea      rax, [rip + 0x275657]
+0x1408747a9: xor      ebx, ebx
+0x1408747ab: call     0x14007ac40    ; runtime.makeslice
+0x1408747b0: mov      rcx, qword ptr [rsp + 0x68]
+0x1408747b5: mov      rdx, qword ptr [rip + 0x1352104]
+0x1408747bc: mov      r8, qword ptr [rip + 0x1352105]
+0x1408747c3: mov      qword ptr [rsp + 0x60], r8
+0x1408747c8: xor      ebx, ebx
+0x1408747ca: xor      esi, esi
+0x1408747cc: xor      edi, edi
+0x1408747ce: jmp      0x140874800    ; main.defaultFileLocatorFilterValue+0xa0
+0x1408747d0: mov      r9, qword ptr [rsp + 0xa0]
+0x1408747d8: add      r9, 0x10
+0x1408747dc: mov      rbx, qword ptr [rsp + 0x68]
+0x1408747e1: inc      rbx
+0x1408747e4: mov      edi, esi
+0x1408747e6: mov      rax, rcx
+0x1408747e9: mov      rsi, r8
+0x1408747ec: mov      rcx, rdx
+0x1408747ef: mov      r8, qword ptr [rsp + 0x60]
+0x1408747f4: mov      rdx, r9
+0x1408747f7: nop      word ptr [rax + rax]
+0x140874800: cmp      rbx, r8
+0x140874803: jge      0x140874955    ; main.defaultFileLocatorFilterValue+0x1f5
+0x140874809: mov      qword ptr [rsp + 0x48], rsi
+0x14087480e: mov      qword ptr [rsp + 0x50], rcx
+0x140874813: mov      qword ptr [rsp + 0x70], rax
+0x140874818: mov      qword ptr [rsp + 0x68], rbx
+0x14087481d: mov      byte ptr [rsp + 0x47], dil
+0x140874822: mov      qword ptr [rsp + 0xa0], rdx
+0x14087482a: mov      rax, qword ptr [rdx]
+0x14087482d: mov      rbx, qword ptr [rdx + 8]
+0x140874831: call     0x1400a2200    ; strings.TrimSpace
+0x140874836: lea      rcx, [rip + 0x9563eb]
+0x14087483d: mov      edi, 1
+0x140874842: call     0x1400a1c20    ; strings.Trim
+0x140874847: test     rbx, rbx
+0x14087484a: jne      0x140874865    ; main.defaultFileLocatorFilterValue+0x105
+0x14087484c: mov      r8, qword ptr [rsp + 0x48]
+0x140874851: mov      rdx, qword ptr [rsp + 0x50]
+0x140874856: movzx    esi, byte ptr [rsp + 0x47]
+0x14087485b: mov      rcx, qword ptr [rsp + 0x70]
+0x140874860: jmp      0x1408747d0    ; main.defaultFileLocatorFilterValue+0x70
+0x140874865: mov      ecx, 3
+0x14087486a: mov      rdi, rax
+0x14087486d: mov      rsi, rbx
+0x140874870: xor      eax, eax
+0x140874872: lea      rbx, [rip + 0x3bf488]
+0x140874879: call     0x14005fc00    ; runtime.concatstring2
+0x14087487e: mov      rdx, qword ptr [rsp + 0x48]
+0x140874883: lea      r8, [rdx + 1]
+0x140874887: mov      rcx, qword ptr [rsp + 0x50]
+0x14087488c: cmp      rcx, r8
+0x14087488f: jb       0x1408748a5    ; main.defaultFileLocatorFilterValue+0x145
+0x140874891: mov      rcx, qword ptr [rsp + 0x70]
+0x140874896: mov      rdx, qword ptr [rsp + 0x50]
+0x14087489b: movzx    esi, byte ptr [rsp + 0x47]
+0x1408748a0: jmp      0x140874924    ; main.defaultFileLocatorFilterValue+0x1c4
+0x1408748a5: mov      qword ptr [rsp + 0x58], rbx
+0x1408748aa: mov      qword ptr [rsp + 0x98], rax
+0x1408748b2: cmp      r8, 2
+0x1408748b6: jg       0x1408748f0    ; main.defaultFileLocatorFilterValue+0x190
+0x1408748b8: movzx    r9d, byte ptr [rsp + 0x47]
+0x1408748be: nop      
+0x1408748c0: test     r9b, r9b
+0x1408748c3: jne      0x1408748f0    ; main.defaultFileLocatorFilterValue+0x190
+0x1408748c5: test     rdx, rdx
+0x1408748c8: jne      0x1408748f0    ; main.defaultFileLocatorFilterValue+0x190
+0x1408748ca: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1408748d3: movups   xmmword ptr [rsp + 0xb8], xmm15
+0x1408748dc: lea      rcx, [rsp + 0xa8]
+0x1408748e4: mov      edx, 2
+0x1408748e9: mov      esi, 1
+0x1408748ee: jmp      0x140874924    ; main.defaultFileLocatorFilterValue+0x1c4
+0x1408748f0: mov      rax, qword ptr [rsp + 0x70]
+0x1408748f5: mov      rbx, r8
+0x1408748f8: mov      edi, 1
+0x1408748fd: lea      rsi, [rip + 0x2754fc]
+0x140874904: call     0x14007ad20    ; runtime.growslice
+0x140874909: mov      r8, rbx
+0x14087490c: mov      rdx, rcx
+0x14087490f: movzx    esi, byte ptr [rsp + 0x47]
+0x140874914: mov      rbx, qword ptr [rsp + 0x58]
+0x140874919: mov      rcx, rax
+0x14087491c: mov      rax, qword ptr [rsp + 0x98]
+0x140874924: lea      r9, [r8 - 1]
+0x140874928: shl      r9, 4
+0x14087492c: mov      qword ptr [rcx + r9 + 8], rbx
+0x140874931: cmp      dword ptr [rip + 0x13e6a18], 0
+0x140874938: je       0x14087494c    ; main.defaultFileLocatorFilterValue+0x1ec
+0x14087493a: mov      r10, qword ptr [rcx + r9]
+0x14087493e: nop      
+0x140874940: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140874945: mov      qword ptr [r11], rax
+0x140874948: mov      qword ptr [r11 + 8], r10
+0x14087494c: mov      qword ptr [rcx + r9], rax
+0x140874950: jmp      0x1408747d0    ; main.defaultFileLocatorFilterValue+0x70
+0x140874955: mov      rbx, rsi
+0x140874958: lea      rdi, [rip + 0x955aa1]
+0x14087495f: mov      esi, 1
+0x140874964: call     0x1400a0140    ; strings.Join
+0x140874969: add      rsp, 0xc8
+0x140874970: pop      rbp
+0x140874971: ret      
+0x140874972: call     0x14007f140    ; runtime.morestack_noctxt
+0x140874977: jmp      0x140874760    ; main.defaultFileLocatorFilterValue
+0x14087497c: int3     
+0x14087497d: int3     
+0x14087497e: int3     
+0x14087497f: int3     

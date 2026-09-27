@@ -1,0 +1,45 @@
+0x140979500: cmp      rsp, qword ptr [r14 + 0x10]
+0x140979504: jbe      0x140979534   ; main.screenshotDXGIOutputCaptureEntry).release.deferwrap1+0x34
+0x140979506: push     rbp
+0x140979507: mov      rbp, rsp
+0x14097950a: sub      rsp, 0x10
+0x14097950e: mov      r12, qword ptr [r14 + 0x20]
+0x140979512: test     r12, r12
+0x140979515: jne      0x14097953b   ; main.screenshotDXGIOutputCaptureEntry).release.deferwrap1+0x3b
+0x140979517: mov      rax, qword ptr [rdx + 8]
+0x14097951b: nop      
+0x14097951c: mov      ebx, 0xffffffff
+0x140979521: lock xadd dword ptr [rax], ebx
+0x140979525: dec      ebx
+0x140979527: je       0x14097952e   ; main.screenshotDXGIOutputCaptureEntry).release.deferwrap1+0x2e
+0x140979529: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x14097952e: add      rsp, 0x10
+0x140979532: pop      rbp
+0x140979533: ret      
+0x140979534: call     0x14007f0a0   ; runtime.morestack
+0x140979539: jmp      0x140979500   ; main.screenshotDXGIOutputCaptureEntry).release.deferwrap1
+0x14097953b: lea      r13, [rsp + 0x20]
+0x140979540: cmp      qword ptr [r12], r13
+0x140979544: jne      0x140979517   ; main.screenshotDXGIOutputCaptureEntry).release.deferwrap1+0x17
+0x140979546: mov      qword ptr [r12], rsp
+0x14097954a: jmp      0x140979517   ; main.screenshotDXGIOutputCaptureEntry).release.deferwrap1+0x17
+0x14097954c: int3     
+0x14097954d: int3     
+0x14097954e: int3     
+0x14097954f: int3     
+0x140979550: int3     
+0x140979551: int3     
+0x140979552: int3     
+0x140979553: int3     
+0x140979554: int3     
+0x140979555: int3     
+0x140979556: int3     
+0x140979557: int3     
+0x140979558: int3     
+0x140979559: int3     
+0x14097955a: int3     
+0x14097955b: int3     
+0x14097955c: int3     
+0x14097955d: int3     
+0x14097955e: int3     
+0x14097955f: int3     

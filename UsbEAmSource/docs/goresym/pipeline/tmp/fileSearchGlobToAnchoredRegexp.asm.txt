@@ -1,0 +1,561 @@
+0x1408177e0: lea      r12, [rsp - 0x60]
+0x1408177e5: cmp      r12, qword ptr [r14 + 0x10]
+0x1408177e9: jbe      0x14081824b   ; main.fileSearchGlobToAnchoredRegexp+0xa6b
+0x1408177ef: push     rbp
+0x1408177f0: mov      rbp, rsp
+0x1408177f3: sub      rsp, 0xd8
+0x1408177fa: mov      qword ptr [rsp + 0xf0], rbx
+0x140817802: mov      qword ptr [rsp + 0xe8], rax
+0x14081780a: call     0x140815fe0   ; main.isValidFileSearchTypeGlob
+0x14081780f: test     al, al
+0x140817811: je       0x140817839   ; main.fileSearchGlobToAnchoredRegexp+0x59
+0x140817813: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x14081781c: movups   xmmword ptr [rsp + 0xb0], xmm15
+0x140817825: mov      rcx, qword ptr [rsp + 0xf0]
+0x14081782d: mov      rdx, qword ptr [rsp + 0xe8]
+0x140817835: xor      eax, eax
+0x140817837: jmp      0x1408178a5   ; main.fileSearchGlobToAnchoredRegexp+0xc5
+0x140817839: movups   xmmword ptr [rsp + 0xc0], xmm15
+0x140817842: mov      rax, qword ptr [rsp + 0xe8]
+0x14081784a: mov      rbx, qword ptr [rsp + 0xf0]
+0x140817852: call     0x140076660   ; runtime.convTstring
+0x140817857: lea      rcx, [rip + 0x2d25a2]
+0x14081785e: mov      qword ptr [rsp + 0xc0], rcx
+0x140817866: mov      qword ptr [rsp + 0xc8], rax
+0x14081786e: lea      rax, [rip + 0x4524e7]
+0x140817875: mov      ebx, 0x1b
+0x14081787a: lea      rcx, [rsp + 0xc0]
+0x140817882: mov      edi, 1
+0x140817887: mov      rsi, rdi
+0x14081788a: call     0x140133280   ; fmt.Errorf
+0x14081788f: mov      rcx, rax
+0x140817892: mov      rdi, rbx
+0x140817895: xor      eax, eax
+0x140817897: xor      ebx, ebx
+0x140817899: add      rsp, 0xd8
+0x1408178a0: pop      rbp
+0x1408178a1: ret      
+0x1408178a2: inc      rax
+0x1408178a5: cmp      rcx, rax
+0x1408178a8: jle      0x140817eb8   ; main.fileSearchGlobToAnchoredRegexp+0x6d8
+0x1408178ae: jbe      0x140818245   ; main.fileSearchGlobToAnchoredRegexp+0xa65
+0x1408178b4: movzx    r8d, byte ptr [rdx + rax]
+0x1408178b9: nop      dword ptr [rax]
+0x1408178c0: cmp      r8b, 0x2a
+0x1408178c4: je       0x140818133   ; main.fileSearchGlobToAnchoredRegexp+0x953
+0x1408178ca: mov      qword ptr [rsp + 0x60], rax
+0x1408178cf: cmp      r8b, 0x3f
+0x1408178d3: jne      0x1408179a5   ; main.fileSearchGlobToAnchoredRegexp+0x1c5
+0x1408178d9: mov      r8, qword ptr [rsp + 0xa0]
+0x1408178e1: nop      
+0x1408178e2: test     r8, r8
+0x1408178e5: je       0x1408178f9   ; main.fileSearchGlobToAnchoredRegexp+0x119
+0x1408178e7: lea      r9, [rsp + 0xa0]
+0x1408178ef: cmp      r8, r9
+0x1408178f2: je       0x140817911   ; main.fileSearchGlobToAnchoredRegexp+0x131
+0x1408178f4: jmp      0x14081811d   ; main.fileSearchGlobToAnchoredRegexp+0x93d
+0x1408178f9: lea      r8, [rsp + 0xa0]
+0x140817901: mov      qword ptr [rsp + 0xa0], r8
+0x140817909: lea      r9, [rsp + 0xa0]
+0x140817911: mov      r8, qword ptr [rsp + 0xb8]
+0x140817919: mov      rbx, qword ptr [rsp + 0xb0]
+0x140817921: lea      r10, [rbx + 1]
+0x140817925: mov      r11, qword ptr [rsp + 0xa8]
+0x14081792d: cmp      r8, r10
+0x140817930: jae      0x140817982   ; main.fileSearchGlobToAnchoredRegexp+0x1a2
+0x140817932: mov      qword ptr [rsp + 0x88], rbx
+0x14081793a: mov      rax, r11
+0x14081793d: mov      rbx, r10
+0x140817940: mov      rcx, r8
+0x140817943: mov      edi, 1
+0x140817948: lea      rsi, [rip + 0x2d2531]
+0x14081794f: call     0x14007ad20   ; runtime.growslice
+0x140817954: mov      rdx, qword ptr [rsp + 0xe8]
+0x14081795c: lea      r9, [rsp + 0xa0]
+0x140817964: mov      r11, rax
+0x140817967: mov      r8, rcx
+0x14081796a: mov      r10, rbx
+0x14081796d: mov      rax, qword ptr [rsp + 0x60]
+0x140817972: mov      rcx, qword ptr [rsp + 0xf0]
+0x14081797a: mov      rbx, qword ptr [rsp + 0x88]
+0x140817982: mov      byte ptr [r11 + rbx], 0x2e
+0x140817987: mov      qword ptr [rsp + 0xb0], r10
+0x14081798f: mov      qword ptr [rsp + 0xb8], r8
+0x140817997: mov      qword ptr [rsp + 0xa8], r11
+0x14081799f: nop      
+0x1408179a0: jmp      0x1408178a2   ; main.fileSearchGlobToAnchoredRegexp+0xc2
+0x1408179a5: cmp      r8b, 0x5b
+0x1408179a9: je       0x140817b1b   ; main.fileSearchGlobToAnchoredRegexp+0x33b
+0x1408179af: mov      rbx, rcx
+0x1408179b2: sub      rbx, rax
+0x1408179b5: mov      rcx, rbx
+0x1408179b8: neg      rcx
+0x1408179bb: sar      rcx, 0x3f
+0x1408179bf: and      rcx, rax
+0x1408179c2: lea      rax, [rdx + rcx]
+0x1408179c6: call     0x140087440   ; unicode/utf8.DecodeRuneInString
+0x1408179cb: mov      qword ptr [rsp + 0x48], rbx
+0x1408179d0: cmp      eax, 0xfffd
+0x1408179d5: jne      0x1408179ea   ; main.fileSearchGlobToAnchoredRegexp+0x20a
+0x1408179d7: nop      word ptr [rax + rax]
+0x1408179e0: cmp      rbx, 1
+0x1408179e4: je       0x140817e5d   ; main.fileSearchGlobToAnchoredRegexp+0x67d
+0x1408179ea: movsxd   rbx, eax
+0x1408179ed: lea      rax, [rsp + 0x44]
+0x1408179f2: call     0x140060980   ; runtime.intstring
+0x1408179f7: call     0x140390620   ; regexp.QuoteMeta
+0x1408179fc: mov      rcx, qword ptr [rsp + 0xa0]
+0x140817a04: nop      
+0x140817a05: test     rcx, rcx
+0x140817a08: je       0x140817a1c   ; main.fileSearchGlobToAnchoredRegexp+0x23c
+0x140817a0a: lea      rdx, [rsp + 0xa0]
+0x140817a12: cmp      rcx, rdx
+0x140817a15: je       0x140817a2c   ; main.fileSearchGlobToAnchoredRegexp+0x24c
+0x140817a17: jmp      0x14081810a   ; main.fileSearchGlobToAnchoredRegexp+0x92a
+0x140817a1c: lea      rdx, [rsp + 0xa0]
+0x140817a24: mov      qword ptr [rsp + 0xa0], rdx
+0x140817a2c: mov      rcx, qword ptr [rsp + 0xb8]
+0x140817a34: mov      r8, qword ptr [rsp + 0xb0]
+0x140817a3c: lea      r9, [r8 + rbx]
+0x140817a40: mov      r10, qword ptr [rsp + 0xa8]
+0x140817a48: cmp      rcx, r9
+0x140817a4b: jae      0x140817a92   ; main.fileSearchGlobToAnchoredRegexp+0x2b2
+0x140817a4d: mov      qword ptr [rsp + 0x50], rbx
+0x140817a52: mov      qword ptr [rsp + 0x90], rax
+0x140817a5a: mov      qword ptr [rsp + 0x88], r8
+0x140817a62: mov      rax, r10
+0x140817a65: mov      rdi, rbx
+0x140817a68: lea      rsi, [rip + 0x2d2411]
+0x140817a6f: mov      rbx, r9
+0x140817a72: call     0x14007ad20   ; runtime.growslice
+0x140817a77: mov      r8, qword ptr [rsp + 0x88]
+0x140817a7f: mov      r10, rax
+0x140817a82: mov      r9, rbx
+0x140817a85: mov      rax, qword ptr [rsp + 0x90]
+0x140817a8d: mov      rbx, qword ptr [rsp + 0x50]
+0x140817a92: mov      qword ptr [rsp + 0x88], rcx
+0x140817a9a: mov      qword ptr [rsp + 0x80], r9
+0x140817aa2: mov      qword ptr [rsp + 0xd0], r10
+0x140817aaa: lea      rdx, [r10 + r8]
+0x140817aae: mov      rcx, rbx
+0x140817ab1: mov      rbx, rax
+0x140817ab4: mov      rax, rdx
+0x140817ab7: call     0x140081e00   ; runtime.memmove
+0x140817abc: mov      rdx, qword ptr [rsp + 0x80]
+0x140817ac4: mov      qword ptr [rsp + 0xb0], rdx
+0x140817acc: mov      rdx, qword ptr [rsp + 0x88]
+0x140817ad4: mov      qword ptr [rsp + 0xb8], rdx
+0x140817adc: mov      rdx, qword ptr [rsp + 0xd0]
+0x140817ae4: mov      qword ptr [rsp + 0xa8], rdx
+0x140817aec: mov      rdx, qword ptr [rsp + 0x60]
+0x140817af1: mov      rsi, qword ptr [rsp + 0x48]
+0x140817af6: lea      rax, [rsi + rdx]
+0x140817afa: lea      rax, [rax - 1]
+0x140817afe: mov      rcx, qword ptr [rsp + 0xf0]
+0x140817b06: mov      rdx, qword ptr [rsp + 0xe8]
+0x140817b0e: lea      r9, [rsp + 0xa0]
+0x140817b16: jmp      0x1408178a2   ; main.fileSearchGlobToAnchoredRegexp+0xc2
+0x140817b1b: sub      rcx, rax
+0x140817b1e: dec      rcx
+0x140817b21: mov      rbx, rcx
+0x140817b24: neg      rcx
+0x140817b27: sar      rcx, 0x3f
+0x140817b2b: inc      rax
+0x140817b2e: mov      qword ptr [rsp + 0x88], rax
+0x140817b36: and      rcx, rax
+0x140817b39: lea      rax, [rdx + rcx]
+0x140817b3d: nop      
+0x140817b3e: mov      qword ptr [rsp], rax
+0x140817b42: mov      qword ptr [rsp + 8], rbx
+0x140817b47: mov      byte ptr [rsp + 0x10], 0x5d
+0x140817b4c: call     0x1400067c0   ; internal/bytealg.IndexByteString
+0x140817b51: xorps    xmm15, xmm15
+0x140817b55: mov      r14, qword ptr [rip + 0x144341c]
+0x140817b5c: mov      r14, qword ptr gs:[r14]
+0x140817b60: mov      r14, qword ptr [r14]
+0x140817b63: mov      rax, qword ptr [rsp + 0x18]
+0x140817b68: test     rax, rax
+0x140817b6b: jl       0x140817e88   ; main.fileSearchGlobToAnchoredRegexp+0x6a8
+0x140817b71: mov      r8, qword ptr [rsp + 0x60]
+0x140817b76: lea      rcx, [r8 + rax]
+0x140817b7a: lea      rcx, [rcx + 1]
+0x140817b7e: mov      rdx, qword ptr [rsp + 0xf0]
+0x140817b86: cmp      rdx, rcx
+0x140817b89: jb       0x140818105   ; main.fileSearchGlobToAnchoredRegexp+0x925
+0x140817b8f: mov      r8, qword ptr [rsp + 0x88]
+0x140817b97: nop      word ptr [rax + rax]
+0x140817ba0: cmp      rcx, r8
+0x140817ba3: jb       0x1408180f8   ; main.fileSearchGlobToAnchoredRegexp+0x918
+0x140817ba9: mov      r9, rax
+0x140817bac: neg      rax
+0x140817baf: sar      rax, 0x3f
+0x140817bb3: and      rax, r8
+0x140817bb6: mov      r8, qword ptr [rsp + 0xa0]
+0x140817bbe: mov      r10, qword ptr [rsp + 0xe8]
+0x140817bc6: lea      r11, [r10 + rax]
+0x140817bca: nop      
+0x140817bcb: nop      
+0x140817bcc: test     r8, r8
+0x140817bcf: je       0x140817be5   ; main.fileSearchGlobToAnchoredRegexp+0x405
+0x140817bd1: lea      r12, [rsp + 0xa0]
+0x140817bd9: cmp      r8, r12
+0x140817bdc: je       0x140817bfd   ; main.fileSearchGlobToAnchoredRegexp+0x41d
+0x140817bde: nop      
+0x140817be0: jmp      0x1408180e5   ; main.fileSearchGlobToAnchoredRegexp+0x905
+0x140817be5: lea      r8, [rsp + 0xa0]
+0x140817bed: mov      qword ptr [rsp + 0xa0], r8
+0x140817bf5: lea      r12, [rsp + 0xa0]
+0x140817bfd: mov      qword ptr [rsp + 0x88], r9
+0x140817c05: mov      qword ptr [rsp + 0x80], rcx
+0x140817c0d: mov      qword ptr [rsp + 0x98], r11
+0x140817c15: mov      r8, qword ptr [rsp + 0xb8]
+0x140817c1d: mov      rbx, qword ptr [rsp + 0xb0]
+0x140817c25: inc      rbx
+0x140817c28: mov      r13, qword ptr [rsp + 0xa8]
+0x140817c30: cmp      r8, rbx
+0x140817c33: jb       0x140817c3a   ; main.fileSearchGlobToAnchoredRegexp+0x45a
+0x140817c35: test     r9, r9
+0x140817c38: jmp      0x140817ca9   ; main.fileSearchGlobToAnchoredRegexp+0x4c9
+0x140817c3a: mov      qword ptr [rsp + 0x78], rax
+0x140817c3f: mov      rax, r13
+0x140817c42: mov      rcx, r8
+0x140817c45: mov      edi, 1
+0x140817c4a: lea      rsi, [rip + 0x2d222f]
+0x140817c51: call     0x14007ad20   ; runtime.growslice
+0x140817c56: mov      qword ptr [rsp + 0xb8], rcx
+0x140817c5e: mov      qword ptr [rsp + 0xa8], rax
+0x140817c66: mov      rdx, qword ptr [rsp + 0x88]
+0x140817c6e: test     rdx, rdx
+0x140817c71: mov      rcx, qword ptr [rsp + 0x80]
+0x140817c79: mov      rdx, qword ptr [rsp + 0xf0]
+0x140817c81: mov      r9, qword ptr [rsp + 0x88]
+0x140817c89: mov      r10, qword ptr [rsp + 0xe8]
+0x140817c91: mov      r11, qword ptr [rsp + 0x98]
+0x140817c99: lea      r12, [rsp + 0xa0]
+0x140817ca1: mov      r13, rax
+0x140817ca4: mov      rax, qword ptr [rsp + 0x78]
+0x140817ca9: mov      qword ptr [rsp + 0xb0], rbx
+0x140817cb1: mov      byte ptr [rbx + r13 - 1], 0x5b
+0x140817cb7: je       0x140817d94   ; main.fileSearchGlobToAnchoredRegexp+0x5b4
+0x140817cbd: movzx    r8d, byte ptr [r10 + rax]
+0x140817cc2: cmp      r8b, 0x21
+0x140817cc6: je       0x140817cd2   ; main.fileSearchGlobToAnchoredRegexp+0x4f2
+0x140817cc8: cmp      r8b, 0x5e
+0x140817ccc: jne      0x140817d8f   ; main.fileSearchGlobToAnchoredRegexp+0x5af
+0x140817cd2: mov      r8, qword ptr [rsp + 0xa0]
+0x140817cda: nop      
+0x140817cdb: nop      
+0x140817cdc: nop      dword ptr [rax]
+0x140817ce0: test     r8, r8
+0x140817ce3: je       0x140817cef   ; main.fileSearchGlobToAnchoredRegexp+0x50f
+0x140817ce5: cmp      r8, r12
+0x140817ce8: je       0x140817cf7   ; main.fileSearchGlobToAnchoredRegexp+0x517
+0x140817cea: jmp      0x1408180d1   ; main.fileSearchGlobToAnchoredRegexp+0x8f1
+0x140817cef: mov      qword ptr [rsp + 0xa0], r12
+0x140817cf7: mov      r8, qword ptr [rsp + 0xb8]
+0x140817cff: mov      rbx, qword ptr [rsp + 0xb0]
+0x140817d07: inc      rbx
+0x140817d0a: mov      rax, qword ptr [rsp + 0xa8]
+0x140817d12: cmp      r8, rbx
+0x140817d15: jae      0x140817d6b   ; main.fileSearchGlobToAnchoredRegexp+0x58b
+0x140817d17: mov      rcx, r8
+0x140817d1a: mov      edi, 1
+0x140817d1f: lea      rsi, [rip + 0x2d215a]
+0x140817d26: call     0x14007ad20   ; runtime.growslice
+0x140817d2b: mov      qword ptr [rsp + 0xb8], rcx
+0x140817d33: mov      qword ptr [rsp + 0xa8], rax
+0x140817d3b: mov      rcx, qword ptr [rsp + 0x80]
+0x140817d43: mov      rdx, qword ptr [rsp + 0xf0]
+0x140817d4b: mov      r9, qword ptr [rsp + 0x88]
+0x140817d53: mov      r10, qword ptr [rsp + 0xe8]
+0x140817d5b: mov      r11, qword ptr [rsp + 0x98]
+0x140817d63: lea      r12, [rsp + 0xa0]
+0x140817d6b: mov      qword ptr [rsp + 0xb0], rbx
+0x140817d73: mov      byte ptr [rbx + rax - 1], 0x5e
+0x140817d78: lea      rax, [r9 - 1]
+0x140817d7c: mov      r8, rax
+0x140817d7f: neg      r8
+0x140817d82: sar      r8, 0x3f
+0x140817d86: and      r8d, 1
+0x140817d8a: add      r11, r8
+0x140817d8d: jmp      0x140817d97   ; main.fileSearchGlobToAnchoredRegexp+0x5b7
+0x140817d8f: mov      rax, r9
+0x140817d92: jmp      0x140817d97   ; main.fileSearchGlobToAnchoredRegexp+0x5b7
+0x140817d94: mov      rax, r9
+0x140817d97: mov      qword ptr [rsp + 0x98], r11
+0x140817d9f: mov      qword ptr [rsp + 0x68], rax
+0x140817da4: xor      ebx, ebx
+0x140817da6: jmp      0x140817f00   ; main.fileSearchGlobToAnchoredRegexp+0x720
+0x140817dab: mov      r8, qword ptr [rsp + 0xa0]
+0x140817db3: nop      
+0x140817db4: nop      
+0x140817db5: test     r8, r8
+0x140817db8: je       0x140817dc5   ; main.fileSearchGlobToAnchoredRegexp+0x5e5
+0x140817dba: cmp      r8, r12
+0x140817dbd: je       0x140817dcd   ; main.fileSearchGlobToAnchoredRegexp+0x5ed
+0x140817dbf: nop      
+0x140817dc0: jmp      0x140818098   ; main.fileSearchGlobToAnchoredRegexp+0x8b8
+0x140817dc5: mov      qword ptr [rsp + 0xa0], r12
+0x140817dcd: mov      r8, qword ptr [rsp + 0xb8]
+0x140817dd5: mov      rbx, qword ptr [rsp + 0xb0]
+0x140817ddd: inc      rbx
+0x140817de0: mov      rax, qword ptr [rsp + 0xa8]
+0x140817de8: cmp      r8, rbx
+0x140817deb: jae      0x140817e35   ; main.fileSearchGlobToAnchoredRegexp+0x655
+0x140817ded: mov      rcx, r8
+0x140817df0: mov      edi, 1
+0x140817df5: lea      rsi, [rip + 0x2d2084]
+0x140817dfc: nop      dword ptr [rax]
+0x140817e00: call     0x14007ad20   ; runtime.growslice
+0x140817e05: mov      qword ptr [rsp + 0xb8], rcx
+0x140817e0d: mov      qword ptr [rsp + 0xa8], rax
+0x140817e15: mov      rcx, qword ptr [rsp + 0x80]
+0x140817e1d: mov      rdx, qword ptr [rsp + 0xf0]
+0x140817e25: mov      r10, qword ptr [rsp + 0xe8]
+0x140817e2d: lea      r12, [rsp + 0xa0]
+0x140817e35: mov      qword ptr [rsp + 0xb0], rbx
+0x140817e3d: mov      byte ptr [rbx + rax - 1], 0x5d
+0x140817e42: mov      rcx, rdx
+0x140817e45: mov      rdx, r10
+0x140817e48: lea      r9, [rsp + 0xa0]
+0x140817e50: mov      rax, qword ptr [rsp + 0x80]
+0x140817e58: jmp      0x1408178a2   ; main.fileSearchGlobToAnchoredRegexp+0xc2
+0x140817e5d: lea      rax, [rip + 0x4604f3]
+0x140817e64: mov      ebx, 0x24
+0x140817e69: xor      ecx, ecx
+0x140817e6b: xor      edi, edi
+0x140817e6d: mov      rsi, rdi
+0x140817e70: call     0x140133280   ; fmt.Errorf
+0x140817e75: mov      rcx, rax
+0x140817e78: mov      rdi, rbx
+0x140817e7b: xor      eax, eax
+0x140817e7d: xor      ebx, ebx
+0x140817e7f: add      rsp, 0xd8
+0x140817e86: pop      rbp
+0x140817e87: ret      
+0x140817e88: lea      rax, [rip + 0x441e8b]
+0x140817e8f: mov      ebx, 0x12
+0x140817e94: xor      ecx, ecx
+0x140817e96: xor      edi, edi
+0x140817e98: mov      rsi, rdi
+0x140817e9b: nop      dword ptr [rax + rax]
+0x140817ea0: call     0x140133280   ; fmt.Errorf
+0x140817ea5: mov      rcx, rax
+0x140817ea8: mov      rdi, rbx
+0x140817eab: xor      eax, eax
+0x140817ead: xor      ebx, ebx
+0x140817eaf: add      rsp, 0xd8
+0x140817eb6: pop      rbp
+0x140817eb7: ret      
+0x140817eb8: mov      rax, qword ptr [rsp + 0xa8]
+0x140817ec0: mov      rdx, rax
+0x140817ec3: neg      rdx
+0x140817ec6: mov      rbx, qword ptr [rsp + 0xb0]
+0x140817ece: cmp      rbx, rdx
+0x140817ed1: ja       0x140817ee1   ; main.fileSearchGlobToAnchoredRegexp+0x701
+0x140817ed3: xor      ecx, ecx
+0x140817ed5: xor      edi, edi
+0x140817ed7: add      rsp, 0xd8
+0x140817ede: pop      rbp
+0x140817edf: nop      
+0x140817ee0: ret      
+0x140817ee1: test     rax, rax
+0x140817ee4: je       0x140817eeb   ; main.fileSearchGlobToAnchoredRegexp+0x70b
+0x140817ee6: call     0x140073180   ; runtime.panicunsafestringlen
+0x140817eeb: call     0x1400731c0   ; runtime.panicunsafestringnilptr
+0x140817ef0: mov      qword ptr [rsp + 0xb0], r13
+0x140817ef8: mov      byte ptr [r13 + r15 - 1], r8b
+0x140817efd: inc      rbx
+0x140817f00: cmp      rax, rbx
+0x140817f03: jle      0x140817dab   ; main.fileSearchGlobToAnchoredRegexp+0x5cb
+0x140817f09: mov      qword ptr [rsp + 0x58], rbx
+0x140817f0e: movzx    r8d, byte ptr [r11 + rbx]
+0x140817f13: mov      byte ptr [rsp + 0x43], r8b
+0x140817f18: cmp      r8b, 0x5c
+0x140817f1c: je       0x140817f2a   ; main.fileSearchGlobToAnchoredRegexp+0x74a
+0x140817f1e: nop      
+0x140817f20: cmp      r8b, 0x5d
+0x140817f24: jne      0x140817fe3   ; main.fileSearchGlobToAnchoredRegexp+0x803
+0x140817f2a: mov      r9, qword ptr [rsp + 0xa0]
+0x140817f32: nop      
+0x140817f33: nop      
+0x140817f34: test     r9, r9
+0x140817f37: je       0x140817f45   ; main.fileSearchGlobToAnchoredRegexp+0x765
+0x140817f39: cmp      r9, r12
+0x140817f3c: je       0x140817f4d   ; main.fileSearchGlobToAnchoredRegexp+0x76d
+0x140817f3e: nop      
+0x140817f40: jmp      0x1408180be   ; main.fileSearchGlobToAnchoredRegexp+0x8de
+0x140817f45: mov      qword ptr [rsp + 0xa0], r12
+0x140817f4d: mov      r9, qword ptr [rsp + 0xb8]
+0x140817f55: mov      r13, qword ptr [rsp + 0xb0]
+0x140817f5d: inc      r13
+0x140817f60: mov      r15, qword ptr [rsp + 0xa8]
+0x140817f68: cmp      r9, r13
+0x140817f6b: jae      0x140817fd5   ; main.fileSearchGlobToAnchoredRegexp+0x7f5
+0x140817f6d: mov      rax, r15
+0x140817f70: mov      rbx, r13
+0x140817f73: mov      rcx, r9
+0x140817f76: mov      edi, 1
+0x140817f7b: lea      rsi, [rip + 0x2d1efe]
+0x140817f82: call     0x14007ad20   ; runtime.growslice
+0x140817f87: mov      qword ptr [rsp + 0xb8], rcx
+0x140817f8f: mov      qword ptr [rsp + 0xa8], rax
+0x140817f97: mov      rcx, qword ptr [rsp + 0x80]
+0x140817f9f: mov      rdx, qword ptr [rsp + 0xf0]
+0x140817fa7: movzx    r8d, byte ptr [rsp + 0x43]
+0x140817fad: mov      r10, qword ptr [rsp + 0xe8]
+0x140817fb5: mov      r11, qword ptr [rsp + 0x98]
+0x140817fbd: lea      r12, [rsp + 0xa0]
+0x140817fc5: mov      r13, rbx
+0x140817fc8: mov      r15, rax
+0x140817fcb: mov      rax, qword ptr [rsp + 0x68]
+0x140817fd0: mov      rbx, qword ptr [rsp + 0x58]
+0x140817fd5: mov      qword ptr [rsp + 0xb0], r13
+0x140817fdd: mov      byte ptr [r13 + r15 - 1], 0x5c
+0x140817fe3: mov      r9, qword ptr [rsp + 0xa0]
+0x140817feb: nop      
+0x140817fec: nop      
+0x140817fed: test     r9, r9
+0x140817ff0: je       0x140817ffc   ; main.fileSearchGlobToAnchoredRegexp+0x81c
+0x140817ff2: cmp      r9, r12
+0x140817ff5: je       0x140818004   ; main.fileSearchGlobToAnchoredRegexp+0x824
+0x140817ff7: jmp      0x1408180ab   ; main.fileSearchGlobToAnchoredRegexp+0x8cb
+0x140817ffc: mov      qword ptr [rsp + 0xa0], r12
+0x140818004: mov      r9, qword ptr [rsp + 0xb8]
+0x14081800c: mov      r13, qword ptr [rsp + 0xb0]
+0x140818014: inc      r13
+0x140818017: mov      r15, qword ptr [rsp + 0xa8]
+0x14081801f: nop      
+0x140818020: cmp      r9, r13
+0x140818023: jae      0x140817ef0   ; main.fileSearchGlobToAnchoredRegexp+0x710
+0x140818029: mov      rax, r15
+0x14081802c: mov      rbx, r13
+0x14081802f: mov      rcx, r9
+0x140818032: mov      edi, 1
+0x140818037: lea      rsi, [rip + 0x2d1e42]
+0x14081803e: nop      
+0x140818040: call     0x14007ad20   ; runtime.growslice
+0x140818045: mov      qword ptr [rsp + 0xb8], rcx
+0x14081804d: mov      qword ptr [rsp + 0xa8], rax
+0x140818055: mov      rcx, qword ptr [rsp + 0x80]
+0x14081805d: mov      rdx, qword ptr [rsp + 0xf0]
+0x140818065: movzx    r8d, byte ptr [rsp + 0x43]
+0x14081806b: mov      r10, qword ptr [rsp + 0xe8]
+0x140818073: mov      r11, qword ptr [rsp + 0x98]
+0x14081807b: lea      r12, [rsp + 0xa0]
+0x140818083: mov      r13, rbx
+0x140818086: mov      r15, rax
+0x140818089: mov      rax, qword ptr [rsp + 0x68]
+0x14081808e: mov      rbx, qword ptr [rsp + 0x58]
+0x140818093: jmp      0x140817ef0   ; main.fileSearchGlobToAnchoredRegexp+0x710
+0x140818098: lea      rax, [rip + 0x2d1d61]
+0x14081809f: lea      rbx, [rip + 0x9b68ca]
+0x1408180a6: call     0x1400789c0   ; runtime.gopanic
+0x1408180ab: lea      rax, [rip + 0x2d1d4e]
+0x1408180b2: lea      rbx, [rip + 0x9b68b7]
+0x1408180b9: call     0x1400789c0   ; runtime.gopanic
+0x1408180be: lea      rax, [rip + 0x2d1d3b]
+0x1408180c5: lea      rbx, [rip + 0x9b68a4]
+0x1408180cc: call     0x1400789c0   ; runtime.gopanic
+0x1408180d1: lea      rax, [rip + 0x2d1d28]
+0x1408180d8: lea      rbx, [rip + 0x9b6891]
+0x1408180df: nop      
+0x1408180e0: call     0x1400789c0   ; runtime.gopanic
+0x1408180e5: lea      rax, [rip + 0x2d1d14]
+0x1408180ec: lea      rbx, [rip + 0x9b687d]
+0x1408180f3: call     0x1400789c0   ; runtime.gopanic
+0x1408180f8: mov      rax, r8
+0x1408180fb: nop      dword ptr [rax + rax]
+0x140818100: call     0x1400814c0   ; runtime.panicSliceB
+0x140818105: call     0x140081440   ; runtime.panicSliceAlen
+0x14081810a: lea      rax, [rip + 0x2d1cef]
+0x140818111: lea      rbx, [rip + 0x9b6858]
+0x140818118: call     0x1400789c0   ; runtime.gopanic
+0x14081811d: lea      rax, [rip + 0x2d1cdc]
+0x140818124: lea      rbx, [rip + 0x9b6845]
+0x14081812b: call     0x1400789c0   ; runtime.gopanic
+0x140818130: mov      rax, r8
+0x140818133: lea      r8, [rax + 1]
+0x140818137: cmp      rcx, r8
+0x14081813a: jle      0x140818152   ; main.fileSearchGlobToAnchoredRegexp+0x972
+0x14081813c: nop      dword ptr [rax]
+0x140818140: jbe      0x14081823c   ; main.fileSearchGlobToAnchoredRegexp+0xa5c
+0x140818146: movzx    r9d, byte ptr [rax + rdx + 1]
+0x14081814c: cmp      r9b, 0x2a
+0x140818150: je       0x140818130   ; main.fileSearchGlobToAnchoredRegexp+0x950
+0x140818152: mov      r8, qword ptr [rsp + 0xa0]
+0x14081815a: nop      
+0x14081815b: nop      dword ptr [rax + rax]
+0x140818160: test     r8, r8
+0x140818163: je       0x140818177   ; main.fileSearchGlobToAnchoredRegexp+0x997
+0x140818165: lea      r9, [rsp + 0xa0]
+0x14081816d: cmp      r8, r9
+0x140818170: je       0x14081818f   ; main.fileSearchGlobToAnchoredRegexp+0x9af
+0x140818172: jmp      0x140818229   ; main.fileSearchGlobToAnchoredRegexp+0xa49
+0x140818177: lea      r8, [rsp + 0xa0]
+0x14081817f: mov      qword ptr [rsp + 0xa0], r8
+0x140818187: lea      r9, [rsp + 0xa0]
+0x14081818f: mov      r8, qword ptr [rsp + 0xb8]
+0x140818197: mov      rbx, qword ptr [rsp + 0xb0]
+0x14081819f: lea      r10, [rbx + 2]
+0x1408181a3: mov      r11, qword ptr [rsp + 0xa8]
+0x1408181ab: cmp      r8, r10
+0x1408181ae: jae      0x140818205   ; main.fileSearchGlobToAnchoredRegexp+0xa25
+0x1408181b0: mov      qword ptr [rsp + 0x70], rax
+0x1408181b5: mov      qword ptr [rsp + 0x88], rbx
+0x1408181bd: mov      rax, r11
+0x1408181c0: mov      rbx, r10
+0x1408181c3: mov      rcx, r8
+0x1408181c6: mov      edi, 2
+0x1408181cb: lea      rsi, [rip + 0x2d1cae]
+0x1408181d2: call     0x14007ad20   ; runtime.growslice
+0x1408181d7: mov      rdx, qword ptr [rsp + 0xe8]
+0x1408181df: lea      r9, [rsp + 0xa0]
+0x1408181e7: mov      r11, rax
+0x1408181ea: mov      r8, rcx
+0x1408181ed: mov      r10, rbx
+0x1408181f0: mov      rax, qword ptr [rsp + 0x70]
+0x1408181f5: mov      rcx, qword ptr [rsp + 0xf0]
+0x1408181fd: mov      rbx, qword ptr [rsp + 0x88]
+0x140818205: mov      word ptr [r11 + rbx], 0x2a2e
+0x14081820c: mov      qword ptr [rsp + 0xb0], r10
+0x140818214: mov      qword ptr [rsp + 0xb8], r8
+0x14081821c: mov      qword ptr [rsp + 0xa8], r11
+0x140818224: jmp      0x1408178a2   ; main.fileSearchGlobToAnchoredRegexp+0xc2
+0x140818229: lea      rax, [rip + 0x2d1bd0]
+0x140818230: lea      rbx, [rip + 0x9b6739]
+0x140818237: call     0x1400789c0   ; runtime.gopanic
+0x14081823c: mov      rax, r8
+0x14081823f: nop      
+0x140818240: call     0x140081400   ; runtime.panicIndex
+0x140818245: call     0x140081400   ; runtime.panicIndex
+0x14081824a: nop      
+0x14081824b: mov      qword ptr [rsp + 8], rax
+0x140818250: mov      qword ptr [rsp + 0x10], rbx
+0x140818255: call     0x14007f140   ; runtime.morestack_noctxt
+0x14081825a: mov      rax, qword ptr [rsp + 8]
+0x14081825f: mov      rbx, qword ptr [rsp + 0x10]
+0x140818264: jmp      0x1408177e0   ; main.fileSearchGlobToAnchoredRegexp
+0x140818269: int3     
+0x14081826a: int3     
+0x14081826b: int3     
+0x14081826c: int3     
+0x14081826d: int3     
+0x14081826e: int3     
+0x14081826f: int3     
+0x140818270: int3     
+0x140818271: int3     
+0x140818272: int3     
+0x140818273: int3     
+0x140818274: int3     
+0x140818275: int3     
+0x140818276: int3     
+0x140818277: int3     
+0x140818278: int3     
+0x140818279: int3     
+0x14081827a: int3     
+0x14081827b: int3     
+0x14081827c: int3     
+0x14081827d: int3     
+0x14081827e: int3     
+0x14081827f: int3     

@@ -1,0 +1,92 @@
+0x140780a80: lea      r12, [rsp - 0x7b0]
+0x140780a88: cmp      r12, qword ptr [r14 + 0x10]
+0x140780a8c: jbe      0x140780bf2    ; main.BootstrapService.GetWindowManagementState+0x172
+0x140780a92: push     rbp
+0x140780a93: mov      rbp, rsp
+0x140780a96: sub      rsp, 0x828
+0x140780a9d: mov      qword ptr [rsp + 0xae8], rax
+0x140780aa5: lea      rdi, [rsp + 0x838]
+0x140780aad: lea      rdi, [rdi - 0x10]
+0x140780ab1: nop      word ptr [rax + rax]
+0x140780aba: nop      word ptr [rax + rax]
+0x140780ac0: mov      qword ptr [rsp - 0x10], rbp
+0x140780ac5: lea      rbp, [rsp - 0x10]
+0x140780aca: call     0x140081657    ; runtime.duffzero+0x77
+0x140780acf: mov      rbp, qword ptr [rbp]
+0x140780ad3: lea      rdi, [rsp + 0x578]
+0x140780adb: lea      rdi, [rdi - 0x10]
+0x140780adf: nop      
+0x140780ae0: mov      qword ptr [rsp - 0x10], rbp
+0x140780ae5: lea      rbp, [rsp - 0x10]
+0x140780aea: call     0x140081657    ; runtime.duffzero+0x77
+0x140780aef: mov      rbp, qword ptr [rbp]
+0x140780af3: mov      rax, qword ptr [rax + 0x388]
+0x140780afa: call     0x1409e0480    ; main.windowManagementService.GetState
+0x140780aff: mov      qword ptr [rsp + 0x568], rax
+0x140780b07: mov      qword ptr [rsp + 0x570], rbx
+0x140780b0f: lea      rdi, [rsp + 0x578]
+0x140780b17: mov      rsi, rsp
+0x140780b1a: nop      word ptr [rax + rax]
+0x140780b20: mov      qword ptr [rsp - 0x10], rbp
+0x140780b25: lea      rbp, [rsp - 0x10]
+0x140780b2a: call     0x140081886    ; runtime.duffcopy+0x126
+0x140780b2f: mov      rbp, qword ptr [rbp]
+0x140780b33: mov      rdi, rsp
+0x140780b36: lea      rsi, [rsp + 0x578]
+0x140780b3e: nop      
+0x140780b40: mov      qword ptr [rsp - 0x10], rbp
+0x140780b45: lea      rbp, [rsp - 0x10]
+0x140780b4a: call     0x140081886    ; runtime.duffcopy+0x126
+0x140780b4f: mov      rbp, qword ptr [rbp]
+0x140780b53: mov      rax, qword ptr [rsp + 0xae8]
+0x140780b5b: nop      dword ptr [rax + rax]
+0x140780b60: call     0x1408a48e0    ; main.BootstrapService.attachWindowManagementStateIconURLs
+0x140780b65: lea      rdi, [rsp + 0x578]
+0x140780b6d: lea      rsi, [rsp + 0x2b0]
+0x140780b75: nop      word ptr [rax + rax]
+0x140780b7e: nop      
+0x140780b80: mov      qword ptr [rsp - 0x10], rbp
+0x140780b85: lea      rbp, [rsp - 0x10]
+0x140780b8a: call     0x140081886    ; runtime.duffcopy+0x126
+0x140780b8f: mov      rbp, qword ptr [rbp]
+0x140780b93: lea      rdi, [rsp + 0x838]
+0x140780b9b: lea      rsi, [rsp + 0x578]
+0x140780ba3: mov      qword ptr [rsp - 0x10], rbp
+0x140780ba8: lea      rbp, [rsp - 0x10]
+0x140780bad: call     0x140081886    ; runtime.duffcopy+0x126
+0x140780bb2: mov      rbp, qword ptr [rbp]
+0x140780bb6: lea      rdi, [rsp + 0x838]
+0x140780bbe: lea      rsi, [rsp + 0x578]
+0x140780bc6: mov      qword ptr [rsp - 0x10], rbp
+0x140780bcb: lea      rbp, [rsp - 0x10]
+0x140780bd0: call     0x140081886    ; runtime.duffcopy+0x126
+0x140780bd5: mov      rbp, qword ptr [rbp]
+0x140780bd9: mov      rax, qword ptr [rsp + 0x568]
+0x140780be1: mov      rbx, qword ptr [rsp + 0x570]
+0x140780be9: add      rsp, 0x828
+0x140780bf0: pop      rbp
+0x140780bf1: ret      
+0x140780bf2: mov      qword ptr [rsp + 0x2b8], rax
+0x140780bfa: call     0x14007f140    ; runtime.morestack_noctxt
+0x140780bff: mov      rax, qword ptr [rsp + 0x2b8]
+0x140780c07: jmp      0x140780a80    ; main.BootstrapService.GetWindowManagementState
+0x140780c0c: int3     
+0x140780c0d: int3     
+0x140780c0e: int3     
+0x140780c0f: int3     
+0x140780c10: int3     
+0x140780c11: int3     
+0x140780c12: int3     
+0x140780c13: int3     
+0x140780c14: int3     
+0x140780c15: int3     
+0x140780c16: int3     
+0x140780c17: int3     
+0x140780c18: int3     
+0x140780c19: int3     
+0x140780c1a: int3     
+0x140780c1b: int3     
+0x140780c1c: int3     
+0x140780c1d: int3     
+0x140780c1e: int3     
+0x140780c1f: int3     

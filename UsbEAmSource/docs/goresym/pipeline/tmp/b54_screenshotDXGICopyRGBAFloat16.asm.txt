@@ -1,0 +1,359 @@
+0x14097cc00: lea      r12, [rsp - 0x58]
+0x14097cc05: cmp      r12, qword ptr [r14 + 0x10]
+0x14097cc09: jbe      0x14097d1af   ; main.screenshotDXGICopyRGBAFloat16+0x5af
+0x14097cc0f: push     rbp
+0x14097cc10: mov      rbp, rsp
+0x14097cc13: sub      rsp, 0xd0
+0x14097cc1a: mov      qword ptr [rsp + 0x110], rax
+0x14097cc22: mov      edx, dword ptr [rsp + 0xe0]
+0x14097cc29: mov      esi, ebx
+0x14097cc2b: mov      rdi, rdx
+0x14097cc2e: shl      rdx, 3
+0x14097cc32: mov      r8d, dword ptr [rsp + 0xe4]
+0x14097cc3a: nop      word ptr [rax + rax]
+0x14097cc40: cmp      rsi, rdx
+0x14097cc43: jl       0x14097cdbf   ; main.screenshotDXGICopyRGBAFloat16+0x1bf
+0x14097cc49: mov      qword ptr [rsp + 0x90], rsi
+0x14097cc51: mov      qword ptr [rsp + 0xa8], r8
+0x14097cc59: movss    dword ptr [rsp + 0x7c], xmm3
+0x14097cc5f: movss    dword ptr [rsp + 0x78], xmm2
+0x14097cc65: movss    dword ptr [rsp + 0x74], xmm1
+0x14097cc6b: movss    dword ptr [rsp + 0x70], xmm0
+0x14097cc71: mov      dword ptr [rsp + 0x6c], ebx
+0x14097cc75: mov      qword ptr [rsp + 0xc8], rax
+0x14097cc7d: mov      qword ptr [rsp + 0xa0], rdi
+0x14097cc85: movups   xmm0, xmmword ptr [rsp + 0xe0]
+0x14097cc8d: movups   xmmword ptr [rsp], xmm0
+0x14097cc91: movups   xmm0, xmmword ptr [rsp + 0xec]
+0x14097cc99: movups   xmmword ptr [rsp + 0xc], xmm0
+0x14097cc9e: movups   xmm0, xmmword ptr [rsp + 0xfc]
+0x14097cca6: movups   xmmword ptr [rsp + 0x1c], xmm0
+0x14097ccab: call     0x14097d220   ; main.screenshotDXGIMappedFloat16WithinSDRLinearRange
+0x14097ccb0: mov      byte ptr [rsp + 0x43], al
+0x14097ccb4: test     al, al
+0x14097ccb6: je       0x14097cce7   ; main.screenshotDXGICopyRGBAFloat16+0xe7
+0x14097ccb8: lea      rax, [rip + 0x313331]
+0x14097ccbf: mov      ebx, 0x44
+0x14097ccc4: xor      ecx, ecx
+0x14097ccc6: xor      edi, edi
+0x14097ccc8: mov      rsi, rdi
+0x14097cccb: call     0x140971440   ; main.screenshotHDRCaptureDebugLog
+0x14097ccd0: xorps    xmm3, xmm3
+0x14097ccd3: xorps    xmm2, xmm2
+0x14097ccd6: xorps    xmm1, xmm1
+0x14097ccd9: xorps    xmm0, xmm0
+0x14097ccdc: xorps    xmm6, xmm6
+0x14097ccdf: xorps    xmm5, xmm5
+0x14097cce2: xorps    xmm4, xmm4
+0x14097cce5: jmp      0x14097cd05   ; main.screenshotDXGICopyRGBAFloat16+0x105
+0x14097cce7: movss    xmm0, dword ptr [rsp + 0x70]
+0x14097cced: movss    xmm1, dword ptr [rsp + 0x74]
+0x14097ccf3: movss    xmm2, dword ptr [rsp + 0x78]
+0x14097ccf9: movss    xmm3, dword ptr [rsp + 0x7c]
+0x14097ccff: nop      
+0x14097cd00: call     0x1409adf80   ; main.newScreenshotHDRToneMapRuntime
+0x14097cd05: movss    dword ptr [rsp + 0x54], xmm3
+0x14097cd0b: movss    dword ptr [rsp + 0x50], xmm2
+0x14097cd11: movss    dword ptr [rsp + 0x48], xmm1
+0x14097cd17: movss    dword ptr [rsp + 0x4c], xmm0
+0x14097cd1d: movss    dword ptr [rsp + 0x5c], xmm6
+0x14097cd23: movss    dword ptr [rsp + 0x58], xmm5
+0x14097cd29: movss    dword ptr [rsp + 0x44], xmm4
+0x14097cd2f: call     0x14097dc80   ; main.screenshotFloat16ToFloat32Lookup
+0x14097cd34: mov      qword ptr [rsp + 0xb8], rax
+0x14097cd3c: xor      eax, eax
+0x14097cd3e: mov      rbx, rax
+0x14097cd41: mov      rcx, qword ptr [rsp + 0xa0]
+0x14097cd49: mov      rdi, qword ptr [rsp + 0xa8]
+0x14097cd51: call     0x1401a1ce0   ; image.NewRGBA
+0x14097cd56: mov      qword ptr [rsp + 0xb0], rax
+0x14097cd5e: mov      rcx, qword ptr [rsp + 0xa0]
+0x14097cd66: mov      rdx, qword ptr [rsp + 0xa8]
+0x14097cd6e: movzx    ebx, byte ptr [rsp + 0x43]
+0x14097cd73: mov      rsi, qword ptr [rsp + 0xb8]
+0x14097cd7b: movss    xmm0, dword ptr [rsp + 0x5c]
+0x14097cd81: mov      rdi, qword ptr [rsp + 0x90]
+0x14097cd89: movss    xmm1, dword ptr [rsp + 0x4c]
+0x14097cd8f: movss    xmm2, dword ptr [rsp + 0x48]
+0x14097cd95: movss    xmm3, dword ptr [rsp + 0x50]
+0x14097cd9b: movss    xmm4, dword ptr [rsp + 0x54]
+0x14097cda1: movss    xmm5, dword ptr [rsp + 0x44]
+0x14097cda7: movss    xmm6, dword ptr [rsp + 0x58]
+0x14097cdad: mov      r8, qword ptr [rsp + 0xc8]
+0x14097cdb5: mov      r9d, dword ptr [rsp + 0x6c]
+0x14097cdba: xor      r10d, r10d
+0x14097cdbd: jmp      0x14097cdf6   ; main.screenshotDXGICopyRGBAFloat16+0x1f6
+0x14097cdbf: lea      rax, [rip + 0x1d75ba]
+0x14097cdc6: call     0x14001ae20   ; runtime.newobject
+0x14097cdcb: mov      qword ptr [rax + 8], 0x25
+0x14097cdd3: lea      rcx, [rip + 0x2fd2bf]
+0x14097cdda: mov      qword ptr [rax], rcx
+0x14097cddd: lea      rbx, [rip + 0x85631c]
+0x14097cde4: mov      rcx, rax
+0x14097cde7: xor      eax, eax
+0x14097cde9: add      rsp, 0xd0
+0x14097cdf0: pop      rbp
+0x14097cdf1: ret      
+0x14097cdf2: lea      r10, [r13 + 1]
+0x14097cdf6: cmp      r10, rdx
+0x14097cdf9: jge      0x14097ce4a   ; main.screenshotDXGICopyRGBAFloat16+0x24a
+0x14097cdfb: mov      r11d, r9d
+0x14097cdfe: imul     r11, r10
+0x14097ce02: add      r11, r8
+0x14097ce05: mov      r12, r11
+0x14097ce08: neg      r11
+0x14097ce0b: cmp      rdi, r11
+0x14097ce0e: ja       0x14097d1a9   ; main.screenshotDXGICopyRGBAFloat16+0x5a9
+0x14097ce14: mov      qword ptr [rsp + 0x80], r10
+0x14097ce1c: mov      qword ptr [rsp + 0xc0], r12
+0x14097ce24: mov      r11, qword ptr [rax + 0x28]
+0x14097ce28: mov      r13, r10
+0x14097ce2b: sub      r10, r11
+0x14097ce2e: mov      r11, qword ptr [rax + 0x18]
+0x14097ce32: imul     r10, r11
+0x14097ce36: mov      r11, qword ptr [rax + 0x20]
+0x14097ce3a: neg      r11
+0x14097ce3d: nop      
+0x14097ce3e: lea      r10, [r10 + r11*4]
+0x14097ce42: xor      r11d, r11d
+0x14097ce45: jmp      0x14097cee0   ; main.screenshotDXGICopyRGBAFloat16+0x2e0
+0x14097ce4a: xor      ebx, ebx
+0x14097ce4c: xor      ecx, ecx
+0x14097ce4e: add      rsp, 0xd0
+0x14097ce55: pop      rbp
+0x14097ce56: ret      
+0x14097ce57: mov      r15, qword ptr [rcx]
+0x14097ce5a: mov      byte ptr [rbx + r15 + 3], al
+0x14097ce5f: mov      r11, qword ptr [rsp + 0x98]
+0x14097ce67: inc      r11
+0x14097ce6a: lea      r10, [rbx + 4]
+0x14097ce6e: mov      rax, rcx
+0x14097ce71: mov      rcx, qword ptr [rsp + 0xa0]
+0x14097ce79: mov      rdx, qword ptr [rsp + 0xa8]
+0x14097ce81: movzx    ebx, byte ptr [rsp + 0x43]
+0x14097ce86: mov      rsi, qword ptr [rsp + 0xb8]
+0x14097ce8e: mov      rdi, qword ptr [rsp + 0x90]
+0x14097ce96: mov      r8, qword ptr [rsp + 0xc8]
+0x14097ce9e: mov      r9d, dword ptr [rsp + 0x6c]
+0x14097cea3: mov      r12, qword ptr [rsp + 0xc0]
+0x14097ceab: mov      r13, qword ptr [rsp + 0x80]
+0x14097ceb3: movss    xmm0, dword ptr [rsp + 0x5c]
+0x14097ceb9: movss    xmm1, dword ptr [rsp + 0x4c]
+0x14097cebf: movss    xmm2, dword ptr [rsp + 0x48]
+0x14097cec5: movss    xmm3, dword ptr [rsp + 0x50]
+0x14097cecb: movss    xmm4, dword ptr [rsp + 0x54]
+0x14097ced1: movss    xmm5, dword ptr [rsp + 0x44]
+0x14097ced7: movss    xmm6, dword ptr [rsp + 0x58]
+0x14097cedd: nop      dword ptr [rax]
+0x14097cee0: cmp      r11, rcx
+0x14097cee3: jge      0x14097cdf2   ; main.screenshotDXGICopyRGBAFloat16+0x1f2
+0x14097cee9: test     byte ptr [rsi], al
+0x14097ceeb: mov      r15, r11
+0x14097ceee: shl      r11, 3
+0x14097cef2: cmp      rdi, r11
+0x14097cef5: jbe      0x14097d19e   ; main.screenshotDXGICopyRGBAFloat16+0x59e
+0x14097cefb: lea      r8, [r11 + 1]
+0x14097ceff: lea      r9, [r12 + r15*8]
+0x14097cf03: cmp      rdi, r8
+0x14097cf06: jbe      0x14097d193   ; main.screenshotDXGICopyRGBAFloat16+0x593
+0x14097cf0c: movzx    r8d, word ptr [r9]
+0x14097cf10: lea      r9, [r11 + 2]
+0x14097cf14: movss    xmm10, dword ptr [rsi + r8*4]
+0x14097cf1a: nop      word ptr [rax + rax]
+0x14097cf20: cmp      rdi, r9
+0x14097cf23: jbe      0x14097d188   ; main.screenshotDXGICopyRGBAFloat16+0x588
+0x14097cf29: lea      r8, [r11 + 3]
+0x14097cf2d: lea      r9, [r12 + r15*8]
+0x14097cf31: lea      r9, [r9 + 2]
+0x14097cf35: cmp      rdi, r8
+0x14097cf38: jbe      0x14097d17d   ; main.screenshotDXGICopyRGBAFloat16+0x57d
+0x14097cf3e: movzx    r8d, word ptr [r9]
+0x14097cf42: lea      r9, [r11 + 4]
+0x14097cf46: movss    xmm11, dword ptr [rsi + r8*4]
+0x14097cf4c: cmp      rdi, r9
+0x14097cf4f: jbe      0x14097d172   ; main.screenshotDXGICopyRGBAFloat16+0x572
+0x14097cf55: lea      r8, [r11 + 5]
+0x14097cf59: lea      r9, [r12 + r15*8]
+0x14097cf5d: lea      r9, [r9 + 4]
+0x14097cf61: cmp      rdi, r8
+0x14097cf64: jbe      0x14097d167   ; main.screenshotDXGICopyRGBAFloat16+0x567
+0x14097cf6a: movzx    r8d, word ptr [r9]
+0x14097cf6e: lea      r9, [r11 + 6]
+0x14097cf72: movss    xmm12, dword ptr [rsi + r8*4]
+0x14097cf78: nop      dword ptr [rax + rax]
+0x14097cf80: cmp      rdi, r9
+0x14097cf83: jbe      0x14097d15c   ; main.screenshotDXGICopyRGBAFloat16+0x55c
+0x14097cf89: lea      r8, [r11 + 7]
+0x14097cf8d: lea      r9, [r12 + r15*8]
+0x14097cf91: lea      r9, [r9 + 6]
+0x14097cf95: cmp      rdi, r8
+0x14097cf98: jbe      0x14097d151   ; main.screenshotDXGICopyRGBAFloat16+0x551
+0x14097cf9e: mov      qword ptr [rsp + 0x98], r15
+0x14097cfa6: mov      qword ptr [rsp + 0x88], r10
+0x14097cfae: movzx    r8d, word ptr [r9]
+0x14097cfb2: movss    xmm13, dword ptr [rsi + r8*4]
+0x14097cfb8: movss    dword ptr [rsp + 0x68], xmm13
+0x14097cfbf: nop      
+0x14097cfc0: test     bl, bl
+0x14097cfc2: je       0x14097d072   ; main.screenshotDXGICopyRGBAFloat16+0x472
+0x14097cfc8: movss    dword ptr [rsp + 0x60], xmm11
+0x14097cfcf: movss    dword ptr [rsp + 0x64], xmm12
+0x14097cfd6: movups   xmm0, xmm10
+0x14097cfda: call     0x14097dd60   ; main.screenshotLinearFloatToSRGBByte
+0x14097cfdf: mov      rcx, qword ptr [rsp + 0xb0]
+0x14097cfe7: mov      rdx, qword ptr [rcx + 8]
+0x14097cfeb: mov      rbx, qword ptr [rsp + 0x88]
+0x14097cff3: cmp      rbx, rdx
+0x14097cff6: jae      0x14097d146   ; main.screenshotDXGICopyRGBAFloat16+0x546
+0x14097cffc: mov      rcx, qword ptr [rcx]
+0x14097cfff: mov      byte ptr [rcx + rbx], al
+0x14097d002: movss    xmm0, dword ptr [rsp + 0x60]
+0x14097d008: call     0x14097dd60   ; main.screenshotLinearFloatToSRGBByte
+0x14097d00d: mov      rcx, qword ptr [rsp + 0xb0]
+0x14097d015: mov      rdx, qword ptr [rcx + 8]
+0x14097d019: mov      rbx, qword ptr [rsp + 0x88]
+0x14097d021: lea      rsi, [rbx + 1]
+0x14097d025: cmp      rdx, rsi
+0x14097d028: jbe      0x14097d13b   ; main.screenshotDXGICopyRGBAFloat16+0x53b
+0x14097d02e: mov      rcx, qword ptr [rcx]
+0x14097d031: mov      byte ptr [rbx + rcx + 1], al
+0x14097d035: movss    xmm0, dword ptr [rsp + 0x64]
+0x14097d03b: nop      dword ptr [rax + rax]
+0x14097d040: call     0x14097dd60   ; main.screenshotLinearFloatToSRGBByte
+0x14097d045: mov      rcx, qword ptr [rsp + 0xb0]
+0x14097d04d: mov      rdx, qword ptr [rcx + 8]
+0x14097d051: mov      rbx, qword ptr [rsp + 0x88]
+0x14097d059: lea      rsi, [rbx + 2]
+0x14097d05d: nop      dword ptr [rax]
+0x14097d060: cmp      rdx, rsi
+0x14097d063: jbe      0x14097d130   ; main.screenshotDXGICopyRGBAFloat16+0x530
+0x14097d069: mov      rdx, qword ptr [rcx]
+0x14097d06c: mov      byte ptr [rbx + rdx + 2], al
+0x14097d070: jmp      0x14097d0d8   ; main.screenshotDXGICopyRGBAFloat16+0x4d8
+0x14097d072: movups   xmm7, xmm5
+0x14097d075: movups   xmm8, xmm6
+0x14097d079: movups   xmm9, xmm0
+0x14097d07d: movups   xmm0, xmm10
+0x14097d081: movups   xmm5, xmm3
+0x14097d084: movups   xmm6, xmm4
+0x14097d087: movups   xmm3, xmm1
+0x14097d08a: movups   xmm4, xmm2
+0x14097d08d: movups   xmm1, xmm11
+0x14097d091: movups   xmm2, xmm12
+0x14097d095: call     0x1409add00   ; main.screenshotHDRToneMapRuntimeRGBToSRGBBytes
+0x14097d09a: mov      rdx, qword ptr [rsp + 0xb0]
+0x14097d0a2: mov      rsi, qword ptr [rdx + 8]
+0x14097d0a6: mov      rdi, qword ptr [rsp + 0x88]
+0x14097d0ae: cmp      rdi, rsi
+0x14097d0b1: jae      0x14097d125   ; main.screenshotDXGICopyRGBAFloat16+0x525
+0x14097d0b3: mov      r8, qword ptr [rdx]
+0x14097d0b6: mov      byte ptr [r8 + rdi], al
+0x14097d0ba: lea      rax, [rdi + 1]
+0x14097d0be: nop      
+0x14097d0c0: cmp      rsi, rax
+0x14097d0c3: jbe      0x14097d11c   ; main.screenshotDXGICopyRGBAFloat16+0x51c
+0x14097d0c5: mov      byte ptr [rdi + r8 + 1], bl
+0x14097d0ca: lea      rax, [rdi + 2]
+0x14097d0ce: cmp      rsi, rax
+0x14097d0d1: jbe      0x14097d114   ; main.screenshotDXGICopyRGBAFloat16+0x514
+0x14097d0d3: mov      byte ptr [rdi + r8 + 2], cl
+0x14097d0d8: movss    xmm0, dword ptr [rsp + 0x68]
+0x14097d0de: nop      
+0x14097d0e0: call     0x14097de80   ; main.screenshotLinearAlphaToByte
+0x14097d0e5: mov      rcx, qword ptr [rsp + 0xb0]
+0x14097d0ed: mov      rdx, qword ptr [rcx + 8]
+0x14097d0f1: mov      rbx, qword ptr [rsp + 0x88]
+0x14097d0f9: lea      rsi, [rbx + 3]
+0x14097d0fd: nop      dword ptr [rax]
+0x14097d100: cmp      rdx, rsi
+0x14097d103: ja       0x14097ce57   ; main.screenshotDXGICopyRGBAFloat16+0x257
+0x14097d109: mov      rax, rsi
+0x14097d10c: mov      rcx, rdx
+0x14097d10f: call     0x140081400   ; runtime.panicIndex
+0x14097d114: mov      rcx, rsi
+0x14097d117: call     0x140081400   ; runtime.panicIndex
+0x14097d11c: mov      rcx, rsi
+0x14097d11f: nop      
+0x14097d120: call     0x140081400   ; runtime.panicIndex
+0x14097d125: mov      rax, rdi
+0x14097d128: mov      rcx, rsi
+0x14097d12b: call     0x140081400   ; runtime.panicIndex
+0x14097d130: mov      rax, rsi
+0x14097d133: mov      rcx, rdx
+0x14097d136: call     0x140081400   ; runtime.panicIndex
+0x14097d13b: mov      rax, rsi
+0x14097d13e: mov      rcx, rdx
+0x14097d141: call     0x140081400   ; runtime.panicIndex
+0x14097d146: mov      rax, rbx
+0x14097d149: mov      rcx, rdx
+0x14097d14c: call     0x140081400   ; runtime.panicIndex
+0x14097d151: mov      rax, r8
+0x14097d154: mov      rcx, rdi
+0x14097d157: call     0x140081400   ; runtime.panicIndex
+0x14097d15c: mov      rax, r9
+0x14097d15f: mov      rcx, rdi
+0x14097d162: call     0x140081400   ; runtime.panicIndex
+0x14097d167: mov      rax, r8
+0x14097d16a: mov      rcx, rdi
+0x14097d16d: call     0x140081400   ; runtime.panicIndex
+0x14097d172: mov      rax, r9
+0x14097d175: mov      rcx, rdi
+0x14097d178: call     0x140081400   ; runtime.panicIndex
+0x14097d17d: mov      rax, r8
+0x14097d180: mov      rcx, rdi
+0x14097d183: call     0x140081400   ; runtime.panicIndex
+0x14097d188: mov      rax, r9
+0x14097d18b: mov      rcx, rdi
+0x14097d18e: call     0x140081400   ; runtime.panicIndex
+0x14097d193: mov      rax, r8
+0x14097d196: mov      rcx, rdi
+0x14097d199: call     0x140081400   ; runtime.panicIndex
+0x14097d19e: mov      rax, r11
+0x14097d1a1: mov      rcx, rdi
+0x14097d1a4: call     0x140081400   ; runtime.panicIndex
+0x14097d1a9: call     0x140073200   ; runtime.panicunsafeslicelen
+0x14097d1ae: nop      
+0x14097d1af: mov      qword ptr [rsp + 0x38], rax
+0x14097d1b4: mov      dword ptr [rsp + 0x40], ebx
+0x14097d1b8: mov      dword ptr [rsp + 0x44], ecx
+0x14097d1bc: movss    dword ptr [rsp + 0x48], xmm0
+0x14097d1c2: movss    dword ptr [rsp + 0x4c], xmm1
+0x14097d1c8: movss    dword ptr [rsp + 0x50], xmm2
+0x14097d1ce: movss    dword ptr [rsp + 0x54], xmm3
+0x14097d1d4: call     0x14007f140   ; runtime.morestack_noctxt
+0x14097d1d9: mov      rax, qword ptr [rsp + 0x38]
+0x14097d1de: mov      ebx, dword ptr [rsp + 0x40]
+0x14097d1e2: mov      ecx, dword ptr [rsp + 0x44]
+0x14097d1e6: movss    xmm0, dword ptr [rsp + 0x48]
+0x14097d1ec: movss    xmm1, dword ptr [rsp + 0x4c]
+0x14097d1f2: movss    xmm2, dword ptr [rsp + 0x50]
+0x14097d1f8: movss    xmm3, dword ptr [rsp + 0x54]
+0x14097d1fe: nop      
+0x14097d200: jmp      0x14097cc00   ; main.screenshotDXGICopyRGBAFloat16
+0x14097d205: int3     
+0x14097d206: int3     
+0x14097d207: int3     
+0x14097d208: int3     
+0x14097d209: int3     
+0x14097d20a: int3     
+0x14097d20b: int3     
+0x14097d20c: int3     
+0x14097d20d: int3     
+0x14097d20e: int3     
+0x14097d20f: int3     
+0x14097d210: int3     
+0x14097d211: int3     
+0x14097d212: int3     
+0x14097d213: int3     
+0x14097d214: int3     
+0x14097d215: int3     
+0x14097d216: int3     
+0x14097d217: int3     
+0x14097d218: int3     
+0x14097d219: int3     
+0x14097d21a: int3     
+0x14097d21b: int3     
+0x14097d21c: int3     
+0x14097d21d: int3     
+0x14097d21e: int3     
+0x14097d21f: int3     

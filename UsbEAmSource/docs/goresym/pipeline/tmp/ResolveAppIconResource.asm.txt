@@ -1,0 +1,61 @@
+0x1408a17e0: lea      r12, [rsp - 0x38]
+0x1408a17e5: cmp      r12, qword ptr [r14 + 0x10]
+0x1408a17e9: jbe      0x1408a18f6    ; main.BootstrapService.ResolveAppIconResource+0x116
+0x1408a17ef: push     rbp
+0x1408a17f0: mov      rbp, rsp
+0x1408a17f3: sub      rsp, 0xb0
+0x1408a17fa: mov      qword ptr [rsp + 0xc8], rbx
+0x1408a1802: mov      qword ptr [rsp + 0xc0], rax
+0x1408a180a: movups   xmmword ptr [rsp + 0x50], xmm15
+0x1408a1810: movups   xmmword ptr [rsp + 0x60], xmm15
+0x1408a1816: movups   xmmword ptr [rsp + 0x70], xmm15
+0x1408a181c: mov      rdx, qword ptr [rip + 0x1347cdd]
+0x1408a1823: nop      
+0x1408a1824: mov      qword ptr [rsp], rdx
+0x1408a1828: movups   xmm0, xmmword ptr [rip + 0x1347cd9]
+0x1408a182f: movups   xmmword ptr [rsp + 8], xmm0
+0x1408a1834: movups   xmm0, xmmword ptr [rip + 0x1347cdd]
+0x1408a183b: movups   xmmword ptr [rsp + 0x18], xmm0
+0x1408a1840: movups   xmm0, xmmword ptr [rip + 0x1347ce1]
+0x1408a1847: movups   xmmword ptr [rsp + 0x28], xmm0
+0x1408a184c: mov      rax, rbx
+0x1408a184f: mov      rbx, rcx
+0x1408a1852: xor      ecx, ecx
+0x1408a1854: call     0x1407496a0    ; main.resolveAppIconDataWithOptions
+0x1408a1859: mov      ecx, 8
+0x1408a185e: mov      rdi, rax
+0x1408a1861: mov      rsi, rbx
+0x1408a1864: mov      rax, qword ptr [rsp + 0xc0]
+0x1408a186c: lea      rbx, [rip + 0x39a8b1]
+0x1408a1873: call     0x1408a4f20    ; main.BootstrapService.buildLauncherIconResource
+0x1408a1878: mov      qword ptr [rsp + 0x80], rax
+0x1408a1880: mov      qword ptr [rsp + 0x88], rbx
+0x1408a1888: mov      qword ptr [rsp + 0x90], rcx
+0x1408a1890: mov      qword ptr [rsp + 0x98], rdi
+0x1408a1898: mov      qword ptr [rsp + 0xa0], rsi
+0x1408a18a0: mov      qword ptr [rsp + 0xa8], r8
+0x1408a18a8: movups   xmm0, xmmword ptr [rsp + 0x80]
+0x1408a18b0: movups   xmmword ptr [rsp + 0x50], xmm0
+0x1408a18b5: movups   xmm0, xmmword ptr [rsp + 0x90]
+0x1408a18bd: movups   xmmword ptr [rsp + 0x60], xmm0
+0x1408a18c2: movups   xmm0, xmmword ptr [rsp + 0xa0]
+0x1408a18ca: movups   xmmword ptr [rsp + 0x70], xmm0
+0x1408a18cf: mov      rax, qword ptr [rsp + 0x50]
+0x1408a18d4: mov      rbx, qword ptr [rsp + 0x58]
+0x1408a18d9: mov      rcx, qword ptr [rsp + 0x60]
+0x1408a18de: mov      rdi, qword ptr [rsp + 0x68]
+0x1408a18e3: mov      rsi, qword ptr [rsp + 0x70]
+0x1408a18e8: mov      r8, qword ptr [rsp + 0x78]
+0x1408a18ed: add      rsp, 0xb0
+0x1408a18f4: pop      rbp
+0x1408a18f5: ret      
+0x1408a18f6: mov      qword ptr [rsp + 8], rax
+0x1408a18fb: mov      qword ptr [rsp + 0x10], rbx
+0x1408a1900: mov      qword ptr [rsp + 0x18], rcx
+0x1408a1905: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408a190a: mov      rax, qword ptr [rsp + 8]
+0x1408a190f: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a1914: mov      rcx, qword ptr [rsp + 0x18]
+0x1408a1919: jmp      0x1408a17e0    ; main.BootstrapService.ResolveAppIconResource
+0x1408a191e: int3     
+0x1408a191f: int3     

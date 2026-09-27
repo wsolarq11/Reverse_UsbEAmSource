@@ -1,0 +1,61 @@
+0x14091cde0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14091cde4: jbe      0x14091ce68   ; main.oledBlackoutMediaSessionSourceContainsPID+0x88
+0x14091cdea: push     rbp
+0x14091cdeb: mov      rbp, rsp
+0x14091cdee: sub      rsp, 0x38
+0x14091cdf2: mov      qword ptr [rsp + 0x48], rax
+0x14091cdf7: test     ecx, ecx
+0x14091cdf9: jne      0x14091cdff   ; main.oledBlackoutMediaSessionSourceContainsPID+0x1f
+0x14091cdfb: xor      ecx, ecx
+0x14091cdfd: jmp      0x14091ce60   ; main.oledBlackoutMediaSessionSourceContainsPID+0x80
+0x14091cdff: mov      qword ptr [rsp + 0x50], rbx
+0x14091ce04: mov      qword ptr [rsp + 0x48], rax
+0x14091ce09: movups   xmmword ptr [rsp + 0x28], xmm15
+0x14091ce0f: mov      eax, ecx
+0x14091ce11: call     0x1400173c0   ; runtime.convT32
+0x14091ce16: lea      rcx, [rip + 0x1cd163]
+0x14091ce1d: mov      qword ptr [rsp + 0x28], rcx
+0x14091ce22: mov      qword ptr [rsp + 0x30], rax
+0x14091ce27: lea      rax, [rip + 0x316899]
+0x14091ce2e: mov      ebx, 2
+0x14091ce33: lea      rcx, [rsp + 0x28]
+0x14091ce38: mov      edi, 1
+0x14091ce3d: mov      rsi, rdi
+0x14091ce40: call     0x140136340   ; fmt.Sprintf
+0x14091ce45: mov      rcx, rax
+0x14091ce48: mov      rdi, rbx
+0x14091ce4b: mov      rax, qword ptr [rsp + 0x48]
+0x14091ce50: mov      rbx, qword ptr [rsp + 0x50]
+0x14091ce55: call     0x140006860   ; internal/stringslite.Index
+0x14091ce5a: test     rax, rax
+0x14091ce5d: setge    cl
+0x14091ce60: mov      eax, ecx
+0x14091ce62: add      rsp, 0x38
+0x14091ce66: pop      rbp
+0x14091ce67: ret      
+0x14091ce68: mov      qword ptr [rsp + 8], rax
+0x14091ce6d: mov      qword ptr [rsp + 0x10], rbx
+0x14091ce72: mov      dword ptr [rsp + 0x18], ecx
+0x14091ce76: call     0x14007f140   ; runtime.morestack_noctxt
+0x14091ce7b: mov      rax, qword ptr [rsp + 8]
+0x14091ce80: mov      rbx, qword ptr [rsp + 0x10]
+0x14091ce85: mov      ecx, dword ptr [rsp + 0x18]
+0x14091ce89: jmp      0x14091cde0   ; main.oledBlackoutMediaSessionSourceContainsPID
+0x14091ce8e: int3     
+0x14091ce8f: int3     
+0x14091ce90: int3     
+0x14091ce91: int3     
+0x14091ce92: int3     
+0x14091ce93: int3     
+0x14091ce94: int3     
+0x14091ce95: int3     
+0x14091ce96: int3     
+0x14091ce97: int3     
+0x14091ce98: int3     
+0x14091ce99: int3     
+0x14091ce9a: int3     
+0x14091ce9b: int3     
+0x14091ce9c: int3     
+0x14091ce9d: int3     
+0x14091ce9e: int3     
+0x14091ce9f: int3     

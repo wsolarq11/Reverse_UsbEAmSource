@@ -1,0 +1,91 @@
+0x1407e0760: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407e0764: jbe      0x1407e0855   ; main.normalizeFileSearchIgnoredDirectoryRule+0xf5
+0x1407e076a: push     rbp
+0x1407e076b: mov      rbp, rsp
+0x1407e076e: sub      rsp, 0x30
+0x1407e0772: mov      qword ptr [rsp + 0x40], rax
+0x1407e0777: lea      rcx, [rip + 0x452f03]
+0x1407e077e: mov      edi, 2
+0x1407e0783: call     0x1400a1c20   ; strings.Trim
+0x1407e0788: call     0x1400a2200   ; strings.TrimSpace
+0x1407e078d: test     rbx, rbx
+0x1407e0790: je       0x1407e084b   ; main.normalizeFileSearchIgnoredDirectoryRule+0xeb
+0x1407e0796: mov      qword ptr [rsp + 0x20], rbx
+0x1407e079b: mov      qword ptr [rsp + 0x28], rax
+0x1407e07a0: call     0x1407e0a20   ; main.isFileSearchIgnoredDirectoryPathRule
+0x1407e07a5: test     al, al
+0x1407e07a7: jne      0x1407e0835   ; main.normalizeFileSearchIgnoredDirectoryRule+0xd5
+0x1407e07ad: mov      rax, qword ptr [rsp + 0x28]
+0x1407e07b2: mov      rbx, qword ptr [rsp + 0x20]
+0x1407e07b7: lea      rcx, [rip + 0x452ea3]
+0x1407e07be: mov      edi, 2
+0x1407e07c3: call     0x1400a2000   ; strings.TrimRight
+0x1407e07c8: test     rbx, rbx
+0x1407e07cb: je       0x1407e082b   ; main.normalizeFileSearchIgnoredDirectoryRule+0xcb
+0x1407e07cd: mov      qword ptr [rsp + 0x20], rbx
+0x1407e07d2: mov      qword ptr [rsp + 0x28], rax
+0x1407e07d7: lea      rcx, [rip + 0x452e83]
+0x1407e07de: mov      edi, 2
+0x1407e07e3: call     0x14009f4c0   ; strings.IndexAny
+0x1407e07e8: test     rax, rax
+0x1407e07eb: jge      0x1407e0821   ; main.normalizeFileSearchIgnoredDirectoryRule+0xc1
+0x1407e07ed: mov      rax, qword ptr [rsp + 0x28]
+0x1407e07f2: mov      rbx, qword ptr [rsp + 0x20]
+0x1407e07f7: call     0x1400a2200   ; strings.TrimSpace
+0x1407e07fc: nop      dword ptr [rax]
+0x1407e0800: test     rbx, rbx
+0x1407e0803: je       0x1407e0810   ; main.normalizeFileSearchIgnoredDirectoryRule+0xb0
+0x1407e0805: cmp      rbx, 1
+0x1407e0809: jne      0x1407e081a   ; main.normalizeFileSearchIgnoredDirectoryRule+0xba
+0x1407e080b: cmp      byte ptr [rax], 0x2e
+0x1407e080e: jne      0x1407e081a   ; main.normalizeFileSearchIgnoredDirectoryRule+0xba
+0x1407e0810: xor      eax, eax
+0x1407e0812: xor      ebx, ebx
+0x1407e0814: add      rsp, 0x30
+0x1407e0818: pop      rbp
+0x1407e0819: ret      
+0x1407e081a: add      rsp, 0x30
+0x1407e081e: pop      rbp
+0x1407e081f: nop      
+0x1407e0820: ret      
+0x1407e0821: xor      eax, eax
+0x1407e0823: xor      ebx, ebx
+0x1407e0825: add      rsp, 0x30
+0x1407e0829: pop      rbp
+0x1407e082a: ret      
+0x1407e082b: xor      eax, eax
+0x1407e082d: xor      ebx, ebx
+0x1407e082f: add      rsp, 0x30
+0x1407e0833: pop      rbp
+0x1407e0834: ret      
+0x1407e0835: mov      rax, qword ptr [rsp + 0x28]
+0x1407e083a: mov      rbx, qword ptr [rsp + 0x20]
+0x1407e083f: nop      
+0x1407e0840: call     0x1407e0880   ; main.normalizeFileSearchIgnoredDirectoryPath
+0x1407e0845: add      rsp, 0x30
+0x1407e0849: pop      rbp
+0x1407e084a: ret      
+0x1407e084b: xor      eax, eax
+0x1407e084d: xor      ebx, ebx
+0x1407e084f: add      rsp, 0x30
+0x1407e0853: pop      rbp
+0x1407e0854: ret      
+0x1407e0855: mov      qword ptr [rsp + 8], rax
+0x1407e085a: mov      qword ptr [rsp + 0x10], rbx
+0x1407e085f: nop      
+0x1407e0860: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407e0865: mov      rax, qword ptr [rsp + 8]
+0x1407e086a: mov      rbx, qword ptr [rsp + 0x10]
+0x1407e086f: jmp      0x1407e0760   ; main.normalizeFileSearchIgnoredDirectoryRule
+0x1407e0874: int3     
+0x1407e0875: int3     
+0x1407e0876: int3     
+0x1407e0877: int3     
+0x1407e0878: int3     
+0x1407e0879: int3     
+0x1407e087a: int3     
+0x1407e087b: int3     
+0x1407e087c: int3     
+0x1407e087d: int3     
+0x1407e087e: int3     
+0x1407e087f: int3     

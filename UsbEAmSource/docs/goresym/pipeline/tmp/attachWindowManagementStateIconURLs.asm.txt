@@ -1,0 +1,76 @@
+0x1408a48e0: lea      r12, [rsp - 0x110]
+0x1408a48e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1408a48ec: jbe      0x1408a4a65    ; main.BootstrapService.attachWindowManagementStateIconURLs+0x185
+0x1408a48f2: push     rbp
+0x1408a48f3: mov      rbp, rsp
+0x1408a48f6: sub      rsp, 0x188
+0x1408a48fd: mov      qword ptr [rsp + 0x6f8], rax
+0x1408a4905: lea      rdi, [rsp + 0x448]
+0x1408a490d: lea      rdi, [rdi - 0x10]
+0x1408a4911: nop      word ptr [rax + rax]
+0x1408a491a: nop      word ptr [rax + rax]
+0x1408a4920: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4925: lea      rbp, [rsp - 0x10]
+0x1408a492a: call     0x140081657    ; runtime.duffzero+0x77
+0x1408a492f: mov      rbp, qword ptr [rbp]
+0x1408a4933: mov      rdi, rsp
+0x1408a4936: lea      rsi, [rsp + 0x1c0]
+0x1408a493e: nop      
+0x1408a4940: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4945: lea      rbp, [rsp - 0x10]
+0x1408a494a: call     0x140081a70    ; runtime.duffcopy+0x310
+0x1408a494f: mov      rbp, qword ptr [rbp]
+0x1408a4953: call     0x1408a45c0    ; main.BootstrapService.attachWindowManagementTargetIconURL
+0x1408a4958: lea      rdi, [rsp + 0x108]
+0x1408a4960: lea      rsi, [rsp + 0x80]
+0x1408a4968: mov      qword ptr [rsp - 0x10], rbp
+0x1408a496d: lea      rbp, [rsp - 0x10]
+0x1408a4972: call     0x140081a70    ; runtime.duffcopy+0x310
+0x1408a4977: mov      rbp, qword ptr [rbp]
+0x1408a497b: lea      rdi, [rsp + 0x1c0]
+0x1408a4983: lea      rsi, [rsp + 0x108]
+0x1408a498b: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4990: lea      rbp, [rsp - 0x10]
+0x1408a4995: call     0x140081a70    ; runtime.duffcopy+0x310
+0x1408a499a: mov      rbp, qword ptr [rbp]
+0x1408a499e: mov      rdi, rsp
+0x1408a49a1: lea      rsi, [rsp + 0x298]
+0x1408a49a9: mov      qword ptr [rsp - 0x10], rbp
+0x1408a49ae: lea      rbp, [rsp - 0x10]
+0x1408a49b3: call     0x140081a70    ; runtime.duffcopy+0x310
+0x1408a49b8: mov      rbp, qword ptr [rbp]
+0x1408a49bc: mov      rax, qword ptr [rsp + 0x6f8]
+0x1408a49c4: call     0x1408a45c0    ; main.BootstrapService.attachWindowManagementTargetIconURL
+0x1408a49c9: lea      rdi, [rsp + 0x108]
+0x1408a49d1: lea      rsi, [rsp + 0x80]
+0x1408a49d9: nop      dword ptr [rax]
+0x1408a49e0: mov      qword ptr [rsp - 0x10], rbp
+0x1408a49e5: lea      rbp, [rsp - 0x10]
+0x1408a49ea: call     0x140081a70    ; runtime.duffcopy+0x310
+0x1408a49ef: mov      rbp, qword ptr [rbp]
+0x1408a49f3: lea      rdi, [rsp + 0x298]
+0x1408a49fb: lea      rsi, [rsp + 0x108]
+0x1408a4a03: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4a08: lea      rbp, [rsp - 0x10]
+0x1408a4a0d: call     0x140081a70    ; runtime.duffcopy+0x310
+0x1408a4a12: mov      rbp, qword ptr [rbp]
+0x1408a4a16: lea      rdi, [rsp + 0x448]
+0x1408a4a1e: lea      rsi, [rsp + 0x198]
+0x1408a4a26: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4a2b: lea      rbp, [rsp - 0x10]
+0x1408a4a30: call     0x140081886    ; runtime.duffcopy+0x126
+0x1408a4a35: mov      rbp, qword ptr [rbp]
+0x1408a4a39: lea      rdi, [rsp + 0x448]
+0x1408a4a41: lea      rsi, [rsp + 0x198]
+0x1408a4a49: mov      qword ptr [rsp - 0x10], rbp
+0x1408a4a4e: lea      rbp, [rsp - 0x10]
+0x1408a4a53: call     0x140081886    ; runtime.duffcopy+0x126
+0x1408a4a58: mov      rbp, qword ptr [rbp]
+0x1408a4a5c: add      rsp, 0x188
+0x1408a4a63: pop      rbp
+0x1408a4a64: ret      
+0x1408a4a65: mov      qword ptr [rsp + 0x568], rax
+0x1408a4a6d: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408a4a72: mov      rax, qword ptr [rsp + 0x568]
+0x1408a4a7a: jmp      0x1408a48e0    ; main.BootstrapService.attachWindowManagementStateIconURLs
+0x1408a4a7f: int3     

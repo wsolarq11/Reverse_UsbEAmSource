@@ -1,0 +1,56 @@
+0x14093e920: cmp      rsp, qword ptr [r14 + 0x10]
+0x14093e924: jbe      0x14093e95d
+0x14093e926: push     rbp
+0x14093e927: mov      rbp, rsp
+0x14093e92a: sub      rsp, 0x20
+0x14093e92e: add      rbx, qword ptr [rax]
+0x14093e931: mov      qword ptr [rsp + 0x18], rbx
+0x14093e936: add      rcx, qword ptr [rax + 8]
+0x14093e93a: mov      qword ptr [rsp + 0x10], rcx
+0x14093e93f: nop      
+0x14093e940: call     0x140936dc0
+0x14093e945: mov      rbx, qword ptr [rsp + 0x10]
+0x14093e94a: mov      rcx, rax
+0x14093e94d: mov      rax, qword ptr [rsp + 0x18]
+0x14093e952: call     0x1409c19c0
+0x14093e957: add      rsp, 0x20
+0x14093e95b: pop      rbp
+0x14093e95c: ret      
+0x14093e95d: mov      qword ptr [rsp + 8], rax
+0x14093e962: mov      qword ptr [rsp + 0x10], rbx
+0x14093e967: mov      qword ptr [rsp + 0x18], rcx
+0x14093e96c: call     0x14007f140
+0x14093e971: mov      rax, qword ptr [rsp + 8]
+0x14093e976: mov      rbx, qword ptr [rsp + 0x10]
+0x14093e97b: mov      rcx, qword ptr [rsp + 0x18]
+0x14093e980: jmp      0x14093e920
+0x14093e982: int3     
+0x14093e983: int3     
+0x14093e984: int3     
+0x14093e985: int3     
+0x14093e986: int3     
+0x14093e987: int3     
+0x14093e988: int3     
+0x14093e989: int3     
+0x14093e98a: int3     
+0x14093e98b: int3     
+0x14093e98c: int3     
+0x14093e98d: int3     
+0x14093e98e: int3     
+0x14093e98f: int3     
+0x14093e990: int3     
+0x14093e991: int3     
+0x14093e992: int3     
+0x14093e993: int3     
+0x14093e994: int3     
+0x14093e995: int3     
+0x14093e996: int3     
+0x14093e997: int3     
+0x14093e998: int3     
+0x14093e999: int3     
+0x14093e99a: int3     
+0x14093e99b: int3     
+0x14093e99c: int3     
+0x14093e99d: int3     
+0x14093e99e: int3     
+0x14093e99f: int3     

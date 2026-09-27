@@ -1,0 +1,80 @@
+0x1408b7b20: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408b7b24: jbe      0x1408b7c31   ; main.BootstrapService.finishLauncherUpdateTask+0x111
+0x1408b7b2a: push     rbp
+0x1408b7b2b: mov      rbp, rsp
+0x1408b7b2e: sub      rsp, 0x20
+0x1408b7b32: test     rax, rax
+0x1408b7b35: je       0x1408b7c2b   ; main.BootstrapService.finishLauncherUpdateTask+0x10b
+0x1408b7b3b: mov      qword ptr [rsp + 0x40], rcx
+0x1408b7b40: nop      
+0x1408b7b41: lea      rdx, [rax + 0x540]
+0x1408b7b48: mov      rsi, rax
+0x1408b7b4b: xor      eax, eax
+0x1408b7b4d: mov      edi, 1
+0x1408b7b52: lock cmpxchg dword ptr [rsi + 0x540], edi
+0x1408b7b5a: sete     dil
+0x1408b7b5e: nop      
+0x1408b7b60: test     dil, dil
+0x1408b7b63: jne      0x1408b7b90   ; main.BootstrapService.finishLauncherUpdateTask+0x70
+0x1408b7b65: mov      qword ptr [rsp + 0x18], rsi
+0x1408b7b6a: mov      qword ptr [rsp + 0x38], rbx
+0x1408b7b6f: mov      qword ptr [rsp + 0x10], rdx
+0x1408b7b74: mov      rax, rdx
+0x1408b7b77: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1408b7b7c: mov      rcx, qword ptr [rsp + 0x40]
+0x1408b7b81: mov      rdx, qword ptr [rsp + 0x10]
+0x1408b7b86: mov      rbx, qword ptr [rsp + 0x38]
+0x1408b7b8b: mov      rsi, qword ptr [rsp + 0x18]
+0x1408b7b90: cmp      qword ptr [rsi + 0x4d0], rbx
+0x1408b7b97: jne      0x1408b7bfc   ; main.BootstrapService.finishLauncherUpdateTask+0xdc
+0x1408b7b99: cmp      dword ptr [rip + 0x13a37b0], 0
+0x1408b7ba0: je       0x1408b7bbc   ; main.BootstrapService.finishLauncherUpdateTask+0x9c
+0x1408b7ba2: mov      rdi, qword ptr [rsi + 0x4c8]
+0x1408b7ba9: mov      r8, qword ptr [rsi + 0x4d8]
+0x1408b7bb0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1408b7bb5: mov      qword ptr [r11], rdi
+0x1408b7bb8: mov      qword ptr [r11 + 8], r8
+0x1408b7bbc: mov      qword ptr [rsi + 0x4c8], 0
+0x1408b7bc7: movups   xmmword ptr [rsi + 0x4d8], xmm15
+0x1408b7bcf: cmp      qword ptr [rsi + 0x4e8], rcx
+0x1408b7bd6: jne      0x1408b7bfc   ; main.BootstrapService.finishLauncherUpdateTask+0xdc
+0x1408b7bd8: cmp      dword ptr [rip + 0x13a3771], 0
+0x1408b7bdf: nop      
+0x1408b7be0: je       0x1408b7bf1   ; main.BootstrapService.finishLauncherUpdateTask+0xd1
+0x1408b7be2: mov      rdi, qword ptr [rsi + 0x4e8]
+0x1408b7be9: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408b7bee: mov      qword ptr [r11], rdi
+0x1408b7bf1: mov      qword ptr [rsi + 0x4e8], 0
+0x1408b7bfc: nop      
+0x1408b7bfd: nop      
+0x1408b7bfe: mov      ebx, 0xffffffff
+0x1408b7c03: lock xadd dword ptr [rsi + 0x540], ebx
+0x1408b7c0b: dec      ebx
+0x1408b7c0d: je       0x1408b7c1c   ; main.BootstrapService.finishLauncherUpdateTask+0xfc
+0x1408b7c0f: mov      rax, rdx
+0x1408b7c12: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x1408b7c17: mov      rcx, qword ptr [rsp + 0x40]
+0x1408b7c1c: mov      rax, rcx
+0x1408b7c1f: nop      
+0x1408b7c20: call     0x1400120e0   ; runtime.closechan
+0x1408b7c25: add      rsp, 0x20
+0x1408b7c29: pop      rbp
+0x1408b7c2a: ret      
+0x1408b7c2b: add      rsp, 0x20
+0x1408b7c2f: pop      rbp
+0x1408b7c30: ret      
+0x1408b7c31: mov      qword ptr [rsp + 8], rax
+0x1408b7c36: mov      qword ptr [rsp + 0x10], rbx
+0x1408b7c3b: mov      qword ptr [rsp + 0x18], rcx
+0x1408b7c40: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408b7c45: mov      rax, qword ptr [rsp + 8]
+0x1408b7c4a: mov      rbx, qword ptr [rsp + 0x10]
+0x1408b7c4f: mov      rcx, qword ptr [rsp + 0x18]
+0x1408b7c54: jmp      0x1408b7b20   ; main.BootstrapService.finishLauncherUpdateTask
+0x1408b7c59: int3     
+0x1408b7c5a: int3     
+0x1408b7c5b: int3     
+0x1408b7c5c: int3     
+0x1408b7c5d: int3     
+0x1408b7c5e: int3     
+0x1408b7c5f: int3     

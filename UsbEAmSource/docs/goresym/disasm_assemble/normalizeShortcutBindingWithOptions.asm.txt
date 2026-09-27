@@ -1,0 +1,336 @@
+0x1408887c0: lea      r12, [rsp - 0x150]
+0x1408887c8: cmp      r12, qword ptr [r14 + 0x10]
+0x1408887cc: jbe      0x140888d48    ; main.normalizeShortcutBindingWithOptions+0x588
+0x1408887d2: push     rbp
+0x1408887d3: mov      rbp, rsp
+0x1408887d6: sub      rsp, 0x1c8
+0x1408887dd: mov      qword ptr [rsp + 0x1d8], rax
+0x1408887e5: mov      qword ptr [rsp + 0x1e8], rcx
+0x1408887ed: mov      byte ptr [rsp + 0x47], r8b
+0x1408887f2: mov      byte ptr [rsp + 0x46], sil
+0x1408887f7: mov      byte ptr [rsp + 0x45], dil
+0x1408887fc: nop      dword ptr [rax]
+0x140888800: call     0x1400a2200    ; strings.TrimSpace
+0x140888805: test     rbx, rbx
+0x140888808: je       0x1408889a6    ; main.normalizeShortcutBindingWithOptions+0x1e6
+0x14088880e: nop      
+0x14088880f: lea      rcx, [rip + 0x94248a]
+0x140888816: mov      edi, 1
+0x14088881b: xor      esi, esi
+0x14088881d: mov      r8, 0xffffffffffffffff
+0x140888824: call     0x14009f920    ; strings.genSplit
+0x140888829: test     rbx, rbx
+0x14088882c: je       0x140888999    ; main.normalizeShortcutBindingWithOptions+0x1d9
+0x140888832: mov      qword ptr [rsp + 0x48], rbx
+0x140888837: mov      qword ptr [rsp + 0x80], rax
+0x14088883f: mov      rdx, qword ptr [rsp + 0x1e8]
+0x140888847: mov      rcx, qword ptr [rdx]
+0x14088884a: lea      rsi, [rbx - 1]
+0x14088884e: mov      qword ptr [rsp + 0x58], rsi
+0x140888853: shl      rsi, 4
+0x140888857: mov      qword ptr [rsp + 0x78], rsi
+0x14088885c: mov      rdi, qword ptr [rax + rsi]
+0x140888860: mov      rbx, qword ptr [rax + rsi + 8]
+0x140888865: mov      rax, rdi
+0x140888868: call     rcx
+0x14088886a: test     cl, cl
+0x14088886c: je       0x140888875    ; main.normalizeShortcutBindingWithOptions+0xb5
+0x14088886e: movzx    edx, byte ptr [rsp + 0x46]
+0x140888873: jmp      0x1408888aa    ; main.normalizeShortcutBindingWithOptions+0xea
+0x140888875: movzx    edx, byte ptr [rsp + 0x46]
+0x14088887a: test     dl, dl
+0x14088887c: je       0x1408888aa    ; main.normalizeShortcutBindingWithOptions+0xea
+0x14088887e: mov      rsi, qword ptr [rsp + 0x48]
+0x140888883: cmp      rsi, 1
+0x140888887: jne      0x1408888aa    ; main.normalizeShortcutBindingWithOptions+0xea
+0x140888889: mov      rcx, qword ptr [rsp + 0x78]
+0x14088888e: mov      rdx, qword ptr [rsp + 0x80]
+0x140888896: mov      rax, qword ptr [rdx + rcx]
+0x14088889a: mov      rbx, qword ptr [rdx + rcx + 8]
+0x14088889f: nop      
+0x1408888a0: call     0x140889560    ; main.canonicalHotkeyModifier
+0x1408888a5: movzx    edx, byte ptr [rsp + 0x46]
+0x1408888aa: test     cl, cl
+0x1408888ac: je       0x14088898c    ; main.normalizeShortcutBindingWithOptions+0x1cc
+0x1408888b2: mov      qword ptr [rsp + 0x68], rbx
+0x1408888b7: mov      qword ptr [rsp + 0xa0], rax
+0x1408888bf: lea      rax, [rip + 0x26153a]
+0x1408888c6: xor      ebx, ebx
+0x1408888c8: mov      rcx, qword ptr [rsp + 0x58]
+0x1408888cd: call     0x14007ac40    ; runtime.makeslice
+0x1408888d2: mov      qword ptr [rsp + 0xa8], rax
+0x1408888da: movups   xmmword ptr [rsp + 0x178], xmm15
+0x1408888e3: movups   xmmword ptr [rsp + 0x188], xmm15
+0x1408888ec: movups   xmmword ptr [rsp + 0x198], xmm15
+0x1408888f5: mov      rbx, qword ptr [rsp + 0x58]
+0x1408888fa: nop      word ptr [rax + rax]
+0x140888900: cmp      rbx, 8
+0x140888904: jg       0x140888955    ; main.normalizeShortcutBindingWithOptions+0x195
+0x140888906: movups   xmmword ptr [rsp + 0xb0], xmm15
+0x14088890f: lea      rdi, [rsp + 0xb8]
+0x140888917: nop      word ptr [rax + rax]
+0x140888920: mov      qword ptr [rsp - 0x10], rbp
+0x140888925: lea      rbp, [rsp - 0x10]
+0x14088892a: call     0x14008170b    ; runtime.duffzero+0x12b
+0x14088892f: mov      rbp, qword ptr [rbp]
+0x140888933: movabs   rdx, 0x8080808080808080
+0x14088893d: mov      qword ptr [rsp + 0xb0], rdx
+0x140888945: lea      rdx, [rsp + 0xb0]
+0x14088894d: mov      qword ptr [rsp + 0x188], rdx
+0x140888955: lea      rax, [rip + 0x2c0144]
+0x14088895c: lea      rcx, [rsp + 0x178]
+0x140888964: call     0x140076d80    ; runtime.makemap
+0x140888969: mov      qword ptr [rsp + 0x88], rax
+0x140888971: mov      rdx, qword ptr [rsp + 0x80]
+0x140888979: xor      ecx, ecx
+0x14088897b: mov      rbx, qword ptr [rsp + 0x58]
+0x140888980: xor      esi, esi
+0x140888982: mov      rdi, qword ptr [rsp + 0xa8]
+0x14088898a: jmp      0x1408889db    ; main.normalizeShortcutBindingWithOptions+0x21b
+0x14088898c: xor      eax, eax
+0x14088898e: xor      ebx, ebx
+0x140888990: add      rsp, 0x1c8
+0x140888997: pop      rbp
+0x140888998: ret      
+0x140888999: xor      eax, eax
+0x14088899b: xor      ebx, ebx
+0x14088899d: add      rsp, 0x1c8
+0x1408889a4: pop      rbp
+0x1408889a5: ret      
+0x1408889a6: xor      eax, eax
+0x1408889a8: xor      ebx, ebx
+0x1408889aa: add      rsp, 0x1c8
+0x1408889b1: pop      rbp
+0x1408889b2: ret      
+0x1408889b3: mov      rdx, qword ptr [rsp + 0xa8]
+0x1408889bb: add      rdx, 0x10
+0x1408889bf: mov      r8, qword ptr [rsp + 0x70]
+0x1408889c4: inc      r8
+0x1408889c7: mov      rsi, rbx
+0x1408889ca: mov      rdi, rax
+0x1408889cd: mov      rax, qword ptr [rsp + 0x88]
+0x1408889d5: mov      rbx, rcx
+0x1408889d8: mov      rcx, r8
+0x1408889db: mov      qword ptr [rsp + 0x78], rbx
+0x1408889e0: mov      qword ptr [rsp + 0x50], rsi
+0x1408889e5: mov      qword ptr [rsp + 0x90], rdi
+0x1408889ed: mov      r8, qword ptr [rsp + 0x58]
+0x1408889f2: cmp      rcx, r8
+0x1408889f5: jge      0x140888b20    ; main.normalizeShortcutBindingWithOptions+0x360
+0x1408889fb: mov      qword ptr [rsp + 0x70], rcx
+0x140888a00: mov      qword ptr [rsp + 0xa8], rdx
+0x140888a08: mov      rax, qword ptr [rdx]
+0x140888a0b: mov      rbx, qword ptr [rdx + 8]
+0x140888a0f: call     0x1400a2200    ; strings.TrimSpace
+0x140888a14: call     0x140889560    ; main.canonicalHotkeyModifier
+0x140888a19: nop      dword ptr [rax]
+0x140888a20: test     cl, cl
+0x140888a22: je       0x140888b0d    ; main.normalizeShortcutBindingWithOptions+0x34d
+0x140888a28: mov      qword ptr [rsp + 0x60], rbx
+0x140888a2d: mov      qword ptr [rsp + 0x98], rax
+0x140888a35: mov      rcx, rax
+0x140888a38: mov      rdi, rbx
+0x140888a3b: lea      rax, [rip + 0x2c005e]
+0x140888a42: mov      rbx, qword ptr [rsp + 0x88]
+0x140888a4a: call     0x14000dbc0    ; runtime.mapaccess2_faststr
+0x140888a4f: test     bl, bl
+0x140888a51: je       0x140888a6a    ; main.normalizeShortcutBindingWithOptions+0x2aa
+0x140888a53: mov      rcx, qword ptr [rsp + 0x78]
+0x140888a58: mov      rbx, qword ptr [rsp + 0x50]
+0x140888a5d: mov      rax, qword ptr [rsp + 0x90]
+0x140888a65: jmp      0x1408889b3    ; main.normalizeShortcutBindingWithOptions+0x1f3
+0x140888a6a: lea      rax, [rip + 0x2c002f]
+0x140888a71: mov      rbx, qword ptr [rsp + 0x88]
+0x140888a79: mov      rcx, qword ptr [rsp + 0x98]
+0x140888a81: mov      rdi, qword ptr [rsp + 0x60]
+0x140888a86: call     0x14000de60    ; runtime.mapassign_faststr
+0x140888a8b: test     byte ptr [rax], al
+0x140888a8d: mov      rbx, qword ptr [rsp + 0x50]
+0x140888a92: inc      rbx
+0x140888a95: mov      rcx, qword ptr [rsp + 0x78]
+0x140888a9a: cmp      rcx, rbx
+0x140888a9d: jb       0x140888aa9    ; main.normalizeShortcutBindingWithOptions+0x2e9
+0x140888a9f: mov      rax, qword ptr [rsp + 0x90]
+0x140888aa7: jmp      0x140888ac5    ; main.normalizeShortcutBindingWithOptions+0x305
+0x140888aa9: mov      rax, qword ptr [rsp + 0x90]
+0x140888ab1: mov      edi, 1
+0x140888ab6: lea      rsi, [rip + 0x261343]
+0x140888abd: nop      dword ptr [rax]
+0x140888ac0: call     0x14007ad20    ; runtime.growslice
+0x140888ac5: lea      rdx, [rbx - 1]
+0x140888ac9: shl      rdx, 4
+0x140888acd: mov      rsi, qword ptr [rsp + 0x60]
+0x140888ad2: mov      qword ptr [rax + rdx + 8], rsi
+0x140888ad7: cmp      dword ptr [rip + 0x13d2872], 0
+0x140888ade: nop      
+0x140888ae0: jne      0x140888aec    ; main.normalizeShortcutBindingWithOptions+0x32c
+0x140888ae2: mov      rdi, qword ptr [rsp + 0x98]
+0x140888aea: jmp      0x140888b04    ; main.normalizeShortcutBindingWithOptions+0x344
+0x140888aec: mov      rsi, qword ptr [rax + rdx]
+0x140888af0: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140888af5: mov      rdi, qword ptr [rsp + 0x98]
+0x140888afd: mov      qword ptr [r11], rdi
+0x140888b00: mov      qword ptr [r11 + 8], rsi
+0x140888b04: mov      qword ptr [rax + rdx], rdi
+0x140888b08: jmp      0x1408889b3    ; main.normalizeShortcutBindingWithOptions+0x1f3
+0x140888b0d: xor      eax, eax
+0x140888b0f: xor      ebx, ebx
+0x140888b11: add      rsp, 0x1c8
+0x140888b18: pop      rbp
+0x140888b19: ret      
+0x140888b1a: nop      word ptr [rax + rax]
+0x140888b20: test     rsi, rsi
+0x140888b23: jne      0x140888c47    ; main.normalizeShortcutBindingWithOptions+0x487
+0x140888b29: movzx    edx, byte ptr [rsp + 0x47]
+0x140888b2e: test     dl, dl
+0x140888b30: jne      0x140888c47    ; main.normalizeShortcutBindingWithOptions+0x487
+0x140888b36: movzx    edx, byte ptr [rsp + 0x45]
+0x140888b3b: test     dl, dl
+0x140888b3d: je       0x140888b85    ; main.normalizeShortcutBindingWithOptions+0x3c5
+0x140888b3f: mov      rdx, qword ptr [rsp + 0x68]
+0x140888b44: cmp      rdx, 0xb
+0x140888b48: jne      0x140888b7b    ; main.normalizeShortcutBindingWithOptions+0x3bb
+0x140888b4a: movabs   r8, 0x726353746e697250
+0x140888b54: mov      r9, qword ptr [rsp + 0xa0]
+0x140888b5c: nop      dword ptr [rax]
+0x140888b60: cmp      qword ptr [r9], r8
+0x140888b63: jne      0x140888b92    ; main.normalizeShortcutBindingWithOptions+0x3d2
+0x140888b65: cmp      word ptr [r9 + 8], 0x6565
+0x140888b6c: jne      0x140888b92    ; main.normalizeShortcutBindingWithOptions+0x3d2
+0x140888b6e: cmp      byte ptr [r9 + 0xa], 0x6e
+0x140888b73: je       0x140888c47    ; main.normalizeShortcutBindingWithOptions+0x487
+0x140888b79: jmp      0x140888b92    ; main.normalizeShortcutBindingWithOptions+0x3d2
+0x140888b7b: mov      r9, qword ptr [rsp + 0xa0]
+0x140888b83: jmp      0x140888b92    ; main.normalizeShortcutBindingWithOptions+0x3d2
+0x140888b85: mov      rdx, qword ptr [rsp + 0x68]
+0x140888b8a: mov      r9, qword ptr [rsp + 0xa0]
+0x140888b92: movzx    r8d, byte ptr [rsp + 0x46]
+0x140888b98: nop      dword ptr [rax + rax]
+0x140888ba0: test     r8b, r8b
+0x140888ba3: je       0x140888c3a    ; main.normalizeShortcutBindingWithOptions+0x47a
+0x140888ba9: cmp      rdx, 4
+0x140888bad: jg       0x140888bf9    ; main.normalizeShortcutBindingWithOptions+0x439
+0x140888baf: cmp      rdx, 3
+0x140888bb3: jne      0x140888be8    ; main.normalizeShortcutBindingWithOptions+0x428
+0x140888bb5: cmp      word ptr [r9], 0x6c41
+0x140888bbb: jne      0x140888bc8    ; main.normalizeShortcutBindingWithOptions+0x408
+0x140888bbd: cmp      byte ptr [r9 + 2], 0x74
+0x140888bc2: je       0x140888c47    ; main.normalizeShortcutBindingWithOptions+0x487
+0x140888bc8: cmp      word ptr [r9], 0x6d43
+0x140888bce: jne      0x140888bd7    ; main.normalizeShortcutBindingWithOptions+0x417
+0x140888bd0: cmp      byte ptr [r9 + 2], 0x64
+0x140888bd5: je       0x140888c47    ; main.normalizeShortcutBindingWithOptions+0x487
+0x140888bd7: cmp      word ptr [r9], 0x6957
+0x140888bdd: jne      0x140888c3a    ; main.normalizeShortcutBindingWithOptions+0x47a
+0x140888bdf: cmp      byte ptr [r9 + 2], 0x6e
+0x140888be4: je       0x140888c47    ; main.normalizeShortcutBindingWithOptions+0x487
+0x140888be6: jmp      0x140888c3a    ; main.normalizeShortcutBindingWithOptions+0x47a
+0x140888be8: cmp      rdx, 4
+0x140888bec: jne      0x140888c3a    ; main.normalizeShortcutBindingWithOptions+0x47a
+0x140888bee: cmp      dword ptr [r9], 0x6c727443
+0x140888bf5: je       0x140888c47    ; main.normalizeShortcutBindingWithOptions+0x487
+0x140888bf7: jmp      0x140888c3a    ; main.normalizeShortcutBindingWithOptions+0x47a
+0x140888bf9: cmp      rdx, 5
+0x140888bfd: jne      0x140888c22    ; main.normalizeShortcutBindingWithOptions+0x462
+0x140888bff: cmp      dword ptr [r9], 0x66696853
+0x140888c06: jne      0x140888c0f    ; main.normalizeShortcutBindingWithOptions+0x44f
+0x140888c08: cmp      byte ptr [r9 + 4], 0x74
+0x140888c0d: je       0x140888c47    ; main.normalizeShortcutBindingWithOptions+0x487
+0x140888c0f: cmp      dword ptr [r9], 0x65707553
+0x140888c16: jne      0x140888c3a    ; main.normalizeShortcutBindingWithOptions+0x47a
+0x140888c18: cmp      byte ptr [r9 + 4], 0x72
+0x140888c1d: je       0x140888c47    ; main.normalizeShortcutBindingWithOptions+0x487
+0x140888c1f: nop      
+0x140888c20: jmp      0x140888c3a    ; main.normalizeShortcutBindingWithOptions+0x47a
+0x140888c22: cmp      rdx, 6
+0x140888c26: jne      0x140888c3a    ; main.normalizeShortcutBindingWithOptions+0x47a
+0x140888c28: cmp      dword ptr [r9], 0x6974704f
+0x140888c2f: jne      0x140888c3a    ; main.normalizeShortcutBindingWithOptions+0x47a
+0x140888c31: cmp      word ptr [r9 + 4], 0x6e6f
+0x140888c38: je       0x140888c47    ; main.normalizeShortcutBindingWithOptions+0x487
+0x140888c3a: xor      eax, eax
+0x140888c3c: xor      ebx, ebx
+0x140888c3e: add      rsp, 0x1c8
+0x140888c45: pop      rbp
+0x140888c46: ret      
+0x140888c47: lea      rdx, [rsi + 1]
+0x140888c4b: mov      qword ptr [rsp + 0x70], rdx
+0x140888c50: nop      
+0x140888c51: mov      rax, rdi
+0x140888c54: mov      rcx, rbx
+0x140888c57: mov      rbx, rsi
+0x140888c5a: call     0x140076700    ; runtime.convTslice
+0x140888c5f: mov      qword ptr [rsp + 0x1c0], 0
+0x140888c6b: lea      rdx, [rip + 0x12e]
+0x140888c72: mov      qword ptr [rsp + 0x1a8], rdx
+0x140888c7a: mov      rdx, qword ptr [rsp + 0x50]
+0x140888c7f: mov      qword ptr [rsp + 0x1b8], rdx
+0x140888c87: mov      rdx, qword ptr [rsp + 0x78]
+0x140888c8c: mov      qword ptr [rsp + 0x1c0], rdx
+0x140888c94: mov      rdx, qword ptr [rsp + 0x90]
+0x140888c9c: mov      qword ptr [rsp + 0x1b0], rdx
+0x140888ca4: mov      rbx, rax
+0x140888ca7: lea      rcx, [rsp + 0x1a8]
+0x140888caf: lea      rax, [rip + 0x25388a]
+0x140888cb6: call     0x1401af7e0    ; sort.Slice
+0x140888cbb: mov      rcx, qword ptr [rsp + 0x78]
+0x140888cc0: mov      rbx, qword ptr [rsp + 0x70]
+0x140888cc5: cmp      rcx, rbx
+0x140888cc8: jb       0x140888cd4    ; main.normalizeShortcutBindingWithOptions+0x514
+0x140888cca: mov      rax, qword ptr [rsp + 0x90]
+0x140888cd2: jmp      0x140888ced    ; main.normalizeShortcutBindingWithOptions+0x52d
+0x140888cd4: mov      rax, qword ptr [rsp + 0x90]
+0x140888cdc: mov      edi, 1
+0x140888ce1: lea      rsi, [rip + 0x261118]
+0x140888ce8: call     0x14007ad20    ; runtime.growslice
+0x140888ced: lea      rdx, [rbx - 1]
+0x140888cf1: shl      rdx, 4
+0x140888cf5: mov      r8, qword ptr [rsp + 0x68]
+0x140888cfa: mov      qword ptr [rax + rdx + 8], r8
+0x140888cff: cmp      dword ptr [rip + 0x13d264a], 0
+0x140888d06: jne      0x140888d12    ; main.normalizeShortcutBindingWithOptions+0x552
+0x140888d08: mov      r9, qword ptr [rsp + 0xa0]
+0x140888d10: jmp      0x140888d2a    ; main.normalizeShortcutBindingWithOptions+0x56a
+0x140888d12: mov      r8, qword ptr [rax + rdx]
+0x140888d16: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140888d1b: mov      r9, qword ptr [rsp + 0xa0]
+0x140888d23: mov      qword ptr [r11], r9
+0x140888d26: mov      qword ptr [r11 + 8], r8
+0x140888d2a: mov      qword ptr [rax + rdx], r9
+0x140888d2e: lea      rdi, [rip + 0x941f6b]
+0x140888d35: mov      esi, 1
+0x140888d3a: call     0x1400a0140    ; strings.Join
+0x140888d3f: add      rsp, 0x1c8
+0x140888d46: pop      rbp
+0x140888d47: ret      
+0x140888d48: mov      qword ptr [rsp + 8], rax
+0x140888d4d: mov      qword ptr [rsp + 0x10], rbx
+0x140888d52: mov      qword ptr [rsp + 0x18], rcx
+0x140888d57: mov      byte ptr [rsp + 0x20], dil
+0x140888d5c: mov      byte ptr [rsp + 0x21], sil
+0x140888d61: mov      byte ptr [rsp + 0x22], r8b
+0x140888d66: call     0x14007f140    ; runtime.morestack_noctxt
+0x140888d6b: mov      rax, qword ptr [rsp + 8]
+0x140888d70: mov      rbx, qword ptr [rsp + 0x10]
+0x140888d75: mov      rcx, qword ptr [rsp + 0x18]
+0x140888d7a: movzx    edi, byte ptr [rsp + 0x20]
+0x140888d7f: movzx    esi, byte ptr [rsp + 0x21]
+0x140888d84: movzx    r8d, byte ptr [rsp + 0x22]
+0x140888d8a: jmp      0x1408887c0    ; main.normalizeShortcutBindingWithOptions
+0x140888d8f: int3     
+0x140888d90: int3     
+0x140888d91: int3     
+0x140888d92: int3     
+0x140888d93: int3     
+0x140888d94: int3     
+0x140888d95: int3     
+0x140888d96: int3     
+0x140888d97: int3     
+0x140888d98: int3     
+0x140888d99: int3     
+0x140888d9a: int3     
+0x140888d9b: int3     
+0x140888d9c: int3     
+0x140888d9d: int3     
+0x140888d9e: int3     
+0x140888d9f: int3     

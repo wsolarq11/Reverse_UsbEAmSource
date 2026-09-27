@@ -1,0 +1,134 @@
+0x1409373c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409373c4: jbe      0x14093756d
+0x1409373ca: push     rbp
+0x1409373cb: mov      rbp, rsp
+0x1409373ce: sub      rsp, 0x28
+0x1409373d2: call     0x140936dc0
+0x1409373d7: test     rax, rax
+0x1409373da: jne      0x1409373e2
+0x1409373dc: add      rsp, 0x28
+0x1409373e0: pop      rbp
+0x1409373e1: ret      
+0x1409373e2: mov      qword ptr [rsp + 0x20], rax
+0x1409373e7: nop      
+0x1409373e8: lea      rax, [rip + 0x1c65f1]
+0x1409373ef: call     0x14001ae20
+0x1409373f4: mov      rcx, qword ptr [rsp + 0x20]
+0x1409373f9: mov      qword ptr [rax], rcx
+0x1409373fc: mov      qword ptr [rax + 8], 5
+0x140937404: mov      rcx, qword ptr [rip + 0x128b3f5]
+0x14093740b: mov      rbx, rax
+0x14093740e: mov      edi, 2
+0x140937413: mov      rax, rcx
+0x140937416: mov      rcx, rdi
+0x140937419: call     0x1400e3120
+0x14093741e: mov      rax, qword ptr [rsp + 0x20]
+0x140937423: call     0x140936ac0
+0x140937428: nop      
+0x140937429: lea      rax, [rip + 0x1c6550]
+0x140937430: call     0x14001ae20
+0x140937435: mov      rcx, qword ptr [rsp + 0x20]
+0x14093743a: mov      qword ptr [rax], rcx
+0x14093743d: mov      rcx, qword ptr [rip + 0x128b494]
+0x140937444: mov      rbx, rax
+0x140937447: mov      edi, 1
+0x14093744c: mov      rax, rcx
+0x14093744f: mov      rcx, rdi
+0x140937452: call     0x1400e3120
+0x140937457: nop      
+0x140937458: lea      rax, [rip + 0x1c6521]
+0x14093745f: nop      
+0x140937460: call     0x14001ae20
+0x140937465: mov      rcx, qword ptr [rsp + 0x20]
+0x14093746a: mov      qword ptr [rax], rcx
+0x14093746d: mov      rcx, qword ptr [rip + 0x128b45c]
+0x140937474: mov      rbx, rax
+0x140937477: mov      edi, 1
+0x14093747c: mov      rax, rcx
+0x14093747f: mov      rcx, rdi
+0x140937482: call     0x1400e3120
+0x140937487: nop      
+0x140937488: lea      rax, [rip + 0x1c64f1]
+0x14093748f: call     0x14001ae20
+0x140937494: mov      rcx, qword ptr [rsp + 0x20]
+0x140937499: mov      qword ptr [rax], rcx
+0x14093749c: mov      rcx, qword ptr [rip + 0x128b425]
+0x1409374a3: mov      rbx, rax
+0x1409374a6: mov      edi, 1
+0x1409374ab: mov      rax, rcx
+0x1409374ae: mov      rcx, rdi
+0x1409374b1: call     0x1400e3120
+0x1409374b6: nop      
+0x1409374b7: lea      rax, [rip + 0x1c64c2]
+0x1409374be: nop      
+0x1409374c0: call     0x14001ae20
+0x1409374c5: mov      rcx, qword ptr [rsp + 0x20]
+0x1409374ca: mov      qword ptr [rax], rcx
+0x1409374cd: mov      rcx, qword ptr [rip + 0x128b3ec]
+0x1409374d4: mov      rbx, rax
+0x1409374d7: mov      edi, 1
+0x1409374dc: mov      rax, rcx
+0x1409374df: mov      rcx, rdi
+0x1409374e2: call     0x1400e3120
+0x1409374e7: nop      
+0x1409374e8: lea      rax, [rip + 0x1c6671]
+0x1409374ef: call     0x14001ae20
+0x1409374f4: mov      rcx, qword ptr [rsp + 0x20]
+0x1409374f9: mov      qword ptr [rax], rcx
+0x1409374fc: mov      qword ptr [rax + 8], 0x4ee
+0x140937504: mov      qword ptr [rax + 0x10], 0x10
+0x14093750c: mov      qword ptr [rax + 0x18], 0
+0x140937514: mov      rcx, qword ptr [rip + 0x128b55d]
+0x14093751b: mov      rbx, rax
+0x14093751e: mov      edi, 4
+0x140937523: mov      rax, rcx
+0x140937526: mov      rcx, rdi
+0x140937529: call     0x1400e3120
+0x14093752e: nop      
+0x14093752f: lea      rax, [rip + 0x1c644a]
+0x140937536: call     0x14001ae20
+0x14093753b: mov      rcx, qword ptr [rsp + 0x20]
+0x140937540: mov      qword ptr [rax], rcx
+0x140937543: mov      rcx, qword ptr [rip + 0x128b2c6]
+0x14093754a: mov      rbx, rax
+0x14093754d: mov      edi, 1
+0x140937552: mov      rax, rcx
+0x140937555: mov      rcx, rdi
+0x140937558: call     0x1400e3120
+0x14093755d: mov      eax, 0x7f03
+0x140937562: call     0x140973ae0
+0x140937567: add      rsp, 0x28
+0x14093756b: pop      rbp
+0x14093756c: ret      
+0x14093756d: mov      qword ptr [rsp + 8], rax
+0x140937572: call     0x14007f140
+0x140937577: mov      rax, qword ptr [rsp + 8]
+0x14093757c: nop      dword ptr [rax]
+0x140937580: jmp      0x1409373c0
+0x140937585: int3     
+0x140937586: int3     
+0x140937587: int3     
+0x140937588: int3     
+0x140937589: int3     
+0x14093758a: int3     
+0x14093758b: int3     
+0x14093758c: int3     
+0x14093758d: int3     
+0x14093758e: int3     
+0x14093758f: int3     
+0x140937590: int3     
+0x140937591: int3     
+0x140937592: int3     
+0x140937593: int3     
+0x140937594: int3     
+0x140937595: int3     
+0x140937596: int3     
+0x140937597: int3     
+0x140937598: int3     
+0x140937599: int3     
+0x14093759a: int3     
+0x14093759b: int3     
+0x14093759c: int3     
+0x14093759d: int3     
+0x14093759e: int3     
+0x14093759f: int3     

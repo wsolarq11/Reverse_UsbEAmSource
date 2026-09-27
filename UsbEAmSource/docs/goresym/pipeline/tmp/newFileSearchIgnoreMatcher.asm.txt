@@ -1,0 +1,144 @@
+0x1407e0be0: lea      r12, [rsp - 0x28]
+0x1407e0be5: cmp      r12, qword ptr [r14 + 0x10]
+0x1407e0be9: jbe      0x1407e0e08   ; main.newFileSearchIgnoreMatcher+0x228
+0x1407e0bef: push     rbp
+0x1407e0bf0: mov      rbp, rsp
+0x1407e0bf3: sub      rsp, 0xa0
+0x1407e0bfa: mov      qword ptr [rsp + 0xb0], rax
+0x1407e0c02: call     0x1407e0440   ; main.normalizeFileSearchIgnoredDirectoryRules
+0x1407e0c07: test     rbx, rbx
+0x1407e0c0a: je       0x1407e0c55   ; main.newFileSearchIgnoreMatcher+0x75
+0x1407e0c0c: mov      qword ptr [rsp + 0x40], rbx
+0x1407e0c11: mov      qword ptr [rsp + 0x70], rax
+0x1407e0c16: lea      rax, [rip + 0x367e83]
+0x1407e0c1d: xor      ecx, ecx
+0x1407e0c1f: nop      
+0x1407e0c20: call     0x140076d80   ; runtime.makemap
+0x1407e0c25: mov      qword ptr [rsp + 0x90], rax
+0x1407e0c2d: lea      rax, [rip + 0x3091cc]
+0x1407e0c34: xor      ebx, ebx
+0x1407e0c36: mov      rcx, qword ptr [rsp + 0x40]
+0x1407e0c3b: nop      dword ptr [rax + rax]
+0x1407e0c40: call     0x14007ac40   ; runtime.makeslice
+0x1407e0c45: mov      rdx, qword ptr [rsp + 0x70]
+0x1407e0c4a: xor      ecx, ecx
+0x1407e0c4c: mov      rbx, qword ptr [rsp + 0x40]
+0x1407e0c51: xor      esi, esi
+0x1407e0c53: jmp      0x1407e0c92   ; main.newFileSearchIgnoreMatcher+0xb2
+0x1407e0c55: call     0x140076d40   ; runtime.makemap_small
+0x1407e0c5a: lea      rbx, [rip + 0x1479d5f]
+0x1407e0c61: xor      ecx, ecx
+0x1407e0c63: mov      rdi, rcx
+0x1407e0c66: add      rsp, 0xa0
+0x1407e0c6d: pop      rbp
+0x1407e0c6e: ret      
+0x1407e0c6f: mov      r8, qword ptr [rsp + 0x98]
+0x1407e0c77: add      r8, 0x10
+0x1407e0c7b: mov      r9, qword ptr [rsp + 0x68]
+0x1407e0c80: inc      r9
+0x1407e0c83: mov      rbx, rcx
+0x1407e0c86: mov      rax, rsi
+0x1407e0c89: mov      rsi, rdx
+0x1407e0c8c: mov      rcx, r9
+0x1407e0c8f: mov      rdx, r8
+0x1407e0c92: mov      r8, qword ptr [rsp + 0x40]
+0x1407e0c97: nop      word ptr [rax + rax]
+0x1407e0ca0: cmp      r8, rcx
+0x1407e0ca3: jle      0x1407e0dee   ; main.newFileSearchIgnoreMatcher+0x20e
+0x1407e0ca9: mov      qword ptr [rsp + 0x68], rcx
+0x1407e0cae: mov      qword ptr [rsp + 0x80], rax
+0x1407e0cb6: mov      qword ptr [rsp + 0x58], rbx
+0x1407e0cbb: mov      qword ptr [rsp + 0x50], rsi
+0x1407e0cc0: mov      qword ptr [rsp + 0x98], rdx
+0x1407e0cc8: mov      rax, qword ptr [rdx]
+0x1407e0ccb: mov      qword ptr [rsp + 0x78], rax
+0x1407e0cd0: mov      rbx, qword ptr [rdx + 8]
+0x1407e0cd4: mov      qword ptr [rsp + 0x48], rbx
+0x1407e0cd9: call     0x1407e0a20   ; main.isFileSearchIgnoredDirectoryPathRule
+0x1407e0cde: nop      
+0x1407e0ce0: test     al, al
+0x1407e0ce2: je       0x1407e0dac   ; main.newFileSearchIgnoreMatcher+0x1cc
+0x1407e0ce8: mov      rax, qword ptr [rsp + 0x78]
+0x1407e0ced: mov      rbx, qword ptr [rsp + 0x48]
+0x1407e0cf2: call     0x1407e09a0   ; main.normalizeFileSearchIgnoredDirectoryMatchPath
+0x1407e0cf7: nop      word ptr [rax + rax]
+0x1407e0d00: test     rbx, rbx
+0x1407e0d03: je       0x1407e0d95   ; main.newFileSearchIgnoreMatcher+0x1b5
+0x1407e0d09: mov      rdx, qword ptr [rsp + 0x50]
+0x1407e0d0e: inc      rdx
+0x1407e0d11: mov      rcx, qword ptr [rsp + 0x58]
+0x1407e0d16: cmp      rcx, rdx
+0x1407e0d19: jb       0x1407e0d25   ; main.newFileSearchIgnoreMatcher+0x145
+0x1407e0d1b: mov      rsi, qword ptr [rsp + 0x80]
+0x1407e0d23: jmp      0x1407e0d61   ; main.newFileSearchIgnoreMatcher+0x181
+0x1407e0d25: mov      qword ptr [rsp + 0x88], rax
+0x1407e0d2d: mov      qword ptr [rsp + 0x60], rbx
+0x1407e0d32: mov      rax, qword ptr [rsp + 0x80]
+0x1407e0d3a: mov      rbx, rdx
+0x1407e0d3d: mov      edi, 1
+0x1407e0d42: lea      rsi, [rip + 0x3090b7]
+0x1407e0d49: call     0x14007ad20   ; runtime.growslice
+0x1407e0d4e: mov      rsi, rax
+0x1407e0d51: mov      rdx, rbx
+0x1407e0d54: mov      rax, qword ptr [rsp + 0x88]
+0x1407e0d5c: mov      rbx, qword ptr [rsp + 0x60]
+0x1407e0d61: lea      r8, [rdx - 1]
+0x1407e0d65: shl      r8, 4
+0x1407e0d69: mov      qword ptr [rsi + r8 + 8], rbx
+0x1407e0d6e: cmp      dword ptr [rip + 0x147a5db], 0
+0x1407e0d75: je       0x1407e0d8c   ; main.newFileSearchIgnoreMatcher+0x1ac
+0x1407e0d77: mov      r9, qword ptr [rsi + r8]
+0x1407e0d7b: nop      dword ptr [rax + rax]
+0x1407e0d80: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407e0d85: mov      qword ptr [r11], rax
+0x1407e0d88: mov      qword ptr [r11 + 8], r9
+0x1407e0d8c: mov      qword ptr [rsi + r8], rax
+0x1407e0d90: jmp      0x1407e0c6f   ; main.newFileSearchIgnoreMatcher+0x8f
+0x1407e0d95: mov      rcx, qword ptr [rsp + 0x58]
+0x1407e0d9a: mov      rdx, qword ptr [rsp + 0x50]
+0x1407e0d9f: mov      rsi, qword ptr [rsp + 0x80]
+0x1407e0da7: jmp      0x1407e0c6f   ; main.newFileSearchIgnoreMatcher+0x8f
+0x1407e0dac: mov      rax, qword ptr [rsp + 0x78]
+0x1407e0db1: mov      rbx, qword ptr [rsp + 0x48]
+0x1407e0db6: call     0x1400a1500   ; strings.ToLower
+0x1407e0dbb: mov      rcx, rax
+0x1407e0dbe: mov      rdi, rbx
+0x1407e0dc1: lea      rax, [rip + 0x367cd8]
+0x1407e0dc8: mov      rbx, qword ptr [rsp + 0x90]
+0x1407e0dd0: call     0x14000de60   ; runtime.mapassign_faststr
+0x1407e0dd5: test     byte ptr [rax], al
+0x1407e0dd7: mov      rcx, qword ptr [rsp + 0x58]
+0x1407e0ddc: mov      rdx, qword ptr [rsp + 0x50]
+0x1407e0de1: mov      rsi, qword ptr [rsp + 0x80]
+0x1407e0de9: jmp      0x1407e0c6f   ; main.newFileSearchIgnoreMatcher+0x8f
+0x1407e0dee: mov      rcx, rsi
+0x1407e0df1: mov      rdi, rbx
+0x1407e0df4: mov      rbx, rax
+0x1407e0df7: mov      rax, qword ptr [rsp + 0x90]
+0x1407e0dff: add      rsp, 0xa0
+0x1407e0e06: pop      rbp
+0x1407e0e07: ret      
+0x1407e0e08: mov      qword ptr [rsp + 8], rax
+0x1407e0e0d: mov      qword ptr [rsp + 0x10], rbx
+0x1407e0e12: mov      qword ptr [rsp + 0x18], rcx
+0x1407e0e17: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407e0e1c: mov      rax, qword ptr [rsp + 8]
+0x1407e0e21: mov      rbx, qword ptr [rsp + 0x10]
+0x1407e0e26: mov      rcx, qword ptr [rsp + 0x18]
+0x1407e0e2b: jmp      0x1407e0be0   ; main.newFileSearchIgnoreMatcher
+0x1407e0e30: int3     
+0x1407e0e31: int3     
+0x1407e0e32: int3     
+0x1407e0e33: int3     
+0x1407e0e34: int3     
+0x1407e0e35: int3     
+0x1407e0e36: int3     
+0x1407e0e37: int3     
+0x1407e0e38: int3     
+0x1407e0e39: int3     
+0x1407e0e3a: int3     
+0x1407e0e3b: int3     
+0x1407e0e3c: int3     
+0x1407e0e3d: int3     
+0x1407e0e3e: int3     
+0x1407e0e3f: int3     

@@ -1,0 +1,165 @@
+0x140883d00: lea      r12, [rsp - 0x68]
+0x140883d05: cmp      r12, qword ptr [r14 + 0x10]
+0x140883d09: jbe      0x140883f92   ; main.normalizeBookmarkFolderPathValue+0x292
+0x140883d0f: push     rbp
+0x140883d10: mov      rbp, rsp
+0x140883d13: sub      rsp, 0xe0
+0x140883d1a: mov      qword ptr [rsp + 0xf0], rax
+0x140883d22: call     0x1400a2200   ; strings.TrimSpace
+0x140883d27: nop      
+0x140883d28: test     rbx, rbx
+0x140883d2b: je       0x140883d45   ; main.normalizeBookmarkFolderPathValue+0x45
+0x140883d2d: cmp      byte ptr [rax], 0x2f
+0x140883d30: jne      0x140883d45   ; main.normalizeBookmarkFolderPathValue+0x45
+0x140883d32: dec      rbx
+0x140883d35: mov      rcx, rbx
+0x140883d38: neg      rcx
+0x140883d3b: sar      rcx, 0x3f
+0x140883d3f: and      ecx, 1
+0x140883d42: add      rax, rcx
+0x140883d45: call     0x1400a2200   ; strings.TrimSpace
+0x140883d4a: test     rbx, rbx
+0x140883d4d: je       0x140883d98   ; main.normalizeBookmarkFolderPathValue+0x98
+0x140883d4f: mov      qword ptr [rsp + 0x68], rbx
+0x140883d54: mov      qword ptr [rsp + 0x90], rax
+0x140883d5c: lea      rax, [rbx + rax]
+0x140883d60: lea      rax, [rax - 1]
+0x140883d64: lea      rbx, [rip + 0x3af8c4]
+0x140883d6b: mov      ecx, 1
+0x140883d70: call     0x140006280   ; runtime.memequal
+0x140883d75: test     al, al
+0x140883d77: je       0x140883d8b   ; main.normalizeBookmarkFolderPathValue+0x8b
+0x140883d79: mov      rbx, qword ptr [rsp + 0x68]
+0x140883d7e: dec      rbx
+0x140883d81: mov      rax, qword ptr [rsp + 0x90]
+0x140883d89: jmp      0x140883d98   ; main.normalizeBookmarkFolderPathValue+0x98
+0x140883d8b: mov      rax, qword ptr [rsp + 0x90]
+0x140883d93: mov      rbx, qword ptr [rsp + 0x68]
+0x140883d98: call     0x1400a2200   ; strings.TrimSpace
+0x140883d9d: nop      
+0x140883d9e: lea      rcx, [rip + 0x3afdb5]
+0x140883da5: mov      edi, 3
+0x140883daa: xor      esi, esi
+0x140883dac: mov      r8, 0xffffffffffffffff
+0x140883db3: call     0x14009f920   ; strings.genSplit
+0x140883db8: mov      qword ptr [rsp + 0x48], rbx
+0x140883dbd: nop      dword ptr [rax]
+0x140883dc0: cmp      rbx, 2
+0x140883dc4: ja       0x140883de2   ; main.normalizeBookmarkFolderPathValue+0xe2
+0x140883dc6: movups   xmmword ptr [rsp + 0xc0], xmm15
+0x140883dcf: movups   xmmword ptr [rsp + 0xd0], xmm15
+0x140883dd8: lea      rcx, [rsp + 0xc0]
+0x140883de0: jmp      0x140883e05   ; main.normalizeBookmarkFolderPathValue+0x105
+0x140883de2: mov      qword ptr [rsp + 0x78], rax
+0x140883de7: lea      rax, [rip + 0x266012]
+0x140883dee: mov      rcx, rbx
+0x140883df1: xor      ebx, ebx
+0x140883df3: call     0x14007ac40   ; runtime.makeslice
+0x140883df8: mov      rbx, qword ptr [rsp + 0x48]
+0x140883dfd: mov      rcx, rax
+0x140883e00: mov      rax, qword ptr [rsp + 0x78]
+0x140883e05: mov      rdx, rbx
+0x140883e08: xor      esi, esi
+0x140883e0a: xor      edi, edi
+0x140883e0c: xor      r8d, r8d
+0x140883e0f: jmp      0x140883e36   ; main.normalizeBookmarkFolderPathValue+0x136
+0x140883e11: mov      rax, qword ptr [rsp + 0x98]
+0x140883e19: add      rax, 0x10
+0x140883e1d: mov      r9, qword ptr [rsp + 0x70]
+0x140883e22: inc      r9
+0x140883e25: mov      rdi, r8
+0x140883e28: mov      rbx, rdx
+0x140883e2b: mov      r8d, esi
+0x140883e2e: mov      rdx, qword ptr [rsp + 0x48]
+0x140883e33: mov      rsi, r9
+0x140883e36: cmp      rdx, rsi
+0x140883e39: jle      0x140883f6f   ; main.normalizeBookmarkFolderPathValue+0x26f
+0x140883e3f: mov      qword ptr [rsp + 0x58], rdi
+0x140883e44: mov      qword ptr [rsp + 0x88], rcx
+0x140883e4c: mov      qword ptr [rsp + 0x70], rsi
+0x140883e51: mov      qword ptr [rsp + 0x60], rbx
+0x140883e56: mov      byte ptr [rsp + 0x47], r8b
+0x140883e5b: mov      qword ptr [rsp + 0x98], rax
+0x140883e63: mov      rcx, qword ptr [rax]
+0x140883e66: mov      rbx, qword ptr [rax + 8]
+0x140883e6a: mov      rax, rcx
+0x140883e6d: call     0x1400a2200   ; strings.TrimSpace
+0x140883e72: test     rbx, rbx
+0x140883e75: jne      0x140883e90   ; main.normalizeBookmarkFolderPathValue+0x190
+0x140883e77: mov      rdx, qword ptr [rsp + 0x60]
+0x140883e7c: mov      r8, qword ptr [rsp + 0x58]
+0x140883e81: movzx    esi, byte ptr [rsp + 0x47]
+0x140883e86: mov      rcx, qword ptr [rsp + 0x88]
+0x140883e8e: jmp      0x140883e11   ; main.normalizeBookmarkFolderPathValue+0x111
+0x140883e90: mov      rdx, qword ptr [rsp + 0x58]
+0x140883e95: lea      r8, [rdx + 1]
+0x140883e99: mov      rcx, qword ptr [rsp + 0x60]
+0x140883e9e: nop      
+0x140883ea0: cmp      rcx, r8
+0x140883ea3: jb       0x140883ebc   ; main.normalizeBookmarkFolderPathValue+0x1bc
+0x140883ea5: mov      rcx, qword ptr [rsp + 0x88]
+0x140883ead: mov      rdx, qword ptr [rsp + 0x60]
+0x140883eb2: movzx    esi, byte ptr [rsp + 0x47]
+0x140883eb7: jmp      0x140883f40   ; main.normalizeBookmarkFolderPathValue+0x240
+0x140883ebc: mov      qword ptr [rsp + 0x50], rbx
+0x140883ec1: mov      qword ptr [rsp + 0x80], rax
+0x140883ec9: cmp      r8, 2
+0x140883ecd: jg       0x140883f05   ; main.normalizeBookmarkFolderPathValue+0x205
+0x140883ecf: movzx    r9d, byte ptr [rsp + 0x47]
+0x140883ed5: test     r9b, r9b
+0x140883ed8: jne      0x140883f05   ; main.normalizeBookmarkFolderPathValue+0x205
+0x140883eda: test     rdx, rdx
+0x140883edd: jne      0x140883f05   ; main.normalizeBookmarkFolderPathValue+0x205
+0x140883edf: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x140883ee8: movups   xmmword ptr [rsp + 0xb0], xmm15
+0x140883ef1: lea      rcx, [rsp + 0xa0]
+0x140883ef9: mov      edx, 2
+0x140883efe: mov      esi, 1
+0x140883f03: jmp      0x140883f40   ; main.normalizeBookmarkFolderPathValue+0x240
+0x140883f05: mov      rax, qword ptr [rsp + 0x88]
+0x140883f0d: mov      rbx, r8
+0x140883f10: mov      edi, 1
+0x140883f15: lea      rsi, [rip + 0x265ee4]
+0x140883f1c: nop      dword ptr [rax]
+0x140883f20: call     0x14007ad20   ; runtime.growslice
+0x140883f25: mov      r8, rbx
+0x140883f28: mov      rdx, rcx
+0x140883f2b: movzx    esi, byte ptr [rsp + 0x47]
+0x140883f30: mov      rbx, qword ptr [rsp + 0x50]
+0x140883f35: mov      rcx, rax
+0x140883f38: mov      rax, qword ptr [rsp + 0x80]
+0x140883f40: lea      r9, [r8 - 1]
+0x140883f44: shl      r9, 4
+0x140883f48: mov      qword ptr [rcx + r9 + 8], rbx
+0x140883f4d: cmp      dword ptr [rip + 0x13d73fc], 0
+0x140883f54: je       0x140883f66   ; main.normalizeBookmarkFolderPathValue+0x266
+0x140883f56: mov      r10, qword ptr [rcx + r9]
+0x140883f5a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140883f5f: mov      qword ptr [r11], rax
+0x140883f62: mov      qword ptr [r11 + 8], r10
+0x140883f66: mov      qword ptr [rcx + r9], rax
+0x140883f6a: jmp      0x140883e11   ; main.normalizeBookmarkFolderPathValue+0x111
+0x140883f6f: mov      rax, rcx
+0x140883f72: mov      rcx, rbx
+0x140883f75: mov      esi, 3
+0x140883f7a: mov      rbx, rdi
+0x140883f7d: lea      rdi, [rip + 0x3afbd6]
+0x140883f84: call     0x1400a0140   ; strings.Join
+0x140883f89: add      rsp, 0xe0
+0x140883f90: pop      rbp
+0x140883f91: ret      
+0x140883f92: mov      qword ptr [rsp + 8], rax
+0x140883f97: mov      qword ptr [rsp + 0x10], rbx
+0x140883f9c: nop      dword ptr [rax]
+0x140883fa0: call     0x14007f140   ; runtime.morestack_noctxt
+0x140883fa5: mov      rax, qword ptr [rsp + 8]
+0x140883faa: mov      rbx, qword ptr [rsp + 0x10]
+0x140883faf: jmp      0x140883d00   ; main.normalizeBookmarkFolderPathValue
+0x140883fb4: int3     
+0x140883fb5: int3     
+0x140883fb6: int3     
+0x140883fb7: int3     
+0x140883fb8: int3     
+0x140883fb9: int3     
+0x140883fba: int3     
+0x140883fbb: int3     

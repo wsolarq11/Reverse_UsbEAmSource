@@ -1,0 +1,224 @@
+0x140975620: lea      r12, [rsp - 0x18]
+0x140975625: cmp      r12, qword ptr [r14 + 0x10]
+0x140975629: jbe      0x140975970   ; main.queryScreenshotDisplayConfigActivePaths+0x350
+0x14097562f: push     rbp
+0x140975630: mov      rbp, rsp
+0x140975633: sub      rsp, 0x90
+0x14097563a: mov      rax, qword ptr [rip + 0x124c62f]
+0x140975641: call     0x1401933c0   ; golang.org/x/sys/windows.LazyProc.Find
+0x140975646: test     rax, rax
+0x140975649: jne      0x140975678   ; main.queryScreenshotDisplayConfigActivePaths+0x58
+0x14097564b: mov      rax, qword ptr [rip + 0x124c626]
+0x140975652: call     0x1401933c0   ; golang.org/x/sys/windows.LazyProc.Find
+0x140975657: test     rax, rax
+0x14097565a: jne      0x140975662   ; main.queryScreenshotDisplayConfigActivePaths+0x42
+0x14097565c: xor      eax, eax
+0x14097565e: nop      
+0x140975660: jmp      0x1409756a0   ; main.queryScreenshotDisplayConfigActivePaths+0x80
+0x140975662: xor      ecx, ecx
+0x140975664: mov      rdi, rax
+0x140975667: mov      rsi, rbx
+0x14097566a: xor      eax, eax
+0x14097566c: mov      rbx, rcx
+0x14097566f: add      rsp, 0x90
+0x140975676: pop      rbp
+0x140975677: ret      
+0x140975678: xor      ecx, ecx
+0x14097567a: mov      rdi, rax
+0x14097567d: mov      rsi, rbx
+0x140975680: xor      eax, eax
+0x140975682: mov      rbx, rcx
+0x140975685: add      rsp, 0x90
+0x14097568c: pop      rbp
+0x14097568d: ret      
+0x14097568e: mov      rax, qword ptr [rsp + 0x30]
+0x140975693: inc      rax
+0x140975696: nop      word ptr [rax + rax]
+0x14097569f: nop      
+0x1409756a0: cmp      rax, 4
+0x1409756a4: jge      0x140975934   ; main.queryScreenshotDisplayConfigActivePaths+0x314
+0x1409756aa: mov      qword ptr [rsp + 0x30], rax
+0x1409756af: mov      eax, 8
+0x1409756b4: xor      ebx, ebx
+0x1409756b6: mov      ecx, 1
+0x1409756bb: nop      dword ptr [rax + rax]
+0x1409756c0: call     0x1400769e0   ; runtime.mallocgc
+0x1409756c5: mov      qword ptr [rsp + 0x58], rax
+0x1409756ca: mov      qword ptr [rax], 0
+0x1409756d1: lea      rdx, [rax + 4]
+0x1409756d5: mov      qword ptr [rsp + 0x88], rax
+0x1409756dd: mov      qword ptr [rsp + 0x80], rdx
+0x1409756e5: lea      rax, [rip + 0x186554]
+0x1409756ec: call     0x14001ae20   ; runtime.newobject
+0x1409756f1: mov      qword ptr [rax], 2
+0x1409756f8: mov      rdx, qword ptr [rsp + 0x88]
+0x140975700: mov      qword ptr [rax + 8], rdx
+0x140975704: mov      rdx, qword ptr [rsp + 0x80]
+0x14097570c: mov      qword ptr [rax + 0x10], rdx
+0x140975710: mov      rdx, qword ptr [rip + 0x124c559]
+0x140975717: mov      rbx, rax
+0x14097571a: mov      ecx, 3
+0x14097571f: mov      rdi, rcx
+0x140975722: mov      rax, rdx
+0x140975725: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x14097572a: test     rax, rax
+0x14097572d: jne      0x140975735   ; main.queryScreenshotDisplayConfigActivePaths+0x115
+0x14097572f: xor      eax, eax
+0x140975731: xor      ecx, ecx
+0x140975733: jmp      0x140975744   ; main.queryScreenshotDisplayConfigActivePaths+0x124
+0x140975735: call     0x1400765e0   ; runtime.convT64
+0x14097573a: mov      rcx, rax
+0x14097573d: lea      rax, [rip + 0x85d59c]
+0x140975744: test     rax, rax
+0x140975747: jne      0x14097591e   ; main.queryScreenshotDisplayConfigActivePaths+0x2fe
+0x14097574d: mov      rdx, qword ptr [rsp + 0x58]
+0x140975752: cmp      dword ptr [rdx], 0
+0x140975755: je       0x14097590a   ; main.queryScreenshotDisplayConfigActivePaths+0x2ea
+0x14097575b: cmp      dword ptr [rdx + 4], 0
+0x14097575f: nop      
+0x140975760: jne      0x140975769   ; main.queryScreenshotDisplayConfigActivePaths+0x149
+0x140975762: mov      dword ptr [rdx + 4], 1
+0x140975769: mov      ecx, dword ptr [rdx]
+0x14097576b: lea      rax, [rip + 0x225aee]
+0x140975772: mov      rbx, rcx
+0x140975775: call     0x14007ac40   ; runtime.makeslice
+0x14097577a: mov      qword ptr [rsp + 0x50], rax
+0x14097577f: mov      rdx, qword ptr [rsp + 0x58]
+0x140975784: mov      esi, dword ptr [rdx]
+0x140975786: mov      dword ptr [rsp + 0x24], esi
+0x14097578a: mov      ecx, dword ptr [rdx + 4]
+0x14097578d: lea      rax, [rip + 0x23e52c]
+0x140975794: mov      rbx, rcx
+0x140975797: call     0x14007ac40   ; runtime.makeslice
+0x14097579c: mov      qword ptr [rsp + 0x48], rax
+0x1409757a1: mov      rdx, qword ptr [rsp + 0x58]
+0x1409757a6: mov      edx, dword ptr [rdx + 4]
+0x1409757a9: mov      qword ptr [rsp + 0x38], rdx
+0x1409757ae: mov      eax, 8
+0x1409757b3: xor      ebx, ebx
+0x1409757b5: mov      ecx, 1
+0x1409757ba: call     0x1400769e0   ; runtime.mallocgc
+0x1409757bf: mov      rdx, qword ptr [rsp + 0x58]
+0x1409757c4: mov      esi, dword ptr [rdx]
+0x1409757c6: mov      dword ptr [rax], esi
+0x1409757c8: mov      edx, dword ptr [rdx + 4]
+0x1409757cb: mov      dword ptr [rax + 4], edx
+0x1409757ce: mov      qword ptr [rsp + 0x78], rax
+0x1409757d3: mov      edx, dword ptr [rsp + 0x24]
+0x1409757d7: nop      word ptr [rax + rax]
+0x1409757e0: test     rdx, rdx
+0x1409757e3: jbe      0x140975965   ; main.queryScreenshotDisplayConfigActivePaths+0x345
+0x1409757e9: lea      rbx, [rax + 4]
+0x1409757ed: mov      rsi, qword ptr [rsp + 0x50]
+0x1409757f2: mov      qword ptr [rsp + 0x70], rsi
+0x1409757f7: mov      qword ptr [rsp + 0x68], rbx
+0x1409757fc: mov      rbx, qword ptr [rsp + 0x38]
+0x140975801: test     rbx, rbx
+0x140975804: jbe      0x140975957   ; main.queryScreenshotDisplayConfigActivePaths+0x337
+0x14097580a: mov      qword ptr [rsp + 0x58], rax
+0x14097580f: mov      rcx, qword ptr [rsp + 0x48]
+0x140975814: mov      qword ptr [rsp + 0x60], rcx
+0x140975819: lea      rax, [rip + 0x188460]
+0x140975820: call     0x14001ae20   ; runtime.newobject
+0x140975825: mov      qword ptr [rax], 2
+0x14097582c: mov      rcx, qword ptr [rsp + 0x78]
+0x140975831: mov      qword ptr [rax + 8], rcx
+0x140975835: mov      rcx, qword ptr [rsp + 0x70]
+0x14097583a: mov      qword ptr [rax + 0x10], rcx
+0x14097583e: mov      rcx, qword ptr [rsp + 0x68]
+0x140975843: mov      qword ptr [rax + 0x18], rcx
+0x140975847: mov      rcx, qword ptr [rsp + 0x60]
+0x14097584c: mov      qword ptr [rax + 0x20], rcx
+0x140975850: mov      qword ptr [rax + 0x28], 0
+0x140975858: mov      rcx, qword ptr [rip + 0x124c419]
+0x14097585f: mov      rbx, rax
+0x140975862: mov      edi, 6
+0x140975867: mov      rax, rcx
+0x14097586a: mov      rcx, rdi
+0x14097586d: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x140975872: test     rax, rax
+0x140975875: jne      0x14097587d   ; main.queryScreenshotDisplayConfigActivePaths+0x25d
+0x140975877: xor      eax, eax
+0x140975879: xor      ecx, ecx
+0x14097587b: jmp      0x14097588f   ; main.queryScreenshotDisplayConfigActivePaths+0x26f
+0x14097587d: nop      dword ptr [rax]
+0x140975880: call     0x1400765e0   ; runtime.convT64
+0x140975885: mov      rcx, rax
+0x140975888: lea      rax, [rip + 0x85d451]
+0x14097588f: mov      qword ptr [rsp + 0x40], rcx
+0x140975894: mov      qword ptr [rsp + 0x28], rax
+0x140975899: mov      rbx, rcx
+0x14097589c: lea      rcx, [rip + 0x85d43d]
+0x1409758a3: lea      rdi, [rip + 0x857c7e]
+0x1409758aa: call     0x1400904a0   ; errors.Is
+0x1409758af: test     al, al
+0x1409758b1: jne      0x14097568e   ; main.queryScreenshotDisplayConfigActivePaths+0x6e
+0x1409758b7: mov      rdi, qword ptr [rsp + 0x28]
+0x1409758bc: nop      dword ptr [rax]
+0x1409758c0: test     rdi, rdi
+0x1409758c3: jne      0x1409758f5   ; main.queryScreenshotDisplayConfigActivePaths+0x2d5
+0x1409758c5: mov      r8, qword ptr [rsp + 0x58]
+0x1409758ca: mov      ecx, dword ptr [r8]
+0x1409758cd: mov      edx, dword ptr [rsp + 0x24]
+0x1409758d1: cmp      ecx, edx
+0x1409758d3: jae      0x1409758dc   ; main.queryScreenshotDisplayConfigActivePaths+0x2bc
+0x1409758d5: cmp      rcx, rdx
+0x1409758d8: jbe      0x1409758de   ; main.queryScreenshotDisplayConfigActivePaths+0x2be
+0x1409758da: jmp      0x140975952   ; main.queryScreenshotDisplayConfigActivePaths+0x332
+0x1409758dc: mov      ecx, edx
+0x1409758de: mov      rax, qword ptr [rsp + 0x50]
+0x1409758e3: mov      rbx, rcx
+0x1409758e6: mov      ecx, edx
+0x1409758e8: xor      edi, edi
+0x1409758ea: xor      esi, esi
+0x1409758ec: add      rsp, 0x90
+0x1409758f3: pop      rbp
+0x1409758f4: ret      
+0x1409758f5: xor      eax, eax
+0x1409758f7: xor      ebx, ebx
+0x1409758f9: mov      rcx, rbx
+0x1409758fc: mov      rsi, qword ptr [rsp + 0x40]
+0x140975901: add      rsp, 0x90
+0x140975908: pop      rbp
+0x140975909: ret      
+0x14097590a: xor      eax, eax
+0x14097590c: xor      ebx, ebx
+0x14097590e: mov      rcx, rbx
+0x140975911: xor      edi, edi
+0x140975913: xor      esi, esi
+0x140975915: add      rsp, 0x90
+0x14097591c: pop      rbp
+0x14097591d: ret      
+0x14097591e: xor      ebx, ebx
+0x140975920: mov      rdi, rax
+0x140975923: mov      rsi, rcx
+0x140975926: xor      eax, eax
+0x140975928: mov      rcx, rbx
+0x14097592b: add      rsp, 0x90
+0x140975932: pop      rbp
+0x140975933: ret      
+0x140975934: xor      eax, eax
+0x140975936: xor      ebx, ebx
+0x140975938: mov      rcx, rbx
+0x14097593b: lea      rdi, [rip + 0x85d39e]
+0x140975942: lea      rsi, [rip + 0x857bdf]
+0x140975949: add      rsp, 0x90
+0x140975950: pop      rbp
+0x140975951: ret      
+0x140975952: call     0x140081480   ; runtime.panicSliceAcap
+0x140975957: xor      eax, eax
+0x140975959: mov      rcx, rax
+0x14097595c: nop      dword ptr [rax]
+0x140975960: call     0x140081400   ; runtime.panicIndex
+0x140975965: xor      eax, eax
+0x140975967: mov      rcx, rax
+0x14097596a: call     0x140081400   ; runtime.panicIndex
+0x14097596f: nop      
+0x140975970: call     0x14007f140   ; runtime.morestack_noctxt
+0x140975975: jmp      0x140975620   ; main.queryScreenshotDisplayConfigActivePaths
+0x14097597a: int3     
+0x14097597b: int3     
+0x14097597c: int3     
+0x14097597d: int3     
+0x14097597e: int3     
+0x14097597f: int3     

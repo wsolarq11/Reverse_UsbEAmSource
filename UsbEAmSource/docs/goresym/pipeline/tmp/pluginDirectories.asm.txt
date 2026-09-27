@@ -1,0 +1,70 @@
+0x1407a2860: lea      r12, [rsp - 0x180]
+0x1407a2868: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a286c: jbe      0x1407a295e    ; main.BootstrapService.pluginDirectories+0xfe
+0x1407a2872: push     rbp
+0x1407a2873: mov      rbp, rsp
+0x1407a2876: sub      rsp, 0x1f8
+0x1407a287d: nop      dword ptr [rax]
+0x1407a2880: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x1407a2885: lea      rdi, [rsp + 0x158]
+0x1407a288d: mov      rsi, rsp
+0x1407a2890: nop      word ptr [rax + rax]
+0x1407a2899: nop      dword ptr [rax]
+0x1407a28a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a28a5: lea      rbp, [rsp - 0x10]
+0x1407a28aa: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x1407a28af: mov      rbp, qword ptr [rbp]
+0x1407a28b3: lea      rdi, [rsp + 0xb0]
+0x1407a28bb: lea      rsi, [rsp + 0x158]
+0x1407a28c3: mov      qword ptr [rsp - 0x10], rbp
+0x1407a28c8: lea      rbp, [rsp - 0x10]
+0x1407a28cd: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x1407a28d2: mov      rbp, qword ptr [rbp]
+0x1407a28d6: mov      rax, qword ptr [rsp + 0xf0]
+0x1407a28de: mov      rbx, qword ptr [rsp + 0xf8]
+0x1407a28e6: call     0x1400a2200    ; strings.TrimSpace
+0x1407a28eb: test     rbx, rbx
+0x1407a28ee: jne      0x1407a28f6    ; main.BootstrapService.pluginDirectories+0x96
+0x1407a28f0: xor      eax, eax
+0x1407a28f2: xor      ecx, ecx
+0x1407a28f4: jmp      0x1407a294c    ; main.BootstrapService.pluginDirectories+0xec
+0x1407a28f6: mov      qword ptr [rsp + 0x150], rax
+0x1407a28fe: mov      qword ptr [rsp + 0xa8], rbx
+0x1407a2906: lea      rax, [rip + 0x35b013]
+0x1407a290d: call     0x14001ae20    ; runtime.newobject
+0x1407a2912: mov      rcx, qword ptr [rsp + 0xa8]
+0x1407a291a: mov      qword ptr [rax + 8], rcx
+0x1407a291e: cmp      dword ptr [rip + 0x14b8a2b], 0
+0x1407a2925: jne      0x1407a2931    ; main.BootstrapService.pluginDirectories+0xd1
+0x1407a2927: mov      rdx, qword ptr [rsp + 0x150]
+0x1407a292f: jmp      0x1407a2941    ; main.BootstrapService.pluginDirectories+0xe1
+0x1407a2931: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1407a2936: mov      rdx, qword ptr [rsp + 0x150]
+0x1407a293e: mov      qword ptr [r11], rdx
+0x1407a2941: mov      qword ptr [rax], rdx
+0x1407a2944: mov      rcx, rax
+0x1407a2947: mov      eax, 1
+0x1407a294c: mov      rbx, rax
+0x1407a294f: mov      rax, rcx
+0x1407a2952: mov      rcx, rbx
+0x1407a2955: add      rsp, 0x1f8
+0x1407a295c: pop      rbp
+0x1407a295d: ret      
+0x1407a295e: mov      qword ptr [rsp + 8], rax
+0x1407a2963: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a2968: mov      rax, qword ptr [rsp + 8]
+0x1407a296d: jmp      0x1407a2860    ; main.BootstrapService.pluginDirectories
+0x1407a2972: int3     
+0x1407a2973: int3     
+0x1407a2974: int3     
+0x1407a2975: int3     
+0x1407a2976: int3     
+0x1407a2977: int3     
+0x1407a2978: int3     
+0x1407a2979: int3     
+0x1407a297a: int3     
+0x1407a297b: int3     
+0x1407a297c: int3     
+0x1407a297d: int3     
+0x1407a297e: int3     
+0x1407a297f: int3     

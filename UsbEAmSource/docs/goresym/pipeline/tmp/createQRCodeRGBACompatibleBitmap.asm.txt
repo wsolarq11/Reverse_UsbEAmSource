@@ -1,0 +1,131 @@
+0x140957520: lea      r12, [rsp - 0x18]
+0x140957525: cmp      r12, qword ptr [r14 + 0x10]
+0x140957529: jbe      0x140957745   ; main.createQRCodeRGBACompatibleBitmap+0x225
+0x14095752f: push     rbp
+0x140957530: mov      rbp, rsp
+0x140957533: sub      rsp, 0x90
+0x14095753a: nop      word ptr [rax + rax]
+0x140957540: test     rax, rax
+0x140957543: je       0x140957710   ; main.createQRCodeRGBACompatibleBitmap+0x1f0
+0x140957549: mov      rcx, qword ptr [rax + 0x30]
+0x14095754d: mov      rdx, qword ptr [rax + 0x20]
+0x140957551: cmp      rdx, rcx
+0x140957554: jge      0x140957710   ; main.createQRCodeRGBACompatibleBitmap+0x1f0
+0x14095755a: mov      rbx, qword ptr [rax + 0x28]
+0x14095755e: mov      rsi, qword ptr [rax + 0x38]
+0x140957562: cmp      rbx, rsi
+0x140957565: jge      0x140957710   ; main.createQRCodeRGBACompatibleBitmap+0x1f0
+0x14095756b: mov      qword ptr [rsp + 0xa0], rax
+0x140957573: mov      rdi, rbx
+0x140957576: sub      rbx, rsi
+0x140957579: mov      qword ptr [rsp + 0x38], rbx
+0x14095757e: sub      rcx, rdx
+0x140957581: mov      qword ptr [rsp + 0x20], rcx
+0x140957586: sub      rsi, rdi
+0x140957589: imul     rsi, rcx
+0x14095758d: shl      rsi, 2
+0x140957591: mov      qword ptr [rsp + 0x30], rsi
+0x140957596: nop      
+0x140957597: nop      
+0x140957598: lea      rax, [rip + 0x22aee1]
+0x14095759f: nop      
+0x1409575a0: call     0x14001ae20   ; runtime.newobject
+0x1409575a5: mov      qword ptr [rsp + 0x88], rax
+0x1409575ad: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1409575b3: movups   xmmword ptr [rsp + 0x50], xmm15
+0x1409575b9: movups   xmmword ptr [rsp + 0x60], xmm15
+0x1409575bf: mov      dword ptr [rsp + 0x40], 0x28
+0x1409575c7: mov      rcx, qword ptr [rsp + 0x20]
+0x1409575cc: mov      dword ptr [rsp + 0x44], ecx
+0x1409575d0: mov      rcx, qword ptr [rsp + 0x38]
+0x1409575d5: mov      dword ptr [rsp + 0x48], ecx
+0x1409575d9: mov      qword ptr [rsp + 0x4c], 0x200001
+0x1409575e2: mov      rcx, qword ptr [rsp + 0x30]
+0x1409575e7: mov      dword ptr [rsp + 0x54], ecx
+0x1409575eb: cmp      dword ptr [rip + 0x1303d5e], 0
+0x1409575f2: je       0x140957610   ; main.createQRCodeRGBACompatibleBitmap+0xf0
+0x1409575f4: mov      rbx, rax
+0x1409575f7: lea      rcx, [rsp + 0x40]
+0x1409575fc: lea      rax, [rip + 0x22ae7d]
+0x140957603: call     0x14001b620   ; runtime.wbMove
+0x140957608: mov      rax, qword ptr [rsp + 0x88]
+0x140957610: movups   xmm0, xmmword ptr [rsp + 0x40]
+0x140957615: movups   xmmword ptr [rax], xmm0
+0x140957618: movups   xmm0, xmmword ptr [rsp + 0x50]
+0x14095761d: movups   xmmword ptr [rax + 0x10], xmm0
+0x140957621: movups   xmm0, xmmword ptr [rsp + 0x60]
+0x140957626: movups   xmmword ptr [rax + 0x20], xmm0
+0x14095762a: lea      rax, [rip + 0x192c0f]
+0x140957631: call     0x14001ae20   ; runtime.newobject
+0x140957636: mov      qword ptr [rsp + 0x80], rax
+0x14095763e: nop      
+0x14095763f: mov      rcx, qword ptr [rsp + 0x88]
+0x140957647: mov      qword ptr [rsp + 0x78], rcx
+0x14095764c: mov      qword ptr [rsp + 0x70], rax
+0x140957651: lea      rax, [rip + 0x1a6628]
+0x140957658: call     0x14001ae20   ; runtime.newobject
+0x14095765d: mov      rcx, qword ptr [rsp + 0x78]
+0x140957662: mov      qword ptr [rax + 8], rcx
+0x140957666: mov      qword ptr [rax + 0x10], 0
+0x14095766e: mov      rcx, qword ptr [rsp + 0x70]
+0x140957673: mov      qword ptr [rax + 0x18], rcx
+0x140957677: movups   xmmword ptr [rax + 0x20], xmm15
+0x14095767c: mov      rcx, qword ptr [rip + 0x126b025]
+0x140957683: mov      rbx, rax
+0x140957686: mov      edi, 6
+0x14095768b: mov      rax, rcx
+0x14095768e: mov      rcx, rdi
+0x140957691: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140957696: test     rax, rax
+0x140957699: je       0x1409576ab   ; main.createQRCodeRGBACompatibleBitmap+0x18b
+0x14095769b: mov      rcx, qword ptr [rsp + 0x80]
+0x1409576a3: mov      rbx, qword ptr [rcx]
+0x1409576a6: test     rbx, rbx
+0x1409576a9: jne      0x1409576e1   ; main.createQRCodeRGBACompatibleBitmap+0x1c1
+0x1409576ab: lea      rax, [rip + 0x1fccce]
+0x1409576b2: call     0x14001ae20   ; runtime.newobject
+0x1409576b7: mov      qword ptr [rax + 8], 0x24
+0x1409576bf: lea      rcx, [rip + 0x321231]
+0x1409576c6: mov      qword ptr [rax], rcx
+0x1409576c9: xor      ebx, ebx
+0x1409576cb: lea      rcx, [rip + 0x87ba2e]
+0x1409576d2: mov      rdi, rax
+0x1409576d5: xor      eax, eax
+0x1409576d7: add      rsp, 0x90
+0x1409576de: pop      rbp
+0x1409576df: nop      
+0x1409576e0: ret      
+0x1409576e1: mov      qword ptr [rsp + 0x28], rax
+0x1409576e6: mov      rax, qword ptr [rsp + 0xa0]
+0x1409576ee: call     0x140957760   ; main.copyRGBAToQRCodeDIBBits
+0x1409576f3: mov      rcx, qword ptr [rsp + 0x80]
+0x1409576fb: mov      rbx, qword ptr [rcx]
+0x1409576fe: mov      rax, qword ptr [rsp + 0x28]
+0x140957703: xor      ecx, ecx
+0x140957705: xor      edi, edi
+0x140957707: add      rsp, 0x90
+0x14095770e: pop      rbp
+0x14095770f: ret      
+0x140957710: lea      rax, [rip + 0x1fcc69]
+0x140957717: call     0x14001ae20   ; runtime.newobject
+0x14095771c: mov      qword ptr [rax + 8], 0x32
+0x140957724: lea      rcx, [rip + 0x330e53]
+0x14095772b: mov      qword ptr [rax], rcx
+0x14095772e: xor      ebx, ebx
+0x140957730: lea      rcx, [rip + 0x87b9c9]
+0x140957737: mov      rdi, rax
+0x14095773a: xor      eax, eax
+0x14095773c: add      rsp, 0x90
+0x140957743: pop      rbp
+0x140957744: ret      
+0x140957745: mov      qword ptr [rsp + 8], rax
+0x14095774a: call     0x14007f140   ; runtime.morestack_noctxt
+0x14095774f: mov      rax, qword ptr [rsp + 8]
+0x140957754: jmp      0x140957520   ; main.createQRCodeRGBACompatibleBitmap
+0x140957759: int3     
+0x14095775a: int3     
+0x14095775b: int3     
+0x14095775c: int3     
+0x14095775d: int3     
+0x14095775e: int3     
+0x14095775f: int3     

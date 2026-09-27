@@ -1,0 +1,403 @@
+0x1409248e0: lea      r12, [rsp - 0xb8]
+0x1409248e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1409248ec: jbe      0x140924f97   ; main.resolvePluginPathSecurely+0x6b7
+0x1409248f2: push     rbp
+0x1409248f3: mov      rbp, rsp
+0x1409248f6: sub      rsp, 0x130
+0x1409248fd: mov      qword ptr [rsp + 0x140], rax
+0x140924905: mov      byte ptr [rsp + 0x160], sil
+0x14092490d: mov      qword ptr [rsp + 0x158], rdi
+0x140924915: mov      qword ptr [rsp + 0x150], rcx
+0x14092491d: nop      dword ptr [rax]
+0x140924920: call     0x1400a2200   ; strings.TrimSpace
+0x140924925: mov      qword ptr [rsp + 0x70], rbx
+0x14092492a: mov      qword ptr [rsp + 0xc8], rax
+0x140924932: mov      rax, qword ptr [rsp + 0x150]
+0x14092493a: mov      rbx, qword ptr [rsp + 0x158]
+0x140924942: lea      rcx, [rip + 0x8a62f7]
+0x140924949: mov      edi, 1
+0x14092494e: lea      rsi, [rip + 0x30ecda]
+0x140924955: mov      r8, rdi
+0x140924958: mov      r9, 0xffffffffffffffff
+0x14092495f: nop      
+0x140924960: call     0x1400a2340   ; strings.Replace
+0x140924965: call     0x1400a2200   ; strings.TrimSpace
+0x14092496a: mov      rcx, qword ptr [rsp + 0x70]
+0x14092496f: test     rcx, rcx
+0x140924972: je       0x1409249b4   ; main.resolvePluginPathSecurely+0xd4
+0x140924974: test     rbx, rbx
+0x140924977: je       0x1409249b4   ; main.resolvePluginPathSecurely+0xd4
+0x140924979: mov      qword ptr [rsp + 0x68], rbx
+0x14092497e: mov      qword ptr [rsp + 0xc0], rax
+0x140924986: nop      
+0x140924987: mov      qword ptr [rsp], rax
+0x14092498b: mov      qword ptr [rsp + 8], rbx
+0x140924990: mov      byte ptr [rsp + 0x10], 0
+0x140924995: call     0x1400067c0   ; internal/bytealg.IndexByteString
+0x14092499a: xorps    xmm15, xmm15
+0x14092499e: mov      r14, qword ptr [rip + 0x13365d3]
+0x1409249a5: mov      r14, qword ptr gs:[r14]
+0x1409249a9: mov      r14, qword ptr [r14]
+0x1409249ac: cmp      qword ptr [rsp + 0x18], 0
+0x1409249b2: jl       0x1409249ee   ; main.resolvePluginPathSecurely+0x10e
+0x1409249b4: lea      rax, [rip + 0x22f9c5]
+0x1409249bb: nop      dword ptr [rax + rax]
+0x1409249c0: call     0x14001ae20   ; runtime.newobject
+0x1409249c5: mov      qword ptr [rax + 8], 0x18
+0x1409249cd: lea      rcx, [rip + 0x340a14]
+0x1409249d4: mov      qword ptr [rax], rcx
+0x1409249d7: xor      ebx, ebx
+0x1409249d9: lea      rcx, [rip + 0x8ae720]
+0x1409249e0: mov      rdi, rax
+0x1409249e3: xor      eax, eax
+0x1409249e5: add      rsp, 0x130
+0x1409249ec: pop      rbp
+0x1409249ed: ret      
+0x1409249ee: mov      rax, qword ptr [rsp + 0xc0]
+0x1409249f6: mov      rbx, qword ptr [rsp + 0x68]
+0x1409249fb: nop      dword ptr [rax + rax]
+0x140924a00: call     0x140116d20   ; internal/filepathlite.IsAbs
+0x140924a05: test     al, al
+0x140924a07: je       0x140924a10   ; main.resolvePluginPathSecurely+0x130
+0x140924a09: mov      ecx, 1
+0x140924a0e: jmp      0x140924a2b   ; main.resolvePluginPathSecurely+0x14b
+0x140924a10: mov      rax, qword ptr [rsp + 0xc0]
+0x140924a18: mov      rbx, qword ptr [rsp + 0x68]
+0x140924a1d: nop      dword ptr [rax]
+0x140924a20: call     0x140116560   ; internal/filepathlite.VolumeName
+0x140924a25: test     rbx, rbx
+0x140924a28: setne    cl
+0x140924a2b: test     cl, cl
+0x140924a2d: jne      0x140924a3d   ; main.resolvePluginPathSecurely+0x15d
+0x140924a2f: nop      
+0x140924a30: mov      rax, qword ptr [rsp + 0xc0]
+0x140924a38: cmp      byte ptr [rax], 0x2f
+0x140924a3b: jne      0x140924a72   ; main.resolvePluginPathSecurely+0x192
+0x140924a3d: lea      rax, [rip + 0x22f93c]
+0x140924a44: call     0x14001ae20   ; runtime.newobject
+0x140924a49: mov      qword ptr [rax + 8], 0x24
+0x140924a51: lea      rcx, [rip + 0x353e57]
+0x140924a58: mov      qword ptr [rax], rcx
+0x140924a5b: xor      ebx, ebx
+0x140924a5d: lea      rcx, [rip + 0x8ae69c]
+0x140924a64: mov      rdi, rax
+0x140924a67: xor      eax, eax
+0x140924a69: add      rsp, 0x130
+0x140924a70: pop      rbp
+0x140924a71: ret      
+0x140924a72: nop      
+0x140924a73: nop      
+0x140924a74: mov      rbx, qword ptr [rsp + 0x68]
+0x140924a79: mov      ecx, 0x2f
+0x140924a7e: mov      edi, 0x5c
+0x140924a83: call     0x140116180   ; internal/filepathlite.replaceStringByte
+0x140924a88: nop      
+0x140924a89: call     0x1401154c0   ; internal/filepathlite.Clean
+0x140924a8e: cmp      rbx, 1
+0x140924a92: jne      0x140924a99   ; main.resolvePluginPathSecurely+0x1b9
+0x140924a94: cmp      byte ptr [rax], 0x2e
+0x140924a97: je       0x140924ae4   ; main.resolvePluginPathSecurely+0x204
+0x140924a99: cmp      rbx, 2
+0x140924a9d: jne      0x140924aa6   ; main.resolvePluginPathSecurely+0x1c6
+0x140924a9f: cmp      word ptr [rax], 0x2e2e
+0x140924aa4: je       0x140924ae4   ; main.resolvePluginPathSecurely+0x204
+0x140924aa6: mov      qword ptr [rsp + 0x60], rbx
+0x140924aab: mov      qword ptr [rsp + 0xb8], rax
+0x140924ab3: cmp      rbx, 3
+0x140924ab7: jge      0x140924abd   ; main.resolvePluginPathSecurely+0x1dd
+0x140924ab9: xor      ecx, ecx
+0x140924abb: jmp      0x140924ae0   ; main.resolvePluginPathSecurely+0x200
+0x140924abd: lea      rbx, [rip + 0x30f08a]
+0x140924ac4: mov      ecx, 3
+0x140924ac9: call     0x140006280   ; runtime.memequal
+0x140924ace: mov      rbx, qword ptr [rsp + 0x60]
+0x140924ad3: mov      ecx, eax
+0x140924ad5: mov      rax, qword ptr [rsp + 0xb8]
+0x140924add: nop      dword ptr [rax]
+0x140924ae0: test     cl, cl
+0x140924ae2: je       0x140924b19   ; main.resolvePluginPathSecurely+0x239
+0x140924ae4: lea      rax, [rip + 0x22f895]
+0x140924aeb: call     0x14001ae20   ; runtime.newobject
+0x140924af0: mov      qword ptr [rax + 8], 0x27
+0x140924af8: lea      rcx, [rip + 0x3595be]
+0x140924aff: mov      qword ptr [rax], rcx
+0x140924b02: xor      ebx, ebx
+0x140924b04: lea      rcx, [rip + 0x8ae5f5]
+0x140924b0b: mov      rdi, rax
+0x140924b0e: xor      eax, eax
+0x140924b10: add      rsp, 0x130
+0x140924b17: pop      rbp
+0x140924b18: ret      
+0x140924b19: nop      
+0x140924b1a: mov      rax, qword ptr [rsp + 0xc8]
+0x140924b22: mov      rbx, qword ptr [rsp + 0x70]
+0x140924b27: call     0x1401cd5e0   ; path/filepath.abs
+0x140924b2c: test     rcx, rcx
+0x140924b2f: jne      0x140924c46   ; main.resolvePluginPathSecurely+0x366
+0x140924b35: nop      
+0x140924b36: call     0x1401154c0   ; internal/filepathlite.Clean
+0x140924b3b: mov      qword ptr [rsp + 0xe0], rax
+0x140924b43: mov      qword ptr [rsp + 0x88], rbx
+0x140924b4b: movups   xmmword ptr [rsp + 0x110], xmm15
+0x140924b54: movups   xmmword ptr [rsp + 0x120], xmm15
+0x140924b5d: mov      qword ptr [rsp + 0x118], rbx
+0x140924b65: mov      qword ptr [rsp + 0x110], rax
+0x140924b6d: mov      rcx, qword ptr [rsp + 0x60]
+0x140924b72: mov      qword ptr [rsp + 0x128], rcx
+0x140924b7a: mov      rcx, qword ptr [rsp + 0xb8]
+0x140924b82: mov      qword ptr [rsp + 0x120], rcx
+0x140924b8a: lea      rax, [rsp + 0x110]
+0x140924b92: mov      ebx, 2
+0x140924b97: mov      rcx, rbx
+0x140924b9a: call     0x1401cd660   ; path/filepath.join
+0x140924b9f: mov      qword ptr [rsp + 0xb0], rax
+0x140924ba7: mov      qword ptr [rsp + 0x58], rbx
+0x140924bac: mov      rcx, rax
+0x140924baf: mov      rdi, rbx
+0x140924bb2: mov      rax, qword ptr [rsp + 0xe0]
+0x140924bba: mov      rbx, qword ptr [rsp + 0x88]
+0x140924bc2: call     0x140924820   ; main.isPathWithinPluginRoot
+0x140924bc7: test     al, al
+0x140924bc9: je       0x140924c11   ; main.resolvePluginPathSecurely+0x331
+0x140924bcb: mov      rax, qword ptr [rsp + 0xb8]
+0x140924bd3: mov      rbx, qword ptr [rsp + 0x60]
+0x140924bd8: lea      rcx, [rip + 0x8a6061]
+0x140924bdf: mov      edi, 1
+0x140924be4: xor      esi, esi
+0x140924be6: mov      r8, 0xffffffffffffffff
+0x140924bed: call     0x14009f920   ; strings.genSplit
+0x140924bf2: mov      qword ptr [rsp + 0x50], rbx
+0x140924bf7: mov      rdx, qword ptr [rsp + 0x88]
+0x140924bff: mov      r9, qword ptr [rsp + 0xe0]
+0x140924c07: mov      rcx, rdx
+0x140924c0a: mov      rsi, r9
+0x140924c0d: xor      edi, edi
+0x140924c0f: jmp      0x140924c60   ; main.resolvePluginPathSecurely+0x380
+0x140924c11: lea      rax, [rip + 0x22f768]
+0x140924c18: call     0x14001ae20   ; runtime.newobject
+0x140924c1d: mov      qword ptr [rax + 8], 0x27
+0x140924c25: lea      rcx, [rip + 0x359491]
+0x140924c2c: mov      qword ptr [rax], rcx
+0x140924c2f: xor      ebx, ebx
+0x140924c31: lea      rcx, [rip + 0x8ae4c8]
+0x140924c38: mov      rdi, rax
+0x140924c3b: xor      eax, eax
+0x140924c3d: add      rsp, 0x130
+0x140924c44: pop      rbp
+0x140924c45: ret      
+0x140924c46: xor      eax, eax
+0x140924c48: xor      ebx, ebx
+0x140924c4a: add      rsp, 0x130
+0x140924c51: pop      rbp
+0x140924c52: ret      
+0x140924c53: add      rax, 0x10
+0x140924c57: inc      rdi
+0x140924c5a: nop      word ptr [rax + rax]
+0x140924c60: cmp      rbx, rdi
+0x140924c63: jle      0x140924d9b   ; main.resolvePluginPathSecurely+0x4bb
+0x140924c69: mov      r8, qword ptr [rax + 8]
+0x140924c6d: test     r8, r8
+0x140924c70: je       0x140924c53   ; main.resolvePluginPathSecurely+0x373
+0x140924c72: mov      qword ptr [rsp + 0x90], rdi
+0x140924c7a: mov      qword ptr [rsp + 0xe8], rax
+0x140924c82: mov      r10, qword ptr [rax]
+0x140924c85: cmp      r8, 1
+0x140924c89: jne      0x140924c91   ; main.resolvePluginPathSecurely+0x3b1
+0x140924c8b: cmp      byte ptr [r10], 0x2e
+0x140924c8f: je       0x140924c53   ; main.resolvePluginPathSecurely+0x373
+0x140924c91: movups   xmmword ptr [rsp + 0xf0], xmm15
+0x140924c9a: movups   xmmword ptr [rsp + 0x100], xmm15
+0x140924ca3: mov      qword ptr [rsp + 0xf8], rdx
+0x140924cab: mov      qword ptr [rsp + 0xf0], r9
+0x140924cb3: mov      qword ptr [rsp + 0x108], r8
+0x140924cbb: mov      qword ptr [rsp + 0x100], r10
+0x140924cc3: lea      rax, [rsp + 0xf0]
+0x140924ccb: mov      ebx, 2
+0x140924cd0: mov      rcx, rbx
+0x140924cd3: call     0x1401cd660   ; path/filepath.join
+0x140924cd8: mov      qword ptr [rsp + 0xd8], rax
+0x140924ce0: mov      qword ptr [rsp + 0x80], rbx
+0x140924ce8: call     0x14012d9a0   ; os.Lstat
+0x140924ced: test     rcx, rcx
+0x140924cf0: jne      0x140924d8e   ; main.resolvePluginPathSecurely+0x4ae
+0x140924cf6: mov      rcx, qword ptr [rax + 0x28]
+0x140924cfa: mov      rax, rbx
+0x140924cfd: call     rcx
+0x140924cff: bt       eax, 0x1b
+0x140924d03: jb       0x140924d58   ; main.resolvePluginPathSecurely+0x478
+0x140924d05: mov      rax, qword ptr [rsp + 0xd8]
+0x140924d0d: mov      rbx, qword ptr [rsp + 0x80]
+0x140924d15: call     0x140923b40   ; main.pluginPathHasReparsePoint
+0x140924d1a: test     al, al
+0x140924d1c: jne      0x140924d58   ; main.resolvePluginPathSecurely+0x478
+0x140924d1e: mov      rax, qword ptr [rsp + 0xe8]
+0x140924d26: mov      rcx, qword ptr [rsp + 0x88]
+0x140924d2e: mov      rbx, qword ptr [rsp + 0x50]
+0x140924d33: mov      rsi, qword ptr [rsp + 0xe0]
+0x140924d3b: mov      rdi, qword ptr [rsp + 0x90]
+0x140924d43: mov      rdx, qword ptr [rsp + 0x80]
+0x140924d4b: mov      r9, qword ptr [rsp + 0xd8]
+0x140924d53: jmp      0x140924c53   ; main.resolvePluginPathSecurely+0x373
+0x140924d58: lea      rax, [rip + 0x22f621]
+0x140924d5f: nop      
+0x140924d60: call     0x14001ae20   ; runtime.newobject
+0x140924d65: mov      qword ptr [rax + 8], 0x3b
+0x140924d6d: lea      rcx, [rip + 0x3684b2]
+0x140924d74: mov      qword ptr [rax], rcx
+0x140924d77: xor      ebx, ebx
+0x140924d79: lea      rcx, [rip + 0x8ae380]
+0x140924d80: mov      rdi, rax
+0x140924d83: xor      eax, eax
+0x140924d85: add      rsp, 0x130
+0x140924d8c: pop      rbp
+0x140924d8d: ret      
+0x140924d8e: xor      eax, eax
+0x140924d90: xor      ebx, ebx
+0x140924d92: add      rsp, 0x130
+0x140924d99: pop      rbp
+0x140924d9a: ret      
+0x140924d9b: nop      
+0x140924d9c: mov      rax, rsi
+0x140924d9f: mov      rbx, rcx
+0x140924da2: call     0x1401ce780   ; path/filepath.evalSymlinks
+0x140924da7: test     rcx, rcx
+0x140924daa: jne      0x140924f8a   ; main.resolvePluginPathSecurely+0x6aa
+0x140924db0: mov      qword ptr [rsp + 0x48], rbx
+0x140924db5: mov      qword ptr [rsp + 0xa8], rax
+0x140924dbd: nop      
+0x140924dbe: mov      rax, qword ptr [rsp + 0xb0]
+0x140924dc6: mov      rbx, qword ptr [rsp + 0x58]
+0x140924dcb: call     0x1401ce780   ; path/filepath.evalSymlinks
+0x140924dd0: test     rcx, rcx
+0x140924dd3: jne      0x140924f7d   ; main.resolvePluginPathSecurely+0x69d
+0x140924dd9: mov      qword ptr [rsp + 0x40], rbx
+0x140924dde: mov      qword ptr [rsp + 0xa0], rax
+0x140924de6: mov      rax, qword ptr [rsp + 0xa8]
+0x140924dee: mov      rbx, qword ptr [rsp + 0x48]
+0x140924df3: call     0x1401154c0   ; internal/filepathlite.Clean
+0x140924df8: mov      qword ptr [rsp + 0x98], rax
+0x140924e00: mov      qword ptr [rsp + 0x38], rbx
+0x140924e05: mov      rax, qword ptr [rsp + 0xa0]
+0x140924e0d: mov      rbx, qword ptr [rsp + 0x40]
+0x140924e12: call     0x1401154c0   ; internal/filepathlite.Clean
+0x140924e17: mov      rcx, rax
+0x140924e1a: mov      rdi, rbx
+0x140924e1d: mov      rax, qword ptr [rsp + 0x98]
+0x140924e25: mov      rbx, qword ptr [rsp + 0x38]
+0x140924e2a: call     0x140924820   ; main.isPathWithinPluginRoot
+0x140924e2f: test     al, al
+0x140924e31: je       0x140924f48   ; main.resolvePluginPathSecurely+0x668
+0x140924e37: mov      rax, qword ptr [rsp + 0xa0]
+0x140924e3f: mov      rbx, qword ptr [rsp + 0x40]
+0x140924e44: call     0x14012d940   ; os.Stat
+0x140924e49: test     rcx, rcx
+0x140924e4c: jne      0x140924f3b   ; main.resolvePluginPathSecurely+0x65b
+0x140924e52: mov      qword ptr [rsp + 0x78], rax
+0x140924e57: mov      qword ptr [rsp + 0xd0], rbx
+0x140924e5f: mov      rcx, qword ptr [rax + 0x18]
+0x140924e63: mov      rax, rbx
+0x140924e66: call     rcx
+0x140924e68: test     al, al
+0x140924e6a: je       0x140924eae   ; main.resolvePluginPathSecurely+0x5ce
+0x140924e6c: movzx    ecx, byte ptr [rsp + 0x160]
+0x140924e74: test     cl, cl
+0x140924e76: jne      0x140924eae   ; main.resolvePluginPathSecurely+0x5ce
+0x140924e78: lea      rax, [rip + 0x22f501]
+0x140924e7f: nop      
+0x140924e80: call     0x14001ae20   ; runtime.newobject
+0x140924e85: mov      qword ptr [rax + 8], 0x1b
+0x140924e8d: lea      rcx, [rip + 0x3453d8]
+0x140924e94: mov      qword ptr [rax], rcx
+0x140924e97: xor      ebx, ebx
+0x140924e99: lea      rcx, [rip + 0x8ae260]
+0x140924ea0: mov      rdi, rax
+0x140924ea3: xor      eax, eax
+0x140924ea5: add      rsp, 0x130
+0x140924eac: pop      rbp
+0x140924ead: ret      
+0x140924eae: mov      rcx, qword ptr [rsp + 0x78]
+0x140924eb3: mov      rcx, qword ptr [rcx + 0x18]
+0x140924eb7: mov      rax, qword ptr [rsp + 0xd0]
+0x140924ebf: nop      
+0x140924ec0: call     rcx
+0x140924ec2: test     al, al
+0x140924ec4: jne      0x140924ee7   ; main.resolvePluginPathSecurely+0x607
+0x140924ec6: mov      rcx, qword ptr [rsp + 0x78]
+0x140924ecb: mov      rcx, qword ptr [rcx + 0x28]
+0x140924ecf: mov      rax, qword ptr [rsp + 0xd0]
+0x140924ed7: call     rcx
+0x140924ed9: nop      dword ptr [rax]
+0x140924ee0: test     eax, 0x8f280000
+0x140924ee5: jne      0x140924f06   ; main.resolvePluginPathSecurely+0x626
+0x140924ee7: mov      rax, qword ptr [rsp + 0xa0]
+0x140924eef: mov      rbx, qword ptr [rsp + 0x40]
+0x140924ef4: call     0x1401154c0   ; internal/filepathlite.Clean
+0x140924ef9: xor      ecx, ecx
+0x140924efb: xor      edi, edi
+0x140924efd: add      rsp, 0x130
+0x140924f04: pop      rbp
+0x140924f05: ret      
+0x140924f06: lea      rax, [rip + 0x22f473]
+0x140924f0d: call     0x14001ae20   ; runtime.newobject
+0x140924f12: mov      qword ptr [rax + 8], 0x21
+0x140924f1a: lea      rcx, [rip + 0x34f01b]
+0x140924f21: mov      qword ptr [rax], rcx
+0x140924f24: xor      ebx, ebx
+0x140924f26: lea      rcx, [rip + 0x8ae1d3]
+0x140924f2d: mov      rdi, rax
+0x140924f30: xor      eax, eax
+0x140924f32: add      rsp, 0x130
+0x140924f39: pop      rbp
+0x140924f3a: ret      
+0x140924f3b: xor      eax, eax
+0x140924f3d: xor      ebx, ebx
+0x140924f3f: add      rsp, 0x130
+0x140924f46: pop      rbp
+0x140924f47: ret      
+0x140924f48: lea      rax, [rip + 0x22f431]
+0x140924f4f: call     0x14001ae20   ; runtime.newobject
+0x140924f54: mov      qword ptr [rax + 8], 0x1e
+0x140924f5c: lea      rcx, [rip + 0x34a6dc]
+0x140924f63: mov      qword ptr [rax], rcx
+0x140924f66: xor      ebx, ebx
+0x140924f68: lea      rcx, [rip + 0x8ae191]
+0x140924f6f: mov      rdi, rax
+0x140924f72: xor      eax, eax
+0x140924f74: add      rsp, 0x130
+0x140924f7b: pop      rbp
+0x140924f7c: ret      
+0x140924f7d: xor      eax, eax
+0x140924f7f: xor      ebx, ebx
+0x140924f81: add      rsp, 0x130
+0x140924f88: pop      rbp
+0x140924f89: ret      
+0x140924f8a: xor      eax, eax
+0x140924f8c: xor      ebx, ebx
+0x140924f8e: add      rsp, 0x130
+0x140924f95: pop      rbp
+0x140924f96: ret      
+0x140924f97: mov      qword ptr [rsp + 8], rax
+0x140924f9c: mov      qword ptr [rsp + 0x10], rbx
+0x140924fa1: mov      qword ptr [rsp + 0x18], rcx
+0x140924fa6: mov      qword ptr [rsp + 0x20], rdi
+0x140924fab: mov      byte ptr [rsp + 0x28], sil
+0x140924fb0: call     0x14007f140   ; runtime.morestack_noctxt
+0x140924fb5: mov      rax, qword ptr [rsp + 8]
+0x140924fba: mov      rbx, qword ptr [rsp + 0x10]
+0x140924fbf: mov      rcx, qword ptr [rsp + 0x18]
+0x140924fc4: mov      rdi, qword ptr [rsp + 0x20]
+0x140924fc9: movzx    esi, byte ptr [rsp + 0x28]
+0x140924fce: jmp      0x1409248e0   ; main.resolvePluginPathSecurely
+0x140924fd3: int3     
+0x140924fd4: int3     
+0x140924fd5: int3     
+0x140924fd6: int3     
+0x140924fd7: int3     
+0x140924fd8: int3     
+0x140924fd9: int3     
+0x140924fda: int3     
+0x140924fdb: int3     
+0x140924fdc: int3     
+0x140924fdd: int3     
+0x140924fde: int3     
+0x140924fdf: int3     

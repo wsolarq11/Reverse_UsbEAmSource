@@ -1,0 +1,87 @@
+0x140879b40: cmp      rsp, qword ptr [r14 + 0x10]
+0x140879b44: jbe      0x140879c79    ; main.normalizeStorageConfig+0x139
+0x140879b4a: push     rbp
+0x140879b4b: mov      rbp, rsp
+0x140879b4e: sub      rsp, 0x50
+0x140879b52: lea      rdi, [rsp + 0xb0]
+0x140879b5a: lea      rdi, [rdi - 0x30]
+0x140879b5e: nop      
+0x140879b60: mov      qword ptr [rsp - 0x10], rbp
+0x140879b65: lea      rbp, [rsp - 0x10]
+0x140879b6a: call     0x140081730    ; runtime.duffzero+0x150
+0x140879b6f: mov      rbp, qword ptr [rbp]
+0x140879b73: mov      rax, qword ptr [rsp + 0x60]
+0x140879b78: mov      rbx, qword ptr [rsp + 0x68]
+0x140879b7d: nop      dword ptr [rax]
+0x140879b80: call     0x1400a2200    ; strings.TrimSpace
+0x140879b85: mov      qword ptr [rsp + 0x38], rax
+0x140879b8a: mov      qword ptr [rsp + 0x10], rbx
+0x140879b8f: mov      rax, qword ptr [rsp + 0x70]
+0x140879b94: mov      rbx, qword ptr [rsp + 0x78]
+0x140879b99: call     0x1400a2200    ; strings.TrimSpace
+0x140879b9e: mov      qword ptr [rsp + 0x30], rax
+0x140879ba3: mov      qword ptr [rsp + 0x28], rbx
+0x140879ba8: mov      rax, qword ptr [rsp + 0x80]
+0x140879bb0: mov      rbx, qword ptr [rsp + 0x88]
+0x140879bb8: call     0x1400a2200    ; strings.TrimSpace
+0x140879bbd: mov      qword ptr [rsp + 0x48], rax
+0x140879bc2: mov      qword ptr [rsp + 0x20], rbx
+0x140879bc7: mov      rax, qword ptr [rsp + 0x90]
+0x140879bcf: mov      rbx, qword ptr [rsp + 0x98]
+0x140879bd7: call     0x1400a2200    ; strings.TrimSpace
+0x140879bdc: mov      qword ptr [rsp + 0x40], rax
+0x140879be1: mov      qword ptr [rsp + 0x18], rbx
+0x140879be6: mov      rax, qword ptr [rsp + 0xa0]
+0x140879bee: mov      rbx, qword ptr [rsp + 0xa8]
+0x140879bf6: call     0x1400a2200    ; strings.TrimSpace
+0x140879bfb: mov      rcx, qword ptr [rsp + 0x38]
+0x140879c00: mov      qword ptr [rsp + 0xb0], rcx
+0x140879c08: mov      rcx, qword ptr [rsp + 0x10]
+0x140879c0d: mov      qword ptr [rsp + 0xb8], rcx
+0x140879c15: mov      rcx, qword ptr [rsp + 0x30]
+0x140879c1a: mov      qword ptr [rsp + 0xc0], rcx
+0x140879c22: mov      rcx, qword ptr [rsp + 0x28]
+0x140879c27: mov      qword ptr [rsp + 0xc8], rcx
+0x140879c2f: mov      rcx, qword ptr [rsp + 0x48]
+0x140879c34: mov      qword ptr [rsp + 0xd0], rcx
+0x140879c3c: mov      rcx, qword ptr [rsp + 0x20]
+0x140879c41: mov      qword ptr [rsp + 0xd8], rcx
+0x140879c49: mov      rcx, qword ptr [rsp + 0x40]
+0x140879c4e: mov      qword ptr [rsp + 0xe0], rcx
+0x140879c56: mov      rcx, qword ptr [rsp + 0x18]
+0x140879c5b: mov      qword ptr [rsp + 0xe8], rcx
+0x140879c63: mov      qword ptr [rsp + 0xf0], rax
+0x140879c6b: mov      qword ptr [rsp + 0xf8], rbx
+0x140879c73: add      rsp, 0x50
+0x140879c77: pop      rbp
+0x140879c78: ret      
+0x140879c79: call     0x14007f140    ; runtime.morestack_noctxt
+0x140879c7e: nop      
+0x140879c80: jmp      0x140879b40    ; main.normalizeStorageConfig
+0x140879c85: int3     
+0x140879c86: int3     
+0x140879c87: int3     
+0x140879c88: int3     
+0x140879c89: int3     
+0x140879c8a: int3     
+0x140879c8b: int3     
+0x140879c8c: int3     
+0x140879c8d: int3     
+0x140879c8e: int3     
+0x140879c8f: int3     
+0x140879c90: int3     
+0x140879c91: int3     
+0x140879c92: int3     
+0x140879c93: int3     
+0x140879c94: int3     
+0x140879c95: int3     
+0x140879c96: int3     
+0x140879c97: int3     
+0x140879c98: int3     
+0x140879c99: int3     
+0x140879c9a: int3     
+0x140879c9b: int3     
+0x140879c9c: int3     
+0x140879c9d: int3     
+0x140879c9e: int3     
+0x140879c9f: int3     

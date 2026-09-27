@@ -1,0 +1,76 @@
+0x14074ba60: cmp      rsp, qword ptr [r14 + 0x10]
+0x14074ba64: jbe      0x14074bb46   ; main.encodeAppIconHandleToPNG+0xe6
+0x14074ba6a: push     rbp
+0x14074ba6b: mov      rbp, rsp
+0x14074ba6e: sub      rsp, 0x38
+0x14074ba72: call     0x14074bb60   ; main.renderAppIconHandle
+0x14074ba77: nop      word ptr [rax + rax]
+0x14074ba80: test     rcx, rcx
+0x14074ba83: jne      0x14074bb2a   ; main.encodeAppIconHandleToPNG+0xca
+0x14074ba89: mov      qword ptr [rsp + 0x28], rax
+0x14074ba8e: test     rbx, rbx
+0x14074ba91: je       0x14074ba98   ; main.encodeAppIconHandleToPNG+0x38
+0x14074ba93: call     0x14074cda0   ; main.applyAppIconMaskAlpha
+0x14074ba98: lea      rax, [rip + 0x451a41]
+0x14074ba9f: nop      
+0x14074baa0: call     0x14001ae20   ; runtime.newobject
+0x14074baa5: mov      qword ptr [rsp + 0x30], rax
+0x14074baaa: lea      rax, [rip + 0x43598f]
+0x14074bab1: call     0x14001ae20   ; runtime.newobject
+0x14074bab6: lea      rbx, [rip + 0xa87283]
+0x14074babd: mov      rcx, qword ptr [rsp + 0x30]
+0x14074bac2: lea      rdi, [rip + 0xa8bde7]
+0x14074bac9: mov      rsi, qword ptr [rsp + 0x28]
+0x14074bace: call     0x1401ca5c0   ; image/png.Encoder.Encode
+0x14074bad3: test     rax, rax
+0x14074bad6: jne      0x14074bb17   ; main.encodeAppIconHandleToPNG+0xb7
+0x14074bad8: mov      rdx, qword ptr [rsp + 0x30]
+0x14074badd: mov      rcx, qword ptr [rdx + 8]
+0x14074bae1: mov      rax, qword ptr [rdx + 0x18]
+0x14074bae5: cmp      rax, rcx
+0x14074bae8: ja       0x14074bb3d   ; main.encodeAppIconHandleToPNG+0xdd
+0x14074baea: mov      r8, qword ptr [rdx]
+0x14074baed: mov      rdx, qword ptr [rdx + 0x10]
+0x14074baf1: sub      rdx, rax
+0x14074baf4: sub      rcx, rax
+0x14074baf7: mov      r9, rdx
+0x14074bafa: neg      rdx
+0x14074bafd: sar      rdx, 0x3f
+0x14074bb01: and      rax, rdx
+0x14074bb04: add      rax, r8
+0x14074bb07: mov      rbx, rcx
+0x14074bb0a: mov      rcx, r9
+0x14074bb0d: xor      edi, edi
+0x14074bb0f: xor      esi, esi
+0x14074bb11: add      rsp, 0x38
+0x14074bb15: pop      rbp
+0x14074bb16: ret      
+0x14074bb17: xor      ecx, ecx
+0x14074bb19: mov      rdi, rax
+0x14074bb1c: mov      rsi, rbx
+0x14074bb1f: xor      eax, eax
+0x14074bb21: mov      rbx, rcx
+0x14074bb24: add      rsp, 0x38
+0x14074bb28: pop      rbp
+0x14074bb29: ret      
+0x14074bb2a: xor      eax, eax
+0x14074bb2c: xor      ebx, ebx
+0x14074bb2e: mov      rsi, rdi
+0x14074bb31: mov      rdi, rcx
+0x14074bb34: mov      rcx, rbx
+0x14074bb37: add      rsp, 0x38
+0x14074bb3b: pop      rbp
+0x14074bb3c: ret      
+0x14074bb3d: nop      dword ptr [rax]
+0x14074bb40: call     0x1400814c0   ; runtime.panicSliceB
+0x14074bb45: nop      
+0x14074bb46: mov      qword ptr [rsp + 8], rax
+0x14074bb4b: call     0x14007f140   ; runtime.morestack_noctxt
+0x14074bb50: mov      rax, qword ptr [rsp + 8]
+0x14074bb55: jmp      0x14074ba60   ; main.encodeAppIconHandleToPNG
+0x14074bb5a: int3     
+0x14074bb5b: int3     
+0x14074bb5c: int3     
+0x14074bb5d: int3     
+0x14074bb5e: int3     
+0x14074bb5f: int3     

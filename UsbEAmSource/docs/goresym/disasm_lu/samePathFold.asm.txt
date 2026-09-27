@@ -1,0 +1,48 @@
+0x1408cb060: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408cb064: jbe      0x1408cb0ed    ; main.samePathFold+0x8d
+0x1408cb06a: push     rbp
+0x1408cb06b: mov      rbp, rsp
+0x1408cb06e: sub      rsp, 0x38
+0x1408cb072: mov      qword ptr [rsp + 0x48], rax
+0x1408cb077: mov      qword ptr [rsp + 0x60], rdi
+0x1408cb07c: mov      qword ptr [rsp + 0x58], rcx
+0x1408cb081: call     0x1400a2200    ; strings.TrimSpace
+0x1408cb086: call     0x1401154c0    ; internal/filepathlite.Clean
+0x1408cb08b: call     0x1401cd5e0    ; path/filepath.abs
+0x1408cb090: mov      qword ptr [rsp + 0x20], rcx
+0x1408cb095: mov      qword ptr [rsp + 0x30], rax
+0x1408cb09a: mov      qword ptr [rsp + 0x28], rbx
+0x1408cb09f: mov      rax, qword ptr [rsp + 0x58]
+0x1408cb0a4: mov      rbx, qword ptr [rsp + 0x60]
+0x1408cb0a9: call     0x1400a2200    ; strings.TrimSpace
+0x1408cb0ae: call     0x1401154c0    ; internal/filepathlite.Clean
+0x1408cb0b3: call     0x1401cd5e0    ; path/filepath.abs
+0x1408cb0b8: mov      rdx, qword ptr [rsp + 0x20]
+0x1408cb0bd: nop      dword ptr [rax]
+0x1408cb0c0: test     rdx, rdx
+0x1408cb0c3: jne      0x1408cb0ca    ; main.samePathFold+0x6a
+0x1408cb0c5: test     rcx, rcx
+0x1408cb0c8: je       0x1408cb0d2    ; main.samePathFold+0x72
+0x1408cb0ca: xor      eax, eax
+0x1408cb0cc: add      rsp, 0x38
+0x1408cb0d0: pop      rbp
+0x1408cb0d1: ret      
+0x1408cb0d2: mov      rcx, rax
+0x1408cb0d5: mov      rdi, rbx
+0x1408cb0d8: mov      rax, qword ptr [rsp + 0x30]
+0x1408cb0dd: mov      rbx, qword ptr [rsp + 0x28]
+0x1408cb0e2: call     0x1400a2c40    ; strings.EqualFold
+0x1408cb0e7: add      rsp, 0x38
+0x1408cb0eb: pop      rbp
+0x1408cb0ec: ret      
+0x1408cb0ed: mov      qword ptr [rsp + 8], rax
+0x1408cb0f2: mov      qword ptr [rsp + 0x10], rbx
+0x1408cb0f7: mov      qword ptr [rsp + 0x18], rcx
+0x1408cb0fc: mov      qword ptr [rsp + 0x20], rdi
+0x1408cb101: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408cb106: mov      rax, qword ptr [rsp + 8]
+0x1408cb10b: mov      rbx, qword ptr [rsp + 0x10]
+0x1408cb110: mov      rcx, qword ptr [rsp + 0x18]
+0x1408cb115: mov      rdi, qword ptr [rsp + 0x20]
+0x1408cb11a: jmp      0x1408cb060    ; main.samePathFold
+0x1408cb11f: int3     

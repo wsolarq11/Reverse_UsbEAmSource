@@ -1,0 +1,319 @@
+0x1407d8ce0: lea      r12, [rsp - 0x1f0]
+0x1407d8ce8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407d8cec: jbe      0x1407d9354   ; main.buildFileLocatorLineMatch+0x674
+0x1407d8cf2: push     rbp
+0x1407d8cf3: mov      rbp, rsp
+0x1407d8cf6: sub      rsp, 0x268
+0x1407d8cfd: mov      qword ptr [rsp + 0x330], r11
+0x1407d8d05: mov      qword ptr [rsp + 0x2f0], rax
+0x1407d8d0d: mov      qword ptr [rsp + 0x2f8], rbx
+0x1407d8d15: mov      qword ptr [rsp + 0x300], rcx
+0x1407d8d1d: mov      qword ptr [rsp + 0x308], rdi
+0x1407d8d25: mov      qword ptr [rsp + 0x310], rsi
+0x1407d8d2d: mov      qword ptr [rsp + 0x318], r8
+0x1407d8d35: mov      qword ptr [rsp + 0x320], r9
+0x1407d8d3d: mov      qword ptr [rsp + 0x328], r10
+0x1407d8d45: lea      rdi, [rsp + 0x290]
+0x1407d8d4d: lea      rdi, [rdi - 0x20]
+0x1407d8d51: nop      word ptr [rax + rax]
+0x1407d8d5a: nop      word ptr [rax + rax]
+0x1407d8d60: mov      qword ptr [rsp - 0x10], rbp
+0x1407d8d65: lea      rbp, [rsp - 0x10]
+0x1407d8d6a: call     0x14008172b   ; runtime.duffzero+0x14b
+0x1407d8d6f: mov      rbp, qword ptr [rbp]
+0x1407d8d73: lea      rax, [rip + 0x3c13a6]
+0x1407d8d7a: xor      ebx, ebx
+0x1407d8d7c: mov      ecx, 2
+0x1407d8d81: call     0x14007ac40   ; runtime.makeslice
+0x1407d8d86: mov      qword ptr [rsp + 0x230], rax
+0x1407d8d8e: lea      rax, [rip + 0x3c138b]
+0x1407d8d95: xor      ebx, ebx
+0x1407d8d97: mov      ecx, 2
+0x1407d8d9c: nop      dword ptr [rax]
+0x1407d8da0: call     0x14007ac40   ; runtime.makeslice
+0x1407d8da5: mov      qword ptr [rsp + 0x228], rax
+0x1407d8dad: mov      rdx, qword ptr [rsp + 0x330]
+0x1407d8db5: mov      rsi, qword ptr [rsp + 0x230]
+0x1407d8dbd: mov      ecx, 2
+0x1407d8dc2: mov      ebx, 2
+0x1407d8dc7: xor      edi, edi
+0x1407d8dc9: jmp      0x1407d8dd1   ; main.buildFileLocatorLineMatch+0xf1
+0x1407d8dcb: dec      rcx
+0x1407d8dce: mov      rdx, r8
+0x1407d8dd1: mov      qword ptr [rsp + 0x1a8], rdi
+0x1407d8dd9: mov      qword ptr [rsp + 0x200], rsi
+0x1407d8de1: mov      qword ptr [rsp + 0x1b0], rbx
+0x1407d8de9: test     rcx, rcx
+0x1407d8dec: jle      0x1407d8fef   ; main.buildFileLocatorLineMatch+0x30f
+0x1407d8df2: mov      r8, rdx
+0x1407d8df5: sub      rdx, rcx
+0x1407d8df8: test     rdx, rdx
+0x1407d8dfb: jl       0x1407d8dcb   ; main.buildFileLocatorLineMatch+0xeb
+0x1407d8dfd: mov      r9, qword ptr [rsp + 0x308]
+0x1407d8e05: cmp      r9, rdx
+0x1407d8e08: jbe      0x1407d9348   ; main.buildFileLocatorLineMatch+0x668
+0x1407d8e0e: mov      qword ptr [rsp + 0x1a0], rcx
+0x1407d8e16: mov      qword ptr [rsp + 0x190], rdx
+0x1407d8e1e: mov      rsi, qword ptr [rsp + 0x300]
+0x1407d8e26: shl      rdx, 4
+0x1407d8e2a: mov      rbx, qword ptr [rdx + rsi]
+0x1407d8e2e: mov      qword ptr [rsp + 0x1f8], rbx
+0x1407d8e36: mov      rcx, qword ptr [rdx + rsi + 8]
+0x1407d8e3b: mov      qword ptr [rsp + 0x188], rcx
+0x1407d8e43: lea      rax, [rsp + 0x100]
+0x1407d8e4b: call     0x140060640   ; runtime.stringtoslicerune
+0x1407d8e50: cmp      rbx, 0x104
+0x1407d8e57: jg       0x1407d8e6b   ; main.buildFileLocatorLineMatch+0x18b
+0x1407d8e59: mov      rbx, qword ptr [rsp + 0x188]
+0x1407d8e61: mov      rax, qword ptr [rsp + 0x1f8]
+0x1407d8e69: jmp      0x1407d8e9e   ; main.buildFileLocatorLineMatch+0x1be
+0x1407d8e6b: mov      rbx, rax
+0x1407d8e6e: mov      rdi, rcx
+0x1407d8e71: lea      rax, [rsp + 0x60]
+0x1407d8e76: mov      ecx, 0x104
+0x1407d8e7b: nop      dword ptr [rax + rax]
+0x1407d8e80: call     0x1400607c0   ; runtime.slicerunetostring
+0x1407d8e85: mov      rcx, rbx
+0x1407d8e88: lea      rdi, [rip + 0x45ace6]
+0x1407d8e8f: mov      esi, 3
+0x1407d8e94: mov      rbx, rax
+0x1407d8e97: xor      eax, eax
+0x1407d8e99: call     0x14005fc00   ; runtime.concatstring2
+0x1407d8e9e: movups   xmmword ptr [rsp + 0x238], xmm15
+0x1407d8ea7: movups   xmmword ptr [rsp + 0x248], xmm15
+0x1407d8eb0: movups   xmmword ptr [rsp + 0x258], xmm15
+0x1407d8eb9: mov      rdx, qword ptr [rsp + 0x1a8]
+0x1407d8ec1: inc      rdx
+0x1407d8ec4: mov      r8, qword ptr [rsp + 0x190]
+0x1407d8ecc: inc      r8
+0x1407d8ecf: mov      qword ptr [rsp + 0x238], r8
+0x1407d8ed7: mov      qword ptr [rsp + 0x240], rax
+0x1407d8edf: mov      qword ptr [rsp + 0x248], rbx
+0x1407d8ee7: mov      rcx, qword ptr [rsp + 0x1b0]
+0x1407d8eef: cmp      rcx, rdx
+0x1407d8ef2: jb       0x1407d8f02   ; main.buildFileLocatorLineMatch+0x222
+0x1407d8ef4: mov      rbx, rdx
+0x1407d8ef7: mov      rax, qword ptr [rsp + 0x200]
+0x1407d8eff: nop      
+0x1407d8f00: jmp      0x1407d8f1e   ; main.buildFileLocatorLineMatch+0x23e
+0x1407d8f02: mov      rax, qword ptr [rsp + 0x200]
+0x1407d8f0a: mov      rbx, rdx
+0x1407d8f0d: mov      edi, 1
+0x1407d8f12: lea      rsi, [rip + 0x3c1207]
+0x1407d8f19: call     0x14007ad20   ; runtime.growslice
+0x1407d8f1e: lea      rdx, [rbx + rbx*2]
+0x1407d8f22: shl      rdx, 4
+0x1407d8f26: lea      r8, [rax + rdx]
+0x1407d8f2a: lea      r8, [r8 - 0x30]
+0x1407d8f2e: cmp      dword ptr [rip + 0x148241b], 0
+0x1407d8f35: je       0x1407d8f9e   ; main.buildFileLocatorLineMatch+0x2be
+0x1407d8f37: mov      qword ptr [rsp + 0x1e8], rdx
+0x1407d8f3f: mov      qword ptr [rsp + 0x220], rax
+0x1407d8f47: mov      qword ptr [rsp + 0x1e0], rbx
+0x1407d8f4f: mov      qword ptr [rsp + 0x1d8], rcx
+0x1407d8f57: mov      qword ptr [rsp + 0x218], r8
+0x1407d8f5f: lea      rax, [rip + 0x3c11ba]
+0x1407d8f66: mov      rbx, r8
+0x1407d8f69: lea      rcx, [rsp + 0x238]
+0x1407d8f71: call     0x14001b620   ; runtime.wbMove
+0x1407d8f76: mov      rax, qword ptr [rsp + 0x220]
+0x1407d8f7e: mov      rcx, qword ptr [rsp + 0x1d8]
+0x1407d8f86: mov      rdx, qword ptr [rsp + 0x1e8]
+0x1407d8f8e: mov      rbx, qword ptr [rsp + 0x1e0]
+0x1407d8f96: mov      r8, qword ptr [rsp + 0x218]
+0x1407d8f9e: lea      rdx, [rax + rdx]
+0x1407d8fa2: lea      rdx, [rdx - 0x20]
+0x1407d8fa6: movups   xmm0, xmmword ptr [rsp + 0x238]
+0x1407d8fae: movups   xmmword ptr [r8], xmm0
+0x1407d8fb2: movups   xmm0, xmmword ptr [rsp + 0x248]
+0x1407d8fba: movups   xmmword ptr [rdx], xmm0
+0x1407d8fbd: movups   xmm0, xmmword ptr [rsp + 0x258]
+0x1407d8fc5: movups   xmmword ptr [rdx + 0x10], xmm0
+0x1407d8fc9: mov      r8, qword ptr [rsp + 0x330]
+0x1407d8fd1: mov      rdi, rbx
+0x1407d8fd4: mov      rbx, rcx
+0x1407d8fd7: mov      rsi, rax
+0x1407d8fda: mov      rax, qword ptr [rsp + 0x228]
+0x1407d8fe2: mov      rcx, qword ptr [rsp + 0x1a0]
+0x1407d8fea: jmp      0x1407d8dcb   ; main.buildFileLocatorLineMatch+0xeb
+0x1407d8fef: mov      ecx, 1
+0x1407d8ff4: mov      r8d, 2
+0x1407d8ffa: xor      r9d, r9d
+0x1407d8ffd: jmp      0x1407d9058   ; main.buildFileLocatorLineMatch+0x378
+0x1407d8fff: lea      r10, [rax + r10]
+0x1407d9003: lea      r10, [r10 - 0x20]
+0x1407d9007: movups   xmm0, xmmword ptr [rsp + 0x238]
+0x1407d900f: movups   xmmword ptr [rbx], xmm0
+0x1407d9012: movups   xmm0, xmmword ptr [rsp + 0x248]
+0x1407d901a: movups   xmmword ptr [r10], xmm0
+0x1407d901e: movups   xmm0, xmmword ptr [rsp + 0x258]
+0x1407d9026: movups   xmmword ptr [r10 + 0x10], xmm0
+0x1407d902b: lea      r10, [r9 + 1]
+0x1407d902f: mov      rbx, qword ptr [rsp + 0x1b0]
+0x1407d9037: mov      rsi, qword ptr [rsp + 0x200]
+0x1407d903f: mov      rdi, qword ptr [rsp + 0x1a8]
+0x1407d9047: mov      r8, rcx
+0x1407d904a: mov      r9, rdx
+0x1407d904d: mov      rdx, qword ptr [rsp + 0x330]
+0x1407d9055: mov      rcx, r10
+0x1407d9058: mov      qword ptr [rsp + 0x1b8], r9
+0x1407d9060: mov      qword ptr [rsp + 0x208], rax
+0x1407d9068: mov      qword ptr [rsp + 0x1c0], r8
+0x1407d9070: cmp      rcx, 2
+0x1407d9074: jg       0x1407d924e   ; main.buildFileLocatorLineMatch+0x56e
+0x1407d907a: lea      r10, [rcx + rdx]
+0x1407d907e: mov      r11, qword ptr [rsp + 0x308]
+0x1407d9086: cmp      r11, r10
+0x1407d9089: jle      0x1407d924e   ; main.buildFileLocatorLineMatch+0x56e
+0x1407d908f: jbe      0x1407d933d   ; main.buildFileLocatorLineMatch+0x65d
+0x1407d9095: mov      qword ptr [rsp + 0x198], rcx
+0x1407d909d: mov      rdx, qword ptr [rsp + 0x300]
+0x1407d90a5: shl      r10, 4
+0x1407d90a9: mov      rbx, qword ptr [r10 + rdx]
+0x1407d90ad: mov      qword ptr [rsp + 0x1f0], rbx
+0x1407d90b5: mov      rcx, qword ptr [r10 + rdx + 8]
+0x1407d90ba: mov      qword ptr [rsp + 0x180], rcx
+0x1407d90c2: lea      rax, [rsp + 0x80]
+0x1407d90ca: call     0x140060640   ; runtime.stringtoslicerune
+0x1407d90cf: cmp      rbx, 0x104
+0x1407d90d6: jg       0x1407d90ea   ; main.buildFileLocatorLineMatch+0x40a
+0x1407d90d8: mov      rbx, qword ptr [rsp + 0x180]
+0x1407d90e0: mov      rax, qword ptr [rsp + 0x1f0]
+0x1407d90e8: jmp      0x1407d9118   ; main.buildFileLocatorLineMatch+0x438
+0x1407d90ea: mov      rbx, rax
+0x1407d90ed: mov      rdi, rcx
+0x1407d90f0: lea      rax, [rsp + 0x40]
+0x1407d90f5: mov      ecx, 0x104
+0x1407d90fa: call     0x1400607c0   ; runtime.slicerunetostring
+0x1407d90ff: mov      rcx, rbx
+0x1407d9102: lea      rdi, [rip + 0x45aa6c]
+0x1407d9109: mov      esi, 3
+0x1407d910e: mov      rbx, rax
+0x1407d9111: xor      eax, eax
+0x1407d9113: call     0x14005fc00   ; runtime.concatstring2
+0x1407d9118: movups   xmmword ptr [rsp + 0x238], xmm15
+0x1407d9121: movups   xmmword ptr [rsp + 0x248], xmm15
+0x1407d912a: movups   xmmword ptr [rsp + 0x258], xmm15
+0x1407d9133: mov      rdx, qword ptr [rsp + 0x1b8]
+0x1407d913b: inc      rdx
+0x1407d913e: mov      r8, qword ptr [rsp + 0x330]
+0x1407d9146: mov      r9, qword ptr [rsp + 0x198]
+0x1407d914e: lea      r10, [r9 + r8]
+0x1407d9152: lea      r10, [r10 + 1]
+0x1407d9156: mov      qword ptr [rsp + 0x238], r10
+0x1407d915e: mov      qword ptr [rsp + 0x240], rax
+0x1407d9166: mov      qword ptr [rsp + 0x248], rbx
+0x1407d916e: mov      rcx, qword ptr [rsp + 0x1c0]
+0x1407d9176: cmp      rcx, rdx
+0x1407d9179: jb       0x1407d9185   ; main.buildFileLocatorLineMatch+0x4a5
+0x1407d917b: mov      rax, qword ptr [rsp + 0x208]
+0x1407d9183: jmp      0x1407d91b8   ; main.buildFileLocatorLineMatch+0x4d8
+0x1407d9185: mov      rax, qword ptr [rsp + 0x208]
+0x1407d918d: mov      rbx, rdx
+0x1407d9190: mov      edi, 1
+0x1407d9195: lea      rsi, [rip + 0x3c0f84]
+0x1407d919c: nop      dword ptr [rax]
+0x1407d91a0: call     0x14007ad20   ; runtime.growslice
+0x1407d91a5: mov      r8, qword ptr [rsp + 0x330]
+0x1407d91ad: mov      r9, qword ptr [rsp + 0x198]
+0x1407d91b5: mov      rdx, rbx
+0x1407d91b8: lea      r10, [rdx + rdx*2]
+0x1407d91bc: shl      r10, 4
+0x1407d91c0: lea      rbx, [rax + r10]
+0x1407d91c4: lea      rbx, [rbx - 0x30]
+0x1407d91c8: cmp      dword ptr [rip + 0x1482181], 0
+0x1407d91cf: je       0x1407d8fff   ; main.buildFileLocatorLineMatch+0x31f
+0x1407d91d5: mov      qword ptr [rsp + 0x210], rax
+0x1407d91dd: mov      qword ptr [rsp + 0x1d0], rdx
+0x1407d91e5: mov      qword ptr [rsp + 0x1c8], rcx
+0x1407d91ed: mov      qword ptr [rsp + 0x220], rbx
+0x1407d91f5: mov      qword ptr [rsp + 0x1e8], r10
+0x1407d91fd: lea      rax, [rip + 0x3c0f1c]
+0x1407d9204: lea      rcx, [rsp + 0x238]
+0x1407d920c: call     0x14001b620   ; runtime.wbMove
+0x1407d9211: mov      rax, qword ptr [rsp + 0x210]
+0x1407d9219: mov      rcx, qword ptr [rsp + 0x1c8]
+0x1407d9221: mov      rdx, qword ptr [rsp + 0x1d0]
+0x1407d9229: mov      rbx, qword ptr [rsp + 0x220]
+0x1407d9231: mov      r8, qword ptr [rsp + 0x330]
+0x1407d9239: mov      r9, qword ptr [rsp + 0x198]
+0x1407d9241: mov      r10, qword ptr [rsp + 0x1e8]
+0x1407d9249: jmp      0x1407d8fff   ; main.buildFileLocatorLineMatch+0x31f
+0x1407d924e: mov      rcx, qword ptr [rsp + 0x308]
+0x1407d9256: cmp      rdx, rcx
+0x1407d9259: jae      0x1407d9335   ; main.buildFileLocatorLineMatch+0x655
+0x1407d925f: mov      r8, qword ptr [rsp + 0x300]
+0x1407d9267: shl      rdx, 4
+0x1407d926b: mov      rax, qword ptr [rdx + r8]
+0x1407d926f: mov      rbx, qword ptr [rdx + r8 + 8]
+0x1407d9274: mov      rcx, qword ptr [rsp + 0x278]
+0x1407d927c: mov      rdi, qword ptr [rsp + 0x280]
+0x1407d9284: mov      rsi, qword ptr [rsp + 0x288]
+0x1407d928c: call     0x1407d9400   ; main.compactFileLocatorHitLine
+0x1407d9291: mov      rdx, qword ptr [rsp + 0x330]
+0x1407d9299: inc      rdx
+0x1407d929c: mov      qword ptr [rsp + 0x290], rdx
+0x1407d92a4: mov      qword ptr [rsp + 0x298], rax
+0x1407d92ac: mov      qword ptr [rsp + 0x2a0], rbx
+0x1407d92b4: mov      qword ptr [rsp + 0x2a8], rcx
+0x1407d92bc: mov      qword ptr [rsp + 0x2b0], rdi
+0x1407d92c4: mov      qword ptr [rsp + 0x2b8], rsi
+0x1407d92cc: mov      rdx, qword ptr [rsp + 0x200]
+0x1407d92d4: mov      qword ptr [rsp + 0x2c0], rdx
+0x1407d92dc: mov      rdx, qword ptr [rsp + 0x1a8]
+0x1407d92e4: mov      qword ptr [rsp + 0x2c8], rdx
+0x1407d92ec: mov      rdx, qword ptr [rsp + 0x1b0]
+0x1407d92f4: mov      qword ptr [rsp + 0x2d0], rdx
+0x1407d92fc: mov      rdx, qword ptr [rsp + 0x208]
+0x1407d9304: mov      qword ptr [rsp + 0x2d8], rdx
+0x1407d930c: mov      rdx, qword ptr [rsp + 0x1b8]
+0x1407d9314: mov      qword ptr [rsp + 0x2e0], rdx
+0x1407d931c: mov      rdx, qword ptr [rsp + 0x1c0]
+0x1407d9324: mov      qword ptr [rsp + 0x2e8], rdx
+0x1407d932c: add      rsp, 0x268
+0x1407d9333: pop      rbp
+0x1407d9334: ret      
+0x1407d9335: mov      rax, rdx
+0x1407d9338: call     0x140081400   ; runtime.panicIndex
+0x1407d933d: mov      rax, r10
+0x1407d9340: mov      rcx, r11
+0x1407d9343: call     0x140081400   ; runtime.panicIndex
+0x1407d9348: mov      rax, rdx
+0x1407d934b: mov      rcx, r9
+0x1407d934e: call     0x140081400   ; runtime.panicIndex
+0x1407d9353: nop      
+0x1407d9354: mov      qword ptr [rsp + 0x80], rax
+0x1407d935c: mov      qword ptr [rsp + 0x88], rbx
+0x1407d9364: mov      qword ptr [rsp + 0x90], rcx
+0x1407d936c: mov      qword ptr [rsp + 0x98], rdi
+0x1407d9374: mov      qword ptr [rsp + 0xa0], rsi
+0x1407d937c: mov      qword ptr [rsp + 0xa8], r8
+0x1407d9384: mov      qword ptr [rsp + 0xb0], r9
+0x1407d938c: mov      qword ptr [rsp + 0xb8], r10
+0x1407d9394: mov      qword ptr [rsp + 0xc0], r11
+0x1407d939c: nop      dword ptr [rax]
+0x1407d93a0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407d93a5: mov      rax, qword ptr [rsp + 0x80]
+0x1407d93ad: mov      rbx, qword ptr [rsp + 0x88]
+0x1407d93b5: mov      rcx, qword ptr [rsp + 0x90]
+0x1407d93bd: mov      rdi, qword ptr [rsp + 0x98]
+0x1407d93c5: mov      rsi, qword ptr [rsp + 0xa0]
+0x1407d93cd: mov      r8, qword ptr [rsp + 0xa8]
+0x1407d93d5: mov      r9, qword ptr [rsp + 0xb0]
+0x1407d93dd: mov      r10, qword ptr [rsp + 0xb8]
+0x1407d93e5: mov      r11, qword ptr [rsp + 0xc0]
+0x1407d93ed: jmp      0x1407d8ce0   ; main.buildFileLocatorLineMatch
+0x1407d93f2: int3     
+0x1407d93f3: int3     
+0x1407d93f4: int3     
+0x1407d93f5: int3     
+0x1407d93f6: int3     
+0x1407d93f7: int3     
+0x1407d93f8: int3     
+0x1407d93f9: int3     
+0x1407d93fa: int3     
+0x1407d93fb: int3     
+0x1407d93fc: int3     
+0x1407d93fd: int3     
+0x1407d93fe: int3     
+0x1407d93ff: int3     

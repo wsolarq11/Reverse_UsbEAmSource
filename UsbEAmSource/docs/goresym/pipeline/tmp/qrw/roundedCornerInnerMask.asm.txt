@@ -1,0 +1,60 @@
+0x140949800: cmp      rsp, qword ptr [r14 + 0x10]
+0x140949804: jbe      0x140949895
+0x14094980a: push     rbp
+0x14094980b: mov      rbp, rsp
+0x14094980e: sub      rsp, 8
+0x140949812: test     rax, rax
+0x140949815: je       0x14094988d
+0x140949817: test     rbx, rbx
+0x14094981a: jle      0x14094988d
+0x14094981c: mov      qword ptr [rsp + 0x18], rax
+0x140949821: mov      rcx, qword ptr [rax + 0x1c0]
+0x140949828: test     rcx, rcx
+0x14094982b: je       0x14094983f
+0x14094982d: cmp      qword ptr [rax + 0x1c8], rbx
+0x140949834: jne      0x14094983f
+0x140949836: mov      rax, rcx
+0x140949839: add      rsp, 8
+0x14094983d: pop      rbp
+0x14094983e: ret      
+0x14094983f: mov      qword ptr [rsp + 0x20], rbx
+0x140949844: mov      rax, rbx
+0x140949847: call     0x14095c040
+0x14094984c: cmp      dword ptr [rip + 0x1311afd], 0
+0x140949853: jne      0x14094985c
+0x140949855: mov      rcx, qword ptr [rsp + 0x18]
+0x14094985a: jmp      0x140949874
+0x14094985c: mov      rcx, qword ptr [rsp + 0x18]
+0x140949861: mov      rdx, qword ptr [rcx + 0x1c0]
+0x140949868: call     0x140081060
+0x14094986d: mov      qword ptr [r11], rax
+0x140949870: mov      qword ptr [r11 + 8], rdx
+0x140949874: mov      qword ptr [rcx + 0x1c0], rax
+0x14094987b: mov      rdx, qword ptr [rsp + 0x20]
+0x140949880: mov      qword ptr [rcx + 0x1c8], rdx
+0x140949887: add      rsp, 8
+0x14094988b: pop      rbp
+0x14094988c: ret      
+0x14094988d: xor      eax, eax
+0x14094988f: add      rsp, 8
+0x140949893: pop      rbp
+0x140949894: ret      
+0x140949895: mov      qword ptr [rsp + 8], rax
+0x14094989a: mov      qword ptr [rsp + 0x10], rbx
+0x14094989f: nop      
+0x1409498a0: call     0x14007f140
+0x1409498a5: mov      rax, qword ptr [rsp + 8]
+0x1409498aa: mov      rbx, qword ptr [rsp + 0x10]
+0x1409498af: jmp      0x140949800
+0x1409498b4: int3     
+0x1409498b5: int3     
+0x1409498b6: int3     
+0x1409498b7: int3     
+0x1409498b8: int3     
+0x1409498b9: int3     
+0x1409498ba: int3     
+0x1409498bb: int3     
+0x1409498bc: int3     
+0x1409498bd: int3     
+0x1409498be: int3     
+0x1409498bf: int3     

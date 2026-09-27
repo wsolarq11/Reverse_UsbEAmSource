@@ -1,0 +1,103 @@
+0x14078efa0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14078efa4: jbe      0x14078f0b8    ; main.BootstrapService.HidePinnedScreenshot+0x118
+0x14078efaa: push     rbp
+0x14078efab: mov      rbp, rsp
+0x14078efae: sub      rsp, 0x40
+0x14078efb2: movq     qword ptr [rsp + 0x38], xmm15
+0x14078efb9: mov      qword ptr [rsp + 0x50], rax
+0x14078efbe: mov      qword ptr [rsp + 0x60], rcx
+0x14078efc3: mov      qword ptr [rsp + 0x58], rbx
+0x14078efc8: mov      byte ptr [rsp + 0x27], 0
+0x14078efcd: movups   xmmword ptr [rsp + 0x28], xmm15
+0x14078efd3: call     0x1409ef7c0    ; main.BootstrapService.beginWorkspaceDataOperation
+0x14078efd8: nop      dword ptr [rax + rax]
+0x14078efe0: test     rbx, rbx
+0x14078efe3: jne      0x14078f08d    ; main.BootstrapService.HidePinnedScreenshot+0xed
+0x14078efe9: mov      qword ptr [rsp + 0x38], rax
+0x14078efee: mov      byte ptr [rsp + 0x27], 1
+0x14078eff3: mov      rdx, qword ptr [rsp + 0x50]
+0x14078eff8: mov      rax, qword ptr [rdx + 0x400]
+0x14078efff: nop      
+0x14078f000: test     rax, rax
+0x14078f003: je       0x14078f03f    ; main.BootstrapService.HidePinnedScreenshot+0x9f
+0x14078f005: xor      ebx, ebx
+0x14078f007: mov      rcx, qword ptr [rsp + 0x58]
+0x14078f00c: mov      rdi, qword ptr [rsp + 0x60]
+0x14078f011: call     0x140983760    ; main.screenshotPinWindowService.hidePinnedWindow
+0x14078f016: mov      qword ptr [rsp + 0x28], rax
+0x14078f01b: mov      qword ptr [rsp + 0x30], rbx
+0x14078f020: mov      byte ptr [rsp + 0x27], 0
+0x14078f025: mov      rdx, qword ptr [rsp + 0x38]
+0x14078f02a: mov      rsi, qword ptr [rdx]
+0x14078f02d: call     rsi
+0x14078f02f: mov      rax, qword ptr [rsp + 0x28]
+0x14078f034: mov      rbx, qword ptr [rsp + 0x30]
+0x14078f039: add      rsp, 0x40
+0x14078f03d: pop      rbp
+0x14078f03e: ret      
+0x14078f03f: lea      rax, [rip + 0x3c533a]
+0x14078f046: call     0x14001ae20    ; runtime.newobject
+0x14078f04b: mov      qword ptr [rax + 8], 0x15
+0x14078f053: lea      rcx, [rip + 0x4d05b1]
+0x14078f05a: mov      qword ptr [rax], rcx
+0x14078f05d: lea      rcx, [rip + 0xa4409c]
+0x14078f064: mov      qword ptr [rsp + 0x28], rcx
+0x14078f069: mov      qword ptr [rsp + 0x30], rax
+0x14078f06e: mov      byte ptr [rsp + 0x27], 0
+0x14078f073: mov      rdx, qword ptr [rsp + 0x38]
+0x14078f078: mov      rcx, qword ptr [rdx]
+0x14078f07b: call     rcx
+0x14078f07d: mov      rax, qword ptr [rsp + 0x28]
+0x14078f082: mov      rbx, qword ptr [rsp + 0x30]
+0x14078f087: add      rsp, 0x40
+0x14078f08b: pop      rbp
+0x14078f08c: ret      
+0x14078f08d: mov      qword ptr [rsp + 0x28], rbx
+0x14078f092: mov      qword ptr [rsp + 0x30], rcx
+0x14078f097: mov      rax, rbx
+0x14078f09a: mov      rbx, rcx
+0x14078f09d: add      rsp, 0x40
+0x14078f0a1: pop      rbp
+0x14078f0a2: ret      
+0x14078f0a3: call     0x1400435e0    ; runtime.deferreturn
+0x14078f0a8: mov      rax, qword ptr [rsp + 0x28]
+0x14078f0ad: mov      rbx, qword ptr [rsp + 0x30]
+0x14078f0b2: add      rsp, 0x40
+0x14078f0b6: pop      rbp
+0x14078f0b7: ret      
+0x14078f0b8: mov      qword ptr [rsp + 8], rax
+0x14078f0bd: mov      qword ptr [rsp + 0x10], rbx
+0x14078f0c2: mov      qword ptr [rsp + 0x18], rcx
+0x14078f0c7: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078f0cc: mov      rax, qword ptr [rsp + 8]
+0x14078f0d1: mov      rbx, qword ptr [rsp + 0x10]
+0x14078f0d6: mov      rcx, qword ptr [rsp + 0x18]
+0x14078f0db: nop      dword ptr [rax + rax]
+0x14078f0e0: jmp      0x14078efa0    ; main.BootstrapService.HidePinnedScreenshot
+0x14078f0e5: int3     
+0x14078f0e6: int3     
+0x14078f0e7: int3     
+0x14078f0e8: int3     
+0x14078f0e9: int3     
+0x14078f0ea: int3     
+0x14078f0eb: int3     
+0x14078f0ec: int3     
+0x14078f0ed: int3     
+0x14078f0ee: int3     
+0x14078f0ef: int3     
+0x14078f0f0: int3     
+0x14078f0f1: int3     
+0x14078f0f2: int3     
+0x14078f0f3: int3     
+0x14078f0f4: int3     
+0x14078f0f5: int3     
+0x14078f0f6: int3     
+0x14078f0f7: int3     
+0x14078f0f8: int3     
+0x14078f0f9: int3     
+0x14078f0fa: int3     
+0x14078f0fb: int3     
+0x14078f0fc: int3     
+0x14078f0fd: int3     
+0x14078f0fe: int3     
+0x14078f0ff: int3     

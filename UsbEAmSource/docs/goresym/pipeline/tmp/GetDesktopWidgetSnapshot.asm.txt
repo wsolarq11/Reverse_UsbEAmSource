@@ -1,0 +1,109 @@
+0x1407a7c60: lea      r12, [rsp - 0xd8]
+0x1407a7c68: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a7c6c: jbe      0x1407a7e26    ; main.BootstrapService.GetDesktopWidgetSnapshot+0x1c6
+0x1407a7c72: push     rbp
+0x1407a7c73: mov      rbp, rsp
+0x1407a7c76: sub      rsp, 0x150
+0x1407a7c7d: mov      qword ptr [rsp + 0x200], rbx
+0x1407a7c85: movups   xmmword ptr [rsp + 0x160], xmm15
+0x1407a7c8e: mov      rdx, rdi
+0x1407a7c91: lea      rdi, [rsp + 0x168]
+0x1407a7c99: lea      rdi, [rdi - 0x30]
+0x1407a7c9d: nop      dword ptr [rax]
+0x1407a7ca0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7ca5: lea      rbp, [rsp - 0x10]
+0x1407a7caa: call     0x140081719    ; runtime.duffzero+0x139
+0x1407a7caf: mov      rbp, qword ptr [rbp]
+0x1407a7cb3: test     rax, rax
+0x1407a7cb6: je       0x1407a7dbc    ; main.BootstrapService.GetDesktopWidgetSnapshot+0x15c
+0x1407a7cbc: cmp      qword ptr [rax + 0x440], 0
+0x1407a7cc4: je       0x1407a7dbc    ; main.BootstrapService.GetDesktopWidgetSnapshot+0x15c
+0x1407a7cca: movups   xmmword ptr [rsp + 0xb8], xmm15
+0x1407a7cd3: lea      rdi, [rsp + 0xc0]
+0x1407a7cdb: lea      rdi, [rdi - 0x30]
+0x1407a7cdf: nop      
+0x1407a7ce0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7ce5: lea      rbp, [rsp - 0x10]
+0x1407a7cea: call     0x140081719    ; runtime.duffzero+0x139
+0x1407a7cef: mov      rbp, qword ptr [rbp]
+0x1407a7cf3: mov      rax, qword ptr [rax + 0x440]
+0x1407a7cfa: mov      rdi, rdx
+0x1407a7cfd: nop      dword ptr [rax]
+0x1407a7d00: call     0x1407b3420    ; main.desktopWidgetService.GetSnapshot
+0x1407a7d05: mov      rdx, qword ptr [rsp]
+0x1407a7d09: mov      qword ptr [rsp + 0xb8], rdx
+0x1407a7d11: lea      rdi, [rsp + 0xc0]
+0x1407a7d19: lea      rsi, [rsp + 8]
+0x1407a7d1e: nop      
+0x1407a7d20: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7d25: lea      rbp, [rsp - 0x10]
+0x1407a7d2a: call     0x140081a62    ; runtime.duffcopy+0x302
+0x1407a7d2f: mov      rbp, qword ptr [rbp]
+0x1407a7d33: mov      rdx, qword ptr [rsp + 0xb8]
+0x1407a7d3b: mov      qword ptr [rsp + 0x160], rdx
+0x1407a7d43: lea      rdi, [rsp + 0x168]
+0x1407a7d4b: lea      rsi, [rsp + 0xc0]
+0x1407a7d53: nop      word ptr [rax + rax]
+0x1407a7d5c: nop      dword ptr [rax]
+0x1407a7d60: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7d65: lea      rbp, [rsp - 0x10]
+0x1407a7d6a: call     0x140081a62    ; runtime.duffcopy+0x302
+0x1407a7d6f: mov      rbp, qword ptr [rbp]
+0x1407a7d73: mov      rdx, qword ptr [rsp + 0xb8]
+0x1407a7d7b: mov      qword ptr [rsp + 0x160], rdx
+0x1407a7d83: lea      rdi, [rsp + 0x168]
+0x1407a7d8b: lea      rsi, [rsp + 0xc0]
+0x1407a7d93: nop      word ptr [rax + rax]
+0x1407a7d9c: nop      dword ptr [rax]
+0x1407a7da0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7da5: lea      rbp, [rsp - 0x10]
+0x1407a7daa: call     0x140081a62    ; runtime.duffcopy+0x302
+0x1407a7daf: mov      rbp, qword ptr [rbp]
+0x1407a7db3: add      rsp, 0x150
+0x1407a7dba: pop      rbp
+0x1407a7dbb: ret      
+0x1407a7dbc: lea      rax, [rip + 0x3ac5bd]
+0x1407a7dc3: call     0x14001ae20    ; runtime.newobject
+0x1407a7dc8: mov      qword ptr [rax + 8], 0x1b
+0x1407a7dd0: lea      rcx, [rip + 0x4c1e92]
+0x1407a7dd7: mov      qword ptr [rax], rcx
+0x1407a7dda: movups   xmmword ptr [rsp + 0x160], xmm15
+0x1407a7de3: lea      rdi, [rsp + 0x168]
+0x1407a7deb: lea      rdi, [rdi - 0x30]
+0x1407a7def: nop      word ptr [rax + rax]
+0x1407a7df8: nop      dword ptr [rax + rax]
+0x1407a7e00: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7e05: lea      rbp, [rsp - 0x10]
+0x1407a7e0a: call     0x140081719    ; runtime.duffzero+0x139
+0x1407a7e0f: mov      rbp, qword ptr [rbp]
+0x1407a7e13: mov      rbx, rax
+0x1407a7e16: lea      rax, [rip + 0xa2b2e3]
+0x1407a7e1d: add      rsp, 0x150
+0x1407a7e24: pop      rbp
+0x1407a7e25: ret      
+0x1407a7e26: mov      qword ptr [rsp + 0xa0], rax
+0x1407a7e2e: mov      qword ptr [rsp + 0xa8], rbx
+0x1407a7e36: mov      qword ptr [rsp + 0xb0], rcx
+0x1407a7e3e: mov      qword ptr [rsp + 0xb8], rdi
+0x1407a7e46: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a7e4b: mov      rax, qword ptr [rsp + 0xa0]
+0x1407a7e53: mov      rbx, qword ptr [rsp + 0xa8]
+0x1407a7e5b: mov      rcx, qword ptr [rsp + 0xb0]
+0x1407a7e63: mov      rdi, qword ptr [rsp + 0xb8]
+0x1407a7e6b: jmp      0x1407a7c60    ; main.BootstrapService.GetDesktopWidgetSnapshot
+0x1407a7e70: int3     
+0x1407a7e71: int3     
+0x1407a7e72: int3     
+0x1407a7e73: int3     
+0x1407a7e74: int3     
+0x1407a7e75: int3     
+0x1407a7e76: int3     
+0x1407a7e77: int3     
+0x1407a7e78: int3     
+0x1407a7e79: int3     
+0x1407a7e7a: int3     
+0x1407a7e7b: int3     
+0x1407a7e7c: int3     
+0x1407a7e7d: int3     
+0x1407a7e7e: int3     
+0x1407a7e7f: int3     

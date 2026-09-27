@@ -1,0 +1,144 @@
+0x1407f1e40: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407f1e44: jbe      0x1407f1fda   ; main.volumeIndexReadView.nodeName+0x19a
+0x1407f1e4a: push     rbp
+0x1407f1e4b: mov      rbp, rsp
+0x1407f1e4e: sub      rsp, 0x18
+0x1407f1e52: mov      qword ptr [rsp + 0x108], rax
+0x1407f1e5a: mov      dword ptr [rsp + 0x110], ebx
+0x1407f1e61: mov      dword ptr [rsp + 0x114], ecx
+0x1407f1e68: mov      dword ptr [rsp + 0x118], edi
+0x1407f1e6f: mov      word ptr [rsp + 0x11c], si
+0x1407f1e77: mov      word ptr [rsp + 0x11e], r8w
+0x1407f1e80: mov      eax, dword ptr [rsp + 0x110]
+0x1407f1e87: cmp      eax, -1
+0x1407f1e8a: jne      0x1407f1f11   ; main.volumeIndexReadView.nodeName+0xd1
+0x1407f1e90: mov      rbx, qword ptr [rsp + 0xf8]
+0x1407f1e98: mov      rcx, qword ptr [rsp + 0x108]
+0x1407f1ea0: lea      rax, [rip + 0x356b79]
+0x1407f1ea7: call     0x14000cf40   ; runtime.mapaccess2_fast64
+0x1407f1eac: test     bl, bl
+0x1407f1eae: je       0x1407f1efc   ; main.volumeIndexReadView.nodeName+0xbc
+0x1407f1eb0: mov      edx, dword ptr [rax]
+0x1407f1eb2: cmp      edx, 0x40000000
+0x1407f1eb8: jl       0x1407f1efc   ; main.volumeIndexReadView.nodeName+0xbc
+0x1407f1eba: add      edx, 0xc0000000
+0x1407f1ec0: movsxd   rdx, edx
+0x1407f1ec3: nop      
+0x1407f1ec4: cmp      qword ptr [rsp + 0xe8], rdx
+0x1407f1ecc: jle      0x1407f1efc   ; main.volumeIndexReadView.nodeName+0xbc
+0x1407f1ece: mov      rsi, qword ptr [rsp + 0xe0]
+0x1407f1ed6: imul     rdx, rdx, 0x78
+0x1407f1eda: movzx    edi, word ptr [rdx + rsi + 0x16]
+0x1407f1edf: nop      
+0x1407f1ee0: test     di, 2
+0x1407f1ee5: jne      0x1407f1efc   ; main.volumeIndexReadView.nodeName+0xbc
+0x1407f1ee7: mov      rax, qword ptr [rdx + rsi + 0x18]
+0x1407f1eec: mov      rbx, qword ptr [rdx + rsi + 0x20]
+0x1407f1ef1: mov      rcx, qword ptr [rdx + rsi + 0x28]
+0x1407f1ef6: add      rsp, 0x18
+0x1407f1efa: pop      rbp
+0x1407f1efb: ret      
+0x1407f1efc: mov      rdx, qword ptr [rsp + 0xe8]
+0x1407f1f04: mov      rsi, qword ptr [rsp + 0xe0]
+0x1407f1f0c: dec      rdx
+0x1407f1f0f: jmp      0x1407f1f8d   ; main.volumeIndexReadView.nodeName+0x14d
+0x1407f1f11: movzx    edi, si
+0x1407f1f14: add      rdi, rax
+0x1407f1f17: nop      word ptr [rax + rax]
+0x1407f1f20: cmp      qword ptr [rsp + 0xa0], rdi
+0x1407f1f28: jb       0x1407f1f6f   ; main.volumeIndexReadView.nodeName+0x12f
+0x1407f1f2a: mov      rdx, qword ptr [rsp + 0xa8]
+0x1407f1f32: movzx    esi, si
+0x1407f1f35: lea      ecx, [rax + rsi]
+0x1407f1f38: cmp      rdx, rcx
+0x1407f1f3b: jb       0x1407f1f85   ; main.volumeIndexReadView.nodeName+0x145
+0x1407f1f3d: nop      dword ptr [rax]
+0x1407f1f40: cmp      rax, rcx
+0x1407f1f43: ja       0x1407f1f7c   ; main.volumeIndexReadView.nodeName+0x13c
+0x1407f1f45: mov      rsi, qword ptr [rsp + 0x98]
+0x1407f1f4d: sub      rdx, rax
+0x1407f1f50: sub      rcx, rax
+0x1407f1f53: mov      rdi, rdx
+0x1407f1f56: neg      rdx
+0x1407f1f59: sar      rdx, 0x3f
+0x1407f1f5d: and      rax, rdx
+0x1407f1f60: add      rax, rsi
+0x1407f1f63: mov      rbx, rcx
+0x1407f1f66: mov      rcx, rdi
+0x1407f1f69: add      rsp, 0x18
+0x1407f1f6d: pop      rbp
+0x1407f1f6e: ret      
+0x1407f1f6f: xor      eax, eax
+0x1407f1f71: xor      ebx, ebx
+0x1407f1f73: mov      rcx, rbx
+0x1407f1f76: add      rsp, 0x18
+0x1407f1f7a: pop      rbp
+0x1407f1f7b: ret      
+0x1407f1f7c: nop      dword ptr [rax]
+0x1407f1f80: call     0x1400814c0   ; runtime.panicSliceB
+0x1407f1f85: call     0x140081480   ; runtime.panicSliceAcap
+0x1407f1f8a: dec      rdx
+0x1407f1f8d: test     rdx, rdx
+0x1407f1f90: jl       0x1407f1fcd   ; main.volumeIndexReadView.nodeName+0x18d
+0x1407f1f92: imul     rdi, rdx, 0x78
+0x1407f1f96: mov      r8, qword ptr [rsi + rdi]
+0x1407f1f9a: nop      word ptr [rax + rax]
+0x1407f1fa0: cmp      qword ptr [rsp + 0x108], r8
+0x1407f1fa8: jne      0x1407f1f8a   ; main.volumeIndexReadView.nodeName+0x14a
+0x1407f1faa: movzx    r8d, word ptr [rdi + rsi + 0x16]
+0x1407f1fb0: test     r8w, 2
+0x1407f1fb6: jne      0x1407f1f8a   ; main.volumeIndexReadView.nodeName+0x14a
+0x1407f1fb8: mov      rax, qword ptr [rdi + rsi + 0x18]
+0x1407f1fbd: mov      rbx, qword ptr [rdi + rsi + 0x20]
+0x1407f1fc2: mov      rcx, qword ptr [rdi + rsi + 0x28]
+0x1407f1fc7: add      rsp, 0x18
+0x1407f1fcb: pop      rbp
+0x1407f1fcc: ret      
+0x1407f1fcd: xor      eax, eax
+0x1407f1fcf: xor      ebx, ebx
+0x1407f1fd1: mov      rcx, rbx
+0x1407f1fd4: add      rsp, 0x18
+0x1407f1fd8: pop      rbp
+0x1407f1fd9: ret      
+0x1407f1fda: mov      qword ptr [rsp + 0xe8], rax
+0x1407f1fe2: mov      dword ptr [rsp + 0xf0], ebx
+0x1407f1fe9: mov      dword ptr [rsp + 0xf4], ecx
+0x1407f1ff0: mov      dword ptr [rsp + 0xf8], edi
+0x1407f1ff7: mov      word ptr [rsp + 0xfc], si
+0x1407f1fff: mov      word ptr [rsp + 0xfe], r8w
+0x1407f2008: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407f200d: mov      rax, qword ptr [rsp + 0xe8]
+0x1407f2015: mov      ebx, dword ptr [rsp + 0xf0]
+0x1407f201c: mov      ecx, dword ptr [rsp + 0xf4]
+0x1407f2023: mov      edi, dword ptr [rsp + 0xf8]
+0x1407f202a: movzx    esi, word ptr [rsp + 0xfc]
+0x1407f2032: movzx    r8d, word ptr [rsp + 0xfe]
+0x1407f203b: nop      dword ptr [rax + rax]
+0x1407f2040: jmp      0x1407f1e40   ; main.volumeIndexReadView.nodeName
+0x1407f2045: int3     
+0x1407f2046: int3     
+0x1407f2047: int3     
+0x1407f2048: int3     
+0x1407f2049: int3     
+0x1407f204a: int3     
+0x1407f204b: int3     
+0x1407f204c: int3     
+0x1407f204d: int3     
+0x1407f204e: int3     
+0x1407f204f: int3     
+0x1407f2050: int3     
+0x1407f2051: int3     
+0x1407f2052: int3     
+0x1407f2053: int3     
+0x1407f2054: int3     
+0x1407f2055: int3     
+0x1407f2056: int3     
+0x1407f2057: int3     
+0x1407f2058: int3     
+0x1407f2059: int3     
+0x1407f205a: int3     
+0x1407f205b: int3     
+0x1407f205c: int3     
+0x1407f205d: int3     
+0x1407f205e: int3     
+0x1407f205f: int3     

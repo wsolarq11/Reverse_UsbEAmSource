@@ -1,0 +1,228 @@
+0x1409152e0: lea      r12, [rsp - 0xf8]
+0x1409152e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1409152ec: jbe      0x140915769   ; main.oledBlackoutStandaloneBrowserCandidateAtCursor+0x489
+0x1409152f2: push     rbp
+0x1409152f3: mov      rbp, rsp
+0x1409152f6: sub      rsp, 0x170
+0x1409152fd: mov      qword ptr [rsp + 0x188], rbx
+0x140915305: mov      qword ptr [rsp + 0x180], rax
+0x14091530d: movups   xmmword ptr [rsp + 0x60], xmm15
+0x140915313: movups   xmmword ptr [rsp + 0x70], xmm15
+0x140915319: movups   xmmword ptr [rsp + 0x80], xmm15
+0x140915322: movups   xmmword ptr [rsp + 0x90], xmm15
+0x14091532b: nop      
+0x14091532c: call     0x1401e0be0   ; github.com/wailsapp/wails/v3/pkg/w32.GetCursorPos
+0x140915331: test     cl, cl
+0x140915333: je       0x14091534b   ; main.oledBlackoutStandaloneBrowserCandidateAtCursor+0x6b
+0x140915335: mov      qword ptr [rsp + 0x50], rax
+0x14091533a: mov      qword ptr [rsp + 0x48], rbx
+0x14091533f: mov      rdx, qword ptr [rsp + 0x180]
+0x140915347: xor      ecx, ecx
+0x140915349: jmp      0x1409153b4   ; main.oledBlackoutStandaloneBrowserCandidateAtCursor+0xd4
+0x14091534b: movups   xmmword ptr [rsp + 0x60], xmm15
+0x140915351: movups   xmmword ptr [rsp + 0x70], xmm15
+0x140915357: movups   xmmword ptr [rsp + 0x80], xmm15
+0x140915360: movups   xmmword ptr [rsp + 0x90], xmm15
+0x140915369: mov      rcx, qword ptr [rsp + 0x70]
+0x14091536e: mov      rsi, qword ptr [rsp + 0x80]
+0x140915376: mov      r9, qword ptr [rsp + 0x90]
+0x14091537e: xor      eax, eax
+0x140915380: xor      ebx, ebx
+0x140915382: xor      edi, edi
+0x140915384: mov      r8, rdi
+0x140915387: mov      r10, rdi
+0x14091538a: xor      r11d, r11d
+0x14091538d: add      rsp, 0x170
+0x140915394: pop      rbp
+0x140915395: ret      
+0x140915396: mov      rdx, qword ptr [rsp + 0xe8]
+0x14091539e: add      rdx, 0x40
+0x1409153a2: mov      rcx, qword ptr [rsp + 0x58]
+0x1409153a7: inc      rcx
+0x1409153aa: mov      rax, qword ptr [rsp + 0x50]
+0x1409153af: mov      rbx, qword ptr [rsp + 0x48]
+0x1409153b4: mov      rsi, qword ptr [rsp + 0x188]
+0x1409153bc: nop      dword ptr [rax]
+0x1409153c0: cmp      rsi, rcx
+0x1409153c3: jle      0x1409156ac   ; main.oledBlackoutStandaloneBrowserCandidateAtCursor+0x3cc
+0x1409153c9: mov      qword ptr [rsp + 0x58], rcx
+0x1409153ce: mov      qword ptr [rsp + 0xe8], rdx
+0x1409153d6: movups   xmm0, xmmword ptr [rdx]
+0x1409153d9: movups   xmmword ptr [rsp + 0xa0], xmm0
+0x1409153e1: movups   xmm0, xmmword ptr [rdx + 0x10]
+0x1409153e5: movups   xmmword ptr [rsp + 0xb0], xmm0
+0x1409153ed: movups   xmm0, xmmword ptr [rdx + 0x20]
+0x1409153f1: movups   xmmword ptr [rsp + 0xc0], xmm0
+0x1409153f9: movups   xmm0, xmmword ptr [rdx + 0x30]
+0x1409153fd: movups   xmmword ptr [rsp + 0xd0], xmm0
+0x140915405: mov      rdx, qword ptr [rsp + 0xa0]
+0x14091540d: mov      rcx, rbx
+0x140915410: mov      rbx, rax
+0x140915413: mov      rax, rdx
+0x140915416: call     0x1409157a0   ; main.oledBlackoutWindowContainsPhysicalPoint
+0x14091541b: nop      dword ptr [rax + rax]
+0x140915420: test     al, al
+0x140915422: je       0x140915396   ; main.oledBlackoutStandaloneBrowserCandidateAtCursor+0xb6
+0x140915428: mov      rax, qword ptr [rsp + 0xa0]
+0x140915430: mov      ebx, dword ptr [rsp + 0xa8]
+0x140915437: mov      rcx, qword ptr [rsp + 0xb0]
+0x14091543f: mov      rdi, qword ptr [rsp + 0xb8]
+0x140915447: mov      rsi, qword ptr [rsp + 0xc0]
+0x14091544f: mov      r8, qword ptr [rsp + 0xc8]
+0x140915457: mov      r9, qword ptr [rsp + 0xd0]
+0x14091545f: mov      r10, qword ptr [rsp + 0xd8]
+0x140915467: call     0x1409158c0   ; main.oledBlackoutCandidateIsStandaloneBrowserWindow
+0x14091546c: mov      byte ptr [rsp + 0x47], al
+0x140915470: mov      rdx, qword ptr [rsp + 0xa0]
+0x140915478: movzx    r11d, al
+0x14091547c: lea      r12, [rip + 0x8de29d]
+0x140915483: lea      r11, [r12 + r11*8]
+0x140915487: mov      qword ptr [rsp + 0xe0], r11
+0x14091548f: movups   xmmword ptr [rsp + 0x160], xmm15
+0x140915498: mov      rax, rdx
+0x14091549b: nop      dword ptr [rax + rax]
+0x1409154a0: call     0x1400765e0   ; runtime.convT64
+0x1409154a5: lea      rdx, [rip + 0x1d4c14]
+0x1409154ac: mov      qword ptr [rsp + 0x160], rdx
+0x1409154b4: mov      qword ptr [rsp + 0x168], rax
+0x1409154bc: lea      rax, [rip + 0x31f42b]
+0x1409154c3: mov      ebx, 4
+0x1409154c8: lea      rcx, [rsp + 0x160]
+0x1409154d0: mov      edi, 1
+0x1409154d5: mov      rsi, rdi
+0x1409154d8: call     0x140136340   ; fmt.Sprintf
+0x1409154dd: lea      rdi, [rsp + 0x110]
+0x1409154e5: lea      rdi, [rdi - 0x30]
+0x1409154e9: mov      qword ptr [rsp - 0x10], rbp
+0x1409154ee: lea      rbp, [rsp - 0x10]
+0x1409154f3: call     0x140081730   ; runtime.duffzero+0x150
+0x1409154f8: mov      rbp, qword ptr [rbp]
+0x1409154fc: nop      dword ptr [rax]
+0x140915500: call     0x140076660   ; runtime.convTstring
+0x140915505: lea      rdx, [rip + 0x1d48f4]
+0x14091550c: mov      qword ptr [rsp + 0x110], rdx
+0x140915514: mov      qword ptr [rsp + 0x118], rax
+0x14091551c: mov      eax, dword ptr [rsp + 0xa8]
+0x140915523: call     0x1400173c0   ; runtime.convT32
+0x140915528: lea      rdx, [rip + 0x1d4a51]
+0x14091552f: mov      qword ptr [rsp + 0x120], rdx
+0x140915537: mov      qword ptr [rsp + 0x128], rax
+0x14091553f: mov      rax, qword ptr [rsp + 0xb0]
+0x140915547: mov      rbx, qword ptr [rsp + 0xb8]
+0x14091554f: call     0x140076660   ; runtime.convTstring
+0x140915554: lea      rdx, [rip + 0x1d48a5]
+0x14091555b: mov      qword ptr [rsp + 0x130], rdx
+0x140915563: mov      qword ptr [rsp + 0x138], rax
+0x14091556b: mov      rax, qword ptr [rsp + 0xd0]
+0x140915573: mov      rbx, qword ptr [rsp + 0xd8]
+0x14091557b: nop      dword ptr [rax + rax]
+0x140915580: call     0x140076660   ; runtime.convTstring
+0x140915585: lea      rdx, [rip + 0x1d4874]
+0x14091558c: mov      qword ptr [rsp + 0x140], rdx
+0x140915594: mov      qword ptr [rsp + 0x148], rax
+0x14091559c: lea      rdx, [rip + 0x1d4c5d]
+0x1409155a3: mov      qword ptr [rsp + 0x150], rdx
+0x1409155ab: mov      rdx, qword ptr [rsp + 0xe0]
+0x1409155b3: mov      qword ptr [rsp + 0x158], rdx
+0x1409155bb: lea      rax, [rip + 0x37e2ea]
+0x1409155c2: mov      ebx, 0x5a
+0x1409155c7: lea      rcx, [rsp + 0x110]
+0x1409155cf: mov      edi, 5
+0x1409155d4: mov      rsi, rdi
+0x1409155d7: call     0x14090eb80   ; main.oledBlackoutDebugLog
+0x1409155dc: movzx    edx, byte ptr [rsp + 0x47]
+0x1409155e1: test     dl, dl
+0x1409155e3: je       0x140915661   ; main.oledBlackoutStandaloneBrowserCandidateAtCursor+0x381
+0x1409155e5: movups   xmm0, xmmword ptr [rsp + 0xa0]
+0x1409155ed: movups   xmmword ptr [rsp + 0x60], xmm0
+0x1409155f2: movups   xmm0, xmmword ptr [rsp + 0xb0]
+0x1409155fa: movups   xmmword ptr [rsp + 0x70], xmm0
+0x1409155ff: movups   xmm0, xmmword ptr [rsp + 0xc0]
+0x140915607: movups   xmmword ptr [rsp + 0x80], xmm0
+0x14091560f: movups   xmm0, xmmword ptr [rsp + 0xd0]
+0x140915617: movups   xmmword ptr [rsp + 0x90], xmm0
+0x14091561f: mov      rax, qword ptr [rsp + 0x60]
+0x140915624: mov      ebx, dword ptr [rsp + 0x68]
+0x140915628: mov      rcx, qword ptr [rsp + 0x70]
+0x14091562d: mov      rdi, qword ptr [rsp + 0x78]
+0x140915632: mov      rsi, qword ptr [rsp + 0x80]
+0x14091563a: mov      r8, qword ptr [rsp + 0x88]
+0x140915642: mov      r9, qword ptr [rsp + 0x90]
+0x14091564a: mov      r10, qword ptr [rsp + 0x98]
+0x140915652: mov      r11d, 1
+0x140915658: add      rsp, 0x170
+0x14091565f: pop      rbp
+0x140915660: ret      
+0x140915661: movups   xmmword ptr [rsp + 0x60], xmm15
+0x140915667: movups   xmmword ptr [rsp + 0x70], xmm15
+0x14091566d: movups   xmmword ptr [rsp + 0x80], xmm15
+0x140915676: movups   xmmword ptr [rsp + 0x90], xmm15
+0x14091567f: mov      rcx, qword ptr [rsp + 0x70]
+0x140915684: mov      rsi, qword ptr [rsp + 0x80]
+0x14091568c: mov      r9, qword ptr [rsp + 0x90]
+0x140915694: xor      eax, eax
+0x140915696: xor      ebx, ebx
+0x140915698: xor      edi, edi
+0x14091569a: mov      r8, rdi
+0x14091569d: mov      r10, rdi
+0x1409156a0: xor      r11d, r11d
+0x1409156a3: add      rsp, 0x170
+0x1409156aa: pop      rbp
+0x1409156ab: ret      
+0x1409156ac: movups   xmmword ptr [rsp + 0xf0], xmm15
+0x1409156b5: movups   xmmword ptr [rsp + 0x100], xmm15
+0x1409156be: nop      
+0x1409156c0: call     0x1400765e0   ; runtime.convT64
+0x1409156c5: lea      rcx, [rip + 0x1d4974]
+0x1409156cc: mov      qword ptr [rsp + 0xf0], rcx
+0x1409156d4: mov      qword ptr [rsp + 0xf8], rax
+0x1409156dc: mov      rax, qword ptr [rsp + 0x48]
+0x1409156e1: call     0x1400765e0   ; runtime.convT64
+0x1409156e6: lea      rcx, [rip + 0x1d4953]
+0x1409156ed: mov      qword ptr [rsp + 0x100], rcx
+0x1409156f5: mov      qword ptr [rsp + 0x108], rax
+0x1409156fd: lea      rax, [rip + 0x37c301]
+0x140915704: mov      ebx, 0x4b
+0x140915709: lea      rcx, [rsp + 0xf0]
+0x140915711: mov      edi, 2
+0x140915716: mov      rsi, rdi
+0x140915719: call     0x14090eb80   ; main.oledBlackoutDebugLog
+0x14091571e: movups   xmmword ptr [rsp + 0x60], xmm15
+0x140915724: movups   xmmword ptr [rsp + 0x70], xmm15
+0x14091572a: movups   xmmword ptr [rsp + 0x80], xmm15
+0x140915733: movups   xmmword ptr [rsp + 0x90], xmm15
+0x14091573c: mov      rcx, qword ptr [rsp + 0x70]
+0x140915741: mov      rsi, qword ptr [rsp + 0x80]
+0x140915749: mov      r9, qword ptr [rsp + 0x90]
+0x140915751: xor      eax, eax
+0x140915753: xor      ebx, ebx
+0x140915755: xor      edi, edi
+0x140915757: mov      r8, rdi
+0x14091575a: mov      r10, rdi
+0x14091575d: xor      r11d, r11d
+0x140915760: add      rsp, 0x170
+0x140915767: pop      rbp
+0x140915768: ret      
+0x140915769: mov      qword ptr [rsp + 8], rax
+0x14091576e: mov      qword ptr [rsp + 0x10], rbx
+0x140915773: mov      qword ptr [rsp + 0x18], rcx
+0x140915778: call     0x14007f140   ; runtime.morestack_noctxt
+0x14091577d: mov      rax, qword ptr [rsp + 8]
+0x140915782: mov      rbx, qword ptr [rsp + 0x10]
+0x140915787: mov      rcx, qword ptr [rsp + 0x18]
+0x14091578c: jmp      0x1409152e0   ; main.oledBlackoutStandaloneBrowserCandidateAtCursor
+0x140915791: int3     
+0x140915792: int3     
+0x140915793: int3     
+0x140915794: int3     
+0x140915795: int3     
+0x140915796: int3     
+0x140915797: int3     
+0x140915798: int3     
+0x140915799: int3     
+0x14091579a: int3     
+0x14091579b: int3     
+0x14091579c: int3     
+0x14091579d: int3     
+0x14091579e: int3     
+0x14091579f: int3     

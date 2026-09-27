@@ -1,0 +1,197 @@
+0x140977020: lea      r12, [rsp - 0x58]
+0x140977025: cmp      r12, qword ptr [r14 + 0x10]
+0x140977029: jbe      0x140977406   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x3e6
+0x14097702f: push     rbp
+0x140977030: mov      rbp, rsp
+0x140977033: sub      rsp, 0xd0
+0x14097703a: movq     qword ptr [rsp + 0xc8], xmm15
+0x140977044: mov      byte ptr [rsp + 0x7f], 0
+0x140977049: mov      qword ptr [rsp + 0x98], 0
+0x140977055: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14097705e: nop      
+0x140977060: test     rax, rax
+0x140977063: je       0x14097737a   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x35a
+0x140977069: mov      qword ptr [rsp + 0x150], rax
+0x140977071: mov      edx, dword ptr [rsp + 0x130]
+0x140977078: test     edx, edx
+0x14097707a: je       0x14097708b   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x6b
+0x14097707c: nop      dword ptr [rax]
+0x140977080: cmp      edx, 4
+0x140977083: ja       0x14097708b   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x6b
+0x140977085: xor      ecx, ecx
+0x140977087: xor      ebx, ebx
+0x140977089: jmp      0x1409770e0   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0xc0
+0x14097708b: movups   xmmword ptr [rsp + 0xb8], xmm15
+0x140977094: mov      eax, edx
+0x140977096: call     0x1400173c0   ; runtime.convT32
+0x14097709b: lea      rcx, [rip + 0x172ede]
+0x1409770a2: mov      qword ptr [rsp + 0xb8], rcx
+0x1409770aa: mov      qword ptr [rsp + 0xc0], rax
+0x1409770b2: lea      rax, [rip + 0x30718a]
+0x1409770b9: mov      ebx, 0x27
+0x1409770be: lea      rcx, [rsp + 0xb8]
+0x1409770c6: mov      edi, 1
+0x1409770cb: mov      rsi, rdi
+0x1409770ce: call     0x140133280   ; fmt.Errorf
+0x1409770d3: mov      rcx, rax
+0x1409770d6: mov      rax, qword ptr [rsp + 0x150]
+0x1409770de: nop      
+0x1409770e0: test     rcx, rcx
+0x1409770e3: jne      0x140977344   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x324
+0x1409770e9: mov      rdi, rsp
+0x1409770ec: lea      rsi, [rsp + 0xe0]
+0x1409770f4: nop      word ptr [rax + rax]
+0x1409770fd: nop      dword ptr [rax]
+0x140977100: mov      qword ptr [rsp - 0x10], rbp
+0x140977105: lea      rbp, [rsp - 0x10]
+0x14097710a: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x14097710f: mov      rbp, qword ptr [rbp]
+0x140977113: call     0x140979820   ; main.screenshotDXGIOutputCaptureCacheKey
+0x140977118: mov      qword ptr [rsp + 0xa0], rax
+0x140977120: mov      qword ptr [rsp + 0x80], rbx
+0x140977128: nop      
+0x140977129: nop      
+0x14097712a: mov      rcx, rax
+0x14097712d: xor      eax, eax
+0x14097712f: mov      rdx, qword ptr [rsp + 0x150]
+0x140977137: mov      r8d, 1
+0x14097713d: lock cmpxchg dword ptr [rdx], r8d
+0x140977142: sete     al
+0x140977145: test     al, al
+0x140977147: jne      0x140977169   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x149
+0x140977149: mov      rax, rdx
+0x14097714c: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x140977151: mov      rcx, qword ptr [rsp + 0xa0]
+0x140977159: mov      rdx, qword ptr [rsp + 0x150]
+0x140977161: mov      rbx, qword ptr [rsp + 0x80]
+0x140977169: lea      rsi, [rip + 0x2b0]
+0x140977170: mov      qword ptr [rsp + 0xa8], rsi
+0x140977178: mov      qword ptr [rsp + 0xb0], rdx
+0x140977180: lea      rsi, [rsp + 0xa8]
+0x140977188: mov      qword ptr [rsp + 0xc8], rsi
+0x140977190: mov      byte ptr [rsp + 0x7f], 1
+0x140977195: cmp      byte ptr [rdx + 0x10], 0
+0x140977199: jne      0x1409772d0   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x2b0
+0x14097719f: cmp      qword ptr [rdx + 8], 0
+0x1409771a4: jne      0x1409771ea   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x1ca
+0x1409771a6: call     0x140076d40   ; runtime.makemap_small
+0x1409771ab: cmp      dword ptr [rip + 0x12e419e], 0
+0x1409771b2: jne      0x1409771be   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x19e
+0x1409771b4: mov      rdx, qword ptr [rsp + 0x150]
+0x1409771bc: jmp      0x1409771d6   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x1b6
+0x1409771be: mov      rdx, qword ptr [rsp + 0x150]
+0x1409771c6: mov      rsi, qword ptr [rdx + 8]
+0x1409771ca: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409771cf: mov      qword ptr [r11], rax
+0x1409771d2: mov      qword ptr [r11 + 8], rsi
+0x1409771d6: mov      qword ptr [rdx + 8], rax
+0x1409771da: mov      rcx, qword ptr [rsp + 0xa0]
+0x1409771e2: mov      rbx, qword ptr [rsp + 0x80]
+0x1409771ea: mov      rdx, qword ptr [rdx + 8]
+0x1409771ee: lea      rax, [rip + 0x1d3bab]
+0x1409771f5: mov      rdi, rbx
+0x1409771f8: mov      rbx, rdx
+0x1409771fb: nop      dword ptr [rax + rax]
+0x140977200: call     0x14000d920   ; runtime.mapaccess1_faststr
+0x140977205: mov      rdx, qword ptr [rax]
+0x140977208: test     rdx, rdx
+0x14097720b: je       0x140977251   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay+0x231
+0x14097720d: mov      qword ptr [rsp + 0x98], rdx
+0x140977215: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14097721e: mov      byte ptr [rsp + 0x7f], 0
+0x140977223: mov      rdx, qword ptr [rsp + 0xc8]
+0x14097722b: mov      rax, qword ptr [rdx]
+0x14097722e: call     rax
+0x140977230: mov      rbx, qword ptr [rsp + 0x88]
+0x140977238: mov      rax, qword ptr [rsp + 0x98]
+0x140977240: mov      rcx, qword ptr [rsp + 0x90]
+0x140977248: add      rsp, 0xd0
+0x14097724f: pop      rbp
+0x140977250: ret      
+0x140977251: mov      rdi, rsp
+0x140977254: lea      rsi, [rsp + 0xe0]
+0x14097725c: nop      dword ptr [rax]
+0x140977260: mov      qword ptr [rsp - 0x10], rbp
+0x140977265: lea      rbp, [rsp - 0x10]
+0x14097726a: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x14097726f: mov      rbp, qword ptr [rbp]
+0x140977273: mov      rax, qword ptr [rsp + 0x150]
+0x14097727b: nop      dword ptr [rax + rax]
+0x140977280: call     0x140977480   ; main.screenshotDXGIOutputCaptureCache.createEntryLocked
+0x140977285: mov      qword ptr [rsp + 0x98], rax
+0x14097728d: mov      qword ptr [rsp + 0x88], rbx
+0x140977295: mov      qword ptr [rsp + 0x90], rcx
+0x14097729d: mov      byte ptr [rsp + 0x7f], 0
+0x1409772a2: mov      rdx, qword ptr [rsp + 0xc8]
+0x1409772aa: mov      rcx, qword ptr [rdx]
+0x1409772ad: call     rcx
+0x1409772af: mov      rbx, qword ptr [rsp + 0x88]
+0x1409772b7: mov      rax, qword ptr [rsp + 0x98]
+0x1409772bf: mov      rcx, qword ptr [rsp + 0x90]
+0x1409772c7: add      rsp, 0xd0
+0x1409772ce: pop      rbp
+0x1409772cf: ret      
+0x1409772d0: lea      rax, [rip + 0x1dd0a9]
+0x1409772d7: call     0x14001ae20   ; runtime.newobject
+0x1409772dc: mov      qword ptr [rax + 8], 0x20
+0x1409772e4: lea      rcx, [rip + 0x2fb47b]
+0x1409772eb: mov      qword ptr [rax], rcx
+0x1409772ee: mov      qword ptr [rsp + 0x98], 0
+0x1409772fa: lea      rcx, [rip + 0x85bdff]
+0x140977301: mov      qword ptr [rsp + 0x88], rcx
+0x140977309: mov      qword ptr [rsp + 0x90], rax
+0x140977311: mov      byte ptr [rsp + 0x7f], 0
+0x140977316: mov      rdx, qword ptr [rsp + 0xc8]
+0x14097731e: mov      rcx, qword ptr [rdx]
+0x140977321: call     rcx
+0x140977323: mov      rbx, qword ptr [rsp + 0x88]
+0x14097732b: mov      rax, qword ptr [rsp + 0x98]
+0x140977333: mov      rcx, qword ptr [rsp + 0x90]
+0x14097733b: add      rsp, 0xd0
+0x140977342: pop      rbp
+0x140977343: ret      
+0x140977344: mov      qword ptr [rsp + 0x98], 0
+0x140977350: mov      qword ptr [rsp + 0x88], rcx
+0x140977358: mov      qword ptr [rsp + 0x90], rbx
+0x140977360: mov      rax, qword ptr [rsp + 0x98]
+0x140977368: mov      rdx, rbx
+0x14097736b: mov      rbx, rcx
+0x14097736e: mov      rcx, rdx
+0x140977371: add      rsp, 0xd0
+0x140977378: pop      rbp
+0x140977379: ret      
+0x14097737a: lea      rax, [rip + 0x1dcfff]
+0x140977381: call     0x14001ae20   ; runtime.newobject
+0x140977386: mov      qword ptr [rax + 8], 0x23
+0x14097738e: lea      rcx, [rip + 0x2fffd7]
+0x140977395: mov      qword ptr [rax], rcx
+0x140977398: mov      qword ptr [rsp + 0x98], 0
+0x1409773a4: lea      rcx, [rip + 0x85bd55]
+0x1409773ab: mov      qword ptr [rsp + 0x88], rcx
+0x1409773b3: mov      qword ptr [rsp + 0x90], rax
+0x1409773bb: mov      rbx, qword ptr [rsp + 0x88]
+0x1409773c3: mov      rcx, qword ptr [rsp + 0x98]
+0x1409773cb: mov      rdx, rax
+0x1409773ce: mov      rax, rcx
+0x1409773d1: mov      rcx, rdx
+0x1409773d4: add      rsp, 0xd0
+0x1409773db: pop      rbp
+0x1409773dc: ret      
+0x1409773dd: nop      dword ptr [rax]
+0x1409773e0: call     0x1400435e0   ; runtime.deferreturn
+0x1409773e5: mov      rax, qword ptr [rsp + 0x98]
+0x1409773ed: mov      rbx, qword ptr [rsp + 0x88]
+0x1409773f5: mov      rcx, qword ptr [rsp + 0x90]
+0x1409773fd: add      rsp, 0xd0
+0x140977404: pop      rbp
+0x140977405: ret      
+0x140977406: mov      qword ptr [rsp + 0x78], rax
+0x14097740b: call     0x14007f140   ; runtime.morestack_noctxt
+0x140977410: mov      rax, qword ptr [rsp + 0x78]
+0x140977415: jmp      0x140977020   ; main.screenshotDXGIOutputCaptureCache.entryForDisplay
+0x14097741a: int3     
+0x14097741b: int3     
+0x14097741c: int3     
+0x14097741d: int3     
+0x14097741e: int3     
+0x14097741f: int3     

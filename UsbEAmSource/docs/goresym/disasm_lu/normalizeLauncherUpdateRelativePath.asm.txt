@@ -1,0 +1,223 @@
+0x1408caac0: lea      r12, [rsp - 0x80]
+0x1408caac5: cmp      r12, qword ptr [r14 + 0x10]
+0x1408caac9: jbe      0x1408cae36    ; main.normalizeLauncherUpdateRelativePath+0x376
+0x1408caacf: push     rbp
+0x1408caad0: mov      rbp, rsp
+0x1408caad3: sub      rsp, 0xf8
+0x1408caada: mov      qword ptr [rsp + 0x108], rax
+0x1408caae2: lea      rcx, [rip + 0x900157]
+0x1408caae9: mov      edi, 1
+0x1408caaee: lea      rsi, [rip + 0x368b3a]
+0x1408caaf5: mov      r8, rdi
+0x1408caaf8: mov      r9, 0xffffffffffffffff
+0x1408caaff: nop      
+0x1408cab00: call     0x1400a2340    ; strings.Replace
+0x1408cab05: call     0x1400a2200    ; strings.TrimSpace
+0x1408cab0a: mov      qword ptr [rsp + 0xc8], rbx
+0x1408cab12: mov      qword ptr [rsp + 0xe8], rax
+0x1408cab1a: test     rbx, rbx
+0x1408cab1d: jne      0x1408cab26    ; main.normalizeLauncherUpdateRelativePath+0x66
+0x1408cab1f: mov      edx, 1
+0x1408cab24: jmp      0x1408cab80    ; main.normalizeLauncherUpdateRelativePath+0xc0
+0x1408cab26: xor      ecx, ecx
+0x1408cab28: call     0x14009f100    ; strings.IndexRune
+0x1408cab2d: test     rax, rax
+0x1408cab30: jl       0x1408cab49    ; main.normalizeLauncherUpdateRelativePath+0x89
+0x1408cab32: mov      rax, qword ptr [rsp + 0xe8]
+0x1408cab3a: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408cab42: mov      edx, 1
+0x1408cab47: jmp      0x1408cab80    ; main.normalizeLauncherUpdateRelativePath+0xc0
+0x1408cab49: mov      rax, qword ptr [rsp + 0xe8]
+0x1408cab51: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408cab59: lea      rcx, [rip + 0x9000f8]
+0x1408cab60: mov      edi, 1
+0x1408cab65: call     0x140006860    ; internal/stringslite.Index
+0x1408cab6a: test     rax, rax
+0x1408cab6d: setge    dl
+0x1408cab70: mov      rax, qword ptr [rsp + 0xe8]
+0x1408cab78: mov      rbx, qword ptr [rsp + 0xc8]
+0x1408cab80: test     dl, dl
+0x1408cab82: jne      0x1408cab97    ; main.normalizeLauncherUpdateRelativePath+0xd7
+0x1408cab84: test     rbx, rbx
+0x1408cab87: je       0x1408cab91    ; main.normalizeLauncherUpdateRelativePath+0xd1
+0x1408cab89: cmp      byte ptr [rax], 0x2f
+0x1408cab8c: sete     dl
+0x1408cab8f: jmp      0x1408cab93    ; main.normalizeLauncherUpdateRelativePath+0xd3
+0x1408cab91: xor      edx, edx
+0x1408cab93: test     dl, dl
+0x1408cab95: je       0x1408cabce    ; main.normalizeLauncherUpdateRelativePath+0x10e
+0x1408cab97: lea      rax, [rip + 0x2897e2]
+0x1408cab9e: nop      
+0x1408caba0: call     0x14001ae20    ; runtime.newobject
+0x1408caba5: mov      qword ptr [rax + 8], 0x1e
+0x1408cabad: lea      rcx, [rip + 0x3a477f]
+0x1408cabb4: mov      qword ptr [rax], rcx
+0x1408cabb7: xor      ebx, ebx
+0x1408cabb9: lea      rcx, [rip + 0x908540]
+0x1408cabc0: mov      rdi, rax
+0x1408cabc3: xor      eax, eax
+0x1408cabc5: add      rsp, 0xf8
+0x1408cabcc: pop      rbp
+0x1408cabcd: ret      
+0x1408cabce: nop      
+0x1408cabcf: nop      
+0x1408cabd0: mov      ecx, 0x2f
+0x1408cabd5: mov      edi, 0x5c
+0x1408cabda: call     0x140116180    ; internal/filepathlite.replaceStringByte
+0x1408cabdf: nop      
+0x1408cabe0: call     0x1401154c0    ; internal/filepathlite.Clean
+0x1408cabe5: nop      
+0x1408cabe6: nop      
+0x1408cabe7: mov      ecx, 0x5c
+0x1408cabec: mov      edi, 0x2f
+0x1408cabf1: call     0x140116180    ; internal/filepathlite.replaceStringByte
+0x1408cabf6: mov      qword ptr [rsp + 0xc0], rbx
+0x1408cabfe: mov      qword ptr [rsp + 0xe0], rax
+0x1408cac06: cmp      rbx, 1
+0x1408cac0a: jne      0x1408cac18    ; main.normalizeLauncherUpdateRelativePath+0x158
+0x1408cac0c: cmp      byte ptr [rax], 0x2e
+0x1408cac0f: jne      0x1408cac18    ; main.normalizeLauncherUpdateRelativePath+0x158
+0x1408cac11: mov      ecx, 1
+0x1408cac16: jmp      0x1408cac59    ; main.normalizeLauncherUpdateRelativePath+0x199
+0x1408cac18: cmp      rbx, 2
+0x1408cac1c: jne      0x1408cac2c    ; main.normalizeLauncherUpdateRelativePath+0x16c
+0x1408cac1e: cmp      word ptr [rax], 0x2e2e
+0x1408cac23: jne      0x1408cac2c    ; main.normalizeLauncherUpdateRelativePath+0x16c
+0x1408cac25: mov      ecx, 1
+0x1408cac2a: jmp      0x1408cac59    ; main.normalizeLauncherUpdateRelativePath+0x199
+0x1408cac2c: cmp      rbx, 3
+0x1408cac30: jge      0x1408cac36    ; main.normalizeLauncherUpdateRelativePath+0x176
+0x1408cac32: xor      ecx, ecx
+0x1408cac34: jmp      0x1408cac59    ; main.normalizeLauncherUpdateRelativePath+0x199
+0x1408cac36: lea      rbx, [rip + 0x368f0e]
+0x1408cac3d: mov      ecx, 3
+0x1408cac42: call     0x140006280    ; runtime.memequal
+0x1408cac47: mov      rbx, qword ptr [rsp + 0xc0]
+0x1408cac4f: mov      ecx, eax
+0x1408cac51: mov      rax, qword ptr [rsp + 0xe0]
+0x1408cac59: test     cl, cl
+0x1408cac5b: jne      0x1408cac9e    ; main.normalizeLauncherUpdateRelativePath+0x1de
+0x1408cac5d: mov      rdx, qword ptr [rsp + 0xc8]
+0x1408cac65: cmp      rbx, rdx
+0x1408cac68: je       0x1408cac71    ; main.normalizeLauncherUpdateRelativePath+0x1b1
+0x1408cac6a: mov      ecx, 1
+0x1408cac6f: jmp      0x1408cac9a    ; main.normalizeLauncherUpdateRelativePath+0x1da
+0x1408cac71: mov      rcx, rbx
+0x1408cac74: mov      rbx, qword ptr [rsp + 0xe8]
+0x1408cac7c: nop      dword ptr [rax]
+0x1408cac80: call     0x140006280    ; runtime.memequal
+0x1408cac85: xor      eax, 1
+0x1408cac88: mov      rbx, qword ptr [rsp + 0xc0]
+0x1408cac90: mov      ecx, eax
+0x1408cac92: mov      rax, qword ptr [rsp + 0xe0]
+0x1408cac9a: test     cl, cl
+0x1408cac9c: je       0x1408cacd3    ; main.normalizeLauncherUpdateRelativePath+0x213
+0x1408cac9e: lea      rax, [rip + 0x2896db]
+0x1408caca5: call     0x14001ae20    ; runtime.newobject
+0x1408cacaa: mov      qword ptr [rax + 8], 0x21
+0x1408cacb2: lea      rcx, [rip + 0x3a9031]
+0x1408cacb9: mov      qword ptr [rax], rcx
+0x1408cacbc: xor      ebx, ebx
+0x1408cacbe: lea      rcx, [rip + 0x90843b]
+0x1408cacc5: mov      rdi, rax
+0x1408cacc8: xor      eax, eax
+0x1408cacca: add      rsp, 0xf8
+0x1408cacd1: pop      rbp
+0x1408cacd2: ret      
+0x1408cacd3: nop      
+0x1408cacd4: lea      rcx, [rip + 0x368954]
+0x1408cacdb: mov      edi, 1
+0x1408cace0: xor      esi, esi
+0x1408cace2: mov      r8, 0xffffffffffffffff
+0x1408cace9: call     0x14009f920    ; strings.genSplit
+0x1408cacee: cmp      rbx, 0x20
+0x1408cacf2: jg       0x1408cad2e    ; main.normalizeLauncherUpdateRelativePath+0x26e
+0x1408cacf4: mov      qword ptr [rsp + 0xb8], rbx
+0x1408cacfc: mov      qword ptr [rsp + 0xd8], rax
+0x1408cad04: lea      rax, [rsp + 0x38]
+0x1408cad09: mov      rbx, qword ptr [rsp + 0xe0]
+0x1408cad11: mov      rcx, qword ptr [rsp + 0xc0]
+0x1408cad19: call     0x140060640    ; runtime.stringtoslicerune
+0x1408cad1e: nop      
+0x1408cad20: call     0x1400e0700    ; unicode/utf16.Encode
+0x1408cad25: cmp      rbx, 0x400
+0x1408cad2c: jle      0x1408cad63    ; main.normalizeLauncherUpdateRelativePath+0x2a3
+0x1408cad2e: lea      rax, [rip + 0x28964b]
+0x1408cad35: call     0x14001ae20    ; runtime.newobject
+0x1408cad3a: mov      qword ptr [rax + 8], 0x18
+0x1408cad42: lea      rcx, [rip + 0x39a57f]
+0x1408cad49: mov      qword ptr [rax], rcx
+0x1408cad4c: xor      ebx, ebx
+0x1408cad4e: lea      rcx, [rip + 0x9083ab]
+0x1408cad55: mov      rdi, rax
+0x1408cad58: xor      eax, eax
+0x1408cad5a: add      rsp, 0xf8
+0x1408cad61: pop      rbp
+0x1408cad62: ret      
+0x1408cad63: mov      rcx, qword ptr [rsp + 0xd8]
+0x1408cad6b: xor      eax, eax
+0x1408cad6d: jmp      0x1408cad86    ; main.normalizeLauncherUpdateRelativePath+0x2c6
+0x1408cad6f: mov      rcx, qword ptr [rsp + 0xf0]
+0x1408cad77: add      rcx, 0x10
+0x1408cad7b: mov      rax, qword ptr [rsp + 0xd0]
+0x1408cad83: inc      rax
+0x1408cad86: mov      rdx, qword ptr [rsp + 0xb8]
+0x1408cad8e: cmp      rdx, rax
+0x1408cad91: jle      0x1408cadc7    ; main.normalizeLauncherUpdateRelativePath+0x307
+0x1408cad93: mov      qword ptr [rsp + 0xd0], rax
+0x1408cad9b: mov      qword ptr [rsp + 0xf0], rcx
+0x1408cada3: mov      rax, qword ptr [rcx]
+0x1408cada6: mov      rbx, qword ptr [rcx + 8]
+0x1408cadaa: call     0x14074f500    ; main.validateWindowsArchiveSegment
+0x1408cadaf: test     rax, rax
+0x1408cadb2: je       0x1408cad6f    ; main.normalizeLauncherUpdateRelativePath+0x2af
+0x1408cadb4: mov      rcx, rax
+0x1408cadb7: mov      rdi, rbx
+0x1408cadba: xor      eax, eax
+0x1408cadbc: xor      ebx, ebx
+0x1408cadbe: add      rsp, 0xf8
+0x1408cadc5: pop      rbp
+0x1408cadc6: ret      
+0x1408cadc7: mov      rax, qword ptr [rsp + 0xe0]
+0x1408cadcf: mov      rbx, qword ptr [rsp + 0xc0]
+0x1408cadd7: call     0x1408cae60    ; main.launcherUpdatePathProtected
+0x1408caddc: nop      dword ptr [rax]
+0x1408cade0: test     al, al
+0x1408cade2: je       0x1408cae19    ; main.normalizeLauncherUpdateRelativePath+0x359
+0x1408cade4: lea      rax, [rip + 0x289595]
+0x1408cadeb: call     0x14001ae20    ; runtime.newobject
+0x1408cadf0: mov      qword ptr [rax + 8], 0x24
+0x1408cadf8: lea      rcx, [rip + 0x3ad8b8]
+0x1408cadff: mov      qword ptr [rax], rcx
+0x1408cae02: xor      ebx, ebx
+0x1408cae04: lea      rcx, [rip + 0x9082f5]
+0x1408cae0b: mov      rdi, rax
+0x1408cae0e: xor      eax, eax
+0x1408cae10: add      rsp, 0xf8
+0x1408cae17: pop      rbp
+0x1408cae18: ret      
+0x1408cae19: mov      rax, qword ptr [rsp + 0xe0]
+0x1408cae21: mov      rbx, qword ptr [rsp + 0xc0]
+0x1408cae29: xor      ecx, ecx
+0x1408cae2b: xor      edi, edi
+0x1408cae2d: add      rsp, 0xf8
+0x1408cae34: pop      rbp
+0x1408cae35: ret      
+0x1408cae36: mov      qword ptr [rsp + 8], rax
+0x1408cae3b: mov      qword ptr [rsp + 0x10], rbx
+0x1408cae40: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408cae45: mov      rax, qword ptr [rsp + 8]
+0x1408cae4a: mov      rbx, qword ptr [rsp + 0x10]
+0x1408cae4f: jmp      0x1408caac0    ; main.normalizeLauncherUpdateRelativePath
+0x1408cae54: int3     
+0x1408cae55: int3     
+0x1408cae56: int3     
+0x1408cae57: int3     
+0x1408cae58: int3     
+0x1408cae59: int3     
+0x1408cae5a: int3     
+0x1408cae5b: int3     
+0x1408cae5c: int3     
+0x1408cae5d: int3     
+0x1408cae5e: int3     
+0x1408cae5f: int3     

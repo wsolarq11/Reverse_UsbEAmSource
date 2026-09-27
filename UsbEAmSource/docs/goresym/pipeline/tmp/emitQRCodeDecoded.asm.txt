@@ -1,0 +1,113 @@
+0x140799d80: lea      r12, [rsp - 8]
+0x140799d85: cmp      r12, qword ptr [r14 + 0x10]
+0x140799d89: jbe      0x140799f12    ; main.BootstrapService.emitQRCodeDecoded+0x192
+0x140799d8f: push     rbp
+0x140799d90: mov      rbp, rsp
+0x140799d93: add      rsp, -0x80
+0x140799d97: mov      qword ptr [rsp + 0xf0], rbx
+0x140799d9f: mov      qword ptr [rsp + 0xf8], rcx
+0x140799da7: test     rbx, rbx
+0x140799daa: jne      0x140799e19    ; main.BootstrapService.emitQRCodeDecoded+0x99
+0x140799dac: cmp      byte ptr [rsp + 0xc8], 0
+0x140799db4: jne      0x140799e13    ; main.BootstrapService.emitQRCodeDecoded+0x93
+0x140799db6: mov      qword ptr [rsp + 0xe8], rax
+0x140799dbe: mov      rax, qword ptr [rsp + 0x90]
+0x140799dc6: mov      rbx, qword ptr [rsp + 0x98]
+0x140799dce: call     0x1400a2200    ; strings.TrimSpace
+0x140799dd3: test     rbx, rbx
+0x140799dd6: je       0x140799e13    ; main.BootstrapService.emitQRCodeDecoded+0x93
+0x140799dd8: mov      rax, qword ptr [rsp + 0xe8]
+0x140799de0: call     0x140795c00    ; main.BootstrapService.ensureLauncherWindowForShow
+0x140799de5: test     rax, rax
+0x140799de8: je       0x140799e0d    ; main.BootstrapService.emitQRCodeDecoded+0x8d
+0x140799dea: mov      qword ptr [rsp + 0x78], rbx
+0x140799def: mov      qword ptr [rsp + 0x70], rax
+0x140799df4: je       0x140799e1f    ; main.BootstrapService.emitQRCodeDecoded+0x9f
+0x140799df6: mov      rdx, qword ptr [rax + 8]
+0x140799dfa: mov      rsi, qword ptr [rip + 0x142cdff]
+0x140799e01: mov      rdi, qword ptr [rsi]
+0x140799e04: mov      r8d, dword ptr [rax + 0x10]
+0x140799e08: jmp      0x140799ecb    ; main.BootstrapService.emitQRCodeDecoded+0x14b
+0x140799e0d: sub      rsp, -0x80
+0x140799e11: pop      rbp
+0x140799e12: ret      
+0x140799e13: sub      rsp, -0x80
+0x140799e17: pop      rbp
+0x140799e18: ret      
+0x140799e19: sub      rsp, -0x80
+0x140799e1d: pop      rbp
+0x140799e1e: ret      
+0x140799e1f: mov      rcx, rbx
+0x140799e22: mov      rbx, rax
+0x140799e25: mov      rax, qword ptr [rsp + 0xe8]
+0x140799e2d: call     0x14079a160    ; main.BootstrapService.revealLauncherWindowForQRCodeDecode
+0x140799e32: mov      rdx, qword ptr [rsp + 0x70]
+0x140799e37: test     rdx, rdx
+0x140799e3a: je       0x140799e4f    ; main.BootstrapService.emitQRCodeDecoded+0xcf
+0x140799e3c: mov      rbx, qword ptr [rdx + 8]
+0x140799e40: mov      r8, qword ptr [rip + 0x142cdd9]
+0x140799e47: mov      r9, qword ptr [r8]
+0x140799e4a: mov      edx, dword ptr [rdx + 0x10]
+0x140799e4d: jmp      0x140799e96    ; main.BootstrapService.emitQRCodeDecoded+0x116
+0x140799e4f: mov      r8, qword ptr [rsp + 0x90]
+0x140799e57: mov      qword ptr [rsp], r8
+0x140799e5b: lea      rdi, [rsp + 8]
+0x140799e60: lea      rsi, [rsp + 0x98]
+0x140799e68: mov      qword ptr [rsp - 0x10], rbp
+0x140799e6d: lea      rbp, [rsp - 0x10]
+0x140799e72: call     0x140081a9a    ; runtime.duffcopy+0x33a
+0x140799e77: mov      rbp, qword ptr [rbp]
+0x140799e7b: mov      rax, qword ptr [rsp + 0xe8]
+0x140799e83: mov      rbx, rdx
+0x140799e86: mov      rcx, qword ptr [rsp + 0x78]
+0x140799e8b: call     0x140799f40    ; main.BootstrapService.emitOrQueueQRCodeDecoded
+0x140799e90: sub      rsp, -0x80
+0x140799e94: pop      rbp
+0x140799e95: ret      
+0x140799e96: mov      r10, rdx
+0x140799e99: and      rdx, r9
+0x140799e9c: shl      rdx, 4
+0x140799ea0: mov      r11, qword ptr [r8 + rdx + 8]
+0x140799ea5: cmp      r11, rbx
+0x140799ea8: je       0x140799ec4    ; main.BootstrapService.emitQRCodeDecoded+0x144
+0x140799eaa: lea      rdx, [r10 + 1]
+0x140799eae: test     r11, r11
+0x140799eb1: jne      0x140799e96    ; main.BootstrapService.emitQRCodeDecoded+0x116
+0x140799eb3: lea      rax, [rip + 0x142cd66]
+0x140799eba: call     0x1400174a0    ; runtime.typeAssert
+0x140799ebf: mov      rdx, rax
+0x140799ec2: jmp      0x140799e4f    ; main.BootstrapService.emitQRCodeDecoded+0xcf
+0x140799ec4: mov      rdx, qword ptr [r8 + rdx + 0x10]
+0x140799ec9: jmp      0x140799e4f    ; main.BootstrapService.emitQRCodeDecoded+0xcf
+0x140799ecb: mov      r9, r8
+0x140799ece: and      r8, rdi
+0x140799ed1: shl      r8, 4
+0x140799ed5: mov      r10, qword ptr [rsi + r8 + 8]
+0x140799eda: cmp      r10, rdx
+0x140799edd: je       0x140799f05    ; main.BootstrapService.emitQRCodeDecoded+0x185
+0x140799edf: lea      r8, [r9 + 1]
+0x140799ee3: test     r10, r10
+0x140799ee6: jne      0x140799ecb    ; main.BootstrapService.emitQRCodeDecoded+0x14b
+0x140799ee8: lea      rax, [rip + 0x142cd11]
+0x140799eef: mov      rbx, rdx
+0x140799ef2: call     0x1400174a0    ; runtime.typeAssert
+0x140799ef7: mov      rbx, qword ptr [rsp + 0x78]
+0x140799efc: nop      dword ptr [rax]
+0x140799f00: jmp      0x140799e1f    ; main.BootstrapService.emitQRCodeDecoded+0x9f
+0x140799f05: mov      rdx, qword ptr [rsi + r8 + 0x10]
+0x140799f0a: mov      rax, rdx
+0x140799f0d: jmp      0x140799e1f    ; main.BootstrapService.emitQRCodeDecoded+0x9f
+0x140799f12: mov      qword ptr [rsp + 0x60], rax
+0x140799f17: mov      qword ptr [rsp + 0x68], rbx
+0x140799f1c: mov      qword ptr [rsp + 0x70], rcx
+0x140799f21: call     0x14007f140    ; runtime.morestack_noctxt
+0x140799f26: mov      rax, qword ptr [rsp + 0x60]
+0x140799f2b: mov      rbx, qword ptr [rsp + 0x68]
+0x140799f30: mov      rcx, qword ptr [rsp + 0x70]
+0x140799f35: jmp      0x140799d80    ; main.BootstrapService.emitQRCodeDecoded
+0x140799f3a: int3     
+0x140799f3b: int3     
+0x140799f3c: int3     
+0x140799f3d: int3     
+0x140799f3e: int3     
+0x140799f3f: int3     

@@ -1,0 +1,236 @@
+0x14085b240: lea      r12, [rsp - 0x28]
+0x14085b245: cmp      r12, qword ptr [r14 + 0x10]
+0x14085b249: jbe      0x14085b5bf   ; main.serializeGPUPreferenceRegistrySettings+0x37f
+0x14085b24f: push     rbp
+0x14085b250: mov      rbp, rsp
+0x14085b253: sub      rsp, 0xa0
+0x14085b25a: mov      qword ptr [rsp + 0xb0], rax
+0x14085b262: call     0x14085a700   ; main.normalizeGPUPreferenceRegistrySettings
+0x14085b267: test     rbx, rbx
+0x14085b26a: je       0x14085b282   ; main.serializeGPUPreferenceRegistrySettings+0x42
+0x14085b26c: mov      qword ptr [rsp + 0x40], rbx
+0x14085b271: movups   xmmword ptr [rsp + 0x68], xmm15
+0x14085b277: movups   xmmword ptr [rsp + 0x78], xmm15
+0x14085b27d: xor      ecx, ecx
+0x14085b27f: nop      
+0x14085b280: jmp      0x14085b296   ; main.serializeGPUPreferenceRegistrySettings+0x56
+0x14085b282: xor      eax, eax
+0x14085b284: xor      ebx, ebx
+0x14085b286: add      rsp, 0xa0
+0x14085b28d: pop      rbp
+0x14085b28e: ret      
+0x14085b28f: add      rax, 0x20
+0x14085b293: inc      rcx
+0x14085b296: cmp      rbx, rcx
+0x14085b299: jle      0x14085b545   ; main.serializeGPUPreferenceRegistrySettings+0x305
+0x14085b29f: mov      rdi, qword ptr [rax + 8]
+0x14085b2a3: mov      rdx, qword ptr [rax]
+0x14085b2a6: mov      r8, qword ptr [rax + 0x10]
+0x14085b2aa: test     rdi, rdi
+0x14085b2ad: je       0x14085b28f   ; main.serializeGPUPreferenceRegistrySettings+0x4f
+0x14085b2af: mov      r9, qword ptr [rax + 0x18]
+0x14085b2b3: test     r9, r9
+0x14085b2b6: je       0x14085b28f   ; main.serializeGPUPreferenceRegistrySettings+0x4f
+0x14085b2b8: mov      r10, qword ptr [rsp + 0x68]
+0x14085b2bd: nop      
+0x14085b2be: nop      
+0x14085b2bf: nop      
+0x14085b2c0: test     r10, r10
+0x14085b2c3: je       0x14085b2d4   ; main.serializeGPUPreferenceRegistrySettings+0x94
+0x14085b2c5: lea      r11, [rsp + 0x68]
+0x14085b2ca: cmp      r10, r11
+0x14085b2cd: je       0x14085b2e3   ; main.serializeGPUPreferenceRegistrySettings+0xa3
+0x14085b2cf: jmp      0x14085b5ab   ; main.serializeGPUPreferenceRegistrySettings+0x36b
+0x14085b2d4: lea      r10, [rsp + 0x68]
+0x14085b2d9: mov      qword ptr [rsp + 0x68], r10
+0x14085b2de: lea      r11, [rsp + 0x68]
+0x14085b2e3: mov      qword ptr [rsp + 0x60], rcx
+0x14085b2e8: mov      qword ptr [rsp + 0x98], rax
+0x14085b2f0: mov      qword ptr [rsp + 0x58], r9
+0x14085b2f5: mov      qword ptr [rsp + 0x90], r8
+0x14085b2fd: mov      r10, qword ptr [rsp + 0x80]
+0x14085b305: mov      r12, qword ptr [rsp + 0x78]
+0x14085b30a: lea      r13, [rdi + r12]
+0x14085b30e: mov      r15, qword ptr [rsp + 0x70]
+0x14085b313: cmp      r10, r13
+0x14085b316: jae      0x14085b35a   ; main.serializeGPUPreferenceRegistrySettings+0x11a
+0x14085b318: mov      qword ptr [rsp + 0x88], rdx
+0x14085b320: mov      qword ptr [rsp + 0x50], rdi
+0x14085b325: mov      qword ptr [rsp + 0x48], r12
+0x14085b32a: mov      rax, r15
+0x14085b32d: mov      rbx, r13
+0x14085b330: mov      rcx, r10
+0x14085b333: lea      rsi, [rip + 0x28eb46]
+0x14085b33a: call     0x14007ad20   ; runtime.growslice
+0x14085b33f: mov      rdx, qword ptr [rsp + 0x88]
+0x14085b347: mov      rdi, qword ptr [rsp + 0x50]
+0x14085b34c: mov      r12, qword ptr [rsp + 0x48]
+0x14085b351: mov      r15, rax
+0x14085b354: mov      r10, rcx
+0x14085b357: mov      r13, rbx
+0x14085b35a: mov      qword ptr [rsp + 0x50], r10
+0x14085b35f: mov      qword ptr [rsp + 0x48], r13
+0x14085b364: mov      qword ptr [rsp + 0x88], r15
+0x14085b36c: lea      rax, [r12 + r15]
+0x14085b370: mov      rbx, rdx
+0x14085b373: mov      rcx, rdi
+0x14085b376: call     0x140081e00   ; runtime.memmove
+0x14085b37b: mov      rdx, qword ptr [rsp + 0x48]
+0x14085b380: mov      qword ptr [rsp + 0x78], rdx
+0x14085b385: mov      rdx, qword ptr [rsp + 0x50]
+0x14085b38a: mov      qword ptr [rsp + 0x80], rdx
+0x14085b392: mov      rdx, qword ptr [rsp + 0x88]
+0x14085b39a: mov      qword ptr [rsp + 0x70], rdx
+0x14085b39f: mov      rdx, qword ptr [rsp + 0x68]
+0x14085b3a4: nop      
+0x14085b3a5: nop      
+0x14085b3a6: test     rdx, rdx
+0x14085b3a9: je       0x14085b3ba   ; main.serializeGPUPreferenceRegistrySettings+0x17a
+0x14085b3ab: lea      r8, [rsp + 0x68]
+0x14085b3b0: cmp      rdx, r8
+0x14085b3b3: je       0x14085b3c9   ; main.serializeGPUPreferenceRegistrySettings+0x189
+0x14085b3b5: jmp      0x14085b598   ; main.serializeGPUPreferenceRegistrySettings+0x358
+0x14085b3ba: lea      rdx, [rsp + 0x68]
+0x14085b3bf: mov      qword ptr [rsp + 0x68], rdx
+0x14085b3c4: lea      r8, [rsp + 0x68]
+0x14085b3c9: mov      rcx, qword ptr [rsp + 0x80]
+0x14085b3d1: mov      rbx, qword ptr [rsp + 0x78]
+0x14085b3d6: inc      rbx
+0x14085b3d9: mov      rax, qword ptr [rsp + 0x70]
+0x14085b3de: nop      
+0x14085b3e0: cmp      rcx, rbx
+0x14085b3e3: jae      0x14085b408   ; main.serializeGPUPreferenceRegistrySettings+0x1c8
+0x14085b3e5: mov      edi, 1
+0x14085b3ea: lea      rsi, [rip + 0x28ea8f]
+0x14085b3f1: call     0x14007ad20   ; runtime.growslice
+0x14085b3f6: mov      qword ptr [rsp + 0x80], rcx
+0x14085b3fe: mov      qword ptr [rsp + 0x70], rax
+0x14085b403: lea      r8, [rsp + 0x68]
+0x14085b408: mov      qword ptr [rsp + 0x78], rbx
+0x14085b40d: mov      byte ptr [rbx + rax - 1], 0x3d
+0x14085b412: mov      rdx, qword ptr [rsp + 0x68]
+0x14085b417: nop      
+0x14085b418: nop      
+0x14085b419: test     rdx, rdx
+0x14085b41c: je       0x14085b42a   ; main.serializeGPUPreferenceRegistrySettings+0x1ea
+0x14085b41e: nop      
+0x14085b420: cmp      rdx, r8
+0x14085b423: je       0x14085b42f   ; main.serializeGPUPreferenceRegistrySettings+0x1ef
+0x14085b425: jmp      0x14085b585   ; main.serializeGPUPreferenceRegistrySettings+0x345
+0x14085b42a: mov      qword ptr [rsp + 0x68], r8
+0x14085b42f: mov      rcx, qword ptr [rsp + 0x80]
+0x14085b437: mov      rdx, qword ptr [rsp + 0x78]
+0x14085b43c: mov      rdi, qword ptr [rsp + 0x58]
+0x14085b441: lea      rbx, [rdi + rdx]
+0x14085b445: mov      rax, qword ptr [rsp + 0x70]
+0x14085b44a: cmp      rcx, rbx
+0x14085b44d: jae      0x14085b46f   ; main.serializeGPUPreferenceRegistrySettings+0x22f
+0x14085b44f: mov      qword ptr [rsp + 0x50], rdx
+0x14085b454: lea      rsi, [rip + 0x28ea25]
+0x14085b45b: nop      dword ptr [rax + rax]
+0x14085b460: call     0x14007ad20   ; runtime.growslice
+0x14085b465: mov      rdx, qword ptr [rsp + 0x50]
+0x14085b46a: mov      rdi, qword ptr [rsp + 0x58]
+0x14085b46f: mov      qword ptr [rsp + 0x88], rax
+0x14085b477: mov      qword ptr [rsp + 0x58], rcx
+0x14085b47c: mov      qword ptr [rsp + 0x50], rbx
+0x14085b481: add      rax, rdx
+0x14085b484: mov      rbx, qword ptr [rsp + 0x90]
+0x14085b48c: mov      rcx, rdi
+0x14085b48f: call     0x140081e00   ; runtime.memmove
+0x14085b494: mov      rdx, qword ptr [rsp + 0x50]
+0x14085b499: mov      qword ptr [rsp + 0x78], rdx
+0x14085b49e: mov      rdx, qword ptr [rsp + 0x58]
+0x14085b4a3: mov      qword ptr [rsp + 0x80], rdx
+0x14085b4ab: mov      rdx, qword ptr [rsp + 0x88]
+0x14085b4b3: mov      qword ptr [rsp + 0x70], rdx
+0x14085b4b8: mov      rdx, qword ptr [rsp + 0x68]
+0x14085b4bd: nop      
+0x14085b4be: nop      
+0x14085b4c0: test     rdx, rdx
+0x14085b4c3: je       0x14085b4d4   ; main.serializeGPUPreferenceRegistrySettings+0x294
+0x14085b4c5: lea      r8, [rsp + 0x68]
+0x14085b4ca: cmp      rdx, r8
+0x14085b4cd: je       0x14085b4e3   ; main.serializeGPUPreferenceRegistrySettings+0x2a3
+0x14085b4cf: jmp      0x14085b572   ; main.serializeGPUPreferenceRegistrySettings+0x332
+0x14085b4d4: lea      rdx, [rsp + 0x68]
+0x14085b4d9: mov      qword ptr [rsp + 0x68], rdx
+0x14085b4de: lea      r8, [rsp + 0x68]
+0x14085b4e3: mov      rcx, qword ptr [rsp + 0x80]
+0x14085b4eb: mov      rbx, qword ptr [rsp + 0x78]
+0x14085b4f0: inc      rbx
+0x14085b4f3: mov      rax, qword ptr [rsp + 0x70]
+0x14085b4f8: cmp      rcx, rbx
+0x14085b4fb: jae      0x14085b520   ; main.serializeGPUPreferenceRegistrySettings+0x2e0
+0x14085b4fd: mov      edi, 1
+0x14085b502: lea      rsi, [rip + 0x28e977]
+0x14085b509: call     0x14007ad20   ; runtime.growslice
+0x14085b50e: mov      qword ptr [rsp + 0x80], rcx
+0x14085b516: mov      qword ptr [rsp + 0x70], rax
+0x14085b51b: lea      r8, [rsp + 0x68]
+0x14085b520: mov      qword ptr [rsp + 0x78], rbx
+0x14085b525: mov      byte ptr [rbx + rax - 1], 0x3b
+0x14085b52a: mov      rax, qword ptr [rsp + 0x98]
+0x14085b532: mov      rcx, qword ptr [rsp + 0x60]
+0x14085b537: mov      rbx, qword ptr [rsp + 0x40]
+0x14085b53c: nop      dword ptr [rax]
+0x14085b540: jmp      0x14085b28f   ; main.serializeGPUPreferenceRegistrySettings+0x4f
+0x14085b545: mov      rax, qword ptr [rsp + 0x70]
+0x14085b54a: mov      rcx, rax
+0x14085b54d: neg      rcx
+0x14085b550: mov      rbx, qword ptr [rsp + 0x78]
+0x14085b555: cmp      rbx, rcx
+0x14085b558: ja       0x14085b563   ; main.serializeGPUPreferenceRegistrySettings+0x323
+0x14085b55a: add      rsp, 0xa0
+0x14085b561: pop      rbp
+0x14085b562: ret      
+0x14085b563: test     rax, rax
+0x14085b566: je       0x14085b56d   ; main.serializeGPUPreferenceRegistrySettings+0x32d
+0x14085b568: call     0x140073180   ; runtime.panicunsafestringlen
+0x14085b56d: call     0x1400731c0   ; runtime.panicunsafestringnilptr
+0x14085b572: lea      rax, [rip + 0x28e887]
+0x14085b579: lea      rbx, [rip + 0x9733f0]
+0x14085b580: call     0x1400789c0   ; runtime.gopanic
+0x14085b585: lea      rax, [rip + 0x28e874]
+0x14085b58c: lea      rbx, [rip + 0x9733dd]
+0x14085b593: call     0x1400789c0   ; runtime.gopanic
+0x14085b598: lea      rax, [rip + 0x28e861]
+0x14085b59f: lea      rbx, [rip + 0x9733ca]
+0x14085b5a6: call     0x1400789c0   ; runtime.gopanic
+0x14085b5ab: lea      rax, [rip + 0x28e84e]
+0x14085b5b2: lea      rbx, [rip + 0x9733b7]
+0x14085b5b9: call     0x1400789c0   ; runtime.gopanic
+0x14085b5be: nop      
+0x14085b5bf: mov      qword ptr [rsp + 8], rax
+0x14085b5c4: mov      qword ptr [rsp + 0x10], rbx
+0x14085b5c9: mov      qword ptr [rsp + 0x18], rcx
+0x14085b5ce: call     0x14007f140   ; runtime.morestack_noctxt
+0x14085b5d3: mov      rax, qword ptr [rsp + 8]
+0x14085b5d8: mov      rbx, qword ptr [rsp + 0x10]
+0x14085b5dd: mov      rcx, qword ptr [rsp + 0x18]
+0x14085b5e2: jmp      0x14085b240   ; main.serializeGPUPreferenceRegistrySettings
+0x14085b5e7: int3     
+0x14085b5e8: int3     
+0x14085b5e9: int3     
+0x14085b5ea: int3     
+0x14085b5eb: int3     
+0x14085b5ec: int3     
+0x14085b5ed: int3     
+0x14085b5ee: int3     
+0x14085b5ef: int3     
+0x14085b5f0: int3     
+0x14085b5f1: int3     
+0x14085b5f2: int3     
+0x14085b5f3: int3     
+0x14085b5f4: int3     
+0x14085b5f5: int3     
+0x14085b5f6: int3     
+0x14085b5f7: int3     
+0x14085b5f8: int3     
+0x14085b5f9: int3     
+0x14085b5fa: int3     
+0x14085b5fb: int3     
+0x14085b5fc: int3     
+0x14085b5fd: int3     
+0x14085b5fe: int3     
+0x14085b5ff: int3     

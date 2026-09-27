@@ -1,0 +1,241 @@
+0x140957b40: lea      r12, [rsp - 0x18]
+0x140957b45: cmp      r12, qword ptr [r14 + 0x10]
+0x140957b49: jbe      0x140957e91   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0x351
+0x140957b4f: push     rbp
+0x140957b50: mov      rbp, rsp
+0x140957b53: sub      rsp, 0x90
+0x140957b5a: nop      word ptr [rax + rax]
+0x140957b60: test     rax, rax
+0x140957b63: je       0x140957c0c   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0xcc
+0x140957b69: test     rbx, rbx
+0x140957b6c: je       0x140957c0c   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0xcc
+0x140957b72: test     rcx, rcx
+0x140957b75: je       0x140957c0c   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0xcc
+0x140957b7b: nop      dword ptr [rax + rax]
+0x140957b80: cmp      rdi, r8
+0x140957b83: jge      0x140957c0c   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0xcc
+0x140957b89: cmp      rsi, r9
+0x140957b8c: jge      0x140957c0c   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0xcc
+0x140957b8e: mov      rdx, qword ptr [rbx + 0x28]
+0x140957b92: mov      r8, qword ptr [rbx + 0x30]
+0x140957b96: mov      r9, qword ptr [rbx + 0x20]
+0x140957b9a: mov      r10, qword ptr [rbx + 0x38]
+0x140957b9e: sub      r8, r9
+0x140957ba1: sub      r10, rdx
+0x140957ba4: mov      r11, r10
+0x140957ba7: imul     r10, r8
+0x140957bab: shl      r10, 2
+0x140957baf: nop      
+0x140957bb0: nop      
+0x140957bb1: nop      
+0x140957bb2: test     r10, r10
+0x140957bb5: jl       0x140957e8b   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0x34b
+0x140957bbb: mov      r12, rax
+0x140957bbe: neg      rax
+0x140957bc1: cmp      rax, r10
+0x140957bc4: jb       0x140957e86   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0x346
+0x140957bca: mov      qword ptr [rsp + 0x88], r12
+0x140957bd2: mov      qword ptr [rsp + 0xb0], rbx
+0x140957bda: mov      qword ptr [rsp + 0xb8], rcx
+0x140957be2: mov      qword ptr [rsp + 0x20], r8
+0x140957be7: mov      qword ptr [rsp + 0x80], r11
+0x140957bef: mov      qword ptr [rsp + 0x38], r10
+0x140957bf4: mov      qword ptr [rsp + 0x78], rsi
+0x140957bf9: mov      qword ptr [rsp + 0x70], rdi
+0x140957bfe: mov      qword ptr [rsp + 0x68], rdx
+0x140957c03: mov      qword ptr [rsp + 0x60], r9
+0x140957c08: xor      eax, eax
+0x140957c0a: jmp      0x140957c18   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0xd8
+0x140957c0c: add      rsp, 0x90
+0x140957c13: pop      rbp
+0x140957c14: ret      
+0x140957c15: inc      rax
+0x140957c18: cmp      rax, r11
+0x140957c1b: jge      0x140957c27   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0xe7
+0x140957c1d: mov      qword ptr [rsp + 0x28], rax
+0x140957c22: xor      r13d, r13d
+0x140957c25: jmp      0x140957c80   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0x140
+0x140957c27: add      rsp, 0x90
+0x140957c2e: pop      rbp
+0x140957c2f: ret      
+0x140957c30: mov      r13, qword ptr [rsp + 0x30]
+0x140957c35: inc      r13
+0x140957c38: mov      rax, qword ptr [rsp + 0x28]
+0x140957c3d: mov      rcx, qword ptr [rsp + 0xb8]
+0x140957c45: mov      rdx, qword ptr [rsp + 0x68]
+0x140957c4a: mov      rbx, qword ptr [rsp + 0xb0]
+0x140957c52: mov      rsi, qword ptr [rsp + 0x78]
+0x140957c57: mov      rdi, qword ptr [rsp + 0x70]
+0x140957c5c: mov      r8, qword ptr [rsp + 0x20]
+0x140957c61: mov      r9, qword ptr [rsp + 0x60]
+0x140957c66: mov      r10, qword ptr [rsp + 0x38]
+0x140957c6b: mov      r11, qword ptr [rsp + 0x80]
+0x140957c73: mov      r12, qword ptr [rsp + 0x88]
+0x140957c7b: nop      dword ptr [rax + rax]
+0x140957c80: cmp      r13, r8
+0x140957c83: jge      0x140957c15   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0xd5
+0x140957c85: mov      qword ptr [rsp + 0x30], r13
+0x140957c8a: mov      rsi, rax
+0x140957c8d: imul     rax, r8
+0x140957c91: lea      rdi, [r13 + rax]
+0x140957c96: mov      qword ptr [rsp + 0x58], rdi
+0x140957c9b: shl      rdi, 2
+0x140957c9f: mov      qword ptr [rsp + 0x40], rdi
+0x140957ca4: lea      rdi, [r9 + r13]
+0x140957ca8: mov      qword ptr [rsp + 0x50], rdi
+0x140957cad: lea      rcx, [rdx + rsi]
+0x140957cb1: mov      qword ptr [rsp + 0x48], rcx
+0x140957cb6: mov      rax, rbx
+0x140957cb9: mov      rbx, rdi
+0x140957cbc: nop      dword ptr [rax]
+0x140957cc0: call     0x1401a1720   ; image.RGBA.RGBAAt
+0x140957cc5: mov      rdx, qword ptr [rsp + 0x40]
+0x140957cca: mov      rsi, qword ptr [rsp + 0x38]
+0x140957ccf: cmp      rdx, rsi
+0x140957cd2: jae      0x140957e7b   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0x33b
+0x140957cd8: lea      r10, [rdx + 1]
+0x140957cdc: mov      r11, qword ptr [rsp + 0x58]
+0x140957ce1: mov      r12, qword ptr [rsp + 0x88]
+0x140957ce9: lea      r13, [r12 + r11*4]
+0x140957ced: cmp      rsi, r10
+0x140957cf0: jbe      0x140957e70   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0x330
+0x140957cf6: movzx    r10d, byte ptr [r13]
+0x140957cfb: lea      r13, [r12 + r11*4]
+0x140957cff: lea      r13, [r13 + 1]
+0x140957d03: movzx    r13d, byte ptr [r13]
+0x140957d08: add      rdx, 2
+0x140957d0c: cmp      r10, r13
+0x140957d0f: cmovl    r10, r13
+0x140957d13: cmp      rsi, rdx
+0x140957d16: jbe      0x140957e65   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0x325
+0x140957d1c: lea      rdx, [r12 + r11*4]
+0x140957d20: lea      rdx, [rdx + 2]
+0x140957d24: movzx    edx, byte ptr [rdx]
+0x140957d27: nop      
+0x140957d28: mov      r11, qword ptr [rsp + 0x50]
+0x140957d2d: mov      r13, qword ptr [rsp + 0x70]
+0x140957d32: add      r11, r13
+0x140957d35: mov      r15, qword ptr [rsp + 0x48]
+0x140957d3a: mov      r13, qword ptr [rsp + 0x78]
+0x140957d3f: add      r15, r13
+0x140957d42: cmp      rdx, r10
+0x140957d45: cmovg    r10, rdx
+0x140957d49: test     r10, r10
+0x140957d4c: jne      0x140957d70   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0x230
+0x140957d4e: mov      esi, ebx
+0x140957d50: mov      r8d, ecx
+0x140957d53: mov      r9d, edi
+0x140957d56: mov      rbx, r11
+0x140957d59: mov      rcx, r15
+0x140957d5c: mov      edi, eax
+0x140957d5e: mov      rax, qword ptr [rsp + 0xb8]
+0x140957d66: call     0x1401a19e0   ; image.RGBA.SetRGBA
+0x140957d6b: jmp      0x140957c30   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0xf0
+0x140957d70: lea      rdx, [r10 - 0xff]
+0x140957d77: neg      rdx
+0x140957d7a: movzx    r12d, byte ptr [rsp + 0xa0]
+0x140957d83: imul     r12, r10
+0x140957d87: movzx    r13d, al
+0x140957d8b: imul     r13, rdx
+0x140957d8f: lea      rax, [r13 + r12]
+0x140957d94: lea      r12, [r13 + r12]
+0x140957d99: lea      r12, [r12 + 0x7f]
+0x140957d9e: mov      rsi, rax
+0x140957da1: movabs   rax, 0x8080808080808081
+0x140957dab: mov      rdi, rdx
+0x140957dae: imul     r12
+0x140957db1: lea      rdx, [rsi + rdx]
+0x140957db5: lea      rdx, [rdx + 0x7f]
+0x140957db9: sar      rdx, 7
+0x140957dbd: movzx    r12d, byte ptr [rsp + 0xa1]
+0x140957dc6: imul     r12, r10
+0x140957dca: movzx    r13d, bl
+0x140957dce: imul     r13, rdi
+0x140957dd2: lea      rax, [r13 + r12]
+0x140957dd7: lea      r12, [r13 + r12]
+0x140957ddc: lea      r12, [r12 + 0x7f]
+0x140957de1: mov      rbx, rax
+0x140957de4: movabs   rax, 0x8080808080808081
+0x140957dee: mov      rsi, rdx
+0x140957df1: imul     r12
+0x140957df4: lea      rdx, [rbx + rdx]
+0x140957df8: lea      rdx, [rdx + 0x7f]
+0x140957dfc: sar      rdx, 7
+0x140957e00: movzx    r12d, byte ptr [rsp + 0xa2]
+0x140957e09: imul     r10, r12
+0x140957e0d: movzx    r12d, cl
+0x140957e11: imul     r12, rdi
+0x140957e15: lea      r13, [r12 + r10]
+0x140957e19: lea      r10, [r12 + r10]
+0x140957e1d: lea      r10, [r10 + 0x7f]
+0x140957e21: movabs   rax, 0x8080808080808081
+0x140957e2b: mov      rcx, rdx
+0x140957e2e: imul     r10
+0x140957e31: lea      r8, [r13 + rdx]
+0x140957e36: lea      r8, [r8 + 0x7f]
+0x140957e3a: sar      r8, 7
+0x140957e3e: mov      rax, qword ptr [rsp + 0xb8]
+0x140957e46: mov      rbx, r11
+0x140957e49: mov      rdi, rsi
+0x140957e4c: mov      rsi, rcx
+0x140957e4f: mov      r9d, 0xffffffff
+0x140957e55: mov      rcx, r15
+0x140957e58: call     0x1401a19e0   ; image.RGBA.SetRGBA
+0x140957e5d: nop      dword ptr [rax]
+0x140957e60: jmp      0x140957c30   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion+0xf0
+0x140957e65: mov      rax, rdx
+0x140957e68: mov      rcx, rsi
+0x140957e6b: call     0x140081400   ; runtime.panicIndex
+0x140957e70: mov      rax, r10
+0x140957e73: mov      rcx, rsi
+0x140957e76: call     0x140081400   ; runtime.panicIndex
+0x140957e7b: mov      rax, rdx
+0x140957e7e: mov      rcx, rsi
+0x140957e81: call     0x140081400   ; runtime.panicIndex
+0x140957e86: call     0x140073200   ; runtime.panicunsafeslicelen
+0x140957e8b: call     0x140073200   ; runtime.panicunsafeslicelen
+0x140957e90: nop      
+0x140957e91: mov      qword ptr [rsp + 0x10], rax
+0x140957e96: mov      qword ptr [rsp + 0x18], rbx
+0x140957e9b: mov      qword ptr [rsp + 0x20], rcx
+0x140957ea0: mov      qword ptr [rsp + 0x28], rdi
+0x140957ea5: mov      qword ptr [rsp + 0x30], rsi
+0x140957eaa: mov      qword ptr [rsp + 0x38], r8
+0x140957eaf: mov      qword ptr [rsp + 0x40], r9
+0x140957eb4: call     0x14007f140   ; runtime.morestack_noctxt
+0x140957eb9: mov      rax, qword ptr [rsp + 0x10]
+0x140957ebe: mov      rbx, qword ptr [rsp + 0x18]
+0x140957ec3: mov      rcx, qword ptr [rsp + 0x20]
+0x140957ec8: mov      rdi, qword ptr [rsp + 0x28]
+0x140957ecd: mov      rsi, qword ptr [rsp + 0x30]
+0x140957ed2: mov      r8, qword ptr [rsp + 0x38]
+0x140957ed7: mov      r9, qword ptr [rsp + 0x40]
+0x140957edc: nop      dword ptr [rax]
+0x140957ee0: jmp      0x140957b40   ; main.copyQRCodeTextMaskDIBBitsToRGBARegion
+0x140957ee5: int3     
+0x140957ee6: int3     
+0x140957ee7: int3     
+0x140957ee8: int3     
+0x140957ee9: int3     
+0x140957eea: int3     
+0x140957eeb: int3     
+0x140957eec: int3     
+0x140957eed: int3     
+0x140957eee: int3     
+0x140957eef: int3     
+0x140957ef0: int3     
+0x140957ef1: int3     
+0x140957ef2: int3     
+0x140957ef3: int3     
+0x140957ef4: int3     
+0x140957ef5: int3     
+0x140957ef6: int3     
+0x140957ef7: int3     
+0x140957ef8: int3     
+0x140957ef9: int3     
+0x140957efa: int3     
+0x140957efb: int3     
+0x140957efc: int3     
+0x140957efd: int3     
+0x140957efe: int3     
+0x140957eff: int3     

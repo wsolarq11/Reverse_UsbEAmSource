@@ -1,0 +1,132 @@
+0x1408ae320: lea      r12, [rsp - 0x18]
+0x1408ae325: cmp      r12, qword ptr [r14 + 0x10]
+0x1408ae329: jbe      0x1408ae553   ; main.buildHDropClipboardData+0x233
+0x1408ae32f: push     rbp
+0x1408ae330: mov      rbp, rsp
+0x1408ae333: sub      rsp, 0x90
+0x1408ae33a: mov      qword ptr [rsp + 0xa0], rax
+0x1408ae342: movq     qword ptr [rsp + 0x88], xmm15
+0x1408ae34c: mov      byte ptr [rsp + 0x23], 0
+0x1408ae351: mov      qword ptr [rsp + 0x38], 0
+0x1408ae35a: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1408ae360: call     0x1408ae7c0   ; main.encodeHDropPaths
+0x1408ae365: test     rdi, rdi
+0x1408ae368: jne      0x1408ae509   ; main.buildHDropClipboardData+0x1e9
+0x1408ae36e: mov      qword ptr [rsp + 0x40], rbx
+0x1408ae373: mov      qword ptr [rsp + 0x78], rax
+0x1408ae378: movups   xmmword ptr [rsp + 0x24], xmm15
+0x1408ae37e: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1408ae384: mov      dword ptr [rsp + 0x24], 0x14
+0x1408ae38c: mov      dword ptr [rsp + 0x34], 1
+0x1408ae394: lea      rax, [rbx + rbx]
+0x1408ae398: lea      rax, [rax + 0x14]
+0x1408ae39c: nop      dword ptr [rax]
+0x1408ae3a0: call     0x1408ae9e0   ; main.globalAllocMoveable
+0x1408ae3a5: test     rbx, rbx
+0x1408ae3a8: jne      0x1408ae4e8   ; main.buildHDropClipboardData+0x1c8
+0x1408ae3ae: mov      qword ptr [rsp + 0x48], rax
+0x1408ae3b3: call     0x1408aeac0   ; main.globalLock
+0x1408ae3b8: nop      dword ptr [rax + rax]
+0x1408ae3c0: test     rbx, rbx
+0x1408ae3c3: jne      0x1408ae47f   ; main.buildHDropClipboardData+0x15f
+0x1408ae3c9: lea      rdx, [rip + 0x1b0]
+0x1408ae3d0: mov      qword ptr [rsp + 0x58], rdx
+0x1408ae3d5: mov      rdx, qword ptr [rsp + 0x48]
+0x1408ae3da: mov      qword ptr [rsp + 0x60], rdx
+0x1408ae3df: lea      rsi, [rsp + 0x58]
+0x1408ae3e4: mov      qword ptr [rsp + 0x88], rsi
+0x1408ae3ec: mov      byte ptr [rsp + 0x23], 1
+0x1408ae3f1: mov      rsi, rax
+0x1408ae3f4: mov      rdi, qword ptr [rsp + 0x24]
+0x1408ae3f9: mov      qword ptr [rax], rdi
+0x1408ae3fc: movups   xmm0, xmmword ptr [rsp + 0x28]
+0x1408ae401: movups   xmmword ptr [rax + 4], xmm0
+0x1408ae405: mov      rax, qword ptr [rsp + 0x40]
+0x1408ae40a: mov      edi, 2
+0x1408ae40f: mov      rcx, rax
+0x1408ae412: mul      rdi
+0x1408ae415: jo       0x1408ae530   ; main.buildHDropClipboardData+0x210
+0x1408ae41b: add      rsi, 0x14
+0x1408ae41f: mov      rdi, rsi
+0x1408ae422: neg      rsi
+0x1408ae425: cmp      rax, rsi
+0x1408ae428: ja       0x1408ae530   ; main.buildHDropClipboardData+0x210
+0x1408ae42e: mov      rbx, qword ptr [rsp + 0x78]
+0x1408ae433: cmp      rbx, rdi
+0x1408ae436: je       0x1408ae445   ; main.buildHDropClipboardData+0x125
+0x1408ae438: add      rcx, rcx
+0x1408ae43b: mov      rax, rdi
+0x1408ae43e: nop      
+0x1408ae440: call     0x140081e00   ; runtime.memmove
+0x1408ae445: mov      rax, qword ptr [rsp + 0x48]
+0x1408ae44a: mov      qword ptr [rsp + 0x38], rax
+0x1408ae44f: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1408ae455: mov      byte ptr [rsp + 0x23], 0
+0x1408ae45a: mov      rdx, qword ptr [rsp + 0x88]
+0x1408ae462: mov      rax, qword ptr [rdx]
+0x1408ae465: call     rax
+0x1408ae467: mov      rbx, qword ptr [rsp + 0x68]
+0x1408ae46c: mov      rax, qword ptr [rsp + 0x38]
+0x1408ae471: mov      rcx, qword ptr [rsp + 0x70]
+0x1408ae476: add      rsp, 0x90
+0x1408ae47d: pop      rbp
+0x1408ae47e: ret      
+0x1408ae47f: mov      qword ptr [rsp + 0x80], rcx
+0x1408ae487: mov      qword ptr [rsp + 0x50], rbx
+0x1408ae48c: lea      rax, [rip + 0x24f4ed]
+0x1408ae493: call     0x14001ae20   ; runtime.newobject
+0x1408ae498: mov      rcx, qword ptr [rsp + 0x48]
+0x1408ae49d: mov      qword ptr [rax], rcx
+0x1408ae4a0: mov      rcx, qword ptr [rip + 0x13135e1]
+0x1408ae4a7: mov      rbx, rax
+0x1408ae4aa: mov      edi, 1
+0x1408ae4af: mov      rax, rcx
+0x1408ae4b2: mov      rcx, rdi
+0x1408ae4b5: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1408ae4ba: mov      qword ptr [rsp + 0x38], 0
+0x1408ae4c3: mov      rbx, qword ptr [rsp + 0x50]
+0x1408ae4c8: mov      qword ptr [rsp + 0x68], rbx
+0x1408ae4cd: mov      rcx, qword ptr [rsp + 0x80]
+0x1408ae4d5: mov      qword ptr [rsp + 0x70], rcx
+0x1408ae4da: mov      rax, qword ptr [rsp + 0x38]
+0x1408ae4df: add      rsp, 0x90
+0x1408ae4e6: pop      rbp
+0x1408ae4e7: ret      
+0x1408ae4e8: mov      qword ptr [rsp + 0x38], 0
+0x1408ae4f1: mov      qword ptr [rsp + 0x68], rbx
+0x1408ae4f6: mov      qword ptr [rsp + 0x70], rcx
+0x1408ae4fb: mov      rax, qword ptr [rsp + 0x38]
+0x1408ae500: add      rsp, 0x90
+0x1408ae507: pop      rbp
+0x1408ae508: ret      
+0x1408ae509: mov      qword ptr [rsp + 0x38], 0
+0x1408ae512: mov      qword ptr [rsp + 0x68], rdi
+0x1408ae517: mov      qword ptr [rsp + 0x70], rsi
+0x1408ae51c: mov      rax, qword ptr [rsp + 0x38]
+0x1408ae521: mov      rbx, rdi
+0x1408ae524: mov      rcx, rsi
+0x1408ae527: add      rsp, 0x90
+0x1408ae52e: pop      rbp
+0x1408ae52f: ret      
+0x1408ae530: call     0x140073200   ; runtime.panicunsafeslicelen
+0x1408ae535: nop      
+0x1408ae536: call     0x1400435e0   ; runtime.deferreturn
+0x1408ae53b: mov      rax, qword ptr [rsp + 0x38]
+0x1408ae540: mov      rbx, qword ptr [rsp + 0x68]
+0x1408ae545: mov      rcx, qword ptr [rsp + 0x70]
+0x1408ae54a: add      rsp, 0x90
+0x1408ae551: pop      rbp
+0x1408ae552: ret      
+0x1408ae553: mov      qword ptr [rsp + 8], rax
+0x1408ae558: mov      qword ptr [rsp + 0x10], rbx
+0x1408ae55d: mov      qword ptr [rsp + 0x18], rcx
+0x1408ae562: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408ae567: mov      rax, qword ptr [rsp + 8]
+0x1408ae56c: mov      rbx, qword ptr [rsp + 0x10]
+0x1408ae571: mov      rcx, qword ptr [rsp + 0x18]
+0x1408ae576: jmp      0x1408ae320   ; main.buildHDropClipboardData
+0x1408ae57b: int3     
+0x1408ae57c: int3     
+0x1408ae57d: int3     
+0x1408ae57e: int3     
+0x1408ae57f: int3     

@@ -1,0 +1,113 @@
+0x1409d9f00: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409d9f04: jbe      0x1409da045   ; main.twoFactorService.clearSessionKeyIfGeneration+0x145
+0x1409d9f0a: push     rbp
+0x1409d9f0b: mov      rbp, rsp
+0x1409d9f0e: sub      rsp, 0x60
+0x1409d9f12: movq     qword ptr [rsp + 0x58], xmm15
+0x1409d9f19: mov      qword ptr [rsp + 0x70], rax
+0x1409d9f1e: mov      byte ptr [rsp + 0x17], 0
+0x1409d9f23: mov      byte ptr [rsp + 0x16], 0
+0x1409d9f28: nop      
+0x1409d9f29: mov      rcx, rax
+0x1409d9f2c: xor      eax, eax
+0x1409d9f2e: mov      esi, 1
+0x1409d9f33: lock cmpxchg dword ptr [rcx + 0x10], esi
+0x1409d9f38: sete     sil
+0x1409d9f3c: nop      dword ptr [rax]
+0x1409d9f40: test     sil, sil
+0x1409d9f43: jne      0x1409d9f5d   ; main.twoFactorService.clearSessionKeyIfGeneration+0x5d
+0x1409d9f45: mov      qword ptr [rsp + 0x78], rbx
+0x1409d9f4a: lea      rax, [rcx + 0x10]
+0x1409d9f4e: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1409d9f53: mov      rcx, qword ptr [rsp + 0x70]
+0x1409d9f58: mov      rbx, qword ptr [rsp + 0x78]
+0x1409d9f5d: lea      rsi, [rip + 0x11c]
+0x1409d9f64: mov      qword ptr [rsp + 0x48], rsi
+0x1409d9f69: lea      rsi, [rcx + 0x10]
+0x1409d9f6d: mov      qword ptr [rsp + 0x50], rsi
+0x1409d9f72: lea      rdx, [rsp + 0x48]
+0x1409d9f77: mov      qword ptr [rsp + 0x58], rdx
+0x1409d9f7c: mov      byte ptr [rsp + 0x17], 1
+0x1409d9f81: cmp      qword ptr [rcx + 0x48], rbx
+0x1409d9f85: jne      0x1409da019   ; main.twoFactorService.clearSessionKeyIfGeneration+0x119
+0x1409d9f8b: mov      rbx, qword ptr [rcx + 0x38]
+0x1409d9f8f: mov      rax, qword ptr [rcx + 0x30]
+0x1409d9f93: mov      rsi, qword ptr [rcx + 0x40]
+0x1409d9f97: test     rbx, rbx
+0x1409d9f9a: je       0x1409d9fc4   ; main.twoFactorService.clearSessionKeyIfGeneration+0xc4
+0x1409d9f9c: mov      qword ptr [rsp + 0x18], rbx
+0x1409d9fa1: mov      qword ptr [rsp + 0x28], rax
+0x1409d9fa6: mov      qword ptr [rsp + 0x20], rsi
+0x1409d9fab: call     0x140081b00   ; runtime.memclrNoHeapPointers
+0x1409d9fb0: mov      rax, qword ptr [rsp + 0x28]
+0x1409d9fb5: mov      rcx, qword ptr [rsp + 0x70]
+0x1409d9fba: mov      rbx, qword ptr [rsp + 0x18]
+0x1409d9fbf: mov      rsi, qword ptr [rsp + 0x20]
+0x1409d9fc4: mov      qword ptr [rsp + 0x30], rax
+0x1409d9fc9: mov      qword ptr [rsp + 0x38], rbx
+0x1409d9fce: mov      qword ptr [rsp + 0x40], rsi
+0x1409d9fd3: movups   xmmword ptr [rcx + 0x38], xmm15
+0x1409d9fd8: cmp      dword ptr [rip + 0x1281371], 0
+0x1409d9fdf: nop      
+0x1409d9fe0: je       0x1409d9fee   ; main.twoFactorService.clearSessionKeyIfGeneration+0xee
+0x1409d9fe2: mov      rax, qword ptr [rcx + 0x30]
+0x1409d9fe6: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409d9feb: mov      qword ptr [r11], rax
+0x1409d9fee: mov      qword ptr [rcx + 0x30], 0
+0x1409d9ff6: inc      qword ptr [rcx + 0x48]
+0x1409d9ffa: mov      byte ptr [rsp + 0x16], 1
+0x1409d9fff: mov      byte ptr [rsp + 0x17], 0
+0x1409da004: mov      rdx, qword ptr [rsp + 0x58]
+0x1409da009: mov      rax, qword ptr [rdx]
+0x1409da00c: call     rax
+0x1409da00e: movzx    eax, byte ptr [rsp + 0x16]
+0x1409da013: add      rsp, 0x60
+0x1409da017: pop      rbp
+0x1409da018: ret      
+0x1409da019: mov      byte ptr [rsp + 0x16], 0
+0x1409da01e: mov      byte ptr [rsp + 0x17], 0
+0x1409da023: mov      rax, qword ptr [rsp + 0x48]
+0x1409da028: call     rax
+0x1409da02a: movzx    eax, byte ptr [rsp + 0x16]
+0x1409da02f: add      rsp, 0x60
+0x1409da033: pop      rbp
+0x1409da034: ret      
+0x1409da035: call     0x1400435e0   ; runtime.deferreturn
+0x1409da03a: movzx    eax, byte ptr [rsp + 0x16]
+0x1409da03f: add      rsp, 0x60
+0x1409da043: pop      rbp
+0x1409da044: ret      
+0x1409da045: mov      qword ptr [rsp + 8], rax
+0x1409da04a: mov      qword ptr [rsp + 0x10], rbx
+0x1409da04f: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409da054: mov      rax, qword ptr [rsp + 8]
+0x1409da059: mov      rbx, qword ptr [rsp + 0x10]
+0x1409da05e: nop      
+0x1409da060: jmp      0x1409d9f00   ; main.twoFactorService.clearSessionKeyIfGeneration
+0x1409da065: int3     
+0x1409da066: int3     
+0x1409da067: int3     
+0x1409da068: int3     
+0x1409da069: int3     
+0x1409da06a: int3     
+0x1409da06b: int3     
+0x1409da06c: int3     
+0x1409da06d: int3     
+0x1409da06e: int3     
+0x1409da06f: int3     
+0x1409da070: int3     
+0x1409da071: int3     
+0x1409da072: int3     
+0x1409da073: int3     
+0x1409da074: int3     
+0x1409da075: int3     
+0x1409da076: int3     
+0x1409da077: int3     
+0x1409da078: int3     
+0x1409da079: int3     
+0x1409da07a: int3     
+0x1409da07b: int3     
+0x1409da07c: int3     
+0x1409da07d: int3     
+0x1409da07e: int3     
+0x1409da07f: int3     

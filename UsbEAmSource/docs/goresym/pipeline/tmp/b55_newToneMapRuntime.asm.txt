@@ -1,0 +1,108 @@
+0x1409adf80: nop      
+0x1409adf81: xorps    xmm6, xmm6
+0x1409adf84: ucomiss  xmm6, xmm0
+0x1409adf87: jae      0x1409adf90   ; main.newScreenshotHDRToneMapRuntime+0x10
+0x1409adf89: ucomiss  xmm0, xmm0
+0x1409adf8c: jne      0x1409adf90   ; main.newScreenshotHDRToneMapRuntime+0x10
+0x1409adf8e: jnp      0x1409adf98   ; main.newScreenshotHDRToneMapRuntime+0x18
+0x1409adf90: movss    xmm0, dword ptr [rip + 0x81f4f8]
+0x1409adf98: ucomiss  xmm6, xmm1
+0x1409adf9b: jae      0x1409adfb1   ; main.newScreenshotHDRToneMapRuntime+0x31
+0x1409adf9d: movss    xmm5, dword ptr [rip + 0x81f4eb]
+0x1409adfa5: ucomiss  xmm1, xmm5
+0x1409adfa8: jae      0x1409adfb1   ; main.newScreenshotHDRToneMapRuntime+0x31
+0x1409adfaa: ucomiss  xmm1, xmm1
+0x1409adfad: jne      0x1409adfb1   ; main.newScreenshotHDRToneMapRuntime+0x31
+0x1409adfaf: jnp      0x1409adfb9   ; main.newScreenshotHDRToneMapRuntime+0x39
+0x1409adfb1: movss    xmm1, dword ptr [rip + 0x81f4cf]
+0x1409adfb9: ucomiss  xmm0, xmm2
+0x1409adfbc: jae      0x1409adfc5   ; main.newScreenshotHDRToneMapRuntime+0x45
+0x1409adfbe: ucomiss  xmm2, xmm2
+0x1409adfc1: jne      0x1409adfc5   ; main.newScreenshotHDRToneMapRuntime+0x45
+0x1409adfc3: jnp      0x1409adfcd   ; main.newScreenshotHDRToneMapRuntime+0x4d
+0x1409adfc5: movss    xmm2, dword ptr [rip + 0x81f4d3]
+0x1409adfcd: ucomiss  xmm6, xmm3
+0x1409adfd0: jae      0x1409adfd9   ; main.newScreenshotHDRToneMapRuntime+0x59
+0x1409adfd2: ucomiss  xmm3, xmm3
+0x1409adfd5: jne      0x1409adfd9   ; main.newScreenshotHDRToneMapRuntime+0x59
+0x1409adfd7: jnp      0x1409adfe1   ; main.newScreenshotHDRToneMapRuntime+0x61
+0x1409adfd9: movss    xmm3, dword ptr [rip + 0x81f4bb]
+0x1409adfe1: movss    xmm7, dword ptr [rip + 0x81f4ab]
+0x1409adfe9: movss    xmm4, dword ptr [rip + 0x81f607]
+0x1409adff1: pxor     xmm7, xmm4
+0x1409adff5: movups   xmm8, xmm2
+0x1409adff9: divss    xmm8, xmm0
+0x1409adffe: pxor     xmm8, xmm4
+0x1409ae003: movups   xmm9, xmm8
+0x1409ae007: minss    xmm8, xmm7
+0x1409ae00c: movups   xmm7, xmm8
+0x1409ae010: minss    xmm8, xmm9
+0x1409ae015: por      xmm8, xmm7
+0x1409ae01a: pxor     xmm4, xmm8
+0x1409ae01f: movups   xmm7, xmm4
+0x1409ae022: mulss    xmm7, xmm4
+0x1409ae026: movups   xmm8, xmm4
+0x1409ae02a: divss    xmm8, xmm7
+0x1409ae02f: movss    xmm5, dword ptr [rip + 0x81f459]
+0x1409ae037: addss    xmm8, xmm5
+0x1409ae03c: mulss    xmm8, xmm4
+0x1409ae041: addss    xmm5, xmm4
+0x1409ae045: divss    xmm8, xmm5
+0x1409ae04a: ucomiss  xmm6, xmm8
+0x1409ae04e: jae      0x1409ae058   ; main.newScreenshotHDRToneMapRuntime+0xd8
+0x1409ae050: ucomiss  xmm8, xmm8
+0x1409ae054: jne      0x1409ae058   ; main.newScreenshotHDRToneMapRuntime+0xd8
+0x1409ae056: jnp      0x1409ae05c   ; main.newScreenshotHDRToneMapRuntime+0xdc
+0x1409ae058: movups   xmm5, xmm6
+0x1409ae05b: ret      
+0x1409ae05c: movss    xmm5, dword ptr [rip + 0x81f42c]
+0x1409ae064: divss    xmm5, xmm7
+0x1409ae068: movss    xmm7, dword ptr [rip + 0x81f420]
+0x1409ae070: addss    xmm5, xmm7
+0x1409ae074: movss    xmm9, dword ptr [rip + 0x81f407]
+0x1409ae07d: mulss    xmm9, xmm5
+0x1409ae082: divss    xmm9, xmm8
+0x1409ae087: movss    xmm10, dword ptr [rip + 0x81f3f0]
+0x1409ae090: ucomiss  xmm10, xmm9
+0x1409ae094: jbe      0x1409ae0a2   ; main.newScreenshotHDRToneMapRuntime+0x122
+0x1409ae096: movss    xmm9, dword ptr [rip + 0x81f3e1]
+0x1409ae09f: nop      
+0x1409ae0a0: jmp      0x1409ae0b1   ; main.newScreenshotHDRToneMapRuntime+0x131
+0x1409ae0a2: ucomiss  xmm9, xmm7
+0x1409ae0a6: jbe      0x1409ae0b1   ; main.newScreenshotHDRToneMapRuntime+0x131
+0x1409ae0a8: movss    xmm9, dword ptr [rip + 0x81f3df]
+0x1409ae0b1: divss    xmm7, xmm8
+0x1409ae0b6: movups   xmm6, xmm1
+0x1409ae0b9: divss    xmm6, xmm9
+0x1409ae0be: movups   xmm5, xmm7
+0x1409ae0c1: ret      
+0x1409ae0c2: int3     
+0x1409ae0c3: int3     
+0x1409ae0c4: int3     
+0x1409ae0c5: int3     
+0x1409ae0c6: int3     
+0x1409ae0c7: int3     
+0x1409ae0c8: int3     
+0x1409ae0c9: int3     
+0x1409ae0ca: int3     
+0x1409ae0cb: int3     
+0x1409ae0cc: int3     
+0x1409ae0cd: int3     
+0x1409ae0ce: int3     
+0x1409ae0cf: int3     
+0x1409ae0d0: int3     
+0x1409ae0d1: int3     
+0x1409ae0d2: int3     
+0x1409ae0d3: int3     
+0x1409ae0d4: int3     
+0x1409ae0d5: int3     
+0x1409ae0d6: int3     
+0x1409ae0d7: int3     
+0x1409ae0d8: int3     
+0x1409ae0d9: int3     
+0x1409ae0da: int3     
+0x1409ae0db: int3     
+0x1409ae0dc: int3     
+0x1409ae0dd: int3     
+0x1409ae0de: int3     
+0x1409ae0df: int3     

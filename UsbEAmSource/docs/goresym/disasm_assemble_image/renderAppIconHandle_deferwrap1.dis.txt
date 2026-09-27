@@ -1,0 +1,50 @@
+0x14074bd20: cmp      rsp, qword ptr [r14 + 0x10]
+0x14074bd24: jbe      0x14074bd4b   ; main.renderAppIconHandle.deferwrap1+0x2b
+0x14074bd26: push     rbp
+0x14074bd27: mov      rbp, rsp
+0x14074bd2a: sub      rsp, 8
+0x14074bd2e: mov      r12, qword ptr [r14 + 0x20]
+0x14074bd32: test     r12, r12
+0x14074bd35: jne      0x14074bd52   ; main.renderAppIconHandle.deferwrap1+0x32
+0x14074bd37: mov      rax, qword ptr [rdx + 8]
+0x14074bd3b: nop      dword ptr [rax + rax]
+0x14074bd40: call     0x14074be80   ; main.releaseAppIconInfo
+0x14074bd45: add      rsp, 8
+0x14074bd49: pop      rbp
+0x14074bd4a: ret      
+0x14074bd4b: call     0x14007f0a0   ; runtime.morestack
+0x14074bd50: jmp      0x14074bd20   ; main.renderAppIconHandle.deferwrap1
+0x14074bd52: lea      r13, [rsp + 0x18]
+0x14074bd57: cmp      qword ptr [r12], r13
+0x14074bd5b: jne      0x14074bd37   ; main.renderAppIconHandle.deferwrap1+0x17
+0x14074bd5d: mov      qword ptr [r12], rsp
+0x14074bd61: jmp      0x14074bd37   ; main.renderAppIconHandle.deferwrap1+0x17
+0x14074bd63: int3     
+0x14074bd64: int3     
+0x14074bd65: int3     
+0x14074bd66: int3     
+0x14074bd67: int3     
+0x14074bd68: int3     
+0x14074bd69: int3     
+0x14074bd6a: int3     
+0x14074bd6b: int3     
+0x14074bd6c: int3     
+0x14074bd6d: int3     
+0x14074bd6e: int3     
+0x14074bd6f: int3     
+0x14074bd70: int3     
+0x14074bd71: int3     
+0x14074bd72: int3     
+0x14074bd73: int3     
+0x14074bd74: int3     
+0x14074bd75: int3     
+0x14074bd76: int3     
+0x14074bd77: int3     
+0x14074bd78: int3     
+0x14074bd79: int3     
+0x14074bd7a: int3     
+0x14074bd7b: int3     
+0x14074bd7c: int3     
+0x14074bd7d: int3     
+0x14074bd7e: int3     
+0x14074bd7f: int3     

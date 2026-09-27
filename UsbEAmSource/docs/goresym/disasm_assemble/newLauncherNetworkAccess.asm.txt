@@ -1,0 +1,39 @@
+0x1408a5640: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a5644: jbe      0x1408a569d    ; main.newLauncherNetworkAccess+0x5d
+0x1408a5646: push     rbp
+0x1408a5647: mov      rbp, rsp
+0x1408a564a: sub      rsp, 0x10
+0x1408a564e: mov      qword ptr [rsp + 0x28], rbx
+0x1408a5653: mov      qword ptr [rsp + 0x20], rax
+0x1408a5658: call     0x1400a2200    ; strings.TrimSpace
+0x1408a565d: nop      dword ptr [rax]
+0x1408a5660: test     rbx, rbx
+0x1408a5663: jne      0x1408a5679    ; main.newLauncherNetworkAccess+0x39
+0x1408a5665: lea      rax, [rip + 0x9300ec]
+0x1408a566c: lea      rbx, [rip + 0x13b534d]
+0x1408a5673: add      rsp, 0x10
+0x1408a5677: pop      rbp
+0x1408a5678: ret      
+0x1408a5679: mov      rax, qword ptr [rsp + 0x20]
+0x1408a567e: mov      rbx, qword ptr [rsp + 0x28]
+0x1408a5683: call     0x1400a2200    ; strings.TrimSpace
+0x1408a5688: call     0x140076660    ; runtime.convTstring
+0x1408a568d: mov      rbx, rax
+0x1408a5690: lea      rax, [rip + 0x9300e9]
+0x1408a5697: add      rsp, 0x10
+0x1408a569b: pop      rbp
+0x1408a569c: ret      
+0x1408a569d: mov      qword ptr [rsp + 8], rax
+0x1408a56a2: mov      qword ptr [rsp + 0x10], rbx
+0x1408a56a7: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408a56ac: mov      rax, qword ptr [rsp + 8]
+0x1408a56b1: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a56b6: jmp      0x1408a5640    ; main.newLauncherNetworkAccess
+0x1408a56b8: int3     
+0x1408a56b9: int3     
+0x1408a56ba: int3     
+0x1408a56bb: int3     
+0x1408a56bc: int3     
+0x1408a56bd: int3     
+0x1408a56be: int3     
+0x1408a56bf: int3     

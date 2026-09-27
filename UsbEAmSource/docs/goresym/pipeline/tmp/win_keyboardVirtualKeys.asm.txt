@@ -1,0 +1,104 @@
+0x140914ba0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140914ba4: jbe      0x140914d0b   ; main.oledBlackoutKeyboardVirtualKeys+0x16b
+0x140914baa: push     rbp
+0x140914bab: mov      rbp, rsp
+0x140914bae: sub      rsp, 0x60
+0x140914bb2: lea      rax, [rip + 0x1e88e7]
+0x140914bb9: call     0x14001ae20   ; runtime.newobject
+0x140914bbe: mov      qword ptr [rax], 8
+0x140914bc5: lea      rdi, [rax + 8]
+0x140914bc9: lea      rsi, [rip + 0x8d0bf0]
+0x140914bd0: nop      word ptr [rax + rax]
+0x140914bd9: nop      dword ptr [rax]
+0x140914be0: mov      qword ptr [rsp - 0x10], rbp
+0x140914be5: lea      rbp, [rsp - 0x10]
+0x140914bea: call     0x1400819ba   ; runtime.duffcopy+0x25a
+0x140914bef: mov      rbp, qword ptr [rbp]
+0x140914bf3: mov      ecx, 0x30
+0x140914bf8: mov      edx, 0x2b
+0x140914bfd: mov      ebx, 0x2b
+0x140914c02: jmp      0x140914c0c   ; main.oledBlackoutKeyboardVirtualKeys+0x6c
+0x140914c04: mov      qword ptr [rax + rbx*8 - 8], rcx
+0x140914c09: inc      rcx
+0x140914c0c: cmp      rcx, 0x39
+0x140914c10: ja       0x140914c3d   ; main.oledBlackoutKeyboardVirtualKeys+0x9d
+0x140914c12: inc      rbx
+0x140914c15: cmp      rdx, rbx
+0x140914c18: jae      0x140914c04   ; main.oledBlackoutKeyboardVirtualKeys+0x64
+0x140914c1a: mov      qword ptr [rsp + 0x58], rcx
+0x140914c1f: mov      rcx, rdx
+0x140914c22: mov      edi, 1
+0x140914c27: lea      rsi, [rip + 0x1d5492]
+0x140914c2e: call     0x14007ad20   ; runtime.growslice
+0x140914c33: mov      rdx, rcx
+0x140914c36: mov      rcx, qword ptr [rsp + 0x58]
+0x140914c3b: jmp      0x140914c04   ; main.oledBlackoutKeyboardVirtualKeys+0x64
+0x140914c3d: mov      ecx, 0x41
+0x140914c42: jmp      0x140914c4c   ; main.oledBlackoutKeyboardVirtualKeys+0xac
+0x140914c44: mov      qword ptr [rax + rbx*8 - 8], rcx
+0x140914c49: inc      rcx
+0x140914c4c: cmp      rcx, 0x5a
+0x140914c50: ja       0x140914c7d   ; main.oledBlackoutKeyboardVirtualKeys+0xdd
+0x140914c52: inc      rbx
+0x140914c55: cmp      rdx, rbx
+0x140914c58: jae      0x140914c44   ; main.oledBlackoutKeyboardVirtualKeys+0xa4
+0x140914c5a: mov      qword ptr [rsp + 0x50], rcx
+0x140914c5f: mov      rcx, rdx
+0x140914c62: mov      edi, 1
+0x140914c67: lea      rsi, [rip + 0x1d5452]
+0x140914c6e: call     0x14007ad20   ; runtime.growslice
+0x140914c73: mov      rdx, rcx
+0x140914c76: mov      rcx, qword ptr [rsp + 0x50]
+0x140914c7b: jmp      0x140914c44   ; main.oledBlackoutKeyboardVirtualKeys+0xa4
+0x140914c7d: mov      ecx, 0x60
+0x140914c82: jmp      0x140914c8c   ; main.oledBlackoutKeyboardVirtualKeys+0xec
+0x140914c84: mov      qword ptr [rax + rbx*8 - 8], rcx
+0x140914c89: inc      rcx
+0x140914c8c: cmp      rcx, 0x6f
+0x140914c90: ja       0x140914cbd   ; main.oledBlackoutKeyboardVirtualKeys+0x11d
+0x140914c92: inc      rbx
+0x140914c95: cmp      rdx, rbx
+0x140914c98: jae      0x140914c84   ; main.oledBlackoutKeyboardVirtualKeys+0xe4
+0x140914c9a: mov      qword ptr [rsp + 0x48], rcx
+0x140914c9f: mov      rcx, rdx
+0x140914ca2: mov      edi, 1
+0x140914ca7: lea      rsi, [rip + 0x1d5412]
+0x140914cae: call     0x14007ad20   ; runtime.growslice
+0x140914cb3: mov      rdx, rcx
+0x140914cb6: mov      rcx, qword ptr [rsp + 0x48]
+0x140914cbb: jmp      0x140914c84   ; main.oledBlackoutKeyboardVirtualKeys+0xe4
+0x140914cbd: mov      ecx, 0x70
+0x140914cc2: jmp      0x140914ccc   ; main.oledBlackoutKeyboardVirtualKeys+0x12c
+0x140914cc4: mov      qword ptr [rax + rbx*8 - 8], rcx
+0x140914cc9: inc      rcx
+0x140914ccc: cmp      rcx, 0x87
+0x140914cd3: ja       0x140914d02   ; main.oledBlackoutKeyboardVirtualKeys+0x162
+0x140914cd5: inc      rbx
+0x140914cd8: cmp      rdx, rbx
+0x140914cdb: jae      0x140914cc4   ; main.oledBlackoutKeyboardVirtualKeys+0x124
+0x140914cdd: mov      qword ptr [rsp + 0x40], rcx
+0x140914ce2: mov      rcx, rdx
+0x140914ce5: mov      edi, 1
+0x140914cea: lea      rsi, [rip + 0x1d53cf]
+0x140914cf1: call     0x14007ad20   ; runtime.growslice
+0x140914cf6: mov      rdx, rcx
+0x140914cf9: mov      rcx, qword ptr [rsp + 0x40]
+0x140914cfe: nop      
+0x140914d00: jmp      0x140914cc4   ; main.oledBlackoutKeyboardVirtualKeys+0x124
+0x140914d02: mov      rcx, rdx
+0x140914d05: add      rsp, 0x60
+0x140914d09: pop      rbp
+0x140914d0a: ret      
+0x140914d0b: call     0x14007f140   ; runtime.morestack_noctxt
+0x140914d10: jmp      0x140914ba0   ; main.oledBlackoutKeyboardVirtualKeys
+0x140914d15: int3     
+0x140914d16: int3     
+0x140914d17: int3     
+0x140914d18: int3     
+0x140914d19: int3     
+0x140914d1a: int3     
+0x140914d1b: int3     
+0x140914d1c: int3     
+0x140914d1d: int3     
+0x140914d1e: int3     
+0x140914d1f: int3     

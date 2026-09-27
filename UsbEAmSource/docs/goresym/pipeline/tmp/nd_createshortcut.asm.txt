@@ -1,0 +1,175 @@
+0x1408fb1a0: lea      r12, [rsp - 0xb0]
+0x1408fb1a8: cmp      r12, qword ptr [r14 + 0x10]
+0x1408fb1ac: jbe      0x1408fb52d   ; main.createTemporaryDirectoryShortcut+0x38d
+0x1408fb1b2: push     rbp
+0x1408fb1b3: mov      rbp, rsp
+0x1408fb1b6: sub      rsp, 0x128
+0x1408fb1bd: mov      rax, qword ptr [rsp + 0x1d8]
+0x1408fb1c5: mov      rbx, qword ptr [rsp + 0x1e0]
+0x1408fb1cd: call     0x1400a2200   ; strings.TrimSpace
+0x1408fb1d2: call     0x1401154c0   ; internal/filepathlite.Clean
+0x1408fb1d7: nop      word ptr [rax + rax]
+0x1408fb1e0: test     rbx, rbx
+0x1408fb1e3: je       0x1408fb4f1   ; main.createTemporaryDirectoryShortcut+0x351
+0x1408fb1e9: mov      qword ptr [rsp + 0x78], rbx
+0x1408fb1ee: mov      qword ptr [rsp + 0x98], rax
+0x1408fb1f6: xor      eax, eax
+0x1408fb1f8: xor      ebx, ebx
+0x1408fb1fa: lea      rcx, [rip + 0x3646e9]
+0x1408fb201: mov      edi, 0x15
+0x1408fb206: call     0x14012f000   ; os.MkdirTemp
+0x1408fb20b: test     rcx, rcx
+0x1408fb20e: je       0x1408fb26a   ; main.createTemporaryDirectoryShortcut+0xca
+0x1408fb210: movups   xmmword ptr [rsp + 0x118], xmm15
+0x1408fb219: je       0x1408fb21f   ; main.createTemporaryDirectoryShortcut+0x7f
+0x1408fb21b: mov      rcx, qword ptr [rcx + 8]
+0x1408fb21f: mov      qword ptr [rsp + 0x118], rcx
+0x1408fb227: mov      qword ptr [rsp + 0x120], rdi
+0x1408fb22f: lea      rax, [rip + 0x384024]
+0x1408fb236: mov      ebx, 0x28
+0x1408fb23b: lea      rcx, [rsp + 0x118]
+0x1408fb243: mov      edi, 1
+0x1408fb248: mov      rsi, rdi
+0x1408fb24b: call     0x140133280   ; fmt.Errorf
+0x1408fb250: lea      rcx, [rip + 0x79b7a1]
+0x1408fb257: mov      rdi, rax
+0x1408fb25a: mov      rsi, rbx
+0x1408fb25d: xor      eax, eax
+0x1408fb25f: xor      ebx, ebx
+0x1408fb261: add      rsp, 0x128
+0x1408fb268: pop      rbp
+0x1408fb269: ret      
+0x1408fb26a: mov      qword ptr [rsp + 0x80], rbx
+0x1408fb272: mov      qword ptr [rsp + 0xa0], rax
+0x1408fb27a: lea      rax, [rip + 0x26bbdf]
+0x1408fb281: call     0x14001ae20   ; runtime.newobject
+0x1408fb286: lea      rcx, [rip + 0x2b3]
+0x1408fb28d: mov      qword ptr [rax], rcx
+0x1408fb290: mov      rcx, qword ptr [rsp + 0x80]
+0x1408fb298: mov      qword ptr [rax + 0x10], rcx
+0x1408fb29c: cmp      dword ptr [rip + 0x13600ad], 0
+0x1408fb2a3: jne      0x1408fb2af   ; main.createTemporaryDirectoryShortcut+0x10f
+0x1408fb2a5: mov      rdx, qword ptr [rsp + 0xa0]
+0x1408fb2ad: jmp      0x1408fb2bf   ; main.createTemporaryDirectoryShortcut+0x11f
+0x1408fb2af: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408fb2b4: mov      rdx, qword ptr [rsp + 0xa0]
+0x1408fb2bc: mov      qword ptr [r11], rdx
+0x1408fb2bf: mov      qword ptr [rsp + 0xb0], rax
+0x1408fb2c7: mov      qword ptr [rax + 8], rdx
+0x1408fb2cb: mov      rax, qword ptr [rsp + 0x148]
+0x1408fb2d3: mov      rbx, qword ptr [rsp + 0x150]
+0x1408fb2db: mov      rcx, qword ptr [rsp + 0x98]
+0x1408fb2e3: mov      rdi, qword ptr [rsp + 0x78]
+0x1408fb2e8: call     0x1408fb580   ; main.sanitizeDirectoryShortcutName
+0x1408fb2ed: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x1408fb2f6: movups   xmmword ptr [rsp + 0x108], xmm15
+0x1408fb2ff: mov      rdx, qword ptr [rsp + 0x80]
+0x1408fb307: mov      qword ptr [rsp + 0x100], rdx
+0x1408fb30f: mov      rdx, qword ptr [rsp + 0xa0]
+0x1408fb317: mov      qword ptr [rsp + 0xf8], rdx
+0x1408fb31f: mov      rcx, rbx
+0x1408fb322: lea      rdi, [rip + 0x339449]
+0x1408fb329: mov      esi, 4
+0x1408fb32e: mov      rbx, rax
+0x1408fb331: lea      rax, [rsp + 0x50]
+0x1408fb336: call     0x14005fc00   ; runtime.concatstring2
+0x1408fb33b: mov      qword ptr [rsp + 0x110], rbx
+0x1408fb343: mov      qword ptr [rsp + 0x108], rax
+0x1408fb34b: lea      rax, [rsp + 0xf8]
+0x1408fb353: mov      ebx, 2
+0x1408fb358: mov      rcx, rbx
+0x1408fb35b: nop      dword ptr [rax + rax]
+0x1408fb360: call     0x1401cd660   ; path/filepath.join
+0x1408fb365: mov      qword ptr [rsp + 0x90], rax
+0x1408fb36d: mov      qword ptr [rsp + 0x70], rbx
+0x1408fb372: mov      rax, qword ptr [rsp + 0x148]
+0x1408fb37a: mov      rbx, qword ptr [rsp + 0x150]
+0x1408fb382: call     0x1400a2200   ; strings.TrimSpace
+0x1408fb387: movups   xmmword ptr [rsp + 0xb8], xmm15
+0x1408fb390: movups   xmmword ptr [rsp + 0xc8], xmm15
+0x1408fb399: movups   xmmword ptr [rsp + 0xd8], xmm15
+0x1408fb3a2: movups   xmmword ptr [rsp + 0xe8], xmm15
+0x1408fb3ab: mov      rdx, qword ptr [rsp + 0x98]
+0x1408fb3b3: mov      qword ptr [rsp + 0xb8], rdx
+0x1408fb3bb: mov      rsi, qword ptr [rsp + 0x78]
+0x1408fb3c0: mov      qword ptr [rsp + 0xc0], rsi
+0x1408fb3c8: mov      qword ptr [rsp + 0xc8], rdx
+0x1408fb3d0: mov      qword ptr [rsp + 0xd0], rsi
+0x1408fb3d8: mov      qword ptr [rsp + 0xd8], rax
+0x1408fb3e0: mov      qword ptr [rsp + 0xe0], rbx
+0x1408fb3e8: movups   xmm0, xmmword ptr [rsp + 0xb8]
+0x1408fb3f0: movups   xmmword ptr [rsp], xmm0
+0x1408fb3f4: movups   xmm0, xmmword ptr [rsp + 0xc8]
+0x1408fb3fc: movups   xmmword ptr [rsp + 0x10], xmm0
+0x1408fb401: movups   xmm0, xmmword ptr [rsp + 0xd8]
+0x1408fb409: movups   xmmword ptr [rsp + 0x20], xmm0
+0x1408fb40e: movups   xmm0, xmmword ptr [rsp + 0xe8]
+0x1408fb416: movups   xmmword ptr [rsp + 0x30], xmm0
+0x1408fb41b: mov      rax, qword ptr [rsp + 0x90]
+0x1408fb423: mov      rbx, qword ptr [rsp + 0x70]
+0x1408fb428: call     0x1409c3000   ; main.createShortcutFile
+0x1408fb42d: test     rax, rax
+0x1408fb430: je       0x1408fb4cf   ; main.createTemporaryDirectoryShortcut+0x32f
+0x1408fb436: mov      qword ptr [rsp + 0xa8], rbx
+0x1408fb43e: mov      qword ptr [rsp + 0x88], rax
+0x1408fb446: nop      
+0x1408fb447: nop      
+0x1408fb448: mov      rax, qword ptr [rsp + 0xa0]
+0x1408fb450: mov      rbx, qword ptr [rsp + 0x80]
+0x1408fb458: call     0x14012c720   ; os.removeAll
+0x1408fb45d: movups   xmmword ptr [rsp + 0x118], xmm15
+0x1408fb466: mov      rcx, qword ptr [rsp + 0x88]
+0x1408fb46e: test     rcx, rcx
+0x1408fb471: je       0x1408fb479   ; main.createTemporaryDirectoryShortcut+0x2d9
+0x1408fb473: mov      rax, qword ptr [rcx + 8]
+0x1408fb477: jmp      0x1408fb47c   ; main.createTemporaryDirectoryShortcut+0x2dc
+0x1408fb479: mov      rax, rcx
+0x1408fb47c: mov      qword ptr [rsp + 0x118], rax
+0x1408fb484: mov      rdx, qword ptr [rsp + 0xa8]
+0x1408fb48c: mov      qword ptr [rsp + 0x120], rdx
+0x1408fb494: lea      rax, [rip + 0x37a804]
+0x1408fb49b: mov      ebx, 0x22
+0x1408fb4a0: lea      rcx, [rsp + 0x118]
+0x1408fb4a8: mov      edi, 1
+0x1408fb4ad: mov      rsi, rdi
+0x1408fb4b0: call     0x140133280   ; fmt.Errorf
+0x1408fb4b5: lea      rcx, [rip + 0x79b544]
+0x1408fb4bc: mov      rdi, rax
+0x1408fb4bf: mov      rsi, rbx
+0x1408fb4c2: xor      eax, eax
+0x1408fb4c4: xor      ebx, ebx
+0x1408fb4c6: add      rsp, 0x128
+0x1408fb4cd: pop      rbp
+0x1408fb4ce: ret      
+0x1408fb4cf: mov      rax, qword ptr [rsp + 0x90]
+0x1408fb4d7: mov      rbx, qword ptr [rsp + 0x70]
+0x1408fb4dc: mov      rcx, qword ptr [rsp + 0xb0]
+0x1408fb4e4: xor      edi, edi
+0x1408fb4e6: xor      esi, esi
+0x1408fb4e8: add      rsp, 0x128
+0x1408fb4ef: pop      rbp
+0x1408fb4f0: ret      
+0x1408fb4f1: lea      rax, [rip + 0x258e88]
+0x1408fb4f8: call     0x14001ae20   ; runtime.newobject
+0x1408fb4fd: mov      qword ptr [rax + 8], 0x18
+0x1408fb505: lea      rcx, [rip + 0x369e4c]
+0x1408fb50c: mov      qword ptr [rax], rcx
+0x1408fb50f: xor      ebx, ebx
+0x1408fb511: lea      rcx, [rip + 0x79b4d8]
+0x1408fb518: lea      rdi, [rip + 0x8d7be1]
+0x1408fb51f: mov      rsi, rax
+0x1408fb522: xor      eax, eax
+0x1408fb524: add      rsp, 0x128
+0x1408fb52b: pop      rbp
+0x1408fb52c: ret      
+0x1408fb52d: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408fb532: jmp      0x1408fb1a0   ; main.createTemporaryDirectoryShortcut
+0x1408fb537: int3     
+0x1408fb538: int3     
+0x1408fb539: int3     
+0x1408fb53a: int3     
+0x1408fb53b: int3     
+0x1408fb53c: int3     
+0x1408fb53d: int3     
+0x1408fb53e: int3     
+0x1408fb53f: int3     

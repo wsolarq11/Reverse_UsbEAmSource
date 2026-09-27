@@ -1,0 +1,48 @@
+0x1409b0b60: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409b0b64: jbe      0x1409b0bd1   ; main.initializeScreenshotCOMThreadMode.func2+0x71
+0x1409b0b66: push     rbp
+0x1409b0b67: mov      rbp, rsp
+0x1409b0b6a: sub      rsp, 0x20
+0x1409b0b6e: cmp      byte ptr [rdx + 8], 0
+0x1409b0b72: je       0x1409b0b87   ; main.initializeScreenshotCOMThreadMode.func2+0x27
+0x1409b0b74: mov      rax, qword ptr [rip + 0x1211195]
+0x1409b0b7b: xor      ebx, ebx
+0x1409b0b7d: xor      ecx, ecx
+0x1409b0b7f: mov      rdi, rcx
+0x1409b0b82: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409b0b87: mov      rax, qword ptr [r14 + 0x30]
+0x1409b0b8b: mov      ecx, dword ptr [rax + 0x240]
+0x1409b0b91: nop      
+0x1409b0b92: test     ecx, ecx
+0x1409b0b94: je       0x1409b0bcb   ; main.initializeScreenshotCOMThreadMode.func2+0x6b
+0x1409b0b96: dec      ecx
+0x1409b0b98: mov      dword ptr [rax + 0x240], ecx
+0x1409b0b9e: mov      rax, qword ptr [r14 + 0x30]
+0x1409b0ba2: nop      
+0x1409b0ba3: cmp      dword ptr [rax + 0x244], 0
+0x1409b0baa: jne      0x1409b0bcb   ; main.initializeScreenshotCOMThreadMode.func2+0x6b
+0x1409b0bac: cmp      dword ptr [rax + 0x240], 0
+0x1409b0bb3: jne      0x1409b0bcb   ; main.initializeScreenshotCOMThreadMode.func2+0x6b
+0x1409b0bb5: mov      qword ptr [rax + 0x138], 0
+0x1409b0bc0: mov      qword ptr [r14 + 0xd0], 0
+0x1409b0bcb: add      rsp, 0x20
+0x1409b0bcf: pop      rbp
+0x1409b0bd0: ret      
+0x1409b0bd1: call     0x14007f0a0   ; runtime.morestack
+0x1409b0bd6: jmp      0x1409b0b60   ; main.initializeScreenshotCOMThreadMode.func2
+0x1409b0bd8: int3     
+0x1409b0bd9: int3     
+0x1409b0bda: int3     
+0x1409b0bdb: int3     
+0x1409b0bdc: int3     
+0x1409b0bdd: int3     
+0x1409b0bde: int3     
+0x1409b0bdf: int3     
+0x1409b0be0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409b0be4: jbe      0x1409b0c87   ; main.screenshotWindowFromAccessible+0xa7
+0x1409b0bea: push     rbp
+0x1409b0beb: mov      rbp, rsp
+0x1409b0bee: sub      rsp, 0x38
+0x1409b0bf2: test     rax, rax
+0x1409b0bf5: je       0x1409b0c7d   ; main.screenshotWindowFromAccessible+0x9d
+0x1409b0bfb: mov      qword ptr [rsp + 0x48], rax

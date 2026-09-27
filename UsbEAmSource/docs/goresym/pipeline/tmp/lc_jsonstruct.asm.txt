@@ -1,0 +1,12 @@
+0x140898120: lea      r12, [rsp - 0xf8]
+0x140898128: cmp      r12, qword ptr [r14 + 0x10]
+0x14089812c: jbe      0x14089879b   ; main.validateLauncherConfigJSONStructure+0x67b
+0x140898132: push     rbp
+0x140898133: mov      rbp, rsp
+0x140898136: sub      rsp, 0x170
+0x14089813d: mov      qword ptr [rsp + 0x190], rcx
+0x140898145: mov      qword ptr [rsp + 0x188], rbx
+0x14089814d: mov      qword ptr [rsp + 0x180], rax
+0x140898155: nop      
+0x140898156: lea      rax, [rip + 0x305443]
+0x14089815d: nop      dword ptr [rax]

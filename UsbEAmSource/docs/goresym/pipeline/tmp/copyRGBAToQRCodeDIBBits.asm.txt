@@ -1,0 +1,157 @@
+0x140957760: cmp      rsp, qword ptr [r14 + 0x10]
+0x140957764: jbe      0x140957951   ; main.copyRGBAToQRCodeDIBBits+0x1f1
+0x14095776a: push     rbp
+0x14095776b: mov      rbp, rsp
+0x14095776e: sub      rsp, 0x28
+0x140957772: test     rax, rax
+0x140957775: je       0x1409577c6   ; main.copyRGBAToQRCodeDIBBits+0x66
+0x140957777: test     rbx, rbx
+0x14095777a: je       0x1409577c6   ; main.copyRGBAToQRCodeDIBBits+0x66
+0x14095777c: mov      rdx, qword ptr [rax + 0x28]
+0x140957780: mov      rcx, qword ptr [rax + 0x30]
+0x140957784: mov      rsi, qword ptr [rax + 0x20]
+0x140957788: mov      rdi, qword ptr [rax + 0x38]
+0x14095778c: sub      rcx, rsi
+0x14095778f: sub      rdi, rdx
+0x140957792: mov      r8, rcx
+0x140957795: imul     r8, rdi
+0x140957799: shl      r8, 2
+0x14095779d: nop      
+0x14095779e: nop      
+0x14095779f: nop      
+0x1409577a0: test     r8, r8
+0x1409577a3: jl       0x14095794b   ; main.copyRGBAToQRCodeDIBBits+0x1eb
+0x1409577a9: mov      r9, rbx
+0x1409577ac: neg      rbx
+0x1409577af: cmp      rbx, r8
+0x1409577b2: jb       0x140957946   ; main.copyRGBAToQRCodeDIBBits+0x1e6
+0x1409577b8: mov      qword ptr [rsp + 0x10], rdi
+0x1409577bd: mov      qword ptr [rsp + 0x20], rdx
+0x1409577c2: xor      ebx, ebx
+0x1409577c4: jmp      0x1409577cf   ; main.copyRGBAToQRCodeDIBBits+0x6f
+0x1409577c6: add      rsp, 0x28
+0x1409577ca: pop      rbp
+0x1409577cb: ret      
+0x1409577cc: inc      rbx
+0x1409577cf: cmp      rbx, rdi
+0x1409577d2: jge      0x1409577de   ; main.copyRGBAToQRCodeDIBBits+0x7e
+0x1409577d4: mov      qword ptr [rsp + 0x18], rbx
+0x1409577d9: xor      r10d, r10d
+0x1409577dc: jmp      0x140957801   ; main.copyRGBAToQRCodeDIBBits+0xa1
+0x1409577de: add      rsp, 0x28
+0x1409577e2: pop      rbp
+0x1409577e3: ret      
+0x1409577e4: lea      r11, [r9 + r12*4]
+0x1409577e8: lea      r11, [r11 + 3]
+0x1409577ec: mov      byte ptr [r11], dl
+0x1409577ef: inc      r10
+0x1409577f2: mov      rdx, qword ptr [rsp + 0x20]
+0x1409577f7: mov      rbx, qword ptr [rsp + 0x18]
+0x1409577fc: mov      rdi, qword ptr [rsp + 0x10]
+0x140957801: cmp      r10, rcx
+0x140957804: jge      0x1409577cc   ; main.copyRGBAToQRCodeDIBBits+0x6c
+0x140957806: lea      r11, [rsi + r10]
+0x14095780a: lea      r12, [rdx + rbx]
+0x14095780e: imul     rbx, rcx
+0x140957812: mov      r15, qword ptr [rax + 8]
+0x140957816: sub      r12, qword ptr [rax + 0x28]
+0x14095781a: mov      rdi, qword ptr [rax + 0x18]
+0x14095781e: imul     rdi, r12
+0x140957822: sub      r11, qword ptr [rax + 0x20]
+0x140957826: lea      r12, [rdi + r11*4]
+0x14095782a: lea      r12, [r12 + 2]
+0x14095782f: add      rbx, r10
+0x140957832: lea      rdx, [rdi + r11*4]
+0x140957836: cmp      r15, r12
+0x140957839: jbe      0x14095793b   ; main.copyRGBAToQRCodeDIBBits+0x1db
+0x14095783f: mov      r12, rbx
+0x140957842: shl      rbx, 2
+0x140957846: mov      r15, qword ptr [rax]
+0x140957849: movzx    r15d, byte ptr [rdx + r15 + 2]
+0x14095784f: cmp      rbx, r8
+0x140957852: jae      0x140957930   ; main.copyRGBAToQRCodeDIBBits+0x1d0
+0x140957858: lea      r13, [r9 + r12*4]
+0x14095785c: mov      byte ptr [r13], r15b
+0x140957860: mov      r13, qword ptr [rax + 8]
+0x140957864: lea      r15, [rdi + r11*4]
+0x140957868: lea      r15, [r15 + 1]
+0x14095786c: cmp      r13, r15
+0x14095786f: jbe      0x140957925   ; main.copyRGBAToQRCodeDIBBits+0x1c5
+0x140957875: lea      r13, [rbx + 1]
+0x140957879: mov      r15, qword ptr [rax]
+0x14095787c: movzx    r15d, byte ptr [rdx + r15 + 1]
+0x140957882: cmp      r8, r13
+0x140957885: jbe      0x140957915   ; main.copyRGBAToQRCodeDIBBits+0x1b5
+0x14095788b: lea      r13, [r9 + r12*4]
+0x14095788f: lea      r13, [r13 + 1]
+0x140957893: mov      byte ptr [r13], r15b
+0x140957897: mov      r13, qword ptr [rax + 8]
+0x14095789b: nop      dword ptr [rax + rax]
+0x1409578a0: cmp      r13, rdx
+0x1409578a3: jbe      0x14095790a   ; main.copyRGBAToQRCodeDIBBits+0x1aa
+0x1409578a5: lea      r13, [rbx + 2]
+0x1409578a9: mov      r15, qword ptr [rax]
+0x1409578ac: movzx    r15d, byte ptr [r15 + rdx]
+0x1409578b1: cmp      r8, r13
+0x1409578b4: jbe      0x1409578ff   ; main.copyRGBAToQRCodeDIBBits+0x19f
+0x1409578b6: lea      r13, [r9 + r12*4]
+0x1409578ba: lea      r13, [r13 + 2]
+0x1409578be: mov      byte ptr [r13], r15b
+0x1409578c2: mov      r13, qword ptr [rax + 8]
+0x1409578c6: lea      rdi, [rdi + r11*4]
+0x1409578ca: lea      rdi, [rdi + 3]
+0x1409578ce: cmp      r13, rdi
+0x1409578d1: jbe      0x1409578f4   ; main.copyRGBAToQRCodeDIBBits+0x194
+0x1409578d3: add      rbx, 3
+0x1409578d7: mov      rdi, qword ptr [rax]
+0x1409578da: movzx    edx, byte ptr [rdx + rdi + 3]
+0x1409578df: nop      
+0x1409578e0: cmp      r8, rbx
+0x1409578e3: ja       0x1409577e4   ; main.copyRGBAToQRCodeDIBBits+0x84
+0x1409578e9: mov      rax, rbx
+0x1409578ec: mov      rcx, r8
+0x1409578ef: call     0x140081400   ; runtime.panicIndex
+0x1409578f4: mov      rax, rdi
+0x1409578f7: mov      rcx, r13
+0x1409578fa: call     0x140081400   ; runtime.panicIndex
+0x1409578ff: mov      rax, r13
+0x140957902: mov      rcx, r8
+0x140957905: call     0x140081400   ; runtime.panicIndex
+0x14095790a: mov      rax, rdx
+0x14095790d: mov      rcx, r13
+0x140957910: call     0x140081400   ; runtime.panicIndex
+0x140957915: mov      rax, r13
+0x140957918: mov      rcx, r8
+0x14095791b: nop      dword ptr [rax + rax]
+0x140957920: call     0x140081400   ; runtime.panicIndex
+0x140957925: mov      rax, r15
+0x140957928: mov      rcx, r13
+0x14095792b: call     0x140081400   ; runtime.panicIndex
+0x140957930: mov      rax, rbx
+0x140957933: mov      rcx, r8
+0x140957936: call     0x140081400   ; runtime.panicIndex
+0x14095793b: mov      rax, r12
+0x14095793e: mov      rcx, r15
+0x140957941: call     0x140081400   ; runtime.panicIndex
+0x140957946: call     0x140073200   ; runtime.panicunsafeslicelen
+0x14095794b: call     0x140073200   ; runtime.panicunsafeslicelen
+0x140957950: nop      
+0x140957951: mov      qword ptr [rsp + 8], rax
+0x140957956: mov      qword ptr [rsp + 0x10], rbx
+0x14095795b: nop      dword ptr [rax + rax]
+0x140957960: call     0x14007f140   ; runtime.morestack_noctxt
+0x140957965: mov      rax, qword ptr [rsp + 8]
+0x14095796a: mov      rbx, qword ptr [rsp + 0x10]
+0x14095796f: jmp      0x140957760   ; main.copyRGBAToQRCodeDIBBits
+0x140957974: int3     
+0x140957975: int3     
+0x140957976: int3     
+0x140957977: int3     
+0x140957978: int3     
+0x140957979: int3     
+0x14095797a: int3     
+0x14095797b: int3     
+0x14095797c: int3     
+0x14095797d: int3     
+0x14095797e: int3     
+0x14095797f: int3     

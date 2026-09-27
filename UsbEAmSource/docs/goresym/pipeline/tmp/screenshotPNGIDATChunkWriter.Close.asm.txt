@@ -1,0 +1,50 @@
+0x140995540: cmp      rsp, qword ptr [r14 + 0x10]
+0x140995544: jbe      0x140995575   ; main.screenshotPNGIDATChunkWriter.Close+0x35
+0x140995546: push     rbp
+0x140995547: mov      rbp, rsp
+0x14099554a: sub      rsp, 8
+0x14099554e: test     rax, rax
+0x140995551: je       0x14099556b   ; main.screenshotPNGIDATChunkWriter.Close+0x2b
+0x140995553: cmp      byte ptr [rax + 0x30], 0
+0x140995557: jne      0x14099556b   ; main.screenshotPNGIDATChunkWriter.Close+0x2b
+0x140995559: mov      byte ptr [rax + 0x30], 1
+0x14099555d: nop      dword ptr [rax]
+0x140995560: call     0x1409955a0   ; main.screenshotPNGIDATChunkWriter.flush
+0x140995565: add      rsp, 8
+0x140995569: pop      rbp
+0x14099556a: ret      
+0x14099556b: xor      eax, eax
+0x14099556d: xor      ebx, ebx
+0x14099556f: add      rsp, 8
+0x140995573: pop      rbp
+0x140995574: ret      
+0x140995575: mov      qword ptr [rsp + 8], rax
+0x14099557a: call     0x14007f140   ; runtime.morestack_noctxt
+0x14099557f: mov      rax, qword ptr [rsp + 8]
+0x140995584: jmp      0x140995540   ; main.screenshotPNGIDATChunkWriter.Close
+0x140995586: int3     
+0x140995587: int3     
+0x140995588: int3     
+0x140995589: int3     
+0x14099558a: int3     
+0x14099558b: int3     
+0x14099558c: int3     
+0x14099558d: int3     
+0x14099558e: int3     
+0x14099558f: int3     
+0x140995590: int3     
+0x140995591: int3     
+0x140995592: int3     
+0x140995593: int3     
+0x140995594: int3     
+0x140995595: int3     
+0x140995596: int3     
+0x140995597: int3     
+0x140995598: int3     
+0x140995599: int3     
+0x14099559a: int3     
+0x14099559b: int3     
+0x14099559c: int3     
+0x14099559d: int3     
+0x14099559e: int3     
+0x14099559f: int3     

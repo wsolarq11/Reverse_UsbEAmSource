@@ -1,0 +1,41 @@
+0x1408a69a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a69a4: jbe      0x1408a69d2   ; main.BootstrapService.SetFileClipboard+0x32
+0x1408a69a6: push     rbp
+0x1408a69a7: mov      rbp, rsp
+0x1408a69aa: sub      rsp, 0x28
+0x1408a69ae: mov      qword ptr [rsp + 0x40], rbx
+0x1408a69b3: mov      qword ptr [rsp + 0x58], rsi
+0x1408a69b8: mov      rax, rbx
+0x1408a69bb: mov      rbx, rcx
+0x1408a69be: mov      rcx, rdi
+0x1408a69c1: mov      rdi, rsi
+0x1408a69c4: mov      rsi, r8
+0x1408a69c7: call     0x1408a9f00   ; main.setFileClipboard
+0x1408a69cc: add      rsp, 0x28
+0x1408a69d0: pop      rbp
+0x1408a69d1: ret      
+0x1408a69d2: mov      qword ptr [rsp + 8], rax
+0x1408a69d7: mov      qword ptr [rsp + 0x10], rbx
+0x1408a69dc: mov      qword ptr [rsp + 0x18], rcx
+0x1408a69e1: mov      qword ptr [rsp + 0x20], rdi
+0x1408a69e6: mov      qword ptr [rsp + 0x28], rsi
+0x1408a69eb: mov      qword ptr [rsp + 0x30], r8
+0x1408a69f0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a69f5: mov      rax, qword ptr [rsp + 8]
+0x1408a69fa: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a69ff: mov      rcx, qword ptr [rsp + 0x18]
+0x1408a6a04: mov      rdi, qword ptr [rsp + 0x20]
+0x1408a6a09: mov      rsi, qword ptr [rsp + 0x28]
+0x1408a6a0e: mov      r8, qword ptr [rsp + 0x30]
+0x1408a6a13: jmp      0x1408a69a0   ; main.BootstrapService.SetFileClipboard
+0x1408a6a15: int3     
+0x1408a6a16: int3     
+0x1408a6a17: int3     
+0x1408a6a18: int3     
+0x1408a6a19: int3     
+0x1408a6a1a: int3     
+0x1408a6a1b: int3     
+0x1408a6a1c: int3     
+0x1408a6a1d: int3     
+0x1408a6a1e: int3     
+0x1408a6a1f: int3     

@@ -1,0 +1,185 @@
+0x1409a0180: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409a0184: jbe      0x1409a03a6   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x226
+0x1409a018a: push     rbp
+0x1409a018b: mov      rbp, rsp
+0x1409a018e: sub      rsp, 0x48
+0x1409a0192: test     rax, rax
+0x1409a0195: je       0x1409a0216   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x96
+0x1409a0197: test     rbx, rbx
+0x1409a019a: jle      0x1409a0216   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x96
+0x1409a019c: mov      rdi, qword ptr [rax + 8]
+0x1409a01a0: cmp      rbx, rdi
+0x1409a01a3: jge      0x1409a0216   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x96
+0x1409a01a5: mov      qword ptr [rsp + 0x58], rax
+0x1409a01aa: mov      qword ptr [rsp + 0x60], rbx
+0x1409a01af: lea      rdx, [rbx - 3]
+0x1409a01b3: lea      rsi, [rbx + 4]
+0x1409a01b7: mov      rcx, qword ptr [rax]
+0x1409a01ba: test     rdx, rdx
+0x1409a01bd: mov      eax, 0
+0x1409a01c2: cmovg    rax, rdx
+0x1409a01c6: mov      qword ptr [rsp + 0x30], rax
+0x1409a01cb: cmp      rdi, rsi
+0x1409a01ce: cmovg    rdi, rsi
+0x1409a01d2: mov      qword ptr [rsp + 0x38], rdi
+0x1409a01d7: mov      rdx, rdi
+0x1409a01da: sub      rdx, rax
+0x1409a01dd: test     rcx, rcx
+0x1409a01e0: mov      eax, 0
+0x1409a01e5: cmovl    rax, rcx
+0x1409a01e9: mov      ebx, 0
+0x1409a01ee: cmovl    rcx, rbx
+0x1409a01f2: test     rdx, rdx
+0x1409a01f5: cmovl    rbx, rdx
+0x1409a01f9: mov      esi, 0
+0x1409a01fe: cmovl    rdx, rsi
+0x1409a0202: mov      rdi, rdx
+0x1409a0205: call     0x1401a1ce0   ; image.NewRGBA
+0x1409a020a: mov      qword ptr [rsp + 0x40], rax
+0x1409a020f: mov      rcx, qword ptr [rsp + 0x30]
+0x1409a0214: jmp      0x1409a0223   ; main.screenshotScrollingChunkedCanvas.repairSeam+0xa3
+0x1409a0216: add      rsp, 0x48
+0x1409a021a: pop      rbp
+0x1409a021b: ret      
+0x1409a021c: lea      rcx, [r8 + 1]
+0x1409a0220: mov      rax, rdx
+0x1409a0223: mov      rdx, qword ptr [rsp + 0x38]
+0x1409a0228: cmp      rcx, rdx
+0x1409a022b: jge      0x1409a02bf   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x13f
+0x1409a0231: mov      qword ptr [rsp + 0x28], rcx
+0x1409a0236: mov      rax, qword ptr [rsp + 0x58]
+0x1409a023b: mov      rbx, rcx
+0x1409a023e: nop      
+0x1409a0240: call     0x14099f560   ; main.screenshotScrollingChunkedCanvas.Row
+0x1409a0245: test     rdi, rdi
+0x1409a0248: jne      0x1409a02b9   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x139
+0x1409a024a: mov      rdx, qword ptr [rsp + 0x40]
+0x1409a024f: mov      rcx, qword ptr [rdx + 8]
+0x1409a0253: mov      rsi, qword ptr [rsp + 0x28]
+0x1409a0258: mov      rdi, qword ptr [rsp + 0x30]
+0x1409a025d: mov      r8, rsi
+0x1409a0260: sub      rsi, rdi
+0x1409a0263: mov      r9, qword ptr [rdx + 0x18]
+0x1409a0267: imul     r9, rsi
+0x1409a026b: cmp      rcx, r9
+0x1409a026e: jb       0x1409a0398   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x218
+0x1409a0274: mov      rsi, qword ptr [rdx]
+0x1409a0277: mov      r10, qword ptr [rdx + 0x10]
+0x1409a027b: sub      rcx, r9
+0x1409a027e: mov      r11, r9
+0x1409a0281: sub      r9, r10
+0x1409a0284: sar      r9, 0x3f
+0x1409a0288: and      r11, r9
+0x1409a028b: add      rsi, r11
+0x1409a028e: cmp      rbx, rcx
+0x1409a0291: cmovl    rcx, rbx
+0x1409a0295: cmp      rax, rsi
+0x1409a0298: je       0x1409a021c   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x9c
+0x1409a029a: mov      rbx, rax
+0x1409a029d: mov      rax, rsi
+0x1409a02a0: call     0x140081e00   ; runtime.memmove
+0x1409a02a5: mov      rdx, qword ptr [rsp + 0x40]
+0x1409a02aa: mov      rdi, qword ptr [rsp + 0x30]
+0x1409a02af: mov      r8, qword ptr [rsp + 0x28]
+0x1409a02b4: jmp      0x1409a021c   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x9c
+0x1409a02b9: add      rsp, 0x48
+0x1409a02bd: pop      rbp
+0x1409a02be: ret      
+0x1409a02bf: mov      rbx, qword ptr [rsp + 0x60]
+0x1409a02c4: mov      rcx, qword ptr [rsp + 0x30]
+0x1409a02c9: sub      rbx, rcx
+0x1409a02cc: call     0x1409a3820   ; main.repairScreenshotScrollingSeamArtifacts
+0x1409a02d1: mov      rax, qword ptr [rsp + 0x30]
+0x1409a02d6: jmp      0x1409a02dc   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x15c
+0x1409a02d8: lea      rax, [rcx + 1]
+0x1409a02dc: mov      rcx, qword ptr [rsp + 0x38]
+0x1409a02e1: cmp      rax, rcx
+0x1409a02e4: jge      0x1409a037f   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x1ff
+0x1409a02ea: mov      qword ptr [rsp + 0x20], rax
+0x1409a02ef: mov      rbx, rax
+0x1409a02f2: mov      rax, qword ptr [rsp + 0x58]
+0x1409a02f7: call     0x14099f560   ; main.screenshotScrollingChunkedCanvas.Row
+0x1409a02fc: nop      dword ptr [rax]
+0x1409a0300: test     rdi, rdi
+0x1409a0303: jne      0x1409a0379   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x1f9
+0x1409a0305: mov      rsi, qword ptr [rsp + 0x40]
+0x1409a030a: mov      rdx, qword ptr [rsi + 0x10]
+0x1409a030e: mov      rcx, qword ptr [rsp + 0x20]
+0x1409a0313: mov      rdi, qword ptr [rsp + 0x30]
+0x1409a0318: mov      r8, rcx
+0x1409a031b: sub      r8, rdi
+0x1409a031e: mov      r9, qword ptr [rsi + 0x18]
+0x1409a0322: lea      r10, [r8 + 1]
+0x1409a0326: imul     r10, r9
+0x1409a032a: imul     r8, r9
+0x1409a032e: cmp      rdx, r10
+0x1409a0331: jb       0x1409a0390   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x210
+0x1409a0333: cmp      r10, r8
+0x1409a0336: jb       0x1409a0385   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x205
+0x1409a0338: mov      r10, qword ptr [rsi]
+0x1409a033b: mov      r11, r8
+0x1409a033e: sub      r8, rdx
+0x1409a0341: sar      r8, 0x3f
+0x1409a0345: and      r11, r8
+0x1409a0348: lea      rdx, [r10 + r11]
+0x1409a034c: cmp      rbx, r9
+0x1409a034f: cmovg    rbx, r9
+0x1409a0353: cmp      rax, rdx
+0x1409a0356: je       0x1409a02d8   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x158
+0x1409a0358: mov      rcx, rbx
+0x1409a035b: mov      rbx, rdx
+0x1409a035e: nop      
+0x1409a0360: call     0x140081e00   ; runtime.memmove
+0x1409a0365: mov      rcx, qword ptr [rsp + 0x20]
+0x1409a036a: mov      rsi, qword ptr [rsp + 0x40]
+0x1409a036f: mov      rdi, qword ptr [rsp + 0x30]
+0x1409a0374: jmp      0x1409a02d8   ; main.screenshotScrollingChunkedCanvas.repairSeam+0x158
+0x1409a0379: add      rsp, 0x48
+0x1409a037d: pop      rbp
+0x1409a037e: ret      
+0x1409a037f: add      rsp, 0x48
+0x1409a0383: pop      rbp
+0x1409a0384: ret      
+0x1409a0385: mov      rax, r8
+0x1409a0388: mov      rcx, r10
+0x1409a038b: call     0x1400814c0   ; runtime.panicSliceB
+0x1409a0390: mov      rcx, r10
+0x1409a0393: call     0x140081480   ; runtime.panicSliceAcap
+0x1409a0398: mov      rax, r9
+0x1409a039b: nop      dword ptr [rax + rax]
+0x1409a03a0: call     0x1400814c0   ; runtime.panicSliceB
+0x1409a03a5: nop      
+0x1409a03a6: mov      qword ptr [rsp + 8], rax
+0x1409a03ab: mov      qword ptr [rsp + 0x10], rbx
+0x1409a03b0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409a03b5: mov      rax, qword ptr [rsp + 8]
+0x1409a03ba: mov      rbx, qword ptr [rsp + 0x10]
+0x1409a03bf: nop      
+0x1409a03c0: jmp      0x1409a0180   ; main.screenshotScrollingChunkedCanvas.repairSeam
+0x1409a03c5: int3     
+0x1409a03c6: int3     
+0x1409a03c7: int3     
+0x1409a03c8: int3     
+0x1409a03c9: int3     
+0x1409a03ca: int3     
+0x1409a03cb: int3     
+0x1409a03cc: int3     
+0x1409a03cd: int3     
+0x1409a03ce: int3     
+0x1409a03cf: int3     
+0x1409a03d0: int3     
+0x1409a03d1: int3     
+0x1409a03d2: int3     
+0x1409a03d3: int3     
+0x1409a03d4: int3     
+0x1409a03d5: int3     
+0x1409a03d6: int3     
+0x1409a03d7: int3     
+0x1409a03d8: int3     
+0x1409a03d9: int3     
+0x1409a03da: int3     
+0x1409a03db: int3     
+0x1409a03dc: int3     
+0x1409a03dd: int3     
+0x1409a03de: int3     
+0x1409a03df: int3     

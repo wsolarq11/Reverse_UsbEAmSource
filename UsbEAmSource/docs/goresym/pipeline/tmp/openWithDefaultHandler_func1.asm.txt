@@ -1,0 +1,23 @@
+0x1408a8ee0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a8ee4: jbe      0x1408a8f15   ; main.openWithDefaultHandler.func1+0x35
+0x1408a8ee6: push     rbp
+0x1408a8ee7: mov      rbp, rsp
+0x1408a8eea: sub      rsp, 0x40
+0x1408a8eee: mov      rcx, qword ptr [rdx + 8]
+0x1408a8ef2: mov      rdi, qword ptr [rdx + 0x10]
+0x1408a8ef6: mov      rsi, qword ptr [rdx + 0x18]
+0x1408a8efa: mov      r8, qword ptr [rdx + 0x20]
+0x1408a8efe: mov      r9, qword ptr [rdx + 0x28]
+0x1408a8f02: mov      r10, qword ptr [rdx + 0x30]
+0x1408a8f06: xor      eax, eax
+0x1408a8f08: xor      ebx, ebx
+0x1408a8f0a: call     0x1408aec40   ; main.shellExecuteProgram
+0x1408a8f0f: add      rsp, 0x40
+0x1408a8f13: pop      rbp
+0x1408a8f14: ret      
+0x1408a8f15: call     0x14007f0a0   ; runtime.morestack
+0x1408a8f1a: jmp      0x1408a8ee0   ; main.openWithDefaultHandler.func1
+0x1408a8f1c: int3     
+0x1408a8f1d: int3     
+0x1408a8f1e: int3     
+0x1408a8f1f: int3     

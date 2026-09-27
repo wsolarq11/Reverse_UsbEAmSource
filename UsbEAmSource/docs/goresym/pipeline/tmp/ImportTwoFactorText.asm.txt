@@ -1,0 +1,96 @@
+0x1407885a0: lea      r12, [rsp - 0x240]
+0x1407885a8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407885ac: jbe      0x140788712    ; main.BootstrapService.ImportTwoFactorText+0x172
+0x1407885b2: push     rbp
+0x1407885b3: mov      rbp, rsp
+0x1407885b6: sub      rsp, 0x2b8
+0x1407885bd: mov      qword ptr [rsp + 0x3b0], rbx
+0x1407885c5: mov      qword ptr [rsp + 0x3a8], rax
+0x1407885cd: lea      rdi, [rsp + 0x2c8]
+0x1407885d5: lea      rdi, [rdi - 0x20]
+0x1407885d9: nop      dword ptr [rax]
+0x1407885e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407885e5: lea      rbp, [rsp - 0x10]
+0x1407885ea: call     0x1400816fd    ; runtime.duffzero+0x11d
+0x1407885ef: mov      rbp, qword ptr [rbp]
+0x1407885f3: lea      rdi, [rsp + 0x1d8]
+0x1407885fb: lea      rdi, [rdi - 0x20]
+0x1407885ff: nop      
+0x140788600: mov      qword ptr [rsp - 0x10], rbp
+0x140788605: lea      rbp, [rsp - 0x10]
+0x14078860a: call     0x1400816fd    ; runtime.duffzero+0x11d
+0x14078860f: mov      rbp, qword ptr [rbp]
+0x140788613: mov      rax, qword ptr [rax + 0x370]
+0x14078861a: call     0x1409cdd00    ; main.twoFactorService.ImportText
+0x14078861f: mov      qword ptr [rsp + 0x1c8], rax
+0x140788627: mov      qword ptr [rsp + 0x1d0], rbx
+0x14078862f: lea      rdi, [rsp + 0x1d8]
+0x140788637: mov      rsi, rsp
+0x14078863a: nop      word ptr [rax + rax]
+0x140788640: mov      qword ptr [rsp - 0x10], rbp
+0x140788645: lea      rbp, [rsp - 0x10]
+0x14078864a: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x14078864f: mov      rbp, qword ptr [rbp]
+0x140788653: mov      rdi, rsp
+0x140788656: lea      rsi, [rsp + 0x1d8]
+0x14078865e: nop      
+0x140788660: mov      qword ptr [rsp - 0x10], rbp
+0x140788665: lea      rbp, [rsp - 0x10]
+0x14078866a: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x14078866f: mov      rbp, qword ptr [rbp]
+0x140788673: mov      rax, qword ptr [rsp + 0x3a8]
+0x14078867b: nop      dword ptr [rax + rax]
+0x140788680: call     0x1408a3f20    ; main.BootstrapService.attachTwoFactorImportResultIconURLs
+0x140788685: lea      rdi, [rsp + 0x1d8]
+0x14078868d: lea      rsi, [rsp + 0xe0]
+0x140788695: nop      word ptr [rax + rax]
+0x14078869e: nop      
+0x1407886a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407886a5: lea      rbp, [rsp - 0x10]
+0x1407886aa: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x1407886af: mov      rbp, qword ptr [rbp]
+0x1407886b3: lea      rdi, [rsp + 0x2c8]
+0x1407886bb: lea      rsi, [rsp + 0x1d8]
+0x1407886c3: mov      qword ptr [rsp - 0x10], rbp
+0x1407886c8: lea      rbp, [rsp - 0x10]
+0x1407886cd: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x1407886d2: mov      rbp, qword ptr [rbp]
+0x1407886d6: lea      rdi, [rsp + 0x2c8]
+0x1407886de: lea      rsi, [rsp + 0x1d8]
+0x1407886e6: mov      qword ptr [rsp - 0x10], rbp
+0x1407886eb: lea      rbp, [rsp - 0x10]
+0x1407886f0: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x1407886f5: mov      rbp, qword ptr [rbp]
+0x1407886f9: mov      rax, qword ptr [rsp + 0x1c8]
+0x140788701: mov      rbx, qword ptr [rsp + 0x1d0]
+0x140788709: add      rsp, 0x2b8
+0x140788710: pop      rbp
+0x140788711: ret      
+0x140788712: mov      qword ptr [rsp + 0xe8], rax
+0x14078871a: mov      qword ptr [rsp + 0xf0], rbx
+0x140788722: mov      qword ptr [rsp + 0xf8], rcx
+0x14078872a: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078872f: mov      rax, qword ptr [rsp + 0xe8]
+0x140788737: mov      rbx, qword ptr [rsp + 0xf0]
+0x14078873f: mov      rcx, qword ptr [rsp + 0xf8]
+0x140788747: jmp      0x1407885a0    ; main.BootstrapService.ImportTwoFactorText
+0x14078874c: int3     
+0x14078874d: int3     
+0x14078874e: int3     
+0x14078874f: int3     
+0x140788750: int3     
+0x140788751: int3     
+0x140788752: int3     
+0x140788753: int3     
+0x140788754: int3     
+0x140788755: int3     
+0x140788756: int3     
+0x140788757: int3     
+0x140788758: int3     
+0x140788759: int3     
+0x14078875a: int3     
+0x14078875b: int3     
+0x14078875c: int3     
+0x14078875d: int3     
+0x14078875e: int3     
+0x14078875f: int3     

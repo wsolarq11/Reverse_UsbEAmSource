@@ -1,0 +1,66 @@
+0x1408ab360: lea      r12, [rsp - 0x78]
+0x1408ab365: cmp      r12, qword ptr [r14 + 0x10]
+0x1408ab369: jbe      0x1408abb82   ; main.getDesktopExplorerShellDispatch+0x822
+0x1408ab36f: push     rbp
+0x1408ab370: mov      rbp, rsp
+0x1408ab373: sub      rsp, 0xf0
+0x1408ab37a: lea      rax, [rip + 0x3ac026]
+0x1408ab381: mov      ebx, 0x11
+0x1408ab386: call     0x1406d7f40   ; github.com/go-ole/go-ole/oleutil.CreateObject
+0x1408ab38b: test     rbx, rbx
+0x1408ab38e: jne      0x1408abb58   ; main.getDesktopExplorerShellDispatch+0x7f8
+0x1408ab394: mov      qword ptr [rsp + 0x58], rax
+0x1408ab399: lea      rax, [rip + 0x2bb940]
+0x1408ab3a0: call     0x14001ae20   ; runtime.newobject
+0x1408ab3a5: lea      rcx, [rip + 0xa74]
+0x1408ab3ac: mov      qword ptr [rax], rcx
+0x1408ab3af: cmp      dword ptr [rip + 0x13aff9a], 0
+0x1408ab3b6: jne      0x1408ab3c0   ; main.getDesktopExplorerShellDispatch+0x60
+0x1408ab3b8: mov      rcx, qword ptr [rsp + 0x58]
+0x1408ab3bd: jmp      0x1408ab3cd   ; main.getDesktopExplorerShellDispatch+0x6d
+0x1408ab3bf: nop      
+0x1408ab3c0: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408ab3c5: mov      rcx, qword ptr [rsp + 0x58]
+0x1408ab3ca: mov      qword ptr [r11], rcx
+0x1408ab3cd: mov      qword ptr [rsp + 0x98], rax
+0x1408ab3d5: mov      qword ptr [rax + 8], rcx
+0x1408ab3d9: mov      rbx, qword ptr [rip + 0x1364c28]
+0x1408ab3e0: mov      rax, rcx
+0x1408ab3e3: call     0x1405f1d60   ; github.com/go-ole/go-ole.queryInterface
+0x1408ab3e8: test     rbx, rbx
+0x1408ab3eb: jne      0x1408abb0e   ; main.getDesktopExplorerShellDispatch+0x7ae
+0x1408ab3f1: mov      qword ptr [rsp + 0x48], rax
+0x1408ab3f6: lea      rax, [rip + 0x2bb863]
+0x1408ab3fd: nop      dword ptr [rax]
+0x1408ab400: call     0x14001ae20   ; runtime.newobject
+0x1408ab405: lea      rcx, [rip + 0x9d4]
+0x1408ab40c: mov      qword ptr [rax], rcx
+0x1408ab40f: cmp      dword ptr [rip + 0x13aff3a], 0
+0x1408ab416: jne      0x1408ab420   ; main.getDesktopExplorerShellDispatch+0xc0
+0x1408ab418: mov      rcx, qword ptr [rsp + 0x48]
+0x1408ab41d: jmp      0x1408ab42d   ; main.getDesktopExplorerShellDispatch+0xcd
+0x1408ab41f: nop      
+0x1408ab420: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408ab425: mov      rcx, qword ptr [rsp + 0x48]
+0x1408ab42a: mov      qword ptr [r11], rcx
+0x1408ab42d: mov      qword ptr [rsp + 0x90], rax
+0x1408ab435: mov      qword ptr [rax + 8], rcx
+0x1408ab439: lea      rax, [rip + 0x2e7b20]
+0x1408ab440: call     0x14001ae20   ; runtime.newobject
+0x1408ab445: lea      rcx, [rip + 0x954]
+0x1408ab44c: mov      qword ptr [rax], rcx
+0x1408ab44f: cmp      dword ptr [rip + 0x13afefa], 0
+0x1408ab456: jne      0x1408ab46a   ; main.getDesktopExplorerShellDispatch+0x10a
+0x1408ab458: mov      rdx, qword ptr [rsp + 0x90]
+0x1408ab460: mov      r10, qword ptr [rsp + 0x98]
+0x1408ab468: jmp      0x1408ab486   ; main.getDesktopExplorerShellDispatch+0x126
+0x1408ab46a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1408ab46f: mov      rdx, qword ptr [rsp + 0x90]
+0x1408ab477: mov      qword ptr [r11], rdx
+0x1408ab47a: mov      r10, qword ptr [rsp + 0x98]
+0x1408ab482: mov      qword ptr [r11 + 8], r10
+0x1408ab486: mov      qword ptr [rsp + 0x88], rax
+0x1408ab48e: mov      qword ptr [rax + 8], rdx
+0x1408ab492: mov      qword ptr [rax + 0x10], r10
+0x1408ab496: nop      
+0x1408ab497: mov      rax, qword ptr [rsp + 0x48]

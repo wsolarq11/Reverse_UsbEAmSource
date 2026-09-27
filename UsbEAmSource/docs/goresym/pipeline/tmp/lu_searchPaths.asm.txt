@@ -1,0 +1,42 @@
+0x1407eaa80: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407eaa84: jbe      0x1407eaab1   ; main.VolumeIndex.SearchWithPaths+0x31
+0x1407eaa86: push     rbp
+0x1407eaa87: mov      rbp, rsp
+0x1407eaa8a: sub      rsp, 0x50
+0x1407eaa8e: mov      qword ptr [rsp + 0x68], rbx
+0x1407eaa93: mov      r9, rsi
+0x1407eaa96: mov      r10d, r8d
+0x1407eaa99: mov      rsi, rcx
+0x1407eaa9c: mov      r8, rdi
+0x1407eaa9f: xor      ecx, ecx
+0x1407eaaa1: mov      rdi, rbx
+0x1407eaaa4: xor      ebx, ebx
+0x1407eaaa6: call     0x140808200   ; main.VolumeIndex.searchWithPathsContextMetrics
+0x1407eaaab: add      rsp, 0x50
+0x1407eaaaf: pop      rbp
+0x1407eaab0: ret      
+0x1407eaab1: mov      qword ptr [rsp + 8], rax
+0x1407eaab6: mov      qword ptr [rsp + 0x10], rbx
+0x1407eaabb: mov      qword ptr [rsp + 0x18], rcx
+0x1407eaac0: mov      qword ptr [rsp + 0x20], rdi
+0x1407eaac5: mov      qword ptr [rsp + 0x28], rsi
+0x1407eaaca: mov      byte ptr [rsp + 0x30], r8b
+0x1407eaacf: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407eaad4: mov      rax, qword ptr [rsp + 8]
+0x1407eaad9: mov      rbx, qword ptr [rsp + 0x10]
+0x1407eaade: mov      rcx, qword ptr [rsp + 0x18]
+0x1407eaae3: mov      rdi, qword ptr [rsp + 0x20]
+0x1407eaae8: mov      rsi, qword ptr [rsp + 0x28]
+0x1407eaaed: movzx    r8d, byte ptr [rsp + 0x30]
+0x1407eaaf3: jmp      0x1407eaa80   ; main.VolumeIndex.SearchWithPaths
+0x1407eaaf5: int3     
+0x1407eaaf6: int3     
+0x1407eaaf7: int3     
+0x1407eaaf8: int3     
+0x1407eaaf9: int3     
+0x1407eaafa: int3     
+0x1407eaafb: int3     
+0x1407eaafc: int3     
+0x1407eaafd: int3     
+0x1407eaafe: int3     
+0x1407eaaff: int3     

@@ -1,0 +1,51 @@
+0x1409379e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409379e4: jbe      0x140937a90   ; main.activeQRCodeSelectionSession+0xb0
+0x1409379ea: push     rbp
+0x1409379eb: mov      rbp, rsp
+0x1409379ee: sub      rsp, 0x30
+0x1409379f2: movq     qword ptr [rsp + 0x28], xmm15
+0x1409379f9: mov      byte ptr [rsp + 0xf], 0
+0x1409379fe: mov      qword ptr [rsp + 0x10], 0
+0x140937a07: nop      
+0x140937a08: nop      
+0x140937a09: xor      eax, eax
+0x140937a0b: lea      rcx, [rip + 0x12d954e]
+0x140937a12: mov      ebx, 1
+0x140937a17: lock cmpxchg dword ptr [rcx], ebx
+0x140937a1b: sete     cl
+0x140937a1e: nop      
+0x140937a20: test     cl, cl
+0x140937a22: jne      0x140937a30   ; main.activeQRCodeSelectionSession+0x50
+0x140937a24: lea      rax, [rip + 0x12d9535]
+0x140937a2b: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x140937a30: lea      rax, [rip + 0x69]
+0x140937a37: mov      qword ptr [rsp + 0x18], rax
+0x140937a3c: lea      rax, [rip + 0x12d951d]
+0x140937a43: mov      qword ptr [rsp + 0x20], rax
+0x140937a48: lea      rax, [rsp + 0x18]
+0x140937a4d: mov      qword ptr [rsp + 0x28], rax
+0x140937a52: mov      byte ptr [rsp + 0xf], 1
+0x140937a57: mov      rax, qword ptr [rip + 0x12d9512]
+0x140937a5e: mov      qword ptr [rsp + 0x10], rax
+0x140937a63: mov      byte ptr [rsp + 0xf], 0
+0x140937a68: mov      rdx, qword ptr [rsp + 0x28]
+0x140937a6d: mov      rax, qword ptr [rdx]
+0x140937a70: call     rax
+0x140937a72: mov      rax, qword ptr [rsp + 0x10]
+0x140937a77: add      rsp, 0x30
+0x140937a7b: pop      rbp
+0x140937a7c: ret      
+0x140937a7d: nop      dword ptr [rax]
+0x140937a80: call     0x1400435e0   ; runtime.deferreturn
+0x140937a85: mov      rax, qword ptr [rsp + 0x10]
+0x140937a8a: add      rsp, 0x30
+0x140937a8e: pop      rbp
+0x140937a8f: ret      
+0x140937a90: call     0x14007f140   ; runtime.morestack_noctxt
+0x140937a95: jmp      0x1409379e0   ; main.activeQRCodeSelectionSession
+0x140937a9a: int3     
+0x140937a9b: int3     
+0x140937a9c: int3     
+0x140937a9d: int3     
+0x140937a9e: int3     
+0x140937a9f: int3     

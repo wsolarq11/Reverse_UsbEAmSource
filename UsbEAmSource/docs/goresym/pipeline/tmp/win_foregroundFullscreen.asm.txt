@@ -1,0 +1,154 @@
+0x140917cc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140917cc4: jbe      0x140917e98   ; main.oledBlackoutForegroundWindowIsFullscreen+0x1d8
+0x140917cca: push     rbp
+0x140917ccb: mov      rbp, rsp
+0x140917cce: sub      rsp, 0x48
+0x140917cd2: mov      qword ptr [rsp + 0x58], rax
+0x140917cd7: lea      rax, [rip + 0x29c5e2]
+0x140917cde: nop      
+0x140917ce0: call     0x14001ae20   ; runtime.newobject
+0x140917ce5: mov      qword ptr [rsp + 0x38], rax
+0x140917cea: mov      qword ptr [rsp + 0x30], rax
+0x140917cef: lea      rax, [rip + 0x1e5cea]
+0x140917cf6: call     0x14001ae20   ; runtime.newobject
+0x140917cfb: mov      rcx, qword ptr [rsp + 0x58]
+0x140917d00: mov      qword ptr [rax], rcx
+0x140917d03: mov      rcx, qword ptr [rsp + 0x30]
+0x140917d08: mov      qword ptr [rax + 8], rcx
+0x140917d0c: mov      rcx, qword ptr [rip + 0x12a9e95]
+0x140917d13: mov      rbx, rax
+0x140917d16: mov      edi, 2
+0x140917d1b: mov      rax, rcx
+0x140917d1e: mov      rcx, rdi
+0x140917d21: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x140917d26: test     rax, rax
+0x140917d29: je       0x140917d3f   ; main.oledBlackoutForegroundWindowIsFullscreen+0x7f
+0x140917d2b: mov      rcx, qword ptr [rsp + 0x38]
+0x140917d30: mov      edx, dword ptr [rcx + 8]
+0x140917d33: cmp      dword ptr [rcx], edx
+0x140917d35: jge      0x140917d3f   ; main.oledBlackoutForegroundWindowIsFullscreen+0x7f
+0x140917d37: mov      edx, dword ptr [rcx + 0xc]
+0x140917d3a: cmp      dword ptr [rcx + 4], edx
+0x140917d3d: jl       0x140917d47   ; main.oledBlackoutForegroundWindowIsFullscreen+0x87
+0x140917d3f: xor      eax, eax
+0x140917d41: add      rsp, 0x48
+0x140917d45: pop      rbp
+0x140917d46: ret      
+0x140917d47: lea      rax, [rip + 0x1e5c92]
+0x140917d4e: call     0x14001ae20   ; runtime.newobject
+0x140917d53: mov      rcx, qword ptr [rsp + 0x58]
+0x140917d58: mov      qword ptr [rax], rcx
+0x140917d5b: mov      qword ptr [rax + 8], 2
+0x140917d63: mov      rcx, qword ptr [rip + 0x12a9e46]
+0x140917d6a: mov      rbx, rax
+0x140917d6d: mov      edi, 2
+0x140917d72: mov      rax, rcx
+0x140917d75: mov      rcx, rdi
+0x140917d78: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x140917d7d: nop      dword ptr [rax]
+0x140917d80: test     rax, rax
+0x140917d83: je       0x140917e90   ; main.oledBlackoutForegroundWindowIsFullscreen+0x1d0
+0x140917d89: mov      qword ptr [rsp + 0x20], rax
+0x140917d8e: lea      rax, [rip + 0x2ad7cb]
+0x140917d95: call     0x14001ae20   ; runtime.newobject
+0x140917d9a: mov      qword ptr [rsp + 0x40], rax
+0x140917d9f: mov      qword ptr [rax], 0x68
+0x140917da6: lea      rdi, [rax + 8]
+0x140917daa: lea      rsi, [rip + 0x8c6727]
+0x140917db1: nop      word ptr [rax + rax]
+0x140917dba: nop      word ptr [rax + rax]
+0x140917dc0: mov      qword ptr [rsp - 0x10], rbp
+0x140917dc5: lea      rbp, [rsp - 0x10]
+0x140917dca: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x140917dcf: mov      rbp, qword ptr [rbp]
+0x140917dd3: mov      qword ptr [rsp + 0x28], rax
+0x140917dd8: lea      rax, [rip + 0x1e5c01]
+0x140917ddf: nop      
+0x140917de0: call     0x14001ae20   ; runtime.newobject
+0x140917de5: mov      rcx, qword ptr [rsp + 0x20]
+0x140917dea: mov      qword ptr [rax], rcx
+0x140917ded: mov      rcx, qword ptr [rsp + 0x28]
+0x140917df2: mov      qword ptr [rax + 8], rcx
+0x140917df6: mov      rcx, qword ptr [rip + 0x12a9dbb]
+0x140917dfd: mov      rbx, rax
+0x140917e00: mov      edi, 2
+0x140917e05: mov      rax, rcx
+0x140917e08: mov      rcx, rdi
+0x140917e0b: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x140917e10: test     rax, rax
+0x140917e13: je       0x140917e88   ; main.oledBlackoutForegroundWindowIsFullscreen+0x1c8
+0x140917e15: mov      rcx, qword ptr [rsp + 0x38]
+0x140917e1a: mov      edx, dword ptr [rcx]
+0x140917e1c: mov      rbx, qword ptr [rsp + 0x40]
+0x140917e21: mov      esi, dword ptr [rbx + 4]
+0x140917e24: mov      edi, edx
+0x140917e26: sub      edx, esi
+0x140917e28: sub      esi, edi
+0x140917e2a: test     edx, edx
+0x140917e2c: cmovl    edx, esi
+0x140917e2f: cmp      edx, 2
+0x140917e32: jg       0x140917e7e   ; main.oledBlackoutForegroundWindowIsFullscreen+0x1be
+0x140917e34: mov      edx, dword ptr [rcx + 4]
+0x140917e37: mov      esi, dword ptr [rbx + 8]
+0x140917e3a: mov      edi, edx
+0x140917e3c: sub      edx, esi
+0x140917e3e: sub      esi, edi
+0x140917e40: test     edx, edx
+0x140917e42: cmovl    edx, esi
+0x140917e45: cmp      edx, 2
+0x140917e48: jg       0x140917e7e   ; main.oledBlackoutForegroundWindowIsFullscreen+0x1be
+0x140917e4a: mov      edx, dword ptr [rcx + 8]
+0x140917e4d: mov      esi, dword ptr [rbx + 0xc]
+0x140917e50: mov      edi, edx
+0x140917e52: sub      edx, esi
+0x140917e54: sub      esi, edi
+0x140917e56: test     edx, edx
+0x140917e58: cmovl    edx, esi
+0x140917e5b: nop      dword ptr [rax + rax]
+0x140917e60: cmp      edx, 2
+0x140917e63: jg       0x140917e7e   ; main.oledBlackoutForegroundWindowIsFullscreen+0x1be
+0x140917e65: mov      ecx, dword ptr [rcx + 0xc]
+0x140917e68: mov      edx, dword ptr [rbx + 0x10]
+0x140917e6b: mov      ebx, ecx
+0x140917e6d: sub      ecx, edx
+0x140917e6f: sub      edx, ebx
+0x140917e71: test     ecx, ecx
+0x140917e73: cmovl    ecx, edx
+0x140917e76: cmp      ecx, 2
+0x140917e79: setle    cl
+0x140917e7c: jmp      0x140917e80   ; main.oledBlackoutForegroundWindowIsFullscreen+0x1c0
+0x140917e7e: xor      ecx, ecx
+0x140917e80: mov      eax, ecx
+0x140917e82: add      rsp, 0x48
+0x140917e86: pop      rbp
+0x140917e87: ret      
+0x140917e88: xor      eax, eax
+0x140917e8a: add      rsp, 0x48
+0x140917e8e: pop      rbp
+0x140917e8f: ret      
+0x140917e90: xor      eax, eax
+0x140917e92: add      rsp, 0x48
+0x140917e96: pop      rbp
+0x140917e97: ret      
+0x140917e98: mov      qword ptr [rsp + 8], rax
+0x140917e9d: nop      dword ptr [rax]
+0x140917ea0: call     0x14007f140   ; runtime.morestack_noctxt
+0x140917ea5: mov      rax, qword ptr [rsp + 8]
+0x140917eaa: jmp      0x140917cc0   ; main.oledBlackoutForegroundWindowIsFullscreen
+0x140917eaf: int3     
+0x140917eb0: int3     
+0x140917eb1: int3     
+0x140917eb2: int3     
+0x140917eb3: int3     
+0x140917eb4: int3     
+0x140917eb5: int3     
+0x140917eb6: int3     
+0x140917eb7: int3     
+0x140917eb8: int3     
+0x140917eb9: int3     
+0x140917eba: int3     
+0x140917ebb: int3     
+0x140917ebc: int3     
+0x140917ebd: int3     
+0x140917ebe: int3     
+0x140917ebf: int3     

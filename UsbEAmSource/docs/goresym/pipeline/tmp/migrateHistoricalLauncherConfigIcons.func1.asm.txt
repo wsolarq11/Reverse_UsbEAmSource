@@ -1,0 +1,180 @@
+0x14088f720: cmp      rsp, qword ptr [r14 + 0x10]
+0x14088f724: jbe      0x14088f93c   ; main.migrateHistoricalLauncherConfigIcons.func1+0x21c
+0x14088f72a: push     rbp
+0x14088f72b: mov      rbp, rsp
+0x14088f72e: sub      rsp, 0x70
+0x14088f732: mov      qword ptr [rsp + 0x80], rax
+0x14088f73a: mov      rsi, qword ptr [rdx + 0x18]
+0x14088f73e: mov      rdi, qword ptr [rdx + 0x10]
+0x14088f742: mov      rdx, qword ptr [rdx + 8]
+0x14088f746: test     rcx, rcx
+0x14088f749: je       0x14088f785   ; main.migrateHistoricalLauncherConfigIcons.func1+0x65
+0x14088f74b: mov      qword ptr [rsp + 0x90], rcx
+0x14088f753: mov      qword ptr [rsp + 0x58], rdx
+0x14088f758: mov      qword ptr [rsp + 0x50], rdi
+0x14088f75d: mov      qword ptr [rsp + 0x68], rsi
+0x14088f762: mov      qword ptr [rsp + 0x88], rbx
+0x14088f76a: mov      qword ptr [rsp + 0x80], rax
+0x14088f772: mov      rax, qword ptr [rcx]
+0x14088f775: mov      rbx, qword ptr [rcx + 8]
+0x14088f779: call     0x1400a2200   ; strings.TrimSpace
+0x14088f77e: nop      
+0x14088f780: test     rbx, rbx
+0x14088f783: jne      0x14088f78f   ; main.migrateHistoricalLauncherConfigIcons.func1+0x6f
+0x14088f785: xor      eax, eax
+0x14088f787: xor      ebx, ebx
+0x14088f789: add      rsp, 0x70
+0x14088f78d: pop      rbp
+0x14088f78e: ret      
+0x14088f78f: mov      rdx, qword ptr [rsp + 0x58]
+0x14088f794: mov      r8, qword ptr [rdx]
+0x14088f797: mov      r9, qword ptr [rdx + 8]
+0x14088f79b: mov      rdx, qword ptr [rdx + 0x10]
+0x14088f79f: mov      qword ptr [rsp + 0x38], r8
+0x14088f7a4: mov      qword ptr [rsp + 0x40], r9
+0x14088f7a9: mov      qword ptr [rsp + 0x48], rdx
+0x14088f7ae: mov      rdx, qword ptr [rsp + 0x90]
+0x14088f7b6: mov      rdi, qword ptr [rdx]
+0x14088f7b9: mov      rsi, qword ptr [rdx + 8]
+0x14088f7bd: lea      rax, [rsp + 0x38]
+0x14088f7c2: mov      rbx, qword ptr [rsp + 0x80]
+0x14088f7ca: mov      rcx, qword ptr [rsp + 0x88]
+0x14088f7d2: call     0x14088e6c0   ; main.launcherConfigIconBudget.validate
+0x14088f7d7: nop      word ptr [rax + rax]
+0x14088f7e0: test     rax, rax
+0x14088f7e3: je       0x14088f913   ; main.migrateHistoricalLauncherConfigIcons.func1+0x1f3
+0x14088f7e9: mov      rdx, qword ptr [rsp + 0x90]
+0x14088f7f1: mov      rax, qword ptr [rdx]
+0x14088f7f4: mov      rbx, qword ptr [rdx + 8]
+0x14088f7f8: mov      rcx, qword ptr [rsp + 0x50]
+0x14088f7fd: nop      dword ptr [rax]
+0x14088f800: call     0x14088f980   ; main.migrateHistoricalLauncherConfigIcon
+0x14088f805: test     dil, dil
+0x14088f808: je       0x14088f85c   ; main.migrateHistoricalLauncherConfigIcons.func1+0x13c
+0x14088f80a: mov      byte ptr [rsp + 0x2f], cl
+0x14088f80e: mov      qword ptr [rsp + 0x30], rbx
+0x14088f813: mov      qword ptr [rsp + 0x60], rax
+0x14088f818: mov      rdx, qword ptr [rsp + 0x58]
+0x14088f81d: mov      r8, qword ptr [rdx + 8]
+0x14088f821: mov      r9, qword ptr [rdx + 0x10]
+0x14088f825: mov      rdx, qword ptr [rdx]
+0x14088f828: mov      qword ptr [rsp + 0x38], rdx
+0x14088f82d: mov      qword ptr [rsp + 0x40], r8
+0x14088f832: mov      qword ptr [rsp + 0x48], r9
+0x14088f837: mov      rcx, qword ptr [rsp + 0x88]
+0x14088f83f: mov      rdi, rax
+0x14088f842: mov      rsi, rbx
+0x14088f845: lea      rax, [rsp + 0x38]
+0x14088f84a: mov      rbx, qword ptr [rsp + 0x80]
+0x14088f852: call     0x14088e6c0   ; main.launcherConfigIconBudget.validate
+0x14088f857: test     rax, rax
+0x14088f85a: je       0x14088f89d   ; main.migrateHistoricalLauncherConfigIcons.func1+0x17d
+0x14088f85c: mov      rcx, qword ptr [rsp + 0x90]
+0x14088f864: mov      qword ptr [rcx + 8], 0
+0x14088f86c: cmp      dword ptr [rip + 0x13cbadd], 0
+0x14088f873: je       0x14088f880   ; main.migrateHistoricalLauncherConfigIcons.func1+0x160
+0x14088f875: mov      rdx, qword ptr [rcx]
+0x14088f878: call     0x140081040   ; runtime.gcWriteBarrier1
+0x14088f87d: mov      qword ptr [r11], rdx
+0x14088f880: mov      qword ptr [rcx], 0
+0x14088f887: mov      rcx, qword ptr [rsp + 0x68]
+0x14088f88c: mov      byte ptr [rcx], 1
+0x14088f88f: inc      qword ptr [rcx + 0x10]
+0x14088f893: xor      eax, eax
+0x14088f895: xor      ebx, ebx
+0x14088f897: add      rsp, 0x70
+0x14088f89b: pop      rbp
+0x14088f89c: ret      
+0x14088f89d: mov      rcx, qword ptr [rsp + 0x30]
+0x14088f8a2: mov      rdx, qword ptr [rsp + 0x90]
+0x14088f8aa: mov      qword ptr [rdx + 8], rcx
+0x14088f8ae: cmp      dword ptr [rip + 0x13cba9b], 0
+0x14088f8b5: jne      0x14088f8be   ; main.migrateHistoricalLauncherConfigIcons.func1+0x19e
+0x14088f8b7: mov      rsi, qword ptr [rsp + 0x60]
+0x14088f8bc: jmp      0x14088f8d2   ; main.migrateHistoricalLauncherConfigIcons.func1+0x1b2
+0x14088f8be: mov      rcx, qword ptr [rdx]
+0x14088f8c1: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14088f8c6: mov      rsi, qword ptr [rsp + 0x60]
+0x14088f8cb: mov      qword ptr [r11], rsi
+0x14088f8ce: mov      qword ptr [r11 + 8], rcx
+0x14088f8d2: mov      qword ptr [rdx], rsi
+0x14088f8d5: mov      rcx, qword ptr [rsp + 0x38]
+0x14088f8da: mov      rdx, qword ptr [rsp + 0x40]
+0x14088f8df: mov      rsi, qword ptr [rsp + 0x48]
+0x14088f8e4: mov      rdi, qword ptr [rsp + 0x58]
+0x14088f8e9: mov      qword ptr [rdi], rcx
+0x14088f8ec: mov      qword ptr [rdi + 8], rdx
+0x14088f8f0: mov      qword ptr [rdi + 0x10], rsi
+0x14088f8f4: mov      rcx, qword ptr [rsp + 0x68]
+0x14088f8f9: mov      byte ptr [rcx], 1
+0x14088f8fc: movzx    edx, byte ptr [rsp + 0x2f]
+0x14088f901: test     dl, dl
+0x14088f903: je       0x14088f909   ; main.migrateHistoricalLauncherConfigIcons.func1+0x1e9
+0x14088f905: inc      qword ptr [rcx + 8]
+0x14088f909: xor      eax, eax
+0x14088f90b: xor      ebx, ebx
+0x14088f90d: add      rsp, 0x70
+0x14088f911: pop      rbp
+0x14088f912: ret      
+0x14088f913: mov      rcx, qword ptr [rsp + 0x38]
+0x14088f918: mov      rdx, qword ptr [rsp + 0x40]
+0x14088f91d: mov      rsi, qword ptr [rsp + 0x48]
+0x14088f922: mov      rdi, qword ptr [rsp + 0x58]
+0x14088f927: mov      qword ptr [rdi], rcx
+0x14088f92a: mov      qword ptr [rdi + 8], rdx
+0x14088f92e: mov      qword ptr [rdi + 0x10], rsi
+0x14088f932: xor      eax, eax
+0x14088f934: xor      ebx, ebx
+0x14088f936: add      rsp, 0x70
+0x14088f93a: pop      rbp
+0x14088f93b: ret      
+0x14088f93c: mov      qword ptr [rsp + 8], rax
+0x14088f941: mov      qword ptr [rsp + 0x10], rbx
+0x14088f946: mov      qword ptr [rsp + 0x18], rcx
+0x14088f94b: call     0x14007f0a0   ; runtime.morestack
+0x14088f950: mov      rax, qword ptr [rsp + 8]
+0x14088f955: mov      rbx, qword ptr [rsp + 0x10]
+0x14088f95a: mov      rcx, qword ptr [rsp + 0x18]
+0x14088f95f: nop      
+0x14088f960: jmp      0x14088f720   ; main.migrateHistoricalLauncherConfigIcons.func1
+0x14088f965: int3     
+0x14088f966: int3     
+0x14088f967: int3     
+0x14088f968: int3     
+0x14088f969: int3     
+0x14088f96a: int3     
+0x14088f96b: int3     
+0x14088f96c: int3     
+0x14088f96d: int3     
+0x14088f96e: int3     
+0x14088f96f: int3     
+0x14088f970: int3     
+0x14088f971: int3     
+0x14088f972: int3     
+0x14088f973: int3     
+0x14088f974: int3     
+0x14088f975: int3     
+0x14088f976: int3     
+0x14088f977: int3     
+0x14088f978: int3     
+0x14088f979: int3     
+0x14088f97a: int3     
+0x14088f97b: int3     
+0x14088f97c: int3     
+0x14088f97d: int3     
+0x14088f97e: int3     
+0x14088f97f: int3     
+0x14088f980: lea      r12, [rsp - 0x80]
+0x14088f985: cmp      r12, qword ptr [r14 + 0x10]
+0x14088f989: jbe      0x14088ff26   ; main.migrateHistoricalLauncherConfigIcon+0x5a6
+0x14088f98f: push     rbp
+0x14088f990: mov      rbp, rsp
+0x14088f993: sub      rsp, 0xf8
+0x14088f99a: mov      qword ptr [rsp + 0x108], rax
+0x14088f9a2: mov      qword ptr [rsp + 0x118], rcx
+0x14088f9aa: call     0x14088ff60   ; main.decodeHistoricalLauncherConfigIcon
+0x14088f9af: test     r8b, r8b
+0x14088f9b2: je       0x14088ff03   ; main.migrateHistoricalLauncherConfigIcon+0x583
+0x14088f9b8: mov      qword ptr [rsp + 0x88], rsi
+0x14088f9c0: mov      qword ptr [rsp + 0xd8], rdi
+0x14088f9c8: mov      qword ptr [rsp + 0xa0], rcx

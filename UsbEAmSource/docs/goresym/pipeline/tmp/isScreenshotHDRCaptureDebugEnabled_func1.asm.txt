@@ -1,0 +1,35 @@
+0x1409f5d00: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409f5d04: jbe      0x1409f5d52   ; main.isScreenshotHDRCaptureDebugEnabled.func1+0x52
+0x1409f5d06: push     rbp
+0x1409f5d07: mov      rbp, rsp
+0x1409f5d0a: sub      rsp, 0x10
+0x1409f5d0e: lea      rax, [rip + 0x2749fb]
+0x1409f5d15: mov      ebx, 0x1b
+0x1409f5d1a: call     0x140125a00   ; os.Getenv
+0x1409f5d1f: nop      
+0x1409f5d20: call     0x1400a2200   ; strings.TrimSpace
+0x1409f5d25: test     rbx, rbx
+0x1409f5d28: je       0x1409f5d4c   ; main.isScreenshotHDRCaptureDebugEnabled.func1+0x4c
+0x1409f5d2a: call     0x140971620   ; main.parseScreenshotBool
+0x1409f5d2f: test     bl, bl
+0x1409f5d31: je       0x1409f5d3f   ; main.isScreenshotHDRCaptureDebugEnabled.func1+0x3f
+0x1409f5d33: mov      byte ptr [rip + 0x1264c91], al
+0x1409f5d39: add      rsp, 0x10
+0x1409f5d3d: pop      rbp
+0x1409f5d3e: ret      
+0x1409f5d3f: mov      byte ptr [rip + 0x1264c84], 1
+0x1409f5d46: add      rsp, 0x10
+0x1409f5d4a: pop      rbp
+0x1409f5d4b: ret      
+0x1409f5d4c: add      rsp, 0x10
+0x1409f5d50: pop      rbp
+0x1409f5d51: ret      
+0x1409f5d52: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409f5d57: jmp      0x1409f5d00   ; main.isScreenshotHDRCaptureDebugEnabled.func1
+0x1409f5d59: int3     
+0x1409f5d5a: int3     
+0x1409f5d5b: int3     
+0x1409f5d5c: int3     
+0x1409f5d5d: int3     
+0x1409f5d5e: int3     
+0x1409f5d5f: int3     

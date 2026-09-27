@@ -1,0 +1,64 @@
+0x140937160: cmp      rsp, qword ptr [r14 + 0x10]
+0x140937164: jbe      0x1409371f4
+0x14093716a: push     rbp
+0x14093716b: mov      rbp, rsp
+0x14093716e: sub      rsp, 0x30
+0x140937172: movq     qword ptr [rsp + 0x28], xmm15
+0x140937179: mov      byte ptr [rsp + 0xf], 0
+0x14093717e: nop      
+0x14093717f: mov      rcx, rax
+0x140937182: xor      eax, eax
+0x140937184: mov      ebx, 1
+0x140937189: lock cmpxchg dword ptr [rcx + 0x460], ebx
+0x140937191: sete     bl
+0x140937194: test     bl, bl
+0x140937196: jne      0x1409371ae
+0x140937198: mov      qword ptr [rsp + 0x20], rcx
+0x14093719d: lea      rax, [rcx + 0x460]
+0x1409371a4: call     0x140091940
+0x1409371a9: mov      rcx, qword ptr [rsp + 0x20]
+0x1409371ae: lea      rax, [rip + 0x6b]
+0x1409371b5: mov      qword ptr [rsp + 0x10], rax
+0x1409371ba: lea      rax, [rcx + 0x460]
+0x1409371c1: mov      qword ptr [rsp + 0x18], rax
+0x1409371c6: lea      rdx, [rsp + 0x10]
+0x1409371cb: mov      qword ptr [rsp + 0x28], rdx
+0x1409371d0: mov      byte ptr [rcx + 0x470], 1
+0x1409371d7: mov      byte ptr [rsp + 0xf], 0
+0x1409371dc: mov      rax, qword ptr [rsp + 0x10]
+0x1409371e1: call     rax
+0x1409371e3: add      rsp, 0x30
+0x1409371e7: pop      rbp
+0x1409371e8: ret      
+0x1409371e9: call     0x1400435e0
+0x1409371ee: add      rsp, 0x30
+0x1409371f2: pop      rbp
+0x1409371f3: ret      
+0x1409371f4: mov      qword ptr [rsp + 8], rax
+0x1409371f9: call     0x14007f140
+0x1409371fe: mov      rax, qword ptr [rsp + 8]
+0x140937203: jmp      0x140937160
+0x140937208: int3     
+0x140937209: int3     
+0x14093720a: int3     
+0x14093720b: int3     
+0x14093720c: int3     
+0x14093720d: int3     
+0x14093720e: int3     
+0x14093720f: int3     
+0x140937210: int3     
+0x140937211: int3     
+0x140937212: int3     
+0x140937213: int3     
+0x140937214: int3     
+0x140937215: int3     
+0x140937216: int3     
+0x140937217: int3     
+0x140937218: int3     
+0x140937219: int3     
+0x14093721a: int3     
+0x14093721b: int3     
+0x14093721c: int3     
+0x14093721d: int3     
+0x14093721e: int3     
+0x14093721f: int3     

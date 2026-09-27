@@ -1,0 +1,65 @@
+0x140932640: cmp      rsp, qword ptr [r14 + 0x10]
+0x140932644: jbe      0x1409326a7   ; main.tryDecodeMultipleQRCodes+0x67
+0x140932646: push     rbp
+0x140932647: mov      rbp, rsp
+0x14093264a: sub      rsp, 0x38
+0x14093264e: mov      rdx, qword ptr [rip + 0x12de08b]
+0x140932655: nop      
+0x140932656: mov      qword ptr [rsp + 0x30], rdx
+0x14093265b: lea      rdx, [rsp + 0x30]
+0x140932660: mov      qword ptr [rsp + 0x28], rdx
+0x140932665: lea      rdx, [rsp + 0x28]
+0x14093266a: mov      qword ptr [rsp + 0x20], rdx
+0x14093266f: lea      rdx, [rsp + 0x20]
+0x140932674: mov      qword ptr [rsp + 0x18], rdx
+0x140932679: mov      rcx, rbx
+0x14093267c: mov      rbx, rax
+0x14093267f: lea      rax, [rsp + 0x18]
+0x140932684: call     0x140715a60   ; github.com/makiuchi-d/gozxing/multi/qrcode.QRCodeMultiReader.DecodeMultiple
+0x140932689: test     rdi, rdi
+0x14093268c: jne      0x140932693   ; main.tryDecodeMultipleQRCodes+0x53
+0x14093268e: test     rbx, rbx
+0x140932691: jne      0x1409326a1   ; main.tryDecodeMultipleQRCodes+0x61
+0x140932693: xor      eax, eax
+0x140932695: xor      ebx, ebx
+0x140932697: mov      rcx, rbx
+0x14093269a: add      rsp, 0x38
+0x14093269e: pop      rbp
+0x14093269f: nop      
+0x1409326a0: ret      
+0x1409326a1: add      rsp, 0x38
+0x1409326a5: pop      rbp
+0x1409326a6: ret      
+0x1409326a7: mov      qword ptr [rsp + 8], rax
+0x1409326ac: mov      qword ptr [rsp + 0x10], rbx
+0x1409326b1: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409326b6: mov      rax, qword ptr [rsp + 8]
+0x1409326bb: mov      rbx, qword ptr [rsp + 0x10]
+0x1409326c0: jmp      0x140932640   ; main.tryDecodeMultipleQRCodes
+0x1409326c5: int3     
+0x1409326c6: int3     
+0x1409326c7: int3     
+0x1409326c8: int3     
+0x1409326c9: int3     
+0x1409326ca: int3     
+0x1409326cb: int3     
+0x1409326cc: int3     
+0x1409326cd: int3     
+0x1409326ce: int3     
+0x1409326cf: int3     
+0x1409326d0: int3     
+0x1409326d1: int3     
+0x1409326d2: int3     
+0x1409326d3: int3     
+0x1409326d4: int3     
+0x1409326d5: int3     
+0x1409326d6: int3     
+0x1409326d7: int3     
+0x1409326d8: int3     
+0x1409326d9: int3     
+0x1409326da: int3     
+0x1409326db: int3     
+0x1409326dc: int3     
+0x1409326dd: int3     
+0x1409326de: int3     
+0x1409326df: int3     

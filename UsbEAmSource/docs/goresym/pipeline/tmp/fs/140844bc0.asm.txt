@@ -1,0 +1,51 @@
+0x140844bc0: lea      r12, [rsp - 0x6c8]
+0x140844bc8: cmp      r12, qword ptr [r14 + 0x10]
+0x140844bcc: jbe      0x140844c95
+0x140844bd2: push     rbp
+0x140844bd3: mov      rbp, rsp
+0x140844bd6: sub      rsp, 0x740
+0x140844bdd: mov      qword ptr [rsp + 0x828], rbx
+0x140844be5: mov      qword ptr [rsp + 0x820], rax
+0x140844bed: lea      rsi, [rsp + 0x750]
+0x140844bf5: mov      rdx, rdi
+0x140844bf8: mov      rdi, rsp
+0x140844bfb: nop      dword ptr [rax + rax]
+0x140844c00: mov      qword ptr [rsp - 0x10], rbp
+0x140844c05: lea      rbp, [rsp - 0x10]
+0x140844c0a: call     0x140081a2a
+0x140844c0f: mov      rbp, qword ptr [rbp]
+0x140844c13: mov      rdi, rdx
+0x140844c16: call     0x14083ee60
+0x140844c1b: mov      rdx, qword ptr [rsp + 0xd0]
+0x140844c23: mov      qword ptr [rsp + 0x418], rdx
+0x140844c2b: lea      rdi, [rsp + 0x420]
+0x140844c33: lea      rsi, [rsp + 0xd8]
+0x140844c3b: nop      dword ptr [rax + rax]
+0x140844c40: mov      qword ptr [rsp - 0x10], rbp
+0x140844c45: lea      rbp, [rsp - 0x10]
+0x140844c4a: call     0x140081824
+0x140844c4f: mov      rbp, qword ptr [rbp]
+0x140844c53: mov      rdx, qword ptr [rsp + 0x418]
+0x140844c5b: mov      qword ptr [rsp], rdx
+0x140844c5f: lea      rdi, [rsp + 8]
+0x140844c64: lea      rsi, [rsp + 0x420]
+0x140844c6c: mov      qword ptr [rsp - 0x10], rbp
+0x140844c71: lea      rbp, [rsp - 0x10]
+0x140844c76: call     0x140081824
+0x140844c7b: mov      rbp, qword ptr [rbp]
+0x140844c7f: mov      rax, qword ptr [rsp + 0x820]
+0x140844c87: call     0x140844ce0
+0x140844c8c: add      rsp, 0x740
+0x140844c93: pop      rbp
+0x140844c94: ret      
+0x140844c95: mov      qword ptr [rsp + 0xd8], rax
+0x140844c9d: mov      qword ptr [rsp + 0xe0], rbx
+0x140844ca5: mov      qword ptr [rsp + 0xe8], rcx
+0x140844cad: mov      qword ptr [rsp + 0xf0], rdi
+0x140844cb5: call     0x14007f140
+0x140844cba: mov      rax, qword ptr [rsp + 0xd8]
+0x140844cc2: mov      rbx, qword ptr [rsp + 0xe0]
+0x140844cca: mov      rcx, qword ptr [rsp + 0xe8]
+0x140844cd2: mov      rdi, qword ptr [rsp + 0xf0]
+0x140844cda: jmp      0x140844bc0
+0x140844cdf: int3     

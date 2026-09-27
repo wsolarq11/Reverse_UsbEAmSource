@@ -1,0 +1,43 @@
+0x1409f6100: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409f6104: jbe      0x1409f613b   ; main.initQRCodeClipboard.func1+0x3b
+0x1409f6106: push     rbp
+0x1409f6107: mov      rbp, rsp
+0x1409f610a: call     0x140716e80   ; golang.design/x/clipboard.Init
+0x1409f610f: mov      qword ptr [rip + 0x121a79a], rax
+0x1409f6116: cmp      dword ptr [rip + 0x1265233], 0
+0x1409f611d: je       0x1409f6132   ; main.initQRCodeClipboard.func1+0x32
+0x1409f611f: mov      rax, qword ptr [rip + 0x121a792]
+0x1409f6126: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409f612b: mov      qword ptr [r11], rbx
+0x1409f612e: mov      qword ptr [r11 + 8], rax
+0x1409f6132: mov      qword ptr [rip + 0x121a77f], rbx
+0x1409f6139: pop      rbp
+0x1409f613a: ret      
+0x1409f613b: nop      dword ptr [rax + rax]
+0x1409f6140: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409f6145: jmp      0x1409f6100   ; main.initQRCodeClipboard.func1
+0x1409f6147: int3     
+0x1409f6148: int3     
+0x1409f6149: int3     
+0x1409f614a: int3     
+0x1409f614b: int3     
+0x1409f614c: int3     
+0x1409f614d: int3     
+0x1409f614e: int3     
+0x1409f614f: int3     
+0x1409f6150: int3     
+0x1409f6151: int3     
+0x1409f6152: int3     
+0x1409f6153: int3     
+0x1409f6154: int3     
+0x1409f6155: int3     
+0x1409f6156: int3     
+0x1409f6157: int3     
+0x1409f6158: int3     
+0x1409f6159: int3     
+0x1409f615a: int3     
+0x1409f615b: int3     
+0x1409f615c: int3     
+0x1409f615d: int3     
+0x1409f615e: int3     
+0x1409f615f: int3     

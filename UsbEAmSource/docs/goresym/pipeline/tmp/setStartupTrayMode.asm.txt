@@ -1,0 +1,69 @@
+0x140772760: cmp      rsp, qword ptr [r14 + 0x10]
+0x140772764: jbe      0x1407727e3    ; main.BootstrapService.setStartupTrayMode+0x83
+0x140772766: push     rbp
+0x140772767: mov      rbp, rsp
+0x14077276a: sub      rsp, 0x20
+0x14077276e: nop      
+0x14077276f: lea      rcx, [rax + 0x540]
+0x140772776: mov      rdx, rax
+0x140772779: xor      eax, eax
+0x14077277b: mov      esi, 1
+0x140772780: lock cmpxchg dword ptr [rdx + 0x540], esi
+0x140772788: sete     sil
+0x14077278c: test     sil, sil
+0x14077278f: jne      0x1407727b6    ; main.BootstrapService.setStartupTrayMode+0x56
+0x140772791: mov      qword ptr [rsp + 0x18], rdx
+0x140772796: mov      byte ptr [rsp + 0x38], bl
+0x14077279a: mov      qword ptr [rsp + 0x10], rcx
+0x14077279f: mov      rax, rcx
+0x1407727a2: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x1407727a7: mov      rcx, qword ptr [rsp + 0x10]
+0x1407727ac: mov      rdx, qword ptr [rsp + 0x18]
+0x1407727b1: movzx    ebx, byte ptr [rsp + 0x38]
+0x1407727b6: mov      byte ptr [rdx + 0x449], bl
+0x1407727bc: mov      byte ptr [rdx + 0x448], bl
+0x1407727c2: nop      
+0x1407727c3: nop      
+0x1407727c4: mov      ebx, 0xffffffff
+0x1407727c9: lock xadd dword ptr [rdx + 0x540], ebx
+0x1407727d1: dec      ebx
+0x1407727d3: je       0x1407727dd    ; main.BootstrapService.setStartupTrayMode+0x7d
+0x1407727d5: mov      rax, rcx
+0x1407727d8: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x1407727dd: add      rsp, 0x20
+0x1407727e1: pop      rbp
+0x1407727e2: ret      
+0x1407727e3: mov      qword ptr [rsp + 8], rax
+0x1407727e8: mov      byte ptr [rsp + 0x10], bl
+0x1407727ec: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407727f1: mov      rax, qword ptr [rsp + 8]
+0x1407727f6: movzx    ebx, byte ptr [rsp + 0x10]
+0x1407727fb: nop      dword ptr [rax + rax]
+0x140772800: jmp      0x140772760    ; main.BootstrapService.setStartupTrayMode
+0x140772805: int3     
+0x140772806: int3     
+0x140772807: int3     
+0x140772808: int3     
+0x140772809: int3     
+0x14077280a: int3     
+0x14077280b: int3     
+0x14077280c: int3     
+0x14077280d: int3     
+0x14077280e: int3     
+0x14077280f: int3     
+0x140772810: int3     
+0x140772811: int3     
+0x140772812: int3     
+0x140772813: int3     
+0x140772814: int3     
+0x140772815: int3     
+0x140772816: int3     
+0x140772817: int3     
+0x140772818: int3     
+0x140772819: int3     
+0x14077281a: int3     
+0x14077281b: int3     
+0x14077281c: int3     
+0x14077281d: int3     
+0x14077281e: int3     
+0x14077281f: int3     

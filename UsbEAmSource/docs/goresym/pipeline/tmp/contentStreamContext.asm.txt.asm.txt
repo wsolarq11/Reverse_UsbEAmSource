@@ -1,0 +1,95 @@
+0x1407d5d80: lea      r12, [rsp - 0x4d0]
+0x1407d5d88: cmp      r12, qword ptr [r14 + 0x10]
+0x1407d5d8c: jbe      0x1407d7895   ; main.matchFileLocatorContentStreamContext+0x1b15
+0x1407d5d92: push     rbp
+0x1407d5d93: mov      rbp, rsp
+0x1407d5d96: sub      rsp, 0x548
+0x1407d5d9d: mov      qword ptr [rsp + 0x5b0], rax
+0x1407d5da5: mov      qword ptr [rsp + 0x5b8], rbx
+0x1407d5dad: movups   xmmword ptr [rsp + 0x558], xmm15
+0x1407d5db6: mov      rdx, rdi
+0x1407d5db9: lea      rdi, [rsp + 0x560]
+0x1407d5dc1: lea      rdi, [rdi - 0x30]
+0x1407d5dc5: mov      qword ptr [rsp - 0x10], rbp
+0x1407d5dca: lea      rbp, [rsp - 0x10]
+0x1407d5dcf: call     0x140081730   ; runtime.duffzero+0x150
+0x1407d5dd4: mov      rbp, qword ptr [rbp]
+0x1407d5dd8: nop      dword ptr [rax + rax]
+0x1407d5de0: test     rcx, rcx
+0x1407d5de3: je       0x1407d692c   ; main.matchFileLocatorContentStreamContext+0xbac
+0x1407d5de9: test     rdx, rdx
+0x1407d5dec: jle      0x1407d692c   ; main.matchFileLocatorContentStreamContext+0xbac
+0x1407d5df2: mov      qword ptr [rsp + 0x5c0], rcx
+0x1407d5dfa: mov      qword ptr [rsp + 0x268], rdx
+0x1407d5e02: mov      qword ptr [rsp + 0x5d0], rsi
+0x1407d5e0a: mov      qword ptr [rsp + 0x5b8], rbx
+0x1407d5e12: mov      qword ptr [rsp + 0x5b0], rax
+0x1407d5e1a: nop      word ptr [rax + rax]
+0x1407d5e20: test     rsi, rsi
+0x1407d5e23: je       0x1407d5eac   ; main.matchFileLocatorContentStreamContext+0x12c
+0x1407d5e29: mov      rdi, qword ptr [rsi + 0x28]
+0x1407d5e2d: mov      r8, qword ptr [rsi + 0x20]
+0x1407d5e31: cmp      rdi, 7
+0x1407d5e35: jne      0x1407d5e52   ; main.matchFileLocatorContentStreamContext+0xd2
+0x1407d5e37: cmp      dword ptr [r8], 0x6c6f6f62
+0x1407d5e3e: nop      
+0x1407d5e40: jne      0x1407d5e52   ; main.matchFileLocatorContentStreamContext+0xd2
+0x1407d5e42: cmp      word ptr [r8 + 4], 0x6165
+0x1407d5e49: jne      0x1407d5e52   ; main.matchFileLocatorContentStreamContext+0xd2
+0x1407d5e4b: cmp      byte ptr [r8 + 6], 0x6e
+0x1407d5e50: je       0x1407d5e71   ; main.matchFileLocatorContentStreamContext+0xf1
+0x1407d5e52: cmp      rdi, 0xc
+0x1407d5e56: jne      0x1407d5eac   ; main.matchFileLocatorContentStreamContext+0x12c
+0x1407d5e58: movabs   rdi, 0x526e61656c6f6f62
+0x1407d5e62: cmp      qword ptr [r8], rdi
+0x1407d5e65: jne      0x1407d5eac   ; main.matchFileLocatorContentStreamContext+0x12c
+0x1407d5e67: cmp      dword ptr [r8 + 8], 0x78656765
+0x1407d5e6f: jne      0x1407d5eac   ; main.matchFileLocatorContentStreamContext+0x12c
+0x1407d5e71: cmp      qword ptr [rsi + 0x40], 4
+0x1407d5e76: jne      0x1407d5eac   ; main.matchFileLocatorContentStreamContext+0x12c
+0x1407d5e78: mov      rdi, qword ptr [rsi + 0x38]
+0x1407d5e7c: cmp      dword ptr [rdi], 0x656c6966
+0x1407d5e82: jne      0x1407d5eac   ; main.matchFileLocatorContentStreamContext+0x12c
+0x1407d5e84: lea      rcx, [rip + 0x489813]
+0x1407d5e8b: mov      qword ptr [rsp + 0x590], rcx
+0x1407d5e93: mov      qword ptr [rsp + 0x598], 0x15
+0x1407d5e9f: xor      eax, eax
+0x1407d5ea1: xor      ebx, ebx
+0x1407d5ea3: add      rsp, 0x548
+0x1407d5eaa: pop      rbp
+0x1407d5eab: ret      
+0x1407d5eac: lea      rax, [rip + 0x313fcd]
+0x1407d5eb3: mov      ebx, 0x1000
+0x1407d5eb8: mov      rcx, rbx
+0x1407d5ebb: nop      dword ptr [rax + rax]
+0x1407d5ec0: call     0x14007ac40   ; runtime.makeslice
+0x1407d5ec5: mov      qword ptr [rsp + 0x468], rax
+0x1407d5ecd: mov      rbx, rax
+0x1407d5ed0: mov      ecx, 0x1000
+0x1407d5ed5: mov      rdi, rcx
+0x1407d5ed8: xor      esi, esi
+0x1407d5eda: mov      rax, qword ptr [rsp + 0x5c0]
+0x1407d5ee2: call     0x140127c80   ; os.File.ReadAt
+0x1407d5ee7: mov      qword ptr [rsp + 0x1b0], rax
+0x1407d5eef: test     rbx, rbx
+0x1407d5ef2: je       0x1407d5f40   ; main.matchFileLocatorContentStreamContext+0x1c0
+0x1407d5ef4: mov      qword ptr [rsp + 0x2e8], rcx
+0x1407d5efc: mov      qword ptr [rsp + 0x1b8], rbx
+0x1407d5f04: mov      rdx, qword ptr [rip + 0x13ee695]
+0x1407d5f0b: mov      rdi, qword ptr [rip + 0x13ee696]
+0x1407d5f12: mov      rax, rbx
+0x1407d5f15: mov      rbx, rcx
+0x1407d5f18: mov      rcx, rdx
+0x1407d5f1b: nop      dword ptr [rax + rax]
+0x1407d5f20: call     0x1400904a0   ; errors.Is
+0x1407d5f25: test     al, al
+0x1407d5f27: je       0x1407d68db   ; main.matchFileLocatorContentStreamContext+0xb5b
+0x1407d5f2d: mov      rax, qword ptr [rsp + 0x1b0]
+0x1407d5f35: nop      word ptr [rax + rax]
+0x1407d5f3e: nop      
+0x1407d5f40: cmp      rax, 0x1000
+0x1407d5f46: ja       0x1407d7887   ; main.matchFileLocatorContentStreamContext+0x1b07
+0x1407d5f4c: mov      rbx, rax
+0x1407d5f4f: mov      ecx, 0x1000
+0x1407d5f54: mov      rax, qword ptr [rsp + 0x468]
+0x1407d5f5c: nop      dword ptr [rax]

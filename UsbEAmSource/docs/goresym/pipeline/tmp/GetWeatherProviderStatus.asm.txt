@@ -1,0 +1,29 @@
+0x1407a9ce0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a9ce4: jbe      0x1407a9d01    ; main.BootstrapService.GetWeatherProviderStatus+0x21
+0x1407a9ce6: push     rbp
+0x1407a9ce7: mov      rbp, rsp
+0x1407a9cea: sub      rsp, 8
+0x1407a9cee: mov      rax, qword ptr [rax + 0x440]
+0x1407a9cf5: call     0x1407b93e0    ; main.desktopWidgetService.GetWeatherProviderStatus
+0x1407a9cfa: add      rsp, 8
+0x1407a9cfe: pop      rbp
+0x1407a9cff: nop      
+0x1407a9d00: ret      
+0x1407a9d01: mov      qword ptr [rsp + 8], rax
+0x1407a9d06: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a9d0b: mov      rax, qword ptr [rsp + 8]
+0x1407a9d10: jmp      0x1407a9ce0    ; main.BootstrapService.GetWeatherProviderStatus
+0x1407a9d12: int3     
+0x1407a9d13: int3     
+0x1407a9d14: int3     
+0x1407a9d15: int3     
+0x1407a9d16: int3     
+0x1407a9d17: int3     
+0x1407a9d18: int3     
+0x1407a9d19: int3     
+0x1407a9d1a: int3     
+0x1407a9d1b: int3     
+0x1407a9d1c: int3     
+0x1407a9d1d: int3     
+0x1407a9d1e: int3     
+0x1407a9d1f: int3     

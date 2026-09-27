@@ -1,0 +1,70 @@
+0x14097a460: cmp      rsp, qword ptr [r14 + 0x10]
+0x14097a464: jbe      0x14097a4ec   ; main.screenshotD3D11Device.release+0x8c
+0x14097a46a: push     rbp
+0x14097a46b: mov      rbp, rsp
+0x14097a46e: sub      rsp, 8
+0x14097a472: test     rax, rax
+0x14097a475: je       0x14097a4e6   ; main.screenshotD3D11Device.release+0x86
+0x14097a477: mov      qword ptr [rsp + 0x18], rax
+0x14097a47c: mov      rax, qword ptr [rax + 8]
+0x14097a480: call     0x14097df80   ; main.screenshotCOMRelease
+0x14097a485: cmp      dword ptr [rip + 0x12e0ec4], 0
+0x14097a48c: jne      0x14097a495   ; main.screenshotD3D11Device.release+0x35
+0x14097a48e: mov      rcx, qword ptr [rsp + 0x18]
+0x14097a493: jmp      0x14097a4a8   ; main.screenshotD3D11Device.release+0x48
+0x14097a495: mov      rcx, qword ptr [rsp + 0x18]
+0x14097a49a: mov      rdx, qword ptr [rcx + 8]
+0x14097a49e: nop      
+0x14097a4a0: call     0x140081040   ; runtime.gcWriteBarrier1
+0x14097a4a5: mov      qword ptr [r11], rdx
+0x14097a4a8: mov      qword ptr [rcx + 8], 0
+0x14097a4b0: mov      rax, qword ptr [rcx]
+0x14097a4b3: call     0x14097df80   ; main.screenshotCOMRelease
+0x14097a4b8: cmp      dword ptr [rip + 0x12e0e91], 0
+0x14097a4bf: nop      
+0x14097a4c0: jne      0x14097a4c9   ; main.screenshotD3D11Device.release+0x69
+0x14097a4c2: mov      rax, qword ptr [rsp + 0x18]
+0x14097a4c7: jmp      0x14097a4d9   ; main.screenshotD3D11Device.release+0x79
+0x14097a4c9: mov      rax, qword ptr [rsp + 0x18]
+0x14097a4ce: mov      rcx, qword ptr [rax]
+0x14097a4d1: call     0x140081040   ; runtime.gcWriteBarrier1
+0x14097a4d6: mov      qword ptr [r11], rcx
+0x14097a4d9: mov      qword ptr [rax], 0
+0x14097a4e0: add      rsp, 8
+0x14097a4e4: pop      rbp
+0x14097a4e5: ret      
+0x14097a4e6: add      rsp, 8
+0x14097a4ea: pop      rbp
+0x14097a4eb: ret      
+0x14097a4ec: mov      qword ptr [rsp + 8], rax
+0x14097a4f1: call     0x14007f140   ; runtime.morestack_noctxt
+0x14097a4f6: mov      rax, qword ptr [rsp + 8]
+0x14097a4fb: nop      dword ptr [rax + rax]
+0x14097a500: jmp      0x14097a460   ; main.screenshotD3D11Device.release
+0x14097a505: int3     
+0x14097a506: int3     
+0x14097a507: int3     
+0x14097a508: int3     
+0x14097a509: int3     
+0x14097a50a: int3     
+0x14097a50b: int3     
+0x14097a50c: int3     
+0x14097a50d: int3     
+0x14097a50e: int3     
+0x14097a50f: int3     
+0x14097a510: int3     
+0x14097a511: int3     
+0x14097a512: int3     
+0x14097a513: int3     
+0x14097a514: int3     
+0x14097a515: int3     
+0x14097a516: int3     
+0x14097a517: int3     
+0x14097a518: int3     
+0x14097a519: int3     
+0x14097a51a: int3     
+0x14097a51b: int3     
+0x14097a51c: int3     
+0x14097a51d: int3     
+0x14097a51e: int3     
+0x14097a51f: int3     

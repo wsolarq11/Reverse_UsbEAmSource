@@ -1,0 +1,108 @@
+0x140796aa0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140796aa4: jbe      0x140796bd0   ; main.BootstrapService.beginLauncherScreenshotCapture+0x130
+0x140796aaa: push     rbp
+0x140796aab: mov      rbp, rsp
+0x140796aae: sub      rsp, 0x50
+0x140796ab2: mov      qword ptr [rsp + 0x68], rbx
+0x140796ab7: mov      qword ptr [rsp + 0x70], rcx
+0x140796abc: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140796ac2: movups   xmmword ptr [rsp + 0x30], xmm15
+0x140796ac8: movups   xmmword ptr [rsp + 0x40], xmm15
+0x140796ace: test     dil, dil
+0x140796ad1: je       0x140796baa   ; main.BootstrapService.beginLauncherScreenshotCapture+0x10a
+0x140796ad7: nop      word ptr [rax + rax]
+0x140796ae0: test     rbx, rbx
+0x140796ae3: je       0x140796baa   ; main.BootstrapService.beginLauncherScreenshotCapture+0x10a
+0x140796ae9: mov      qword ptr [rsp + 0x70], rcx
+0x140796aee: mov      qword ptr [rsp + 0x68], rbx
+0x140796af3: mov      rdx, qword ptr [rbx + 0x48]
+0x140796af7: mov      rax, rcx
+0x140796afa: call     rdx
+0x140796afc: nop      dword ptr [rax]
+0x140796b00: test     al, al
+0x140796b02: je       0x140796baa   ; main.BootstrapService.beginLauncherScreenshotCapture+0x10a
+0x140796b08: mov      rcx, qword ptr [rsp + 0x68]
+0x140796b0d: mov      rcx, qword ptr [rcx + 0x50]
+0x140796b11: mov      rax, qword ptr [rsp + 0x70]
+0x140796b16: call     rcx
+0x140796b18: mov      qword ptr [rsp + 0x20], rax
+0x140796b1d: mov      qword ptr [rsp + 0x18], rbx
+0x140796b22: mov      rcx, qword ptr [rsp + 0x68]
+0x140796b27: mov      rcx, qword ptr [rcx + 0x60]
+0x140796b2b: mov      rax, qword ptr [rsp + 0x70]
+0x140796b30: mov      ebx, 1
+0x140796b35: call     rcx
+0x140796b37: mov      rcx, qword ptr [rsp + 0x68]
+0x140796b3c: mov      rcx, qword ptr [rcx + 0x68]
+0x140796b40: mov      rbx, qword ptr [rsp + 0x20]
+0x140796b45: add      rbx, -0x186a0
+0x140796b4c: mov      rax, qword ptr [rsp + 0x70]
+0x140796b51: mov      rdx, rcx
+0x140796b54: mov      rcx, qword ptr [rsp + 0x18]
+0x140796b59: call     rdx
+0x140796b5b: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140796b61: movups   xmmword ptr [rsp + 0x30], xmm15
+0x140796b67: movups   xmmword ptr [rsp + 0x40], xmm15
+0x140796b6d: mov      rcx, qword ptr [rsp + 0x68]
+0x140796b72: mov      qword ptr [rsp + 0x28], rcx
+0x140796b77: mov      rbx, qword ptr [rsp + 0x70]
+0x140796b7c: mov      qword ptr [rsp + 0x30], rbx
+0x140796b81: mov      byte ptr [rsp + 0x38], 1
+0x140796b86: mov      rdi, qword ptr [rsp + 0x20]
+0x140796b8b: mov      qword ptr [rsp + 0x40], rdi
+0x140796b90: mov      rsi, qword ptr [rsp + 0x18]
+0x140796b95: mov      qword ptr [rsp + 0x48], rsi
+0x140796b9a: mov      rax, qword ptr [rsp + 0x28]
+0x140796b9f: mov      ecx, 1
+0x140796ba4: add      rsp, 0x50
+0x140796ba8: pop      rbp
+0x140796ba9: ret      
+0x140796baa: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140796bb0: movups   xmmword ptr [rsp + 0x30], xmm15
+0x140796bb6: movups   xmmword ptr [rsp + 0x40], xmm15
+0x140796bbc: mov      rbx, qword ptr [rsp + 0x30]
+0x140796bc1: xor      eax, eax
+0x140796bc3: xor      ecx, ecx
+0x140796bc5: xor      edi, edi
+0x140796bc7: mov      rsi, rdi
+0x140796bca: add      rsp, 0x50
+0x140796bce: pop      rbp
+0x140796bcf: ret      
+0x140796bd0: mov      qword ptr [rsp + 8], rax
+0x140796bd5: mov      qword ptr [rsp + 0x10], rbx
+0x140796bda: mov      qword ptr [rsp + 0x18], rcx
+0x140796bdf: mov      byte ptr [rsp + 0x20], dil
+0x140796be4: call     0x14007f140   ; runtime.morestack_noctxt
+0x140796be9: mov      rax, qword ptr [rsp + 8]
+0x140796bee: mov      rbx, qword ptr [rsp + 0x10]
+0x140796bf3: mov      rcx, qword ptr [rsp + 0x18]
+0x140796bf8: movzx    edi, byte ptr [rsp + 0x20]
+0x140796bfd: nop      dword ptr [rax]
+0x140796c00: jmp      0x140796aa0   ; main.BootstrapService.beginLauncherScreenshotCapture
+0x140796c05: int3     
+0x140796c06: int3     
+0x140796c07: int3     
+0x140796c08: int3     
+0x140796c09: int3     
+0x140796c0a: int3     
+0x140796c0b: int3     
+0x140796c0c: int3     
+0x140796c0d: int3     
+0x140796c0e: int3     
+0x140796c0f: int3     
+0x140796c10: int3     
+0x140796c11: int3     
+0x140796c12: int3     
+0x140796c13: int3     
+0x140796c14: int3     
+0x140796c15: int3     
+0x140796c16: int3     
+0x140796c17: int3     
+0x140796c18: int3     
+0x140796c19: int3     
+0x140796c1a: int3     
+0x140796c1b: int3     
+0x140796c1c: int3     
+0x140796c1d: int3     
+0x140796c1e: int3     
+0x140796c1f: int3     

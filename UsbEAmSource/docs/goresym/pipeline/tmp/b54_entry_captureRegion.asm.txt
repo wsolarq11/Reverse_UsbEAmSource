@@ -1,0 +1,234 @@
+0x140978ea0: lea      r12, [rsp - 0x30]
+0x140978ea5: cmp      r12, qword ptr [r14 + 0x10]
+0x140978ea9: jbe      0x1409792a2   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0x402
+0x140978eaf: push     rbp
+0x140978eb0: mov      rbp, rsp
+0x140978eb3: sub      rsp, 0xa8
+0x140978eba: movq     qword ptr [rsp + 0xa0], xmm15
+0x140978ec4: mov      byte ptr [rsp + 0x47], 0
+0x140978ec9: mov      qword ptr [rsp + 0xc0], rbx
+0x140978ed1: mov      qword ptr [rsp + 0xc8], rcx
+0x140978ed9: mov      qword ptr [rsp + 0xd0], rdi
+0x140978ee1: mov      qword ptr [rsp + 0xd8], rsi
+0x140978ee9: mov      qword ptr [rsp + 0x60], 0
+0x140978ef2: movups   xmmword ptr [rsp + 0x50], xmm15
+0x140978ef8: nop      dword ptr [rax + rax]
+0x140978f00: test     rax, rax
+0x140978f03: je       0x140979231   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0x391
+0x140978f09: mov      qword ptr [rsp + 0xb8], rax
+0x140978f11: mov      byte ptr [rsp + 0xe0], r8b
+0x140978f19: nop      
+0x140978f1a: nop      
+0x140978f1b: mov      rcx, rax
+0x140978f1e: xor      eax, eax
+0x140978f20: mov      edx, 1
+0x140978f25: lock cmpxchg dword ptr [rcx], edx
+0x140978f29: sete     dl
+0x140978f2c: test     dl, dl
+0x140978f2e: jne      0x140978f49   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0xa9
+0x140978f30: mov      rax, rcx
+0x140978f33: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x140978f38: mov      rcx, qword ptr [rsp + 0xb8]
+0x140978f40: movzx    r8d, byte ptr [rsp + 0xe0]
+0x140978f49: lea      rdx, [rip + 0x3b0]
+0x140978f50: mov      qword ptr [rsp + 0x70], rdx
+0x140978f55: mov      qword ptr [rsp + 0x78], rcx
+0x140978f5a: lea      rdx, [rsp + 0x70]
+0x140978f5f: mov      qword ptr [rsp + 0xa0], rdx
+0x140978f67: mov      byte ptr [rsp + 0x47], 1
+0x140978f6c: cmp      byte ptr [rcx + 0x70], 0
+0x140978f70: jne      0x1409791cf   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0x32f
+0x140978f76: cmp      qword ptr [rcx + 0x28], 0
+0x140978f7b: nop      dword ptr [rax + rax]
+0x140978f80: je       0x1409791cf   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0x32f
+0x140978f86: cmp      qword ptr [rcx + 0x30], 0
+0x140978f8b: je       0x1409791cf   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0x32f
+0x140978f91: call     0x140104fc0   ; time.Now
+0x140978f96: mov      rdx, qword ptr [rsp + 0xb8]
+0x140978f9e: mov      qword ptr [rdx + 0x58], rax
+0x140978fa2: mov      qword ptr [rdx + 0x60], rbx
+0x140978fa6: cmp      dword ptr [rip + 0x12e23a3], 0
+0x140978fad: je       0x140978fbf   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0x11f
+0x140978faf: mov      r9, qword ptr [rdx + 0x68]
+0x140978fb3: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140978fb8: mov      qword ptr [r11], rcx
+0x140978fbb: mov      qword ptr [r11 + 8], r9
+0x140978fbf: mov      qword ptr [rdx + 0x68], rcx
+0x140978fc3: mov      rcx, qword ptr [rsp + 0xc0]
+0x140978fcb: mov      rdi, qword ptr [rsp + 0xc8]
+0x140978fd3: mov      rsi, qword ptr [rsp + 0xd0]
+0x140978fdb: mov      r8, qword ptr [rsp + 0xd8]
+0x140978fe3: mov      rax, qword ptr [rdx + 0x28]
+0x140978fe7: mov      rbx, qword ptr [rdx + 0x30]
+0x140978feb: movss    xmm0, dword ptr [rdx + 0x38]
+0x140978ff0: movss    xmm1, dword ptr [rdx + 0x3c]
+0x140978ff5: movss    xmm2, dword ptr [rdx + 0x40]
+0x140978ffa: movss    xmm3, dword ptr [rdx + 0x44]
+0x140978fff: nop      
+0x140979000: call     0x14097a920   ; main.captureScreenshotDXGIFrameRegion
+0x140979005: test     rbx, rbx
+0x140979008: je       0x14097919a   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0x2fa
+0x14097900e: mov      qword ptr [rsp + 0x68], rcx
+0x140979013: mov      qword ptr [rsp + 0x48], rbx
+0x140979018: mov      rdx, qword ptr [rip + 0x124ad71]
+0x14097901f: mov      rdi, qword ptr [rip + 0x124ad72]
+0x140979026: mov      rax, rbx
+0x140979029: mov      rbx, rcx
+0x14097902c: mov      rcx, rdx
+0x14097902f: call     0x1400904a0   ; errors.Is
+0x140979034: test     al, al
+0x140979036: je       0x140979151   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0x2b1
+0x14097903c: mov      rcx, qword ptr [rsp + 0xb8]
+0x140979044: cmp      qword ptr [rcx + 0x48], 0
+0x140979049: je       0x140979151   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0x2b1
+0x14097904f: movzx    esi, byte ptr [rsp + 0xe0]
+0x140979057: nop      word ptr [rax + rax]
+0x140979060: test     sil, sil
+0x140979063: jne      0x140979151   ; main.screenshotDXGIOutputCaptureEntry.captureRegion+0x2b1
+0x140979069: movups   xmmword ptr [rsp + 0x80], xmm15
+0x140979072: movups   xmmword ptr [rsp + 0x90], xmm15
+0x14097907b: mov      rax, qword ptr [rcx + 0x18]
+0x14097907f: mov      rbx, qword ptr [rcx + 0x20]
+0x140979083: call     0x140076660   ; runtime.convTstring
+0x140979088: lea      rcx, [rip + 0x170d71]
+0x14097908f: mov      qword ptr [rsp + 0x80], rcx
+0x140979097: mov      qword ptr [rsp + 0x88], rax
+0x14097909f: lea      rax, [rip + 0x28a37a]
+0x1409790a6: lea      rbx, [rsp + 0xc0]
+0x1409790ae: call     0x1400172c0   ; runtime.convTnoptr
+0x1409790b3: lea      rcx, [rip + 0x28a366]
+0x1409790ba: mov      qword ptr [rsp + 0x90], rcx
+0x1409790c2: mov      qword ptr [rsp + 0x98], rax
+0x1409790ca: lea      rax, [rip + 0x318b42]
+0x1409790d1: mov      ebx, 0x4c
+0x1409790d6: lea      rcx, [rsp + 0x80]
+0x1409790de: mov      edi, 2
+0x1409790e3: mov      rsi, rdi
+0x1409790e6: call     0x140971440   ; main.screenshotHDRCaptureDebugLog
+0x1409790eb: mov      rbx, qword ptr [rsp + 0xc0]
+0x1409790f3: mov      rcx, qword ptr [rsp + 0xc8]
+0x1409790fb: mov      rdi, qword ptr [rsp + 0xd0]
+0x140979103: mov      rsi, qword ptr [rsp + 0xd8]
+0x14097910b: mov      rdx, qword ptr [rsp + 0xb8]
+0x140979113: mov      rax, qword ptr [rdx + 0x48]
+0x140979117: call     0x1409573a0   ; main.cloneRGBARegion
+0x14097911c: mov      qword ptr [rsp + 0x60], rax
+0x140979121: movups   xmmword ptr [rsp + 0x50], xmm15
+0x140979127: mov      byte ptr [rsp + 0x47], 0
+0x14097912c: mov      rdx, qword ptr [rsp + 0xa0]
+0x140979134: mov      rcx, qword ptr [rdx]
+0x140979137: call     rcx
+0x140979139: mov      rbx, qword ptr [rsp + 0x50]
+0x14097913e: mov      rax, qword ptr [rsp + 0x60]
+0x140979143: mov      rcx, qword ptr [rsp + 0x58]
+0x140979148: add      rsp, 0xa8
+0x14097914f: pop      rbp
+0x140979150: ret      
+0x140979151: mov      qword ptr [rsp + 0x60], 0
+0x14097915a: mov      rax, qword ptr [rsp + 0x48]
+0x14097915f: mov      qword ptr [rsp + 0x50], rax
+0x140979164: mov      rax, qword ptr [rsp + 0x68]
+0x140979169: mov      qword ptr [rsp + 0x58], rax
+0x14097916e: mov      byte ptr [rsp + 0x47], 0
+0x140979173: mov      rdx, qword ptr [rsp + 0xa0]
+0x14097917b: mov      rax, qword ptr [rdx]
+0x14097917e: nop      
+0x140979180: call     rax
+0x140979182: mov      rbx, qword ptr [rsp + 0x50]
+0x140979187: mov      rax, qword ptr [rsp + 0x60]
+0x14097918c: mov      rcx, qword ptr [rsp + 0x58]
+0x140979191: add      rsp, 0xa8
+0x140979198: pop      rbp
+0x140979199: ret      
+0x14097919a: mov      qword ptr [rsp + 0x60], rax
+0x14097919f: movups   xmmword ptr [rsp + 0x50], xmm15
+0x1409791a5: mov      byte ptr [rsp + 0x47], 0
+0x1409791aa: mov      rdx, qword ptr [rsp + 0xa0]
+0x1409791b2: mov      rax, qword ptr [rdx]
+0x1409791b5: call     rax
+0x1409791b7: mov      rbx, qword ptr [rsp + 0x50]
+0x1409791bc: mov      rax, qword ptr [rsp + 0x60]
+0x1409791c1: mov      rcx, qword ptr [rsp + 0x58]
+0x1409791c6: add      rsp, 0xa8
+0x1409791cd: pop      rbp
+0x1409791ce: ret      
+0x1409791cf: lea      rax, [rip + 0x1db1aa]
+0x1409791d6: call     0x14001ae20   ; runtime.newobject
+0x1409791db: mov      qword ptr [rax + 8], 0x23
+0x1409791e3: lea      rcx, [rip + 0x2fe1a5]
+0x1409791ea: mov      qword ptr [rax], rcx
+0x1409791ed: mov      qword ptr [rsp + 0x60], 0
+0x1409791f6: lea      rcx, [rip + 0x859f03]
+0x1409791fd: mov      qword ptr [rsp + 0x50], rcx
+0x140979202: mov      qword ptr [rsp + 0x58], rax
+0x140979207: mov      byte ptr [rsp + 0x47], 0
+0x14097920c: mov      rdx, qword ptr [rsp + 0xa0]
+0x140979214: mov      rcx, qword ptr [rdx]
+0x140979217: call     rcx
+0x140979219: mov      rbx, qword ptr [rsp + 0x50]
+0x14097921e: mov      rax, qword ptr [rsp + 0x60]
+0x140979223: mov      rcx, qword ptr [rsp + 0x58]
+0x140979228: add      rsp, 0xa8
+0x14097922f: pop      rbp
+0x140979230: ret      
+0x140979231: lea      rax, [rip + 0x1db148]
+0x140979238: call     0x14001ae20   ; runtime.newobject
+0x14097923d: mov      qword ptr [rax + 8], 0x20
+0x140979245: lea      rcx, [rip + 0x2f953a]
+0x14097924c: mov      qword ptr [rax], rcx
+0x14097924f: mov      qword ptr [rsp + 0x60], 0
+0x140979258: lea      rcx, [rip + 0x859ea1]
+0x14097925f: mov      qword ptr [rsp + 0x50], rcx
+0x140979264: mov      qword ptr [rsp + 0x58], rax
+0x140979269: mov      rbx, qword ptr [rsp + 0x50]
+0x14097926e: mov      rcx, qword ptr [rsp + 0x60]
+0x140979273: mov      rdx, rax
+0x140979276: mov      rax, rcx
+0x140979279: mov      rcx, rdx
+0x14097927c: add      rsp, 0xa8
+0x140979283: pop      rbp
+0x140979284: ret      
+0x140979285: call     0x1400435e0   ; runtime.deferreturn
+0x14097928a: mov      rax, qword ptr [rsp + 0x60]
+0x14097928f: mov      rbx, qword ptr [rsp + 0x50]
+0x140979294: mov      rcx, qword ptr [rsp + 0x58]
+0x140979299: add      rsp, 0xa8
+0x1409792a0: pop      rbp
+0x1409792a1: ret      
+0x1409792a2: mov      qword ptr [rsp + 8], rax
+0x1409792a7: mov      qword ptr [rsp + 0x10], rbx
+0x1409792ac: mov      qword ptr [rsp + 0x18], rcx
+0x1409792b1: mov      qword ptr [rsp + 0x20], rdi
+0x1409792b6: mov      qword ptr [rsp + 0x28], rsi
+0x1409792bb: mov      byte ptr [rsp + 0x30], r8b
+0x1409792c0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409792c5: mov      rax, qword ptr [rsp + 8]
+0x1409792ca: mov      rbx, qword ptr [rsp + 0x10]
+0x1409792cf: mov      rcx, qword ptr [rsp + 0x18]
+0x1409792d4: mov      rdi, qword ptr [rsp + 0x20]
+0x1409792d9: mov      rsi, qword ptr [rsp + 0x28]
+0x1409792de: movzx    r8d, byte ptr [rsp + 0x30]
+0x1409792e4: jmp      0x140978ea0   ; main.screenshotDXGIOutputCaptureEntry.captureRegion
+0x1409792e9: int3     
+0x1409792ea: int3     
+0x1409792eb: int3     
+0x1409792ec: int3     
+0x1409792ed: int3     
+0x1409792ee: int3     
+0x1409792ef: int3     
+0x1409792f0: int3     
+0x1409792f1: int3     
+0x1409792f2: int3     
+0x1409792f3: int3     
+0x1409792f4: int3     
+0x1409792f5: int3     
+0x1409792f6: int3     
+0x1409792f7: int3     
+0x1409792f8: int3     
+0x1409792f9: int3     
+0x1409792fa: int3     
+0x1409792fb: int3     
+0x1409792fc: int3     
+0x1409792fd: int3     
+0x1409792fe: int3     
+0x1409792ff: int3     

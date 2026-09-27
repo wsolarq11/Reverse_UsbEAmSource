@@ -1,0 +1,12 @@
+0x1409100d0: mov      dword ptr [rbx + 8], eax
+0x1409100d3: mov      qword ptr [rdx], rax
+0x1409100d6: mov      rax, rsi
+0x1409100d9: mov      rcx, rbx
+0x1409100dc: mov      rbx, rdi
+0x1409100df: mov      rdi, qword ptr [rsp + 0xf0]
+0x1409100e7: add      rsp, 0x138
+0x1409100ee: pop      rbp
+0x1409100ef: ret      
+0x1409100f0: mov      qword ptr [rsp + 8], rax
+0x1409100f5: mov      qword ptr [rsp + 0x10], rbx
+0x1409100fa: mov      qword ptr [rsp + 0x18], rcx

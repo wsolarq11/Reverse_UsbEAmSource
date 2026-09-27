@@ -1,0 +1,64 @@
+0x1407495c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407495c4: jbe      0x140749667   ; main.resolveDynamicStartMenuAppIconDataWithIndex+0xa7
+0x1407495ca: push     rbp
+0x1407495cb: mov      rbp, rsp
+0x1407495ce: sub      rsp, 0x50
+0x1407495d2: mov      qword ptr [rsp + 0x70], rcx
+0x1407495d7: mov      qword ptr [rsp + 0x68], rbx
+0x1407495dc: mov      qword ptr [rsp + 0x60], rax
+0x1407495e1: lea      rcx, [rip + 0x94d398]
+0x1407495e8: lea      rdi, [rip + 0x94d399]
+0x1407495ef: lea      rsi, [rip + 0x94d7fa]
+0x1407495f6: call     0x14075b180   ; main.classifyAutomaticWindowsPath
+0x1407495fb: nop      dword ptr [rax + rax]
+0x140749600: cmp      rbx, 5
+0x140749604: jne      0x14074965d   ; main.resolveDynamicStartMenuAppIconDataWithIndex+0x9d
+0x140749606: cmp      dword ptr [rax], 0x61636f6c
+0x14074960c: jne      0x14074965d   ; main.resolveDynamicStartMenuAppIconDataWithIndex+0x9d
+0x14074960e: cmp      byte ptr [rax + 4], 0x6c
+0x140749612: jne      0x14074965d   ; main.resolveDynamicStartMenuAppIconDataWithIndex+0x9d
+0x140749614: mov      rdx, qword ptr [rip + 0x149ff65]
+0x14074961b: mov      qword ptr [rsp], rdx
+0x14074961f: movups   xmm0, xmmword ptr [rip + 0x149ff62]
+0x140749626: movups   xmmword ptr [rsp + 8], xmm0
+0x14074962b: movups   xmm0, xmmword ptr [rip + 0x149ff66]
+0x140749632: movups   xmmword ptr [rsp + 0x18], xmm0
+0x140749637: movups   xmm0, xmmword ptr [rip + 0x149ff6a]
+0x14074963e: movups   xmmword ptr [rsp + 0x28], xmm0
+0x140749643: mov      rax, qword ptr [rsp + 0x60]
+0x140749648: mov      rbx, qword ptr [rsp + 0x68]
+0x14074964d: mov      rcx, qword ptr [rsp + 0x70]
+0x140749652: call     0x1407496a0   ; main.resolveAppIconDataWithOptions
+0x140749657: add      rsp, 0x50
+0x14074965b: pop      rbp
+0x14074965c: ret      
+0x14074965d: xor      eax, eax
+0x14074965f: xor      ebx, ebx
+0x140749661: add      rsp, 0x50
+0x140749665: pop      rbp
+0x140749666: ret      
+0x140749667: mov      qword ptr [rsp + 8], rax
+0x14074966c: mov      qword ptr [rsp + 0x10], rbx
+0x140749671: mov      qword ptr [rsp + 0x18], rcx
+0x140749676: call     0x14007f140   ; runtime.morestack_noctxt
+0x14074967b: mov      rax, qword ptr [rsp + 8]
+0x140749680: mov      rbx, qword ptr [rsp + 0x10]
+0x140749685: mov      rcx, qword ptr [rsp + 0x18]
+0x14074968a: jmp      0x1407495c0   ; main.resolveDynamicStartMenuAppIconDataWithIndex
+0x14074968f: int3     
+0x140749690: int3     
+0x140749691: int3     
+0x140749692: int3     
+0x140749693: int3     
+0x140749694: int3     
+0x140749695: int3     
+0x140749696: int3     
+0x140749697: int3     
+0x140749698: int3     
+0x140749699: int3     
+0x14074969a: int3     
+0x14074969b: int3     
+0x14074969c: int3     
+0x14074969d: int3     
+0x14074969e: int3     
+0x14074969f: int3     

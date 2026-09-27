@@ -1,0 +1,86 @@
+0x1409c65a0: lea      r12, [rsp - 0x48]
+0x1409c65a5: cmp      r12, qword ptr [r14 + 0x10]
+0x1409c65a9: jbe      0x1409c6723   ; main.normalizeTwoFactorConfig+0x183
+0x1409c65af: push     rbp
+0x1409c65b0: mov      rbp, rsp
+0x1409c65b3: sub      rsp, 0xc0
+0x1409c65ba: lea      rdi, [rsp + 0x120]
+0x1409c65c2: lea      rdi, [rdi - 0x30]
+0x1409c65c6: mov      qword ptr [rsp - 0x10], rbp
+0x1409c65cb: lea      rbp, [rsp - 0x10]
+0x1409c65d0: call     0x140081730   ; runtime.duffzero+0x150
+0x1409c65d5: mov      rbp, qword ptr [rbp]
+0x1409c65d9: lea      rdi, [rsp + 0x38]
+0x1409c65de: lea      rdi, [rdi - 0x30]
+0x1409c65e2: mov      qword ptr [rsp - 0x10], rbp
+0x1409c65e7: lea      rbp, [rsp - 0x10]
+0x1409c65ec: call     0x140081730   ; runtime.duffzero+0x150
+0x1409c65f1: mov      rbp, qword ptr [rbp]
+0x1409c65f5: lea      rdx, [rip + 0x12943c4]
+0x1409c65fc: mov      qword ptr [rsp + 0x70], rdx
+0x1409c6601: mov      rax, qword ptr [rsp + 0xd0]
+0x1409c6609: mov      rbx, qword ptr [rsp + 0xd8]
+0x1409c6611: mov      rcx, qword ptr [rsp + 0xe0]
+0x1409c6619: mov      rdi, qword ptr [rsp + 0xe8]
+0x1409c6621: mov      rsi, qword ptr [rsp + 0xf0]
+0x1409c6629: mov      r8, qword ptr [rsp + 0xf8]
+0x1409c6631: movzx    r9d, byte ptr [rsp + 0x100]
+0x1409c663a: call     0x1409c7240   ; main.normalizeTwoFactorPasswordConfig
+0x1409c663f: mov      qword ptr [rsp + 0x88], rax
+0x1409c6647: mov      qword ptr [rsp + 0x90], rbx
+0x1409c664f: mov      qword ptr [rsp + 0x98], rcx
+0x1409c6657: mov      qword ptr [rsp + 0xa0], rdi
+0x1409c665f: mov      qword ptr [rsp + 0xa8], rsi
+0x1409c6667: mov      qword ptr [rsp + 0xb0], r8
+0x1409c666f: mov      byte ptr [rsp + 0xb8], r9b
+0x1409c6677: mov      rdx, qword ptr [rsp + 0x88]
+0x1409c667f: mov      qword ptr [rsp + 0x38], rdx
+0x1409c6684: movups   xmm0, xmmword ptr [rsp + 0x90]
+0x1409c668c: movups   xmmword ptr [rsp + 0x40], xmm0
+0x1409c6691: movups   xmm0, xmmword ptr [rsp + 0xa0]
+0x1409c6699: movups   xmmword ptr [rsp + 0x50], xmm0
+0x1409c669e: movups   xmm0, xmmword ptr [rsp + 0xb0]
+0x1409c66a6: movups   xmmword ptr [rsp + 0x60], xmm0
+0x1409c66ab: mov      rax, qword ptr [rsp + 0x108]
+0x1409c66b3: mov      rbx, qword ptr [rsp + 0x110]
+0x1409c66bb: mov      rcx, qword ptr [rsp + 0x118]
+0x1409c66c3: call     0x1409c7420   ; main.normalizeTwoFactorEntryConfigs
+0x1409c66c8: mov      qword ptr [rsp + 0x70], rax
+0x1409c66cd: mov      qword ptr [rsp + 0x78], rbx
+0x1409c66d2: mov      qword ptr [rsp + 0x80], rcx
+0x1409c66da: lea      rdi, [rsp + 0x120]
+0x1409c66e2: lea      rsi, [rsp + 0x38]
+0x1409c66e7: mov      qword ptr [rsp - 0x10], rbp
+0x1409c66ec: lea      rbp, [rsp - 0x10]
+0x1409c66f1: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x1409c66f6: mov      rbp, qword ptr [rbp]
+0x1409c66fa: lea      rdi, [rsp + 0x120]
+0x1409c6702: lea      rsi, [rsp + 0x38]
+0x1409c6707: mov      qword ptr [rsp - 0x10], rbp
+0x1409c670c: lea      rbp, [rsp - 0x10]
+0x1409c6711: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x1409c6716: mov      rbp, qword ptr [rbp]
+0x1409c671a: add      rsp, 0xc0
+0x1409c6721: pop      rbp
+0x1409c6722: ret      
+0x1409c6723: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409c6728: jmp      0x1409c65a0   ; main.normalizeTwoFactorConfig
+0x1409c672d: int3     
+0x1409c672e: int3     
+0x1409c672f: int3     
+0x1409c6730: int3     
+0x1409c6731: int3     
+0x1409c6732: int3     
+0x1409c6733: int3     
+0x1409c6734: int3     
+0x1409c6735: int3     
+0x1409c6736: int3     
+0x1409c6737: int3     
+0x1409c6738: int3     
+0x1409c6739: int3     
+0x1409c673a: int3     
+0x1409c673b: int3     
+0x1409c673c: int3     
+0x1409c673d: int3     
+0x1409c673e: int3     
+0x1409c673f: int3     

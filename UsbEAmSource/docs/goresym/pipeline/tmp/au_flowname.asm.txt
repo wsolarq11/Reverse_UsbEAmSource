@@ -1,0 +1,97 @@
+0x140750ee0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140750ee4: jbe      0x140750f90   ; main.normalizeAudioFlowName+0xb0
+0x140750eea: push     rbp
+0x140750eeb: mov      rbp, rsp
+0x140750eee: sub      rsp, 0x10
+0x140750ef2: mov      qword ptr [rsp + 0x20], rax
+0x140750ef7: call     0x1400a2200   ; strings.TrimSpace
+0x140750efc: nop      dword ptr [rax]
+0x140750f00: call     0x1400a1500   ; strings.ToLower
+0x140750f05: cmp      rbx, 5
+0x140750f09: jne      0x140750f20   ; main.normalizeAudioFlowName+0x40
+0x140750f0b: cmp      dword ptr [rax], 0x75706e69
+0x140750f11: jne      0x140750f86   ; main.normalizeAudioFlowName+0xa6
+0x140750f13: cmp      byte ptr [rax + 4], 0x74
+0x140750f17: je       0x140750f74   ; main.normalizeAudioFlowName+0x94
+0x140750f19: jmp      0x140750f86   ; main.normalizeAudioFlowName+0xa6
+0x140750f1b: nop      dword ptr [rax + rax]
+0x140750f20: cmp      rbx, 6
+0x140750f24: jne      0x140750f58   ; main.normalizeAudioFlowName+0x78
+0x140750f26: cmp      dword ptr [rax], 0x7074756f
+0x140750f2c: jne      0x140750f36   ; main.normalizeAudioFlowName+0x56
+0x140750f2e: cmp      word ptr [rax + 4], 0x7475
+0x140750f34: je       0x140750f46   ; main.normalizeAudioFlowName+0x66
+0x140750f36: cmp      dword ptr [rax], 0x646e6572
+0x140750f3c: jne      0x140750f86   ; main.normalizeAudioFlowName+0xa6
+0x140750f3e: cmp      word ptr [rax + 4], 0x7265
+0x140750f44: jne      0x140750f86   ; main.normalizeAudioFlowName+0xa6
+0x140750f46: lea      rax, [rip + 0x4e6661]
+0x140750f4d: mov      ebx, 6
+0x140750f52: add      rsp, 0x10
+0x140750f56: pop      rbp
+0x140750f57: ret      
+0x140750f58: cmp      rbx, 7
+0x140750f5c: jne      0x140750f86   ; main.normalizeAudioFlowName+0xa6
+0x140750f5e: cmp      dword ptr [rax], 0x74706163
+0x140750f64: jne      0x140750f86   ; main.normalizeAudioFlowName+0xa6
+0x140750f66: cmp      word ptr [rax + 4], 0x7275
+0x140750f6c: jne      0x140750f86   ; main.normalizeAudioFlowName+0xa6
+0x140750f6e: cmp      byte ptr [rax + 6], 0x65
+0x140750f72: jne      0x140750f86   ; main.normalizeAudioFlowName+0xa6
+0x140750f74: lea      rax, [rip + 0x4e8370]
+0x140750f7b: mov      ebx, 7
+0x140750f80: add      rsp, 0x10
+0x140750f84: pop      rbp
+0x140750f85: ret      
+0x140750f86: xor      eax, eax
+0x140750f88: xor      ebx, ebx
+0x140750f8a: add      rsp, 0x10
+0x140750f8e: pop      rbp
+0x140750f8f: ret      
+0x140750f90: mov      qword ptr [rsp + 8], rax
+0x140750f95: mov      qword ptr [rsp + 0x10], rbx
+0x140750f9a: call     0x14007f140   ; runtime.morestack_noctxt
+0x140750f9f: mov      rax, qword ptr [rsp + 8]
+0x140750fa4: mov      rbx, qword ptr [rsp + 0x10]
+0x140750fa9: jmp      0x140750ee0   ; main.normalizeAudioFlowName
+0x140750fae: int3     
+0x140750faf: int3     
+0x140750fb0: int3     
+0x140750fb1: int3     
+0x140750fb2: int3     
+0x140750fb3: int3     
+0x140750fb4: int3     
+0x140750fb5: int3     
+0x140750fb6: int3     
+0x140750fb7: int3     
+0x140750fb8: int3     
+0x140750fb9: int3     
+0x140750fba: int3     
+0x140750fbb: int3     
+0x140750fbc: int3     
+0x140750fbd: int3     
+0x140750fbe: int3     
+0x140750fbf: int3     
+0x140750fc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140750fc4: jbe      0x140751009   ; main.audioPropVariant.stringValue+0x49
+0x140750fc6: push     rbp
+0x140750fc7: mov      rbp, rsp
+0x140750fca: sub      rsp, 0x10
+0x140750fce: test     rax, rax
+0x140750fd1: je       0x140750fff   ; main.audioPropVariant.stringValue+0x3f
+0x140750fd3: cmp      word ptr [rax], 0x1f
+0x140750fd7: jne      0x140750fff   ; main.audioPropVariant.stringValue+0x3f
+0x140750fd9: mov      rax, qword ptr [rax + 8]
+0x140750fdd: nop      dword ptr [rax]
+0x140750fe0: test     rax, rax
+0x140750fe3: je       0x140750ff5   ; main.audioPropVariant.stringValue+0x35
+0x140750fe5: call     0x1401942a0   ; golang.org/x/sys/windows.UTF16PtrToString
+0x140750fea: call     0x1400a2200   ; strings.TrimSpace
+0x140750fef: add      rsp, 0x10
+0x140750ff3: pop      rbp
+0x140750ff4: ret      
+0x140750ff5: xor      eax, eax
+0x140750ff7: xor      ebx, ebx
+0x140750ff9: add      rsp, 0x10
+0x140750ffd: pop      rbp
+0x140750ffe: ret      

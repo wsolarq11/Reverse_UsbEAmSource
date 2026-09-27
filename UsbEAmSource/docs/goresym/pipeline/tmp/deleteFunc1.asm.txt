@@ -1,0 +1,25 @@
+0x1409f7e80: lea      r12, [rsp - 0x20]
+0x1409f7e85: cmp      r12, qword ptr [r14 + 0x10]
+0x1409f7e89: jbe      0x1409f80d8   ; main.deleteLauncherStartupTask.deleteLauncherStartupTaskUsingTaskSchedulerAPI.func1+0x258
+0x1409f7e8f: push     rbp
+0x1409f7e90: mov      rbp, rsp
+0x1409f7e93: sub      rsp, 0x98
+0x1409f7e9a: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1409f7ea3: mov      byte ptr [rsp + 0x37], 0
+0x1409f7ea8: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1409f7eae: lea      rdx, [rip + 0xf1f4b]
+0x1409f7eb5: mov      qword ptr [rsp + 0x78], rdx
+0x1409f7eba: lea      rdx, [rip + 0x7d6c1f]
+0x1409f7ec1: mov      qword ptr [rsp + 0x80], rdx
+0x1409f7ec9: lea      rbx, [rip + 0x2478c6]
+0x1409f7ed0: mov      ecx, 9
+0x1409f7ed5: lea      rdi, [rsp + 0x78]
+0x1409f7eda: mov      esi, 1
+0x1409f7edf: mov      r8, rsi
+0x1409f7ee2: call     0x1408b1a80   ; main.callTaskSchedulerDispatchMethod
+0x1409f7ee7: test     rcx, rcx
+0x1409f7eea: je       0x1409f7f38   ; main.deleteLauncherStartupTask.deleteLauncherStartupTaskUsingTaskSchedulerAPI.func1+0xb8
+0x1409f7eec: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1409f7ef2: je       0x1409f7ef8   ; main.deleteLauncherStartupTask.deleteLauncherStartupTaskUsingTaskSchedulerAPI.func1+0x78
+0x1409f7ef4: mov      rcx, qword ptr [rcx + 8]
+0x1409f7ef8: mov      qword ptr [rsp + 0x78], rcx

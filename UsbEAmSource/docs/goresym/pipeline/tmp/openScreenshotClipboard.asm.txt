@@ -1,0 +1,78 @@
+0x140972fc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140972fc4: jbe      0x14097307b   ; main.openScreenshotClipboard+0xbb
+0x140972fca: push     rbp
+0x140972fcb: mov      rbp, rsp
+0x140972fce: sub      rsp, 0x28
+0x140972fd2: xor      eax, eax
+0x140972fd4: jmp      0x140972fed   ; main.openScreenshotClipboard+0x2d
+0x140972fd6: mov      eax, 0x4c4b40
+0x140972fdb: nop      dword ptr [rax + rax]
+0x140972fe0: call     0x14007d0c0   ; time.Sleep
+0x140972fe5: mov      rax, qword ptr [rsp + 0x20]
+0x140972fea: inc      rax
+0x140972fed: cmp      rax, 0x28
+0x140972ff1: jge      0x14097302f   ; main.openScreenshotClipboard+0x6f
+0x140972ff3: mov      qword ptr [rsp + 0x20], rax
+0x140972ff8: lea      rax, [rip + 0x18a981]
+0x140972fff: nop      
+0x140973000: call     0x14001ae20   ; runtime.newobject
+0x140973005: mov      rcx, qword ptr [rip + 0x124ea4c]
+0x14097300c: mov      rbx, rax
+0x14097300f: mov      edi, 1
+0x140973014: mov      rax, rcx
+0x140973017: mov      rcx, rdi
+0x14097301a: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14097301f: nop      
+0x140973020: test     rax, rax
+0x140973023: je       0x140972fd6   ; main.openScreenshotClipboard+0x16
+0x140973025: xor      eax, eax
+0x140973027: xor      ebx, ebx
+0x140973029: add      rsp, 0x28
+0x14097302d: pop      rbp
+0x14097302e: ret      
+0x14097302f: lea      rax, [rip + 0x18a94a]
+0x140973036: call     0x14001ae20   ; runtime.newobject
+0x14097303b: mov      rcx, qword ptr [rip + 0x124ea16]
+0x140973042: mov      rbx, rax
+0x140973045: mov      edi, 1
+0x14097304a: mov      rax, rcx
+0x14097304d: mov      rcx, rdi
+0x140973050: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140973055: test     rax, rax
+0x140973058: je       0x140973064   ; main.openScreenshotClipboard+0xa4
+0x14097305a: xor      eax, eax
+0x14097305c: xor      ebx, ebx
+0x14097305e: add      rsp, 0x28
+0x140973062: pop      rbp
+0x140973063: ret      
+0x140973064: lea      rax, [rip + 0x2f7360]
+0x14097306b: mov      ebx, 0x1b
+0x140973070: call     0x1408af3a0   ; main.wrapWinError
+0x140973075: add      rsp, 0x28
+0x140973079: pop      rbp
+0x14097307a: ret      
+0x14097307b: nop      dword ptr [rax + rax]
+0x140973080: call     0x14007f140   ; runtime.morestack_noctxt
+0x140973085: jmp      0x140972fc0   ; main.openScreenshotClipboard
+0x14097308a: int3     
+0x14097308b: int3     
+0x14097308c: int3     
+0x14097308d: int3     
+0x14097308e: int3     
+0x14097308f: int3     
+0x140973090: int3     
+0x140973091: int3     
+0x140973092: int3     
+0x140973093: int3     
+0x140973094: int3     
+0x140973095: int3     
+0x140973096: int3     
+0x140973097: int3     
+0x140973098: int3     
+0x140973099: int3     
+0x14097309a: int3     
+0x14097309b: int3     
+0x14097309c: int3     
+0x14097309d: int3     
+0x14097309e: int3     
+0x14097309f: int3     

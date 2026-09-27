@@ -1,0 +1,83 @@
+0x1408d0380: lea      r12, [rsp - 0x5a0]
+0x1408d0388: cmp      r12, qword ptr [r14 + 0x10]
+0x1408d038c: jbe      0x1408d04cc   ; main.createLauncherWindow+0x14c
+0x1408d0392: push     rbp
+0x1408d0393: mov      rbp, rsp
+0x1408d0396: sub      rsp, 0x618
+0x1408d039d: nop      dword ptr [rax]
+0x1408d03a0: test     rax, rax
+0x1408d03a3: je       0x1408d04bf   ; main.createLauncherWindow+0x13f
+0x1408d03a9: test     rbx, rbx
+0x1408d03ac: je       0x1408d04bf   ; main.createLauncherWindow+0x13f
+0x1408d03b2: mov      qword ptr [rsp + 0x628], rax
+0x1408d03ba: mov      qword ptr [rsp + 0x630], rbx
+0x1408d03c2: mov      byte ptr [rsp + 0x638], cl
+0x1408d03c9: mov      rax, rbx
+0x1408d03cc: call     0x14079c660   ; main.BootstrapService.loadLauncherUIScalePercent
+0x1408d03d1: mov      rbx, rax
+0x1408d03d4: movzx    eax, byte ptr [rsp + 0x638]
+0x1408d03dc: nop      dword ptr [rax]
+0x1408d03e0: call     0x1408d0280   ; main.buildLauncherWindowOptions
+0x1408d03e5: lea      rdi, [rsp + 0x318]
+0x1408d03ed: mov      rsi, rsp
+0x1408d03f0: nop      word ptr [rax + rax]
+0x1408d03f9: nop      dword ptr [rax]
+0x1408d0400: mov      qword ptr [rsp - 0x10], rbp
+0x1408d0405: lea      rbp, [rsp - 0x10]
+0x1408d040a: call     0x140081840   ; runtime.duffcopy+0xe0
+0x1408d040f: mov      rbp, qword ptr [rbp]
+0x1408d0413: mov      rcx, qword ptr [rsp + 0x628]
+0x1408d041b: mov      rax, qword ptr [rcx + 0x2d0]
+0x1408d0422: mov      rdi, rsp
+0x1408d0425: lea      rsi, [rsp + 0x318]
+0x1408d042d: nop      word ptr [rax + rax]
+0x1408d0436: nop      word ptr [rax + rax]
+0x1408d043f: nop      
+0x1408d0440: mov      qword ptr [rsp - 0x10], rbp
+0x1408d0445: lea      rbp, [rsp - 0x10]
+0x1408d044a: call     0x140081840   ; runtime.duffcopy+0xe0
+0x1408d044f: mov      rbp, qword ptr [rbp]
+0x1408d0453: call     0x14064e760   ; github.com/wailsapp/wails/v3/pkg/application.WindowManager.NewWithOptions
+0x1408d0458: mov      qword ptr [rsp + 0x310], rax
+0x1408d0460: lea      rbx, [rip + 0x91b4b1]
+0x1408d0467: mov      rcx, rax
+0x1408d046a: mov      rax, qword ptr [rsp + 0x630]
+0x1408d0472: call     0x140773b40   ; main.BootstrapService.attachWindow
+0x1408d0477: lea      rax, [rip + 0x91b49a]
+0x1408d047e: mov      rbx, qword ptr [rsp + 0x310]
+0x1408d0486: mov      rcx, qword ptr [rsp + 0x630]
+0x1408d048e: call     0x1408d0500   ; main.registerLauncherCloseToTrayHook
+0x1408d0493: lea      rax, [rip + 0x91b47e]
+0x1408d049a: mov      rbx, qword ptr [rsp + 0x310]
+0x1408d04a2: call     0x1408d0760   ; main.registerLauncherFileDropHandler
+0x1408d04a7: lea      rax, [rip + 0x91b46a]
+0x1408d04ae: mov      rbx, qword ptr [rsp + 0x310]
+0x1408d04b6: add      rsp, 0x618
+0x1408d04bd: pop      rbp
+0x1408d04be: ret      
+0x1408d04bf: xor      eax, eax
+0x1408d04c1: xor      ebx, ebx
+0x1408d04c3: add      rsp, 0x618
+0x1408d04ca: pop      rbp
+0x1408d04cb: ret      
+0x1408d04cc: mov      qword ptr [rsp + 8], rax
+0x1408d04d1: mov      qword ptr [rsp + 0x10], rbx
+0x1408d04d6: mov      byte ptr [rsp + 0x18], cl
+0x1408d04da: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408d04df: mov      rax, qword ptr [rsp + 8]
+0x1408d04e4: mov      rbx, qword ptr [rsp + 0x10]
+0x1408d04e9: movzx    ecx, byte ptr [rsp + 0x18]
+0x1408d04ee: jmp      0x1408d0380   ; main.createLauncherWindow
+0x1408d04f3: int3     
+0x1408d04f4: int3     
+0x1408d04f5: int3     
+0x1408d04f6: int3     
+0x1408d04f7: int3     
+0x1408d04f8: int3     
+0x1408d04f9: int3     
+0x1408d04fa: int3     
+0x1408d04fb: int3     
+0x1408d04fc: int3     
+0x1408d04fd: int3     
+0x1408d04fe: int3     
+0x1408d04ff: int3     

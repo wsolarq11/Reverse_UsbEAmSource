@@ -1,0 +1,92 @@
+0x14088b120: cmp      rsp, qword ptr [r14 + 0x10]
+0x14088b124: jbe      0x14088b209    ; main.normalizeLinkIconMode+0xe9
+0x14088b12a: push     rbp
+0x14088b12b: mov      rbp, rsp
+0x14088b12e: sub      rsp, 0x28
+0x14088b132: mov      qword ptr [rsp + 0x38], rax
+0x14088b137: mov      qword ptr [rsp + 0x60], r8
+0x14088b13c: mov      qword ptr [rsp + 0x58], rsi
+0x14088b141: mov      qword ptr [rsp + 0x50], rdi
+0x14088b146: mov      qword ptr [rsp + 0x48], rcx
+0x14088b14b: call     0x1400a2200    ; strings.TrimSpace
+0x14088b150: call     0x1400a1500    ; strings.ToLower
+0x14088b155: mov      qword ptr [rsp + 0x20], rax
+0x14088b15a: mov      qword ptr [rsp + 0x18], rbx
+0x14088b15f: mov      rax, qword ptr [rsp + 0x58]
+0x14088b164: mov      rbx, qword ptr [rsp + 0x60]
+0x14088b169: call     0x1400a2200    ; strings.TrimSpace
+0x14088b16e: test     rbx, rbx
+0x14088b171: je       0x14088b17a    ; main.normalizeLinkIconMode+0x5a
+0x14088b173: mov      eax, 1
+0x14088b178: jmp      0x14088b1aa    ; main.normalizeLinkIconMode+0x8a
+0x14088b17a: mov      rax, qword ptr [rsp + 0x48]
+0x14088b17f: mov      rbx, qword ptr [rsp + 0x50]
+0x14088b184: call     0x1400a2200    ; strings.TrimSpace
+0x14088b189: call     0x1400a1500    ; strings.ToLower
+0x14088b18e: nop      
+0x14088b18f: cmp      rbx, 0xb
+0x14088b193: jge      0x14088b199    ; main.normalizeLinkIconMode+0x79
+0x14088b195: xor      eax, eax
+0x14088b197: jmp      0x14088b1aa    ; main.normalizeLinkIconMode+0x8a
+0x14088b199: lea      rbx, [rip + 0x3bc399]
+0x14088b1a0: mov      ecx, 0xb
+0x14088b1a5: call     0x140006280    ; runtime.memequal
+0x14088b1aa: mov      rcx, qword ptr [rsp + 0x18]
+0x14088b1af: cmp      rcx, 6
+0x14088b1b3: jne      0x14088b1e1    ; main.normalizeLinkIconMode+0xc1
+0x14088b1b5: mov      rcx, qword ptr [rsp + 0x20]
+0x14088b1ba: cmp      dword ptr [rcx], 0x6f6c7075
+0x14088b1c0: jne      0x14088b1e1    ; main.normalizeLinkIconMode+0xc1
+0x14088b1c2: cmp      word ptr [rcx + 4], 0x6461
+0x14088b1c8: jne      0x14088b1e1    ; main.normalizeLinkIconMode+0xc1
+0x14088b1ca: test     al, al
+0x14088b1cc: je       0x14088b1e5    ; main.normalizeLinkIconMode+0xc5
+0x14088b1ce: lea      rax, [rip + 0x3ac4e1]
+0x14088b1d5: mov      ebx, 6
+0x14088b1da: add      rsp, 0x28
+0x14088b1de: pop      rbp
+0x14088b1df: nop      
+0x14088b1e0: ret      
+0x14088b1e1: test     al, al
+0x14088b1e3: jne      0x14088b1f7    ; main.normalizeLinkIconMode+0xd7
+0x14088b1e5: lea      rax, [rip + 0x3ae25d]
+0x14088b1ec: mov      ebx, 7
+0x14088b1f1: add      rsp, 0x28
+0x14088b1f5: pop      rbp
+0x14088b1f6: ret      
+0x14088b1f7: lea      rax, [rip + 0x3ac4b8]
+0x14088b1fe: mov      ebx, 6
+0x14088b203: add      rsp, 0x28
+0x14088b207: pop      rbp
+0x14088b208: ret      
+0x14088b209: mov      qword ptr [rsp + 8], rax
+0x14088b20e: mov      qword ptr [rsp + 0x10], rbx
+0x14088b213: mov      qword ptr [rsp + 0x18], rcx
+0x14088b218: mov      qword ptr [rsp + 0x20], rdi
+0x14088b21d: mov      qword ptr [rsp + 0x28], rsi
+0x14088b222: mov      qword ptr [rsp + 0x30], r8
+0x14088b227: call     0x14007f140    ; runtime.morestack_noctxt
+0x14088b22c: mov      rax, qword ptr [rsp + 8]
+0x14088b231: mov      rbx, qword ptr [rsp + 0x10]
+0x14088b236: mov      rcx, qword ptr [rsp + 0x18]
+0x14088b23b: mov      rdi, qword ptr [rsp + 0x20]
+0x14088b240: mov      rsi, qword ptr [rsp + 0x28]
+0x14088b245: mov      r8, qword ptr [rsp + 0x30]
+0x14088b24a: jmp      0x14088b120    ; main.normalizeLinkIconMode
+0x14088b24f: int3     
+0x14088b250: int3     
+0x14088b251: int3     
+0x14088b252: int3     
+0x14088b253: int3     
+0x14088b254: int3     
+0x14088b255: int3     
+0x14088b256: int3     
+0x14088b257: int3     
+0x14088b258: int3     
+0x14088b259: int3     
+0x14088b25a: int3     
+0x14088b25b: int3     
+0x14088b25c: int3     
+0x14088b25d: int3     
+0x14088b25e: int3     
+0x14088b25f: int3     

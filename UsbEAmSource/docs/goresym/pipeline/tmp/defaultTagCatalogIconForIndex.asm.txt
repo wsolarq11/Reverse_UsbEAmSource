@@ -1,0 +1,46 @@
+0x14087c2a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14087c2a4: jbe      0x14087c30e    ; main.defaultTagCatalogIconForIndex+0x6e
+0x14087c2a6: push     rbp
+0x14087c2a7: mov      rbp, rsp
+0x14087c2aa: sub      rsp, 0x10
+0x14087c2ae: mov      qword ptr [rsp + 0x20], rax
+0x14087c2b3: test     rcx, rcx
+0x14087c2b6: jl       0x14087c303    ; main.defaultTagCatalogIconForIndex+0x63
+0x14087c2b8: nop      dword ptr [rax + rax]
+0x14087c2c0: cmp      qword ptr [rip + 0x134a5c1], rcx
+0x14087c2c7: jle      0x14087c303    ; main.defaultTagCatalogIconForIndex+0x63
+0x14087c2c9: mov      qword ptr [rsp + 0x20], rax
+0x14087c2ce: mov      qword ptr [rsp + 0x28], rbx
+0x14087c2d3: mov      rdx, qword ptr [rip + 0x134a5a6]
+0x14087c2da: shl      rcx, 4
+0x14087c2de: mov      rax, qword ptr [rdx + rcx]
+0x14087c2e2: mov      rbx, qword ptr [rdx + rcx + 8]
+0x14087c2e7: call     0x1400a2200    ; strings.TrimSpace
+0x14087c2ec: test     rbx, rbx
+0x14087c2ef: jne      0x14087c2fd    ; main.defaultTagCatalogIconForIndex+0x5d
+0x14087c2f1: mov      rax, qword ptr [rsp + 0x20]
+0x14087c2f6: mov      rbx, qword ptr [rsp + 0x28]
+0x14087c2fb: jmp      0x14087c303    ; main.defaultTagCatalogIconForIndex+0x63
+0x14087c2fd: add      rsp, 0x10
+0x14087c301: pop      rbp
+0x14087c302: ret      
+0x14087c303: call     0x14087c020    ; main.defaultTagCatalogIcon
+0x14087c308: add      rsp, 0x10
+0x14087c30c: pop      rbp
+0x14087c30d: ret      
+0x14087c30e: mov      qword ptr [rsp + 8], rax
+0x14087c313: mov      qword ptr [rsp + 0x10], rbx
+0x14087c318: mov      qword ptr [rsp + 0x18], rcx
+0x14087c31d: nop      dword ptr [rax]
+0x14087c320: call     0x14007f140    ; runtime.morestack_noctxt
+0x14087c325: mov      rax, qword ptr [rsp + 8]
+0x14087c32a: mov      rbx, qword ptr [rsp + 0x10]
+0x14087c32f: mov      rcx, qword ptr [rsp + 0x18]
+0x14087c334: jmp      0x14087c2a0    ; main.defaultTagCatalogIconForIndex
+0x14087c339: int3     
+0x14087c33a: int3     
+0x14087c33b: int3     
+0x14087c33c: int3     
+0x14087c33d: int3     
+0x14087c33e: int3     
+0x14087c33f: int3     

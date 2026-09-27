@@ -1,0 +1,135 @@
+0x1407da360: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407da364: jbe      0x1407da4fc   ; main.readFileLocatorTextFromHandle+0x19c
+0x1407da36a: push     rbp
+0x1407da36b: mov      rbp, rsp
+0x1407da36e: sub      rsp, 0x50
+0x1407da372: mov      qword ptr [rsp + 0x60], rax
+0x1407da377: mov      qword ptr [rsp + 0x68], rbx
+0x1407da37c: nop      dword ptr [rax]
+0x1407da380: test     rcx, rcx
+0x1407da383: je       0x1407da4c4   ; main.readFileLocatorTextFromHandle+0x164
+0x1407da389: test     rdi, rdi
+0x1407da38c: jle      0x1407da4c4   ; main.readFileLocatorTextFromHandle+0x164
+0x1407da392: mov      qword ptr [rsp + 0x70], rcx
+0x1407da397: mov      qword ptr [rsp + 0x78], rdi
+0x1407da39c: mov      qword ptr [rsp + 0x68], rbx
+0x1407da3a1: mov      qword ptr [rsp + 0x60], rax
+0x1407da3a6: lea      rax, [rip + 0x3a8533]
+0x1407da3ad: call     0x14001ae20   ; runtime.newobject
+0x1407da3b2: lea      rcx, [rip + 0x9f88e7]
+0x1407da3b9: mov      qword ptr [rax], rcx
+0x1407da3bc: cmp      dword ptr [rip + 0x1480f8d], 0
+0x1407da3c3: jne      0x1407da3cc   ; main.readFileLocatorTextFromHandle+0x6c
+0x1407da3c5: mov      rcx, qword ptr [rsp + 0x70]
+0x1407da3ca: jmp      0x1407da3d9   ; main.readFileLocatorTextFromHandle+0x79
+0x1407da3cc: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407da3d1: mov      rcx, qword ptr [rsp + 0x70]
+0x1407da3d6: mov      qword ptr [r11], rcx
+0x1407da3d9: mov      qword ptr [rax + 8], rcx
+0x1407da3dd: mov      rcx, qword ptr [rsp + 0x78]
+0x1407da3e2: inc      rcx
+0x1407da3e5: mov      qword ptr [rax + 0x10], rcx
+0x1407da3e9: mov      rcx, qword ptr [rsp + 0x60]
+0x1407da3ee: mov      qword ptr [rsp + 0x30], rcx
+0x1407da3f3: mov      rcx, qword ptr [rsp + 0x68]
+0x1407da3f8: mov      qword ptr [rsp + 0x38], rcx
+0x1407da3fd: lea      rcx, [rip + 0x9f8c1c]
+0x1407da404: mov      qword ptr [rsp + 0x40], rcx
+0x1407da409: mov      qword ptr [rsp + 0x48], rax
+0x1407da40e: lea      rax, [rip + 0x3bd82b]
+0x1407da415: lea      rbx, [rsp + 0x30]
+0x1407da41a: call     0x140017240   ; runtime.convT
+0x1407da41f: mov      rbx, rax
+0x1407da422: lea      rax, [rip + 0x9f8bd7]
+0x1407da429: call     0x140098bc0   ; io.ReadAll
+0x1407da42e: test     rdi, rdi
+0x1407da431: jne      0x1407da4ae   ; main.readFileLocatorTextFromHandle+0x14e
+0x1407da433: mov      rdx, qword ptr [rsp + 0x78]
+0x1407da438: cmp      rbx, rdx
+0x1407da43b: jg       0x1407da493   ; main.readFileLocatorTextFromHandle+0x133
+0x1407da43d: mov      qword ptr [rsp + 0x28], rax
+0x1407da442: mov      qword ptr [rsp + 0x18], rbx
+0x1407da447: mov      qword ptr [rsp + 0x20], rcx
+0x1407da44c: call     0x1407da540   ; main.isTextLikeFileLocatorContent
+0x1407da451: test     al, al
+0x1407da453: je       0x1407da478   ; main.readFileLocatorTextFromHandle+0x118
+0x1407da455: mov      rax, qword ptr [rsp + 0x28]
+0x1407da45a: mov      rbx, qword ptr [rsp + 0x18]
+0x1407da45f: mov      rcx, qword ptr [rsp + 0x20]
+0x1407da464: call     0x1407da6e0   ; main.decodeFileLocatorText
+0x1407da469: xor      ecx, ecx
+0x1407da46b: xor      edi, edi
+0x1407da46d: xor      esi, esi
+0x1407da46f: mov      r8, rcx
+0x1407da472: add      rsp, 0x50
+0x1407da476: pop      rbp
+0x1407da477: ret      
+0x1407da478: xor      eax, eax
+0x1407da47a: xor      ebx, ebx
+0x1407da47c: lea      rcx, [rip + 0x45d1df]
+0x1407da483: mov      edi, 6
+0x1407da488: xor      esi, esi
+0x1407da48a: mov      r8, rax
+0x1407da48d: add      rsp, 0x50
+0x1407da491: pop      rbp
+0x1407da492: ret      
+0x1407da493: xor      eax, eax
+0x1407da495: xor      ebx, ebx
+0x1407da497: lea      rcx, [rip + 0x461d0e]
+0x1407da49e: mov      edi, 8
+0x1407da4a3: xor      esi, esi
+0x1407da4a5: mov      r8, rax
+0x1407da4a8: add      rsp, 0x50
+0x1407da4ac: pop      rbp
+0x1407da4ad: ret      
+0x1407da4ae: xor      eax, eax
+0x1407da4b0: xor      ebx, ebx
+0x1407da4b2: mov      rcx, rax
+0x1407da4b5: mov      r8, rsi
+0x1407da4b8: mov      rsi, rdi
+0x1407da4bb: mov      rdi, rbx
+0x1407da4be: add      rsp, 0x50
+0x1407da4c2: pop      rbp
+0x1407da4c3: ret      
+0x1407da4c4: lea      rax, [rip + 0x379eb5]
+0x1407da4cb: call     0x14001ae20   ; runtime.newobject
+0x1407da4d0: mov      qword ptr [rax + 8], 0x1e
+0x1407da4d8: lea      rcx, [rip + 0x494a1c]
+0x1407da4df: mov      qword ptr [rax], rcx
+0x1407da4e2: xor      ebx, ebx
+0x1407da4e4: xor      ecx, ecx
+0x1407da4e6: mov      rdi, rbx
+0x1407da4e9: lea      rsi, [rip + 0x9f8c10]
+0x1407da4f0: mov      r8, rax
+0x1407da4f3: mov      rax, rcx
+0x1407da4f6: add      rsp, 0x50
+0x1407da4fa: pop      rbp
+0x1407da4fb: ret      
+0x1407da4fc: mov      qword ptr [rsp + 8], rax
+0x1407da501: mov      qword ptr [rsp + 0x10], rbx
+0x1407da506: mov      qword ptr [rsp + 0x18], rcx
+0x1407da50b: mov      qword ptr [rsp + 0x20], rdi
+0x1407da510: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407da515: mov      rax, qword ptr [rsp + 8]
+0x1407da51a: mov      rbx, qword ptr [rsp + 0x10]
+0x1407da51f: mov      rcx, qword ptr [rsp + 0x18]
+0x1407da524: mov      rdi, qword ptr [rsp + 0x20]
+0x1407da529: jmp      0x1407da360   ; main.readFileLocatorTextFromHandle
+0x1407da52e: int3     
+0x1407da52f: int3     
+0x1407da530: int3     
+0x1407da531: int3     
+0x1407da532: int3     
+0x1407da533: int3     
+0x1407da534: int3     
+0x1407da535: int3     
+0x1407da536: int3     
+0x1407da537: int3     
+0x1407da538: int3     
+0x1407da539: int3     
+0x1407da53a: int3     
+0x1407da53b: int3     
+0x1407da53c: int3     
+0x1407da53d: int3     
+0x1407da53e: int3     
+0x1407da53f: int3     

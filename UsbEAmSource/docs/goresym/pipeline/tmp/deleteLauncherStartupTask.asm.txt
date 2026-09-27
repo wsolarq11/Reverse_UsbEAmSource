@@ -1,0 +1,131 @@
+0x1408affa0: lea      r12, [rsp - 0x50]
+0x1408affa5: cmp      r12, qword ptr [r14 + 0x10]
+0x1408affa9: jbe      0x1408b0197   ; main.deleteLauncherStartupTask+0x1f7
+0x1408affaf: push     rbp
+0x1408affb0: mov      rbp, rsp
+0x1408affb3: sub      rsp, 0xc8
+0x1408affba: nop      
+0x1408affbb: lea      rax, [rip + 0x7e6a5e]
+0x1408affc2: call     0x1408b14e0   ; main.withTaskSchedulerService
+0x1408affc7: test     rax, rax
+0x1408affca: je       0x1408b018a   ; main.deleteLauncherStartupTask+0x1ea
+0x1408affd0: mov      qword ptr [rsp + 0x40], rbx
+0x1408affd5: mov      qword ptr [rsp + 0x28], rax
+0x1408affda: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1408affe0: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1408affe6: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1408affec: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1408afff5: mov      qword ptr [rsp + 0x60], 7
+0x1408afffe: lea      rdx, [rip + 0x38946e]
+0x1408b0005: mov      qword ptr [rsp + 0x58], rdx
+0x1408b000a: mov      qword ptr [rsp + 0x70], 3
+0x1408b0013: lea      rdx, [rip + 0x383cf0]
+0x1408b001a: mov      qword ptr [rsp + 0x68], rdx
+0x1408b001f: mov      qword ptr [rsp + 0x80], 0xf
+0x1408b002b: lea      rdx, [rip + 0x3a2c8d]
+0x1408b0032: mov      qword ptr [rsp + 0x78], rdx
+0x1408b0037: mov      qword ptr [rsp + 0x90], 2
+0x1408b0043: lea      rdx, [rip + 0x383671]
+0x1408b004a: mov      qword ptr [rsp + 0x88], rdx
+0x1408b0052: lea      rax, [rip + 0x39b9c7]
+0x1408b0059: mov      ebx, 0xc
+0x1408b005e: lea      rcx, [rsp + 0x58]
+0x1408b0063: mov      edi, 4
+0x1408b0068: mov      rsi, rdi
+0x1408b006b: call     0x14036f8e0   ; os/exec.Command
+0x1408b0070: call     0x140372a80   ; os/exec.Cmd.CombinedOutput
+0x1408b0075: test     rdi, rdi
+0x1408b0078: je       0x1408b017d   ; main.deleteLauncherStartupTask+0x1dd
+0x1408b007e: mov      qword ptr [rsp + 0x38], rdi
+0x1408b0083: mov      qword ptr [rsp + 0x50], rsi
+0x1408b0088: call     0x1408b2b20   ; main.decodeWindowsCommandOutput
+0x1408b008d: mov      qword ptr [rsp + 0x48], rax
+0x1408b0092: mov      qword ptr [rsp + 0x30], rbx
+0x1408b0097: call     0x1408b2e60   ; main.isTaskNotFoundMessage
+0x1408b009c: nop      dword ptr [rax]
+0x1408b00a0: test     al, al
+0x1408b00a2: jne      0x1408b0170   ; main.deleteLauncherStartupTask+0x1d0
+0x1408b00a8: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1408b00b1: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1408b00ba: movups   xmmword ptr [rsp + 0xb8], xmm15
+0x1408b00c3: mov      rcx, qword ptr [rsp + 0x28]
+0x1408b00c8: test     rcx, rcx
+0x1408b00cb: je       0x1408b00db   ; main.deleteLauncherStartupTask+0x13b
+0x1408b00cd: mov      rax, qword ptr [rcx + 8]
+0x1408b00d1: mov      rcx, qword ptr [rsp + 0x38]
+0x1408b00d6: test     rcx, rcx
+0x1408b00d9: jmp      0x1408b00eb   ; main.deleteLauncherStartupTask+0x14b
+0x1408b00db: mov      rdx, qword ptr [rsp + 0x38]
+0x1408b00e0: test     rdx, rdx
+0x1408b00e3: mov      rcx, rdx
+0x1408b00e6: mov      rax, qword ptr [rsp + 0x28]
+0x1408b00eb: mov      qword ptr [rsp + 0x98], rax
+0x1408b00f3: mov      rdx, qword ptr [rsp + 0x40]
+0x1408b00f8: mov      qword ptr [rsp + 0xa0], rdx
+0x1408b0100: je       0x1408b0108   ; main.deleteLauncherStartupTask+0x168
+0x1408b0102: mov      rdi, qword ptr [rcx + 8]
+0x1408b0106: jmp      0x1408b010b   ; main.deleteLauncherStartupTask+0x16b
+0x1408b0108: mov      rdi, rcx
+0x1408b010b: mov      qword ptr [rsp + 0xa8], rdi
+0x1408b0113: mov      rcx, qword ptr [rsp + 0x50]
+0x1408b0118: mov      qword ptr [rsp + 0xb0], rcx
+0x1408b0120: mov      rax, qword ptr [rsp + 0x48]
+0x1408b0125: mov      rbx, qword ptr [rsp + 0x30]
+0x1408b012a: call     0x140076660   ; runtime.convTstring
+0x1408b012f: lea      rcx, [rip + 0x239cca]
+0x1408b0136: mov      qword ptr [rsp + 0xb8], rcx
+0x1408b013e: mov      qword ptr [rsp + 0xc0], rax
+0x1408b0146: lea      rax, [rip + 0x3e4f5a]
+0x1408b014d: mov      ebx, 0x75
+0x1408b0152: lea      rcx, [rsp + 0x98]
+0x1408b015a: mov      edi, 3
+0x1408b015f: mov      rsi, rdi
+0x1408b0162: call     0x140133280   ; fmt.Errorf
+0x1408b0167: add      rsp, 0xc8
+0x1408b016e: pop      rbp
+0x1408b016f: ret      
+0x1408b0170: xor      eax, eax
+0x1408b0172: xor      ebx, ebx
+0x1408b0174: add      rsp, 0xc8
+0x1408b017b: pop      rbp
+0x1408b017c: ret      
+0x1408b017d: xor      eax, eax
+0x1408b017f: xor      ebx, ebx
+0x1408b0181: add      rsp, 0xc8
+0x1408b0188: pop      rbp
+0x1408b0189: ret      
+0x1408b018a: xor      eax, eax
+0x1408b018c: xor      ebx, ebx
+0x1408b018e: add      rsp, 0xc8
+0x1408b0195: pop      rbp
+0x1408b0196: ret      
+0x1408b0197: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408b019c: nop      dword ptr [rax]
+0x1408b01a0: jmp      0x1408affa0   ; main.deleteLauncherStartupTask
+0x1408b01a5: int3     
+0x1408b01a6: int3     
+0x1408b01a7: int3     
+0x1408b01a8: int3     
+0x1408b01a9: int3     
+0x1408b01aa: int3     
+0x1408b01ab: int3     
+0x1408b01ac: int3     
+0x1408b01ad: int3     
+0x1408b01ae: int3     
+0x1408b01af: int3     
+0x1408b01b0: int3     
+0x1408b01b1: int3     
+0x1408b01b2: int3     
+0x1408b01b3: int3     
+0x1408b01b4: int3     
+0x1408b01b5: int3     
+0x1408b01b6: int3     
+0x1408b01b7: int3     
+0x1408b01b8: int3     
+0x1408b01b9: int3     
+0x1408b01ba: int3     
+0x1408b01bb: int3     
+0x1408b01bc: int3     
+0x1408b01bd: int3     
+0x1408b01be: int3     
+0x1408b01bf: int3     

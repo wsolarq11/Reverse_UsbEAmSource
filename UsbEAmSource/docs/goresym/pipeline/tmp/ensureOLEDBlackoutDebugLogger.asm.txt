@@ -1,0 +1,289 @@
+0x14090ee60: cmp      rsp, qword ptr [r14 + 0x10]
+0x14090ee64: jbe      0x14090ee92   ; main.ensureOLEDBlackoutDebugLogger+0x32
+0x14090ee66: push     rbp
+0x14090ee67: mov      rbp, rsp
+0x14090ee6a: sub      rsp, 0x10
+0x14090ee6e: nop      
+0x14090ee6f: mov      ecx, dword ptr [rip + 0x13045cb]
+0x14090ee75: test     ecx, ecx
+0x14090ee77: jne      0x14090ee8c   ; main.ensureOLEDBlackoutDebugLogger+0x2c
+0x14090ee79: lea      rax, [rip + 0x13045c0]
+0x14090ee80: lea      rbx, [rip + 0x787bd1]
+0x14090ee87: call     0x140092520   ; sync.Once.doSlow
+0x14090ee8c: add      rsp, 0x10
+0x14090ee90: pop      rbp
+0x14090ee91: ret      
+0x14090ee92: call     0x14007f140   ; runtime.morestack_noctxt
+0x14090ee97: jmp      0x14090ee60   ; main.ensureOLEDBlackoutDebugLogger
+0x14090ee99: int3     
+0x14090ee9a: int3     
+0x14090ee9b: int3     
+0x14090ee9c: int3     
+0x14090ee9d: int3     
+0x14090ee9e: int3     
+0x14090ee9f: int3     
+0x14090eea0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14090eea4: jbe      0x14090f13f   ; main.resolveOLEDBlackoutDebugConfiguration+0x29f
+0x14090eeaa: push     rbp
+0x14090eeab: mov      rbp, rsp
+0x14090eeae: sub      rsp, 0x58
+0x14090eeb2: lea      rax, [rip + 0x3621ca]
+0x14090eeb9: mov      ebx, 0x1f
+0x14090eebe: nop      
+0x14090eec0: call     0x140125a00   ; os.Getenv
+0x14090eec5: call     0x1400a2200   ; strings.TrimSpace
+0x14090eeca: mov      qword ptr [rsp + 0x28], rbx
+0x14090eecf: mov      qword ptr [rsp + 0x48], rax
+0x14090eed4: lea      rax, [rip + 0x35957e]
+0x14090eedb: mov      ebx, 0x1a
+0x14090eee0: call     0x140125a00   ; os.Getenv
+0x14090eee5: call     0x1400a2200   ; strings.TrimSpace
+0x14090eeea: mov      rcx, qword ptr [rsp + 0x28]
+0x14090eeef: test     rcx, rcx
+0x14090eef2: setne    dl
+0x14090eef5: test     rbx, rbx
+0x14090eef8: je       0x14090ef10   ; main.resolveOLEDBlackoutDebugConfiguration+0x70
+0x14090eefa: call     0x14090f160   ; main.parseOLEDBlackoutDebugBool
+0x14090eeff: nop      
+0x14090ef00: test     bl, bl
+0x14090ef02: jne      0x14090ef09   ; main.resolveOLEDBlackoutDebugConfiguration+0x69
+0x14090ef04: mov      eax, 1
+0x14090ef09: mov      rcx, qword ptr [rsp + 0x28]
+0x14090ef0e: mov      edx, eax
+0x14090ef10: mov      rsi, qword ptr [rip + 0x1302291]
+0x14090ef17: nop      word ptr [rax + rax]
+0x14090ef20: cmp      rsi, 1
+0x14090ef24: jb       0x14090f132   ; main.resolveOLEDBlackoutDebugConfiguration+0x292
+0x14090ef2a: mov      rdi, qword ptr [rip + 0x130226f]
+0x14090ef31: mov      r8, qword ptr [rip + 0x1302278]
+0x14090ef38: dec      r8
+0x14090ef3b: neg      r8
+0x14090ef3e: sar      r8, 0x3f
+0x14090ef42: and      r8d, 0x10
+0x14090ef46: add      rdi, r8
+0x14090ef49: dec      rsi
+0x14090ef4c: mov      qword ptr [rsp + 0x38], rsi
+0x14090ef51: xor      eax, eax
+0x14090ef53: mov      rbx, qword ptr [rsp + 0x48]
+0x14090ef58: jmp      0x14090ef80   ; main.resolveOLEDBlackoutDebugConfiguration+0xe0
+0x14090ef5a: mov      rdi, qword ptr [rsp + 0x50]
+0x14090ef5f: add      rdi, 0x10
+0x14090ef63: mov      r8, qword ptr [rsp + 0x30]
+0x14090ef68: inc      r8
+0x14090ef6b: mov      rsi, qword ptr [rsp + 0x38]
+0x14090ef70: mov      rcx, rbx
+0x14090ef73: mov      rbx, rax
+0x14090ef76: mov      rax, r8
+0x14090ef79: nop      dword ptr [rax]
+0x14090ef80: cmp      rax, rsi
+0x14090ef83: jge      0x14090f12a   ; main.resolveOLEDBlackoutDebugConfiguration+0x28a
+0x14090ef89: mov      qword ptr [rsp + 0x30], rax
+0x14090ef8e: mov      qword ptr [rsp + 0x48], rbx
+0x14090ef93: mov      qword ptr [rsp + 0x28], rcx
+0x14090ef98: mov      byte ptr [rsp + 0x1f], dl
+0x14090ef9c: mov      qword ptr [rsp + 0x50], rdi
+0x14090efa1: mov      rax, qword ptr [rdi]
+0x14090efa4: mov      rbx, qword ptr [rdi + 8]
+0x14090efa8: call     0x1400a2200   ; strings.TrimSpace
+0x14090efad: mov      qword ptr [rsp + 0x20], rbx
+0x14090efb2: mov      qword ptr [rsp + 0x40], rax
+0x14090efb7: cmp      rbx, 0x15
+0x14090efbb: jne      0x14090eff0   ; main.resolveOLEDBlackoutDebugConfiguration+0x150
+0x14090efbd: lea      rbx, [rip + 0x35093b]
+0x14090efc4: mov      ecx, 0x15
+0x14090efc9: call     0x140006280   ; runtime.memequal
+0x14090efce: test     al, al
+0x14090efd0: je       0x14090efe6   ; main.resolveOLEDBlackoutDebugConfiguration+0x146
+0x14090efd2: mov      rbx, qword ptr [rsp + 0x28]
+0x14090efd7: mov      edx, 1
+0x14090efdc: mov      rax, qword ptr [rsp + 0x48]
+0x14090efe1: jmp      0x14090ef5a   ; main.resolveOLEDBlackoutDebugConfiguration+0xba
+0x14090efe6: mov      rax, qword ptr [rsp + 0x40]
+0x14090efeb: mov      rbx, qword ptr [rsp + 0x20]
+0x14090eff0: cmp      rbx, 0x16
+0x14090eff4: jge      0x14090effa   ; main.resolveOLEDBlackoutDebugConfiguration+0x15a
+0x14090eff6: xor      ecx, ecx
+0x14090eff8: jmp      0x14090f017   ; main.resolveOLEDBlackoutDebugConfiguration+0x177
+0x14090effa: lea      rbx, [rip + 0x35241f]
+0x14090f001: mov      ecx, 0x16
+0x14090f006: call     0x140006280   ; runtime.memequal
+0x14090f00b: mov      rbx, qword ptr [rsp + 0x20]
+0x14090f010: mov      ecx, eax
+0x14090f012: mov      rax, qword ptr [rsp + 0x40]
+0x14090f017: test     cl, cl
+0x14090f019: jne      0x14090f0bd   ; main.resolveOLEDBlackoutDebugConfiguration+0x21d
+0x14090f01f: nop      
+0x14090f020: cmp      rbx, 0x1b
+0x14090f024: jge      0x14090f02a   ; main.resolveOLEDBlackoutDebugConfiguration+0x18a
+0x14090f026: xor      ecx, ecx
+0x14090f028: jmp      0x14090f047   ; main.resolveOLEDBlackoutDebugConfiguration+0x1a7
+0x14090f02a: lea      rbx, [rip + 0x35b1ea]
+0x14090f031: mov      ecx, 0x1b
+0x14090f036: call     0x140006280   ; runtime.memequal
+0x14090f03b: mov      rbx, qword ptr [rsp + 0x20]
+0x14090f040: mov      ecx, eax
+0x14090f042: mov      rax, qword ptr [rsp + 0x40]
+0x14090f047: test     cl, cl
+0x14090f049: jne      0x14090f05f   ; main.resolveOLEDBlackoutDebugConfiguration+0x1bf
+0x14090f04b: mov      rbx, qword ptr [rsp + 0x28]
+0x14090f050: movzx    edx, byte ptr [rsp + 0x1f]
+0x14090f055: mov      rax, qword ptr [rsp + 0x48]
+0x14090f05a: jmp      0x14090ef5a   ; main.resolveOLEDBlackoutDebugConfiguration+0xba
+0x14090f05f: nop      
+0x14090f060: cmp      rbx, 0x1b
+0x14090f064: jl       0x14090f0a6   ; main.resolveOLEDBlackoutDebugConfiguration+0x206
+0x14090f066: lea      rbx, [rip + 0x35b1ae]
+0x14090f06d: mov      ecx, 0x1b
+0x14090f072: call     0x140006280   ; runtime.memequal
+0x14090f077: test     al, al
+0x14090f079: je       0x14090f09c   ; main.resolveOLEDBlackoutDebugConfiguration+0x1fc
+0x14090f07b: mov      rbx, qword ptr [rsp + 0x20]
+0x14090f080: add      rbx, -0x1b
+0x14090f084: mov      rcx, rbx
+0x14090f087: neg      rcx
+0x14090f08a: sar      rcx, 0x3f
+0x14090f08e: and      ecx, 0x1b
+0x14090f091: mov      rdx, qword ptr [rsp + 0x40]
+0x14090f096: lea      rax, [rcx + rdx]
+0x14090f09a: jmp      0x14090f0a6   ; main.resolveOLEDBlackoutDebugConfiguration+0x206
+0x14090f09c: mov      rax, qword ptr [rsp + 0x40]
+0x14090f0a1: mov      rbx, qword ptr [rsp + 0x20]
+0x14090f0a6: call     0x1400a2200   ; strings.TrimSpace
+0x14090f0ab: test     rbx, rbx
+0x14090f0ae: setne    dl
+0x14090f0b1: movzx    ecx, byte ptr [rsp + 0x1f]
+0x14090f0b6: or       edx, ecx
+0x14090f0b8: jmp      0x14090ef5a   ; main.resolveOLEDBlackoutDebugConfiguration+0xba
+0x14090f0bd: nop      dword ptr [rax]
+0x14090f0c0: cmp      rbx, 0x16
+0x14090f0c4: jl       0x14090f106   ; main.resolveOLEDBlackoutDebugConfiguration+0x266
+0x14090f0c6: lea      rbx, [rip + 0x352353]
+0x14090f0cd: mov      ecx, 0x16
+0x14090f0d2: call     0x140006280   ; runtime.memequal
+0x14090f0d7: test     al, al
+0x14090f0d9: je       0x14090f0fc   ; main.resolveOLEDBlackoutDebugConfiguration+0x25c
+0x14090f0db: mov      rbx, qword ptr [rsp + 0x20]
+0x14090f0e0: add      rbx, -0x16
+0x14090f0e4: mov      rcx, rbx
+0x14090f0e7: neg      rcx
+0x14090f0ea: sar      rcx, 0x3f
+0x14090f0ee: and      ecx, 0x16
+0x14090f0f1: mov      rdx, qword ptr [rsp + 0x40]
+0x14090f0f6: lea      rax, [rcx + rdx]
+0x14090f0fa: jmp      0x14090f106   ; main.resolveOLEDBlackoutDebugConfiguration+0x266
+0x14090f0fc: mov      rax, qword ptr [rsp + 0x40]
+0x14090f101: mov      rbx, qword ptr [rsp + 0x20]
+0x14090f106: call     0x1400a2200   ; strings.TrimSpace
+0x14090f10b: call     0x14090f160   ; main.parseOLEDBlackoutDebugBool
+0x14090f110: test     bl, bl
+0x14090f112: jne      0x14090f119   ; main.resolveOLEDBlackoutDebugConfiguration+0x279
+0x14090f114: mov      eax, 1
+0x14090f119: mov      rbx, qword ptr [rsp + 0x28]
+0x14090f11e: mov      edx, eax
+0x14090f120: mov      rax, qword ptr [rsp + 0x48]
+0x14090f125: jmp      0x14090ef5a   ; main.resolveOLEDBlackoutDebugConfiguration+0xba
+0x14090f12a: mov      eax, edx
+0x14090f12c: add      rsp, 0x58
+0x14090f130: pop      rbp
+0x14090f131: ret      
+0x14090f132: mov      eax, 1
+0x14090f137: xor      ecx, ecx
+0x14090f139: call     0x1400814c0   ; runtime.panicSliceB
+0x14090f13e: nop      
+0x14090f13f: nop      
+0x14090f140: call     0x14007f140   ; runtime.morestack_noctxt
+0x14090f145: jmp      0x14090eea0   ; main.resolveOLEDBlackoutDebugConfiguration
+0x14090f14a: int3     
+0x14090f14b: int3     
+0x14090f14c: int3     
+0x14090f14d: int3     
+0x14090f14e: int3     
+0x14090f14f: int3     
+0x14090f150: int3     
+0x14090f151: int3     
+0x14090f152: int3     
+0x14090f153: int3     
+0x14090f154: int3     
+0x14090f155: int3     
+0x14090f156: int3     
+0x14090f157: int3     
+0x14090f158: int3     
+0x14090f159: int3     
+0x14090f15a: int3     
+0x14090f15b: int3     
+0x14090f15c: int3     
+0x14090f15d: int3     
+0x14090f15e: int3     
+0x14090f15f: int3     
+0x14090f160: cmp      rsp, qword ptr [r14 + 0x10]
+0x14090f164: jbe      0x14090f21f   ; main.parseOLEDBlackoutDebugBool+0xbf
+0x14090f16a: push     rbp
+0x14090f16b: mov      rbp, rsp
+0x14090f16e: sub      rsp, 0x10
+0x14090f172: mov      qword ptr [rsp + 0x20], rax
+0x14090f177: call     0x1400a2200   ; strings.TrimSpace
+0x14090f17c: nop      dword ptr [rax]
+0x14090f180: call     0x1400a1500   ; strings.ToLower
+0x14090f185: cmp      rbx, 2
+0x14090f189: jg       0x14090f1b6   ; main.parseOLEDBlackoutDebugBool+0x56
+0x14090f18b: cmp      rbx, 1
+0x14090f18f: jne      0x14090f1a0   ; main.parseOLEDBlackoutDebugBool+0x40
+0x14090f191: cmp      byte ptr [rax], 0x30
+0x14090f194: je       0x14090f208   ; main.parseOLEDBlackoutDebugBool+0xa8
+0x14090f196: cmp      byte ptr [rax], 0x31
+0x14090f199: je       0x14090f1e6   ; main.parseOLEDBlackoutDebugBool+0x86
+0x14090f19b: jmp      0x14090f215   ; main.parseOLEDBlackoutDebugBool+0xb5
+0x14090f19d: nop      dword ptr [rax]
+0x14090f1a0: cmp      rbx, 2
+0x14090f1a4: jne      0x14090f215   ; main.parseOLEDBlackoutDebugBool+0xb5
+0x14090f1a6: cmp      word ptr [rax], 0x6f6e
+0x14090f1ab: je       0x14090f208   ; main.parseOLEDBlackoutDebugBool+0xa8
+0x14090f1ad: cmp      word ptr [rax], 0x6e6f
+0x14090f1b2: je       0x14090f1e6   ; main.parseOLEDBlackoutDebugBool+0x86
+0x14090f1b4: jmp      0x14090f215   ; main.parseOLEDBlackoutDebugBool+0xb5
+0x14090f1b6: cmp      rbx, 3
+0x14090f1ba: jne      0x14090f1d8   ; main.parseOLEDBlackoutDebugBool+0x78
+0x14090f1bc: cmp      word ptr [rax], 0x666f
+0x14090f1c1: jne      0x14090f1c9   ; main.parseOLEDBlackoutDebugBool+0x69
+0x14090f1c3: cmp      byte ptr [rax + 2], 0x66
+0x14090f1c7: je       0x14090f208   ; main.parseOLEDBlackoutDebugBool+0xa8
+0x14090f1c9: cmp      word ptr [rax], 0x6579
+0x14090f1ce: jne      0x14090f215   ; main.parseOLEDBlackoutDebugBool+0xb5
+0x14090f1d0: cmp      byte ptr [rax + 2], 0x73
+0x14090f1d4: je       0x14090f1e6   ; main.parseOLEDBlackoutDebugBool+0x86
+0x14090f1d6: jmp      0x14090f215   ; main.parseOLEDBlackoutDebugBool+0xb5
+0x14090f1d8: cmp      rbx, 4
+0x14090f1dc: jne      0x14090f1f3   ; main.parseOLEDBlackoutDebugBool+0x93
+0x14090f1de: cmp      dword ptr [rax], 0x65757274
+0x14090f1e4: jne      0x14090f215   ; main.parseOLEDBlackoutDebugBool+0xb5
+0x14090f1e6: mov      eax, 1
+0x14090f1eb: mov      ebx, eax
+0x14090f1ed: add      rsp, 0x10
+0x14090f1f1: pop      rbp
+0x14090f1f2: ret      
+0x14090f1f3: cmp      rbx, 5
+0x14090f1f7: jne      0x14090f215   ; main.parseOLEDBlackoutDebugBool+0xb5
+0x14090f1f9: cmp      dword ptr [rax], 0x736c6166
+0x14090f1ff: nop      
+0x14090f200: jne      0x14090f215   ; main.parseOLEDBlackoutDebugBool+0xb5
+0x14090f202: cmp      byte ptr [rax + 4], 0x65
+0x14090f206: jne      0x14090f215   ; main.parseOLEDBlackoutDebugBool+0xb5
+0x14090f208: xor      eax, eax
+0x14090f20a: mov      ebx, 1
+0x14090f20f: add      rsp, 0x10
+0x14090f213: pop      rbp
+0x14090f214: ret      
+0x14090f215: xor      eax, eax
+0x14090f217: mov      ebx, eax
+0x14090f219: add      rsp, 0x10
+0x14090f21d: pop      rbp
+0x14090f21e: ret      
+0x14090f21f: mov      qword ptr [rsp + 8], rax
+0x14090f224: mov      qword ptr [rsp + 0x10], rbx
+0x14090f229: call     0x14007f140   ; runtime.morestack_noctxt
+0x14090f22e: mov      rax, qword ptr [rsp + 8]
+0x14090f233: mov      rbx, qword ptr [rsp + 0x10]
+0x14090f238: jmp      0x14090f160   ; main.parseOLEDBlackoutDebugBool
+0x14090f23d: int3     
+0x14090f23e: int3     
+0x14090f23f: int3     

@@ -1,0 +1,207 @@
+0x140748280: lea      r12, [rsp - 0x2b8]
+0x140748288: cmp      r12, qword ptr [r14 + 0x10]
+0x14074828c: jbe      0x14074869f    ; main.resolveAppDisplayName+0x41f
+0x140748292: push     rbp
+0x140748293: mov      rbp, rsp
+0x140748296: sub      rsp, 0x330
+0x14074829d: mov      qword ptr [rsp + 0x340], rax
+0x1407482a5: call     0x1400a2200    ; strings.TrimSpace
+0x1407482aa: test     rbx, rbx
+0x1407482ad: je       0x140748559    ; main.resolveAppDisplayName+0x2d9
+0x1407482b3: mov      qword ptr [rsp + 0xa8], rbx
+0x1407482bb: mov      qword ptr [rsp + 0x168], rax
+0x1407482c3: mov      qword ptr [rsp + 0x2a0], rbx
+0x1407482cb: mov      qword ptr [rsp + 0x298], rax
+0x1407482d3: call     0x1409c1ec0    ; main.isShortcutFilePath
+0x1407482d8: test     al, al
+0x1407482da: jne      0x1407482f2    ; main.resolveAppDisplayName+0x72
+0x1407482dc: mov      eax, 1
+0x1407482e1: lea      rcx, [rsp + 0x298]
+0x1407482e9: xor      edx, edx
+0x1407482eb: xor      ebx, ebx
+0x1407482ed: jmp      0x1407484a2    ; main.resolveAppDisplayName+0x222
+0x1407482f2: movups   xmmword ptr [rsp + 0x2a8], xmm15
+0x1407482fb: lea      rdi, [rsp + 0x2b0]
+0x140748303: mov      qword ptr [rsp - 0x10], rbp
+0x140748308: lea      rbp, [rsp - 0x10]
+0x14074830d: call     0x140081722    ; runtime.duffzero+0x142
+0x140748312: mov      rbp, qword ptr [rbp]
+0x140748316: mov      rax, qword ptr [rsp + 0x168]
+0x14074831e: mov      rbx, qword ptr [rsp + 0xa8]
+0x140748326: lea      rcx, [rip + 0x94e96b]
+0x14074832d: call     0x1409c2300    ; main.resolveShortcutInfoWithIconResolver
+0x140748332: mov      rdx, qword ptr [rsp]
+0x140748336: mov      qword ptr [rsp + 0x2a8], rdx
+0x14074833e: lea      rdi, [rsp + 0x2b0]
+0x140748346: lea      rsi, [rsp + 8]
+0x14074834b: mov      qword ptr [rsp - 0x10], rbp
+0x140748350: lea      rbp, [rsp - 0x10]
+0x140748355: call     0x140081a70    ; runtime.duffcopy+0x310
+0x14074835a: mov      rbp, qword ptr [rbp]
+0x14074835e: mov      rdx, qword ptr [rsp + 0x2a8]
+0x140748366: mov      qword ptr [rsp + 0xd8], rdx
+0x14074836e: lea      rdi, [rsp + 0xe0]
+0x140748376: lea      rsi, [rsp + 0x2b0]
+0x14074837e: nop      
+0x140748380: mov      qword ptr [rsp - 0x10], rbp
+0x140748385: lea      rbp, [rsp - 0x10]
+0x14074838a: call     0x140081a70    ; runtime.duffcopy+0x310
+0x14074838f: mov      rbp, qword ptr [rbp]
+0x140748393: test     rax, rax
+0x140748396: je       0x1407483ae    ; main.resolveAppDisplayName+0x12e
+0x140748398: mov      eax, 1
+0x14074839d: lea      rcx, [rsp + 0x298]
+0x1407483a5: xor      edx, edx
+0x1407483a7: xor      ebx, ebx
+0x1407483a9: jmp      0x1407484a2    ; main.resolveAppDisplayName+0x222
+0x1407483ae: mov      rax, qword ptr [rsp + 0xe8]
+0x1407483b6: mov      rbx, qword ptr [rsp + 0xf0]
+0x1407483be: nop      
+0x1407483c0: call     0x1400a2200    ; strings.TrimSpace
+0x1407483c5: test     rbx, rbx
+0x1407483c8: jne      0x1407483d9    ; main.resolveAppDisplayName+0x159
+0x1407483ca: mov      eax, 1
+0x1407483cf: lea      rcx, [rsp + 0x298]
+0x1407483d7: jmp      0x140748452    ; main.resolveAppDisplayName+0x1d2
+0x1407483d9: mov      qword ptr [rsp + 0x290], rbx
+0x1407483e1: mov      qword ptr [rsp + 0x288], rax
+0x1407483e9: lea      rax, [rsp + 0x288]
+0x1407483f1: mov      ebx, 2
+0x1407483f6: mov      ecx, 1
+0x1407483fb: mov      rdi, rcx
+0x1407483fe: lea      rsi, [rip + 0x3a19fb]
+0x140748405: call     0x14007ad20    ; runtime.growslice
+0x14074840a: mov      qword ptr [rsp + 0x180], rax
+0x140748412: lea      rdx, [rcx - 1]
+0x140748416: neg      rdx
+0x140748419: sar      rdx, 0x3f
+0x14074841d: and      edx, 0x10
+0x140748420: lea      rbx, [rax + rdx]
+0x140748424: lea      rax, [rip + 0x3a19d5]
+0x14074842b: mov      ecx, 1
+0x140748430: lea      rdi, [rsp + 0x298]
+0x140748438: mov      rsi, rcx
+0x14074843b: nop      dword ptr [rax + rax]
+0x140748440: call     0x140077380    ; runtime.typedslicecopy
+0x140748445: mov      eax, 2
+0x14074844a: mov      rcx, qword ptr [rsp + 0x180]
+0x140748452: mov      qword ptr [rsp + 0xc0], rax
+0x14074845a: mov      qword ptr [rsp + 0x180], rcx
+0x140748462: mov      rax, qword ptr [rsp + 0x118]
+0x14074846a: mov      rbx, qword ptr [rsp + 0x120]
+0x140748472: call     0x1400a2200    ; strings.TrimSpace
+0x140748477: test     rbx, rbx
+0x14074847a: mov      ecx, 0
+0x14074847f: cmovne   rcx, rbx
+0x140748483: mov      edx, 0
+0x140748488: cmovne   rdx, rax
+0x14074848c: mov      rax, qword ptr [rsp + 0xc0]
+0x140748494: mov      rbx, rdx
+0x140748497: mov      rdx, rcx
+0x14074849a: mov      rcx, qword ptr [rsp + 0x180]
+0x1407484a2: mov      qword ptr [rsp + 0xd0], rbx
+0x1407484aa: mov      qword ptr [rsp + 0xa0], rdx
+0x1407484b2: mov      qword ptr [rsp + 0x180], rcx
+0x1407484ba: movups   xmmword ptr [rsp + 0x258], xmm15
+0x1407484c3: movups   xmmword ptr [rsp + 0x268], xmm15
+0x1407484cc: movups   xmmword ptr [rsp + 0x278], xmm15
+0x1407484d5: cmp      rax, 8
+0x1407484d9: jg       0x140748521    ; main.resolveAppDisplayName+0x2a1
+0x1407484db: movups   xmmword ptr [rsp + 0x190], xmm15
+0x1407484e4: lea      rdi, [rsp + 0x198]
+0x1407484ec: mov      qword ptr [rsp - 0x10], rbp
+0x1407484f1: lea      rbp, [rsp - 0x10]
+0x1407484f6: call     0x14008170b    ; runtime.duffzero+0x12b
+0x1407484fb: mov      rbp, qword ptr [rbp]
+0x1407484ff: movabs   rsi, 0x8080808080808080
+0x140748509: mov      qword ptr [rsp + 0x190], rsi
+0x140748511: lea      rsi, [rsp + 0x190]
+0x140748519: mov      qword ptr [rsp + 0x268], rsi
+0x140748521: mov      qword ptr [rsp + 0xc0], rax
+0x140748529: mov      rbx, rax
+0x14074852c: lea      rcx, [rsp + 0x258]
+0x140748534: lea      rax, [rip + 0x400565]
+0x14074853b: nop      dword ptr [rax + rax]
+0x140748540: call     0x140076d80    ; runtime.makemap
+0x140748545: mov      qword ptr [rsp + 0x160], rax
+0x14074854d: mov      rdx, qword ptr [rsp + 0x180]
+0x140748555: xor      ecx, ecx
+0x140748557: jmp      0x14074858a    ; main.resolveAppDisplayName+0x30a
+0x140748559: xor      eax, eax
+0x14074855b: xor      ebx, ebx
+0x14074855d: xor      ecx, ecx
+0x14074855f: mov      rdi, rax
+0x140748562: add      rsp, 0x330
+0x140748569: pop      rbp
+0x14074856a: ret      
+0x14074856b: mov      rdx, qword ptr [rsp + 0x188]
+0x140748573: add      rdx, 0x10
+0x140748577: mov      rcx, qword ptr [rsp + 0xc8]
+0x14074857f: inc      rcx
+0x140748582: mov      rax, qword ptr [rsp + 0x160]
+0x14074858a: mov      rsi, qword ptr [rsp + 0xc0]
+0x140748592: cmp      rcx, rsi
+0x140748595: jge      0x14074865b    ; main.resolveAppDisplayName+0x3db
+0x14074859b: mov      qword ptr [rsp + 0xc8], rcx
+0x1407485a3: mov      qword ptr [rsp + 0x188], rdx
+0x1407485ab: mov      rax, qword ptr [rdx]
+0x1407485ae: mov      rbx, qword ptr [rdx + 8]
+0x1407485b2: call     0x1400a2200    ; strings.TrimSpace
+0x1407485b7: test     rbx, rbx
+0x1407485ba: je       0x14074856b    ; main.resolveAppDisplayName+0x2eb
+0x1407485bc: mov      qword ptr [rsp + 0xb0], rbx
+0x1407485c4: mov      qword ptr [rsp + 0x170], rax
+0x1407485cc: call     0x1400a1500    ; strings.ToLower
+0x1407485d1: mov      qword ptr [rsp + 0x178], rax
+0x1407485d9: mov      qword ptr [rsp + 0xb8], rbx
+0x1407485e1: mov      rcx, rax
+0x1407485e4: mov      rdi, rbx
+0x1407485e7: lea      rax, [rip + 0x4004b2]
+0x1407485ee: mov      rbx, qword ptr [rsp + 0x160]
+0x1407485f6: call     0x14000dbc0    ; runtime.mapaccess2_faststr
+0x1407485fb: nop      dword ptr [rax + rax]
+0x140748600: test     bl, bl
+0x140748602: jne      0x14074856b    ; main.resolveAppDisplayName+0x2eb
+0x140748608: lea      rax, [rip + 0x400491]
+0x14074860f: mov      rbx, qword ptr [rsp + 0x160]
+0x140748617: mov      rcx, qword ptr [rsp + 0x178]
+0x14074861f: mov      rdi, qword ptr [rsp + 0xb8]
+0x140748627: call     0x14000de60    ; runtime.mapassign_faststr
+0x14074862c: test     byte ptr [rax], al
+0x14074862e: mov      rax, qword ptr [rsp + 0x170]
+0x140748636: mov      rbx, qword ptr [rsp + 0xb0]
+0x14074863e: nop      
+0x140748640: call     0x1407486c0    ; main.resolveFileDisplayName
+0x140748645: test     rbx, rbx
+0x140748648: je       0x14074856b    ; main.resolveAppDisplayName+0x2eb
+0x14074864e: xor      ecx, ecx
+0x140748650: xor      edi, edi
+0x140748652: add      rsp, 0x330
+0x140748659: pop      rbp
+0x14074865a: ret      
+0x14074865b: mov      rbx, qword ptr [rsp + 0xa0]
+0x140748663: test     rbx, rbx
+0x140748666: je       0x14074867d    ; main.resolveAppDisplayName+0x3fd
+0x140748668: mov      rax, qword ptr [rsp + 0xd0]
+0x140748670: xor      ecx, ecx
+0x140748672: xor      edi, edi
+0x140748674: add      rsp, 0x330
+0x14074867b: pop      rbp
+0x14074867c: ret      
+0x14074867d: mov      rax, qword ptr [rsp + 0x168]
+0x140748685: mov      rbx, qword ptr [rsp + 0xa8]
+0x14074868d: call     0x140748040    ; main.fallbackAppDisplayName
+0x140748692: xor      ecx, ecx
+0x140748694: xor      edi, edi
+0x140748696: add      rsp, 0x330
+0x14074869d: pop      rbp
+0x14074869e: ret      
+0x14074869f: mov      qword ptr [rsp + 8], rax
+0x1407486a4: mov      qword ptr [rsp + 0x10], rbx
+0x1407486a9: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407486ae: mov      rax, qword ptr [rsp + 8]
+0x1407486b3: mov      rbx, qword ptr [rsp + 0x10]
+0x1407486b8: jmp      0x140748280    ; main.resolveAppDisplayName
+0x1407486bd: int3     
+0x1407486be: int3     
+0x1407486bf: int3     

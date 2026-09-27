@@ -1,0 +1,73 @@
+0x140918600: cmp      rsp, qword ptr [r14 + 0x10]
+0x140918604: jbe      0x140918690   ; main.oledBlackoutCollectVisibleMediaWindowCandidates+0x90
+0x14091860a: push     rbp
+0x14091860b: mov      rbp, rsp
+0x14091860e: sub      rsp, 0x60
+0x140918612: mov      qword ptr [rsp + 0x78], rbx
+0x140918617: mov      rsi, rbx
+0x14091861a: mov      r8, rcx
+0x14091861d: mov      r9, rdi
+0x140918620: xor      ebx, ebx
+0x140918622: mov      rcx, rbx
+0x140918625: mov      rdi, rax
+0x140918628: xor      eax, eax
+0x14091862a: call     0x1409186e0   ; main.oledBlackoutCollectScreenWindowCandidates
+0x14091862f: mov      qword ptr [rsp + 0x48], rax
+0x140918634: mov      qword ptr [rsp + 0x38], rbx
+0x140918639: mov      qword ptr [rsp + 0x40], rcx
+0x14091863e: movups   xmmword ptr [rsp + 0x50], xmm15
+0x140918644: mov      rax, rbx
+0x140918647: call     0x1400765e0   ; runtime.convT64
+0x14091864c: lea      rdx, [rip + 0x1d19ed]
+0x140918653: mov      qword ptr [rsp + 0x50], rdx
+0x140918658: mov      qword ptr [rsp + 0x58], rax
+0x14091865d: lea      rax, [rip + 0x36fee8]
+0x140918664: mov      ebx, 0x32
+0x140918669: lea      rcx, [rsp + 0x50]
+0x14091866e: mov      edi, 1
+0x140918673: mov      rsi, rdi
+0x140918676: call     0x14090eb80   ; main.oledBlackoutDebugLog
+0x14091867b: mov      rax, qword ptr [rsp + 0x48]
+0x140918680: mov      rbx, qword ptr [rsp + 0x38]
+0x140918685: mov      rcx, qword ptr [rsp + 0x40]
+0x14091868a: add      rsp, 0x60
+0x14091868e: pop      rbp
+0x14091868f: ret      
+0x140918690: mov      qword ptr [rsp + 8], rax
+0x140918695: mov      qword ptr [rsp + 0x10], rbx
+0x14091869a: mov      qword ptr [rsp + 0x18], rcx
+0x14091869f: mov      qword ptr [rsp + 0x20], rdi
+0x1409186a4: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409186a9: mov      rax, qword ptr [rsp + 8]
+0x1409186ae: mov      rbx, qword ptr [rsp + 0x10]
+0x1409186b3: mov      rcx, qword ptr [rsp + 0x18]
+0x1409186b8: mov      rdi, qword ptr [rsp + 0x20]
+0x1409186bd: nop      dword ptr [rax]
+0x1409186c0: jmp      0x140918600   ; main.oledBlackoutCollectVisibleMediaWindowCandidates
+0x1409186c5: int3     
+0x1409186c6: int3     
+0x1409186c7: int3     
+0x1409186c8: int3     
+0x1409186c9: int3     
+0x1409186ca: int3     
+0x1409186cb: int3     
+0x1409186cc: int3     
+0x1409186cd: int3     
+0x1409186ce: int3     
+0x1409186cf: int3     
+0x1409186d0: int3     
+0x1409186d1: int3     
+0x1409186d2: int3     
+0x1409186d3: int3     
+0x1409186d4: int3     
+0x1409186d5: int3     
+0x1409186d6: int3     
+0x1409186d7: int3     
+0x1409186d8: int3     
+0x1409186d9: int3     
+0x1409186da: int3     
+0x1409186db: int3     
+0x1409186dc: int3     
+0x1409186dd: int3     
+0x1409186de: int3     
+0x1409186df: int3     

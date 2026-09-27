@@ -1,0 +1,75 @@
+0x1409ddc60: lea      r12, [rsp - 0x118]
+0x1409ddc68: cmp      r12, qword ptr [r14 + 0x10]
+0x1409ddc6c: jbe      0x1409ddde1    ; main.BootstrapService.InspectWebView2Processes+0x181
+0x1409ddc72: push     rbp
+0x1409ddc73: mov      rbp, rsp
+0x1409ddc76: sub      rsp, 0x190
+0x1409ddc7d: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1409ddc86: movups   xmmword ptr [rsp + 0xb0], xmm15
+0x1409ddc8f: movups   xmmword ptr [rsp + 0xc0], xmm15
+0x1409ddc98: movups   xmmword ptr [rsp + 0xd0], xmm15
+0x1409ddca1: movups   xmmword ptr [rsp + 0xe0], xmm15
+0x1409ddcaa: test     rax, rax
+0x1409ddcad: jne      0x1409ddcb5    ; main.BootstrapService.InspectWebView2Processes+0x55
+0x1409ddcaf: xor      edx, edx
+0x1409ddcb1: xor      ecx, ecx
+0x1409ddcb3: jmp      0x1409ddce8    ; main.BootstrapService.InspectWebView2Processes+0x88
+0x1409ddcb5: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x1409ddcba: lea      rdi, [rsp + 0xf0]
+0x1409ddcc2: mov      rsi, rsp
+0x1409ddcc5: mov      qword ptr [rsp - 0x10], rbp
+0x1409ddcca: lea      rbp, [rsp - 0x10]
+0x1409ddccf: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x1409ddcd4: mov      rbp, qword ptr [rbp]
+0x1409ddcd8: mov      rcx, qword ptr [rsp + 0x170]
+0x1409ddce0: mov      rdx, qword ptr [rsp + 0x178]
+0x1409ddce8: mov      rax, rcx
+0x1409ddceb: mov      rbx, rdx
+0x1409ddcee: call     0x1409debc0    ; main.inspectWebView2Processes
+0x1409ddcf3: mov      qword ptr [rsp + 0xf0], rax
+0x1409ddcfb: mov      qword ptr [rsp + 0xf8], rbx
+0x1409ddd03: mov      qword ptr [rsp + 0x100], rcx
+0x1409ddd0b: mov      qword ptr [rsp + 0x108], rdi
+0x1409ddd13: mov      qword ptr [rsp + 0x110], rsi
+0x1409ddd1b: mov      qword ptr [rsp + 0x118], r8
+0x1409ddd23: mov      qword ptr [rsp + 0x120], r9
+0x1409ddd2b: movsd    qword ptr [rsp + 0x128], xmm0
+0x1409ddd34: movsd    qword ptr [rsp + 0x130], xmm1
+0x1409ddd3d: mov      rcx, qword ptr [rsp + 0xf0]
+0x1409ddd45: mov      qword ptr [rsp + 0xa8], rcx
+0x1409ddd4d: movups   xmm0, xmmword ptr [rsp + 0xf8]
+0x1409ddd55: movups   xmmword ptr [rsp + 0xb0], xmm0
+0x1409ddd5d: movups   xmm0, xmmword ptr [rsp + 0x108]
+0x1409ddd65: movups   xmmword ptr [rsp + 0xc0], xmm0
+0x1409ddd6d: movups   xmm0, xmmword ptr [rsp + 0x118]
+0x1409ddd75: movups   xmmword ptr [rsp + 0xd0], xmm0
+0x1409ddd7d: movups   xmm0, xmmword ptr [rsp + 0x128]
+0x1409ddd85: movups   xmmword ptr [rsp + 0xe0], xmm0
+0x1409ddd8d: mov      rax, qword ptr [rsp + 0xa8]
+0x1409ddd95: mov      rbx, qword ptr [rsp + 0xb0]
+0x1409ddd9d: mov      rcx, qword ptr [rsp + 0xb8]
+0x1409ddda5: mov      rdi, qword ptr [rsp + 0xc0]
+0x1409dddad: mov      rsi, qword ptr [rsp + 0xc8]
+0x1409dddb5: mov      r8, qword ptr [rsp + 0xd0]
+0x1409dddbd: mov      r9, qword ptr [rsp + 0xd8]
+0x1409dddc5: movsd    xmm0, qword ptr [rsp + 0xe0]
+0x1409dddce: movsd    xmm1, qword ptr [rsp + 0xe8]
+0x1409dddd7: add      rsp, 0x190
+0x1409dddde: pop      rbp
+0x1409ddddf: nop      
+0x1409ddde0: ret      
+0x1409ddde1: mov      qword ptr [rsp + 8], rax
+0x1409ddde6: call     0x14007f140    ; runtime.morestack_noctxt
+0x1409dddeb: mov      rax, qword ptr [rsp + 8]
+0x1409dddf0: jmp      0x1409ddc60    ; main.BootstrapService.InspectWebView2Processes
+0x1409dddf5: int3     
+0x1409dddf6: int3     
+0x1409dddf7: int3     
+0x1409dddf8: int3     
+0x1409dddf9: int3     
+0x1409dddfa: int3     
+0x1409dddfb: int3     
+0x1409dddfc: int3     
+0x1409dddfd: int3     
+0x1409dddfe: int3     
+0x1409dddff: int3     

@@ -1,0 +1,72 @@
+0x1408aa000: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408aa004: jbe      0x1408aa0a5   ; main.openUnelevatedCommandLine+0xa5
+0x1408aa00a: push     rbp
+0x1408aa00b: mov      rbp, rsp
+0x1408aa00e: sub      rsp, 0x68
+0x1408aa012: mov      qword ptr [rsp + 0x80], rbx
+0x1408aa01a: mov      qword ptr [rsp + 0x78], rax
+0x1408aa01f: nop      
+0x1408aa020: call     0x1408af1c0   ; main.resolveCmdExePath
+0x1408aa025: mov      qword ptr [rsp + 0x60], rax
+0x1408aa02a: mov      qword ptr [rsp + 0x58], rbx
+0x1408aa02f: mov      rax, qword ptr [rsp + 0x78]
+0x1408aa034: mov      rbx, qword ptr [rsp + 0x80]
+0x1408aa03c: nop      dword ptr [rax]
+0x1408aa040: call     0x1408af320   ; main.quoteCmdArgument
+0x1408aa045: mov      ecx, 9
+0x1408aa04a: mov      rdi, rax
+0x1408aa04d: mov      rsi, rbx
+0x1408aa050: lea      rax, [rsp + 0x38]
+0x1408aa055: lea      rbx, [rip + 0x395728]
+0x1408aa05c: nop      dword ptr [rax]
+0x1408aa060: call     0x14005fc00   ; runtime.concatstring2
+0x1408aa065: mov      rcx, rax
+0x1408aa068: mov      rdi, rbx
+0x1408aa06b: mov      rax, qword ptr [rsp + 0x60]
+0x1408aa070: mov      rbx, qword ptr [rsp + 0x58]
+0x1408aa075: call     0x1408acf00   ; main.buildCreateProcessCommandLine
+0x1408aa07a: mov      rcx, rax
+0x1408aa07d: mov      rdi, rbx
+0x1408aa080: mov      rsi, qword ptr [rsp + 0x78]
+0x1408aa085: mov      r8, qword ptr [rsp + 0x80]
+0x1408aa08d: xor      r9d, r9d
+0x1408aa090: mov      rax, qword ptr [rsp + 0x60]
+0x1408aa095: mov      rbx, qword ptr [rsp + 0x58]
+0x1408aa09a: call     0x1408ac140   ; main.createProcessWithShellParentWithVisibility
+0x1408aa09f: add      rsp, 0x68
+0x1408aa0a3: pop      rbp
+0x1408aa0a4: ret      
+0x1408aa0a5: mov      qword ptr [rsp + 8], rax
+0x1408aa0aa: mov      qword ptr [rsp + 0x10], rbx
+0x1408aa0af: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408aa0b4: mov      rax, qword ptr [rsp + 8]
+0x1408aa0b9: mov      rbx, qword ptr [rsp + 0x10]
+0x1408aa0be: nop      
+0x1408aa0c0: jmp      0x1408aa000   ; main.openUnelevatedCommandLine
+0x1408aa0c5: int3     
+0x1408aa0c6: int3     
+0x1408aa0c7: int3     
+0x1408aa0c8: int3     
+0x1408aa0c9: int3     
+0x1408aa0ca: int3     
+0x1408aa0cb: int3     
+0x1408aa0cc: int3     
+0x1408aa0cd: int3     
+0x1408aa0ce: int3     
+0x1408aa0cf: int3     
+0x1408aa0d0: int3     
+0x1408aa0d1: int3     
+0x1408aa0d2: int3     
+0x1408aa0d3: int3     
+0x1408aa0d4: int3     
+0x1408aa0d5: int3     
+0x1408aa0d6: int3     
+0x1408aa0d7: int3     
+0x1408aa0d8: int3     
+0x1408aa0d9: int3     
+0x1408aa0da: int3     
+0x1408aa0db: int3     
+0x1408aa0dc: int3     
+0x1408aa0dd: int3     
+0x1408aa0de: int3     
+0x1408aa0df: int3     

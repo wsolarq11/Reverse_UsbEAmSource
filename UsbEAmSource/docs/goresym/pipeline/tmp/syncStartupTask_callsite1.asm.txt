@@ -1,0 +1,7 @@
+0x1407799c0: pushfq   
+0x1407799c1: and      al, 0x56
+0x1407799c3: or       dword ptr [rax], eax
+0x1407799c5: add      byte ptr [rcx + rcx*4 - 0x7c], cl
+0x1407799c9: and      al, 0x60
+0x1407799cb: or       dword ptr [rax], eax
+0x1407799cd: add      byte ptr [rbp - 0x7c], al

@@ -1,0 +1,185 @@
+0x14085ba20: cmp      rsp, qword ptr [r14 + 0x10]
+0x14085ba24: jbe      0x14085bd34   ; main.resolveGPUPickDebugConfiguration+0x314
+0x14085ba2a: push     rbp
+0x14085ba2b: mov      rbp, rsp
+0x14085ba2e: sub      rsp, 0x58
+0x14085ba32: lea      rax, [rip + 0x40c880]
+0x14085ba39: mov      ebx, 0x1a
+0x14085ba3e: nop      
+0x14085ba40: call     0x140125a00   ; os.Getenv
+0x14085ba45: call     0x1400a2200   ; strings.TrimSpace
+0x14085ba4a: mov      qword ptr [rsp + 0x28], rbx
+0x14085ba4f: mov      qword ptr [rsp + 0x48], rax
+0x14085ba54: lea      rax, [rip + 0x403c82]
+0x14085ba5b: mov      ebx, 0x15
+0x14085ba60: call     0x140125a00   ; os.Getenv
+0x14085ba65: call     0x1400a2200   ; strings.TrimSpace
+0x14085ba6a: mov      rcx, qword ptr [rsp + 0x28]
+0x14085ba6f: test     rcx, rcx
+0x14085ba72: setne    dl
+0x14085ba75: test     rbx, rbx
+0x14085ba78: je       0x14085ba90   ; main.resolveGPUPickDebugConfiguration+0x70
+0x14085ba7a: call     0x14085bd40   ; main.parseGPUPickDebugBool
+0x14085ba7f: nop      
+0x14085ba80: test     bl, bl
+0x14085ba82: jne      0x14085ba89   ; main.resolveGPUPickDebugConfiguration+0x69
+0x14085ba84: mov      eax, 1
+0x14085ba89: mov      rcx, qword ptr [rsp + 0x28]
+0x14085ba8e: mov      edx, eax
+0x14085ba90: mov      rsi, qword ptr [rip + 0x13b5711]
+0x14085ba97: nop      word ptr [rax + rax]
+0x14085baa0: cmp      rsi, 1
+0x14085baa4: jb       0x14085bd27   ; main.resolveGPUPickDebugConfiguration+0x307
+0x14085baaa: mov      rdi, qword ptr [rip + 0x13b56ef]
+0x14085bab1: mov      r8, qword ptr [rip + 0x13b56f8]
+0x14085bab8: dec      r8
+0x14085babb: neg      r8
+0x14085babe: sar      r8, 0x3f
+0x14085bac2: and      r8d, 0x10
+0x14085bac6: add      rdi, r8
+0x14085bac9: dec      rsi
+0x14085bacc: mov      qword ptr [rsp + 0x38], rsi
+0x14085bad1: xor      eax, eax
+0x14085bad3: mov      rbx, qword ptr [rsp + 0x48]
+0x14085bad8: jmp      0x14085bb00   ; main.resolveGPUPickDebugConfiguration+0xe0
+0x14085bada: mov      rdi, qword ptr [rsp + 0x50]
+0x14085badf: add      rdi, 0x10
+0x14085bae3: mov      r8, qword ptr [rsp + 0x30]
+0x14085bae8: inc      r8
+0x14085baeb: mov      rsi, qword ptr [rsp + 0x38]
+0x14085baf0: mov      rcx, rbx
+0x14085baf3: mov      rbx, rax
+0x14085baf6: mov      rax, r8
+0x14085baf9: nop      dword ptr [rax]
+0x14085bb00: cmp      rax, rsi
+0x14085bb03: jge      0x14085bd1f   ; main.resolveGPUPickDebugConfiguration+0x2ff
+0x14085bb09: mov      qword ptr [rsp + 0x30], rax
+0x14085bb0e: mov      qword ptr [rsp + 0x28], rcx
+0x14085bb13: mov      qword ptr [rsp + 0x48], rbx
+0x14085bb18: mov      byte ptr [rsp + 0x1f], dl
+0x14085bb1c: mov      qword ptr [rsp + 0x50], rdi
+0x14085bb21: mov      rax, qword ptr [rdi]
+0x14085bb24: mov      rbx, qword ptr [rdi + 8]
+0x14085bb28: call     0x1400a2200   ; strings.TrimSpace
+0x14085bb2d: cmp      rbx, 0x10
+0x14085bb31: jne      0x14085bb75   ; main.resolveGPUPickDebugConfiguration+0x155
+0x14085bb33: movabs   rdx, 0x69702d7570672d2d
+0x14085bb3d: nop      dword ptr [rax]
+0x14085bb40: cmp      qword ptr [rax], rdx
+0x14085bb43: jne      0x14085bb69   ; main.resolveGPUPickDebugConfiguration+0x149
+0x14085bb45: movabs   rsi, 0x67756265642d6b63
+0x14085bb4f: cmp      qword ptr [rax + 8], rsi
+0x14085bb53: jne      0x14085bb89   ; main.resolveGPUPickDebugConfiguration+0x169
+0x14085bb55: mov      rbx, qword ptr [rsp + 0x28]
+0x14085bb5a: mov      edx, 1
+0x14085bb5f: mov      rax, qword ptr [rsp + 0x48]
+0x14085bb64: jmp      0x14085bada   ; main.resolveGPUPickDebugConfiguration+0xba
+0x14085bb69: movabs   rsi, 0x67756265642d6b63
+0x14085bb73: jmp      0x14085bb89   ; main.resolveGPUPickDebugConfiguration+0x169
+0x14085bb75: movabs   rdx, 0x69702d7570672d2d
+0x14085bb7f: movabs   rsi, 0x67756265642d6b63
+0x14085bb89: mov      qword ptr [rsp + 0x20], rbx
+0x14085bb8e: mov      qword ptr [rsp + 0x40], rax
+0x14085bb93: cmp      rbx, 0x11
+0x14085bb97: jge      0x14085bb9d   ; main.resolveGPUPickDebugConfiguration+0x17d
+0x14085bb99: xor      ecx, ecx
+0x14085bb9b: jmp      0x14085bbce   ; main.resolveGPUPickDebugConfiguration+0x1ae
+0x14085bb9d: lea      rbx, [rip + 0x3fb759]
+0x14085bba4: mov      ecx, 0x11
+0x14085bba9: call     0x140006280   ; runtime.memequal
+0x14085bbae: movabs   rdx, 0x69702d7570672d2d
+0x14085bbb8: mov      rbx, qword ptr [rsp + 0x20]
+0x14085bbbd: movabs   rsi, 0x67756265642d6b63
+0x14085bbc7: mov      ecx, eax
+0x14085bbc9: mov      rax, qword ptr [rsp + 0x40]
+0x14085bbce: test     cl, cl
+0x14085bbd0: jne      0x14085bc9f   ; main.resolveGPUPickDebugConfiguration+0x27f
+0x14085bbd6: cmp      rbx, 0x16
+0x14085bbda: jge      0x14085bbe2   ; main.resolveGPUPickDebugConfiguration+0x1c2
+0x14085bbdc: xor      ecx, ecx
+0x14085bbde: nop      
+0x14085bbe0: jmp      0x14085bc13   ; main.resolveGPUPickDebugConfiguration+0x1f3
+0x14085bbe2: lea      rbx, [rip + 0x405653]
+0x14085bbe9: mov      ecx, 0x16
+0x14085bbee: call     0x140006280   ; runtime.memequal
+0x14085bbf3: movabs   rdx, 0x69702d7570672d2d
+0x14085bbfd: mov      rbx, qword ptr [rsp + 0x20]
+0x14085bc02: movabs   rsi, 0x67756265642d6b63
+0x14085bc0c: mov      ecx, eax
+0x14085bc0e: mov      rax, qword ptr [rsp + 0x40]
+0x14085bc13: test     cl, cl
+0x14085bc15: jne      0x14085bc2b   ; main.resolveGPUPickDebugConfiguration+0x20b
+0x14085bc17: mov      rbx, qword ptr [rsp + 0x28]
+0x14085bc1c: movzx    edx, byte ptr [rsp + 0x1f]
+0x14085bc21: mov      rax, qword ptr [rsp + 0x48]
+0x14085bc26: jmp      0x14085bada   ; main.resolveGPUPickDebugConfiguration+0xba
+0x14085bc2b: cmp      rbx, 0x16
+0x14085bc2f: jl       0x14085bc88   ; main.resolveGPUPickDebugConfiguration+0x268
+0x14085bc31: lea      rbx, [rip + 0x405604]
+0x14085bc38: mov      ecx, 0x16
+0x14085bc3d: nop      dword ptr [rax]
+0x14085bc40: call     0x140006280   ; runtime.memequal
+0x14085bc45: test     al, al
+0x14085bc47: je       0x14085bc6a   ; main.resolveGPUPickDebugConfiguration+0x24a
+0x14085bc49: mov      rbx, qword ptr [rsp + 0x20]
+0x14085bc4e: add      rbx, -0x16
+0x14085bc52: mov      rcx, rbx
+0x14085bc55: neg      rcx
+0x14085bc58: sar      rcx, 0x3f
+0x14085bc5c: and      ecx, 0x16
+0x14085bc5f: mov      rdx, qword ptr [rsp + 0x40]
+0x14085bc64: lea      rax, [rcx + rdx]
+0x14085bc68: jmp      0x14085bc88   ; main.resolveGPUPickDebugConfiguration+0x268
+0x14085bc6a: mov      rax, qword ptr [rsp + 0x40]
+0x14085bc6f: movabs   rdx, 0x69702d7570672d2d
+0x14085bc79: mov      rbx, qword ptr [rsp + 0x20]
+0x14085bc7e: movabs   rsi, 0x67756265642d6b63
+0x14085bc88: call     0x1400a2200   ; strings.TrimSpace
+0x14085bc8d: test     rbx, rbx
+0x14085bc90: setne    dl
+0x14085bc93: movzx    ecx, byte ptr [rsp + 0x1f]
+0x14085bc98: or       edx, ecx
+0x14085bc9a: jmp      0x14085bada   ; main.resolveGPUPickDebugConfiguration+0xba
+0x14085bc9f: nop      
+0x14085bca0: cmp      rbx, 0x11
+0x14085bca4: jl       0x14085bcfa   ; main.resolveGPUPickDebugConfiguration+0x2da
+0x14085bca6: lea      rbx, [rip + 0x3fb650]
+0x14085bcad: mov      ecx, 0x11
+0x14085bcb2: call     0x140006280   ; runtime.memequal
+0x14085bcb7: test     al, al
+0x14085bcb9: je       0x14085bcdc   ; main.resolveGPUPickDebugConfiguration+0x2bc
+0x14085bcbb: mov      rbx, qword ptr [rsp + 0x20]
+0x14085bcc0: add      rbx, -0x11
+0x14085bcc4: mov      rcx, rbx
+0x14085bcc7: neg      rcx
+0x14085bcca: sar      rcx, 0x3f
+0x14085bcce: and      ecx, 0x11
+0x14085bcd1: mov      rdx, qword ptr [rsp + 0x40]
+0x14085bcd6: lea      rax, [rcx + rdx]
+0x14085bcda: jmp      0x14085bcfa   ; main.resolveGPUPickDebugConfiguration+0x2da
+0x14085bcdc: mov      rax, qword ptr [rsp + 0x40]
+0x14085bce1: movabs   rdx, 0x69702d7570672d2d
+0x14085bceb: mov      rbx, qword ptr [rsp + 0x20]
+0x14085bcf0: movabs   rsi, 0x67756265642d6b63
+0x14085bcfa: call     0x1400a2200   ; strings.TrimSpace
+0x14085bcff: nop      
+0x14085bd00: call     0x14085bd40   ; main.parseGPUPickDebugBool
+0x14085bd05: test     bl, bl
+0x14085bd07: jne      0x14085bd0e   ; main.resolveGPUPickDebugConfiguration+0x2ee
+0x14085bd09: mov      eax, 1
+0x14085bd0e: mov      rbx, qword ptr [rsp + 0x28]
+0x14085bd13: mov      edx, eax
+0x14085bd15: mov      rax, qword ptr [rsp + 0x48]
+0x14085bd1a: jmp      0x14085bada   ; main.resolveGPUPickDebugConfiguration+0xba
+0x14085bd1f: mov      eax, edx
+0x14085bd21: add      rsp, 0x58
+0x14085bd25: pop      rbp
+0x14085bd26: ret      
+0x14085bd27: mov      eax, 1
+0x14085bd2c: xor      ecx, ecx
+0x14085bd2e: call     0x1400814c0   ; runtime.panicSliceB
+0x14085bd33: nop      
+0x14085bd34: call     0x14007f140   ; runtime.morestack_noctxt
+0x14085bd39: jmp      0x14085ba20   ; main.resolveGPUPickDebugConfiguration
+0x14085bd3e: int3     
+0x14085bd3f: int3     

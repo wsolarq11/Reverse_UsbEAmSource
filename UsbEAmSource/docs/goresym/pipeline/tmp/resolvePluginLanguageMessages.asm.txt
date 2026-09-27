@@ -1,0 +1,113 @@
+0x1407a4f80: lea      r12, [rsp - 0x10]
+0x1407a4f85: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a4f89: jbe      0x1407a50f6   ; main.resolvePluginLanguageMessages+0x176
+0x1407a4f8f: push     rbp
+0x1407a4f90: mov      rbp, rsp
+0x1407a4f93: sub      rsp, 0x88
+0x1407a4f9a: mov      qword ptr [rsp + 0x210], rax
+0x1407a4fa2: call     0x1400a2200   ; strings.TrimSpace
+0x1407a4fa7: test     rbx, rbx
+0x1407a4faa: jne      0x1407a4fb8   ; main.resolvePluginLanguageMessages+0x38
+0x1407a4fac: lea      rax, [rip + 0x490c33]
+0x1407a4fb3: mov      ebx, 5
+0x1407a4fb8: mov      qword ptr [rsp + 0x20], rbx
+0x1407a4fbd: mov      qword ptr [rsp + 0x28], rax
+0x1407a4fc2: call     0x140076d40   ; runtime.makemap_small
+0x1407a4fc7: mov      qword ptr [rsp + 0x30], rax
+0x1407a4fcc: movups   xmmword ptr [rsp + 0x60], xmm15
+0x1407a4fd2: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1407a4fd8: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1407a4fde: mov      rbx, qword ptr [rsp + 0x1a0]
+0x1407a4fe6: lea      rax, [rip + 0x3a3e33]
+0x1407a4fed: lea      rcx, [rip + 0x490bf2]
+0x1407a4ff4: mov      edi, 5
+0x1407a4ff9: call     0x14000dbc0   ; runtime.mapaccess2_faststr
+0x1407a4ffe: mov      rcx, qword ptr [rax]
+0x1407a5001: mov      qword ptr [rsp + 0x60], rcx
+0x1407a5006: movups   xmm0, xmmword ptr [rax + 8]
+0x1407a500a: movups   xmmword ptr [rsp + 0x68], xmm0
+0x1407a500f: movups   xmm0, xmmword ptr [rax + 0x18]
+0x1407a5013: movups   xmmword ptr [rsp + 0x78], xmm0
+0x1407a5018: mov      rax, qword ptr [rsp + 0x60]
+0x1407a501d: mov      qword ptr [rsp + 0x38], rax
+0x1407a5022: movups   xmm0, xmmword ptr [rsp + 0x68]
+0x1407a5027: movups   xmmword ptr [rsp + 0x40], xmm0
+0x1407a502c: movups   xmm0, xmmword ptr [rsp + 0x78]
+0x1407a5031: movups   xmmword ptr [rsp + 0x50], xmm0
+0x1407a5036: test     bl, bl
+0x1407a5038: je       0x1407a5049   ; main.resolvePluginLanguageMessages+0xc9
+0x1407a503a: mov      rbx, qword ptr [rsp + 0x58]
+0x1407a503f: mov      rax, qword ptr [rsp + 0x30]
+0x1407a5044: call     0x1407a5140   ; main.mergeLanguageMessages
+0x1407a5049: movups   xmmword ptr [rsp + 0x60], xmm15
+0x1407a504f: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1407a5055: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1407a505b: mov      rbx, qword ptr [rsp + 0x1a0]
+0x1407a5063: lea      rax, [rip + 0x3a3db6]
+0x1407a506a: mov      rcx, qword ptr [rsp + 0x28]
+0x1407a506f: mov      rdi, qword ptr [rsp + 0x20]
+0x1407a5074: call     0x14000dbc0   ; runtime.mapaccess2_faststr
+0x1407a5079: mov      rdx, qword ptr [rax]
+0x1407a507c: mov      qword ptr [rsp + 0x60], rdx
+0x1407a5081: movups   xmm0, xmmword ptr [rax + 8]
+0x1407a5085: movups   xmmword ptr [rsp + 0x68], xmm0
+0x1407a508a: movups   xmm0, xmmword ptr [rax + 0x18]
+0x1407a508e: movups   xmmword ptr [rsp + 0x78], xmm0
+0x1407a5093: mov      rdx, qword ptr [rsp + 0x60]
+0x1407a5098: mov      qword ptr [rsp + 0x38], rdx
+0x1407a509d: movups   xmm0, xmmword ptr [rsp + 0x68]
+0x1407a50a2: movups   xmmword ptr [rsp + 0x40], xmm0
+0x1407a50a7: movups   xmm0, xmmword ptr [rsp + 0x78]
+0x1407a50ac: movups   xmmword ptr [rsp + 0x50], xmm0
+0x1407a50b1: test     bl, bl
+0x1407a50b3: je       0x1407a50e8   ; main.resolvePluginLanguageMessages+0x168
+0x1407a50b5: mov      rcx, qword ptr [rsp + 0x20]
+0x1407a50ba: nop      word ptr [rax + rax]
+0x1407a50c0: cmp      rcx, 5
+0x1407a50c4: jne      0x1407a50d9   ; main.resolvePluginLanguageMessages+0x159
+0x1407a50c6: mov      rcx, qword ptr [rsp + 0x28]
+0x1407a50cb: cmp      dword ptr [rcx], 0x552d6e65
+0x1407a50d1: jne      0x1407a50d9   ; main.resolvePluginLanguageMessages+0x159
+0x1407a50d3: cmp      byte ptr [rcx + 4], 0x53
+0x1407a50d7: je       0x1407a50e8   ; main.resolvePluginLanguageMessages+0x168
+0x1407a50d9: mov      rbx, qword ptr [rsp + 0x58]
+0x1407a50de: mov      rax, qword ptr [rsp + 0x30]
+0x1407a50e3: call     0x1407a5140   ; main.mergeLanguageMessages
+0x1407a50e8: mov      rax, qword ptr [rsp + 0x30]
+0x1407a50ed: add      rsp, 0x88
+0x1407a50f4: pop      rbp
+0x1407a50f5: ret      
+0x1407a50f6: mov      qword ptr [rsp + 0x180], rax
+0x1407a50fe: mov      qword ptr [rsp + 0x188], rbx
+0x1407a5106: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a510b: mov      rax, qword ptr [rsp + 0x180]
+0x1407a5113: mov      rbx, qword ptr [rsp + 0x188]
+0x1407a511b: nop      dword ptr [rax + rax]
+0x1407a5120: jmp      0x1407a4f80   ; main.resolvePluginLanguageMessages
+0x1407a5125: int3     
+0x1407a5126: int3     
+0x1407a5127: int3     
+0x1407a5128: int3     
+0x1407a5129: int3     
+0x1407a512a: int3     
+0x1407a512b: int3     
+0x1407a512c: int3     
+0x1407a512d: int3     
+0x1407a512e: int3     
+0x1407a512f: int3     
+0x1407a5130: int3     
+0x1407a5131: int3     
+0x1407a5132: int3     
+0x1407a5133: int3     
+0x1407a5134: int3     
+0x1407a5135: int3     
+0x1407a5136: int3     
+0x1407a5137: int3     
+0x1407a5138: int3     
+0x1407a5139: int3     
+0x1407a513a: int3     
+0x1407a513b: int3     
+0x1407a513c: int3     
+0x1407a513d: int3     
+0x1407a513e: int3     
+0x1407a513f: int3     

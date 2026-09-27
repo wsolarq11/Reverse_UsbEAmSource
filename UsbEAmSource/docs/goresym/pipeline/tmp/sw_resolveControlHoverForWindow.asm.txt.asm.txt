@@ -1,0 +1,248 @@
+0x1409be4a0: lea      r12, [rsp - 0x40]
+0x1409be4a5: cmp      r12, qword ptr [r14 + 0x10]
+0x1409be4a9: jbe      0x1409be8a9   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x409
+0x1409be4af: push     rbp
+0x1409be4b0: mov      rbp, rsp
+0x1409be4b3: sub      rsp, 0xb8
+0x1409be4ba: cmp      byte ptr [rax + 0x100], 0
+0x1409be4c1: je       0x1409be895   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x3f5
+0x1409be4c7: mov      qword ptr [rsp + 0xc8], rax
+0x1409be4cf: mov      qword ptr [rsp + 0xd0], rbx
+0x1409be4d7: mov      qword ptr [rsp + 0xd8], rcx
+0x1409be4df: mov      qword ptr [rsp + 0xb0], rsi
+0x1409be4e7: mov      qword ptr [rsp + 0xa8], rdi
+0x1409be4ef: call     0x140947040   ; main.screenshotCurrentControlSelectionPreference
+0x1409be4f4: test     bl, bl
+0x1409be4f6: jne      0x1409be881   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x3e1
+0x1409be4fc: mov      byte ptr [rsp + 0x67], bl
+0x1409be500: mov      byte ptr [rsp + 0x66], al
+0x1409be504: mov      rcx, qword ptr [rsp + 0xa8]
+0x1409be50c: mov      rdi, qword ptr [rsp + 0xb0]
+0x1409be514: mov      esi, eax
+0x1409be516: mov      r8d, ebx
+0x1409be519: mov      rax, qword ptr [rsp + 0xc8]
+0x1409be521: mov      rbx, qword ptr [rsp + 0xd8]
+0x1409be529: call     0x1409be900   ; main.screenshotWindowSelectionSession.shouldReuseControlHoverForWindow
+0x1409be52e: test     al, al
+0x1409be530: jne      0x1409be853   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x3b3
+0x1409be536: mov      rax, qword ptr [rsp + 0xd8]
+0x1409be53e: mov      rcx, qword ptr [rsp + 0xc8]
+0x1409be546: cmp      qword ptr [rcx + 0x210], rax
+0x1409be54d: jne      0x1409be603   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x163
+0x1409be553: call     0x140104fc0   ; time.Now
+0x1409be558: mov      rdx, qword ptr [rsp + 0xc8]
+0x1409be560: mov      rsi, qword ptr [rdx + 0x178]
+0x1409be567: mov      rdi, qword ptr [rdx + 0x180]
+0x1409be56e: mov      r8, qword ptr [rdx + 0x188]
+0x1409be575: mov      r9, qword ptr [rdx + 0x190]
+0x1409be57c: mov      rdx, qword ptr [rdx + 0x198]
+0x1409be583: mov      qword ptr [rsp], rax
+0x1409be587: mov      qword ptr [rsp + 8], rbx
+0x1409be58c: mov      qword ptr [rsp + 0x10], rcx
+0x1409be591: mov      rax, rsi
+0x1409be594: mov      rbx, rdi
+0x1409be597: mov      rcx, qword ptr [rsp + 0xa8]
+0x1409be59f: mov      rdi, qword ptr [rsp + 0xb0]
+0x1409be5a7: mov      rsi, r8
+0x1409be5aa: mov      r8, r9
+0x1409be5ad: mov      r9, rdx
+0x1409be5b0: call     0x14093e000   ; main.shouldRefreshQRCodeControlHover
+0x1409be5b5: test     al, al
+0x1409be5b7: je       0x1409be5c3   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x123
+0x1409be5b9: mov      rcx, qword ptr [rsp + 0xc8]
+0x1409be5c1: jmp      0x1409be603   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x163
+0x1409be5c3: mov      rax, qword ptr [rsp + 0xc8]
+0x1409be5cb: mov      rbx, qword ptr [rsp + 0xd8]
+0x1409be5d3: mov      rcx, qword ptr [rsp + 0xa8]
+0x1409be5db: mov      rdi, qword ptr [rsp + 0xb0]
+0x1409be5e3: movzx    esi, byte ptr [rsp + 0x66]
+0x1409be5e8: movzx    r8d, byte ptr [rsp + 0x67]
+0x1409be5ee: call     0x1409bea00   ; main.screenshotWindowSelectionSession.cachedControlHoverAllowedForPoint
+0x1409be5f3: test     al, al
+0x1409be5f5: jne      0x1409be826   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x386
+0x1409be5fb: mov      rcx, qword ptr [rsp + 0xc8]
+0x1409be603: mov      rax, qword ptr [rsp + 0xa8]
+0x1409be60b: mov      qword ptr [rcx + 0x178], rax
+0x1409be612: mov      rax, qword ptr [rsp + 0xb0]
+0x1409be61a: mov      qword ptr [rcx + 0x180], rax
+0x1409be621: call     0x140104fc0   ; time.Now
+0x1409be626: mov      rdx, qword ptr [rsp + 0xc8]
+0x1409be62e: mov      qword ptr [rdx + 0x188], rax
+0x1409be635: mov      qword ptr [rdx + 0x190], rbx
+0x1409be63c: cmp      dword ptr [rip + 0x129cd0d], 0
+0x1409be643: je       0x1409be658   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x1b8
+0x1409be645: mov      rsi, qword ptr [rdx + 0x198]
+0x1409be64c: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409be651: mov      qword ptr [r11], rcx
+0x1409be654: mov      qword ptr [r11 + 8], rsi
+0x1409be658: mov      qword ptr [rdx + 0x198], rcx
+0x1409be65f: mov      rax, qword ptr [rsp + 0xd8]
+0x1409be667: test     rax, rax
+0x1409be66a: je       0x1409be812   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x372
+0x1409be670: call     0x1409c16a0   ; main.screenshotWindowBounds
+0x1409be675: test     rsi, rsi
+0x1409be678: jne      0x1409be7fe   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x35e
+0x1409be67e: mov      qword ptr [rsp + 0xa0], rax
+0x1409be686: mov      qword ptr [rsp + 0x98], rbx
+0x1409be68e: mov      qword ptr [rsp + 0x90], rdi
+0x1409be696: mov      qword ptr [rsp + 0x88], rcx
+0x1409be69e: mov      r11, qword ptr [rsp + 0xc8]
+0x1409be6a6: mov      rdx, qword ptr [r11]
+0x1409be6a9: mov      r12, qword ptr [rsp + 0xa8]
+0x1409be6b1: add      rdx, r12
+0x1409be6b4: mov      qword ptr [rsp + 0xa8], rdx
+0x1409be6bc: mov      r12, qword ptr [r11 + 8]
+0x1409be6c0: mov      r13, qword ptr [rsp + 0xb0]
+0x1409be6c8: add      r12, r13
+0x1409be6cb: mov      qword ptr [rsp + 0xb0], r12
+0x1409be6d3: nop      
+0x1409be6d4: nop      
+0x1409be6d5: mov      r13, qword ptr [rsp + 0xd8]
+0x1409be6dd: mov      qword ptr [rsp], r13
+0x1409be6e1: mov      qword ptr [rsp + 8], 0x42c1d80
+0x1409be6ea: mov      qword ptr [rsp + 0x10], 0x42c1d80
+0x1409be6f3: mov      byte ptr [rsp + 0x18], 0
+0x1409be6f8: mov      rsi, rcx
+0x1409be6fb: mov      r8, rdi
+0x1409be6fe: mov      r9, qword ptr [rsp + 0xd0]
+0x1409be706: lea      r10, [rip + 0x8145f3]
+0x1409be70d: mov      rcx, rax
+0x1409be710: mov      rdi, rbx
+0x1409be713: mov      rax, rdx
+0x1409be716: mov      rbx, r12
+0x1409be719: call     0x1409ae0e0   ; main.screenshotControlBoundsAtPointThroughOverlaySessionWithTimeout
+0x1409be71e: nop      
+0x1409be720: test     sil, sil
+0x1409be723: je       0x1409be796   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x2f6
+0x1409be725: mov      qword ptr [rsp + 0x80], rdi
+0x1409be72d: mov      qword ptr [rsp + 0x78], rcx
+0x1409be732: mov      qword ptr [rsp + 0x70], rbx
+0x1409be737: mov      qword ptr [rsp + 0x68], rax
+0x1409be73c: mov      rdx, qword ptr [rsp + 0xa8]
+0x1409be744: movsxd   rdx, edx
+0x1409be747: mov      qword ptr [rsp], rdx
+0x1409be74b: mov      rdx, qword ptr [rsp + 0xb0]
+0x1409be753: movsxd   rdx, edx
+0x1409be756: mov      qword ptr [rsp + 8], rdx
+0x1409be75b: movzx    edx, byte ptr [rsp + 0x66]
+0x1409be760: mov      byte ptr [rsp + 0x10], dl
+0x1409be764: movzx    edx, byte ptr [rsp + 0x67]
+0x1409be769: mov      byte ptr [rsp + 0x11], dl
+0x1409be76d: mov      rsi, qword ptr [rsp + 0xa0]
+0x1409be775: mov      r8, qword ptr [rsp + 0x98]
+0x1409be77d: mov      r9, qword ptr [rsp + 0x88]
+0x1409be785: mov      r10, qword ptr [rsp + 0x90]
+0x1409be78d: call     0x1409af160   ; main.shouldPreferWindowOverControlAtPoint
+0x1409be792: test     al, al
+0x1409be794: je       0x1409be7aa   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow+0x30a
+0x1409be796: xor      eax, eax
+0x1409be798: mov      rbx, rax
+0x1409be79b: mov      rcx, rax
+0x1409be79e: mov      rdi, rax
+0x1409be7a1: add      rsp, 0xb8
+0x1409be7a8: pop      rbp
+0x1409be7a9: ret      
+0x1409be7aa: mov      rdx, qword ptr [rsp + 0xc8]
+0x1409be7b2: mov      r11, qword ptr [rdx]
+0x1409be7b5: mov      r12, qword ptr [rdx + 8]
+0x1409be7b9: mov      rdx, qword ptr [rdx + 0x20]
+0x1409be7bd: mov      rax, qword ptr [rsp + 0x68]
+0x1409be7c2: sub      rax, r11
+0x1409be7c5: mov      rbx, qword ptr [rsp + 0x70]
+0x1409be7ca: sub      rbx, r12
+0x1409be7cd: mov      rcx, qword ptr [rsp + 0x78]
+0x1409be7d2: sub      rcx, r11
+0x1409be7d5: mov      rdi, qword ptr [rsp + 0x80]
+0x1409be7dd: sub      rdi, r12
+0x1409be7e0: mov      rsi, qword ptr [rdx + 0x20]
+0x1409be7e4: mov      r8, qword ptr [rdx + 0x28]
+0x1409be7e8: mov      r9, qword ptr [rdx + 0x30]
+0x1409be7ec: mov      r10, qword ptr [rdx + 0x38]
+0x1409be7f0: call     0x1401a1160   ; image.Rectangle.Intersect
+0x1409be7f5: add      rsp, 0xb8
+0x1409be7fc: pop      rbp
+0x1409be7fd: ret      
+0x1409be7fe: xor      eax, eax
+0x1409be800: mov      rbx, rax
+0x1409be803: mov      rcx, rax
+0x1409be806: mov      rdi, rax
+0x1409be809: add      rsp, 0xb8
+0x1409be810: pop      rbp
+0x1409be811: ret      
+0x1409be812: xor      eax, eax
+0x1409be814: mov      rbx, rax
+0x1409be817: mov      rcx, rax
+0x1409be81a: mov      rdi, rax
+0x1409be81d: add      rsp, 0xb8
+0x1409be824: pop      rbp
+0x1409be825: ret      
+0x1409be826: mov      rdx, qword ptr [rsp + 0xc8]
+0x1409be82e: mov      rbx, qword ptr [rdx + 0x160]
+0x1409be835: mov      rcx, qword ptr [rdx + 0x168]
+0x1409be83c: mov      rdi, qword ptr [rdx + 0x170]
+0x1409be843: mov      rax, qword ptr [rdx + 0x158]
+0x1409be84a: add      rsp, 0xb8
+0x1409be851: pop      rbp
+0x1409be852: ret      
+0x1409be853: mov      rdx, qword ptr [rsp + 0xc8]
+0x1409be85b: mov      rbx, qword ptr [rdx + 0x160]
+0x1409be862: mov      rcx, qword ptr [rdx + 0x168]
+0x1409be869: mov      rdi, qword ptr [rdx + 0x170]
+0x1409be870: mov      rax, qword ptr [rdx + 0x158]
+0x1409be877: add      rsp, 0xb8
+0x1409be87e: pop      rbp
+0x1409be87f: nop      
+0x1409be880: ret      
+0x1409be881: xor      eax, eax
+0x1409be883: mov      rbx, rax
+0x1409be886: mov      rcx, rax
+0x1409be889: mov      rdi, rax
+0x1409be88c: add      rsp, 0xb8
+0x1409be893: pop      rbp
+0x1409be894: ret      
+0x1409be895: xor      eax, eax
+0x1409be897: mov      rbx, rax
+0x1409be89a: mov      rcx, rax
+0x1409be89d: mov      rdi, rax
+0x1409be8a0: add      rsp, 0xb8
+0x1409be8a7: pop      rbp
+0x1409be8a8: ret      
+0x1409be8a9: mov      qword ptr [rsp + 8], rax
+0x1409be8ae: mov      qword ptr [rsp + 0x10], rbx
+0x1409be8b3: mov      qword ptr [rsp + 0x18], rcx
+0x1409be8b8: mov      qword ptr [rsp + 0x20], rdi
+0x1409be8bd: mov      qword ptr [rsp + 0x28], rsi
+0x1409be8c2: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409be8c7: mov      rax, qword ptr [rsp + 8]
+0x1409be8cc: mov      rbx, qword ptr [rsp + 0x10]
+0x1409be8d1: mov      rcx, qword ptr [rsp + 0x18]
+0x1409be8d6: mov      rdi, qword ptr [rsp + 0x20]
+0x1409be8db: mov      rsi, qword ptr [rsp + 0x28]
+0x1409be8e0: jmp      0x1409be4a0   ; main.screenshotWindowSelectionSession.resolveControlHoverForWindow
+0x1409be8e5: int3     
+0x1409be8e6: int3     
+0x1409be8e7: int3     
+0x1409be8e8: int3     
+0x1409be8e9: int3     
+0x1409be8ea: int3     
+0x1409be8eb: int3     
+0x1409be8ec: int3     
+0x1409be8ed: int3     
+0x1409be8ee: int3     
+0x1409be8ef: int3     
+0x1409be8f0: int3     
+0x1409be8f1: int3     
+0x1409be8f2: int3     
+0x1409be8f3: int3     
+0x1409be8f4: int3     
+0x1409be8f5: int3     
+0x1409be8f6: int3     
+0x1409be8f7: int3     
+0x1409be8f8: int3     
+0x1409be8f9: int3     
+0x1409be8fa: int3     
+0x1409be8fb: int3     
+0x1409be8fc: int3     
+0x1409be8fd: int3     
+0x1409be8fe: int3     
+0x1409be8ff: int3     

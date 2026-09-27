@@ -1,0 +1,50 @@
+0x14087ae80: cmp      rsp, qword ptr [r14 + 0x10]
+0x14087ae84: jbe      0x14087b026   ; main.normalizeFileLocatorSearchMode+0x1a6
+0x14087ae8a: push     rbp
+0x14087ae8b: mov      rbp, rsp
+0x14087ae8e: sub      rsp, 0x10
+0x14087ae92: mov      qword ptr [rsp + 0x20], rax
+0x14087ae97: call     0x1400a2200   ; strings.TrimSpace
+0x14087ae9c: nop      dword ptr [rax]
+0x14087aea0: call     0x1400a1500   ; strings.ToLower
+0x14087aea5: lea      rcx, [rbx - 4]
+0x14087aea9: cmp      rcx, 9
+0x14087aead: ja       0x14087b014   ; main.normalizeFileLocatorSearchMode+0x194
+0x14087aeb3: lea      rdx, [rip + 0x9617e6]
+0x14087aeba: jmp      qword ptr [rdx + rcx*8]
+0x14087aebd: cmp      dword ptr [rax], 0x6c6f6f62
+0x14087aec3: je       0x14087af3d   ; main.normalizeFileLocatorSearchMode+0xbd
+0x14087aec5: cmp      dword ptr [rax], 0x64726f77
+0x14087aecb: je       0x14087afb5   ; main.normalizeFileLocatorSearchMode+0x135
+0x14087aed1: jmp      0x14087b014   ; main.normalizeFileLocatorSearchMode+0x194
+0x14087aed6: cmp      dword ptr [rax], 0x65676572
+0x14087aedc: nop      dword ptr [rax]
+0x14087aee0: jne      0x14087b014   ; main.normalizeFileLocatorSearchMode+0x194
+0x14087aee6: cmp      byte ptr [rax + 4], 0x78
+0x14087aeea: je       0x14087af09   ; main.normalizeFileLocatorSearchMode+0x89
+0x14087aeec: jmp      0x14087b014   ; main.normalizeFileLocatorSearchMode+0x194
+0x14087aef1: cmp      dword ptr [rax], 0x65676572
+0x14087aef7: jne      0x14087b014   ; main.normalizeFileLocatorSearchMode+0x194
+0x14087aefd: cmp      word ptr [rax + 4], 0x7078
+0x14087af03: jne      0x14087b014   ; main.normalizeFileLocatorSearchMode+0x194
+0x14087af09: lea      rax, [rip + 0x3bad44]
+0x14087af10: mov      ebx, 5
+0x14087af15: add      rsp, 0x10
+0x14087af19: pop      rbp
+0x14087af1a: ret      
+0x14087af1b: cmp      dword ptr [rax], 0x6c6f6f62
+0x14087af21: jne      0x14087b014   ; main.normalizeFileLocatorSearchMode+0x194
+0x14087af27: cmp      word ptr [rax + 4], 0x6165
+0x14087af2d: jne      0x14087b014   ; main.normalizeFileLocatorSearchMode+0x194
+0x14087af33: cmp      byte ptr [rax + 6], 0x6e
+0x14087af37: jne      0x14087b014   ; main.normalizeFileLocatorSearchMode+0x194
+0x14087af3d: lea      rax, [rip + 0x3be45d]
+0x14087af44: mov      ebx, 7
+0x14087af49: add      rsp, 0x10
+0x14087af4d: pop      rbp
+0x14087af4e: ret      
+0x14087af4f: movabs   rcx, 0x656765726c6f6f62
+0x14087af59: cmp      qword ptr [rax], rcx
+0x14087af5c: jne      0x14087af68   ; main.normalizeFileLocatorSearchMode+0xe8
+0x14087af5e: cmp      byte ptr [rax + 8], 0x78
+0x14087af62: je       0x14087b002   ; main.normalizeFileLocatorSearchMode+0x182

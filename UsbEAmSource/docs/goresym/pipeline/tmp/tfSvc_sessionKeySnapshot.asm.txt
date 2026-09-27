@@ -1,0 +1,123 @@
+0x1409d9bc0: lea      r12, [rsp - 0x18]
+0x1409d9bc5: cmp      r12, qword ptr [r14 + 0x10]
+0x1409d9bc9: jbe      0x1409d9d70   ; main.twoFactorService.sessionKeySnapshot+0x1b0
+0x1409d9bcf: push     rbp
+0x1409d9bd0: mov      rbp, rsp
+0x1409d9bd3: sub      rsp, 0x90
+0x1409d9bda: movq     qword ptr [rsp + 0x88], xmm15
+0x1409d9be4: mov      qword ptr [rsp + 0xa0], rax
+0x1409d9bec: mov      byte ptr [rsp + 0x2f], 0
+0x1409d9bf1: mov      qword ptr [rsp + 0x50], 0
+0x1409d9bfa: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1409d9c00: mov      qword ptr [rsp + 0x30], 0
+0x1409d9c09: nop      
+0x1409d9c0a: mov      rcx, rax
+0x1409d9c0d: xor      eax, eax
+0x1409d9c0f: mov      r8d, 1
+0x1409d9c15: lock cmpxchg dword ptr [rcx + 0x10], r8d
+0x1409d9c1b: sete     r8b
+0x1409d9c1f: nop      
+0x1409d9c20: test     r8b, r8b
+0x1409d9c23: jne      0x1409d9c36   ; main.twoFactorService.sessionKeySnapshot+0x76
+0x1409d9c25: lea      rax, [rcx + 0x10]
+0x1409d9c29: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1409d9c2e: mov      rcx, qword ptr [rsp + 0xa0]
+0x1409d9c36: lea      r8, [rip + 0x163]
+0x1409d9c3d: mov      qword ptr [rsp + 0x78], r8
+0x1409d9c42: lea      r8, [rcx + 0x10]
+0x1409d9c46: mov      qword ptr [rsp + 0x80], r8
+0x1409d9c4e: lea      r8, [rsp + 0x78]
+0x1409d9c53: mov      qword ptr [rsp + 0x88], r8
+0x1409d9c5b: mov      byte ptr [rsp + 0x2f], 1
+0x1409d9c60: mov      rdi, qword ptr [rcx + 0x38]
+0x1409d9c64: test     rdi, rdi
+0x1409d9c67: jne      0x1409d9cb0   ; main.twoFactorService.sessionKeySnapshot+0xf0
+0x1409d9c69: mov      rax, qword ptr [rcx + 0x48]
+0x1409d9c6d: mov      qword ptr [rsp + 0x50], 0
+0x1409d9c76: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1409d9c7c: mov      qword ptr [rsp + 0x30], rax
+0x1409d9c81: mov      byte ptr [rsp + 0x2f], 0
+0x1409d9c86: mov      rdx, qword ptr [rsp + 0x88]
+0x1409d9c8e: mov      rax, qword ptr [rdx]
+0x1409d9c91: call     rax
+0x1409d9c93: mov      rdi, qword ptr [rsp + 0x30]
+0x1409d9c98: mov      rax, qword ptr [rsp + 0x50]
+0x1409d9c9d: mov      rbx, qword ptr [rsp + 0x58]
+0x1409d9ca2: mov      rcx, qword ptr [rsp + 0x60]
+0x1409d9ca7: add      rsp, 0x90
+0x1409d9cae: pop      rbp
+0x1409d9caf: ret      
+0x1409d9cb0: mov      qword ptr [rsp + 0x48], rdi
+0x1409d9cb5: mov      rdx, qword ptr [rcx + 0x30]
+0x1409d9cb9: mov      qword ptr [rsp + 0x70], rdx
+0x1409d9cbe: xor      eax, eax
+0x1409d9cc0: mov      rbx, rdi
+0x1409d9cc3: xor      ecx, ecx
+0x1409d9cc5: lea      rsi, [rip + 0x1101b4]
+0x1409d9ccc: call     0x14007ad20   ; runtime.growslice
+0x1409d9cd1: mov      qword ptr [rsp + 0x68], rax
+0x1409d9cd6: mov      qword ptr [rsp + 0x40], rbx
+0x1409d9cdb: mov      qword ptr [rsp + 0x38], rcx
+0x1409d9ce0: mov      rbx, qword ptr [rsp + 0x70]
+0x1409d9ce5: mov      rcx, qword ptr [rsp + 0x48]
+0x1409d9cea: call     0x140081e00   ; runtime.memmove
+0x1409d9cef: mov      rdx, qword ptr [rsp + 0xa0]
+0x1409d9cf7: mov      rdx, qword ptr [rdx + 0x48]
+0x1409d9cfb: mov      r8, qword ptr [rsp + 0x68]
+0x1409d9d00: mov      qword ptr [rsp + 0x50], r8
+0x1409d9d05: mov      r8, qword ptr [rsp + 0x40]
+0x1409d9d0a: mov      qword ptr [rsp + 0x58], r8
+0x1409d9d0f: mov      r8, qword ptr [rsp + 0x38]
+0x1409d9d14: mov      qword ptr [rsp + 0x60], r8
+0x1409d9d19: mov      qword ptr [rsp + 0x30], rdx
+0x1409d9d1e: mov      byte ptr [rsp + 0x2f], 0
+0x1409d9d23: mov      rdx, qword ptr [rsp + 0x88]
+0x1409d9d2b: mov      r8, qword ptr [rdx]
+0x1409d9d2e: call     r8
+0x1409d9d31: mov      rdi, qword ptr [rsp + 0x30]
+0x1409d9d36: mov      rax, qword ptr [rsp + 0x50]
+0x1409d9d3b: mov      rbx, qword ptr [rsp + 0x58]
+0x1409d9d40: mov      rcx, qword ptr [rsp + 0x60]
+0x1409d9d45: add      rsp, 0x90
+0x1409d9d4c: pop      rbp
+0x1409d9d4d: ret      
+0x1409d9d4e: call     0x1400435e0   ; runtime.deferreturn
+0x1409d9d53: mov      rax, qword ptr [rsp + 0x50]
+0x1409d9d58: mov      rbx, qword ptr [rsp + 0x58]
+0x1409d9d5d: mov      rcx, qword ptr [rsp + 0x60]
+0x1409d9d62: mov      rdi, qword ptr [rsp + 0x30]
+0x1409d9d67: add      rsp, 0x90
+0x1409d9d6e: pop      rbp
+0x1409d9d6f: ret      
+0x1409d9d70: mov      qword ptr [rsp + 8], rax
+0x1409d9d75: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d9d7a: mov      rax, qword ptr [rsp + 8]
+0x1409d9d7f: nop      
+0x1409d9d80: jmp      0x1409d9bc0   ; main.twoFactorService.sessionKeySnapshot
+0x1409d9d85: int3     
+0x1409d9d86: int3     
+0x1409d9d87: int3     
+0x1409d9d88: int3     
+0x1409d9d89: int3     
+0x1409d9d8a: int3     
+0x1409d9d8b: int3     
+0x1409d9d8c: int3     
+0x1409d9d8d: int3     
+0x1409d9d8e: int3     
+0x1409d9d8f: int3     
+0x1409d9d90: int3     
+0x1409d9d91: int3     
+0x1409d9d92: int3     
+0x1409d9d93: int3     
+0x1409d9d94: int3     
+0x1409d9d95: int3     
+0x1409d9d96: int3     
+0x1409d9d97: int3     
+0x1409d9d98: int3     
+0x1409d9d99: int3     
+0x1409d9d9a: int3     
+0x1409d9d9b: int3     
+0x1409d9d9c: int3     
+0x1409d9d9d: int3     
+0x1409d9d9e: int3     
+0x1409d9d9f: int3     

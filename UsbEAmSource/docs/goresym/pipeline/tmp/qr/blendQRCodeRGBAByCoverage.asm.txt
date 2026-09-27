@@ -1,0 +1,65 @@
+0x14095d080: movzx    edx, r11b
+0x14095d084: lea      r11, [rdx - 0xff]
+0x14095d08b: neg      r11
+0x14095d08e: movzx    r12d, al
+0x14095d092: imul     r12, rdx
+0x14095d096: movzx    esi, sil
+0x14095d09a: imul     rsi, r11
+0x14095d09e: lea      r13, [rsi + r12]
+0x14095d0a2: lea      rsi, [rsi + r12]
+0x14095d0a6: lea      rsi, [rsi + 0x7f]
+0x14095d0aa: movabs   rax, 0x8080808080808081
+0x14095d0b4: mov      r12, rdx
+0x14095d0b7: imul     rsi
+0x14095d0ba: lea      rdx, [r13 + rdx]
+0x14095d0bf: lea      rdx, [rdx + 0x7f]
+0x14095d0c3: sar      rdx, 7
+0x14095d0c7: movzx    esi, bl
+0x14095d0ca: imul     rsi, r12
+0x14095d0ce: movzx    r8d, r8b
+0x14095d0d2: imul     r8, r11
+0x14095d0d6: lea      r13, [r8 + rsi]
+0x14095d0da: lea      rsi, [r8 + rsi]
+0x14095d0de: lea      rsi, [rsi + 0x7f]
+0x14095d0e2: movabs   rax, 0x8080808080808081
+0x14095d0ec: mov      rbx, rdx
+0x14095d0ef: imul     rsi
+0x14095d0f2: lea      rdx, [r13 + rdx]
+0x14095d0f7: lea      rdx, [rdx + 0x7f]
+0x14095d0fb: sar      rdx, 7
+0x14095d0ff: movzx    esi, cl
+0x14095d102: imul     rsi, r12
+0x14095d106: movzx    r8d, r9b
+0x14095d10a: imul     r8, r11
+0x14095d10e: lea      r9, [r8 + rsi]
+0x14095d112: lea      rsi, [r8 + rsi]
+0x14095d116: lea      rsi, [rsi + 0x7f]
+0x14095d11a: movabs   rax, 0x8080808080808081
+0x14095d124: mov      rcx, rdx
+0x14095d127: imul     rsi
+0x14095d12a: lea      rdx, [r9 + rdx]
+0x14095d12e: lea      rdx, [rdx + 0x7f]
+0x14095d132: sar      rdx, 7
+0x14095d136: movzx    esi, dil
+0x14095d13a: imul     rsi, r12
+0x14095d13e: movzx    r8d, r10b
+0x14095d142: imul     r8, r11
+0x14095d146: lea      r9, [r8 + rsi]
+0x14095d14a: lea      rsi, [r8 + rsi]
+0x14095d14e: lea      rsi, [rsi + 0x7f]
+0x14095d152: movabs   rax, 0x8080808080808081
+0x14095d15c: mov      rdi, rdx
+0x14095d15f: imul     rsi
+0x14095d162: lea      rdx, [r9 + rdx]
+0x14095d166: lea      rdx, [rdx + 0x7f]
+0x14095d16a: sar      rdx, 7
+0x14095d16e: mov      rax, rbx
+0x14095d171: mov      rbx, rcx
+0x14095d174: mov      rcx, rdi
+0x14095d177: mov      rdi, rdx
+0x14095d17a: ret      
+0x14095d17b: int3     
+0x14095d17c: int3     
+0x14095d17d: int3     
+0x14095d17e: int3     
+0x14095d17f: int3     

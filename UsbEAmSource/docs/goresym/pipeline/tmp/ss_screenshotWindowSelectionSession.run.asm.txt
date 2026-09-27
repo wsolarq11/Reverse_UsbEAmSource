@@ -1,0 +1,251 @@
+0x1409bb300: lea      r12, [rsp - 0x110]
+0x1409bb308: cmp      r12, qword ptr [r14 + 0x10]
+0x1409bb30c: jbe      0x1409bb844   ; main.screenshotWindowSelectionSession.run+0x544
+0x1409bb312: push     rbp
+0x1409bb313: mov      rbp, rsp
+0x1409bb316: sub      rsp, 0x188
+0x1409bb31d: mov      qword ptr [rsp + 0x198], rax
+0x1409bb325: mov      qword ptr [rsp + 0x128], 0
+0x1409bb331: movups   xmmword ptr [rsp + 0x130], xmm15
+0x1409bb33a: mov      byte ptr [rsp + 0x27], 0
+0x1409bb33f: movups   xmmword ptr [rsp + 0x118], xmm15
+0x1409bb348: call     0x140052560   ; runtime.LockOSThread
+0x1409bb34d: lea      rax, [rip + 0x6dbabc]
+0x1409bb354: mov      qword ptr [rsp + 0x100], rax
+0x1409bb35c: lea      rax, [rsp + 0xe8]
+0x1409bb364: call     0x1400430a0   ; runtime.deferprocStack
+0x1409bb369: lea      rcx, [rip + 0x6db940]
+0x1409bb370: mov      qword ptr [rsp + 0xd0], rcx
+0x1409bb378: lea      rax, [rsp + 0xb8]
+0x1409bb380: call     0x1400430a0   ; runtime.deferprocStack
+0x1409bb385: lea      rcx, [rip + 0x5b4]
+0x1409bb38c: mov      qword ptr [rsp + 0x150], rcx
+0x1409bb394: mov      rcx, qword ptr [rsp + 0x198]
+0x1409bb39c: mov      qword ptr [rsp + 0x158], rcx
+0x1409bb3a4: lea      rcx, [rsp + 0x150]
+0x1409bb3ac: mov      qword ptr [rsp + 0xa0], rcx
+0x1409bb3b4: lea      rax, [rsp + 0x88]
+0x1409bb3bc: nop      dword ptr [rax]
+0x1409bb3c0: call     0x1400430a0   ; runtime.deferprocStack
+0x1409bb3c5: lea      rax, [rip + 0x219f74]
+0x1409bb3cc: call     0x14001ae20   ; runtime.newobject
+0x1409bb3d1: mov      qword ptr [rsp + 0x180], rax
+0x1409bb3d9: nop      
+0x1409bb3da: mov      qword ptr [rsp + 0x178], rax
+0x1409bb3e2: lea      rax, [rip + 0x143677]
+0x1409bb3e9: call     0x14001ae20   ; runtime.newobject
+0x1409bb3ee: mov      rcx, qword ptr [rsp + 0x178]
+0x1409bb3f6: mov      qword ptr [rax], rcx
+0x1409bb3f9: movups   xmmword ptr [rax + 8], xmm15
+0x1409bb3fe: movups   xmmword ptr [rax + 0x18], xmm15
+0x1409bb403: mov      rcx, qword ptr [rip + 0x120758e]
+0x1409bb40a: mov      rbx, rax
+0x1409bb40d: mov      edi, 5
+0x1409bb412: mov      rax, rcx
+0x1409bb415: mov      rcx, rdi
+0x1409bb418: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409bb41d: mov      rax, qword ptr [rsp + 0x198]
+0x1409bb425: call     0x1409bc7c0   ; main.setActiveScreenshotWindowSelectionSession
+0x1409bb42a: lea      rcx, [rip + 0x6db537]
+0x1409bb431: mov      qword ptr [rsp + 0x70], rcx
+0x1409bb436: lea      rax, [rsp + 0x58]
+0x1409bb43b: nop      dword ptr [rax + rax]
+0x1409bb440: call     0x1400430a0   ; runtime.deferprocStack
+0x1409bb445: mov      rax, qword ptr [rsp + 0x198]
+0x1409bb44d: call     0x1409bbb40   ; main.screenshotWindowSelectionSession.createWindow
+0x1409bb452: test     rax, rax
+0x1409bb455: jne      0x1409bb4ea   ; main.screenshotWindowSelectionSession.run+0x1ea
+0x1409bb45b: lea      rax, [rip + 0x1ac5fe]
+0x1409bb462: call     0x14001ae20   ; runtime.newobject
+0x1409bb467: lea      rcx, [rip + 0x452]
+0x1409bb46e: mov      qword ptr [rax], rcx
+0x1409bb471: cmp      dword ptr [rip + 0x129fed8], 0
+0x1409bb478: jne      0x1409bb484   ; main.screenshotWindowSelectionSession.run+0x184
+0x1409bb47a: mov      rcx, qword ptr [rsp + 0x198]
+0x1409bb482: jmp      0x1409bb494   ; main.screenshotWindowSelectionSession.run+0x194
+0x1409bb484: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409bb489: mov      rcx, qword ptr [rsp + 0x198]
+0x1409bb491: mov      qword ptr [r11], rcx
+0x1409bb494: mov      qword ptr [rax + 8], rcx
+0x1409bb498: mov      rbx, rax
+0x1409bb49b: movabs   rax, 0x6fc23ac00
+0x1409bb4a5: call     0x1400f9a40   ; time.AfterFunc
+0x1409bb4aa: lea      rcx, [rip + 0x3af]
+0x1409bb4b1: mov      qword ptr [rsp + 0x140], rcx
+0x1409bb4b9: mov      qword ptr [rsp + 0x148], rax
+0x1409bb4c1: lea      rcx, [rsp + 0x140]
+0x1409bb4c9: mov      qword ptr [rsp + 0x40], rcx
+0x1409bb4ce: lea      rax, [rsp + 0x28]
+0x1409bb4d3: call     0x1400430a0   ; runtime.deferprocStack
+0x1409bb4d8: mov      rax, qword ptr [rsp + 0x198]
+0x1409bb4e0: call     0x1409bc640   ; main.screenshotWindowSelectionSession.showSelectionWindow
+0x1409bb4e5: jmp      0x1409bb60e   ; main.screenshotWindowSelectionSession.run+0x30e
+0x1409bb4ea: mov      qword ptr [rsp + 0x128], 0
+0x1409bb4f6: movups   xmmword ptr [rsp + 0x130], xmm15
+0x1409bb4ff: mov      byte ptr [rsp + 0x27], 0
+0x1409bb504: mov      qword ptr [rsp + 0x118], rax
+0x1409bb50c: mov      qword ptr [rsp + 0x120], rbx
+0x1409bb514: call     0x1400435e0   ; runtime.deferreturn
+0x1409bb519: mov      r8, qword ptr [rsp + 0x120]
+0x1409bb521: mov      rsi, qword ptr [rsp + 0x118]
+0x1409bb529: movzx    edi, byte ptr [rsp + 0x27]
+0x1409bb52e: mov      rax, qword ptr [rsp + 0x128]
+0x1409bb536: mov      rbx, qword ptr [rsp + 0x130]
+0x1409bb53e: mov      rcx, qword ptr [rsp + 0x138]
+0x1409bb546: add      rsp, 0x188
+0x1409bb54d: pop      rbp
+0x1409bb54e: ret      
+0x1409bb54f: call     0x1400435e0   ; runtime.deferreturn
+0x1409bb554: mov      r8, qword ptr [rsp + 0x120]
+0x1409bb55c: mov      rsi, qword ptr [rsp + 0x118]
+0x1409bb564: movzx    edi, byte ptr [rsp + 0x27]
+0x1409bb569: mov      rax, qword ptr [rsp + 0x128]
+0x1409bb571: mov      rbx, qword ptr [rsp + 0x130]
+0x1409bb579: mov      rcx, qword ptr [rsp + 0x138]
+0x1409bb581: add      rsp, 0x188
+0x1409bb588: pop      rbp
+0x1409bb589: ret      
+0x1409bb58a: nop      
+0x1409bb58b: mov      rcx, qword ptr [rsp + 0x180]
+0x1409bb593: mov      qword ptr [rsp + 0x168], rcx
+0x1409bb59b: lea      rax, [rip + 0x1423de]
+0x1409bb5a2: call     0x14001ae20   ; runtime.newobject
+0x1409bb5a7: mov      rcx, qword ptr [rsp + 0x168]
+0x1409bb5af: mov      qword ptr [rax], rcx
+0x1409bb5b2: mov      rcx, qword ptr [rip + 0x1207287]
+0x1409bb5b9: mov      rbx, rax
+0x1409bb5bc: mov      edi, 1
+0x1409bb5c1: mov      rax, rcx
+0x1409bb5c4: mov      rcx, rdi
+0x1409bb5c7: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409bb5cc: nop      
+0x1409bb5cd: mov      rcx, qword ptr [rsp + 0x180]
+0x1409bb5d5: mov      qword ptr [rsp + 0x160], rcx
+0x1409bb5dd: lea      rax, [rip + 0x14239c]
+0x1409bb5e4: call     0x14001ae20   ; runtime.newobject
+0x1409bb5e9: mov      rcx, qword ptr [rsp + 0x160]
+0x1409bb5f1: mov      qword ptr [rax], rcx
+0x1409bb5f4: mov      rcx, qword ptr [rip + 0x120724d]
+0x1409bb5fb: mov      rbx, rax
+0x1409bb5fe: mov      edi, 1
+0x1409bb603: mov      rax, rcx
+0x1409bb606: mov      rcx, rdi
+0x1409bb609: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409bb60e: nop      
+0x1409bb60f: mov      rcx, qword ptr [rsp + 0x180]
+0x1409bb617: mov      qword ptr [rsp + 0x170], rcx
+0x1409bb61f: lea      rax, [rip + 0x14253a]
+0x1409bb626: call     0x14001ae20   ; runtime.newobject
+0x1409bb62b: mov      rcx, qword ptr [rsp + 0x170]
+0x1409bb633: mov      qword ptr [rax], rcx
+0x1409bb636: movups   xmmword ptr [rax + 8], xmm15
+0x1409bb63b: mov      qword ptr [rax + 0x18], 0
+0x1409bb643: mov      rcx, qword ptr [rip + 0x12071ee]
+0x1409bb64a: mov      rbx, rax
+0x1409bb64d: mov      edi, 4
+0x1409bb652: mov      rax, rcx
+0x1409bb655: mov      rcx, rdi
+0x1409bb658: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409bb65d: nop      dword ptr [rax]
+0x1409bb660: test     rax, rax
+0x1409bb663: jg       0x1409bb58a   ; main.screenshotWindowSelectionSession.run+0x28a
+0x1409bb669: mov      rax, qword ptr [rsp + 0x198]
+0x1409bb671: cmp      qword ptr [rax + 0x70], 0
+0x1409bb676: jne      0x1409bb6dd   ; main.screenshotWindowSelectionSession.run+0x3dd
+0x1409bb678: call     0x1409bb9a0   ; main.screenshotWindowSelectionSession.shouldFinalizeAfterOverlayClosed
+0x1409bb67d: nop      dword ptr [rax]
+0x1409bb680: test     al, al
+0x1409bb682: jne      0x1409bb68e   ; main.screenshotWindowSelectionSession.run+0x38e
+0x1409bb684: mov      rax, qword ptr [rsp + 0x198]
+0x1409bb68c: jmp      0x1409bb6dd   ; main.screenshotWindowSelectionSession.run+0x3dd
+0x1409bb68e: mov      rax, qword ptr [rsp + 0x198]
+0x1409bb696: call     0x1409bba20   ; main.screenshotWindowSelectionSession.finalizePendingCaptureRect
+0x1409bb69b: nop      dword ptr [rax + rax]
+0x1409bb6a0: test     rax, rax
+0x1409bb6a3: je       0x1409bb6d2   ; main.screenshotWindowSelectionSession.run+0x3d2
+0x1409bb6a5: mov      rcx, qword ptr [rsp + 0x198]
+0x1409bb6ad: mov      qword ptr [rcx + 0x70], rax
+0x1409bb6b1: cmp      dword ptr [rip + 0x129fc98], 0
+0x1409bb6b8: je       0x1409bb6cc   ; main.screenshotWindowSelectionSession.run+0x3cc
+0x1409bb6ba: mov      rdx, qword ptr [rcx + 0x78]
+0x1409bb6be: nop      
+0x1409bb6c0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409bb6c5: mov      qword ptr [r11], rbx
+0x1409bb6c8: mov      qword ptr [r11 + 8], rdx
+0x1409bb6cc: mov      qword ptr [rcx + 0x78], rbx
+0x1409bb6d0: jmp      0x1409bb6da   ; main.screenshotWindowSelectionSession.run+0x3da
+0x1409bb6d2: mov      rcx, qword ptr [rsp + 0x198]
+0x1409bb6da: mov      rax, rcx
+0x1409bb6dd: mov      rcx, qword ptr [rax + 0x70]
+0x1409bb6e1: test     rcx, rcx
+0x1409bb6e4: jne      0x1409bb7db   ; main.screenshotWindowSelectionSession.run+0x4db
+0x1409bb6ea: cmp      byte ptr [rax + 0x50], 0
+0x1409bb6ee: jne      0x1409bb704   ; main.screenshotWindowSelectionSession.run+0x404
+0x1409bb6f0: cmp      qword ptr [rax + 0x60], 0
+0x1409bb6f5: je       0x1409bb704   ; main.screenshotWindowSelectionSession.run+0x404
+0x1409bb6f7: call     0x1409bc500   ; main.screenshotWindowSelectionSession.didTimeOut
+0x1409bb6fc: nop      dword ptr [rax]
+0x1409bb700: test     al, al
+0x1409bb702: je       0x1409bb762   ; main.screenshotWindowSelectionSession.run+0x462
+0x1409bb704: mov      qword ptr [rsp + 0x128], 0
+0x1409bb710: movups   xmmword ptr [rsp + 0x130], xmm15
+0x1409bb719: mov      byte ptr [rsp + 0x27], 1
+0x1409bb71e: movups   xmmword ptr [rsp + 0x118], xmm15
+0x1409bb727: call     0x1400435e0   ; runtime.deferreturn
+0x1409bb72c: mov      r8, qword ptr [rsp + 0x120]
+0x1409bb734: mov      rsi, qword ptr [rsp + 0x118]
+0x1409bb73c: movzx    edi, byte ptr [rsp + 0x27]
+0x1409bb741: mov      rax, qword ptr [rsp + 0x128]
+0x1409bb749: mov      rbx, qword ptr [rsp + 0x130]
+0x1409bb751: mov      rcx, qword ptr [rsp + 0x138]
+0x1409bb759: add      rsp, 0x188
+0x1409bb760: pop      rbp
+0x1409bb761: ret      
+0x1409bb762: mov      rax, qword ptr [rsp + 0x198]
+0x1409bb76a: mov      rcx, qword ptr [rax + 0x58]
+0x1409bb76e: mov      rdx, qword ptr [rax + 0x60]
+0x1409bb772: mov      rax, qword ptr [rax + 0x68]
+0x1409bb776: mov      qword ptr [rsp + 0x128], rcx
+0x1409bb77e: mov      qword ptr [rsp + 0x130], rdx
+0x1409bb786: mov      qword ptr [rsp + 0x138], rax
+0x1409bb78e: mov      byte ptr [rsp + 0x27], 0
+0x1409bb793: movups   xmmword ptr [rsp + 0x118], xmm15
+0x1409bb79c: nop      dword ptr [rax]
+0x1409bb7a0: call     0x1400435e0   ; runtime.deferreturn
+0x1409bb7a5: mov      r8, qword ptr [rsp + 0x120]
+0x1409bb7ad: mov      rsi, qword ptr [rsp + 0x118]
+0x1409bb7b5: movzx    edi, byte ptr [rsp + 0x27]
+0x1409bb7ba: mov      rax, qword ptr [rsp + 0x128]
+0x1409bb7c2: mov      rbx, qword ptr [rsp + 0x130]
+0x1409bb7ca: mov      rcx, qword ptr [rsp + 0x138]
+0x1409bb7d2: add      rsp, 0x188
+0x1409bb7d9: pop      rbp
+0x1409bb7da: ret      
+0x1409bb7db: mov      rax, qword ptr [rax + 0x78]
+0x1409bb7df: mov      qword ptr [rsp + 0x128], 0
+0x1409bb7eb: movups   xmmword ptr [rsp + 0x130], xmm15
+0x1409bb7f4: mov      byte ptr [rsp + 0x27], 0
+0x1409bb7f9: mov      qword ptr [rsp + 0x118], rcx
+0x1409bb801: mov      qword ptr [rsp + 0x120], rax
+0x1409bb809: call     0x1400435e0   ; runtime.deferreturn
+0x1409bb80e: mov      r8, qword ptr [rsp + 0x120]
+0x1409bb816: mov      rsi, qword ptr [rsp + 0x118]
+0x1409bb81e: movzx    edi, byte ptr [rsp + 0x27]
+0x1409bb823: mov      rax, qword ptr [rsp + 0x128]
+0x1409bb82b: mov      rbx, qword ptr [rsp + 0x130]
+0x1409bb833: mov      rcx, qword ptr [rsp + 0x138]
+0x1409bb83b: add      rsp, 0x188
+0x1409bb842: pop      rbp
+0x1409bb843: ret      
+0x1409bb844: mov      qword ptr [rsp + 8], rax
+0x1409bb849: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409bb84e: mov      rax, qword ptr [rsp + 8]
+0x1409bb853: jmp      0x1409bb300   ; main.screenshotWindowSelectionSession.run
+0x1409bb858: int3     
+0x1409bb859: int3     
+0x1409bb85a: int3     
+0x1409bb85b: int3     
+0x1409bb85c: int3     
+0x1409bb85d: int3     
+0x1409bb85e: int3     
+0x1409bb85f: int3     

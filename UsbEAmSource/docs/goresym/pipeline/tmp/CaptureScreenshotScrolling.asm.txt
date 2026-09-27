@@ -1,0 +1,136 @@
+0x140789dc0: lea      r12, [rsp - 0x198]
+0x140789dc8: cmp      r12, qword ptr [r14 + 0x10]
+0x140789dcc: jbe      0x14078a06c    ; main.BootstrapService.CaptureScreenshotScrolling+0x2ac
+0x140789dd2: push     rbp
+0x140789dd3: mov      rbp, rsp
+0x140789dd6: sub      rsp, 0x210
+0x140789ddd: mov      qword ptr [rsp + 0x2a8], rcx
+0x140789de5: mov      qword ptr [rsp + 0x298], rax
+0x140789ded: movups   xmmword ptr [rsp + 0x220], xmm15
+0x140789df6: mov      rdx, rdi
+0x140789df9: lea      rdi, [rsp + 0x228]
+0x140789e01: lea      rdi, [rdi - 0x10]
+0x140789e05: mov      qword ptr [rsp - 0x10], rbp
+0x140789e0a: lea      rbp, [rsp - 0x10]
+0x140789e0f: call     0x140081726    ; runtime.duffzero+0x146
+0x140789e14: mov      rbp, qword ptr [rbp]
+0x140789e18: movups   xmmword ptr [rsp + 0x198], xmm15
+0x140789e21: lea      rdi, [rsp + 0x1a0]
+0x140789e29: lea      rdi, [rdi - 0x10]
+0x140789e2d: nop      word ptr [rax + rax]
+0x140789e36: nop      word ptr [rax + rax]
+0x140789e3f: nop      
+0x140789e40: mov      qword ptr [rsp - 0x10], rbp
+0x140789e45: lea      rbp, [rsp - 0x10]
+0x140789e4a: call     0x140081726    ; runtime.duffzero+0x146
+0x140789e4f: mov      rbp, qword ptr [rbp]
+0x140789e53: lea      rsi, [rip + 0x266]
+0x140789e5a: mov      qword ptr [rsp + 0x180], rsi
+0x140789e62: mov      qword ptr [rsp + 0x188], rax
+0x140789e6a: mov      qword ptr [rsp + 0x190], rbx
+0x140789e72: mov      rbx, rcx
+0x140789e75: mov      rcx, rdx
+0x140789e78: lea      rdi, [rsp + 0x180]
+0x140789e80: call     0x14078c180    ; main.BootstrapService.captureScreenshotWithSaveFormat
+0x140789e85: mov      qword ptr [rsp + 0xf8], rax
+0x140789e8d: mov      qword ptr [rsp + 0x178], rbx
+0x140789e95: mov      rdx, qword ptr [rsp]
+0x140789e99: mov      qword ptr [rsp + 0x198], rdx
+0x140789ea1: lea      rdi, [rsp + 0x1a0]
+0x140789ea9: lea      rsi, [rsp + 8]
+0x140789eae: nop      word ptr [rax + rax]
+0x140789eb7: nop      word ptr [rax + rax]
+0x140789ec0: mov      qword ptr [rsp - 0x10], rbp
+0x140789ec5: lea      rbp, [rsp - 0x10]
+0x140789eca: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x140789ecf: mov      rbp, qword ptr [rbp]
+0x140789ed3: mov      rdx, qword ptr [rsp + 0x198]
+0x140789edb: mov      qword ptr [rsp + 0x100], rdx
+0x140789ee3: lea      rdi, [rsp + 0x108]
+0x140789eeb: lea      rsi, [rsp + 0x1a0]
+0x140789ef3: nop      word ptr [rax + rax]
+0x140789efc: nop      dword ptr [rax]
+0x140789f00: mov      qword ptr [rsp - 0x10], rbp
+0x140789f05: lea      rbp, [rsp - 0x10]
+0x140789f0a: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x140789f0f: mov      rbp, qword ptr [rbp]
+0x140789f13: test     rax, rax
+0x140789f16: jne      0x140789fa5    ; main.BootstrapService.CaptureScreenshotScrolling+0x1e5
+0x140789f1c: mov      rcx, qword ptr [rsp + 0x198]
+0x140789f24: mov      qword ptr [rsp], rcx
+0x140789f28: lea      rdi, [rsp + 8]
+0x140789f2d: lea      rsi, [rsp + 0x1a0]
+0x140789f35: nop      word ptr [rax + rax]
+0x140789f3e: nop      
+0x140789f40: mov      qword ptr [rsp - 0x10], rbp
+0x140789f45: lea      rbp, [rsp - 0x10]
+0x140789f4a: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x140789f4f: mov      rbp, qword ptr [rbp]
+0x140789f53: mov      rax, qword ptr [rsp + 0x298]
+0x140789f5b: nop      dword ptr [rax + rax]
+0x140789f60: call     0x140797140    ; main.BootstrapService.attachScreenshotAssetURLIfNeeded
+0x140789f65: mov      rcx, qword ptr [rsp + 0x78]
+0x140789f6a: mov      qword ptr [rsp + 0x100], rcx
+0x140789f72: lea      rdi, [rsp + 0x108]
+0x140789f7a: lea      rsi, [rsp + 0x80]
+0x140789f82: mov      qword ptr [rsp - 0x10], rbp
+0x140789f87: lea      rbp, [rsp - 0x10]
+0x140789f8c: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x140789f91: mov      rbp, qword ptr [rbp]
+0x140789f95: mov      rax, qword ptr [rsp + 0xf8]
+0x140789f9d: mov      rbx, qword ptr [rsp + 0x178]
+0x140789fa5: mov      rdx, qword ptr [rsp + 0x100]
+0x140789fad: mov      qword ptr [rsp], rdx
+0x140789fb1: lea      rdi, [rsp + 8]
+0x140789fb6: lea      rsi, [rsp + 0x108]
+0x140789fbe: nop      
+0x140789fc0: mov      qword ptr [rsp - 0x10], rbp
+0x140789fc5: lea      rbp, [rsp - 0x10]
+0x140789fca: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x140789fcf: mov      rbp, qword ptr [rbp]
+0x140789fd3: mov      rcx, rbx
+0x140789fd6: mov      rbx, rax
+0x140789fd9: mov      rax, qword ptr [rsp + 0x298]
+0x140789fe1: call     0x140796ce0    ; main.BootstrapService.emitScreenshotCaptured
+0x140789fe6: mov      rdx, qword ptr [rsp + 0x100]
+0x140789fee: mov      qword ptr [rsp + 0x220], rdx
+0x140789ff6: lea      rdi, [rsp + 0x228]
+0x140789ffe: lea      rsi, [rsp + 0x108]
+0x14078a006: mov      qword ptr [rsp - 0x10], rbp
+0x14078a00b: lea      rbp, [rsp - 0x10]
+0x14078a010: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x14078a015: mov      rbp, qword ptr [rbp]
+0x14078a019: mov      rdx, qword ptr [rsp + 0x100]
+0x14078a021: mov      qword ptr [rsp + 0x220], rdx
+0x14078a029: lea      rdi, [rsp + 0x228]
+0x14078a031: lea      rsi, [rsp + 0x108]
+0x14078a039: nop      dword ptr [rax]
+0x14078a040: mov      qword ptr [rsp - 0x10], rbp
+0x14078a045: lea      rbp, [rsp - 0x10]
+0x14078a04a: call     0x140081a7e    ; runtime.duffcopy+0x31e
+0x14078a04f: mov      rbp, qword ptr [rbp]
+0x14078a053: mov      rax, qword ptr [rsp + 0xf8]
+0x14078a05b: mov      rbx, qword ptr [rsp + 0x178]
+0x14078a063: add      rsp, 0x210
+0x14078a06a: pop      rbp
+0x14078a06b: ret      
+0x14078a06c: mov      qword ptr [rsp + 0x80], rax
+0x14078a074: mov      qword ptr [rsp + 0x88], rbx
+0x14078a07c: mov      qword ptr [rsp + 0x90], rcx
+0x14078a084: mov      qword ptr [rsp + 0x98], rdi
+0x14078a08c: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078a091: mov      rax, qword ptr [rsp + 0x80]
+0x14078a099: mov      rbx, qword ptr [rsp + 0x88]
+0x14078a0a1: mov      rcx, qword ptr [rsp + 0x90]
+0x14078a0a9: mov      rdi, qword ptr [rsp + 0x98]
+0x14078a0b1: jmp      0x140789dc0    ; main.BootstrapService.CaptureScreenshotScrolling
+0x14078a0b6: int3     
+0x14078a0b7: int3     
+0x14078a0b8: int3     
+0x14078a0b9: int3     
+0x14078a0ba: int3     
+0x14078a0bb: int3     
+0x14078a0bc: int3     
+0x14078a0bd: int3     
+0x14078a0be: int3     
+0x14078a0bf: int3     

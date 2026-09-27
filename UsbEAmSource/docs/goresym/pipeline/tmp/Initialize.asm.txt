@@ -1,0 +1,52 @@
+0x140772820: lea      r12, [rsp - 0x138]
+0x140772828: cmp      r12, qword ptr [r14 + 0x10]
+0x14077282c: jbe      0x140772902    ; main.BootstrapService.Initialize+0xe2
+0x140772832: push     rbp
+0x140772833: mov      rbp, rsp
+0x140772836: sub      rsp, 0x1b0
+0x14077283d: lea      rdi, [rsp + 0x1c0]
+0x140772845: lea      rdi, [rdi - 0x30]
+0x140772849: mov      qword ptr [rsp - 0x10], rbp
+0x14077284e: lea      rbp, [rsp - 0x10]
+0x140772853: call     0x140081702    ; runtime.duffzero+0x122
+0x140772858: mov      rbp, qword ptr [rbp]
+0x14077285c: lea      rdi, [rsp + 0xe0]
+0x140772864: lea      rdi, [rdi - 0x30]
+0x140772868: mov      qword ptr [rsp - 0x10], rbp
+0x14077286d: lea      rbp, [rsp - 0x10]
+0x140772872: call     0x140081702    ; runtime.duffzero+0x122
+0x140772877: mov      rbp, qword ptr [rbp]
+0x14077287b: xor      ebx, ebx
+0x14077287d: nop      dword ptr [rax]
+0x140772880: call     0x140772920    ; main.BootstrapService.initializeWithCheckpoint
+0x140772885: lea      rdi, [rsp + 0xe0]
+0x14077288d: mov      rsi, rsp
+0x140772890: nop      word ptr [rax + rax]
+0x140772899: nop      dword ptr [rax]
+0x1407728a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407728a5: lea      rbp, [rsp - 0x10]
+0x1407728aa: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x1407728af: mov      rbp, qword ptr [rbp]
+0x1407728b3: lea      rdi, [rsp + 0x1c0]
+0x1407728bb: lea      rsi, [rsp + 0xe0]
+0x1407728c3: mov      qword ptr [rsp - 0x10], rbp
+0x1407728c8: lea      rbp, [rsp - 0x10]
+0x1407728cd: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x1407728d2: mov      rbp, qword ptr [rbp]
+0x1407728d6: lea      rdi, [rsp + 0x1c0]
+0x1407728de: lea      rsi, [rsp + 0xe0]
+0x1407728e6: mov      qword ptr [rsp - 0x10], rbp
+0x1407728eb: lea      rbp, [rsp - 0x10]
+0x1407728f0: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x1407728f5: mov      rbp, qword ptr [rbp]
+0x1407728f9: add      rsp, 0x1b0
+0x140772900: pop      rbp
+0x140772901: ret      
+0x140772902: mov      qword ptr [rsp + 0xd8], rax
+0x14077290a: call     0x14007f140    ; runtime.morestack_noctxt
+0x14077290f: mov      rax, qword ptr [rsp + 0xd8]
+0x140772917: jmp      0x140772820    ; main.BootstrapService.Initialize
+0x14077291c: int3     
+0x14077291d: int3     
+0x14077291e: int3     
+0x14077291f: int3     

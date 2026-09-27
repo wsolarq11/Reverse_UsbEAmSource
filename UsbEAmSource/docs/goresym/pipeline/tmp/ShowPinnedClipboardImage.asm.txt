@@ -1,0 +1,198 @@
+0x14078e420: lea      r12, [rsp - 0xe0]
+0x14078e428: cmp      r12, qword ptr [r14 + 0x10]
+0x14078e42c: jbe      0x14078e7f3    ; main.BootstrapService.ShowPinnedClipboardImage+0x3d3
+0x14078e432: push     rbp
+0x14078e433: mov      rbp, rsp
+0x14078e436: sub      rsp, 0x158
+0x14078e43d: movq     qword ptr [rsp + 0x150], xmm15
+0x14078e447: mov      qword ptr [rsp + 0x1f0], rax
+0x14078e44f: mov      byte ptr [rsp + 0x97], 0
+0x14078e457: movups   xmmword ptr [rsp + 0x168], xmm15
+0x14078e460: lea      rdi, [rsp + 0x170]
+0x14078e468: mov      qword ptr [rsp - 0x10], rbp
+0x14078e46d: lea      rbp, [rsp - 0x10]
+0x14078e472: call     0x140081722    ; runtime.duffzero+0x142
+0x14078e477: mov      rbp, qword ptr [rbp]
+0x14078e47b: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x14078e484: call     0x1409ef7c0    ; main.BootstrapService.beginWorkspaceDataOperation
+0x14078e489: test     rbx, rbx
+0x14078e48c: jne      0x14078e5f8    ; main.BootstrapService.ShowPinnedClipboardImage+0x1d8
+0x14078e492: mov      qword ptr [rsp + 0x150], rax
+0x14078e49a: mov      byte ptr [rsp + 0x97], 1
+0x14078e4a2: mov      rcx, qword ptr [rsp + 0x1f0]
+0x14078e4aa: mov      rdx, qword ptr [rcx + 0x400]
+0x14078e4b1: test     rdx, rdx
+0x14078e4b4: je       0x14078e571    ; main.BootstrapService.ShowPinnedClipboardImage+0x151
+0x14078e4ba: mov      qword ptr [rsp + 0xb0], rdx
+0x14078e4c2: call     0x140966f80    ; main.readClipboardImageDataURL
+0x14078e4c7: test     rcx, rcx
+0x14078e4ca: jne      0x14078e509    ; main.BootstrapService.ShowPinnedClipboardImage+0xe9
+0x14078e4cc: mov      qword ptr [rsp + 0x98], rbx
+0x14078e4d4: mov      qword ptr [rsp + 0xb8], rax
+0x14078e4dc: mov      rax, qword ptr [rsp + 0x1f0]
+0x14078e4e4: call     0x14079bf40    ; main.BootstrapService.resolveAttachedLauncherWindow
+0x14078e4e9: test     rax, rax
+0x14078e4ec: je       0x14078e63b    ; main.BootstrapService.ShowPinnedClipboardImage+0x21b
+0x14078e4f2: mov      rdx, qword ptr [rax + 8]
+0x14078e4f6: mov      rsi, qword ptr [rip + 0x14385c3]
+0x14078e4fd: mov      rdi, qword ptr [rsi]
+0x14078e500: mov      r8d, dword ptr [rax + 0x10]
+0x14078e504: jmp      0x14078e78a    ; main.BootstrapService.ShowPinnedClipboardImage+0x36a
+0x14078e509: movups   xmmword ptr [rsp + 0x168], xmm15
+0x14078e512: mov      rax, rdi
+0x14078e515: lea      rdi, [rsp + 0x170]
+0x14078e51d: nop      dword ptr [rax]
+0x14078e520: mov      qword ptr [rsp - 0x10], rbp
+0x14078e525: lea      rbp, [rsp - 0x10]
+0x14078e52a: call     0x140081722    ; runtime.duffzero+0x142
+0x14078e52f: mov      rbp, qword ptr [rbp]
+0x14078e533: mov      qword ptr [rsp + 0xa0], rcx
+0x14078e53b: mov      qword ptr [rsp + 0xa8], rax
+0x14078e543: mov      byte ptr [rsp + 0x97], 0
+0x14078e54b: mov      rdx, qword ptr [rsp + 0x150]
+0x14078e553: mov      rax, qword ptr [rdx]
+0x14078e556: call     rax
+0x14078e558: mov      rax, qword ptr [rsp + 0xa0]
+0x14078e560: mov      rbx, qword ptr [rsp + 0xa8]
+0x14078e568: add      rsp, 0x158
+0x14078e56f: pop      rbp
+0x14078e570: ret      
+0x14078e571: lea      rax, [rip + 0x3c5e08]
+0x14078e578: call     0x14001ae20    ; runtime.newobject
+0x14078e57d: mov      qword ptr [rax + 8], 0x15
+0x14078e585: lea      rcx, [rip + 0x4d107f]
+0x14078e58c: mov      qword ptr [rax], rcx
+0x14078e58f: movups   xmmword ptr [rsp + 0x168], xmm15
+0x14078e598: lea      rdi, [rsp + 0x170]
+0x14078e5a0: mov      qword ptr [rsp - 0x10], rbp
+0x14078e5a5: lea      rbp, [rsp - 0x10]
+0x14078e5aa: call     0x140081722    ; runtime.duffzero+0x142
+0x14078e5af: mov      rbp, qword ptr [rbp]
+0x14078e5b3: lea      rcx, [rip + 0xa44b46]
+0x14078e5ba: mov      qword ptr [rsp + 0xa0], rcx
+0x14078e5c2: mov      qword ptr [rsp + 0xa8], rax
+0x14078e5ca: mov      byte ptr [rsp + 0x97], 0
+0x14078e5d2: mov      rdx, qword ptr [rsp + 0x150]
+0x14078e5da: mov      rcx, qword ptr [rdx]
+0x14078e5dd: call     rcx
+0x14078e5df: mov      rax, qword ptr [rsp + 0xa0]
+0x14078e5e7: mov      rbx, qword ptr [rsp + 0xa8]
+0x14078e5ef: add      rsp, 0x158
+0x14078e5f6: pop      rbp
+0x14078e5f7: ret      
+0x14078e5f8: movups   xmmword ptr [rsp + 0x168], xmm15
+0x14078e601: lea      rdi, [rsp + 0x170]
+0x14078e609: mov      qword ptr [rsp - 0x10], rbp
+0x14078e60e: lea      rbp, [rsp - 0x10]
+0x14078e613: call     0x140081722    ; runtime.duffzero+0x142
+0x14078e618: mov      rbp, qword ptr [rbp]
+0x14078e61c: mov      qword ptr [rsp + 0xa0], rbx
+0x14078e624: mov      qword ptr [rsp + 0xa8], rcx
+0x14078e62c: mov      rax, rbx
+0x14078e62f: mov      rbx, rcx
+0x14078e632: add      rsp, 0x158
+0x14078e639: pop      rbp
+0x14078e63a: ret      
+0x14078e63b: mov      rcx, rbx
+0x14078e63e: mov      rbx, rax
+0x14078e641: mov      rax, qword ptr [rsp + 0x1f0]
+0x14078e649: call     0x14079c7a0    ; main.BootstrapService.resolveLauncherScreen
+0x14078e64e: mov      rbx, qword ptr [rsp + 0xb8]
+0x14078e656: mov      rcx, qword ptr [rsp + 0x98]
+0x14078e65e: xor      edi, edi
+0x14078e660: xor      esi, esi
+0x14078e662: mov      r8, rax
+0x14078e665: mov      rax, qword ptr [rsp + 0xb0]
+0x14078e66d: call     0x140981800    ; main.screenshotPinWindowService.ShowWithSource
+0x14078e672: test     rax, rax
+0x14078e675: je       0x14078e6db    ; main.BootstrapService.ShowPinnedClipboardImage+0x2bb
+0x14078e677: movups   xmmword ptr [rsp + 0x168], xmm15
+0x14078e680: lea      rdi, [rsp + 0x170]
+0x14078e688: mov      qword ptr [rsp - 0x10], rbp
+0x14078e68d: lea      rbp, [rsp - 0x10]
+0x14078e692: call     0x140081722    ; runtime.duffzero+0x142
+0x14078e697: mov      rbp, qword ptr [rbp]
+0x14078e69b: mov      qword ptr [rsp + 0xa0], rax
+0x14078e6a3: mov      qword ptr [rsp + 0xa8], rbx
+0x14078e6ab: mov      byte ptr [rsp + 0x97], 0
+0x14078e6b3: mov      rdx, qword ptr [rsp + 0x150]
+0x14078e6bb: mov      rax, qword ptr [rdx]
+0x14078e6be: nop      
+0x14078e6c0: call     rax
+0x14078e6c2: mov      rax, qword ptr [rsp + 0xa0]
+0x14078e6ca: mov      rbx, qword ptr [rsp + 0xa8]
+0x14078e6d2: add      rsp, 0x158
+0x14078e6d9: pop      rbp
+0x14078e6da: ret      
+0x14078e6db: mov      rax, qword ptr [rsp + 0xb0]
+0x14078e6e3: call     0x1409869a0    ; main.screenshotPinWindowService.State
+0x14078e6e8: mov      rcx, qword ptr [rsp]
+0x14078e6ec: mov      qword ptr [rsp + 0xc8], rcx
+0x14078e6f4: lea      rdi, [rsp + 0xd0]
+0x14078e6fc: lea      rsi, [rsp + 8]
+0x14078e701: mov      qword ptr [rsp - 0x10], rbp
+0x14078e706: lea      rbp, [rsp - 0x10]
+0x14078e70b: call     0x140081a70    ; runtime.duffcopy+0x310
+0x14078e710: mov      rbp, qword ptr [rbp]
+0x14078e714: mov      rcx, qword ptr [rsp + 0xc8]
+0x14078e71c: mov      qword ptr [rsp + 0x168], rcx
+0x14078e724: lea      rdi, [rsp + 0x170]
+0x14078e72c: lea      rsi, [rsp + 0xd0]
+0x14078e734: nop      word ptr [rax + rax]
+0x14078e73d: nop      dword ptr [rax]
+0x14078e740: mov      qword ptr [rsp - 0x10], rbp
+0x14078e745: lea      rbp, [rsp - 0x10]
+0x14078e74a: call     0x140081a70    ; runtime.duffcopy+0x310
+0x14078e74f: mov      rbp, qword ptr [rbp]
+0x14078e753: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x14078e75c: mov      byte ptr [rsp + 0x97], 0
+0x14078e764: mov      rdx, qword ptr [rsp + 0x150]
+0x14078e76c: mov      rcx, qword ptr [rdx]
+0x14078e76f: call     rcx
+0x14078e771: mov      rax, qword ptr [rsp + 0xa0]
+0x14078e779: mov      rbx, qword ptr [rsp + 0xa8]
+0x14078e781: add      rsp, 0x158
+0x14078e788: pop      rbp
+0x14078e789: ret      
+0x14078e78a: mov      r9, r8
+0x14078e78d: and      r8, rdi
+0x14078e790: shl      r8, 4
+0x14078e794: mov      r10, qword ptr [r8 + rsi + 8]
+0x14078e799: cmp      r10, rdx
+0x14078e79c: je       0x14078e7cb    ; main.BootstrapService.ShowPinnedClipboardImage+0x3ab
+0x14078e79e: lea      r8, [r9 + 1]
+0x14078e7a2: test     r10, r10
+0x14078e7a5: jne      0x14078e78a    ; main.BootstrapService.ShowPinnedClipboardImage+0x36a
+0x14078e7a7: mov      qword ptr [rsp + 0xc0], rbx
+0x14078e7af: lea      rax, [rip + 0x143830a]
+0x14078e7b6: mov      rbx, rdx
+0x14078e7b9: call     0x1400174a0    ; runtime.typeAssert
+0x14078e7be: mov      rbx, qword ptr [rsp + 0xc0]
+0x14078e7c6: jmp      0x14078e63b    ; main.BootstrapService.ShowPinnedClipboardImage+0x21b
+0x14078e7cb: mov      rax, qword ptr [r8 + rsi + 0x10]
+0x14078e7d0: jmp      0x14078e63b    ; main.BootstrapService.ShowPinnedClipboardImage+0x21b
+0x14078e7d5: call     0x1400435e0    ; runtime.deferreturn
+0x14078e7da: mov      rax, qword ptr [rsp + 0xa0]
+0x14078e7e2: mov      rbx, qword ptr [rsp + 0xa8]
+0x14078e7ea: add      rsp, 0x158
+0x14078e7f1: pop      rbp
+0x14078e7f2: ret      
+0x14078e7f3: mov      qword ptr [rsp + 0x90], rax
+0x14078e7fb: nop      dword ptr [rax + rax]
+0x14078e800: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078e805: mov      rax, qword ptr [rsp + 0x90]
+0x14078e80d: jmp      0x14078e420    ; main.BootstrapService.ShowPinnedClipboardImage
+0x14078e812: int3     
+0x14078e813: int3     
+0x14078e814: int3     
+0x14078e815: int3     
+0x14078e816: int3     
+0x14078e817: int3     
+0x14078e818: int3     
+0x14078e819: int3     
+0x14078e81a: int3     
+0x14078e81b: int3     
+0x14078e81c: int3     
+0x14078e81d: int3     
+0x14078e81e: int3     
+0x14078e81f: int3     

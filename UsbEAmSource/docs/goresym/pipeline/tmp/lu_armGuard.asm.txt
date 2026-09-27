@@ -1,0 +1,41 @@
+0x14090d180: cmp      rsp, qword ptr [r14 + 0x10]
+0x14090d184: jbe      0x14090d1e2   ; main.oledBlackoutService.armInputDismissGuardLocked+0x62
+0x14090d186: push     rbp
+0x14090d187: mov      rbp, rsp
+0x14090d18a: sub      rsp, 0x20
+0x14090d18e: mov      qword ptr [rsp + 0x30], rax
+0x14090d193: call     0x140104fc0   ; time.Now
+0x14090d198: mov      edi, 0xee6b280
+0x14090d19d: nop      dword ptr [rax]
+0x14090d1a0: call     0x1400fb8c0   ; time.Time.Add
+0x14090d1a5: mov      rdx, qword ptr [rsp + 0x30]
+0x14090d1aa: mov      qword ptr [rdx + 0x180], rax
+0x14090d1b1: mov      qword ptr [rdx + 0x188], rbx
+0x14090d1b8: cmp      dword ptr [rip + 0x134e191], 0
+0x14090d1bf: nop      
+0x14090d1c0: je       0x14090d1d5   ; main.oledBlackoutService.armInputDismissGuardLocked+0x55
+0x14090d1c2: mov      rax, qword ptr [rdx + 0x190]
+0x14090d1c9: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14090d1ce: mov      qword ptr [r11], rcx
+0x14090d1d1: mov      qword ptr [r11 + 8], rax
+0x14090d1d5: mov      qword ptr [rdx + 0x190], rcx
+0x14090d1dc: add      rsp, 0x20
+0x14090d1e0: pop      rbp
+0x14090d1e1: ret      
+0x14090d1e2: mov      qword ptr [rsp + 8], rax
+0x14090d1e7: call     0x14007f140   ; runtime.morestack_noctxt
+0x14090d1ec: mov      rax, qword ptr [rsp + 8]
+0x14090d1f1: jmp      0x14090d180   ; main.oledBlackoutService.armInputDismissGuardLocked
+0x14090d1f3: int3     
+0x14090d1f4: int3     
+0x14090d1f5: int3     
+0x14090d1f6: int3     
+0x14090d1f7: int3     
+0x14090d1f8: int3     
+0x14090d1f9: int3     
+0x14090d1fa: int3     
+0x14090d1fb: int3     
+0x14090d1fc: int3     
+0x14090d1fd: int3     
+0x14090d1fe: int3     
+0x14090d1ff: int3     

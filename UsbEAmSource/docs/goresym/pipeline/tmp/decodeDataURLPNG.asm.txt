@@ -1,0 +1,259 @@
+0x140966400: lea      r12, [rsp - 0x18]
+0x140966405: cmp      r12, qword ptr [r14 + 0x10]
+0x140966409: jbe      0x1409667a6   ; main.decodeDataURLPNG+0x3a6
+0x14096640f: push     rbp
+0x140966410: mov      rbp, rsp
+0x140966413: sub      rsp, 0x90
+0x14096641a: mov      qword ptr [rsp + 0xa0], rax
+0x140966422: call     0x1400a2200   ; strings.TrimSpace
+0x140966427: test     rbx, rbx
+0x14096642a: je       0x140966761   ; main.decodeDataURLPNG+0x361
+0x140966430: mov      qword ptr [rsp + 0x58], rbx
+0x140966435: mov      qword ptr [rsp + 0x70], rax
+0x14096643a: call     0x1400a1500   ; strings.ToLower
+0x14096643f: nop      
+0x140966440: cmp      rbx, 0x16
+0x140966444: jge      0x140966452   ; main.decodeDataURLPNG+0x52
+0x140966446: mov      rbx, qword ptr [rsp + 0x58]
+0x14096644b: mov      rax, qword ptr [rsp + 0x70]
+0x140966450: jmp      0x14096649e   ; main.decodeDataURLPNG+0x9e
+0x140966452: lea      rbx, [rip + 0x2fad07]
+0x140966459: mov      ecx, 0x16
+0x14096645e: nop      
+0x140966460: call     0x140006280   ; runtime.memequal
+0x140966465: test     al, al
+0x140966467: je       0x140966494   ; main.decodeDataURLPNG+0x94
+0x140966469: mov      rcx, qword ptr [rsp + 0x58]
+0x14096646e: cmp      rcx, 0x16
+0x140966472: jb       0x140966799   ; main.decodeDataURLPNG+0x399
+0x140966478: lea      rbx, [rcx - 0x16]
+0x14096647c: mov      rdx, rbx
+0x14096647f: neg      rdx
+0x140966482: sar      rdx, 0x3f
+0x140966486: and      edx, 0x16
+0x140966489: mov      rsi, qword ptr [rsp + 0x70]
+0x14096648e: lea      rax, [rsi + rdx]
+0x140966492: jmp      0x14096649e   ; main.decodeDataURLPNG+0x9e
+0x140966494: mov      rbx, qword ptr [rsp + 0x58]
+0x140966499: mov      rax, qword ptr [rsp + 0x70]
+0x14096649e: mov      rdx, qword ptr [rip + 0x12a939b]
+0x1409664a5: mov      rsi, qword ptr [rip + 0xfff054]
+0x1409664ac: mov      edi, dword ptr [rdx + 0x140]
+0x1409664b2: cmp      edi, -1
+0x1409664b5: jne      0x14096651b   ; main.decodeDataURLPNG+0x11b
+0x1409664b7: mov      rcx, rax
+0x1409664ba: movabs   rax, 0xaaaaaaaaaaaaaaab
+0x1409664c4: mov      r8, rdx
+0x1409664c7: imul     rsi
+0x1409664ca: add      rdx, rsi
+0x1409664cd: sar      rdx, 1
+0x1409664d0: mov      r9, rsi
+0x1409664d3: sar      rsi, 0x3f
+0x1409664d7: sub      rdx, rsi
+0x1409664da: lea      rsi, [rdx + rdx*2]
+0x1409664de: mov      r10, r9
+0x1409664e1: sub      r9, rsi
+0x1409664e4: mov      rsi, r9
+0x1409664e7: shl      r9, 3
+0x1409664eb: add      r9, 5
+0x1409664ef: mov      r11, r9
+0x1409664f2: sar      r9, 0x3f
+0x1409664f6: movabs   rax, 0xaaaaaaaaaaaaaaab
+0x140966500: mov      r12, rdx
+0x140966503: imul     r11
+0x140966506: lea      rdx, [rdx + rsi*8]
+0x14096650a: lea      rdx, [rdx + 5]
+0x14096650e: sar      rdx, 2
+0x140966512: sub      rdx, r9
+0x140966515: lea      rdx, [rdx + r12*4]
+0x140966519: jmp      0x14096654e   ; main.decodeDataURLPNG+0x14e
+0x14096651b: lea      r8, [rsi + 2]
+0x14096651f: mov      rcx, rax
+0x140966522: movabs   rax, 0xaaaaaaaaaaaaaaab
+0x14096652c: mov      r9, rdx
+0x14096652f: imul     r8
+0x140966532: lea      rdx, [rdx + rsi]
+0x140966536: lea      rdx, [rdx + 2]
+0x14096653a: sar      rdx, 1
+0x14096653d: sar      r8, 0x3f
+0x140966541: sub      rdx, r8
+0x140966544: shl      rdx, 2
+0x140966548: mov      r8, r9
+0x14096654b: mov      r10, rsi
+0x14096654e: cmp      rbx, rdx
+0x140966551: jg       0x14096658c   ; main.decodeDataURLPNG+0x18c
+0x140966553: cmp      edi, -1
+0x140966556: jne      0x140966579   ; main.decodeDataURLPNG+0x179
+0x140966558: mov      rdx, rbx
+0x14096655b: shr      rbx, 2
+0x14096655f: lea      rsi, [rbx + rbx*2]
+0x140966563: mov      rdi, rdx
+0x140966566: and      edx, 3
+0x140966569: add      rdx, rdx
+0x14096656c: lea      rdx, [rdx + rdx*2]
+0x140966570: sar      rdx, 3
+0x140966574: add      rdx, rsi
+0x140966577: jmp      0x140966587   ; main.decodeDataURLPNG+0x187
+0x140966579: mov      rsi, rbx
+0x14096657c: shr      rbx, 2
+0x140966580: lea      rdx, [rbx + rbx*2]
+0x140966584: mov      rdi, rsi
+0x140966587: cmp      rdx, r10
+0x14096658a: jle      0x1409665f3   ; main.decodeDataURLPNG+0x1f3
+0x14096658c: movups   xmmword ptr [rsp + 0x80], xmm15
+0x140966595: mov      rax, qword ptr [rip + 0xffef64]
+0x14096659c: nop      dword ptr [rax]
+0x1409665a0: call     0x1400765e0   ; runtime.convT64
+0x1409665a5: lea      rcx, [rip + 0x183a14]
+0x1409665ac: mov      qword ptr [rsp + 0x80], rcx
+0x1409665b4: mov      qword ptr [rsp + 0x88], rax
+0x1409665bc: lea      rax, [rip + 0x30f852]
+0x1409665c3: mov      ebx, 0x22
+0x1409665c8: lea      rcx, [rsp + 0x80]
+0x1409665d0: mov      edi, 1
+0x1409665d5: mov      rsi, rdi
+0x1409665d8: call     0x140133280   ; fmt.Errorf
+0x1409665dd: xor      ecx, ecx
+0x1409665df: mov      rdi, rax
+0x1409665e2: mov      rsi, rbx
+0x1409665e5: xor      eax, eax
+0x1409665e7: mov      rbx, rcx
+0x1409665ea: add      rsp, 0x90
+0x1409665f1: pop      rbp
+0x1409665f2: ret      
+0x1409665f3: mov      rax, r8
+0x1409665f6: mov      rbx, rcx
+0x1409665f9: mov      rcx, rdi
+0x1409665fc: nop      dword ptr [rax]
+0x140966600: call     0x14019ae60   ; encoding/base64.Encoding.DecodeString
+0x140966605: test     rdi, rdi
+0x140966608: je       0x140966661   ; main.decodeDataURLPNG+0x261
+0x14096660a: movups   xmmword ptr [rsp + 0x80], xmm15
+0x140966613: je       0x140966619   ; main.decodeDataURLPNG+0x219
+0x140966615: mov      rdi, qword ptr [rdi + 8]
+0x140966619: mov      qword ptr [rsp + 0x80], rdi
+0x140966621: mov      qword ptr [rsp + 0x88], rsi
+0x140966629: lea      rax, [rip + 0x305884]
+0x140966630: mov      ebx, 0x1c
+0x140966635: lea      rcx, [rsp + 0x80]
+0x14096663d: mov      edi, 1
+0x140966642: mov      rsi, rdi
+0x140966645: call     0x140133280   ; fmt.Errorf
+0x14096664a: xor      ecx, ecx
+0x14096664c: mov      rdi, rax
+0x14096664f: mov      rsi, rbx
+0x140966652: xor      eax, eax
+0x140966654: mov      rbx, rcx
+0x140966657: add      rsp, 0x90
+0x14096665e: pop      rbp
+0x14096665f: nop      
+0x140966660: ret      
+0x140966661: test     rbx, rbx
+0x140966664: je       0x140966729   ; main.decodeDataURLPNG+0x329
+0x14096666a: mov      qword ptr [rsp + 0x68], rcx
+0x14096666f: mov      qword ptr [rsp + 0x60], rbx
+0x140966674: mov      qword ptr [rsp + 0x78], rax
+0x140966679: mov      rdx, qword ptr [rip + 0xffee80]
+0x140966680: mov      qword ptr [rsp], rdx
+0x140966684: movups   xmm0, xmmword ptr [rip + 0xffee7d]
+0x14096668b: movups   xmmword ptr [rsp + 8], xmm0
+0x140966690: movups   xmm0, xmmword ptr [rip + 0xffee81]
+0x140966697: movups   xmmword ptr [rsp + 0x18], xmm0
+0x14096669c: lea      rdi, [rip + 0x2cd409]
+0x1409666a3: mov      esi, 3
+0x1409666a8: xor      r8d, r8d
+0x1409666ab: call     0x14097fbc0   ; main.inspectScreenshotImageWork
+0x1409666b0: test     r10, r10
+0x1409666b3: je       0x14096670d   ; main.decodeDataURLPNG+0x30d
+0x1409666b5: movups   xmmword ptr [rsp + 0x80], xmm15
+0x1409666be: nop      
+0x1409666c0: je       0x1409666c6   ; main.decodeDataURLPNG+0x2c6
+0x1409666c2: mov      r10, qword ptr [r10 + 8]
+0x1409666c6: mov      qword ptr [rsp + 0x80], r10
+0x1409666ce: mov      qword ptr [rsp + 0x88], r11
+0x1409666d6: lea      rax, [rip + 0x30572f]
+0x1409666dd: mov      ebx, 0x1c
+0x1409666e2: lea      rcx, [rsp + 0x80]
+0x1409666ea: mov      edi, 1
+0x1409666ef: mov      rsi, rdi
+0x1409666f2: call     0x140133280   ; fmt.Errorf
+0x1409666f7: xor      ecx, ecx
+0x1409666f9: mov      rdi, rax
+0x1409666fc: mov      rsi, rbx
+0x1409666ff: xor      eax, eax
+0x140966701: mov      rbx, rcx
+0x140966704: add      rsp, 0x90
+0x14096670b: pop      rbp
+0x14096670c: ret      
+0x14096670d: mov      rax, qword ptr [rsp + 0x78]
+0x140966712: mov      rbx, qword ptr [rsp + 0x60]
+0x140966717: mov      rcx, qword ptr [rsp + 0x68]
+0x14096671c: xor      edi, edi
+0x14096671e: xor      esi, esi
+0x140966720: add      rsp, 0x90
+0x140966727: pop      rbp
+0x140966728: ret      
+0x140966729: lea      rax, [rip + 0x1edc50]
+0x140966730: call     0x14001ae20   ; runtime.newobject
+0x140966735: mov      qword ptr [rax + 8], 0x12
+0x14096673d: lea      rcx, [rip + 0x2f38ca]
+0x140966744: mov      qword ptr [rax], rcx
+0x140966747: xor      ebx, ebx
+0x140966749: mov      rcx, rbx
+0x14096674c: lea      rdi, [rip + 0x86c9ad]
+0x140966753: mov      rsi, rax
+0x140966756: xor      eax, eax
+0x140966758: add      rsp, 0x90
+0x14096675f: pop      rbp
+0x140966760: ret      
+0x140966761: lea      rax, [rip + 0x1edc18]
+0x140966768: call     0x14001ae20   ; runtime.newobject
+0x14096676d: mov      qword ptr [rax + 8], 0x12
+0x140966775: lea      rcx, [rip + 0x2f3892]
+0x14096677c: mov      qword ptr [rax], rcx
+0x14096677f: xor      ebx, ebx
+0x140966781: mov      rcx, rbx
+0x140966784: lea      rdi, [rip + 0x86c975]
+0x14096678b: mov      rsi, rax
+0x14096678e: xor      eax, eax
+0x140966790: add      rsp, 0x90
+0x140966797: pop      rbp
+0x140966798: ret      
+0x140966799: mov      eax, 0x16
+0x14096679e: nop      
+0x1409667a0: call     0x1400814c0   ; runtime.panicSliceB
+0x1409667a5: nop      
+0x1409667a6: mov      qword ptr [rsp + 8], rax
+0x1409667ab: mov      qword ptr [rsp + 0x10], rbx
+0x1409667b0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409667b5: mov      rax, qword ptr [rsp + 8]
+0x1409667ba: mov      rbx, qword ptr [rsp + 0x10]
+0x1409667bf: nop      
+0x1409667c0: jmp      0x140966400   ; main.decodeDataURLPNG
+0x1409667c5: int3     
+0x1409667c6: int3     
+0x1409667c7: int3     
+0x1409667c8: int3     
+0x1409667c9: int3     
+0x1409667ca: int3     
+0x1409667cb: int3     
+0x1409667cc: int3     
+0x1409667cd: int3     
+0x1409667ce: int3     
+0x1409667cf: int3     
+0x1409667d0: int3     
+0x1409667d1: int3     
+0x1409667d2: int3     
+0x1409667d3: int3     
+0x1409667d4: int3     
+0x1409667d5: int3     
+0x1409667d6: int3     
+0x1409667d7: int3     
+0x1409667d8: int3     
+0x1409667d9: int3     
+0x1409667da: int3     
+0x1409667db: int3     
+0x1409667dc: int3     
+0x1409667dd: int3     
+0x1409667de: int3     
+0x1409667df: int3     

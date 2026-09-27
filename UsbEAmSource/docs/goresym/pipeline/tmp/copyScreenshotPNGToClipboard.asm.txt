@@ -1,0 +1,82 @@
+0x140966e80: cmp      rsp, qword ptr [r14 + 0x10]
+0x140966e84: jbe      0x140966f39   ; main.copyScreenshotPNGToClipboard+0xb9
+0x140966e8a: push     rbp
+0x140966e8b: mov      rbp, rsp
+0x140966e8e: sub      rsp, 0x38
+0x140966e92: mov      qword ptr [rsp + 0x48], rax
+0x140966e97: test     rbx, rbx
+0x140966e9a: je       0x140966f0b   ; main.copyScreenshotPNGToClipboard+0x8b
+0x140966e9c: mov      qword ptr [rsp + 0x58], rcx
+0x140966ea1: mov      qword ptr [rsp + 0x48], rax
+0x140966ea6: mov      qword ptr [rsp + 0x50], rbx
+0x140966eab: call     0x140931900   ; main.initQRCodeClipboard
+0x140966eb0: test     rax, rax
+0x140966eb3: je       0x140966eef   ; main.copyScreenshotPNGToClipboard+0x6f
+0x140966eb5: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140966ebb: je       0x140966ec1   ; main.copyScreenshotPNGToClipboard+0x41
+0x140966ebd: mov      rax, qword ptr [rax + 8]
+0x140966ec1: mov      qword ptr [rsp + 0x28], rax
+0x140966ec6: mov      qword ptr [rsp + 0x30], rbx
+0x140966ecb: lea      rax, [rip + 0x304f1e]
+0x140966ed2: mov      ebx, 0x1c
+0x140966ed7: lea      rcx, [rsp + 0x28]
+0x140966edc: mov      edi, 1
+0x140966ee1: mov      rsi, rdi
+0x140966ee4: call     0x140133280   ; fmt.Errorf
+0x140966ee9: add      rsp, 0x38
+0x140966eed: pop      rbp
+0x140966eee: ret      
+0x140966eef: mov      rax, qword ptr [rsp + 0x48]
+0x140966ef4: mov      rbx, qword ptr [rsp + 0x50]
+0x140966ef9: mov      rcx, qword ptr [rsp + 0x58]
+0x140966efe: nop      
+0x140966f00: call     0x140972ac0   ; main.writeScreenshotPNGToClipboard
+0x140966f05: add      rsp, 0x38
+0x140966f09: pop      rbp
+0x140966f0a: ret      
+0x140966f0b: lea      rax, [rip + 0x1ed46e]
+0x140966f12: call     0x14001ae20   ; runtime.newobject
+0x140966f17: mov      qword ptr [rax + 8], 0x18
+0x140966f1f: lea      rcx, [rip + 0x2fe582]
+0x140966f26: mov      qword ptr [rax], rcx
+0x140966f29: mov      rbx, rax
+0x140966f2c: lea      rax, [rip + 0x86c1cd]
+0x140966f33: add      rsp, 0x38
+0x140966f37: pop      rbp
+0x140966f38: ret      
+0x140966f39: mov      qword ptr [rsp + 8], rax
+0x140966f3e: mov      qword ptr [rsp + 0x10], rbx
+0x140966f43: mov      qword ptr [rsp + 0x18], rcx
+0x140966f48: call     0x14007f140   ; runtime.morestack_noctxt
+0x140966f4d: mov      rax, qword ptr [rsp + 8]
+0x140966f52: mov      rbx, qword ptr [rsp + 0x10]
+0x140966f57: mov      rcx, qword ptr [rsp + 0x18]
+0x140966f5c: nop      dword ptr [rax]
+0x140966f60: jmp      0x140966e80   ; main.copyScreenshotPNGToClipboard
+0x140966f65: int3     
+0x140966f66: int3     
+0x140966f67: int3     
+0x140966f68: int3     
+0x140966f69: int3     
+0x140966f6a: int3     
+0x140966f6b: int3     
+0x140966f6c: int3     
+0x140966f6d: int3     
+0x140966f6e: int3     
+0x140966f6f: int3     
+0x140966f70: int3     
+0x140966f71: int3     
+0x140966f72: int3     
+0x140966f73: int3     
+0x140966f74: int3     
+0x140966f75: int3     
+0x140966f76: int3     
+0x140966f77: int3     
+0x140966f78: int3     
+0x140966f79: int3     
+0x140966f7a: int3     
+0x140966f7b: int3     
+0x140966f7c: int3     
+0x140966f7d: int3     
+0x140966f7e: int3     
+0x140966f7f: int3     

@@ -1,0 +1,200 @@
+0x140952d20: lea      r12, [rsp - 0xa8]
+0x140952d28: cmp      r12, qword ptr [r14 + 0x10]
+0x140952d2c: jbe      0x14095301d   ; main.drawQRCodeRoundedRect+0x2fd
+0x140952d32: push     rbp
+0x140952d33: mov      rbp, rsp
+0x140952d36: sub      rsp, 0x120
+0x140952d3d: nop      dword ptr [rax]
+0x140952d40: test     rax, rax
+0x140952d43: je       0x140952d4f   ; main.drawQRCodeRoundedRect+0x2f
+0x140952d45: cmp      rbx, rdi
+0x140952d48: jge      0x140952d4f   ; main.drawQRCodeRoundedRect+0x2f
+0x140952d4a: cmp      rcx, rsi
+0x140952d4d: jl       0x140952d5d   ; main.drawQRCodeRoundedRect+0x3d
+0x140952d4f: call     0x1400435e0   ; runtime.deferreturn
+0x140952d54: add      rsp, 0x120
+0x140952d5b: pop      rbp
+0x140952d5c: ret      
+0x140952d5d: mov      qword ptr [rsp + 0x138], rax
+0x140952d65: mov      qword ptr [rsp + 0x160], r8
+0x140952d6d: mov      qword ptr [rsp + 0x50], rsi
+0x140952d72: mov      qword ptr [rsp + 0x48], rdi
+0x140952d77: mov      qword ptr [rsp + 0x40], rcx
+0x140952d7c: mov      qword ptr [rsp + 0x38], rbx
+0x140952d81: movzx    ecx, byte ptr [rsp + 0x131]
+0x140952d89: shl      ecx, 8
+0x140952d8c: movzx    edx, byte ptr [rsp + 0x130]
+0x140952d94: or       edx, ecx
+0x140952d96: movzx    ecx, byte ptr [rsp + 0x132]
+0x140952d9e: shl      ecx, 0x10
+0x140952da1: or       ecx, edx
+0x140952da3: mov      dword ptr [rsp + 0x24], ecx
+0x140952da7: nop      
+0x140952da8: nop      
+0x140952da9: nop      
+0x140952daa: lea      rax, [rip + 0x1aabcf]
+0x140952db1: call     0x14001ae20   ; runtime.newobject
+0x140952db6: mov      ecx, dword ptr [rsp + 0x24]
+0x140952dba: mov      qword ptr [rax], rcx
+0x140952dbd: mov      rcx, qword ptr [rip + 0x126f844]
+0x140952dc4: mov      rbx, rax
+0x140952dc7: mov      edi, 1
+0x140952dcc: mov      rax, rcx
+0x140952dcf: mov      rcx, rdi
+0x140952dd2: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140952dd7: nop      word ptr [rax + rax]
+0x140952de0: test     rax, rax
+0x140952de3: je       0x14095300f   ; main.drawQRCodeRoundedRect+0x2ef
+0x140952de9: mov      qword ptr [rsp + 0x28], rax
+0x140952dee: lea      rcx, [rip + 0x3ab]
+0x140952df5: mov      qword ptr [rsp + 0x110], rcx
+0x140952dfd: mov      qword ptr [rsp + 0x118], rax
+0x140952e05: lea      rcx, [rsp + 0x110]
+0x140952e0d: mov      qword ptr [rsp + 0xd0], rcx
+0x140952e15: lea      rax, [rsp + 0xb8]
+0x140952e1d: nop      dword ptr [rax]
+0x140952e20: call     0x1400430a0   ; runtime.deferprocStack
+0x140952e25: movzx    eax, byte ptr [rsp + 0x134]
+0x140952e2d: movzx    ebx, byte ptr [rsp + 0x135]
+0x140952e35: movzx    ecx, byte ptr [rsp + 0x136]
+0x140952e3d: movzx    edi, byte ptr [rsp + 0x137]
+0x140952e45: mov      esi, 1
+0x140952e4a: call     0x14094ea80   ; main.createQRCodeAnnotationPen
+0x140952e4f: test     rax, rax
+0x140952e52: je       0x140952ff2   ; main.drawQRCodeRoundedRect+0x2d2
+0x140952e58: mov      qword ptr [rsp + 0x30], rax
+0x140952e5d: lea      rcx, [rip + 0x2bc]
+0x140952e64: mov      qword ptr [rsp + 0x100], rcx
+0x140952e6c: mov      qword ptr [rsp + 0x108], rax
+0x140952e74: lea      rcx, [rsp + 0x100]
+0x140952e7c: mov      qword ptr [rsp + 0xa0], rcx
+0x140952e84: lea      rax, [rsp + 0x88]
+0x140952e8c: call     0x1400430a0   ; runtime.deferprocStack
+0x140952e91: nop      
+0x140952e92: lea      rax, [rip + 0x1aaae7]
+0x140952e99: call     0x14001ae20   ; runtime.newobject
+0x140952e9e: mov      rcx, qword ptr [rsp + 0x138]
+0x140952ea6: mov      qword ptr [rax], rcx
+0x140952ea9: mov      rcx, qword ptr [rip + 0x126f850]
+0x140952eb0: mov      rbx, rax
+0x140952eb3: mov      edi, 1
+0x140952eb8: mov      rax, rcx
+0x140952ebb: mov      rcx, rdi
+0x140952ebe: nop      
+0x140952ec0: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140952ec5: test     rax, rax
+0x140952ec8: je       0x140952fe4   ; main.drawQRCodeRoundedRect+0x2c4
+0x140952ece: lea      rcx, [rip + 0x1ab]
+0x140952ed5: mov      qword ptr [rsp + 0xe8], rcx
+0x140952edd: mov      rcx, qword ptr [rsp + 0x138]
+0x140952ee5: mov      qword ptr [rsp + 0xf0], rcx
+0x140952eed: mov      qword ptr [rsp + 0xf8], rax
+0x140952ef5: lea      rcx, [rsp + 0xe8]
+0x140952efd: mov      qword ptr [rsp + 0x70], rcx
+0x140952f02: lea      rax, [rsp + 0x58]
+0x140952f07: call     0x1400430a0   ; runtime.deferprocStack
+0x140952f0c: mov      rax, qword ptr [rsp + 0x138]
+0x140952f14: mov      rbx, qword ptr [rsp + 0x28]
+0x140952f19: call     0x14074caa0   ; main.selectAppObject
+0x140952f1e: nop      
+0x140952f20: test     rbx, rbx
+0x140952f23: jne      0x140952fd6   ; main.drawQRCodeRoundedRect+0x2b6
+0x140952f29: mov      rax, qword ptr [rsp + 0x138]
+0x140952f31: mov      rbx, qword ptr [rsp + 0x30]
+0x140952f36: call     0x14074caa0   ; main.selectAppObject
+0x140952f3b: nop      dword ptr [rax + rax]
+0x140952f40: test     rbx, rbx
+0x140952f43: je       0x140952f53   ; main.drawQRCodeRoundedRect+0x233
+0x140952f45: call     0x1400435e0   ; runtime.deferreturn
+0x140952f4a: add      rsp, 0x120
+0x140952f51: pop      rbp
+0x140952f52: ret      
+0x140952f53: lea      rax, [rip + 0x1aad86]
+0x140952f5a: call     0x14001ae20   ; runtime.newobject
+0x140952f5f: mov      rcx, qword ptr [rsp + 0x138]
+0x140952f67: mov      qword ptr [rax], rcx
+0x140952f6a: mov      rcx, qword ptr [rsp + 0x38]
+0x140952f6f: mov      qword ptr [rax + 8], rcx
+0x140952f73: mov      rcx, qword ptr [rsp + 0x40]
+0x140952f78: mov      qword ptr [rax + 0x10], rcx
+0x140952f7c: mov      rcx, qword ptr [rsp + 0x48]
+0x140952f81: mov      qword ptr [rax + 0x18], rcx
+0x140952f85: mov      rcx, qword ptr [rsp + 0x50]
+0x140952f8a: mov      qword ptr [rax + 0x20], rcx
+0x140952f8e: mov      rcx, qword ptr [rsp + 0x160]
+0x140952f96: add      rcx, rcx
+0x140952f99: cmp      rcx, 2
+0x140952f9d: mov      edx, 2
+0x140952fa2: cmovg    rdx, rcx
+0x140952fa6: mov      qword ptr [rax + 0x28], rdx
+0x140952faa: mov      qword ptr [rax + 0x30], rdx
+0x140952fae: mov      rcx, qword ptr [rip + 0x126ec8b]
+0x140952fb5: mov      rbx, rax
+0x140952fb8: mov      edi, 7
+0x140952fbd: mov      rax, rcx
+0x140952fc0: mov      rcx, rdi
+0x140952fc3: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x140952fc8: call     0x1400435e0   ; runtime.deferreturn
+0x140952fcd: add      rsp, 0x120
+0x140952fd4: pop      rbp
+0x140952fd5: ret      
+0x140952fd6: call     0x1400435e0   ; runtime.deferreturn
+0x140952fdb: add      rsp, 0x120
+0x140952fe2: pop      rbp
+0x140952fe3: ret      
+0x140952fe4: call     0x1400435e0   ; runtime.deferreturn
+0x140952fe9: add      rsp, 0x120
+0x140952ff0: pop      rbp
+0x140952ff1: ret      
+0x140952ff2: call     0x1400435e0   ; runtime.deferreturn
+0x140952ff7: add      rsp, 0x120
+0x140952ffe: pop      rbp
+0x140952fff: nop      
+0x140953000: ret      
+0x140953001: call     0x1400435e0   ; runtime.deferreturn
+0x140953006: add      rsp, 0x120
+0x14095300d: pop      rbp
+0x14095300e: ret      
+0x14095300f: call     0x1400435e0   ; runtime.deferreturn
+0x140953014: add      rsp, 0x120
+0x14095301b: pop      rbp
+0x14095301c: ret      
+0x14095301d: mov      qword ptr [rsp + 0x10], rax
+0x140953022: mov      qword ptr [rsp + 0x18], rbx
+0x140953027: mov      qword ptr [rsp + 0x20], rcx
+0x14095302c: mov      qword ptr [rsp + 0x28], rdi
+0x140953031: mov      qword ptr [rsp + 0x30], rsi
+0x140953036: mov      qword ptr [rsp + 0x38], r8
+0x14095303b: nop      dword ptr [rax + rax]
+0x140953040: call     0x14007f140   ; runtime.morestack_noctxt
+0x140953045: mov      rax, qword ptr [rsp + 0x10]
+0x14095304a: mov      rbx, qword ptr [rsp + 0x18]
+0x14095304f: mov      rcx, qword ptr [rsp + 0x20]
+0x140953054: mov      rdi, qword ptr [rsp + 0x28]
+0x140953059: mov      rsi, qword ptr [rsp + 0x30]
+0x14095305e: mov      r8, qword ptr [rsp + 0x38]
+0x140953063: jmp      0x140952d20   ; main.drawQRCodeRoundedRect
+0x140953068: int3     
+0x140953069: int3     
+0x14095306a: int3     
+0x14095306b: int3     
+0x14095306c: int3     
+0x14095306d: int3     
+0x14095306e: int3     
+0x14095306f: int3     
+0x140953070: int3     
+0x140953071: int3     
+0x140953072: int3     
+0x140953073: int3     
+0x140953074: int3     
+0x140953075: int3     
+0x140953076: int3     
+0x140953077: int3     
+0x140953078: int3     
+0x140953079: int3     
+0x14095307a: int3     
+0x14095307b: int3     
+0x14095307c: int3     
+0x14095307d: int3     
+0x14095307e: int3     
+0x14095307f: int3     

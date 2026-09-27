@@ -1,0 +1,67 @@
+0x1409c83e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409c83e4: jbe      0x1409c84a8   ; main.sanitizeTwoFactorAlgorithm+0xc8
+0x1409c83ea: push     rbp
+0x1409c83eb: mov      rbp, rsp
+0x1409c83ee: sub      rsp, 0x10
+0x1409c83f2: mov      qword ptr [rsp + 0x30], rcx
+0x1409c83f7: mov      qword ptr [rsp + 0x28], rbx
+0x1409c83fc: mov      qword ptr [rsp + 0x20], rax
+0x1409c8401: mov      rax, rcx
+0x1409c8404: mov      rbx, rdi
+0x1409c8407: call     0x1409c7ca0   ; main.sanitizeTwoFactorKind
+0x1409c840c: cmp      rbx, 5
+0x1409c8410: jne      0x1409c8434   ; main.sanitizeTwoFactorAlgorithm+0x54
+0x1409c8412: cmp      dword ptr [rax], 0x61657473
+0x1409c8418: jne      0x1409c8434   ; main.sanitizeTwoFactorAlgorithm+0x54
+0x1409c841a: cmp      byte ptr [rax + 4], 0x6d
+0x1409c841e: nop      
+0x1409c8420: jne      0x1409c8434   ; main.sanitizeTwoFactorAlgorithm+0x54
+0x1409c8422: lea      rax, [rip + 0x26c565]
+0x1409c8429: mov      ebx, 4
+0x1409c842e: add      rsp, 0x10
+0x1409c8432: pop      rbp
+0x1409c8433: ret      
+0x1409c8434: mov      rax, qword ptr [rsp + 0x20]
+0x1409c8439: mov      rbx, qword ptr [rsp + 0x28]
+0x1409c843e: nop      
+0x1409c8440: call     0x1400a2200   ; strings.TrimSpace
+0x1409c8445: call     0x1400a10a0   ; strings.ToUpper
+0x1409c844a: cmp      rbx, 6
+0x1409c844e: jne      0x1409c8496   ; main.sanitizeTwoFactorAlgorithm+0xb6
+0x1409c8450: cmp      dword ptr [rax], 0x32414853
+0x1409c8456: jne      0x1409c8474   ; main.sanitizeTwoFactorAlgorithm+0x94
+0x1409c8458: cmp      word ptr [rax + 4], 0x3635
+0x1409c845e: nop      
+0x1409c8460: jne      0x1409c8474   ; main.sanitizeTwoFactorAlgorithm+0x94
+0x1409c8462: lea      rax, [rip + 0x26f2cb]
+0x1409c8469: mov      ebx, 6
+0x1409c846e: add      rsp, 0x10
+0x1409c8472: pop      rbp
+0x1409c8473: ret      
+0x1409c8474: cmp      dword ptr [rax], 0x35414853
+0x1409c847a: jne      0x1409c8496   ; main.sanitizeTwoFactorAlgorithm+0xb6
+0x1409c847c: cmp      word ptr [rax + 4], 0x3231
+0x1409c8482: jne      0x1409c8496   ; main.sanitizeTwoFactorAlgorithm+0xb6
+0x1409c8484: lea      rax, [rip + 0x26f2af]
+0x1409c848b: mov      ebx, 6
+0x1409c8490: add      rsp, 0x10
+0x1409c8494: pop      rbp
+0x1409c8495: ret      
+0x1409c8496: lea      rax, [rip + 0x26c4f1]
+0x1409c849d: mov      ebx, 4
+0x1409c84a2: add      rsp, 0x10
+0x1409c84a6: pop      rbp
+0x1409c84a7: ret      
+0x1409c84a8: mov      qword ptr [rsp + 8], rax
+0x1409c84ad: mov      qword ptr [rsp + 0x10], rbx
+0x1409c84b2: mov      qword ptr [rsp + 0x18], rcx
+0x1409c84b7: mov      qword ptr [rsp + 0x20], rdi
+0x1409c84bc: nop      dword ptr [rax]
+0x1409c84c0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409c84c5: mov      rax, qword ptr [rsp + 8]
+0x1409c84ca: mov      rbx, qword ptr [rsp + 0x10]
+0x1409c84cf: mov      rcx, qword ptr [rsp + 0x18]
+0x1409c84d4: mov      rdi, qword ptr [rsp + 0x20]
+0x1409c84d9: jmp      0x1409c83e0   ; main.sanitizeTwoFactorAlgorithm
+0x1409c84de: int3     
+0x1409c84df: int3     

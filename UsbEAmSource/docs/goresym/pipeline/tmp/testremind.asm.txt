@@ -1,0 +1,49 @@
+0x1407a7320: lea      r12, [rsp - 0x230]
+0x1407a7328: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a732c: jbe      0x1407a78ae   ; main.desktopWidgetService.TestReminderNotification+0x58e
+0x1407a7332: push     rbp
+0x1407a7333: mov      rbp, rsp
+0x1407a7336: sub      rsp, 0x2a8
+0x1407a733d: nop      dword ptr [rax]
+0x1407a7340: test     rax, rax
+0x1407a7343: je       0x1407a76b9   ; main.desktopWidgetService.TestReminderNotification+0x399
+0x1407a7349: cmp      qword ptr [rax], 0
+0x1407a734d: je       0x1407a76b9   ; main.desktopWidgetService.TestReminderNotification+0x399
+0x1407a7353: mov      qword ptr [rsp + 0x310], rax
+0x1407a735b: movups   xmmword ptr [rsp + 0x1d0], xmm15
+0x1407a7364: lea      rdi, [rsp + 0x1d8]
+0x1407a736c: lea      rdi, [rdi - 0x20]
+0x1407a7370: nop      word ptr [rax + rax]
+0x1407a7379: nop      dword ptr [rax]
+0x1407a7380: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7385: lea      rbp, [rsp - 0x10]
+0x1407a738a: call     0x14008172b   ; runtime.duffzero+0x14b
+0x1407a738f: mov      rbp, qword ptr [rbp]
+0x1407a7393: mov      rax, qword ptr [rax]
+0x1407a7396: call     0x1407c0420   ; main.launcherWidgetStore.Read
+0x1407a739b: mov      rdx, qword ptr [rsp]
+0x1407a739f: mov      qword ptr [rsp + 0x1d0], rdx
+0x1407a73a7: lea      rdi, [rsp + 0x1d8]
+0x1407a73af: lea      rsi, [rsp + 8]
+0x1407a73b4: nop      word ptr [rax + rax]
+0x1407a73bd: nop      dword ptr [rax]
+0x1407a73c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a73c5: lea      rbp, [rsp - 0x10]
+0x1407a73ca: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407a73cf: mov      rbp, qword ptr [rbp]
+0x1407a73d3: mov      rdx, qword ptr [rsp + 0x1d0]
+0x1407a73db: mov      qword ptr [rsp + 0x88], rdx
+0x1407a73e3: lea      rdi, [rsp + 0x90]
+0x1407a73eb: lea      rsi, [rsp + 0x1d8]
+0x1407a73f3: nop      word ptr [rax + rax]
+0x1407a73fc: nop      dword ptr [rax]
+0x1407a7400: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7405: lea      rbp, [rsp - 0x10]
+0x1407a740a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407a740f: mov      rbp, qword ptr [rbp]
+0x1407a7413: test     rbx, rbx
+0x1407a7416: jne      0x1407a76aa   ; main.desktopWidgetService.TestReminderNotification+0x38a
+0x1407a741c: mov      rax, qword ptr [rsp + 0x2b8]
+0x1407a7424: mov      rbx, qword ptr [rsp + 0x2c0]
+0x1407a742c: call     0x1400a2200   ; strings.TrimSpace
+0x1407a7431: mov      qword ptr [rsp + 0x298], rax

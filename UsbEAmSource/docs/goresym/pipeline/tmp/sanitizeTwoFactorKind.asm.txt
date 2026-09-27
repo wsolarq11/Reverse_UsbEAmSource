@@ -1,0 +1,50 @@
+0x1409c7ca0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409c7ca4: jbe      0x1409c7d17   ; main.sanitizeTwoFactorKind+0x77
+0x1409c7ca6: push     rbp
+0x1409c7ca7: mov      rbp, rsp
+0x1409c7caa: sub      rsp, 0x10
+0x1409c7cae: mov      qword ptr [rsp + 0x20], rax
+0x1409c7cb3: call     0x1400a2200   ; strings.TrimSpace
+0x1409c7cb8: call     0x1400a1500   ; strings.ToLower
+0x1409c7cbd: nop      dword ptr [rax]
+0x1409c7cc0: cmp      rbx, 5
+0x1409c7cc4: jne      0x1409c7cd6   ; main.sanitizeTwoFactorKind+0x36
+0x1409c7cc6: cmp      dword ptr [rax], 0x61657473
+0x1409c7ccc: jne      0x1409c7d05   ; main.sanitizeTwoFactorKind+0x65
+0x1409c7cce: cmp      byte ptr [rax + 4], 0x6d
+0x1409c7cd2: je       0x1409c7cf3   ; main.sanitizeTwoFactorKind+0x53
+0x1409c7cd4: jmp      0x1409c7d05   ; main.sanitizeTwoFactorKind+0x65
+0x1409c7cd6: cmp      rbx, 0xa
+0x1409c7cda: jne      0x1409c7d05   ; main.sanitizeTwoFactorKind+0x65
+0x1409c7cdc: movabs   rcx, 0x6175676d61657473
+0x1409c7ce6: cmp      qword ptr [rax], rcx
+0x1409c7ce9: jne      0x1409c7d05   ; main.sanitizeTwoFactorKind+0x65
+0x1409c7ceb: cmp      word ptr [rax + 8], 0x6472
+0x1409c7cf1: jne      0x1409c7d05   ; main.sanitizeTwoFactorKind+0x65
+0x1409c7cf3: lea      rax, [rip + 0x26e095]
+0x1409c7cfa: mov      ebx, 5
+0x1409c7cff: add      rsp, 0x10
+0x1409c7d03: pop      rbp
+0x1409c7d04: ret      
+0x1409c7d05: lea      rax, [rip + 0x26cc7a]
+0x1409c7d0c: mov      ebx, 4
+0x1409c7d11: add      rsp, 0x10
+0x1409c7d15: pop      rbp
+0x1409c7d16: ret      
+0x1409c7d17: mov      qword ptr [rsp + 8], rax
+0x1409c7d1c: mov      qword ptr [rsp + 0x10], rbx
+0x1409c7d21: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409c7d26: mov      rax, qword ptr [rsp + 8]
+0x1409c7d2b: mov      rbx, qword ptr [rsp + 0x10]
+0x1409c7d30: jmp      0x1409c7ca0   ; main.sanitizeTwoFactorKind
+0x1409c7d35: int3     
+0x1409c7d36: int3     
+0x1409c7d37: int3     
+0x1409c7d38: int3     
+0x1409c7d39: int3     
+0x1409c7d3a: int3     
+0x1409c7d3b: int3     
+0x1409c7d3c: int3     
+0x1409c7d3d: int3     
+0x1409c7d3e: int3     
+0x1409c7d3f: int3     

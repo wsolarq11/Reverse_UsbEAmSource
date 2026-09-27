@@ -1,0 +1,21 @@
+# 第三方工具与安装包
+/external/
+
+# 分析中间产物
+/work/
+
+# 历史归档（旧脚本、产物、备份）
+/archive/
+
+# 构建产物
+/UsbEAmSource/artifacts/
+
+# 编译中间产物与二进制（可从源码重建，不入库）
+*.o
+*.exe
+*.bak
+*~
+
+# Python 缓存
+__pycache__/
+*.pyc

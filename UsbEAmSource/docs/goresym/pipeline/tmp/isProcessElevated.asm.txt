@@ -1,0 +1,73 @@
+0x1408ad900: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ad904: jbe      0x1408ad9bd   ; main.isProcessElevated+0xbd
+0x1408ad90a: push     rbp
+0x1408ad90b: mov      rbp, rsp
+0x1408ad90e: sub      rsp, 0x40
+0x1408ad912: movq     qword ptr [rsp + 0x38], xmm15
+0x1408ad919: mov      byte ptr [rsp + 0x1f], 0
+0x1408ad91e: mov      byte ptr [rsp + 0x1e], 0
+0x1408ad923: mov      qword ptr [rsp + 0x20], 0
+0x1408ad92c: mov      rax, 0xffffffffffffffff
+0x1408ad933: mov      ebx, 8
+0x1408ad938: lea      rcx, [rsp + 0x20]
+0x1408ad93d: nop      dword ptr [rax]
+0x1408ad940: call     0x1401952c0   ; golang.org/x/sys/windows.OpenProcessToken
+0x1408ad945: test     rax, rax
+0x1408ad948: je       0x1408ad957   ; main.isProcessElevated+0x57
+0x1408ad94a: mov      byte ptr [rsp + 0x1e], 0
+0x1408ad94f: xor      eax, eax
+0x1408ad951: add      rsp, 0x40
+0x1408ad955: pop      rbp
+0x1408ad956: ret      
+0x1408ad957: mov      rax, qword ptr [rsp + 0x20]
+0x1408ad95c: lea      rcx, [rip + 0x7d]
+0x1408ad963: mov      qword ptr [rsp + 0x28], rcx
+0x1408ad968: mov      qword ptr [rsp + 0x30], rax
+0x1408ad96d: lea      rcx, [rsp + 0x28]
+0x1408ad972: mov      qword ptr [rsp + 0x38], rcx
+0x1408ad977: mov      byte ptr [rsp + 0x1f], 1
+0x1408ad97c: nop      dword ptr [rax]
+0x1408ad980: call     0x1408accc0   ; main.getTokenElevation
+0x1408ad985: test     rbx, rbx
+0x1408ad988: sete     cl
+0x1408ad98b: and      ecx, eax
+0x1408ad98d: mov      byte ptr [rsp + 0x1e], cl
+0x1408ad991: mov      byte ptr [rsp + 0x1f], 0
+0x1408ad996: mov      rdx, qword ptr [rsp + 0x38]
+0x1408ad99b: mov      rcx, qword ptr [rdx]
+0x1408ad99e: nop      
+0x1408ad9a0: call     rcx
+0x1408ad9a2: movzx    eax, byte ptr [rsp + 0x1e]
+0x1408ad9a7: add      rsp, 0x40
+0x1408ad9ab: pop      rbp
+0x1408ad9ac: ret      
+0x1408ad9ad: call     0x1400435e0   ; runtime.deferreturn
+0x1408ad9b2: movzx    eax, byte ptr [rsp + 0x1e]
+0x1408ad9b7: add      rsp, 0x40
+0x1408ad9bb: pop      rbp
+0x1408ad9bc: ret      
+0x1408ad9bd: nop      dword ptr [rax]
+0x1408ad9c0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408ad9c5: jmp      0x1408ad900   ; main.isProcessElevated
+0x1408ad9ca: int3     
+0x1408ad9cb: int3     
+0x1408ad9cc: int3     
+0x1408ad9cd: int3     
+0x1408ad9ce: int3     
+0x1408ad9cf: int3     
+0x1408ad9d0: int3     
+0x1408ad9d1: int3     
+0x1408ad9d2: int3     
+0x1408ad9d3: int3     
+0x1408ad9d4: int3     
+0x1408ad9d5: int3     
+0x1408ad9d6: int3     
+0x1408ad9d7: int3     
+0x1408ad9d8: int3     
+0x1408ad9d9: int3     
+0x1408ad9da: int3     
+0x1408ad9db: int3     
+0x1408ad9dc: int3     
+0x1408ad9dd: int3     
+0x1408ad9de: int3     
+0x1408ad9df: int3     

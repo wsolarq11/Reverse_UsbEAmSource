@@ -1,0 +1,368 @@
+0x14074f500: cmp      rsp, qword ptr [r14 + 0x10]
+0x14074f504: jbe      0x14074fa46    ; main.validateWindowsArchiveSegment+0x546
+0x14074f50a: push     rbp
+0x14074f50b: mov      rbp, rsp
+0x14074f50e: sub      rsp, 0x38
+0x14074f512: mov      qword ptr [rsp + 0x48], rax
+0x14074f517: mov      qword ptr [rsp + 0x50], rbx
+0x14074f51c: nop      dword ptr [rax]
+0x14074f520: test     rbx, rbx
+0x14074f523: jne      0x14074f52c    ; main.validateWindowsArchiveSegment+0x2c
+0x14074f525: mov      ecx, 1
+0x14074f52a: jmp      0x14074f57a    ; main.validateWindowsArchiveSegment+0x7a
+0x14074f52c: cmp      rbx, 1
+0x14074f530: jne      0x14074f540    ; main.validateWindowsArchiveSegment+0x40
+0x14074f532: cmp      byte ptr [rax], 0x2e
+0x14074f535: jne      0x14074f540    ; main.validateWindowsArchiveSegment+0x40
+0x14074f537: mov      ecx, 1
+0x14074f53c: jmp      0x14074f57a    ; main.validateWindowsArchiveSegment+0x7a
+0x14074f53e: nop      
+0x14074f540: cmp      rbx, 2
+0x14074f544: jne      0x14074f554    ; main.validateWindowsArchiveSegment+0x54
+0x14074f546: cmp      word ptr [rax], 0x2e2e
+0x14074f54b: jne      0x14074f554    ; main.validateWindowsArchiveSegment+0x54
+0x14074f54d: mov      ecx, 1
+0x14074f552: jmp      0x14074f57a    ; main.validateWindowsArchiveSegment+0x7a
+0x14074f554: lea      rax, [rbx + rax]
+0x14074f558: lea      rax, [rax - 1]
+0x14074f55c: nop      
+0x14074f55d: lea      rbx, [rip + 0xa7b064]
+0x14074f564: mov      ecx, 1
+0x14074f569: call     0x140006280    ; runtime.memequal
+0x14074f56e: mov      rbx, qword ptr [rsp + 0x50]
+0x14074f573: mov      ecx, eax
+0x14074f575: mov      rax, qword ptr [rsp + 0x48]
+0x14074f57a: test     cl, cl
+0x14074f57c: jne      0x14074f5b9    ; main.validateWindowsArchiveSegment+0xb9
+0x14074f57e: nop      
+0x14074f57f: nop      
+0x14074f580: test     rbx, rbx
+0x14074f583: jne      0x14074f589    ; main.validateWindowsArchiveSegment+0x89
+0x14074f585: xor      ecx, ecx
+0x14074f587: jmp      0x14074f5b1    ; main.validateWindowsArchiveSegment+0xb1
+0x14074f589: lea      rax, [rbx + rax]
+0x14074f58d: lea      rax, [rax - 1]
+0x14074f591: lea      rbx, [rip + 0xa7b690]
+0x14074f598: mov      ecx, 1
+0x14074f59d: nop      dword ptr [rax]
+0x14074f5a0: call     0x140006280    ; runtime.memequal
+0x14074f5a5: mov      rbx, qword ptr [rsp + 0x50]
+0x14074f5aa: mov      ecx, eax
+0x14074f5ac: mov      rax, qword ptr [rsp + 0x48]
+0x14074f5b1: test     cl, cl
+0x14074f5b3: jne      0x14074f5b9    ; main.validateWindowsArchiveSegment+0xb9
+0x14074f5b5: xor      ecx, ecx
+0x14074f5b7: jmp      0x14074f5f6    ; main.validateWindowsArchiveSegment+0xf6
+0x14074f5b9: lea      rax, [rip + 0x404dc0]
+0x14074f5c0: call     0x14001ae20    ; runtime.newobject
+0x14074f5c5: mov      qword ptr [rax + 8], 0x2e
+0x14074f5cd: lea      rcx, [rip + 0x53564e]
+0x14074f5d4: mov      qword ptr [rax], rcx
+0x14074f5d7: mov      rbx, rax
+0x14074f5da: lea      rax, [rip + 0xa83b1f]
+0x14074f5e1: add      rsp, 0x38
+0x14074f5e5: pop      rbp
+0x14074f5e6: ret      
+0x14074f5e7: mov      rax, qword ptr [rsp + 0x48]
+0x14074f5ec: mov      rbx, qword ptr [rsp + 0x50]
+0x14074f5f1: mov      rcx, qword ptr [rsp + 0x28]
+0x14074f5f6: cmp      rbx, rcx
+0x14074f5f9: jle      0x14074f673    ; main.validateWindowsArchiveSegment+0x173
+0x14074f5fb: movzx    edx, byte ptr [rax + rcx]
+0x14074f5ff: nop      
+0x14074f600: cmp      edx, 0x7f
+0x14074f603: jg       0x14074f60b    ; main.validateWindowsArchiveSegment+0x10b
+0x14074f605: lea      rsi, [rcx + 1]
+0x14074f609: jmp      0x14074f620    ; main.validateWindowsArchiveSegment+0x120
+0x14074f60b: call     0x1400733c0    ; runtime.decoderune
+0x14074f610: mov      edx, eax
+0x14074f612: mov      rsi, rbx
+0x14074f615: mov      rax, qword ptr [rsp + 0x48]
+0x14074f61a: mov      rbx, qword ptr [rsp + 0x50]
+0x14074f61f: nop      
+0x14074f620: cmp      edx, 0x20
+0x14074f623: jl       0x14074f645    ; main.validateWindowsArchiveSegment+0x145
+0x14074f625: mov      qword ptr [rsp + 0x28], rsi
+0x14074f62a: lea      rax, [rip + 0x4f4a14]
+0x14074f631: mov      ebx, 0xa
+0x14074f636: mov      ecx, edx
+0x14074f638: call     0x14009f100    ; strings.IndexRune
+0x14074f63d: nop      dword ptr [rax]
+0x14074f640: test     rax, rax
+0x14074f643: jl       0x14074f5e7    ; main.validateWindowsArchiveSegment+0xe7
+0x14074f645: lea      rax, [rip + 0x404d34]
+0x14074f64c: call     0x14001ae20    ; runtime.newobject
+0x14074f651: mov      qword ptr [rax + 8], 0x24
+0x14074f659: lea      rcx, [rip + 0x528b47]
+0x14074f660: mov      qword ptr [rax], rcx
+0x14074f663: mov      rbx, rax
+0x14074f666: lea      rax, [rip + 0xa83a93]
+0x14074f66d: add      rsp, 0x38
+0x14074f671: pop      rbp
+0x14074f672: ret      
+0x14074f673: call     0x1400a1500    ; strings.ToLower
+0x14074f678: mov      qword ptr [rsp + 0x30], rax
+0x14074f67d: mov      qword ptr [rsp + 0x20], rbx
+0x14074f682: mov      rcx, qword ptr [rsp + 0x50]
+0x14074f687: lea      rdx, [rcx - 1]
+0x14074f68b: mov      rsi, qword ptr [rsp + 0x48]
+0x14074f690: jmp      0x14074f695    ; main.validateWindowsArchiveSegment+0x195
+0x14074f692: dec      rdx
+0x14074f695: test     rdx, rdx
+0x14074f698: jl       0x14074f6c8    ; main.validateWindowsArchiveSegment+0x1c8
+0x14074f69a: movzx    edi, byte ptr [rsi + rdx]
+0x14074f69e: nop      
+0x14074f6a0: cmp      dil, 0x5c
+0x14074f6a4: je       0x14074f6c8    ; main.validateWindowsArchiveSegment+0x1c8
+0x14074f6a6: cmp      dil, 0x2f
+0x14074f6aa: je       0x14074f6c8    ; main.validateWindowsArchiveSegment+0x1c8
+0x14074f6ac: cmp      dil, 0x2e
+0x14074f6b0: jne      0x14074f692    ; main.validateWindowsArchiveSegment+0x192
+0x14074f6b2: sub      rcx, rdx
+0x14074f6b5: mov      rdi, rcx
+0x14074f6b8: neg      rcx
+0x14074f6bb: sar      rcx, 0x3f
+0x14074f6bf: and      rdx, rcx
+0x14074f6c2: lea      rcx, [rsi + rdx]
+0x14074f6c6: jmp      0x14074f6cc    ; main.validateWindowsArchiveSegment+0x1cc
+0x14074f6c8: xor      edi, edi
+0x14074f6ca: xor      ecx, ecx
+0x14074f6cc: mov      rax, rcx
+0x14074f6cf: mov      rbx, rdi
+0x14074f6d2: call     0x1400a1500    ; strings.ToLower
+0x14074f6d7: mov      rcx, qword ptr [rsp + 0x20]
+0x14074f6dc: nop      dword ptr [rax]
+0x14074f6e0: cmp      rcx, rbx
+0x14074f6e3: jl       0x14074f743    ; main.validateWindowsArchiveSegment+0x243
+0x14074f6e5: mov      rdx, rcx
+0x14074f6e8: sub      rdx, rbx
+0x14074f6eb: cmp      rcx, rdx
+0x14074f6ee: jb       0x14074fa3a    ; main.validateWindowsArchiveSegment+0x53a
+0x14074f6f4: mov      rsi, rcx
+0x14074f6f7: sub      rsi, rdx
+0x14074f6fa: mov      rdi, rsi
+0x14074f6fd: neg      rsi
+0x14074f700: sar      rsi, 0x3f
+0x14074f704: and      rsi, rdx
+0x14074f707: mov      r8, qword ptr [rsp + 0x30]
+0x14074f70c: add      rsi, r8
+0x14074f70f: cmp      rbx, rdi
+0x14074f712: je       0x14074f718    ; main.validateWindowsArchiveSegment+0x218
+0x14074f714: xor      eax, eax
+0x14074f716: jmp      0x14074f73a    ; main.validateWindowsArchiveSegment+0x23a
+0x14074f718: mov      qword ptr [rsp + 0x18], rdx
+0x14074f71d: mov      rbx, rax
+0x14074f720: mov      rcx, rdi
+0x14074f723: mov      rax, rsi
+0x14074f726: call     0x140006280    ; runtime.memequal
+0x14074f72b: mov      rcx, qword ptr [rsp + 0x20]
+0x14074f730: mov      rdx, qword ptr [rsp + 0x18]
+0x14074f735: mov      r8, qword ptr [rsp + 0x30]
+0x14074f73a: test     al, al
+0x14074f73c: je       0x14074f748    ; main.validateWindowsArchiveSegment+0x248
+0x14074f73e: mov      rcx, rdx
+0x14074f741: jmp      0x14074f748    ; main.validateWindowsArchiveSegment+0x248
+0x14074f743: mov      r8, qword ptr [rsp + 0x30]
+0x14074f748: cmp      rcx, 4
+0x14074f74c: jg       0x14074f920    ; main.validateWindowsArchiveSegment+0x420
+0x14074f752: cmp      rcx, 3
+0x14074f756: jne      0x14074f7c5    ; main.validateWindowsArchiveSegment+0x2c5
+0x14074f758: cmp      byte ptr [r8], 0x63
+0x14074f75c: jg       0x14074f78d    ; main.validateWindowsArchiveSegment+0x28d
+0x14074f75e: cmp      word ptr [r8], 0x7561
+0x14074f764: jne      0x14074f771    ; main.validateWindowsArchiveSegment+0x271
+0x14074f766: cmp      byte ptr [r8 + 2], 0x78
+0x14074f76b: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f771: cmp      word ptr [r8], 0x6f63
+0x14074f777: jne      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f77d: cmp      byte ptr [r8 + 2], 0x6e
+0x14074f782: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f788: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f78d: cmp      word ptr [r8], 0x756e
+0x14074f793: jne      0x14074f7a6    ; main.validateWindowsArchiveSegment+0x2a6
+0x14074f795: cmp      byte ptr [r8 + 2], 0x6c
+0x14074f79a: nop      word ptr [rax + rax]
+0x14074f7a0: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f7a6: cmp      word ptr [r8], 0x7270
+0x14074f7ac: jne      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f7b2: cmp      byte ptr [r8 + 2], 0x6e
+0x14074f7b7: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f7bd: nop      dword ptr [rax]
+0x14074f7c0: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f7c5: cmp      rcx, 4
+0x14074f7c9: jne      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f7cf: cmp      byte ptr [r8], 0x63
+0x14074f7d3: jg       0x14074f87b    ; main.validateWindowsArchiveSegment+0x37b
+0x14074f7d9: movzx    ecx, byte ptr [r8 + 3]
+0x14074f7de: nop      
+0x14074f7e0: cmp      cl, 0x34
+0x14074f7e3: jg       0x14074f82b    ; main.validateWindowsArchiveSegment+0x32b
+0x14074f7e5: cmp      cl, 0x32
+0x14074f7e8: jg       0x14074f80b    ; main.validateWindowsArchiveSegment+0x30b
+0x14074f7ea: cmp      dword ptr [r8], 0x316d6f63
+0x14074f7f1: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f7f7: cmp      dword ptr [r8], 0x326d6f63
+0x14074f7fe: nop      
+0x14074f800: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f806: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f80b: cmp      dword ptr [r8], 0x336d6f63
+0x14074f812: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f818: cmp      dword ptr [r8], 0x346d6f63
+0x14074f81f: nop      
+0x14074f820: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f826: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f82b: cmp      cl, 0x36
+0x14074f82e: jg       0x14074f84f    ; main.validateWindowsArchiveSegment+0x34f
+0x14074f830: cmp      dword ptr [r8], 0x356d6f63
+0x14074f837: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f83d: cmp      dword ptr [r8], 0x366d6f63
+0x14074f844: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f84a: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f84f: cmp      dword ptr [r8], 0x376d6f63
+0x14074f856: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f85c: cmp      dword ptr [r8], 0x386d6f63
+0x14074f863: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f869: cmp      dword ptr [r8], 0x396d6f63
+0x14074f870: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f876: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f87b: movzx    ecx, byte ptr [r8 + 3]
+0x14074f880: cmp      cl, 0x34
+0x14074f883: jg       0x14074f8cb    ; main.validateWindowsArchiveSegment+0x3cb
+0x14074f885: cmp      cl, 0x32
+0x14074f888: jg       0x14074f8ab    ; main.validateWindowsArchiveSegment+0x3ab
+0x14074f88a: cmp      dword ptr [r8], 0x3174706c
+0x14074f891: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f897: cmp      dword ptr [r8], 0x3274706c
+0x14074f89e: nop      
+0x14074f8a0: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f8a6: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f8ab: cmp      dword ptr [r8], 0x3374706c
+0x14074f8b2: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f8b8: cmp      dword ptr [r8], 0x3474706c
+0x14074f8bf: nop      
+0x14074f8c0: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f8c6: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f8cb: cmp      cl, 0x36
+0x14074f8ce: jg       0x14074f8ef    ; main.validateWindowsArchiveSegment+0x3ef
+0x14074f8d0: cmp      dword ptr [r8], 0x3574706c
+0x14074f8d7: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f8dd: cmp      dword ptr [r8], 0x3674706c
+0x14074f8e4: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f8ea: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f8ef: cmp      dword ptr [r8], 0x3774706c
+0x14074f8f6: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f8fc: cmp      dword ptr [r8], 0x3874706c
+0x14074f903: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f909: cmp      dword ptr [r8], 0x3974706c
+0x14074f910: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f916: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f91b: nop      dword ptr [rax + rax]
+0x14074f920: cmp      rcx, 5
+0x14074f924: jne      0x14074f9b5    ; main.validateWindowsArchiveSegment+0x4b5
+0x14074f92a: cmp      byte ptr [r8], 0x63
+0x14074f92e: jg       0x14074f97c    ; main.validateWindowsArchiveSegment+0x47c
+0x14074f930: mov      ecx, dword ptr [r8]
+0x14074f933: cmp      ecx, 0xc26d6f63
+0x14074f939: jne      0x14074f94c    ; main.validateWindowsArchiveSegment+0x44c
+0x14074f93b: cmp      byte ptr [r8 + 4], 0xb2
+0x14074f940: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f946: cmp      ecx, 0xc26d6f63
+0x14074f94c: jne      0x14074f966    ; main.validateWindowsArchiveSegment+0x466
+0x14074f94e: cmp      byte ptr [r8 + 4], 0xb3
+0x14074f953: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f959: nop      dword ptr [rax]
+0x14074f960: cmp      ecx, 0xc26d6f63
+0x14074f966: jne      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f96c: cmp      byte ptr [r8 + 4], 0xb9
+0x14074f971: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f977: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f97c: mov      ecx, dword ptr [r8]
+0x14074f97f: nop      
+0x14074f980: cmp      ecx, 0xc274706c
+0x14074f986: jne      0x14074f995    ; main.validateWindowsArchiveSegment+0x495
+0x14074f988: cmp      byte ptr [r8 + 4], 0xb2
+0x14074f98d: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f98f: cmp      ecx, 0xc274706c
+0x14074f995: jne      0x14074f9a6    ; main.validateWindowsArchiveSegment+0x4a6
+0x14074f997: cmp      byte ptr [r8 + 4], 0xb3
+0x14074f99c: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f99e: nop      
+0x14074f9a0: cmp      ecx, 0xc274706c
+0x14074f9a6: jne      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f9ac: cmp      byte ptr [r8 + 4], 0xb9
+0x14074f9b1: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f9b3: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f9b5: cmp      rcx, 6
+0x14074f9b9: jne      0x14074f9e2    ; main.validateWindowsArchiveSegment+0x4e2
+0x14074f9bb: cmp      dword ptr [r8], 0x636f6c63
+0x14074f9c2: jne      0x14074f9cd    ; main.validateWindowsArchiveSegment+0x4cd
+0x14074f9c4: cmp      word ptr [r8 + 4], 0x246b
+0x14074f9cb: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f9cd: cmp      dword ptr [r8], 0x696e6f63
+0x14074f9d4: jne      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f9d6: cmp      word ptr [r8 + 4], 0x246e
+0x14074f9dd: je       0x14074fa02    ; main.validateWindowsArchiveSegment+0x502
+0x14074f9df: nop      
+0x14074f9e0: jmp      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f9e2: cmp      rcx, 7
+0x14074f9e6: jne      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f9e8: cmp      dword ptr [r8], 0x6f6e6f63
+0x14074f9ef: jne      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f9f1: cmp      word ptr [r8 + 4], 0x7475
+0x14074f9f8: jne      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074f9fa: cmp      byte ptr [r8 + 6], 0x24
+0x14074f9ff: nop      
+0x14074fa00: jne      0x14074fa30    ; main.validateWindowsArchiveSegment+0x530
+0x14074fa02: lea      rax, [rip + 0x404977]
+0x14074fa09: call     0x14001ae20    ; runtime.newobject
+0x14074fa0e: mov      qword ptr [rax + 8], 0x24
+0x14074fa16: lea      rcx, [rip + 0x5287ae]
+0x14074fa1d: mov      qword ptr [rax], rcx
+0x14074fa20: mov      rbx, rax
+0x14074fa23: lea      rax, [rip + 0xa836d6]
+0x14074fa2a: add      rsp, 0x38
+0x14074fa2e: pop      rbp
+0x14074fa2f: ret      
+0x14074fa30: xor      eax, eax
+0x14074fa32: xor      ebx, ebx
+0x14074fa34: add      rsp, 0x38
+0x14074fa38: pop      rbp
+0x14074fa39: ret      
+0x14074fa3a: mov      rax, rdx
+0x14074fa3d: nop      dword ptr [rax]
+0x14074fa40: call     0x1400814c0    ; runtime.panicSliceB
+0x14074fa45: nop      
+0x14074fa46: mov      qword ptr [rsp + 8], rax
+0x14074fa4b: mov      qword ptr [rsp + 0x10], rbx
+0x14074fa50: call     0x14007f140    ; runtime.morestack_noctxt
+0x14074fa55: mov      rax, qword ptr [rsp + 8]
+0x14074fa5a: mov      rbx, qword ptr [rsp + 0x10]
+0x14074fa5f: nop      
+0x14074fa60: jmp      0x14074f500    ; main.validateWindowsArchiveSegment
+0x14074fa65: int3     
+0x14074fa66: int3     
+0x14074fa67: int3     
+0x14074fa68: int3     
+0x14074fa69: int3     
+0x14074fa6a: int3     
+0x14074fa6b: int3     
+0x14074fa6c: int3     
+0x14074fa6d: int3     
+0x14074fa6e: int3     
+0x14074fa6f: int3     
+0x14074fa70: int3     
+0x14074fa71: int3     
+0x14074fa72: int3     
+0x14074fa73: int3     
+0x14074fa74: int3     
+0x14074fa75: int3     
+0x14074fa76: int3     
+0x14074fa77: int3     
+0x14074fa78: int3     
+0x14074fa79: int3     
+0x14074fa7a: int3     
+0x14074fa7b: int3     
+0x14074fa7c: int3     
+0x14074fa7d: int3     
+0x14074fa7e: int3     
+0x14074fa7f: int3     

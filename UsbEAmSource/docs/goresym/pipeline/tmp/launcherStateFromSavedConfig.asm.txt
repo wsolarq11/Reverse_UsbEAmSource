@@ -1,0 +1,110 @@
+0x140776b80: lea      r12, [rsp - 0x8d0]
+0x140776b88: cmp      r12, qword ptr [r14 + 0x10]
+0x140776b8c: jbe      0x140776d1b    ; main.BootstrapService.launcherStateFromSavedConfig+0x19b
+0x140776b92: push     rbp
+0x140776b93: mov      rbp, rsp
+0x140776b96: sub      rsp, 0x948
+0x140776b9d: mov      qword ptr [rsp + 0x1ca8], rax
+0x140776ba5: mov      byte ptr [rsp + 0x1cb0], bl
+0x140776bac: movups   xmmword ptr [rsp + 0x1290], xmm15
+0x140776bb5: lea      rdi, [rsp + 0x1298]
+0x140776bbd: mov      ecx, 0x142
+0x140776bc2: xor      eax, eax
+0x140776bc4: rep stosq qword ptr [rdi], rax
+0x140776bc7: lea      rax, [rip + 0x493492]
+0x140776bce: call     0x14001ae20    ; runtime.newobject
+0x140776bd3: mov      qword ptr [rsp + 0x940], rax
+0x140776bdb: cmp      dword ptr [rip + 0x14e476e], 0
+0x140776be2: je       0x140776c03    ; main.BootstrapService.launcherStateFromSavedConfig+0x83
+0x140776be4: mov      rbx, rax
+0x140776be7: lea      rcx, [rsp + 0x958]
+0x140776bef: lea      rax, [rip + 0x49346a]
+0x140776bf6: call     0x14001b620    ; runtime.wbMove
+0x140776bfb: mov      rax, qword ptr [rsp + 0x940]
+0x140776c03: mov      rdx, qword ptr [rsp + 0x958]
+0x140776c0b: mov      qword ptr [rax], rdx
+0x140776c0e: lea      rdi, [rax + 8]
+0x140776c12: mov      qword ptr [rsp + 0x938], rdi
+0x140776c1a: lea      rsi, [rsp + 0x960]
+0x140776c22: mov      ecx, 0x126
+0x140776c27: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140776c2a: mov      rax, qword ptr [rax]
+0x140776c2d: mov      qword ptr [rsp], rax
+0x140776c31: lea      rdi, [rsp + 8]
+0x140776c36: mov      rsi, qword ptr [rsp + 0x938]
+0x140776c3e: mov      ecx, 0x126
+0x140776c43: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140776c46: call     0x1408771e0    ; main.launcherConfigRevision
+0x140776c4b: mov      rdx, qword ptr [rsp + 0x940]
+0x140776c53: mov      qword ptr [rdx + 8], rbx
+0x140776c57: cmp      dword ptr [rip + 0x14e46f2], 0
+0x140776c5e: nop      
+0x140776c60: je       0x140776c71    ; main.BootstrapService.launcherStateFromSavedConfig+0xf1
+0x140776c62: mov      rcx, qword ptr [rdx]
+0x140776c65: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140776c6a: mov      qword ptr [r11], rax
+0x140776c6d: mov      qword ptr [r11 + 8], rcx
+0x140776c71: mov      qword ptr [rdx], rax
+0x140776c74: mov      byte ptr [rdx + 0x10], 1
+0x140776c78: mov      rax, qword ptr [rsp + 0x1ca8]
+0x140776c80: mov      rbx, rdx
+0x140776c83: call     0x1408a1ec0    ; main.BootstrapService.attachLauncherConfigIconURLs
+0x140776c88: mov      rax, qword ptr [rsp + 0x1ca8]
+0x140776c90: mov      rbx, qword ptr [rsp + 0x940]
+0x140776c98: call     0x140798600    ; main.BootstrapService.attachLauncherBackgroundURL
+0x140776c9d: mov      rax, qword ptr [rsp + 0x1ca8]
+0x140776ca5: call     0x140792640    ; main.BootstrapService.currentHotkeyRegistrationErrors
+0x140776caa: movups   xmmword ptr [rsp + 0x1290], xmm15
+0x140776cb3: lea      rdi, [rsp + 0x1298]
+0x140776cbb: mov      ecx, 0x142
+0x140776cc0: mov      rdx, rax
+0x140776cc3: xor      eax, eax
+0x140776cc5: rep stosq qword ptr [rdi], rax
+0x140776cc8: mov      rcx, qword ptr [rsp + 0x940]
+0x140776cd0: mov      rcx, qword ptr [rcx]
+0x140776cd3: mov      qword ptr [rsp + 0x1360], rcx
+0x140776cdb: lea      rdi, [rsp + 0x1368]
+0x140776ce3: mov      rsi, qword ptr [rsp + 0x938]
+0x140776ceb: mov      ecx, 0x126
+0x140776cf0: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140776cf3: mov      byte ptr [rsp + 0x1c99], 1
+0x140776cfb: movzx    ecx, byte ptr [rsp + 0x1cb0]
+0x140776d03: mov      byte ptr [rsp + 0x1c9a], cl
+0x140776d0a: mov      qword ptr [rsp + 0x1ca0], rdx
+0x140776d12: add      rsp, 0x948
+0x140776d19: pop      rbp
+0x140776d1a: ret      
+0x140776d1b: mov      qword ptr [rsp + 0x1358], rax
+0x140776d23: mov      byte ptr [rsp + 0x1360], bl
+0x140776d2a: call     0x14007f140    ; runtime.morestack_noctxt
+0x140776d2f: mov      rax, qword ptr [rsp + 0x1358]
+0x140776d37: movzx    ebx, byte ptr [rsp + 0x1360]
+0x140776d3f: nop      
+0x140776d40: jmp      0x140776b80    ; main.BootstrapService.launcherStateFromSavedConfig
+0x140776d45: int3     
+0x140776d46: int3     
+0x140776d47: int3     
+0x140776d48: int3     
+0x140776d49: int3     
+0x140776d4a: int3     
+0x140776d4b: int3     
+0x140776d4c: int3     
+0x140776d4d: int3     
+0x140776d4e: int3     
+0x140776d4f: int3     
+0x140776d50: int3     
+0x140776d51: int3     
+0x140776d52: int3     
+0x140776d53: int3     
+0x140776d54: int3     
+0x140776d55: int3     
+0x140776d56: int3     
+0x140776d57: int3     
+0x140776d58: int3     
+0x140776d59: int3     
+0x140776d5a: int3     
+0x140776d5b: int3     
+0x140776d5c: int3     
+0x140776d5d: int3     
+0x140776d5e: int3     
+0x140776d5f: int3     

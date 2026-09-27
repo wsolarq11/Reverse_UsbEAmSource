@@ -1,0 +1,110 @@
+0x14099fdc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14099fdc4: jbe      0x14099fec6   ; main.screenshotScrollingChunkedCanvas.trimBottom+0x106
+0x14099fdca: push     rbp
+0x14099fdcb: mov      rbp, rsp
+0x14099fdce: sub      rsp, 0x28
+0x14099fdd2: test     rax, rax
+0x14099fdd5: je       0x14099fdee   ; main.screenshotScrollingChunkedCanvas.trimBottom+0x2e
+0x14099fdd7: test     rbx, rbx
+0x14099fdda: jle      0x14099fdee   ; main.screenshotScrollingChunkedCanvas.trimBottom+0x2e
+0x14099fddc: mov      qword ptr [rsp + 0x38], rax
+0x14099fde1: mov      rsi, qword ptr [rax + 8]
+0x14099fde5: cmp      rbx, rsi
+0x14099fde8: cmovg    rbx, rsi
+0x14099fdec: jmp      0x14099fdf4   ; main.screenshotScrollingChunkedCanvas.trimBottom+0x34
+0x14099fdee: add      rsp, 0x28
+0x14099fdf2: pop      rbp
+0x14099fdf3: ret      
+0x14099fdf4: test     rbx, rbx
+0x14099fdf7: jle      0x14099feae   ; main.screenshotScrollingChunkedCanvas.trimBottom+0xee
+0x14099fdfd: mov      rsi, qword ptr [rax + 0x18]
+0x14099fe01: test     rsi, rsi
+0x14099fe04: je       0x14099feae   ; main.screenshotScrollingChunkedCanvas.trimBottom+0xee
+0x14099fe0a: mov      rdi, qword ptr [rax + 0x10]
+0x14099fe0e: mov      rdi, qword ptr [rdi + rsi*8 - 8]
+0x14099fe13: dec      rsi
+0x14099fe16: test     rdi, rdi
+0x14099fe19: je       0x14099fea5   ; main.screenshotScrollingChunkedCanvas.trimBottom+0xe5
+0x14099fe1f: mov      r8, qword ptr [rdi]
+0x14099fe22: test     r8, r8
+0x14099fe25: je       0x14099fea5   ; main.screenshotScrollingChunkedCanvas.trimBottom+0xe5
+0x14099fe27: mov      rcx, qword ptr [r8 + 0x38]
+0x14099fe2b: sub      rcx, qword ptr [r8 + 0x28]
+0x14099fe2f: nop      
+0x14099fe30: nop      
+0x14099fe31: cmp      rbx, rcx
+0x14099fe34: jge      0x14099fe5d   ; main.screenshotScrollingChunkedCanvas.trimBottom+0x9d
+0x14099fe36: sub      rcx, rbx
+0x14099fe39: mov      rdx, qword ptr [r8 + 0x10]
+0x14099fe3d: mov      rsi, qword ptr [r8 + 0x18]
+0x14099fe41: imul     rcx, rsi
+0x14099fe45: cmp      rdx, rcx
+0x14099fe48: jb       0x14099fec0   ; main.screenshotScrollingChunkedCanvas.trimBottom+0x100
+0x14099fe4a: mov      qword ptr [r8 + 8], rcx
+0x14099fe4e: mov      rsi, qword ptr [rdi]
+0x14099fe51: sub      qword ptr [rsi + 0x38], rbx
+0x14099fe55: sub      qword ptr [rax + 8], rbx
+0x14099fe59: xor      ebx, ebx
+0x14099fe5b: jmp      0x14099fdf4   ; main.screenshotScrollingChunkedCanvas.trimBottom+0x34
+0x14099fe5d: mov      qword ptr [rsp + 0x18], rbx
+0x14099fe62: mov      qword ptr [rsp + 0x20], rsi
+0x14099fe67: mov      qword ptr [rsp + 0x10], rcx
+0x14099fe6c: sub      qword ptr [rax + 8], rcx
+0x14099fe70: mov      rax, rdi
+0x14099fe73: call     0x14099f840   ; main.screenshotScrollingCanvasChunk.releaseMemory
+0x14099fe78: mov      rcx, qword ptr [rsp + 0x38]
+0x14099fe7d: mov      rdx, qword ptr [rcx + 0x20]
+0x14099fe81: mov      rbx, qword ptr [rsp + 0x18]
+0x14099fe86: mov      rsi, qword ptr [rsp + 0x10]
+0x14099fe8b: sub      rbx, rsi
+0x14099fe8e: mov      rsi, qword ptr [rsp + 0x20]
+0x14099fe93: cmp      rdx, rsi
+0x14099fe96: jb       0x14099feb4   ; main.screenshotScrollingChunkedCanvas.trimBottom+0xf4
+0x14099fe98: mov      qword ptr [rcx + 0x18], rsi
+0x14099fe9c: mov      rax, rcx
+0x14099fe9f: nop      
+0x14099fea0: jmp      0x14099fdf4   ; main.screenshotScrollingChunkedCanvas.trimBottom+0x34
+0x14099fea5: mov      qword ptr [rax + 0x18], rsi
+0x14099fea9: jmp      0x14099fdf4   ; main.screenshotScrollingChunkedCanvas.trimBottom+0x34
+0x14099feae: add      rsp, 0x28
+0x14099feb2: pop      rbp
+0x14099feb3: ret      
+0x14099feb4: mov      rcx, rsi
+0x14099feb7: call     0x140081480   ; runtime.panicSliceAcap
+0x14099febc: nop      dword ptr [rax]
+0x14099fec0: call     0x140081480   ; runtime.panicSliceAcap
+0x14099fec5: nop      
+0x14099fec6: mov      qword ptr [rsp + 8], rax
+0x14099fecb: mov      qword ptr [rsp + 0x10], rbx
+0x14099fed0: call     0x14007f140   ; runtime.morestack_noctxt
+0x14099fed5: mov      rax, qword ptr [rsp + 8]
+0x14099feda: mov      rbx, qword ptr [rsp + 0x10]
+0x14099fedf: nop      
+0x14099fee0: jmp      0x14099fdc0   ; main.screenshotScrollingChunkedCanvas.trimBottom
+0x14099fee5: int3     
+0x14099fee6: int3     
+0x14099fee7: int3     
+0x14099fee8: int3     
+0x14099fee9: int3     
+0x14099feea: int3     
+0x14099feeb: int3     
+0x14099feec: int3     
+0x14099feed: int3     
+0x14099feee: int3     
+0x14099feef: int3     
+0x14099fef0: int3     
+0x14099fef1: int3     
+0x14099fef2: int3     
+0x14099fef3: int3     
+0x14099fef4: int3     
+0x14099fef5: int3     
+0x14099fef6: int3     
+0x14099fef7: int3     
+0x14099fef8: int3     
+0x14099fef9: int3     
+0x14099fefa: int3     
+0x14099fefb: int3     
+0x14099fefc: int3     
+0x14099fefd: int3     
+0x14099fefe: int3     
+0x14099feff: int3     

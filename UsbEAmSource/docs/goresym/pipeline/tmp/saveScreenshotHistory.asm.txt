@@ -1,0 +1,69 @@
+0x1409695c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409695c4: jbe      0x14096964c   ; main.saveScreenshotHistory+0x8c
+0x1409695ca: push     rbp
+0x1409695cb: mov      rbp, rsp
+0x1409695ce: sub      rsp, 0x48
+0x1409695d2: mov      qword ptr [rsp + 0x68], rcx
+0x1409695d7: mov      qword ptr [rsp + 0x60], rbx
+0x1409695dc: mov      qword ptr [rsp + 0x58], rax
+0x1409695e1: mov      rax, rcx
+0x1409695e4: mov      rbx, rdi
+0x1409695e7: mov      rcx, rsi
+0x1409695ea: xor      edi, edi
+0x1409695ec: call     0x14096a180   ; main.normalizeScreenshotHistoryEntries
+0x1409695f1: mov      qword ptr [rsp + 0x38], rax
+0x1409695f6: mov      qword ptr [rsp + 0x20], rbx
+0x1409695fb: mov      qword ptr [rsp + 0x28], rcx
+0x140969600: mov      rax, qword ptr [rsp + 0x58]
+0x140969605: mov      rbx, qword ptr [rsp + 0x60]
+0x14096960a: call     0x140968760   ; main.screenshotHistoryPath
+0x14096960f: mov      qword ptr [rsp + 0x40], rax
+0x140969614: mov      qword ptr [rsp + 0x30], rbx
+0x140969619: mov      rax, qword ptr [rsp + 0x38]
+0x14096961e: mov      rbx, qword ptr [rsp + 0x20]
+0x140969623: mov      rcx, qword ptr [rsp + 0x28]
+0x140969628: call     0x140076700   ; runtime.convTslice
+0x14096962d: mov      rbx, qword ptr [rsp + 0x30]
+0x140969632: lea      rcx, [rip + 0x170047]
+0x140969639: mov      rdi, rax
+0x14096963c: mov      rax, qword ptr [rsp + 0x40]
+0x140969641: call     0x14088bd80   ; main.writeJSONFile
+0x140969646: add      rsp, 0x48
+0x14096964a: pop      rbp
+0x14096964b: ret      
+0x14096964c: mov      qword ptr [rsp + 8], rax
+0x140969651: mov      qword ptr [rsp + 0x10], rbx
+0x140969656: mov      qword ptr [rsp + 0x18], rcx
+0x14096965b: mov      qword ptr [rsp + 0x20], rdi
+0x140969660: mov      qword ptr [rsp + 0x28], rsi
+0x140969665: call     0x14007f140   ; runtime.morestack_noctxt
+0x14096966a: mov      rax, qword ptr [rsp + 8]
+0x14096966f: mov      rbx, qword ptr [rsp + 0x10]
+0x140969674: mov      rcx, qword ptr [rsp + 0x18]
+0x140969679: mov      rdi, qword ptr [rsp + 0x20]
+0x14096967e: mov      rsi, qword ptr [rsp + 0x28]
+0x140969683: jmp      0x1409695c0   ; main.saveScreenshotHistory
+0x140969688: int3     
+0x140969689: int3     
+0x14096968a: int3     
+0x14096968b: int3     
+0x14096968c: int3     
+0x14096968d: int3     
+0x14096968e: int3     
+0x14096968f: int3     
+0x140969690: int3     
+0x140969691: int3     
+0x140969692: int3     
+0x140969693: int3     
+0x140969694: int3     
+0x140969695: int3     
+0x140969696: int3     
+0x140969697: int3     
+0x140969698: int3     
+0x140969699: int3     
+0x14096969a: int3     
+0x14096969b: int3     
+0x14096969c: int3     
+0x14096969d: int3     
+0x14096969e: int3     
+0x14096969f: int3     

@@ -1,0 +1,27 @@
+0x1409f5d60: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409f5d64: jbe      0x1409f5d8d   ; main.captureScreenshotDXGIDisplayFrameWithFallback.func1+0x2d
+0x1409f5d66: push     rbp
+0x1409f5d67: mov      rbp, rsp
+0x1409f5d6a: sub      rsp, 0x20
+0x1409f5d6e: mov      rax, qword ptr [rsp + 0x60]
+0x1409f5d73: mov      rbx, qword ptr [rsp + 0x68]
+0x1409f5d78: mov      rcx, qword ptr [rsp + 0x70]
+0x1409f5d7d: mov      rdi, qword ptr [rsp + 0x78]
+0x1409f5d82: call     0x1409722e0   ; main.captureScreenshotScreenRectGDI
+0x1409f5d87: add      rsp, 0x20
+0x1409f5d8b: pop      rbp
+0x1409f5d8c: ret      
+0x1409f5d8d: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409f5d92: jmp      0x1409f5d60   ; main.captureScreenshotDXGIDisplayFrameWithFallback.func1
+0x1409f5d94: int3     
+0x1409f5d95: int3     
+0x1409f5d96: int3     
+0x1409f5d97: int3     
+0x1409f5d98: int3     
+0x1409f5d99: int3     
+0x1409f5d9a: int3     
+0x1409f5d9b: int3     
+0x1409f5d9c: int3     
+0x1409f5d9d: int3     
+0x1409f5d9e: int3     
+0x1409f5d9f: int3     

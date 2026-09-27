@@ -1,0 +1,155 @@
+0x1409253e0: mov      r12, rsp
+0x1409253e3: sub      r12, 0x20a0
+0x1409253ea: jb       0x140925674    ; main.BootstrapService.InstallOrUpdatePlugin+0x294
+0x1409253f0: cmp      r12, qword ptr [r14 + 0x10]
+0x1409253f4: jbe      0x140925674    ; main.BootstrapService.InstallOrUpdatePlugin+0x294
+0x1409253fa: push     rbp
+0x1409253fb: mov      rbp, rsp
+0x1409253fe: sub      rsp, 0x2118
+0x140925405: mov      qword ptr [rsp + 0x2bf0], rax
+0x14092540d: mov      qword ptr [rsp + 0x2bf8], rbx
+0x140925415: mov      qword ptr [rsp + 0x2c00], rcx
+0x14092541d: movups   xmmword ptr [rsp + 0x2128], xmm15
+0x140925426: lea      rdi, [rsp + 0x2130]
+0x14092542e: mov      ecx, 0x158
+0x140925433: mov      rdx, rax
+0x140925436: xor      eax, eax
+0x140925438: rep stosq qword ptr [rdi], rax
+0x14092543b: mov      rax, rdx
+0x14092543e: nop      
+0x140925440: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x140925445: lea      rdi, [rsp + 0xae8]
+0x14092544d: mov      rsi, rsp
+0x140925450: nop      word ptr [rax + rax]
+0x140925459: nop      dword ptr [rax]
+0x140925460: mov      qword ptr [rsp - 0x10], rbp
+0x140925465: lea      rbp, [rsp - 0x10]
+0x14092546a: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x14092546f: mov      rbp, qword ptr [rbp]
+0x140925473: mov      rax, qword ptr [rsp + 0x2bf8]
+0x14092547b: mov      rbx, qword ptr [rsp + 0x2c00]
+0x140925483: call     0x140923e80    ; main.normalizeValidatedPluginID
+0x140925488: test     rcx, rcx
+0x14092548b: jne      0x140925644    ; main.BootstrapService.InstallOrUpdatePlugin+0x264
+0x140925491: movups   xmmword ptr [rsp + 0x1650], xmm15
+0x14092549a: lea      rdi, [rsp + 0x1658]
+0x1409254a2: mov      ecx, 0x158
+0x1409254a7: mov      rdx, rax
+0x1409254aa: xor      eax, eax
+0x1409254ac: rep stosq qword ptr [rdi], rax
+0x1409254af: mov      rax, qword ptr [rsp + 0x2bf0]
+0x1409254b7: mov      rcx, rdx
+0x1409254ba: mov      rdi, rbx
+0x1409254bd: lea      rbx, [rsp + 0xae8]
+0x1409254c5: call     0x1409256c0    ; main.BootstrapService).InstallOrUpdatePlugin.func1
+0x1409254ca: mov      rdx, qword ptr [rsp]
+0x1409254ce: mov      qword ptr [rsp + 0x1650], rdx
+0x1409254d6: lea      rdi, [rsp + 0x1658]
+0x1409254de: lea      rsi, [rsp + 8]
+0x1409254e3: mov      ecx, 0x158
+0x1409254e8: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1409254eb: mov      rdx, qword ptr [rsp + 0x1650]
+0x1409254f3: mov      qword ptr [rsp + 0xb88], rdx
+0x1409254fb: lea      rdi, [rsp + 0xb90]
+0x140925503: lea      rsi, [rsp + 0x1658]
+0x14092550b: mov      ecx, 0x158
+0x140925510: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140925513: test     rax, rax
+0x140925516: jne      0x14092561a    ; main.BootstrapService.InstallOrUpdatePlugin+0x23a
+0x14092551c: movups   xmmword ptr [rsp + 0x1650], xmm15
+0x140925525: lea      rdi, [rsp + 0x1658]
+0x14092552d: mov      ecx, 0x142
+0x140925532: xor      eax, eax
+0x140925534: rep stosq qword ptr [rdi], rax
+0x140925537: mov      rax, qword ptr [rsp + 0x2bf0]
+0x14092553f: nop      
+0x140925540: call     0x140775e20    ; main.BootstrapService.GetState
+0x140925545: mov      rdx, qword ptr [rsp]
+0x140925549: mov      qword ptr [rsp + 0x1650], rdx
+0x140925551: lea      rdi, [rsp + 0x1658]
+0x140925559: lea      rsi, [rsp + 8]
+0x14092555e: mov      ecx, 0x142
+0x140925563: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140925566: mov      rdx, qword ptr [rsp + 0x1650]
+0x14092556e: mov      qword ptr [rsp + 0xb88], rdx
+0x140925576: lea      rdi, [rsp + 0xb90]
+0x14092557e: lea      rsi, [rsp + 0x1658]
+0x140925586: mov      ecx, 0x142
+0x14092558b: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14092558e: test     rax, rax
+0x140925591: je       0x1409255bd    ; main.BootstrapService.InstallOrUpdatePlugin+0x1dd
+0x140925593: movups   xmmword ptr [rsp + 0x2128], xmm15
+0x14092559c: lea      rdi, [rsp + 0x2130]
+0x1409255a4: mov      ecx, 0x158
+0x1409255a9: mov      rdx, rax
+0x1409255ac: xor      eax, eax
+0x1409255ae: rep stosq qword ptr [rdi], rax
+0x1409255b1: mov      rax, rdx
+0x1409255b4: add      rsp, 0x2118
+0x1409255bb: pop      rbp
+0x1409255bc: ret      
+0x1409255bd: mov      rdx, qword ptr [rsp + 0xb88]
+0x1409255c5: mov      qword ptr [rsp + 0x2128], rdx
+0x1409255cd: lea      rdi, [rsp + 0x2130]
+0x1409255d5: lea      rsi, [rsp + 0xb90]
+0x1409255dd: mov      ecx, 0x158
+0x1409255e2: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1409255e5: mov      rdx, qword ptr [rsp + 0xb88]
+0x1409255ed: mov      qword ptr [rsp + 0x2128], rdx
+0x1409255f5: lea      rdi, [rsp + 0x2130]
+0x1409255fd: lea      rsi, [rsp + 0xb90]
+0x140925605: mov      ecx, 0x158
+0x14092560a: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14092560d: xor      eax, eax
+0x14092560f: xor      ebx, ebx
+0x140925611: add      rsp, 0x2118
+0x140925618: pop      rbp
+0x140925619: ret      
+0x14092561a: movups   xmmword ptr [rsp + 0x2128], xmm15
+0x140925623: lea      rdi, [rsp + 0x2130]
+0x14092562b: mov      ecx, 0x158
+0x140925630: mov      rdx, rax
+0x140925633: xor      eax, eax
+0x140925635: rep stosq qword ptr [rdi], rax
+0x140925638: mov      rax, rdx
+0x14092563b: add      rsp, 0x2118
+0x140925642: pop      rbp
+0x140925643: ret      
+0x140925644: movups   xmmword ptr [rsp + 0x2128], xmm15
+0x14092564d: xor      eax, eax
+0x14092564f: mov      rdx, rdi
+0x140925652: lea      rdi, [rsp + 0x2130]
+0x14092565a: mov      rbx, rcx
+0x14092565d: mov      ecx, 0x158
+0x140925662: rep stosq qword ptr [rdi], rax
+0x140925665: mov      rax, rbx
+0x140925668: mov      rbx, rdx
+0x14092566b: add      rsp, 0x2118
+0x140925672: pop      rbp
+0x140925673: ret      
+0x140925674: mov      qword ptr [rsp + 0xad0], rax
+0x14092567c: mov      qword ptr [rsp + 0xad8], rbx
+0x140925684: mov      qword ptr [rsp + 0xae0], rcx
+0x14092568c: call     0x14007f140    ; runtime.morestack_noctxt
+0x140925691: mov      rax, qword ptr [rsp + 0xad0]
+0x140925699: mov      rbx, qword ptr [rsp + 0xad8]
+0x1409256a1: mov      rcx, qword ptr [rsp + 0xae0]
+0x1409256a9: jmp      0x1409253e0    ; main.BootstrapService.InstallOrUpdatePlugin
+0x1409256ae: int3     
+0x1409256af: int3     
+0x1409256b0: int3     
+0x1409256b1: int3     
+0x1409256b2: int3     
+0x1409256b3: int3     
+0x1409256b4: int3     
+0x1409256b5: int3     
+0x1409256b6: int3     
+0x1409256b7: int3     
+0x1409256b8: int3     
+0x1409256b9: int3     
+0x1409256ba: int3     
+0x1409256bb: int3     
+0x1409256bc: int3     
+0x1409256bd: int3     
+0x1409256be: int3     
+0x1409256bf: int3     

@@ -1,0 +1,206 @@
+0x14079a9e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14079a9e4: jbe      0x14079ac49    ; main.BootstrapService.applyLauncherWindowLayoutAction+0xa9
+0x14079a9ea: push     rbp
+0x14079a9eb: mov      rbp, rsp
+0x14079a9ee: sub      rsp, 0x38
+0x14079a9f2: mov      qword ptr [rsp + 0x50], rbx
+0x14079a9f7: mov      qword ptr [rsp + 0x58], rcx
+0x14079a9fc: mov      qword ptr [rsp + 0x60], rdi
+0x14079aa01: test     rbx, rbx
+0x14079aa04: je       0x14079ab9b    ; main.BootstrapService.SetLauncherSidebarPinnedOpen+0xdb
+0x14079aa0a: mov      qword ptr [rsp + 0x48], rax
+0x14079aa0f: mov      qword ptr [rsp + 0x60], rdi
+0x14079aa14: mov      qword ptr [rsp + 0x58], rcx
+0x14079aa19: mov      qword ptr [rsp + 0x50], rbx
+0x14079aa1e: mov      qword ptr [rsp + 0x68], rsi
+0x14079aa23: mov      rax, rdi
+0x14079aa26: mov      rbx, rsi
+0x14079aa29: call     0x1400a2040    ; strings.TrimRight+0x40
+0x14079aa2e: cmp      rbx, 4
+0x14079aa32: jne      0x14079aa6a    ; main.BootstrapService.ApplyLauncherWindowLayoutAction+0x8a
+0x14079aa34: cmp      dword ptr [rax], 0x65646968
+0x14079aa3a: nop      word ptr [rax + rax]
+0x14079aa40: jne      0x14079aacd    ; main.BootstrapService.SetLauncherSidebarPinnedOpen+0xd
+0x14079aa46: mov      rdx, qword ptr [rsp + 0x50]
+0x14079aa4b: test     rdx, rdx
+0x14079aa4e: je       0x14079abf6    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x56
+0x14079aa54: mov      rbx, qword ptr [rdx + 8]
+0x14079aa58: mov      rsi, qword ptr [rip + 0x142c0a1]
+0x14079aa5f: mov      rdi, qword ptr [rsi]
+0x14079aa62: mov      edx, dword ptr [rdx + 0x10]
+0x14079aa65: jmp      0x14079ac12    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x72
+0x14079aa6a: cmp      rbx, 8
+0x14079aa6e: je       0x14079aaaf    ; main.BootstrapService.ApplyLauncherWindowLayoutAction+0xcf
+0x14079aa70: cmp      rbx, 0x11
+0x14079aa74: jne      0x14079aacd    ; main.BootstrapService.SetLauncherSidebarPinnedOpen+0xd
+0x14079aa76: lea      rbx, [rip + 0x4bc67c]
+0x14079aa7d: mov      ecx, 0x11
+0x14079aa82: call     0x1400060c0    ; internal/bytealg.Count+0x20
+0x14079aa87: test     al, al
+0x14079aa89: je       0x14079aacd    ; main.BootstrapService.SetLauncherSidebarPinnedOpen+0xd
+0x14079aa8b: mov      rdx, qword ptr [rsp + 0x50]
+0x14079aa90: test     rdx, rdx
+0x14079aa93: je       0x14079aba5    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x5
+0x14079aa99: mov      rbx, qword ptr [rdx + 8]
+0x14079aa9d: mov      rsi, qword ptr [rip + 0x142c07c]
+0x14079aaa4: mov      rdi, qword ptr [rsi]
+0x14079aaa7: mov      edx, dword ptr [rdx + 0x10]
+0x14079aaaa: jmp      0x14079abc1    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x21
+0x14079aaaf: movabs   rcx, 0x657a696d6978616d
+0x14079aab9: cmp      qword ptr [rax], rcx
+0x14079aabc: je       0x14079ab34    ; main.BootstrapService.SetLauncherSidebarPinnedOpen+0x74
+0x14079aabe: movabs   rcx, 0x657a696d696e696d
+0x14079aac8: cmp      qword ptr [rax], rcx
+0x14079aacb: je       0x14079ab1a    ; main.BootstrapService.SetLauncherSidebarPinnedOpen+0x5a
+0x14079aacd: movups   xmmword ptr [rsp + 0x28], xmm15
+0x14079aad3: mov      rax, qword ptr [rsp + 0x60]
+0x14079aad8: mov      rbx, qword ptr [rsp + 0x68]
+0x14079aadd: nop      dword ptr [rax]
+0x14079aae0: call     0x1400764a0    ; runtime.getitab+0x180
+0x14079aae5: lea      rcx, [rip + 0x34f154]
+0x14079aaec: mov      qword ptr [rsp + 0x28], rcx
+0x14079aaf1: mov      qword ptr [rsp + 0x30], rax
+0x14079aaf6: lea      rax, [rip + 0x4da872]
+0x14079aafd: mov      ebx, 0x22
+0x14079ab02: lea      rcx, [rsp + 0x28]
+0x14079ab07: mov      edi, 1
+0x14079ab0c: mov      rsi, rdi
+0x14079ab0f: call     0x1401330c0    ; os.File.Read-fm
+0x14079ab14: add      rsp, 0x38
+0x14079ab18: pop      rbp
+0x14079ab19: ret      
+0x14079ab1a: mov      rcx, qword ptr [rsp + 0x50]
+0x14079ab1f: mov      rcx, qword ptr [rcx + 0x50]
+0x14079ab23: mov      rax, qword ptr [rsp + 0x58]
+0x14079ab28: call     rcx
+0x14079ab2a: xor      eax, eax
+0x14079ab2c: xor      ebx, ebx
+0x14079ab2e: add      rsp, 0x38
+0x14079ab32: pop      rbp
+0x14079ab33: ret      
+0x14079ab34: mov      rax, qword ptr [rsp + 0x48]
+0x14079ab39: call     0x14079b700    ; main.BootstrapService.applyLauncherSidebarPinnedWindowSizing+0x4a0
+0x14079ab3e: mov      rcx, qword ptr [rsp + 0x50]
+0x14079ab43: mov      rcx, qword ptr [rcx + 0x38]
+0x14079ab47: mov      rax, qword ptr [rsp + 0x58]
+0x14079ab4c: call     rcx
+0x14079ab4e: test     al, al
+0x14079ab50: jne      0x14079ab66    ; main.BootstrapService.SetLauncherSidebarPinnedOpen+0xa6
+0x14079ab52: mov      rcx, qword ptr [rsp + 0x50]
+0x14079ab57: mov      rcx, qword ptr [rcx + 0x40]
+0x14079ab5b: mov      rax, qword ptr [rsp + 0x58]
+0x14079ab60: call     rcx
+0x14079ab62: test     al, al
+0x14079ab64: je       0x14079ab81    ; main.BootstrapService.SetLauncherSidebarPinnedOpen+0xc1
+0x14079ab66: mov      rcx, qword ptr [rsp + 0x50]
+0x14079ab6b: mov      rcx, qword ptr [rcx + 0x60]
+0x14079ab6f: mov      rax, qword ptr [rsp + 0x58]
+0x14079ab74: call     rcx
+0x14079ab76: xor      eax, eax
+0x14079ab78: xor      ebx, ebx
+0x14079ab7a: add      rsp, 0x38
+0x14079ab7e: pop      rbp
+0x14079ab7f: nop      
+0x14079ab80: ret      
+0x14079ab81: mov      rcx, qword ptr [rsp + 0x50]
+0x14079ab86: mov      rcx, qword ptr [rcx + 0x48]
+0x14079ab8a: mov      rax, qword ptr [rsp + 0x58]
+0x14079ab8f: call     rcx
+0x14079ab91: xor      eax, eax
+0x14079ab93: xor      ebx, ebx
+0x14079ab95: add      rsp, 0x38
+0x14079ab99: pop      rbp
+0x14079ab9a: ret      
+0x14079ab9b: xor      eax, eax
+0x14079ab9d: xor      ebx, ebx
+0x14079ab9f: add      rsp, 0x38
+0x14079aba3: pop      rbp
+0x14079aba4: ret      
+0x14079aba5: mov      rax, qword ptr [rsp + 0x48]
+0x14079abaa: mov      rbx, rdx
+0x14079abad: mov      rcx, qword ptr [rsp + 0x58]
+0x14079abb2: call     0x14079aca0    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x100
+0x14079abb7: xor      eax, eax
+0x14079abb9: xor      ebx, ebx
+0x14079abbb: add      rsp, 0x38
+0x14079abbf: pop      rbp
+0x14079abc0: ret      
+0x14079abc1: mov      r8, rdx
+0x14079abc4: and      rdx, rdi
+0x14079abc7: shl      rdx, 4
+0x14079abcb: mov      r9, qword ptr [rsi + rdx + 8]
+0x14079abd0: cmp      r9, rbx
+0x14079abd3: je       0x14079abef    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x4f
+0x14079abd5: lea      rdx, [r8 + 1]
+0x14079abd9: test     r9, r9
+0x14079abdc: jne      0x14079abc1    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x21
+0x14079abde: lea      rax, [rip + 0x142bf3b]
+0x14079abe5: call     0x1400172e0    ; runtime.convTnoptr+0x20
+0x14079abea: mov      rdx, rax
+0x14079abed: jmp      0x14079aba5    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x5
+0x14079abef: mov      rdx, qword ptr [rsi + rdx + 0x10]
+0x14079abf4: jmp      0x14079aba5    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x5
+0x14079abf6: mov      rax, qword ptr [rsp + 0x48]
+0x14079abfb: mov      rbx, rdx
+0x14079abfe: mov      rcx, qword ptr [rsp + 0x58]
+0x14079ac03: call     0x14079a260    ; main.BootstrapService.HideLauncherWindow+0x40
+0x14079ac08: xor      eax, eax
+0x14079ac0a: xor      ebx, ebx
+0x14079ac0c: add      rsp, 0x38
+0x14079ac10: pop      rbp
+0x14079ac11: ret      
+0x14079ac12: mov      r8, rdx
+0x14079ac15: and      rdx, rdi
+0x14079ac18: shl      rdx, 4
+0x14079ac1c: mov      r9, qword ptr [rsi + rdx + 8]
+0x14079ac21: cmp      r9, rbx
+0x14079ac24: je       0x14079ac42    ; main.BootstrapService.applyLauncherWindowLayoutAction+0xa2
+0x14079ac26: lea      rdx, [r8 + 1]
+0x14079ac2a: test     r9, r9
+0x14079ac2d: jne      0x14079ac12    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x72
+0x14079ac2f: lea      rax, [rip + 0x142beca]
+0x14079ac36: call     0x1400172e0    ; runtime.convTnoptr+0x20
+0x14079ac3b: mov      rdx, rax
+0x14079ac3e: nop      
+0x14079ac40: jmp      0x14079abf6    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x56
+0x14079ac42: mov      rdx, qword ptr [rsi + rdx + 0x10]
+0x14079ac47: jmp      0x14079abf6    ; main.BootstrapService.applyLauncherWindowLayoutAction+0x56
+0x14079ac49: mov      qword ptr [rsp + 8], rax
+0x14079ac4e: mov      qword ptr [rsp + 0x10], rbx
+0x14079ac53: mov      qword ptr [rsp + 0x18], rcx
+0x14079ac58: mov      qword ptr [rsp + 0x20], rdi
+0x14079ac5d: mov      qword ptr [rsp + 0x28], rsi
+0x14079ac62: call     0x14007ef80    ; runtime.mcall+0x20
+0x14079ac67: mov      rax, qword ptr [rsp + 8]
+0x14079ac6c: mov      rbx, qword ptr [rsp + 0x10]
+0x14079ac71: mov      rcx, qword ptr [rsp + 0x18]
+0x14079ac76: mov      rdi, qword ptr [rsp + 0x20]
+0x14079ac7b: mov      rsi, qword ptr [rsp + 0x28]
+0x14079ac80: jmp      0x14079a9e0    ; main.BootstrapService.ApplyLauncherWindowLayoutAction
+0x14079ac85: int3     
+0x14079ac86: int3     
+0x14079ac87: int3     
+0x14079ac88: int3     
+0x14079ac89: int3     
+0x14079ac8a: int3     
+0x14079ac8b: int3     
+0x14079ac8c: int3     
+0x14079ac8d: int3     
+0x14079ac8e: int3     
+0x14079ac8f: int3     
+0x14079ac90: int3     
+0x14079ac91: int3     
+0x14079ac92: int3     
+0x14079ac93: int3     
+0x14079ac94: int3     
+0x14079ac95: int3     
+0x14079ac96: int3     
+0x14079ac97: int3     
+0x14079ac98: int3     
+0x14079ac99: int3     
+0x14079ac9a: int3     
+0x14079ac9b: int3     
+0x14079ac9c: int3     
+0x14079ac9d: int3     
+0x14079ac9e: int3     
+0x14079ac9f: int3     

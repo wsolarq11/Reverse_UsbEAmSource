@@ -1,0 +1,89 @@
+0x14091ff40: lea      r12, [rsp - 8]
+0x14091ff45: cmp      r12, qword ptr [r14 + 0x10]
+0x14091ff49: jbe      0x140920072   ; main.oledBlackoutQueryInterface+0x132
+0x14091ff4f: push     rbp
+0x14091ff50: mov      rbp, rsp
+0x14091ff53: add      rsp, -0x80
+0x14091ff57: nop      word ptr [rax + rax]
+0x14091ff60: test     rax, rax
+0x14091ff63: je       0x140920042   ; main.oledBlackoutQueryInterface+0x102
+0x14091ff69: mov      qword ptr [rsp + 0x40], 0
+0x14091ff72: mov      qword ptr [rsp + 0x78], rax
+0x14091ff77: mov      qword ptr [rsp + 0x70], rbx
+0x14091ff7c: lea      rdx, [rsp + 0x40]
+0x14091ff81: mov      qword ptr [rsp + 0x68], rdx
+0x14091ff86: movups   xmmword ptr [rsp + 0x28], xmm15
+0x14091ff8c: movups   xmmword ptr [rsp + 0x30], xmm15
+0x14091ff92: mov      rdx, qword ptr [rsp + 0x78]
+0x14091ff97: mov      qword ptr [rsp + 0x28], rdx
+0x14091ff9c: mov      rdx, qword ptr [rsp + 0x70]
+0x14091ffa1: mov      qword ptr [rsp + 0x30], rdx
+0x14091ffa6: mov      rdx, qword ptr [rsp + 0x68]
+0x14091ffab: mov      qword ptr [rsp + 0x38], rdx
+0x14091ffb0: mov      rdx, qword ptr [rax]
+0x14091ffb3: mov      rax, qword ptr [rdx]
+0x14091ffb6: lea      rbx, [rsp + 0x28]
+0x14091ffbb: mov      ecx, 3
+0x14091ffc0: mov      rdi, rcx
+0x14091ffc3: call     0x14007cf60   ; syscall.SyscallN
+0x14091ffc8: test     eax, eax
+0x14091ffca: jl       0x14091ffdb   ; main.oledBlackoutQueryInterface+0x9b
+0x14091ffcc: mov      rax, qword ptr [rsp + 0x40]
+0x14091ffd1: xor      ebx, ebx
+0x14091ffd3: xor      ecx, ecx
+0x14091ffd5: sub      rsp, -0x80
+0x14091ffd9: pop      rbp
+0x14091ffda: ret      
+0x14091ffdb: movups   xmmword ptr [rsp + 0x48], xmm15
+0x14091ffe1: movups   xmmword ptr [rsp + 0x58], xmm15
+0x14091ffe7: lea      rcx, [rip + 0x1c9e12]
+0x14091ffee: mov      qword ptr [rsp + 0x48], rcx
+0x14091fff3: lea      rcx, [rip + 0x8aebe6]
+0x14091fffa: mov      qword ptr [rsp + 0x50], rcx
+0x14091ffff: nop      
+0x140920000: call     0x1400173c0   ; runtime.convT32
+0x140920005: lea      rcx, [rip + 0x1c9f74]
+0x14092000c: mov      qword ptr [rsp + 0x58], rcx
+0x140920011: mov      qword ptr [rsp + 0x60], rax
+0x140920016: lea      rax, [rip + 0x344beb]
+0x14092001d: mov      ebx, 0x18
+0x140920022: lea      rcx, [rsp + 0x48]
+0x140920027: mov      edi, 2
+0x14092002c: mov      rsi, rdi
+0x14092002f: call     0x140133280   ; fmt.Errorf
+0x140920034: mov      rcx, rbx
+0x140920037: mov      rbx, rax
+0x14092003a: xor      eax, eax
+0x14092003c: sub      rsp, -0x80
+0x140920040: pop      rbp
+0x140920041: ret      
+0x140920042: lea      rax, [rip + 0x234337]
+0x140920049: call     0x14001ae20   ; runtime.newobject
+0x14092004e: mov      qword ptr [rax + 8], 0x10
+0x140920056: lea      rcx, [rip + 0x33506d]
+0x14092005d: mov      qword ptr [rax], rcx
+0x140920060: lea      rbx, [rip + 0x8b3099]
+0x140920067: mov      rcx, rax
+0x14092006a: xor      eax, eax
+0x14092006c: sub      rsp, -0x80
+0x140920070: pop      rbp
+0x140920071: ret      
+0x140920072: mov      qword ptr [rsp + 8], rax
+0x140920077: mov      qword ptr [rsp + 0x10], rbx
+0x14092007c: nop      dword ptr [rax]
+0x140920080: call     0x14007f140   ; runtime.morestack_noctxt
+0x140920085: mov      rax, qword ptr [rsp + 8]
+0x14092008a: mov      rbx, qword ptr [rsp + 0x10]
+0x14092008f: jmp      0x14091ff40   ; main.oledBlackoutQueryInterface
+0x140920094: int3     
+0x140920095: int3     
+0x140920096: int3     
+0x140920097: int3     
+0x140920098: int3     
+0x140920099: int3     
+0x14092009a: int3     
+0x14092009b: int3     
+0x14092009c: int3     
+0x14092009d: int3     
+0x14092009e: int3     
+0x14092009f: int3     

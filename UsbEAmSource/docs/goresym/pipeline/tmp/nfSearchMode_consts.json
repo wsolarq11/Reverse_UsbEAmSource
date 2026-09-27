@@ -1,0 +1,19 @@
+{
+  "ret7": "boolean",
+  "ret9": "wholeWord",
+  "ret5": "regex",
+  "ret0c": "booleanRegex",
+  "ret_default5": "plain",
+  "jump_table": [
+    "0x14087aebd",
+    "0x14087aed6",
+    "0x14087aef1",
+    "0x14087af1b",
+    "0x14087b014",
+    "0x14087af4f",
+    "0x14087af87",
+    "0x14087b014",
+    "0x14087afc7",
+    "0x14087afe2"
+  ]
+}

@@ -1,0 +1,60 @@
+0x1408af500: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408af504: jbe      0x1408af5ae   ; main.startPowerShellEncodedCommand+0xae
+0x1408af50a: push     rbp
+0x1408af50b: mov      rbp, rsp
+0x1408af50e: sub      rsp, 0x68
+0x1408af512: mov      qword ptr [rsp + 0x78], rax
+0x1408af517: call     0x1408af5e0   ; main.encodePowerShellCommand
+0x1408af51c: lea      rdi, [rsp + 0x18]
+0x1408af521: lea      rdi, [rdi - 0x30]
+0x1408af525: mov      qword ptr [rsp - 0x10], rbp
+0x1408af52a: lea      rbp, [rsp - 0x10]
+0x1408af52f: call     0x140081730   ; runtime.duffzero+0x150
+0x1408af534: mov      rbp, qword ptr [rbp]
+0x1408af538: mov      qword ptr [rsp + 0x20], 0xe
+0x1408af541: lea      rcx, [rip + 0x3a121e]
+0x1408af548: mov      qword ptr [rsp + 0x18], rcx
+0x1408af54d: mov      qword ptr [rsp + 0x30], 0xa
+0x1408af556: lea      rcx, [rip + 0x394c64]
+0x1408af55d: mov      qword ptr [rsp + 0x28], rcx
+0x1408af562: mov      qword ptr [rsp + 0x40], 4
+0x1408af56b: lea      rcx, [rip + 0x3853ac]
+0x1408af572: mov      qword ptr [rsp + 0x38], rcx
+0x1408af577: mov      qword ptr [rsp + 0x50], 0xf
+0x1408af580: lea      rcx, [rip + 0x3a37dd]
+0x1408af587: mov      qword ptr [rsp + 0x48], rcx
+0x1408af58c: mov      qword ptr [rsp + 0x60], rbx
+0x1408af591: mov      qword ptr [rsp + 0x58], rax
+0x1408af596: lea      rax, [rsp + 0x18]
+0x1408af59b: mov      ebx, 5
+0x1408af5a0: mov      rcx, rbx
+0x1408af5a3: call     0x1408a8480   ; main.startDetachedCommand
+0x1408af5a8: add      rsp, 0x68
+0x1408af5ac: pop      rbp
+0x1408af5ad: ret      
+0x1408af5ae: mov      qword ptr [rsp + 8], rax
+0x1408af5b3: mov      qword ptr [rsp + 0x10], rbx
+0x1408af5b8: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408af5bd: mov      rax, qword ptr [rsp + 8]
+0x1408af5c2: mov      rbx, qword ptr [rsp + 0x10]
+0x1408af5c7: jmp      0x1408af500   ; main.startPowerShellEncodedCommand
+0x1408af5cc: int3     
+0x1408af5cd: int3     
+0x1408af5ce: int3     
+0x1408af5cf: int3     
+0x1408af5d0: int3     
+0x1408af5d1: int3     
+0x1408af5d2: int3     
+0x1408af5d3: int3     
+0x1408af5d4: int3     
+0x1408af5d5: int3     
+0x1408af5d6: int3     
+0x1408af5d7: int3     
+0x1408af5d8: int3     
+0x1408af5d9: int3     
+0x1408af5da: int3     
+0x1408af5db: int3     
+0x1408af5dc: int3     
+0x1408af5dd: int3     
+0x1408af5de: int3     
+0x1408af5df: int3     

@@ -1,0 +1,34 @@
+0x1409b9940: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409b9944: jbe      0x1409b9971   ; main.captureScreenshotWithLauncherVisibility.func1.1+0x31
+0x1409b9946: push     rbp
+0x1409b9947: mov      rbp, rsp
+0x1409b994a: sub      rsp, 0x30
+0x1409b994e: mov      rax, qword ptr [rdx + 8]
+0x1409b9952: mov      rbx, qword ptr [rdx + 0x10]
+0x1409b9956: mov      rcx, qword ptr [rdx + 0x18]
+0x1409b995a: movzx    edi, byte ptr [rdx + 0x20]
+0x1409b995e: mov      rsi, qword ptr [rdx + 0x28]
+0x1409b9962: mov      r8, qword ptr [rdx + 0x30]
+0x1409b9966: call     0x140796c20   ; main.BootstrapService.endLauncherScreenshotCapture
+0x1409b996b: add      rsp, 0x30
+0x1409b996f: pop      rbp
+0x1409b9970: ret      
+0x1409b9971: call     0x14007f0a0   ; runtime.morestack
+0x1409b9976: jmp      0x1409b9940   ; main.captureScreenshotWithLauncherVisibility.func1.1
+0x1409b9978: int3     
+0x1409b9979: int3     
+0x1409b997a: int3     
+0x1409b997b: int3     
+0x1409b997c: int3     
+0x1409b997d: int3     
+0x1409b997e: int3     
+0x1409b997f: int3     
+0x1409b9980: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409b9984: jbe      0x1409b9a12   ; main.currentMonitorRect+0x92
+0x1409b998a: push     rbp
+0x1409b998b: mov      rbp, rsp
+0x1409b998e: sub      rsp, 0x20
+0x1409b9992: call     0x14085cf00   ; main.getCursorScreenPoint
+0x1409b9997: test     rcx, rcx
+0x1409b999a: jne      0x1409b99fb   ; main.currentMonitorRect+0x7b
+0x1409b999c: mov      dword ptr [rsp + 0xc], eax

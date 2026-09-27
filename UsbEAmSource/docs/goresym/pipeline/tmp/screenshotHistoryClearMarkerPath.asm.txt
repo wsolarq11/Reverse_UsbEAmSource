@@ -1,0 +1,37 @@
+0x1409687e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409687e4: jbe      0x14096883b   ; main.screenshotHistoryClearMarkerPath+0x5b
+0x1409687e6: push     rbp
+0x1409687e7: mov      rbp, rsp
+0x1409687ea: sub      rsp, 0x38
+0x1409687ee: mov      qword ptr [rsp + 0x48], rax
+0x1409687f3: call     0x1400a2200   ; strings.TrimSpace
+0x1409687f8: movups   xmmword ptr [rsp + 0x18], xmm15
+0x1409687fe: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140968804: mov      qword ptr [rsp + 0x20], rbx
+0x140968809: mov      qword ptr [rsp + 0x18], rax
+0x14096880e: mov      qword ptr [rsp + 0x30], 0x10
+0x140968817: lea      rcx, [rip + 0x2eca7c]
+0x14096881e: mov      qword ptr [rsp + 0x28], rcx
+0x140968823: lea      rax, [rsp + 0x18]
+0x140968828: mov      ebx, 2
+0x14096882d: mov      rcx, rbx
+0x140968830: call     0x1401cd660   ; path/filepath.join
+0x140968835: add      rsp, 0x38
+0x140968839: pop      rbp
+0x14096883a: ret      
+0x14096883b: mov      qword ptr [rsp + 8], rax
+0x140968840: mov      qword ptr [rsp + 0x10], rbx
+0x140968845: call     0x14007f140   ; runtime.morestack_noctxt
+0x14096884a: mov      rax, qword ptr [rsp + 8]
+0x14096884f: mov      rbx, qword ptr [rsp + 0x10]
+0x140968854: jmp      0x1409687e0   ; main.screenshotHistoryClearMarkerPath
+0x140968856: int3     
+0x140968857: int3     
+0x140968858: int3     
+0x140968859: int3     
+0x14096885a: int3     
+0x14096885b: int3     
+0x14096885c: int3     
+0x14096885d: int3     
+0x14096885e: int3     
+0x14096885f: int3     

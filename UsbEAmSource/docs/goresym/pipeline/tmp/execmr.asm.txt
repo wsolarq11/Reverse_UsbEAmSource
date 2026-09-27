@@ -1,0 +1,59 @@
+0x1408d5120: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408d5124: jbe      0x1408d518b   ; main.executeMemoryReleaseMode+0x6b
+0x1408d5126: push     rbp
+0x1408d5127: mov      rbp, rsp
+0x1408d512a: sub      rsp, 0x28
+0x1408d512e: mov      qword ptr [rsp + 0x38], rax
+0x1408d5133: nop      
+0x1408d5134: call     0x1408d31e0   ; main.parseMemoryReleaseMode
+0x1408d5139: test     cl, cl
+0x1408d513b: jne      0x1408d5149   ; main.executeMemoryReleaseMode+0x29
+0x1408d513d: mov      ebx, 0xb
+0x1408d5142: lea      rax, [rip + 0x3723da]
+0x1408d5149: call     0x1408d52c0   ; main.resolveMemoryReleaseCommand
+0x1408d514e: test     rbx, rbx
+0x1408d5151: je       0x1408d515f   ; main.executeMemoryReleaseMode+0x3f
+0x1408d5153: mov      rax, rbx
+0x1408d5156: mov      rbx, rcx
+0x1408d5159: add      rsp, 0x28
+0x1408d515d: pop      rbp
+0x1408d515e: ret      
+0x1408d515f: lea      rdx, [rip + 0x5a]
+0x1408d5166: mov      qword ptr [rsp + 0x18], rdx
+0x1408d516b: mov      dword ptr [rsp + 0x20], eax
+0x1408d516f: lea      rax, [rip + 0x39be91]
+0x1408d5176: mov      ebx, 0x1f
+0x1408d517b: lea      rcx, [rsp + 0x18]
+0x1408d5180: call     0x1408d5480   ; main.withMemoryReleasePrivilege
+0x1408d5185: add      rsp, 0x28
+0x1408d5189: pop      rbp
+0x1408d518a: ret      
+0x1408d518b: mov      qword ptr [rsp + 8], rax
+0x1408d5190: mov      qword ptr [rsp + 0x10], rbx
+0x1408d5195: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408d519a: mov      rax, qword ptr [rsp + 8]
+0x1408d519f: mov      rbx, qword ptr [rsp + 0x10]
+0x1408d51a4: jmp      0x1408d5120   ; main.executeMemoryReleaseMode
+0x1408d51a9: int3     
+0x1408d51aa: int3     
+0x1408d51ab: int3     
+0x1408d51ac: int3     
+0x1408d51ad: int3     
+0x1408d51ae: int3     
+0x1408d51af: int3     
+0x1408d51b0: int3     
+0x1408d51b1: int3     
+0x1408d51b2: int3     
+0x1408d51b3: int3     
+0x1408d51b4: int3     
+0x1408d51b5: int3     
+0x1408d51b6: int3     
+0x1408d51b7: int3     
+0x1408d51b8: int3     
+0x1408d51b9: int3     
+0x1408d51ba: int3     
+0x1408d51bb: int3     
+0x1408d51bc: int3     
+0x1408d51bd: int3     
+0x1408d51be: int3     
+0x1408d51bf: int3     

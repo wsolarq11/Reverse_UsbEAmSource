@@ -1,0 +1,26 @@
+0x1409be880: ret      
+0x1409be881: xor      eax, eax
+0x1409be883: mov      rbx, rax
+0x1409be886: mov      rcx, rax
+0x1409be889: mov      rdi, rax
+0x1409be88c: add      rsp, 0xb8
+0x1409be893: pop      rbp
+0x1409be894: ret      
+0x1409be895: xor      eax, eax
+0x1409be897: mov      rbx, rax
+0x1409be89a: mov      rcx, rax
+0x1409be89d: mov      rdi, rax
+0x1409be8a0: add      rsp, 0xb8
+0x1409be8a7: pop      rbp
+0x1409be8a8: ret      
+0x1409be8a9: mov      qword ptr [rsp + 8], rax
+0x1409be8ae: mov      qword ptr [rsp + 0x10], rbx
+0x1409be8b3: mov      qword ptr [rsp + 0x18], rcx
+0x1409be8b8: mov      qword ptr [rsp + 0x20], rdi
+0x1409be8bd: mov      qword ptr [rsp + 0x28], rsi
+0x1409be8c2: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409be8c7: mov      rax, qword ptr [rsp + 8]
+0x1409be8cc: mov      rbx, qword ptr [rsp + 0x10]
+0x1409be8d1: mov      rcx, qword ptr [rsp + 0x18]
+0x1409be8d6: mov      rdi, qword ptr [rsp + 0x20]
+0x1409be8db: mov      rsi, qword ptr [rsp + 0x28]

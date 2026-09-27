@@ -1,0 +1,117 @@
+0x14079f640: lea      r12, [rsp - 0xc88]
+0x14079f648: cmp      r12, qword ptr [r14 + 0x10]
+0x14079f64c: jbe      0x14079f7ee    ; main.BootstrapService.cacheScreenshotCapturePreferences+0x1ae
+0x14079f652: push     rbp
+0x14079f653: mov      rbp, rsp
+0x14079f656: sub      rsp, 0xd00
+0x14079f65d: nop      dword ptr [rax]
+0x14079f660: test     rax, rax
+0x14079f663: je       0x14079f7e5    ; main.BootstrapService.cacheScreenshotCapturePreferences+0x1a5
+0x14079f669: mov      qword ptr [rsp + 0x1158], rax
+0x14079f671: mov      rdx, qword ptr [rsp + 0xd10]
+0x14079f679: mov      qword ptr [rsp], rdx
+0x14079f67d: lea      rdi, [rsp + 8]
+0x14079f682: lea      rsi, [rsp + 0xd18]
+0x14079f68a: mov      ecx, 0x88
+0x14079f68f: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14079f692: xor      eax, eax
+0x14079f694: xor      ebx, ebx
+0x14079f696: mov      rcx, rbx
+0x14079f699: call     0x14087cb00    ; main.normalizePreferencesWithOptions
+0x14079f69e: mov      rdx, qword ptr [rsp + 0x448]
+0x14079f6a6: mov      qword ptr [rsp + 0x8b8], rdx
+0x14079f6ae: lea      rdi, [rsp + 0x8c0]
+0x14079f6b6: lea      rsi, [rsp + 0x450]
+0x14079f6be: mov      ecx, 0x88
+0x14079f6c3: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14079f6c6: mov      rdx, qword ptr [rsp + 0x8b8]
+0x14079f6ce: mov      qword ptr [rsp + 0xd10], rdx
+0x14079f6d6: lea      rdi, [rsp + 0xd18]
+0x14079f6de: lea      rsi, [rsp + 0x8c0]
+0x14079f6e6: mov      ecx, 0x88
+0x14079f6eb: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14079f6ee: mov      rdx, qword ptr [rsp + 0xee0]
+0x14079f6f6: test     rdx, rdx
+0x14079f6f9: je       0x14079f702    ; main.BootstrapService.cacheScreenshotCapturePreferences+0xc2
+0x14079f6fb: movzx    ecx, byte ptr [rdx]
+0x14079f6fe: nop      
+0x14079f700: jmp      0x14079f707    ; main.BootstrapService.cacheScreenshotCapturePreferences+0xc7
+0x14079f702: mov      ecx, 1
+0x14079f707: mov      rdx, qword ptr [rsp + 0xef0]
+0x14079f70f: test     rdx, rdx
+0x14079f712: je       0x14079f719    ; main.BootstrapService.cacheScreenshotCapturePreferences+0xd9
+0x14079f714: movzx    edx, byte ptr [rdx]
+0x14079f717: jmp      0x14079f71b    ; main.BootstrapService.cacheScreenshotCapturePreferences+0xdb
+0x14079f719: xor      edx, edx
+0x14079f71b: mov      rsi, qword ptr [rsp + 0xee8]
+0x14079f723: test     rsi, rsi
+0x14079f726: je       0x14079f72d    ; main.BootstrapService.cacheScreenshotCapturePreferences+0xed
+0x14079f728: movzx    esi, byte ptr [rsi]
+0x14079f72b: jmp      0x14079f72f    ; main.BootstrapService.cacheScreenshotCapturePreferences+0xef
+0x14079f72d: xor      esi, esi
+0x14079f72f: nop      
+0x14079f730: mov      rdi, qword ptr [rsp + 0x1158]
+0x14079f738: lea      r8, [rdi + 0x540]
+0x14079f73f: xor      eax, eax
+0x14079f741: mov      r9d, 1
+0x14079f747: lock cmpxchg dword ptr [rdi + 0x540], r9d
+0x14079f750: sete     r9b
+0x14079f754: test     r9b, r9b
+0x14079f757: jne      0x14079f7a7    ; main.BootstrapService.cacheScreenshotCapturePreferences+0x167
+0x14079f759: mov      byte ptr [rsp + 0x8ad], dl
+0x14079f760: mov      byte ptr [rsp + 0x8ae], sil
+0x14079f768: mov      qword ptr [rsp + 0x8b0], r8
+0x14079f770: mov      byte ptr [rsp + 0x8af], cl
+0x14079f777: mov      rax, r8
+0x14079f77a: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14079f77f: movzx    ecx, byte ptr [rsp + 0x8af]
+0x14079f787: movzx    edx, byte ptr [rsp + 0x8ad]
+0x14079f78f: movzx    esi, byte ptr [rsp + 0x8ae]
+0x14079f797: mov      rdi, qword ptr [rsp + 0x1158]
+0x14079f79f: mov      r8, qword ptr [rsp + 0x8b0]
+0x14079f7a7: mov      byte ptr [rdi + 0x290], cl
+0x14079f7ad: mov      byte ptr [rdi + 0x291], dl
+0x14079f7b3: mov      byte ptr [rdi + 0x292], sil
+0x14079f7ba: mov      byte ptr [rdi + 0x293], 1
+0x14079f7c1: nop      
+0x14079f7c2: nop      
+0x14079f7c3: mov      ebx, 0xffffffff
+0x14079f7c8: lock xadd dword ptr [rdi + 0x540], ebx
+0x14079f7d0: dec      ebx
+0x14079f7d2: je       0x14079f7dc    ; main.BootstrapService.cacheScreenshotCapturePreferences+0x19c
+0x14079f7d4: mov      rax, r8
+0x14079f7d7: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14079f7dc: add      rsp, 0xd00
+0x14079f7e3: pop      rbp
+0x14079f7e4: ret      
+0x14079f7e5: add      rsp, 0xd00
+0x14079f7ec: pop      rbp
+0x14079f7ed: ret      
+0x14079f7ee: mov      qword ptr [rsp + 0x450], rax
+0x14079f7f6: call     0x14007f140    ; runtime.morestack_noctxt
+0x14079f7fb: mov      rax, qword ptr [rsp + 0x450]
+0x14079f803: jmp      0x14079f640    ; main.BootstrapService.cacheScreenshotCapturePreferences
+0x14079f808: int3     
+0x14079f809: int3     
+0x14079f80a: int3     
+0x14079f80b: int3     
+0x14079f80c: int3     
+0x14079f80d: int3     
+0x14079f80e: int3     
+0x14079f80f: int3     
+0x14079f810: int3     
+0x14079f811: int3     
+0x14079f812: int3     
+0x14079f813: int3     
+0x14079f814: int3     
+0x14079f815: int3     
+0x14079f816: int3     
+0x14079f817: int3     
+0x14079f818: int3     
+0x14079f819: int3     
+0x14079f81a: int3     
+0x14079f81b: int3     
+0x14079f81c: int3     
+0x14079f81d: int3     
+0x14079f81e: int3     
+0x14079f81f: int3     

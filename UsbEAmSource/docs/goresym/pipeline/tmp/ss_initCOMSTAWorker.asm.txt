@@ -1,0 +1,45 @@
+0x1409b09c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409b09c4: jbe      0x1409b09db   ; main.initializeScreenshotCOMSTAWorkerThread+0x1b
+0x1409b09c6: push     rbp
+0x1409b09c7: mov      rbp, rsp
+0x1409b09ca: sub      rsp, 8
+0x1409b09ce: xor      eax, eax
+0x1409b09d0: call     0x1409b0a00   ; main.initializeScreenshotCOMThreadMode
+0x1409b09d5: add      rsp, 8
+0x1409b09d9: pop      rbp
+0x1409b09da: ret      
+0x1409b09db: nop      dword ptr [rax + rax]
+0x1409b09e0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409b09e5: jmp      0x1409b09c0   ; main.initializeScreenshotCOMSTAWorkerThread
+0x1409b09e7: int3     
+0x1409b09e8: int3     
+0x1409b09e9: int3     
+0x1409b09ea: int3     
+0x1409b09eb: int3     
+0x1409b09ec: int3     
+0x1409b09ed: int3     
+0x1409b09ee: int3     
+0x1409b09ef: int3     
+0x1409b09f0: int3     
+0x1409b09f1: int3     
+0x1409b09f2: int3     
+0x1409b09f3: int3     
+0x1409b09f4: int3     
+0x1409b09f5: int3     
+0x1409b09f6: int3     
+0x1409b09f7: int3     
+0x1409b09f8: int3     
+0x1409b09f9: int3     
+0x1409b09fa: int3     
+0x1409b09fb: int3     
+0x1409b09fc: int3     
+0x1409b09fd: int3     
+0x1409b09fe: int3     
+0x1409b09ff: int3     
+0x1409b0a00: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409b0a04: jbe      0x1409b0b33   ; main.initializeScreenshotCOMThreadMode+0x133
+0x1409b0a0a: push     rbp
+0x1409b0a0b: mov      rbp, rsp
+0x1409b0a0e: sub      rsp, 0x40
+0x1409b0a12: mov      byte ptr [rsp + 0x50], al
+0x1409b0a16: call     0x140052560   ; runtime.LockOSThread

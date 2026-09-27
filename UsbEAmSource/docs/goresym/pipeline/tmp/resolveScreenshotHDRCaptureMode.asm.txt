@@ -1,0 +1,29 @@
+0x140971240: cmp      rsp, qword ptr [r14 + 0x10]
+0x140971244: jbe      0x14097126b   ; main.resolveScreenshotHDRCaptureMode+0x2b
+0x140971246: push     rbp
+0x140971247: mov      rbp, rsp
+0x14097124a: sub      rsp, 0x10
+0x14097124e: lea      rax, [rip + 0x2fc534]
+0x140971255: mov      ebx, 0x1d
+0x14097125a: call     0x140125a00   ; os.Getenv
+0x14097125f: nop      
+0x140971260: call     0x140971280   ; main.parseScreenshotHDRCaptureMode
+0x140971265: add      rsp, 0x10
+0x140971269: pop      rbp
+0x14097126a: ret      
+0x14097126b: call     0x14007f140   ; runtime.morestack_noctxt
+0x140971270: jmp      0x140971240   ; main.resolveScreenshotHDRCaptureMode
+0x140971272: int3     
+0x140971273: int3     
+0x140971274: int3     
+0x140971275: int3     
+0x140971276: int3     
+0x140971277: int3     
+0x140971278: int3     
+0x140971279: int3     
+0x14097127a: int3     
+0x14097127b: int3     
+0x14097127c: int3     
+0x14097127d: int3     
+0x14097127e: int3     
+0x14097127f: int3     

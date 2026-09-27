@@ -1,0 +1,112 @@
+0x14077f900: lea      r12, [rsp - 0xd8]
+0x14077f908: cmp      r12, qword ptr [r14 + 0x10]
+0x14077f90c: jbe      0x14077faa7    ; main.BootstrapService.StartInputMonitor+0x1a7
+0x14077f912: push     rbp
+0x14077f913: mov      rbp, rsp
+0x14077f916: sub      rsp, 0x150
+0x14077f91d: movups   xmmword ptr [rsp + 0x160], xmm15
+0x14077f926: lea      rdi, [rsp + 0x168]
+0x14077f92e: lea      rdi, [rdi - 0x30]
+0x14077f932: nop      word ptr [rax + rax]
+0x14077f93b: nop      dword ptr [rax + rax]
+0x14077f940: mov      qword ptr [rsp - 0x10], rbp
+0x14077f945: lea      rbp, [rsp - 0x10]
+0x14077f94a: call     0x140081719    ; runtime.duffzero+0x139
+0x14077f94f: mov      rbp, qword ptr [rbp]
+0x14077f953: test     rax, rax
+0x14077f956: je       0x14077fa5c    ; main.BootstrapService.StartInputMonitor+0x15c
+0x14077f95c: mov      rax, qword ptr [rax + 0x420]
+0x14077f963: test     rax, rax
+0x14077f966: je       0x14077fa5c    ; main.BootstrapService.StartInputMonitor+0x15c
+0x14077f96c: movups   xmmword ptr [rsp + 0xb8], xmm15
+0x14077f975: lea      rdi, [rsp + 0xc0]
+0x14077f97d: lea      rdi, [rdi - 0x30]
+0x14077f981: mov      qword ptr [rsp - 0x10], rbp
+0x14077f986: lea      rbp, [rsp - 0x10]
+0x14077f98b: call     0x140081719    ; runtime.duffzero+0x139
+0x14077f990: mov      rbp, qword ptr [rbp]
+0x14077f994: mov      edi, ebx
+0x14077f996: mov      esi, ecx
+0x14077f998: lea      rbx, [rip + 0x4bc775]
+0x14077f99f: mov      ecx, 8
+0x14077f9a4: call     0x140861f40    ; main.inputMonitorService.StartOwner
+0x14077f9a9: mov      rdx, qword ptr [rsp]
+0x14077f9ad: mov      qword ptr [rsp + 0xb8], rdx
+0x14077f9b5: lea      rdi, [rsp + 0xc0]
+0x14077f9bd: lea      rsi, [rsp + 8]
+0x14077f9c2: mov      qword ptr [rsp - 0x10], rbp
+0x14077f9c7: lea      rbp, [rsp - 0x10]
+0x14077f9cc: call     0x140081a62    ; runtime.duffcopy+0x302
+0x14077f9d1: mov      rbp, qword ptr [rbp]
+0x14077f9d5: mov      rdx, qword ptr [rsp + 0xb8]
+0x14077f9dd: mov      qword ptr [rsp + 0x160], rdx
+0x14077f9e5: lea      rdi, [rsp + 0x168]
+0x14077f9ed: lea      rsi, [rsp + 0xc0]
+0x14077f9f5: nop      word ptr [rax + rax]
+0x14077f9fe: nop      
+0x14077fa00: mov      qword ptr [rsp - 0x10], rbp
+0x14077fa05: lea      rbp, [rsp - 0x10]
+0x14077fa0a: call     0x140081a62    ; runtime.duffcopy+0x302
+0x14077fa0f: mov      rbp, qword ptr [rbp]
+0x14077fa13: mov      rdx, qword ptr [rsp + 0xb8]
+0x14077fa1b: mov      qword ptr [rsp + 0x160], rdx
+0x14077fa23: lea      rdi, [rsp + 0x168]
+0x14077fa2b: lea      rsi, [rsp + 0xc0]
+0x14077fa33: nop      word ptr [rax + rax]
+0x14077fa3c: nop      dword ptr [rax]
+0x14077fa40: mov      qword ptr [rsp - 0x10], rbp
+0x14077fa45: lea      rbp, [rsp - 0x10]
+0x14077fa4a: call     0x140081a62    ; runtime.duffcopy+0x302
+0x14077fa4f: mov      rbp, qword ptr [rbp]
+0x14077fa53: add      rsp, 0x150
+0x14077fa5a: pop      rbp
+0x14077fa5b: ret      
+0x14077fa5c: mov      byte ptr [rsp + 0x160], 0
+0x14077fa64: lea      rcx, [rip + 0x4b98c6]
+0x14077fa6b: mov      qword ptr [rsp + 0x168], rcx
+0x14077fa73: mov      qword ptr [rsp + 0x170], 7
+0x14077fa7f: lea      rcx, [rip + 0x4ea177]
+0x14077fa86: mov      qword ptr [rsp + 0x190], rcx
+0x14077fa8e: mov      qword ptr [rsp + 0x198], 0x1b
+0x14077fa9a: xor      eax, eax
+0x14077fa9c: xor      ebx, ebx
+0x14077fa9e: add      rsp, 0x150
+0x14077faa5: pop      rbp
+0x14077faa6: ret      
+0x14077faa7: mov      qword ptr [rsp + 0xa0], rax
+0x14077faaf: mov      byte ptr [rsp + 0xa8], bl
+0x14077fab6: mov      byte ptr [rsp + 0xa9], cl
+0x14077fabd: nop      dword ptr [rax]
+0x14077fac0: call     0x14007f140    ; runtime.morestack_noctxt
+0x14077fac5: mov      rax, qword ptr [rsp + 0xa0]
+0x14077facd: movzx    ebx, byte ptr [rsp + 0xa8]
+0x14077fad5: movzx    ecx, byte ptr [rsp + 0xa9]
+0x14077fadd: nop      dword ptr [rax]
+0x14077fae0: jmp      0x14077f900    ; main.BootstrapService.StartInputMonitor
+0x14077fae5: int3     
+0x14077fae6: int3     
+0x14077fae7: int3     
+0x14077fae8: int3     
+0x14077fae9: int3     
+0x14077faea: int3     
+0x14077faeb: int3     
+0x14077faec: int3     
+0x14077faed: int3     
+0x14077faee: int3     
+0x14077faef: int3     
+0x14077faf0: int3     
+0x14077faf1: int3     
+0x14077faf2: int3     
+0x14077faf3: int3     
+0x14077faf4: int3     
+0x14077faf5: int3     
+0x14077faf6: int3     
+0x14077faf7: int3     
+0x14077faf8: int3     
+0x14077faf9: int3     
+0x14077fafa: int3     
+0x14077fafb: int3     
+0x14077fafc: int3     
+0x14077fafd: int3     
+0x14077fafe: int3     
+0x14077faff: int3     

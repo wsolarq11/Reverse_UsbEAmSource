@@ -1,0 +1,86 @@
+0x140910ce0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140910ce4: jbe      0x140910de5   ; main.oledBlackoutOverlayWindow.Show+0x105
+0x140910cea: push     rbp
+0x140910ceb: mov      rbp, rsp
+0x140910cee: sub      rsp, 0x28
+0x140910cf2: test     rax, rax
+0x140910cf5: je       0x140910ddb   ; main.oledBlackoutOverlayWindow.Show+0xfb
+0x140910cfb: mov      rcx, qword ptr [rax + 0x48]
+0x140910cff: nop      
+0x140910d00: test     rcx, rcx
+0x140910d03: jne      0x140910dcd   ; main.oledBlackoutOverlayWindow.Show+0xed
+0x140910d09: mov      rcx, qword ptr [rax + 0x38]
+0x140910d0d: test     rcx, rcx
+0x140910d10: je       0x140910dc3   ; main.oledBlackoutOverlayWindow.Show+0xe3
+0x140910d16: mov      qword ptr [rsp + 0x38], rax
+0x140910d1b: mov      rbx, qword ptr [rax + 0x40]
+0x140910d1f: mov      rdx, qword ptr [rip + 0x12b0dfa]
+0x140910d26: mov      rsi, qword ptr [rdx]
+0x140910d29: mov      rax, rcx
+0x140910d2c: call     rsi
+0x140910d2e: mov      rcx, qword ptr [rsp + 0x38]
+0x140910d33: mov      rsi, qword ptr [rcx + 0x38]
+0x140910d37: mov      rax, qword ptr [rcx + 0x40]
+0x140910d3b: mov      rsi, qword ptr [rsi + 0x1a0]
+0x140910d42: mov      rbx, qword ptr [rcx + 0x18]
+0x140910d46: mov      rdi, qword ptr [rcx + 0x20]
+0x140910d4a: mov      r8, qword ptr [rcx + 0x28]
+0x140910d4e: mov      rcx, qword ptr [rcx + 0x30]
+0x140910d52: mov      rdx, rcx
+0x140910d55: mov      rcx, rdi
+0x140910d58: mov      rdi, r8
+0x140910d5b: mov      r9, rsi
+0x140910d5e: mov      rsi, rdx
+0x140910d61: call     r9
+0x140910d64: mov      rcx, qword ptr [rsp + 0x38]
+0x140910d69: mov      rsi, qword ptr [rcx + 0x38]
+0x140910d6d: mov      rax, qword ptr [rcx + 0x40]
+0x140910d71: mov      rcx, qword ptr [rsi + 0x190]
+0x140910d78: mov      ebx, 1
+0x140910d7d: call     rcx
+0x140910d7f: mov      rcx, qword ptr [rsp + 0x38]
+0x140910d84: mov      rsi, qword ptr [rcx + 0x38]
+0x140910d88: mov      rax, qword ptr [rcx + 0x40]
+0x140910d8c: mov      rcx, qword ptr [rsi + 0x198]
+0x140910d93: xor      ebx, ebx
+0x140910d95: mov      edi, ebx
+0x140910d97: mov      esi, 0xffffffff
+0x140910d9c: mov      rdx, rcx
+0x140910d9f: mov      ecx, ebx
+0x140910da1: call     rdx
+0x140910da3: mov      rcx, qword ptr [rsp + 0x38]
+0x140910da8: mov      rsi, qword ptr [rcx + 0x38]
+0x140910dac: mov      rax, qword ptr [rcx + 0x40]
+0x140910db0: mov      rcx, qword ptr [rsi + 0x248]
+0x140910db7: call     rcx
+0x140910db9: xor      eax, eax
+0x140910dbb: xor      ebx, ebx
+0x140910dbd: add      rsp, 0x28
+0x140910dc1: pop      rbp
+0x140910dc2: ret      
+0x140910dc3: xor      eax, eax
+0x140910dc5: xor      ebx, ebx
+0x140910dc7: add      rsp, 0x28
+0x140910dcb: pop      rbp
+0x140910dcc: ret      
+0x140910dcd: mov      rax, rcx
+0x140910dd0: call     0x140911f80   ; main.oledBlackoutNativeOverlayWindow.Show
+0x140910dd5: add      rsp, 0x28
+0x140910dd9: pop      rbp
+0x140910dda: ret      
+0x140910ddb: xor      eax, eax
+0x140910ddd: xor      ebx, ebx
+0x140910ddf: add      rsp, 0x28
+0x140910de3: pop      rbp
+0x140910de4: ret      
+0x140910de5: mov      qword ptr [rsp + 8], rax
+0x140910dea: call     0x14007f140   ; runtime.morestack_noctxt
+0x140910def: mov      rax, qword ptr [rsp + 8]
+0x140910df4: jmp      0x140910ce0   ; main.oledBlackoutOverlayWindow.Show
+0x140910df9: int3     
+0x140910dfa: int3     
+0x140910dfb: int3     
+0x140910dfc: int3     
+0x140910dfd: int3     
+0x140910dfe: int3     
+0x140910dff: int3     

@@ -1,0 +1,111 @@
+0x14099e7e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14099e7e4: jbe      0x14099e8dd   ; main.screenshotDXGITextureSizeForDesktop+0xfd
+0x14099e7ea: push     rbp
+0x14099e7eb: mov      rbp, rsp
+0x14099e7ee: sub      rsp, 0x48
+0x14099e7f2: test     rbx, rbx
+0x14099e7f5: jle      0x14099e7fc   ; main.screenshotDXGITextureSizeForDesktop+0x1c
+0x14099e7f7: test     rcx, rcx
+0x14099e7fa: jg       0x14099e82f   ; main.screenshotDXGITextureSizeForDesktop+0x4f
+0x14099e7fc: lea      rax, [rip + 0x1b5b7d]
+0x14099e803: call     0x14001ae20   ; runtime.newobject
+0x14099e808: mov      qword ptr [rax + 8], 0x17
+0x14099e810: lea      rcx, [rip + 0x2c4856]
+0x14099e817: mov      qword ptr [rax], rcx
+0x14099e81a: xor      ebx, ebx
+0x14099e81c: lea      rcx, [rip + 0x8348dd]
+0x14099e823: mov      rdi, rax
+0x14099e826: mov      rax, rbx
+0x14099e829: add      rsp, 0x48
+0x14099e82d: pop      rbp
+0x14099e82e: ret      
+0x14099e82f: mov      qword ptr [rsp + 0x30], rbx
+0x14099e834: mov      qword ptr [rsp + 0x28], rcx
+0x14099e839: test     eax, eax
+0x14099e83b: je       0x14099e84b   ; main.screenshotDXGITextureSizeForDesktop+0x6b
+0x14099e83d: nop      dword ptr [rax]
+0x14099e840: cmp      eax, 4
+0x14099e843: ja       0x14099e84b   ; main.screenshotDXGITextureSizeForDesktop+0x6b
+0x14099e845: xor      edx, edx
+0x14099e847: xor      esi, esi
+0x14099e849: jmp      0x14099e89d   ; main.screenshotDXGITextureSizeForDesktop+0xbd
+0x14099e84b: mov      dword ptr [rsp + 0x58], eax
+0x14099e84f: movups   xmmword ptr [rsp + 0x38], xmm15
+0x14099e855: call     0x1400173c0   ; runtime.convT32
+0x14099e85a: lea      rcx, [rip + 0x14b71f]
+0x14099e861: mov      qword ptr [rsp + 0x38], rcx
+0x14099e866: mov      qword ptr [rsp + 0x40], rax
+0x14099e86b: lea      rax, [rip + 0x2df9d1]
+0x14099e872: mov      ebx, 0x27
+0x14099e877: lea      rcx, [rsp + 0x38]
+0x14099e87c: mov      edi, 1
+0x14099e881: mov      rsi, rdi
+0x14099e884: call     0x140133280   ; fmt.Errorf
+0x14099e889: mov      rcx, qword ptr [rsp + 0x28]
+0x14099e88e: mov      rdx, rax
+0x14099e891: mov      rsi, rbx
+0x14099e894: mov      eax, dword ptr [rsp + 0x58]
+0x14099e898: mov      rbx, qword ptr [rsp + 0x30]
+0x14099e89d: nop      dword ptr [rax]
+0x14099e8a0: test     rdx, rdx
+0x14099e8a3: jne      0x14099e8cc   ; main.screenshotDXGITextureSizeForDesktop+0xec
+0x14099e8a5: cmp      eax, 2
+0x14099e8a8: je       0x14099e8af   ; main.screenshotDXGITextureSizeForDesktop+0xcf
+0x14099e8aa: cmp      eax, 4
+0x14099e8ad: jne      0x14099e8bc   ; main.screenshotDXGITextureSizeForDesktop+0xdc
+0x14099e8af: mov      rax, rcx
+0x14099e8b2: xor      ecx, ecx
+0x14099e8b4: xor      edi, edi
+0x14099e8b6: add      rsp, 0x48
+0x14099e8ba: pop      rbp
+0x14099e8bb: ret      
+0x14099e8bc: mov      rax, rbx
+0x14099e8bf: mov      rbx, rcx
+0x14099e8c2: xor      ecx, ecx
+0x14099e8c4: xor      edi, edi
+0x14099e8c6: add      rsp, 0x48
+0x14099e8ca: pop      rbp
+0x14099e8cb: ret      
+0x14099e8cc: xor      eax, eax
+0x14099e8ce: mov      rbx, rax
+0x14099e8d1: mov      rcx, rdx
+0x14099e8d4: mov      rdi, rsi
+0x14099e8d7: add      rsp, 0x48
+0x14099e8db: pop      rbp
+0x14099e8dc: ret      
+0x14099e8dd: mov      dword ptr [rsp + 8], eax
+0x14099e8e1: mov      qword ptr [rsp + 0x10], rbx
+0x14099e8e6: mov      qword ptr [rsp + 0x18], rcx
+0x14099e8eb: call     0x14007f140   ; runtime.morestack_noctxt
+0x14099e8f0: mov      eax, dword ptr [rsp + 8]
+0x14099e8f4: mov      rbx, qword ptr [rsp + 0x10]
+0x14099e8f9: mov      rcx, qword ptr [rsp + 0x18]
+0x14099e8fe: nop      
+0x14099e900: jmp      0x14099e7e0   ; main.screenshotDXGITextureSizeForDesktop
+0x14099e905: int3     
+0x14099e906: int3     
+0x14099e907: int3     
+0x14099e908: int3     
+0x14099e909: int3     
+0x14099e90a: int3     
+0x14099e90b: int3     
+0x14099e90c: int3     
+0x14099e90d: int3     
+0x14099e90e: int3     
+0x14099e90f: int3     
+0x14099e910: int3     
+0x14099e911: int3     
+0x14099e912: int3     
+0x14099e913: int3     
+0x14099e914: int3     
+0x14099e915: int3     
+0x14099e916: int3     
+0x14099e917: int3     
+0x14099e918: int3     
+0x14099e919: int3     
+0x14099e91a: int3     
+0x14099e91b: int3     
+0x14099e91c: int3     
+0x14099e91d: int3     
+0x14099e91e: int3     
+0x14099e91f: int3     

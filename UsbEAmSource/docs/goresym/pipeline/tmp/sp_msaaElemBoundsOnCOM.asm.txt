@@ -1,0 +1,45 @@
+0x1409afb20: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409afb24: jbe      0x1409afb77   ; main.screenshotMSAAElementBoundsAtPointOnCOMThread+0x57
+0x1409afb26: push     rbp
+0x1409afb27: mov      rbp, rsp
+0x1409afb2a: sub      rsp, 0x18
+0x1409afb2e: test     rcx, rcx
+0x1409afb31: je       0x1409afb61   ; main.screenshotMSAAElementBoundsAtPointOnCOMThread+0x41
+0x1409afb33: mov      qword ptr [rsp + 0x30], rcx
+0x1409afb38: mov      dword ptr [rsp + 0x14], ebx
+0x1409afb3c: mov      dword ptr [rsp + 0x10], eax
+0x1409afb40: call     0x1409afba0   ; main.screenshotMSAAElementBoundsAtPointFromWindow
+0x1409afb45: test     rsi, rsi
+0x1409afb48: jne      0x1409afb54   ; main.screenshotMSAAElementBoundsAtPointOnCOMThread+0x34
+0x1409afb4a: cmp      rax, rcx
+0x1409afb4d: jge      0x1409afb54   ; main.screenshotMSAAElementBoundsAtPointOnCOMThread+0x34
+0x1409afb4f: cmp      rbx, rdi
+0x1409afb52: jl       0x1409afb6c   ; main.screenshotMSAAElementBoundsAtPointOnCOMThread+0x4c
+0x1409afb54: mov      eax, dword ptr [rsp + 0x10]
+0x1409afb58: mov      rcx, qword ptr [rsp + 0x30]
+0x1409afb5d: mov      ebx, dword ptr [rsp + 0x14]
+0x1409afb61: call     0x1409affa0   ; main.screenshotMSAAElementBoundsAtPointGlobal
+0x1409afb66: add      rsp, 0x18
+0x1409afb6a: pop      rbp
+0x1409afb6b: ret      
+0x1409afb6c: xor      esi, esi
+0x1409afb6e: xor      r8d, r8d
+0x1409afb71: add      rsp, 0x18
+0x1409afb75: pop      rbp
+0x1409afb76: ret      
+0x1409afb77: mov      dword ptr [rsp + 8], eax
+0x1409afb7b: mov      dword ptr [rsp + 0xc], ebx
+0x1409afb7f: mov      qword ptr [rsp + 0x10], rcx
+0x1409afb84: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409afb89: mov      eax, dword ptr [rsp + 8]
+0x1409afb8d: mov      ebx, dword ptr [rsp + 0xc]
+0x1409afb91: mov      rcx, qword ptr [rsp + 0x10]
+0x1409afb96: jmp      0x1409afb20   ; main.screenshotMSAAElementBoundsAtPointOnCOMThread
+0x1409afb98: int3     
+0x1409afb99: int3     
+0x1409afb9a: int3     
+0x1409afb9b: int3     
+0x1409afb9c: int3     
+0x1409afb9d: int3     
+0x1409afb9e: int3     
+0x1409afb9f: int3     

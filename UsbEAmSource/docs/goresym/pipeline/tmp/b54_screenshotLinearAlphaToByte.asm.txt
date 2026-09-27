@@ -1,0 +1,80 @@
+0x14097de80: cvtss2sd xmm1, xmm0
+0x14097de84: ucomisd  xmm1, xmm1
+0x14097de88: jne      0x14097de94   ; main.screenshotLinearAlphaToByte+0x14
+0x14097de8a: jp       0x14097de94   ; main.screenshotLinearAlphaToByte+0x14
+0x14097de8c: xorps    xmm2, xmm2
+0x14097de8f: ucomiss  xmm2, xmm0
+0x14097de92: jb       0x14097de97   ; main.screenshotLinearAlphaToByte+0x17
+0x14097de94: xor      eax, eax
+0x14097de96: ret      
+0x14097de97: movss    xmm2, dword ptr [rip + 0x84f5f1]
+0x14097de9f: ucomiss  xmm0, xmm2
+0x14097dea2: jae      0x14097df63   ; main.screenshotLinearAlphaToByte+0xe3
+0x14097dea8: movsd    xmm0, qword ptr [rip + 0x84f938]
+0x14097deb0: mulsd    xmm1, xmm0
+0x14097deb4: movq     rcx, xmm1
+0x14097deb9: mov      rdx, rcx
+0x14097debc: shr      rdx, 0x34
+0x14097dec0: and      edx, 0x7ff
+0x14097dec6: nop      
+0x14097dec7: cmp      rdx, 0x3ff
+0x14097dece: jae      0x14097df00   ; main.screenshotLinearAlphaToByte+0x80
+0x14097ded0: movabs   rbx, 0x8000000000000000
+0x14097deda: and      rbx, rcx
+0x14097dedd: movabs   rcx, 0x3ff0000000000000
+0x14097dee7: or       rcx, rbx
+0x14097deea: cmp      rdx, 0x3fe
+0x14097def1: cmove    rbx, rcx
+0x14097def5: mov      rsi, rbx
+0x14097def8: jmp      0x14097df3e   ; main.screenshotLinearAlphaToByte+0xbe
+0x14097defa: nop      word ptr [rax + rax]
+0x14097df00: cmp      rdx, 0x433
+0x14097df07: jae      0x14097df3b   ; main.screenshotLinearAlphaToByte+0xbb
+0x14097df09: add      rdx, -0x3ff
+0x14097df10: mov      rax, rcx
+0x14097df13: mov      rcx, rdx
+0x14097df16: movabs   rbx, 0x8000000000000
+0x14097df20: shr      rbx, cl
+0x14097df23: add      rbx, rax
+0x14097df26: movabs   rsi, 0xfffffffffffff
+0x14097df30: shr      rsi, cl
+0x14097df33: not      rsi
+0x14097df36: and      rsi, rbx
+0x14097df39: jmp      0x14097df3e   ; main.screenshotLinearAlphaToByte+0xbe
+0x14097df3b: mov      rsi, rcx
+0x14097df3e: movq     xmm0, rsi
+0x14097df43: cvttsd2si rcx, xmm0
+0x14097df48: test     rcx, rcx
+0x14097df4b: jge      0x14097df51   ; main.screenshotLinearAlphaToByte+0xd1
+0x14097df4d: xor      ecx, ecx
+0x14097df4f: jmp      0x14097df5f   ; main.screenshotLinearAlphaToByte+0xdf
+0x14097df51: cmp      rcx, 0xff
+0x14097df58: jle      0x14097df5f   ; main.screenshotLinearAlphaToByte+0xdf
+0x14097df5a: mov      ecx, 0xff
+0x14097df5f: mov      rax, rcx
+0x14097df62: ret      
+0x14097df63: mov      eax, 0xffffffff
+0x14097df68: ret      
+0x14097df69: int3     
+0x14097df6a: int3     
+0x14097df6b: int3     
+0x14097df6c: int3     
+0x14097df6d: int3     
+0x14097df6e: int3     
+0x14097df6f: int3     
+0x14097df70: int3     
+0x14097df71: int3     
+0x14097df72: int3     
+0x14097df73: int3     
+0x14097df74: int3     
+0x14097df75: int3     
+0x14097df76: int3     
+0x14097df77: int3     
+0x14097df78: int3     
+0x14097df79: int3     
+0x14097df7a: int3     
+0x14097df7b: int3     
+0x14097df7c: int3     
+0x14097df7d: int3     
+0x14097df7e: int3     
+0x14097df7f: int3     

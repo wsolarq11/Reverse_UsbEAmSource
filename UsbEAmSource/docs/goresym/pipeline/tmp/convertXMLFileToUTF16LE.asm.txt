@@ -1,0 +1,97 @@
+0x1408b2740: lea      r12, [rsp - 0x28]
+0x1408b2745: cmp      r12, qword ptr [r14 + 0x10]
+0x1408b2749: jbe      0x1408b2901   ; main.convertXMLFileToUTF16LE+0x1c1
+0x1408b274f: push     rbp
+0x1408b2750: mov      rbp, rsp
+0x1408b2753: sub      rsp, 0xa0
+0x1408b275a: mov      qword ptr [rsp + 0xb8], rbx
+0x1408b2762: mov      qword ptr [rsp + 0xb0], rax
+0x1408b276a: call     0x140129160   ; os.ReadFile
+0x1408b276f: test     rdi, rdi
+0x1408b2772: jne      0x1408b28ed   ; main.convertXMLFileToUTF16LE+0x1ad
+0x1408b2778: movabs   rdx, 0x6576206c6d783f3c
+0x1408b2782: mov      qword ptr [rsp + 0x51], rdx
+0x1408b2787: movabs   rdx, 0x223d6e6f69737265
+0x1408b2791: mov      qword ptr [rsp + 0x58], rdx
+0x1408b2796: movabs   rdx, 0x636e652022302e31
+0x1408b27a0: mov      qword ptr [rsp + 0x60], rdx
+0x1408b27a5: movabs   rdx, 0x55223d676e69646f
+0x1408b27af: mov      qword ptr [rsp + 0x68], rdx
+0x1408b27b4: movabs   rdx, 0xa3e3f22382d4654
+0x1408b27be: mov      qword ptr [rsp + 0x70], rdx
+0x1408b27c3: mov      qword ptr [rsp], 1
+0x1408b27cb: lea      rdi, [rsp + 0x51]
+0x1408b27d0: mov      esi, 0x27
+0x1408b27d5: mov      r8, rsi
+0x1408b27d8: lea      r9, [rip + 0x3cc963]
+0x1408b27df: mov      r10d, 0x28
+0x1408b27e5: mov      r11, r10
+0x1408b27e8: call     0x140146380   ; bytes.Replace
+0x1408b27ed: mov      qword ptr [rsp + 0x98], rax
+0x1408b27f5: mov      qword ptr [rsp + 0x80], rbx
+0x1408b27fd: mov      qword ptr [rsp + 0x88], rcx
+0x1408b2805: xor      eax, eax
+0x1408b2807: mov      rbx, qword ptr [rsp + 0xb0]
+0x1408b280f: mov      rcx, qword ptr [rsp + 0xb8]
+0x1408b2817: lea      rdi, [rip + 0x3919ad]
+0x1408b281e: mov      esi, 0xa
+0x1408b2823: call     0x14005fc00   ; runtime.concatstring2
+0x1408b2828: mov      qword ptr [rsp + 0x90], rax
+0x1408b2830: mov      qword ptr [rsp + 0x78], rbx
+0x1408b2835: mov      rax, qword ptr [rsp + 0x98]
+0x1408b283d: mov      rbx, qword ptr [rsp + 0x80]
+0x1408b2845: mov      rcx, qword ptr [rsp + 0x88]
+0x1408b284d: call     0x1408b2600   ; main.encodeUTF16LEWithBOM
+0x1408b2852: mov      rdi, rbx
+0x1408b2855: mov      rsi, rcx
+0x1408b2858: mov      r8d, 0x180
+0x1408b285e: mov      rbx, qword ptr [rsp + 0x78]
+0x1408b2863: mov      rcx, rax
+0x1408b2866: mov      rax, qword ptr [rsp + 0x90]
+0x1408b286e: call     0x1401295e0   ; os.WriteFile
+0x1408b2873: test     rax, rax
+0x1408b2876: jne      0x1408b28d3   ; main.convertXMLFileToUTF16LE+0x193
+0x1408b2878: lea      rax, [rip + 0x2b45e1]
+0x1408b287f: nop      
+0x1408b2880: call     0x14001ae20   ; runtime.newobject
+0x1408b2885: lea      rcx, [rip + 0x94]
+0x1408b288c: mov      qword ptr [rax], rcx
+0x1408b288f: mov      rbx, qword ptr [rsp + 0x78]
+0x1408b2894: mov      qword ptr [rax + 0x10], rbx
+0x1408b2898: cmp      dword ptr [rip + 0x13a8ab1], 0
+0x1408b289f: nop      
+0x1408b28a0: jne      0x1408b28ac   ; main.convertXMLFileToUTF16LE+0x16c
+0x1408b28a2: mov      rdx, qword ptr [rsp + 0x90]
+0x1408b28aa: jmp      0x1408b28bc   ; main.convertXMLFileToUTF16LE+0x17c
+0x1408b28ac: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408b28b1: mov      rdx, qword ptr [rsp + 0x90]
+0x1408b28b9: mov      qword ptr [r11], rdx
+0x1408b28bc: mov      qword ptr [rax + 8], rdx
+0x1408b28c0: mov      rcx, rax
+0x1408b28c3: xor      edi, edi
+0x1408b28c5: xor      esi, esi
+0x1408b28c7: mov      rax, rdx
+0x1408b28ca: add      rsp, 0xa0
+0x1408b28d1: pop      rbp
+0x1408b28d2: ret      
+0x1408b28d3: lea      rcx, [rip + 0x7e410e]
+0x1408b28da: mov      rdi, rax
+0x1408b28dd: mov      rsi, rbx
+0x1408b28e0: xor      eax, eax
+0x1408b28e2: xor      ebx, ebx
+0x1408b28e4: add      rsp, 0xa0
+0x1408b28eb: pop      rbp
+0x1408b28ec: ret      
+0x1408b28ed: xor      eax, eax
+0x1408b28ef: xor      ebx, ebx
+0x1408b28f1: lea      rcx, [rip + 0x7e40e8]
+0x1408b28f8: add      rsp, 0xa0
+0x1408b28ff: pop      rbp
+0x1408b2900: ret      
+0x1408b2901: mov      qword ptr [rsp + 8], rax
+0x1408b2906: mov      qword ptr [rsp + 0x10], rbx
+0x1408b290b: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408b2910: mov      rax, qword ptr [rsp + 8]
+0x1408b2915: mov      rbx, qword ptr [rsp + 0x10]
+0x1408b291a: jmp      0x1408b2740   ; main.convertXMLFileToUTF16LE
+0x1408b291f: int3     

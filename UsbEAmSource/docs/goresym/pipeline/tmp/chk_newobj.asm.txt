@@ -1,0 +1,5 @@
+0x1407bf2e0: pop      rbp
+0x1407bf2e1: ret      
+0x1407bf2e2: lea      rax, [rip + 0x43ef77]
+0x1407bf2e9: call     0x14001ae20   ; runtime.newobject
+0x1407bf2ee: mov      qword ptr [rsp + 0x80], rax

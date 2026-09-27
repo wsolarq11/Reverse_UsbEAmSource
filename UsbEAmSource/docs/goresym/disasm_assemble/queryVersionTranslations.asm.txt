@@ -1,0 +1,62 @@
+0x140748c00: cmp      rsp, qword ptr [r14 + 0x10]
+0x140748c04: jbe      0x140748c5e    ; main.queryVersionTranslations+0x5e
+0x140748c06: push     rbp
+0x140748c07: mov      rbp, rsp
+0x140748c0a: sub      rsp, 0x28
+0x140748c0e: mov      qword ptr [rsp + 0x48], rcx
+0x140748c13: mov      qword ptr [rsp + 0x40], rbx
+0x140748c18: mov      qword ptr [rsp + 0x38], rax
+0x140748c1d: lea      rdi, [rip + 0x51bf84]
+0x140748c24: mov      esi, 0x18
+0x140748c29: call     0x140749220    ; main.queryVersionValueLocation
+0x140748c2e: test     cl, cl
+0x140748c30: je       0x140748c51    ; main.queryVersionTranslations+0x51
+0x140748c32: mov      rcx, qword ptr [rsp + 0x48]
+0x140748c37: mov      rdi, rax
+0x140748c3a: mov      esi, ebx
+0x140748c3c: mov      rax, qword ptr [rsp + 0x38]
+0x140748c41: mov      rbx, qword ptr [rsp + 0x40]
+0x140748c46: call     0x140748ca0    ; main.decodeVersionTranslations
+0x140748c4b: add      rsp, 0x28
+0x140748c4f: pop      rbp
+0x140748c50: ret      
+0x140748c51: xor      eax, eax
+0x140748c53: xor      ebx, ebx
+0x140748c55: mov      rcx, rbx
+0x140748c58: add      rsp, 0x28
+0x140748c5c: pop      rbp
+0x140748c5d: ret      
+0x140748c5e: mov      qword ptr [rsp + 8], rax
+0x140748c63: mov      qword ptr [rsp + 0x10], rbx
+0x140748c68: mov      qword ptr [rsp + 0x18], rcx
+0x140748c6d: call     0x14007f140    ; runtime.morestack_noctxt
+0x140748c72: mov      rax, qword ptr [rsp + 8]
+0x140748c77: mov      rbx, qword ptr [rsp + 0x10]
+0x140748c7c: mov      rcx, qword ptr [rsp + 0x18]
+0x140748c81: jmp      0x140748c00    ; main.queryVersionTranslations
+0x140748c86: int3     
+0x140748c87: int3     
+0x140748c88: int3     
+0x140748c89: int3     
+0x140748c8a: int3     
+0x140748c8b: int3     
+0x140748c8c: int3     
+0x140748c8d: int3     
+0x140748c8e: int3     
+0x140748c8f: int3     
+0x140748c90: int3     
+0x140748c91: int3     
+0x140748c92: int3     
+0x140748c93: int3     
+0x140748c94: int3     
+0x140748c95: int3     
+0x140748c96: int3     
+0x140748c97: int3     
+0x140748c98: int3     
+0x140748c99: int3     
+0x140748c9a: int3     
+0x140748c9b: int3     
+0x140748c9c: int3     
+0x140748c9d: int3     
+0x140748c9e: int3     
+0x140748c9f: int3     

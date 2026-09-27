@@ -1,0 +1,105 @@
+0x140912860: cmp      rsp, qword ptr [r14 + 0x10]
+0x140912864: jbe      0x1409129c1   ; main.oledBlackoutNativeOverlayWindow.setBoundsOnThread+0x161
+0x14091286a: push     rbp
+0x14091286b: mov      rbp, rsp
+0x14091286e: sub      rsp, 0x68
+0x140912872: mov      qword ptr [rsp + 0x78], rax
+0x140912877: mov      qword ptr [rsp + 0x58], rsi
+0x14091287c: mov      qword ptr [rsp + 0x50], rbx
+0x140912881: mov      qword ptr [rsp + 0x48], rcx
+0x140912886: mov      qword ptr [rsp + 0x40], rdi
+0x14091288b: nop      
+0x14091288c: lea      rdx, [rax + 0x18]
+0x140912890: mov      r8, rax
+0x140912893: xor      eax, eax
+0x140912895: mov      r9d, 1
+0x14091289b: lock cmpxchg dword ptr [r8 + 0x18], r9d
+0x1409128a1: sete     r9b
+0x1409128a5: test     r9b, r9b
+0x1409128a8: jne      0x1409128d5   ; main.oledBlackoutNativeOverlayWindow.setBoundsOnThread+0x75
+0x1409128aa: mov      qword ptr [rsp + 0x60], rdx
+0x1409128af: mov      rax, rdx
+0x1409128b2: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1409128b7: mov      rcx, qword ptr [rsp + 0x48]
+0x1409128bc: mov      rdx, qword ptr [rsp + 0x60]
+0x1409128c1: mov      rbx, qword ptr [rsp + 0x50]
+0x1409128c6: mov      rsi, qword ptr [rsp + 0x58]
+0x1409128cb: mov      rdi, qword ptr [rsp + 0x40]
+0x1409128d0: mov      r8, qword ptr [rsp + 0x78]
+0x1409128d5: mov      qword ptr [r8 + 0x30], rbx
+0x1409128d9: mov      qword ptr [r8 + 0x38], rcx
+0x1409128dd: mov      qword ptr [r8 + 0x40], rdi
+0x1409128e1: mov      qword ptr [r8 + 0x48], rsi
+0x1409128e5: nop      
+0x1409128e6: nop      
+0x1409128e7: mov      r9d, 0xffffffff
+0x1409128ed: lock xadd dword ptr [r8 + 0x18], r9d
+0x1409128f3: dec      r9d
+0x1409128f6: je       0x14091290a   ; main.oledBlackoutNativeOverlayWindow.setBoundsOnThread+0xaa
+0x1409128f8: mov      rax, rdx
+0x1409128fb: mov      ebx, r9d
+0x1409128fe: nop      
+0x140912900: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x140912905: mov      r8, qword ptr [rsp + 0x78]
+0x14091290a: mov      rax, r8
+0x14091290d: call     0x140912ca0   ; main.oledBlackoutNativeOverlayWindow.handle
+0x140912912: test     rax, rax
+0x140912915: je       0x1409129ba   ; main.oledBlackoutNativeOverlayWindow.setBoundsOnThread+0x15a
+0x14091291b: mov      qword ptr [rsp + 0x38], rax
+0x140912920: mov      rbx, rax
+0x140912923: mov      rax, qword ptr [rsp + 0x78]
+0x140912928: call     0x140912380   ; main.oledBlackoutNativeOverlayWindow.applyWindowChrome
+0x14091292d: mov      rsi, qword ptr [rsp + 0x40]
+0x140912932: test     rsi, rsi
+0x140912935: mov      ecx, 1
+0x14091293a: cmovle   rsi, rcx
+0x14091293e: mov      r8, qword ptr [rsp + 0x58]
+0x140912943: test     r8, r8
+0x140912946: cmovle   r8, rcx
+0x14091294a: mov      rax, qword ptr [rsp + 0x38]
+0x14091294f: mov      rbx, 0xffffffffffffffff
+0x140912956: mov      rcx, qword ptr [rsp + 0x50]
+0x14091295b: mov      rdi, qword ptr [rsp + 0x48]
+0x140912960: mov      r9d, 0x10
+0x140912966: call     0x1401e09c0   ; github.com/wailsapp/wails/v3/pkg/w32.SetWindowPos
+0x14091296b: mov      rcx, qword ptr [rsp + 0x78]
+0x140912970: cmp      byte ptr [rcx + 0x50], 0
+0x140912974: je       0x1409129b4   ; main.oledBlackoutNativeOverlayWindow.setBoundsOnThread+0x154
+0x140912976: mov      rax, qword ptr [rsp + 0x38]
+0x14091297b: xor      ebx, ebx
+0x14091297d: xor      ecx, ecx
+0x14091297f: nop      
+0x140912980: call     0x1401e0580   ; github.com/wailsapp/wails/v3/pkg/w32.InvalidateRect
+0x140912985: nop      
+0x140912986: lea      rax, [rip + 0x1eaff3]
+0x14091298d: call     0x14001ae20   ; runtime.newobject
+0x140912992: mov      rdx, qword ptr [rsp + 0x38]
+0x140912997: mov      qword ptr [rax], rdx
+0x14091299a: mov      rdx, qword ptr [rip + 0x12afe6f]
+0x1409129a1: mov      rbx, rax
+0x1409129a4: mov      ecx, 1
+0x1409129a9: mov      rdi, rcx
+0x1409129ac: mov      rax, rdx
+0x1409129af: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409129b4: add      rsp, 0x68
+0x1409129b8: pop      rbp
+0x1409129b9: ret      
+0x1409129ba: add      rsp, 0x68
+0x1409129be: pop      rbp
+0x1409129bf: nop      
+0x1409129c0: ret      
+0x1409129c1: mov      qword ptr [rsp + 8], rax
+0x1409129c6: mov      qword ptr [rsp + 0x10], rbx
+0x1409129cb: mov      qword ptr [rsp + 0x18], rcx
+0x1409129d0: mov      qword ptr [rsp + 0x20], rdi
+0x1409129d5: mov      qword ptr [rsp + 0x28], rsi
+0x1409129da: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409129df: mov      rax, qword ptr [rsp + 8]
+0x1409129e4: mov      rbx, qword ptr [rsp + 0x10]
+0x1409129e9: mov      rcx, qword ptr [rsp + 0x18]
+0x1409129ee: mov      rdi, qword ptr [rsp + 0x20]
+0x1409129f3: mov      rsi, qword ptr [rsp + 0x28]
+0x1409129f8: jmp      0x140912860   ; main.oledBlackoutNativeOverlayWindow.setBoundsOnThread
+0x1409129fd: int3     
+0x1409129fe: int3     
+0x1409129ff: int3     

@@ -1,0 +1,14 @@
+0x140756220: lea      r12, [rsp - 0x58]
+0x140756225: cmp      r12, qword ptr [r14 + 0x10]
+0x140756229: jbe      0x140756642   ; main.audioClient.buildSessionSnapshot+0x422
+0x14075622f: push     rbp
+0x140756230: mov      rbp, rsp
+0x140756233: sub      rsp, 0xd0
+0x14075623a: mov      qword ptr [rsp + 0x160], rax
+0x140756242: mov      qword ptr [rsp + 0x168], rbx
+0x14075624a: mov      qword ptr [rsp + 0x170], rcx
+0x140756252: lea      rdi, [rsp + 0xe0]
+0x14075625a: nop      word ptr [rax + rax]
+0x140756260: mov      qword ptr [rsp - 0x10], rbp
+0x140756265: lea      rbp, [rsp - 0x10]
+0x14075626a: call     0x140081722   ; runtime.duffzero+0x142

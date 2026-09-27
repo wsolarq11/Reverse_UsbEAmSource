@@ -1,0 +1,98 @@
+0x1407d3400: lea      r12, [rsp - 0x88]
+0x1407d3408: cmp      r12, qword ptr [r14 + 0x10]
+0x1407d340c: jbe      0x1407d37e1   ; main.buildFileLocatorPathFilter+0x3e1
+0x1407d3412: push     rbp
+0x1407d3413: mov      rbp, rsp
+0x1407d3416: sub      rsp, 0x100
+0x1407d341d: mov      qword ptr [rsp + 0x110], rax
+0x1407d3425: mov      qword ptr [rsp + 0x118], rbx
+0x1407d342d: mov      qword ptr [rsp + 0x120], rcx
+0x1407d3435: mov      qword ptr [rsp + 0x128], rdi
+0x1407d343d: mov      qword ptr [rsp + 0x130], rsi
+0x1407d3445: mov      qword ptr [rsp + 0x138], r8
+0x1407d344d: mov      qword ptr [rsp + 0x140], r9
+0x1407d3455: mov      qword ptr [rsp + 0x148], r10
+0x1407d345d: mov      rax, rsi
+0x1407d3460: mov      rbx, r8
+0x1407d3463: call     0x1407d4260   ; main.splitFileLocatorFilterEntries
+0x1407d3468: test     rbx, rbx
+0x1407d346b: je       0x1407d34cf   ; main.buildFileLocatorPathFilter+0xcf
+0x1407d346d: mov      qword ptr [rsp + 0x48], rbx
+0x1407d3472: mov      qword ptr [rsp + 0xa0], rax
+0x1407d347a: lea      rax, [rip + 0x3aa95f]
+0x1407d3481: call     0x14001ae20   ; runtime.newobject
+0x1407d3486: mov      qword ptr [rsp + 0x88], rax
+0x1407d348e: lea      rcx, [rip + 0x148752b]
+0x1407d3495: mov      qword ptr [rax], rcx
+0x1407d3498: movups   xmmword ptr [rax + 0x20], xmm15
+0x1407d349d: mov      qword ptr [rax + 0x18], rcx
+0x1407d34a1: mov      rax, qword ptr [rsp + 0x140]
+0x1407d34a9: mov      rbx, qword ptr [rsp + 0x148]
+0x1407d34b1: call     0x14087b100   ; main.normalizeFileLocatorFilterType
+0x1407d34b6: mov      qword ptr [rsp + 0xa8], rax
+0x1407d34be: mov      qword ptr [rsp + 0x50], rbx
+0x1407d34c3: mov      rcx, qword ptr [rsp + 0xa0]
+0x1407d34cb: xor      edx, edx
+0x1407d34cd: jmp      0x1407d3502   ; main.buildFileLocatorPathFilter+0x102
+0x1407d34cf: xor      eax, eax
+0x1407d34d1: xor      ebx, ebx
+0x1407d34d3: xor      ecx, ecx
+0x1407d34d5: add      rsp, 0x100
+0x1407d34dc: pop      rbp
+0x1407d34dd: ret      
+0x1407d34de: mov      rcx, qword ptr [rsp + 0xb0]
+0x1407d34e6: add      rcx, 0x10
+0x1407d34ea: mov      rsi, qword ptr [rsp + 0x58]
+0x1407d34ef: inc      rsi
+0x1407d34f2: mov      rax, qword ptr [rsp + 0xa8]
+0x1407d34fa: mov      rbx, qword ptr [rsp + 0x50]
+0x1407d34ff: mov      rdx, rsi
+0x1407d3502: mov      rsi, qword ptr [rsp + 0x48]
+0x1407d3507: cmp      rsi, rdx
+0x1407d350a: jle      0x1407d37af   ; main.buildFileLocatorPathFilter+0x3af
+0x1407d3510: mov      qword ptr [rsp + 0x58], rdx
+0x1407d3515: mov      qword ptr [rsp + 0xb0], rcx
+0x1407d351d: mov      rdx, qword ptr [rcx]
+0x1407d3520: mov      rsi, qword ptr [rcx + 8]
+0x1407d3524: mov      rcx, rax
+0x1407d3527: mov      rdi, rbx
+0x1407d352a: mov      rax, rdx
+0x1407d352d: mov      rbx, rsi
+0x1407d3530: call     0x1407d3840   ; main.parseFileLocatorFilterRule
+0x1407d3535: mov      byte ptr [rsp + 0xb8], al
+0x1407d353c: mov      qword ptr [rsp + 0xc0], rbx
+0x1407d3544: mov      qword ptr [rsp + 0xc8], rcx
+0x1407d354c: mov      qword ptr [rsp + 0xd0], rdi
+0x1407d3554: mov      qword ptr [rsp + 0xd8], rsi
+0x1407d355c: mov      rdx, qword ptr [rsp + 0xb8]
+0x1407d3564: mov      qword ptr [rsp + 0x60], rdx
+0x1407d3569: movups   xmm0, xmmword ptr [rsp + 0xc0]
+0x1407d3571: movups   xmmword ptr [rsp + 0x68], xmm0
+0x1407d3576: movups   xmm0, xmmword ptr [rsp + 0xd0]
+0x1407d357e: movups   xmmword ptr [rsp + 0x78], xmm0
+0x1407d3583: mov      rbx, qword ptr [rsp + 0x80]
+0x1407d358b: test     rbx, rbx
+0x1407d358e: jne      0x1407d359d   ; main.buildFileLocatorPathFilter+0x19d
+0x1407d3590: mov      rdx, qword ptr [rsp + 0x88]
+0x1407d3598: jmp      0x1407d34de   ; main.buildFileLocatorPathFilter+0xde
+0x1407d359d: mov      rax, qword ptr [rsp + 0x78]
+0x1407d35a2: mov      rdi, qword ptr [rsp + 0x70]
+0x1407d35a7: mov      rcx, qword ptr [rsp + 0x68]
+0x1407d35ac: call     0x1407d3c00   ; main.newFileLocatorPathMatcher
+0x1407d35b1: test     rbx, rbx
+0x1407d35b4: jne      0x1407d3705   ; main.buildFileLocatorPathFilter+0x305
+0x1407d35ba: nop      word ptr [rax + rax]
+0x1407d35c0: test     rax, rax
+0x1407d35c3: je       0x1407d36f6   ; main.buildFileLocatorPathFilter+0x2f6
+0x1407d35c9: mov      qword ptr [rsp + 0x90], rax
+0x1407d35d1: cmp      byte ptr [rsp + 0x60], 0
+0x1407d35d6: je       0x1407d3667   ; main.buildFileLocatorPathFilter+0x267
+0x1407d35dc: mov      rdx, qword ptr [rsp + 0x88]
+0x1407d35e4: mov      rcx, qword ptr [rdx + 0x10]
+0x1407d35e8: mov      rbx, qword ptr [rdx + 8]
+0x1407d35ec: inc      rbx
+0x1407d35ef: mov      r8, qword ptr [rdx]
+0x1407d35f2: cmp      rcx, rbx
+0x1407d35f5: jae      0x1407d363f   ; main.buildFileLocatorPathFilter+0x23f
+0x1407d35f7: mov      rax, r8
+0x1407d35fa: mov      edi, 1

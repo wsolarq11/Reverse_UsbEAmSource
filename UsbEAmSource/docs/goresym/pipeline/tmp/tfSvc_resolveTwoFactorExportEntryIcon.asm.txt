@@ -1,0 +1,258 @@
+0x1409cfc00: lea      r12, [rsp - 0x180]
+0x1409cfc08: cmp      r12, qword ptr [r14 + 0x10]
+0x1409cfc0c: jbe      0x1409d00d3   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x4d3
+0x1409cfc12: push     rbp
+0x1409cfc13: mov      rbp, rsp
+0x1409cfc16: sub      rsp, 0x1f8
+0x1409cfc1d: mov      qword ptr [rsp + 0x3a8], rax
+0x1409cfc25: lea      rdi, [rsp + 0x2d8]
+0x1409cfc2d: lea      rdi, [rdi - 0x30]
+0x1409cfc31: nop      word ptr [rax + rax]
+0x1409cfc3a: nop      word ptr [rax + rax]
+0x1409cfc40: mov      qword ptr [rsp - 0x10], rbp
+0x1409cfc45: lea      rbp, [rsp - 0x10]
+0x1409cfc4a: call     0x140081702   ; runtime.duffzero+0x122
+0x1409cfc4f: mov      rbp, qword ptr [rbp]
+0x1409cfc53: mov      rdi, rsp
+0x1409cfc56: lea      rsi, [rsp + 0x208]
+0x1409cfc5e: nop      
+0x1409cfc60: mov      qword ptr [rsp - 0x10], rbp
+0x1409cfc65: lea      rbp, [rsp - 0x10]
+0x1409cfc6a: call     0x140081a2a   ; runtime.duffcopy+0x2ca
+0x1409cfc6f: mov      rbp, qword ptr [rbp]
+0x1409cfc73: call     0x1409c77a0   ; main.normalizeTwoFactorEntryConfig
+0x1409cfc78: lea      rdi, [rsp + 0x208]
+0x1409cfc80: lea      rsi, [rsp + 0xd0]
+0x1409cfc88: mov      qword ptr [rsp - 0x10], rbp
+0x1409cfc8d: lea      rbp, [rsp - 0x10]
+0x1409cfc92: call     0x140081a2a   ; runtime.duffcopy+0x2ca
+0x1409cfc97: mov      rbp, qword ptr [rbp]
+0x1409cfc9b: cmp      qword ptr [rsp + 0x270], 0
+0x1409cfca4: jne      0x1409cfcda   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0xda
+0x1409cfca6: cmp      qword ptr [rsp + 0x280], 0
+0x1409cfcaf: je       0x1409cfcda   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0xda
+0x1409cfcb1: mov      rax, qword ptr [rsp + 0x218]
+0x1409cfcb9: mov      rbx, qword ptr [rsp + 0x220]
+0x1409cfcc1: call     0x1409c7ca0   ; main.sanitizeTwoFactorKind
+0x1409cfcc6: cmp      rbx, 5
+0x1409cfcca: jne      0x1409cfd41   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x141
+0x1409cfccc: cmp      dword ptr [rax], 0x61657473
+0x1409cfcd2: jne      0x1409cfd41   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x141
+0x1409cfcd4: cmp      byte ptr [rax + 4], 0x6d
+0x1409cfcd8: jne      0x1409cfd41   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x141
+0x1409cfcda: lea      rdi, [rsp + 0x2d8]
+0x1409cfce2: lea      rsi, [rsp + 0x208]
+0x1409cfcea: mov      qword ptr [rsp - 0x10], rbp
+0x1409cfcef: lea      rbp, [rsp - 0x10]
+0x1409cfcf4: call     0x140081a2a   ; runtime.duffcopy+0x2ca
+0x1409cfcf9: mov      rbp, qword ptr [rbp]
+0x1409cfcfd: lea      rdi, [rsp + 0x2d8]
+0x1409cfd05: lea      rsi, [rsp + 0x208]
+0x1409cfd0d: nop      word ptr [rax + rax]
+0x1409cfd16: nop      word ptr [rax + rax]
+0x1409cfd1f: nop      
+0x1409cfd20: mov      qword ptr [rsp - 0x10], rbp
+0x1409cfd25: lea      rbp, [rsp - 0x10]
+0x1409cfd2a: call     0x140081a2a   ; runtime.duffcopy+0x2ca
+0x1409cfd2f: mov      rbp, qword ptr [rbp]
+0x1409cfd33: xor      eax, eax
+0x1409cfd35: xor      ebx, ebx
+0x1409cfd37: add      rsp, 0x1f8
+0x1409cfd3e: pop      rbp
+0x1409cfd3f: nop      
+0x1409cfd40: ret      
+0x1409cfd41: mov      rcx, qword ptr [rsp + 0x3a8]
+0x1409cfd49: test     rcx, rcx
+0x1409cfd4c: je       0x1409cfd5f   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x15f
+0x1409cfd4e: mov      rax, qword ptr [rcx]
+0x1409cfd51: mov      rbx, qword ptr [rcx + 8]
+0x1409cfd55: call     0x1400a2200   ; strings.TrimSpace
+0x1409cfd5a: test     rbx, rbx
+0x1409cfd5d: jne      0x1409cfdaf   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x1af
+0x1409cfd5f: lea      rax, [rip + 0x18461a]
+0x1409cfd66: call     0x14001ae20   ; runtime.newobject
+0x1409cfd6b: mov      qword ptr [rax + 8], 0x24
+0x1409cfd73: lea      rcx, [rip + 0x2a8d09]
+0x1409cfd7a: mov      qword ptr [rax], rcx
+0x1409cfd7d: lea      rdi, [rsp + 0x2d8]
+0x1409cfd85: lea      rdi, [rdi - 0x30]
+0x1409cfd89: mov      qword ptr [rsp - 0x10], rbp
+0x1409cfd8e: lea      rbp, [rsp - 0x10]
+0x1409cfd93: call     0x140081702   ; runtime.duffzero+0x122
+0x1409cfd98: mov      rbp, qword ptr [rbp]
+0x1409cfd9c: mov      rbx, rax
+0x1409cfd9f: lea      rax, [rip + 0x80335a]
+0x1409cfda6: add      rsp, 0x1f8
+0x1409cfdad: pop      rbp
+0x1409cfdae: ret      
+0x1409cfdaf: mov      rcx, qword ptr [rsp + 0x3a8]
+0x1409cfdb7: mov      rax, qword ptr [rcx]
+0x1409cfdba: mov      rbx, qword ptr [rcx + 8]
+0x1409cfdbe: nop      
+0x1409cfdc0: call     0x140892740   ; main.launcherConfigIconStoreForConfigPath
+0x1409cfdc5: mov      rcx, qword ptr [rsp + 0x280]
+0x1409cfdcd: mov      rbx, qword ptr [rsp + 0x278]
+0x1409cfdd5: call     0x140892e40   ; main.launcherConfigIconStore.Resolve
+0x1409cfdda: nop      word ptr [rax + rax]
+0x1409cfde0: test     r8, r8
+0x1409cfde3: je       0x1409cfebc   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x2bc
+0x1409cfde9: mov      qword ptr [rsp + 0x1c8], r9
+0x1409cfdf1: mov      qword ptr [rsp + 0x1a8], r8
+0x1409cfdf9: movups   xmmword ptr [rsp + 0x1d8], xmm15
+0x1409cfe02: movups   xmmword ptr [rsp + 0x1e8], xmm15
+0x1409cfe0b: mov      rax, qword ptr [rsp + 0x278]
+0x1409cfe13: mov      rbx, qword ptr [rsp + 0x280]
+0x1409cfe1b: nop      dword ptr [rax + rax]
+0x1409cfe20: call     0x140076660   ; runtime.convTstring
+0x1409cfe25: lea      rcx, [rip + 0x119fd4]
+0x1409cfe2c: mov      qword ptr [rsp + 0x1d8], rcx
+0x1409cfe34: mov      qword ptr [rsp + 0x1e0], rax
+0x1409cfe3c: mov      rcx, qword ptr [rsp + 0x1a8]
+0x1409cfe44: test     rcx, rcx
+0x1409cfe47: je       0x1409cfe4f   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x24f
+0x1409cfe49: mov      r8, qword ptr [rcx + 8]
+0x1409cfe4d: jmp      0x1409cfe52   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x252
+0x1409cfe4f: mov      r8, rcx
+0x1409cfe52: mov      qword ptr [rsp + 0x1e8], r8
+0x1409cfe5a: mov      rdx, qword ptr [rsp + 0x1c8]
+0x1409cfe62: mov      qword ptr [rsp + 0x1f0], rdx
+0x1409cfe6a: lea      rax, [rip + 0x2a29f5]
+0x1409cfe71: mov      ebx, 0x20
+0x1409cfe76: lea      rcx, [rsp + 0x1d8]
+0x1409cfe7e: mov      edi, 2
+0x1409cfe83: mov      rsi, rdi
+0x1409cfe86: call     0x140133280   ; fmt.Errorf
+0x1409cfe8b: lea      rdi, [rsp + 0x2d8]
+0x1409cfe93: lea      rdi, [rdi - 0x30]
+0x1409cfe97: nop      word ptr [rax + rax]
+0x1409cfea0: mov      qword ptr [rsp - 0x10], rbp
+0x1409cfea5: lea      rbp, [rsp - 0x10]
+0x1409cfeaa: call     0x140081702   ; runtime.duffzero+0x122
+0x1409cfeaf: mov      rbp, qword ptr [rbp]
+0x1409cfeb3: add      rsp, 0x1f8
+0x1409cfeba: pop      rbp
+0x1409cfebb: ret      
+0x1409cfebc: mov      qword ptr [rsp + 0x1b8], rcx
+0x1409cfec4: mov      qword ptr [rsp + 0x1b0], rbx
+0x1409cfecc: mov      qword ptr [rsp + 0x1d0], rax
+0x1409cfed4: mov      rax, rdi
+0x1409cfed7: mov      rbx, rsi
+0x1409cfeda: lea      rcx, [rip + 0x7fad2f]
+0x1409cfee1: mov      edi, 1
+0x1409cfee6: xor      esi, esi
+0x1409cfee8: mov      r8d, 2
+0x1409cfeee: call     0x14009f920   ; strings.genSplit
+0x1409cfef3: test     rbx, rbx
+0x1409cfef6: jbe      0x1409d00c8   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x4c8
+0x1409cfefc: mov      rcx, qword ptr [rax]
+0x1409cfeff: mov      rbx, qword ptr [rax + 8]
+0x1409cff03: mov      rax, rcx
+0x1409cff06: call     0x1400a2200   ; strings.TrimSpace
+0x1409cff0b: mov      qword ptr [rsp + 0x1c0], rax
+0x1409cff13: mov      qword ptr [rsp + 0x1a0], rbx
+0x1409cff1b: nop      dword ptr [rax + rax]
+0x1409cff20: call     0x1400a1500   ; strings.ToLower
+0x1409cff25: nop      
+0x1409cff26: cmp      rbx, 6
+0x1409cff2a: jl       0x1409cff56   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x356
+0x1409cff2c: lea      rbx, [rip + 0x2676bd]
+0x1409cff33: mov      ecx, 6
+0x1409cff38: call     0x140006280   ; runtime.memequal
+0x1409cff3d: nop      dword ptr [rax]
+0x1409cff40: test     al, al
+0x1409cff42: je       0x1409cff56   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x356
+0x1409cff44: mov      rbx, qword ptr [rsp + 0x1a0]
+0x1409cff4c: mov      rax, qword ptr [rsp + 0x1c0]
+0x1409cff54: jmp      0x1409cff73   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x373
+0x1409cff56: mov      rax, qword ptr [rsp + 0x1d0]
+0x1409cff5e: mov      rbx, qword ptr [rsp + 0x1b0]
+0x1409cff66: mov      rcx, qword ptr [rsp + 0x1b8]
+0x1409cff6e: call     0x140338880   ; net/http.DetectContentType
+0x1409cff73: mov      qword ptr [rsp + 0x1a0], rbx
+0x1409cff7b: mov      qword ptr [rsp + 0x1c0], rax
+0x1409cff83: call     0x1400a1500   ; strings.ToLower
+0x1409cff88: nop      
+0x1409cff89: cmp      rbx, 6
+0x1409cff8d: jl       0x1409cffa9   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x3a9
+0x1409cff8f: lea      rbx, [rip + 0x26765a]
+0x1409cff96: mov      ecx, 6
+0x1409cff9b: nop      dword ptr [rax + rax]
+0x1409cffa0: call     0x140006280   ; runtime.memequal
+0x1409cffa5: test     al, al
+0x1409cffa7: jne      0x1409d0006   ; main.twoFactorService.resolveTwoFactorExportEntryIcon+0x406
+0x1409cffa9: lea      rax, [rip + 0x1843d0]
+0x1409cffb0: call     0x14001ae20   ; runtime.newobject
+0x1409cffb5: mov      qword ptr [rax + 8], 0x2a
+0x1409cffbd: lea      rcx, [rip + 0x2b1242]
+0x1409cffc4: mov      qword ptr [rax], rcx
+0x1409cffc7: lea      rdi, [rsp + 0x2d8]
+0x1409cffcf: lea      rdi, [rdi - 0x30]
+0x1409cffd3: nop      word ptr [rax + rax]
+0x1409cffdc: nop      dword ptr [rax]
+0x1409cffe0: mov      qword ptr [rsp - 0x10], rbp
+0x1409cffe5: lea      rbp, [rsp - 0x10]
+0x1409cffea: call     0x140081702   ; runtime.duffzero+0x122
+0x1409cffef: mov      rbp, qword ptr [rbp]
+0x1409cfff3: mov      rbx, rax
+0x1409cfff6: lea      rax, [rip + 0x803103]
+0x1409cfffd: add      rsp, 0x1f8
+0x1409d0004: pop      rbp
+0x1409d0005: ret      
+0x1409d0006: mov      rax, qword ptr [rip + 0x123f833]
+0x1409d000d: mov      rbx, qword ptr [rsp + 0x1d0]
+0x1409d0015: mov      rcx, qword ptr [rsp + 0x1b0]
+0x1409d001d: mov      rdi, qword ptr [rsp + 0x1b8]
+0x1409d0025: call     0x14019a860   ; encoding/base64.Encoding.EncodeToString
+0x1409d002a: mov      ecx, 5
+0x1409d002f: mov      rdi, qword ptr [rsp + 0x1c0]
+0x1409d0037: mov      rsi, qword ptr [rsp + 0x1a0]
+0x1409d003f: lea      r8, [rip + 0x26c086]
+0x1409d0046: mov      r9d, 8
+0x1409d004c: mov      r10, rax
+0x1409d004f: mov      r11, rbx
+0x1409d0052: xor      eax, eax
+0x1409d0054: lea      rbx, [rip + 0x265b7c]
+0x1409d005b: nop      dword ptr [rax + rax]
+0x1409d0060: call     0x14005fd60   ; runtime.concatstring4
+0x1409d0065: mov      qword ptr [rsp + 0x268], rax
+0x1409d006d: mov      qword ptr [rsp + 0x270], rbx
+0x1409d0075: lea      rdi, [rsp + 0x2d8]
+0x1409d007d: lea      rsi, [rsp + 0x208]
+0x1409d0085: mov      qword ptr [rsp - 0x10], rbp
+0x1409d008a: lea      rbp, [rsp - 0x10]
+0x1409d008f: call     0x140081a2a   ; runtime.duffcopy+0x2ca
+0x1409d0094: mov      rbp, qword ptr [rbp]
+0x1409d0098: lea      rdi, [rsp + 0x2d8]
+0x1409d00a0: lea      rsi, [rsp + 0x208]
+0x1409d00a8: mov      qword ptr [rsp - 0x10], rbp
+0x1409d00ad: lea      rbp, [rsp - 0x10]
+0x1409d00b2: call     0x140081a2a   ; runtime.duffcopy+0x2ca
+0x1409d00b7: mov      rbp, qword ptr [rbp]
+0x1409d00bb: xor      eax, eax
+0x1409d00bd: xor      ebx, ebx
+0x1409d00bf: add      rsp, 0x1f8
+0x1409d00c6: pop      rbp
+0x1409d00c7: ret      
+0x1409d00c8: xor      eax, eax
+0x1409d00ca: mov      rcx, rax
+0x1409d00cd: call     0x140081400   ; runtime.panicIndex
+0x1409d00d2: nop      
+0x1409d00d3: mov      qword ptr [rsp + 0x1a8], rax
+0x1409d00db: nop      dword ptr [rax + rax]
+0x1409d00e0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d00e5: mov      rax, qword ptr [rsp + 0x1a8]
+0x1409d00ed: jmp      0x1409cfc00   ; main.twoFactorService.resolveTwoFactorExportEntryIcon
+0x1409d00f2: int3     
+0x1409d00f3: int3     
+0x1409d00f4: int3     
+0x1409d00f5: int3     
+0x1409d00f6: int3     
+0x1409d00f7: int3     
+0x1409d00f8: int3     
+0x1409d00f9: int3     
+0x1409d00fa: int3     
+0x1409d00fb: int3     
+0x1409d00fc: int3     
+0x1409d00fd: int3     
+0x1409d00fe: int3     
+0x1409d00ff: int3     

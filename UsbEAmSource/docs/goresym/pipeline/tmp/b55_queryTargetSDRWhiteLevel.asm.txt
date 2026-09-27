@@ -1,0 +1,97 @@
+0x140975e60: cmp      rsp, qword ptr [r14 + 0x10]
+0x140975e64: jbe      0x140975f43   ; main.queryScreenshotDisplayConfigTargetSDRWhiteLevel+0xe3
+0x140975e6a: push     rbp
+0x140975e6b: mov      rbp, rsp
+0x140975e6e: sub      rsp, 0x38
+0x140975e72: mov      dword ptr [rsp + 0x50], ecx
+0x140975e76: mov      dword ptr [rsp + 0x24], eax
+0x140975e7a: mov      dword ptr [rsp + 0x20], ebx
+0x140975e7e: mov      rax, qword ptr [rip + 0x124bdfb]
+0x140975e85: call     0x1401933c0   ; golang.org/x/sys/windows.LazyProc.Find
+0x140975e8a: test     rax, rax
+0x140975e8d: jne      0x140975f35   ; main.queryScreenshotDisplayConfigTargetSDRWhiteLevel+0xd5
+0x140975e93: lea      rax, [rip + 0x209526]
+0x140975e9a: call     0x14001ae20   ; runtime.newobject
+0x140975e9f: mov      qword ptr [rsp + 0x30], rax
+0x140975ea4: movabs   rcx, 0x180000000b
+0x140975eae: mov      qword ptr [rax], rcx
+0x140975eb1: mov      ecx, dword ptr [rsp + 0x24]
+0x140975eb5: mov      dword ptr [rax + 8], ecx
+0x140975eb8: mov      ecx, dword ptr [rsp + 0x20]
+0x140975ebc: mov      dword ptr [rax + 0xc], ecx
+0x140975ebf: mov      ecx, dword ptr [rsp + 0x50]
+0x140975ec3: mov      dword ptr [rax + 0x10], ecx
+0x140975ec6: mov      qword ptr [rsp + 0x28], rax
+0x140975ecb: lea      rax, [rip + 0x187aae]
+0x140975ed2: call     0x14001ae20   ; runtime.newobject
+0x140975ed7: mov      rcx, qword ptr [rsp + 0x28]
+0x140975edc: mov      qword ptr [rax], rcx
+0x140975edf: mov      rcx, qword ptr [rip + 0x124bd9a]
+0x140975ee6: mov      rbx, rax
+0x140975ee9: mov      edi, 1
+0x140975eee: mov      rax, rcx
+0x140975ef1: mov      rcx, rdi
+0x140975ef4: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x140975ef9: test     rax, rax
+0x140975efc: jne      0x140975f04   ; main.queryScreenshotDisplayConfigTargetSDRWhiteLevel+0xa4
+0x140975efe: xor      eax, eax
+0x140975f00: xor      ecx, ecx
+0x140975f02: jmp      0x140975f13   ; main.queryScreenshotDisplayConfigTargetSDRWhiteLevel+0xb3
+0x140975f04: call     0x1400765e0   ; runtime.convT64
+0x140975f09: mov      rcx, rax
+0x140975f0c: lea      rax, [rip + 0x85cdcd]
+0x140975f13: test     rax, rax
+0x140975f16: je       0x140975f23   ; main.queryScreenshotDisplayConfigTargetSDRWhiteLevel+0xc3
+0x140975f18: mov      rbx, rax
+0x140975f1b: xor      eax, eax
+0x140975f1d: add      rsp, 0x38
+0x140975f21: pop      rbp
+0x140975f22: ret      
+0x140975f23: mov      rdx, qword ptr [rsp + 0x30]
+0x140975f28: mov      eax, dword ptr [rdx + 0x14]
+0x140975f2b: xor      ebx, ebx
+0x140975f2d: xor      ecx, ecx
+0x140975f2f: add      rsp, 0x38
+0x140975f33: pop      rbp
+0x140975f34: ret      
+0x140975f35: mov      rcx, rbx
+0x140975f38: mov      rbx, rax
+0x140975f3b: xor      eax, eax
+0x140975f3d: add      rsp, 0x38
+0x140975f41: pop      rbp
+0x140975f42: ret      
+0x140975f43: mov      dword ptr [rsp + 8], eax
+0x140975f47: mov      dword ptr [rsp + 0xc], ebx
+0x140975f4b: mov      dword ptr [rsp + 0x10], ecx
+0x140975f4f: call     0x14007f140   ; runtime.morestack_noctxt
+0x140975f54: mov      eax, dword ptr [rsp + 8]
+0x140975f58: mov      ebx, dword ptr [rsp + 0xc]
+0x140975f5c: mov      ecx, dword ptr [rsp + 0x10]
+0x140975f60: jmp      0x140975e60   ; main.queryScreenshotDisplayConfigTargetSDRWhiteLevel
+0x140975f65: int3     
+0x140975f66: int3     
+0x140975f67: int3     
+0x140975f68: int3     
+0x140975f69: int3     
+0x140975f6a: int3     
+0x140975f6b: int3     
+0x140975f6c: int3     
+0x140975f6d: int3     
+0x140975f6e: int3     
+0x140975f6f: int3     
+0x140975f70: int3     
+0x140975f71: int3     
+0x140975f72: int3     
+0x140975f73: int3     
+0x140975f74: int3     
+0x140975f75: int3     
+0x140975f76: int3     
+0x140975f77: int3     
+0x140975f78: int3     
+0x140975f79: int3     
+0x140975f7a: int3     
+0x140975f7b: int3     
+0x140975f7c: int3     
+0x140975f7d: int3     
+0x140975f7e: int3     
+0x140975f7f: int3     

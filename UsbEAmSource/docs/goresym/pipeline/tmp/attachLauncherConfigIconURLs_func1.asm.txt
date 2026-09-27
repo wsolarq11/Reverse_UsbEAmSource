@@ -1,0 +1,153 @@
+0x1408a2360: lea      r12, [rsp - 0x48]
+0x1408a2365: cmp      r12, qword ptr [r14 + 0x10]
+0x1408a2369: jbe      0x1408a25af   ; main.BootstrapService).attachLauncherConfigIconURLs.func1+0x24f
+0x1408a236f: push     rbp
+0x1408a2370: mov      rbp, rsp
+0x1408a2373: sub      rsp, 0xc0
+0x1408a237a: mov      qword ptr [rsp + 0xd0], rax
+0x1408a2382: mov      qword ptr [rsp + 0xd8], rbx
+0x1408a238a: mov      qword ptr [rsp + 0xe0], rcx
+0x1408a2392: mov      qword ptr [rsp + 0xe8], rdi
+0x1408a239a: mov      qword ptr [rsp + 0xf0], rsi
+0x1408a23a2: mov      rdx, qword ptr [rdx + 8]
+0x1408a23a6: mov      qword ptr [rsp + 0x48], rdx
+0x1408a23ab: nop      
+0x1408a23ac: cmp      rbx, 5
+0x1408a23b0: jl       0x1408a23d3   ; main.BootstrapService).attachLauncherConfigIconURLs.func1+0x73
+0x1408a23b2: mov      rax, qword ptr [rsp + 0xd0]
+0x1408a23ba: lea      rbx, [rip + 0x39393d]
+0x1408a23c1: mov      ecx, 5
+0x1408a23c6: call     0x140006280   ; runtime.memequal
+0x1408a23cb: test     al, al
+0x1408a23cd: jne      0x1408a25a2   ; main.BootstrapService).attachLauncherConfigIconURLs.func1+0x242
+0x1408a23d3: mov      rcx, qword ptr [rsp + 0xe0]
+0x1408a23db: mov      rax, qword ptr [rcx]
+0x1408a23de: mov      rbx, qword ptr [rcx + 8]
+0x1408a23e2: call     0x1400a2200   ; strings.TrimSpace
+0x1408a23e7: mov      qword ptr [rsp + 0x88], rax
+0x1408a23ef: mov      qword ptr [rsp + 0x40], rbx
+0x1408a23f4: mov      rcx, qword ptr [rsp + 0xe8]
+0x1408a23fc: mov      rax, qword ptr [rcx]
+0x1408a23ff: mov      rbx, qword ptr [rcx + 8]
+0x1408a2403: call     0x1400a2200   ; strings.TrimSpace
+0x1408a2408: mov      rcx, qword ptr [rsp + 0xe0]
+0x1408a2410: mov      qword ptr [rcx + 8], 0
+0x1408a2418: cmp      dword ptr [rip + 0x13b8f31], 0
+0x1408a241f: nop      
+0x1408a2420: je       0x1408a242d   ; main.BootstrapService).attachLauncherConfigIconURLs.func1+0xcd
+0x1408a2422: mov      rdx, qword ptr [rcx]
+0x1408a2425: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408a242a: mov      qword ptr [r11], rdx
+0x1408a242d: mov      qword ptr [rcx], 0
+0x1408a2434: mov      rdx, qword ptr [rsp + 0xf0]
+0x1408a243c: mov      qword ptr [rdx + 8], 0
+0x1408a2444: cmp      dword ptr [rip + 0x13b8f05], 0
+0x1408a244b: je       0x1408a2458   ; main.BootstrapService).attachLauncherConfigIconURLs.func1+0xf8
+0x1408a244d: mov      rsi, qword ptr [rdx]
+0x1408a2450: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1408a2455: mov      qword ptr [r11], rsi
+0x1408a2458: mov      qword ptr [rsp + 0x38], rbx
+0x1408a245d: mov      qword ptr [rsp + 0x80], rax
+0x1408a2465: mov      qword ptr [rdx], 0
+0x1408a246c: mov      rcx, rax
+0x1408a246f: mov      rdi, rbx
+0x1408a2472: mov      rax, qword ptr [rsp + 0x88]
+0x1408a247a: mov      rbx, qword ptr [rsp + 0x40]
+0x1408a247f: nop      
+0x1408a2480: call     0x1408a2600   ; main.launcherConfigIconSlotHasSource
+0x1408a2485: test     al, al
+0x1408a2487: je       0x1408a2595   ; main.BootstrapService).attachLauncherConfigIconURLs.func1+0x235
+0x1408a248d: mov      rax, qword ptr [rsp + 0xd0]
+0x1408a2495: mov      rbx, qword ptr [rsp + 0xd8]
+0x1408a249d: nop      dword ptr [rax]
+0x1408a24a0: call     0x1408a26a0   ; main.launcherConfigIconAssetNamespace
+0x1408a24a5: mov      rcx, rbx
+0x1408a24a8: mov      rdi, qword ptr [rsp + 0x80]
+0x1408a24b0: mov      rsi, qword ptr [rsp + 0x38]
+0x1408a24b5: mov      r8, qword ptr [rsp + 0x88]
+0x1408a24bd: mov      r9, qword ptr [rsp + 0x40]
+0x1408a24c2: mov      rbx, rax
+0x1408a24c5: mov      rax, qword ptr [rsp + 0x48]
+0x1408a24ca: call     0x1408a28e0   ; main.BootstrapService.buildLauncherConfigIconResource
+0x1408a24cf: mov      qword ptr [rsp + 0x90], rax
+0x1408a24d7: mov      qword ptr [rsp + 0x98], rbx
+0x1408a24df: mov      qword ptr [rsp + 0xa0], rcx
+0x1408a24e7: mov      qword ptr [rsp + 0xa8], rdi
+0x1408a24ef: mov      qword ptr [rsp + 0xb0], rsi
+0x1408a24f7: mov      qword ptr [rsp + 0xb8], r8
+0x1408a24ff: movups   xmm0, xmmword ptr [rsp + 0x90]
+0x1408a2507: movups   xmmword ptr [rsp + 0x50], xmm0
+0x1408a250c: movups   xmm0, xmmword ptr [rsp + 0xa0]
+0x1408a2514: movups   xmmword ptr [rsp + 0x60], xmm0
+0x1408a2519: movups   xmm0, xmmword ptr [rsp + 0xb0]
+0x1408a2521: movups   xmmword ptr [rsp + 0x70], xmm0
+0x1408a2526: mov      rcx, qword ptr [rsp + 0xe8]
+0x1408a252e: mov      rdx, qword ptr [rsp + 0x68]
+0x1408a2533: mov      rsi, qword ptr [rsp + 0x60]
+0x1408a2538: mov      qword ptr [rcx + 8], rdx
+0x1408a253c: cmp      dword ptr [rip + 0x13b8e0d], 0
+0x1408a2543: je       0x1408a2554   ; main.BootstrapService).attachLauncherConfigIconURLs.func1+0x1f4
+0x1408a2545: mov      rdx, qword ptr [rcx]
+0x1408a2548: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1408a254d: mov      qword ptr [r11], rsi
+0x1408a2550: mov      qword ptr [r11 + 8], rdx
+0x1408a2554: mov      qword ptr [rcx], rsi
+0x1408a2557: mov      rcx, qword ptr [rsp + 0xf0]
+0x1408a255f: mov      rdx, qword ptr [rsp + 0x78]
+0x1408a2564: mov      rsi, qword ptr [rsp + 0x70]
+0x1408a2569: mov      qword ptr [rcx + 8], rdx
+0x1408a256d: cmp      dword ptr [rip + 0x13b8ddc], 0
+0x1408a2574: je       0x1408a2585   ; main.BootstrapService).attachLauncherConfigIconURLs.func1+0x225
+0x1408a2576: mov      rdx, qword ptr [rcx]
+0x1408a2579: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1408a257e: mov      qword ptr [r11], rsi
+0x1408a2581: mov      qword ptr [r11 + 8], rdx
+0x1408a2585: mov      qword ptr [rcx], rsi
+0x1408a2588: xor      eax, eax
+0x1408a258a: xor      ebx, ebx
+0x1408a258c: add      rsp, 0xc0
+0x1408a2593: pop      rbp
+0x1408a2594: ret      
+0x1408a2595: xor      eax, eax
+0x1408a2597: xor      ebx, ebx
+0x1408a2599: add      rsp, 0xc0
+0x1408a25a0: pop      rbp
+0x1408a25a1: ret      
+0x1408a25a2: xor      eax, eax
+0x1408a25a4: xor      ebx, ebx
+0x1408a25a6: add      rsp, 0xc0
+0x1408a25ad: pop      rbp
+0x1408a25ae: ret      
+0x1408a25af: mov      qword ptr [rsp + 8], rax
+0x1408a25b4: mov      qword ptr [rsp + 0x10], rbx
+0x1408a25b9: mov      qword ptr [rsp + 0x18], rcx
+0x1408a25be: mov      qword ptr [rsp + 0x20], rdi
+0x1408a25c3: mov      qword ptr [rsp + 0x28], rsi
+0x1408a25c8: call     0x14007f0a0   ; runtime.morestack
+0x1408a25cd: mov      rax, qword ptr [rsp + 8]
+0x1408a25d2: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a25d7: mov      rcx, qword ptr [rsp + 0x18]
+0x1408a25dc: mov      rdi, qword ptr [rsp + 0x20]
+0x1408a25e1: mov      rsi, qword ptr [rsp + 0x28]
+0x1408a25e6: jmp      0x1408a2360   ; main.BootstrapService).attachLauncherConfigIconURLs.func1
+0x1408a25eb: int3     
+0x1408a25ec: int3     
+0x1408a25ed: int3     
+0x1408a25ee: int3     
+0x1408a25ef: int3     
+0x1408a25f0: int3     
+0x1408a25f1: int3     
+0x1408a25f2: int3     
+0x1408a25f3: int3     
+0x1408a25f4: int3     
+0x1408a25f5: int3     
+0x1408a25f6: int3     
+0x1408a25f7: int3     
+0x1408a25f8: int3     
+0x1408a25f9: int3     
+0x1408a25fa: int3     
+0x1408a25fb: int3     
+0x1408a25fc: int3     
+0x1408a25fd: int3     
+0x1408a25fe: int3     
+0x1408a25ff: int3     

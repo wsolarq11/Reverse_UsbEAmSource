@@ -1,0 +1,140 @@
+0x1409111e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409111e4: jbe      0x140911389   ; main.createOLEDBlackoutNativeOverlayWindow+0x1a9
+0x1409111ea: push     rbp
+0x1409111eb: mov      rbp, rsp
+0x1409111ee: sub      rsp, 0x58
+0x1409111f2: test     rax, rax
+0x1409111f5: je       0x140911359   ; main.createOLEDBlackoutNativeOverlayWindow+0x179
+0x1409111fb: mov      qword ptr [rsp + 0x68], rax
+0x140911200: mov      qword ptr [rsp + 0x28], rdi
+0x140911205: mov      qword ptr [rsp + 0x20], rsi
+0x14091120a: mov      qword ptr [rsp + 0x18], rcx
+0x14091120f: mov      qword ptr [rsp + 0x10], rbx
+0x140911214: call     0x140911440   ; main.ensureOLEDBlackoutNativeOverlayWindowClass
+0x140911219: nop      dword ptr [rax]
+0x140911220: test     rax, rax
+0x140911223: jne      0x14091134b   ; main.createOLEDBlackoutNativeOverlayWindow+0x16b
+0x140911229: lea      rax, [rip + 0x1dbcd0]
+0x140911230: mov      ebx, 1
+0x140911235: call     0x1400114c0   ; runtime.makechan
+0x14091123a: mov      qword ptr [rsp + 0x40], rax
+0x14091123f: lea      rax, [rip + 0x1dbbba]
+0x140911246: xor      ebx, ebx
+0x140911248: call     0x1400114c0   ; runtime.makechan
+0x14091124d: mov      qword ptr [rsp + 0x38], rax
+0x140911252: lea      rax, [rip + 0x2da427]
+0x140911259: call     0x14001ae20   ; runtime.newobject
+0x14091125e: cmp      dword ptr [rip + 0x134a0eb], 0
+0x140911265: jne      0x140911278   ; main.createOLEDBlackoutNativeOverlayWindow+0x98
+0x140911267: mov      rcx, qword ptr [rsp + 0x68]
+0x14091126c: mov      rdx, qword ptr [rsp + 0x40]
+0x140911271: mov      rbx, qword ptr [rsp + 0x38]
+0x140911276: jmp      0x140911297   ; main.createOLEDBlackoutNativeOverlayWindow+0xb7
+0x140911278: call     0x140081080   ; runtime.gcWriteBarrier3
+0x14091127d: mov      rcx, qword ptr [rsp + 0x68]
+0x140911282: mov      qword ptr [r11], rcx
+0x140911285: mov      rdx, qword ptr [rsp + 0x40]
+0x14091128a: mov      qword ptr [r11 + 8], rdx
+0x14091128e: mov      rbx, qword ptr [rsp + 0x38]
+0x140911293: mov      qword ptr [r11 + 0x10], rbx
+0x140911297: mov      qword ptr [rsp + 0x30], rax
+0x14091129c: mov      qword ptr [rax], rcx
+0x14091129f: mov      qword ptr [rax + 8], rdx
+0x1409112a3: mov      qword ptr [rax + 0x10], rbx
+0x1409112a7: mov      rcx, qword ptr [rsp + 0x10]
+0x1409112ac: mov      qword ptr [rax + 0x30], rcx
+0x1409112b0: mov      rcx, qword ptr [rsp + 0x18]
+0x1409112b5: mov      qword ptr [rax + 0x38], rcx
+0x1409112b9: mov      rcx, qword ptr [rsp + 0x28]
+0x1409112be: mov      qword ptr [rax + 0x40], rcx
+0x1409112c2: mov      rcx, qword ptr [rsp + 0x20]
+0x1409112c7: mov      qword ptr [rax + 0x48], rcx
+0x1409112cb: lea      rax, [rip + 0x25640e]
+0x1409112d2: call     0x14001ae20   ; runtime.newobject
+0x1409112d7: lea      rcx, [rip + 0x102]
+0x1409112de: mov      qword ptr [rax], rcx
+0x1409112e1: cmp      dword ptr [rip + 0x134a068], 0
+0x1409112e8: jne      0x1409112f1   ; main.createOLEDBlackoutNativeOverlayWindow+0x111
+0x1409112ea: mov      rcx, qword ptr [rsp + 0x30]
+0x1409112ef: jmp      0x1409112fe   ; main.createOLEDBlackoutNativeOverlayWindow+0x11e
+0x1409112f1: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409112f6: mov      rcx, qword ptr [rsp + 0x30]
+0x1409112fb: mov      qword ptr [r11], rcx
+0x1409112fe: mov      qword ptr [rax + 8], rcx
+0x140911302: call     0x1400516a0   ; runtime.newproc
+0x140911307: movups   xmmword ptr [rsp + 0x48], xmm15
+0x14091130d: mov      rcx, qword ptr [rsp + 0x30]
+0x140911312: mov      rax, qword ptr [rcx + 8]
+0x140911316: lea      rbx, [rsp + 0x48]
+0x14091131b: nop      dword ptr [rax + rax]
+0x140911320: call     0x140012620   ; runtime.chanrecv1
+0x140911325: mov      rbx, qword ptr [rsp + 0x48]
+0x14091132a: test     rbx, rbx
+0x14091132d: je       0x14091133c   ; main.createOLEDBlackoutNativeOverlayWindow+0x15c
+0x14091132f: mov      rcx, qword ptr [rsp + 0x50]
+0x140911334: xor      eax, eax
+0x140911336: add      rsp, 0x58
+0x14091133a: pop      rbp
+0x14091133b: ret      
+0x14091133c: mov      rax, qword ptr [rsp + 0x30]
+0x140911341: xor      ebx, ebx
+0x140911343: xor      ecx, ecx
+0x140911345: add      rsp, 0x58
+0x140911349: pop      rbp
+0x14091134a: ret      
+0x14091134b: mov      rcx, rbx
+0x14091134e: mov      rbx, rax
+0x140911351: xor      eax, eax
+0x140911353: add      rsp, 0x58
+0x140911357: pop      rbp
+0x140911358: ret      
+0x140911359: lea      rax, [rip + 0x243020]
+0x140911360: call     0x14001ae20   ; runtime.newobject
+0x140911365: mov      qword ptr [rax + 8], 0x23
+0x14091136d: lea      rcx, [rip + 0x365f26]
+0x140911374: mov      qword ptr [rax], rcx
+0x140911377: lea      rbx, [rip + 0x8c1d82]
+0x14091137e: mov      rcx, rax
+0x140911381: xor      eax, eax
+0x140911383: add      rsp, 0x58
+0x140911387: pop      rbp
+0x140911388: ret      
+0x140911389: mov      qword ptr [rsp + 8], rax
+0x14091138e: mov      qword ptr [rsp + 0x10], rbx
+0x140911393: mov      qword ptr [rsp + 0x18], rcx
+0x140911398: mov      qword ptr [rsp + 0x20], rdi
+0x14091139d: mov      qword ptr [rsp + 0x28], rsi
+0x1409113a2: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409113a7: mov      rax, qword ptr [rsp + 8]
+0x1409113ac: mov      rbx, qword ptr [rsp + 0x10]
+0x1409113b1: mov      rcx, qword ptr [rsp + 0x18]
+0x1409113b6: mov      rdi, qword ptr [rsp + 0x20]
+0x1409113bb: mov      rsi, qword ptr [rsp + 0x28]
+0x1409113c0: jmp      0x1409111e0   ; main.createOLEDBlackoutNativeOverlayWindow
+0x1409113c5: int3     
+0x1409113c6: int3     
+0x1409113c7: int3     
+0x1409113c8: int3     
+0x1409113c9: int3     
+0x1409113ca: int3     
+0x1409113cb: int3     
+0x1409113cc: int3     
+0x1409113cd: int3     
+0x1409113ce: int3     
+0x1409113cf: int3     
+0x1409113d0: int3     
+0x1409113d1: int3     
+0x1409113d2: int3     
+0x1409113d3: int3     
+0x1409113d4: int3     
+0x1409113d5: int3     
+0x1409113d6: int3     
+0x1409113d7: int3     
+0x1409113d8: int3     
+0x1409113d9: int3     
+0x1409113da: int3     
+0x1409113db: int3     
+0x1409113dc: int3     
+0x1409113dd: int3     
+0x1409113de: int3     
+0x1409113df: int3     

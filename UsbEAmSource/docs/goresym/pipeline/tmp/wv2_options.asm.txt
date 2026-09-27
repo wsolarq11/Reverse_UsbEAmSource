@@ -1,0 +1,279 @@
+0x1409dd840: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409dd844: jbe      0x1409dd8eb   ; main.resolveLauncherWebViewUserDataPath+0xab
+0x1409dd84a: push     rbp
+0x1409dd84b: mov      rbp, rsp
+0x1409dd84e: sub      rsp, 0x28
+0x1409dd852: mov      qword ptr [rsp + 0x38], rax
+0x1409dd857: call     0x1400a2200   ; strings.TrimSpace
+0x1409dd85c: nop      dword ptr [rax]
+0x1409dd860: test     rbx, rbx
+0x1409dd863: je       0x1409dd8b8   ; main.resolveLauncherWebViewUserDataPath+0x78
+0x1409dd865: nop      
+0x1409dd866: call     0x1401cd5e0   ; path/filepath.abs
+0x1409dd86b: test     rcx, rcx
+0x1409dd86e: jne      0x1409dd8ae   ; main.resolveLauncherWebViewUserDataPath+0x6e
+0x1409dd870: mov      qword ptr [rsp + 0x18], rbx
+0x1409dd875: mov      qword ptr [rsp + 0x20], rax
+0x1409dd87a: mov      ecx, 0x1ed
+0x1409dd87f: nop      
+0x1409dd880: call     0x14012bbe0   ; os.MkdirAll
+0x1409dd885: test     rax, rax
+0x1409dd888: je       0x1409dd89a   ; main.resolveLauncherWebViewUserDataPath+0x5a
+0x1409dd88a: mov      rcx, rax
+0x1409dd88d: mov      rdi, rbx
+0x1409dd890: xor      eax, eax
+0x1409dd892: xor      ebx, ebx
+0x1409dd894: add      rsp, 0x28
+0x1409dd898: pop      rbp
+0x1409dd899: ret      
+0x1409dd89a: mov      rax, qword ptr [rsp + 0x20]
+0x1409dd89f: mov      rbx, qword ptr [rsp + 0x18]
+0x1409dd8a4: xor      ecx, ecx
+0x1409dd8a6: xor      edi, edi
+0x1409dd8a8: add      rsp, 0x28
+0x1409dd8ac: pop      rbp
+0x1409dd8ad: ret      
+0x1409dd8ae: xor      eax, eax
+0x1409dd8b0: xor      ebx, ebx
+0x1409dd8b2: add      rsp, 0x28
+0x1409dd8b6: pop      rbp
+0x1409dd8b7: ret      
+0x1409dd8b8: lea      rax, [rip + 0x176ac1]
+0x1409dd8bf: nop      
+0x1409dd8c0: call     0x14001ae20   ; runtime.newobject
+0x1409dd8c5: mov      qword ptr [rax + 8], 0x30
+0x1409dd8cd: lea      rcx, [rip + 0x2a951f]
+0x1409dd8d4: mov      qword ptr [rax], rcx
+0x1409dd8d7: xor      ebx, ebx
+0x1409dd8d9: lea      rcx, [rip + 0x7f5820]
+0x1409dd8e0: mov      rdi, rax
+0x1409dd8e3: xor      eax, eax
+0x1409dd8e5: add      rsp, 0x28
+0x1409dd8e9: pop      rbp
+0x1409dd8ea: ret      
+0x1409dd8eb: mov      qword ptr [rsp + 8], rax
+0x1409dd8f0: mov      qword ptr [rsp + 0x10], rbx
+0x1409dd8f5: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409dd8fa: mov      rax, qword ptr [rsp + 8]
+0x1409dd8ff: mov      rbx, qword ptr [rsp + 0x10]
+0x1409dd904: jmp      0x1409dd840   ; main.resolveLauncherWebViewUserDataPath
+0x1409dd909: int3     
+0x1409dd90a: int3     
+0x1409dd90b: int3     
+0x1409dd90c: int3     
+0x1409dd90d: int3     
+0x1409dd90e: int3     
+0x1409dd90f: int3     
+0x1409dd910: int3     
+0x1409dd911: int3     
+0x1409dd912: int3     
+0x1409dd913: int3     
+0x1409dd914: int3     
+0x1409dd915: int3     
+0x1409dd916: int3     
+0x1409dd917: int3     
+0x1409dd918: int3     
+0x1409dd919: int3     
+0x1409dd91a: int3     
+0x1409dd91b: int3     
+0x1409dd91c: int3     
+0x1409dd91d: int3     
+0x1409dd91e: int3     
+0x1409dd91f: int3     
+0x1409dd920: mov      r12, rsp
+0x1409dd923: sub      r12, 0x10c0
+0x1409dd92a: jb       0x1409ddb1e   ; main.buildLauncherBrowserArgs+0x1fe
+0x1409dd930: cmp      r12, qword ptr [r14 + 0x10]
+0x1409dd934: jbe      0x1409ddb1e   ; main.buildLauncherBrowserArgs+0x1fe
+0x1409dd93a: push     rbp
+0x1409dd93b: mov      rbp, rsp
+0x1409dd93e: sub      rsp, 0x1138
+0x1409dd945: mov      rdx, qword ptr [rsp + 0x1148]
+0x1409dd94d: mov      qword ptr [rsp], rdx
+0x1409dd951: lea      rdi, [rsp + 8]
+0x1409dd956: lea      rsi, [rsp + 0x1150]
+0x1409dd95e: mov      ecx, 0x88
+0x1409dd963: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1409dd966: xor      eax, eax
+0x1409dd968: xor      ebx, ebx
+0x1409dd96a: mov      rcx, rbx
+0x1409dd96d: call     0x14087cb00   ; main.normalizePreferencesWithOptions
+0x1409dd972: mov      rdx, qword ptr [rsp + 0x448]
+0x1409dd97a: mov      qword ptr [rsp + 0xcf0], rdx
+0x1409dd982: lea      rdi, [rsp + 0xcf8]
+0x1409dd98a: lea      rsi, [rsp + 0x450]
+0x1409dd992: mov      ecx, 0x88
+0x1409dd997: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1409dd99a: mov      rdx, qword ptr [rsp + 0xcf0]
+0x1409dd9a2: mov      qword ptr [rsp + 0x8a8], rdx
+0x1409dd9aa: lea      rdi, [rsp + 0x8b0]
+0x1409dd9b2: lea      rsi, [rsp + 0xcf8]
+0x1409dd9ba: mov      ecx, 0x88
+0x1409dd9bf: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1409dd9c2: mov      rdx, qword ptr [rsp + 0x910]
+0x1409dd9ca: test     rdx, rdx
+0x1409dd9cd: je       0x1409dda2c   ; main.buildLauncherBrowserArgs+0x10c
+0x1409dd9cf: cmp      byte ptr [rdx], 0
+0x1409dd9d2: jne      0x1409dd9e2   ; main.buildLauncherBrowserArgs+0xc2
+0x1409dd9d4: xor      ecx, ecx
+0x1409dd9d6: lea      rax, [rip + 0x127cfe3]
+0x1409dd9dd: xor      edx, edx
+0x1409dd9df: nop      
+0x1409dd9e0: jmp      0x1409dda37   ; main.buildLauncherBrowserArgs+0x117
+0x1409dd9e2: lea      rax, [rip + 0x127cfd7]
+0x1409dd9e9: mov      ebx, 1
+0x1409dd9ee: xor      ecx, ecx
+0x1409dd9f0: mov      rdi, rbx
+0x1409dd9f3: lea      rsi, [rip + 0x10c406]
+0x1409dd9fa: call     0x14007ad20   ; runtime.growslice
+0x1409dd9ff: mov      qword ptr [rax + 8], 0x32
+0x1409dda07: cmp      dword ptr [rip + 0x127d942], 0
+0x1409dda0e: je       0x1409dda1b   ; main.buildLauncherBrowserArgs+0xfb
+0x1409dda10: mov      rdx, qword ptr [rax]
+0x1409dda13: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409dda18: mov      qword ptr [r11], rdx
+0x1409dda1b: lea      rdx, [rip + 0x2aabf2]
+0x1409dda22: mov      qword ptr [rax], rdx
+0x1409dda25: mov      edx, 1
+0x1409dda2a: jmp      0x1409dda37   ; main.buildLauncherBrowserArgs+0x117
+0x1409dda2c: xor      ecx, ecx
+0x1409dda2e: lea      rax, [rip + 0x127cf8b]
+0x1409dda35: xor      edx, edx
+0x1409dda37: mov      r8, qword ptr [rsp + 0x918]
+0x1409dda3f: nop      
+0x1409dda40: test     r8, r8
+0x1409dda43: je       0x1409dda9d   ; main.buildLauncherBrowserArgs+0x17d
+0x1409dda45: cmp      byte ptr [r8], 0
+0x1409dda49: je       0x1409dda98   ; main.buildLauncherBrowserArgs+0x178
+0x1409dda4b: lea      rbx, [rdx + 1]
+0x1409dda4f: cmp      rcx, rbx
+0x1409dda52: jae      0x1409dda65   ; main.buildLauncherBrowserArgs+0x145
+0x1409dda54: mov      edi, 1
+0x1409dda59: lea      rsi, [rip + 0x10c3a0]
+0x1409dda60: call     0x14007ad20   ; runtime.growslice
+0x1409dda65: lea      rdx, [rbx - 1]
+0x1409dda69: shl      rdx, 4
+0x1409dda6d: mov      qword ptr [rax + rdx + 8], 0x26
+0x1409dda76: cmp      dword ptr [rip + 0x127d8d3], 0
+0x1409dda7d: je       0x1409dda8b   ; main.buildLauncherBrowserArgs+0x16b
+0x1409dda7f: mov      r8, qword ptr [rax + rdx]
+0x1409dda83: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409dda88: mov      qword ptr [r11], r8
+0x1409dda8b: lea      r8, [rip + 0x29daac]
+0x1409dda92: mov      qword ptr [rax + rdx], r8
+0x1409dda96: jmp      0x1409ddaa0   ; main.buildLauncherBrowserArgs+0x180
+0x1409dda98: mov      rbx, rdx
+0x1409dda9b: jmp      0x1409ddaa0   ; main.buildLauncherBrowserArgs+0x180
+0x1409dda9d: mov      rbx, rdx
+0x1409ddaa0: mov      rdx, qword ptr [rsp + 0x920]
+0x1409ddaa8: test     rdx, rdx
+0x1409ddaab: je       0x1409ddafc   ; main.buildLauncherBrowserArgs+0x1dc
+0x1409ddaad: cmp      byte ptr [rdx], 0
+0x1409ddab0: je       0x1409ddafc   ; main.buildLauncherBrowserArgs+0x1dc
+0x1409ddab2: inc      rbx
+0x1409ddab5: cmp      rcx, rbx
+0x1409ddab8: jae      0x1409ddacb   ; main.buildLauncherBrowserArgs+0x1ab
+0x1409ddaba: mov      edi, 1
+0x1409ddabf: lea      rsi, [rip + 0x10c33a]
+0x1409ddac6: call     0x14007ad20   ; runtime.growslice
+0x1409ddacb: lea      rdx, [rbx - 1]
+0x1409ddacf: shl      rdx, 4
+0x1409ddad3: mov      qword ptr [rax + rdx + 8], 0x1a
+0x1409ddadc: cmp      dword ptr [rip + 0x127d86d], 0
+0x1409ddae3: je       0x1409ddaf1   ; main.buildLauncherBrowserArgs+0x1d1
+0x1409ddae5: mov      rsi, qword ptr [rax + rdx]
+0x1409ddae9: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409ddaee: mov      qword ptr [r11], rsi
+0x1409ddaf1: lea      rsi, [rip + 0x28aa17]
+0x1409ddaf8: mov      qword ptr [rax + rdx], rsi
+0x1409ddafc: nop      dword ptr [rax]
+0x1409ddb00: test     rbx, rbx
+0x1409ddb03: jne      0x1409ddb15   ; main.buildLauncherBrowserArgs+0x1f5
+0x1409ddb05: xor      eax, eax
+0x1409ddb07: xor      ebx, ebx
+0x1409ddb09: mov      rcx, rbx
+0x1409ddb0c: add      rsp, 0x1138
+0x1409ddb13: pop      rbp
+0x1409ddb14: ret      
+0x1409ddb15: add      rsp, 0x1138
+0x1409ddb1c: pop      rbp
+0x1409ddb1d: ret      
+0x1409ddb1e: nop      
+0x1409ddb20: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409ddb25: jmp      0x1409dd920   ; main.buildLauncherBrowserArgs
+0x1409ddb2a: int3     
+0x1409ddb2b: int3     
+0x1409ddb2c: int3     
+0x1409ddb2d: int3     
+0x1409ddb2e: int3     
+0x1409ddb2f: int3     
+0x1409ddb30: int3     
+0x1409ddb31: int3     
+0x1409ddb32: int3     
+0x1409ddb33: int3     
+0x1409ddb34: int3     
+0x1409ddb35: int3     
+0x1409ddb36: int3     
+0x1409ddb37: int3     
+0x1409ddb38: int3     
+0x1409ddb39: int3     
+0x1409ddb3a: int3     
+0x1409ddb3b: int3     
+0x1409ddb3c: int3     
+0x1409ddb3d: int3     
+0x1409ddb3e: int3     
+0x1409ddb3f: int3     
+0x1409ddb40: mov      r12, rsp
+0x1409ddb43: sub      r12, 0x1b40
+0x1409ddb4a: jb       0x1409ddc28   ; main.loadLauncherBrowserArgs+0xe8
+0x1409ddb50: cmp      r12, qword ptr [r14 + 0x10]
+0x1409ddb54: jbe      0x1409ddc28   ; main.loadLauncherBrowserArgs+0xe8
+0x1409ddb5a: push     rbp
+0x1409ddb5b: mov      rbp, rsp
+0x1409ddb5e: sub      rsp, 0x1bb8
+0x1409ddb65: mov      qword ptr [rsp + 0x1bc8], rax
+0x1409ddb6d: movups   xmmword ptr [rsp + 0x1280], xmm15
+0x1409ddb76: lea      rdi, [rsp + 0x1288]
+0x1409ddb7e: mov      ecx, 0x126
+0x1409ddb83: mov      rdx, rax
+0x1409ddb86: xor      eax, eax
+0x1409ddb88: rep stosq qword ptr [rdi], rax
+0x1409ddb8b: mov      rax, rdx
+0x1409ddb8e: call     0x1408760e0   ; main.loadLauncherConfigIfExists
+0x1409ddb93: mov      rdx, qword ptr [rsp]
+0x1409ddb97: mov      qword ptr [rsp + 0x1280], rdx
+0x1409ddb9f: lea      rdi, [rsp + 0x1288]
+0x1409ddba7: lea      rsi, [rsp + 8]
+0x1409ddbac: mov      ecx, 0x126
+0x1409ddbb1: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1409ddbb4: mov      rdx, qword ptr [rsp + 0x1280]
+0x1409ddbbc: mov      qword ptr [rsp + 0x948], rdx
+0x1409ddbc4: lea      rdi, [rsp + 0x950]
+0x1409ddbcc: lea      rsi, [rsp + 0x1288]
+0x1409ddbd4: mov      ecx, 0x126
+0x1409ddbd9: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1409ddbdc: nop      dword ptr [rax]
+0x1409ddbe0: test     rbx, rbx
+0x1409ddbe3: jne      0x1409ddbe9   ; main.loadLauncherBrowserArgs+0xa9
+0x1409ddbe5: test     al, al
+0x1409ddbe7: jne      0x1409ddbf9   ; main.loadLauncherBrowserArgs+0xb9
+0x1409ddbe9: xor      eax, eax
+0x1409ddbeb: xor      ebx, ebx
+0x1409ddbed: mov      rcx, rbx
+0x1409ddbf0: add      rsp, 0x1bb8
+0x1409ddbf7: pop      rbp
+0x1409ddbf8: ret      
+0x1409ddbf9: mov      rax, qword ptr [rsp + 0x9b8]
+0x1409ddc01: mov      qword ptr [rsp], rax
+0x1409ddc05: lea      rdi, [rsp + 8]
+0x1409ddc0a: lea      rsi, [rsp + 0x9c0]
+0x1409ddc12: mov      ecx, 0x88
+0x1409ddc17: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1409ddc1a: call     0x1409dd920   ; main.buildLauncherBrowserArgs
+0x1409ddc1f: add      rsp, 0x1bb8
+0x1409ddc26: pop      rbp
+0x1409ddc27: ret      
+0x1409ddc28: mov      qword ptr [rsp + 8], rax
+0x1409ddc2d: mov      qword ptr [rsp + 0x10], rbx
+0x1409ddc32: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409ddc37: mov      rax, qword ptr [rsp + 8]

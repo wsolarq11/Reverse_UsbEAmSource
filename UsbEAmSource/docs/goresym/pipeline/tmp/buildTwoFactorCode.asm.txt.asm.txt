@@ -1,0 +1,168 @@
+0x1409d2c80: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409d2c84: jbe      0x1409d2f0b   ; main.buildTwoFactorCode+0x28b
+0x1409d2c8a: push     rbp
+0x1409d2c8b: mov      rbp, rsp
+0x1409d2c8e: sub      rsp, 0x70
+0x1409d2c92: mov      qword ptr [rsp + 0x178], r8
+0x1409d2c9a: mov      qword ptr [rsp + 0x68], rdi
+0x1409d2c9f: mov      qword ptr [rsp + 0x160], rcx
+0x1409d2ca7: mov      qword ptr [rsp + 0x158], rbx
+0x1409d2caf: mov      qword ptr [rsp + 0x150], rax
+0x1409d2cb7: mov      qword ptr [rsp + 0x60], rsi
+0x1409d2cbc: mov      rax, qword ptr [rsp + 0x90]
+0x1409d2cc4: mov      rbx, qword ptr [rsp + 0x98]
+0x1409d2ccc: mov      rcx, qword ptr [rsp + 0x128]
+0x1409d2cd4: mov      qword ptr [rsp + 0x50], rcx
+0x1409d2cd9: call     0x1409c7ca0   ; main.sanitizeTwoFactorKind
+0x1409d2cde: nop      
+0x1409d2ce0: cmp      rbx, 5
+0x1409d2ce4: jne      0x1409d2cfb   ; main.buildTwoFactorCode+0x7b
+0x1409d2ce6: cmp      dword ptr [rax], 0x61657473
+0x1409d2cec: jne      0x1409d2cfb   ; main.buildTwoFactorCode+0x7b
+0x1409d2cee: cmp      byte ptr [rax + 4], 0x6d
+0x1409d2cf2: jne      0x1409d2cfb   ; main.buildTwoFactorCode+0x7b
+0x1409d2cf4: mov      ecx, 0x1e
+0x1409d2cf9: jmp      0x1409d2d12   ; main.buildTwoFactorCode+0x92
+0x1409d2cfb: mov      rcx, qword ptr [rsp + 0x50]
+0x1409d2d00: lea      rdx, [rcx - 5]
+0x1409d2d04: cmp      rdx, 0x127
+0x1409d2d0b: jbe      0x1409d2d12   ; main.buildTwoFactorCode+0x92
+0x1409d2d0d: mov      ecx, 0x1e
+0x1409d2d12: test     rcx, rcx
+0x1409d2d15: jg       0x1409d2d3a   ; main.buildTwoFactorCode+0xba
+0x1409d2d17: mov      rax, rcx
+0x1409d2d1a: mov      rbx, qword ptr [rsp + 0x68]
+0x1409d2d1f: movabs   rdi, 0xfffffff1886e0900
+0x1409d2d29: movabs   r8, 0xdd7b17f80
+0x1409d2d33: mov      esi, 0x1e
+0x1409d2d38: jmp      0x1409d2d9a   ; main.buildTwoFactorCode+0x11a
+0x1409d2d3a: nop      
+0x1409d2d3b: mov      rdx, qword ptr [rsp + 0x68]
+0x1409d2d40: bt       rdx, 0x3f
+0x1409d2d45: jae      0x1409d2d5f   ; main.buildTwoFactorCode+0xdf
+0x1409d2d47: lea      rdi, [rdx + rdx]
+0x1409d2d4b: shr      rdi, 0x1f
+0x1409d2d4f: movabs   r8, 0xdd7b17f80
+0x1409d2d59: lea      rsi, [r8 + rdi]
+0x1409d2d5d: jmp      0x1409d2d6e   ; main.buildTwoFactorCode+0xee
+0x1409d2d5f: movabs   r8, 0xdd7b17f80
+0x1409d2d69: mov      rsi, qword ptr [rsp + 0x60]
+0x1409d2d6e: movabs   rdi, 0xfffffff1886e0900
+0x1409d2d78: lea      rax, [rdi + rsi]
+0x1409d2d7c: mov      rbx, rdx
+0x1409d2d7f: cqo      
+0x1409d2d81: idiv     rcx
+0x1409d2d84: mov      rsi, rcx
+0x1409d2d87: sub      rcx, rdx
+0x1409d2d8a: test     rcx, rcx
+0x1409d2d8d: jg       0x1409d2d94   ; main.buildTwoFactorCode+0x114
+0x1409d2d8f: mov      rax, rsi
+0x1409d2d92: jmp      0x1409d2d9a   ; main.buildTwoFactorCode+0x11a
+0x1409d2d94: mov      rax, rsi
+0x1409d2d97: mov      rsi, rcx
+0x1409d2d9a: nop      
+0x1409d2d9b: bt       rbx, 0x3f
+0x1409d2da0: jae      0x1409d2daf   ; main.buildTwoFactorCode+0x12f
+0x1409d2da2: lea      rcx, [rbx + rbx]
+0x1409d2da6: shr      rcx, 0x1f
+0x1409d2daa: add      rcx, r8
+0x1409d2dad: jmp      0x1409d2db4   ; main.buildTwoFactorCode+0x134
+0x1409d2daf: mov      rcx, qword ptr [rsp + 0x60]
+0x1409d2db4: add      rcx, rdi
+0x1409d2db7: nop      word ptr [rax + rax]
+0x1409d2dc0: test     rax, rax
+0x1409d2dc3: je       0x1409d2f05   ; main.buildTwoFactorCode+0x285
+0x1409d2dc9: mov      qword ptr [rsp + 0x40], rsi
+0x1409d2dce: mov      rdx, rax
+0x1409d2dd1: mov      rax, rcx
+0x1409d2dd4: mov      rsi, rdx
+0x1409d2dd7: cmp      rsi, -1
+0x1409d2ddb: jne      0x1409d2de4   ; main.buildTwoFactorCode+0x164
+0x1409d2ddd: neg      rax
+0x1409d2de0: xor      edx, edx
+0x1409d2de2: jmp      0x1409d2de9   ; main.buildTwoFactorCode+0x169
+0x1409d2de4: cqo      
+0x1409d2de6: idiv     rsi
+0x1409d2de9: mov      qword ptr [rsp + 0x58], rax
+0x1409d2dee: mov      rax, qword ptr [rsp + 0x90]
+0x1409d2df6: mov      rbx, qword ptr [rsp + 0x98]
+0x1409d2dfe: nop      
+0x1409d2e00: call     0x1409c7ca0   ; main.sanitizeTwoFactorKind
+0x1409d2e05: cmp      rbx, 5
+0x1409d2e09: jne      0x1409d2e4c   ; main.buildTwoFactorCode+0x1cc
+0x1409d2e0b: cmp      dword ptr [rax], 0x61657473
+0x1409d2e11: jne      0x1409d2e4c   ; main.buildTwoFactorCode+0x1cc
+0x1409d2e13: cmp      byte ptr [rax + 4], 0x6d
+0x1409d2e17: jne      0x1409d2e4c   ; main.buildTwoFactorCode+0x1cc
+0x1409d2e19: mov      rax, qword ptr [rsp + 0x150]
+0x1409d2e21: mov      rbx, qword ptr [rsp + 0x158]
+0x1409d2e29: mov      rcx, qword ptr [rsp + 0x160]
+0x1409d2e31: mov      rdi, qword ptr [rsp + 0x58]
+0x1409d2e36: call     0x1409d30c0   ; main.buildSteamTwoFactorCode
+0x1409d2e3b: mov      rsi, rdi
+0x1409d2e3e: mov      rdi, rcx
+0x1409d2e41: mov      rcx, qword ptr [rsp + 0x40]
+0x1409d2e46: add      rsp, 0x70
+0x1409d2e4a: pop      rbp
+0x1409d2e4b: ret      
+0x1409d2e4c: mov      rax, qword ptr [rsp + 0x90]
+0x1409d2e54: mov      rbx, qword ptr [rsp + 0x98]
+0x1409d2e5c: mov      rcx, qword ptr [rsp + 0x120]
+0x1409d2e64: mov      qword ptr [rsp + 0x48], rcx
+0x1409d2e69: call     0x1409c7ca0   ; main.sanitizeTwoFactorKind
+0x1409d2e6e: cmp      rbx, 5
+0x1409d2e72: jne      0x1409d2e89   ; main.buildTwoFactorCode+0x209
+0x1409d2e74: cmp      dword ptr [rax], 0x61657473
+0x1409d2e7a: jne      0x1409d2e89   ; main.buildTwoFactorCode+0x209
+0x1409d2e7c: cmp      byte ptr [rax + 4], 0x6d
+0x1409d2e80: jne      0x1409d2e89   ; main.buildTwoFactorCode+0x209
+0x1409d2e82: mov      edx, 5
+0x1409d2e87: jmp      0x1409d2e9d   ; main.buildTwoFactorCode+0x21d
+0x1409d2e89: mov      rdx, qword ptr [rsp + 0x48]
+0x1409d2e8e: lea      rsi, [rdx - 4]
+0x1409d2e92: cmp      rsi, 6
+0x1409d2e96: jbe      0x1409d2e9d   ; main.buildTwoFactorCode+0x21d
+0x1409d2e98: mov      edx, 6
+0x1409d2e9d: mov      qword ptr [rsp + 0x38], rdx
+0x1409d2ea2: mov      rax, qword ptr [rsp + 0x110]
+0x1409d2eaa: mov      rbx, qword ptr [rsp + 0x118]
+0x1409d2eb2: mov      rcx, qword ptr [rsp + 0x90]
+0x1409d2eba: mov      rdi, qword ptr [rsp + 0x98]
+0x1409d2ec2: call     0x1409c83e0   ; main.sanitizeTwoFactorAlgorithm
+0x1409d2ec7: mov      rcx, qword ptr [rsp + 0x160]
+0x1409d2ecf: mov      rdi, qword ptr [rsp + 0x58]
+0x1409d2ed4: mov      rsi, qword ptr [rsp + 0x38]
+0x1409d2ed9: mov      r8, rax
+0x1409d2edc: mov      r9, rbx
+0x1409d2edf: mov      rax, qword ptr [rsp + 0x150]
+0x1409d2ee7: mov      rbx, qword ptr [rsp + 0x158]
+0x1409d2eef: call     0x1409d2f80   ; main.buildStandardTwoFactorCode
+0x1409d2ef4: mov      rsi, rdi
+0x1409d2ef7: mov      rdi, rcx
+0x1409d2efa: mov      rcx, qword ptr [rsp + 0x40]
+0x1409d2eff: add      rsp, 0x70
+0x1409d2f03: pop      rbp
+0x1409d2f04: ret      
+0x1409d2f05: call     0x140042d40   ; runtime.panicdivide
+0x1409d2f0a: nop      
+0x1409d2f0b: mov      qword ptr [rsp + 0xd8], rax
+0x1409d2f13: mov      qword ptr [rsp + 0xe0], rbx
+0x1409d2f1b: mov      qword ptr [rsp + 0xe8], rcx
+0x1409d2f23: mov      qword ptr [rsp + 0xf0], rdi
+0x1409d2f2b: mov      qword ptr [rsp + 0xf8], rsi
+0x1409d2f33: mov      qword ptr [rsp + 0x100], r8
+0x1409d2f3b: nop      dword ptr [rax + rax]
+0x1409d2f40: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d2f45: mov      rax, qword ptr [rsp + 0xd8]
+0x1409d2f4d: mov      rbx, qword ptr [rsp + 0xe0]
+0x1409d2f55: mov      rcx, qword ptr [rsp + 0xe8]
+0x1409d2f5d: mov      rdi, qword ptr [rsp + 0xf0]
+0x1409d2f65: mov      rsi, qword ptr [rsp + 0xf8]
+0x1409d2f6d: mov      r8, qword ptr [rsp + 0x100]
+0x1409d2f75: jmp      0x1409d2c80   ; main.buildTwoFactorCode
+0x1409d2f7a: int3     
+0x1409d2f7b: int3     
+0x1409d2f7c: int3     
+0x1409d2f7d: int3     
+0x1409d2f7e: int3     
+0x1409d2f7f: int3     

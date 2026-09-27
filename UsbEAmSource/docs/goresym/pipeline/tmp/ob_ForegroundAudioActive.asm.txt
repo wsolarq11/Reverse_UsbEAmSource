@@ -1,0 +1,76 @@
+0x14091da20: cmp      rsp, qword ptr [r14 + 0x10]
+0x14091da24: jbe      0x14091daa9   ; main.oledBlackoutForegroundAudioActiveContext+0x89
+0x14091da2a: push     rbp
+0x14091da2b: mov      rbp, rsp
+0x14091da2e: sub      rsp, 0x48
+0x14091da32: mov      qword ptr [rsp + 0x58], rax
+0x14091da37: mov      qword ptr [rsp + 0x60], rbx
+0x14091da3c: mov      qword ptr [rsp + 0x70], rdi
+0x14091da41: test     ecx, ecx
+0x14091da43: jne      0x14091da51   ; main.oledBlackoutForegroundAudioActiveContext+0x31
+0x14091da45: xor      eax, eax
+0x14091da47: xor      ebx, ebx
+0x14091da49: xor      ecx, ecx
+0x14091da4b: add      rsp, 0x48
+0x14091da4f: pop      rbp
+0x14091da50: ret      
+0x14091da51: mov      byte ptr [rsp + 0x1f], 0
+0x14091da56: movups   xmmword ptr [rsp + 0x20], xmm15
+0x14091da5c: movups   xmmword ptr [rsp + 0x28], xmm15
+0x14091da62: movups   xmmword ptr [rsp + 0x38], xmm15
+0x14091da68: lea      rdx, [rip + 0x91]
+0x14091da6f: mov      qword ptr [rsp + 0x20], rdx
+0x14091da74: mov      qword ptr [rsp + 0x30], rsi
+0x14091da79: mov      qword ptr [rsp + 0x28], rdi
+0x14091da7e: mov      dword ptr [rsp + 0x38], ecx
+0x14091da82: lea      rdx, [rsp + 0x1f]
+0x14091da87: mov      qword ptr [rsp + 0x40], rdx
+0x14091da8c: lea      rcx, [rsp + 0x20]
+0x14091da91: call     0x140915ce0   ; main.oledBlackoutWalkActiveRenderSessionsContext
+0x14091da96: movzx    edx, byte ptr [rsp + 0x1f]
+0x14091da9b: mov      rcx, rbx
+0x14091da9e: mov      rbx, rax
+0x14091daa1: mov      eax, edx
+0x14091daa3: add      rsp, 0x48
+0x14091daa7: pop      rbp
+0x14091daa8: ret      
+0x14091daa9: mov      qword ptr [rsp + 8], rax
+0x14091daae: mov      qword ptr [rsp + 0x10], rbx
+0x14091dab3: mov      dword ptr [rsp + 0x18], ecx
+0x14091dab7: mov      qword ptr [rsp + 0x20], rdi
+0x14091dabc: mov      qword ptr [rsp + 0x28], rsi
+0x14091dac1: call     0x14007f140   ; runtime.morestack_noctxt
+0x14091dac6: mov      rax, qword ptr [rsp + 8]
+0x14091dacb: mov      rbx, qword ptr [rsp + 0x10]
+0x14091dad0: mov      ecx, dword ptr [rsp + 0x18]
+0x14091dad4: mov      rdi, qword ptr [rsp + 0x20]
+0x14091dad9: mov      rsi, qword ptr [rsp + 0x28]
+0x14091dade: nop      
+0x14091dae0: jmp      0x14091da20   ; main.oledBlackoutForegroundAudioActiveContext
+0x14091dae5: int3     
+0x14091dae6: int3     
+0x14091dae7: int3     
+0x14091dae8: int3     
+0x14091dae9: int3     
+0x14091daea: int3     
+0x14091daeb: int3     
+0x14091daec: int3     
+0x14091daed: int3     
+0x14091daee: int3     
+0x14091daef: int3     
+0x14091daf0: int3     
+0x14091daf1: int3     
+0x14091daf2: int3     
+0x14091daf3: int3     
+0x14091daf4: int3     
+0x14091daf5: int3     
+0x14091daf6: int3     
+0x14091daf7: int3     
+0x14091daf8: int3     
+0x14091daf9: int3     
+0x14091dafa: int3     
+0x14091dafb: int3     
+0x14091dafc: int3     
+0x14091dafd: int3     
+0x14091dafe: int3     
+0x14091daff: int3     

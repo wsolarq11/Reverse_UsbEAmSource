@@ -1,0 +1,24 @@
+0x140880580: not      ebx
+0x140880582: cmp      eax, 0x14b900
+0x140880587: add      byte ptr [rax], al
+0x140880589: call     0x140006280   ; runtime.memequal
+0x14088058e: test     al, al
+0x140880590: je       0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x140880592: mov      rax, qword ptr [rsp + 0x28]
+0x140880597: mov      rbx, qword ptr [rsp + 0x30]
+0x14088059c: nop      dword ptr [rax]
+0x1408805a0: call     0x1400a2200   ; strings.TrimSpace
+0x1408805a5: add      rsp, 0x18
+0x1408805a9: pop      rbp
+0x1408805aa: ret      
+0x1408805ab: xor      eax, eax
+0x1408805ad: xor      ebx, ebx
+0x1408805af: add      rsp, 0x18
+0x1408805b3: pop      rbp
+0x1408805b4: ret      
+0x1408805b5: mov      qword ptr [rsp + 8], rax
+0x1408805ba: mov      qword ptr [rsp + 0x10], rbx
+0x1408805bf: nop      
+0x1408805c0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408805c5: mov      rax, qword ptr [rsp + 8]
+0x1408805ca: mov      rbx, qword ptr [rsp + 0x10]

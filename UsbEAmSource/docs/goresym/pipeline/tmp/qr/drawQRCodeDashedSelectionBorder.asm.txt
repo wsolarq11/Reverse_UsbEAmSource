@@ -1,0 +1,309 @@
+0x14095e0e0: lea      r12, [rsp - 0x80]
+0x14095e0e5: cmp      r12, qword ptr [r14 + 0x10]
+0x14095e0e9: jbe      0x14095e614   ; main.drawQRCodeDashedSelectionBorder+0x534
+0x14095e0ef: push     rbp
+0x14095e0f0: mov      rbp, rsp
+0x14095e0f3: sub      rsp, 0xf8
+0x14095e0fa: movups   xmmword ptr [rsp + 0xe0], xmm15
+0x14095e103: movups   xmmword ptr [rsp + 0xe8], xmm15
+0x14095e10c: mov      byte ptr [rsp + 0x2f], 0
+0x14095e111: test     rax, rax
+0x14095e114: je       0x14095e125   ; main.drawQRCodeDashedSelectionBorder+0x45
+0x14095e116: cmp      rbx, rdi
+0x14095e119: jge      0x14095e125   ; main.drawQRCodeDashedSelectionBorder+0x45
+0x14095e11b: nop      dword ptr [rax + rax]
+0x14095e120: cmp      rcx, rsi
+0x14095e123: jl       0x14095e12e   ; main.drawQRCodeDashedSelectionBorder+0x4e
+0x14095e125: add      rsp, 0xf8
+0x14095e12c: pop      rbp
+0x14095e12d: ret      
+0x14095e12e: mov      qword ptr [rsp + 0x108], rax
+0x14095e136: mov      qword ptr [rsp + 0x80], rsi
+0x14095e13e: mov      qword ptr [rsp + 0x78], rdi
+0x14095e143: mov      qword ptr [rsp + 0x70], rcx
+0x14095e148: mov      qword ptr [rsp + 0x68], rbx
+0x14095e14d: lea      rax, [rip + 0x24058c]
+0x14095e154: call     0x14001ae20   ; runtime.newobject
+0x14095e159: mov      dword ptr [rax + 4], 0xffc786
+0x14095e160: mov      qword ptr [rax + 8], 0
+0x14095e168: nop      
+0x14095e169: mov      qword ptr [rsp + 0xd8], rax
+0x14095e171: mov      qword ptr [rsp + 0xd0], 0
+0x14095e17d: lea      rax, [rip + 0x1a08dc]
+0x14095e184: call     0x14001ae20   ; runtime.newobject
+0x14095e189: mov      qword ptr [rax], 1
+0x14095e190: mov      qword ptr [rax + 8], 1
+0x14095e198: mov      rcx, qword ptr [rsp + 0xd8]
+0x14095e1a0: mov      qword ptr [rax + 0x10], rcx
+0x14095e1a4: mov      qword ptr [rax + 0x18], 0
+0x14095e1ac: mov      rcx, qword ptr [rsp + 0xd0]
+0x14095e1b4: mov      qword ptr [rax + 0x20], rcx
+0x14095e1b8: mov      rcx, qword ptr [rip + 0x1264501]
+0x14095e1bf: mov      rbx, rax
+0x14095e1c2: mov      edi, 5
+0x14095e1c7: mov      rax, rcx
+0x14095e1ca: mov      rcx, rdi
+0x14095e1cd: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095e1d2: test     rax, rax
+0x14095e1d5: je       0x14095e36b   ; main.drawQRCodeDashedSelectionBorder+0x28b
+0x14095e1db: lea      rcx, [rip + 0x5de]
+0x14095e1e2: mov      qword ptr [rsp + 0xb8], rcx
+0x14095e1ea: mov      qword ptr [rsp + 0xc0], rax
+0x14095e1f2: lea      rcx, [rsp + 0xb8]
+0x14095e1fa: mov      qword ptr [rsp + 0xe0], rcx
+0x14095e202: mov      byte ptr [rsp + 0x2f], 1
+0x14095e207: mov      rbx, rax
+0x14095e20a: mov      rax, qword ptr [rsp + 0x108]
+0x14095e212: call     0x14074caa0   ; main.selectAppObject
+0x14095e217: test     rbx, rbx
+0x14095e21a: je       0x14095e237   ; main.drawQRCodeDashedSelectionBorder+0x157
+0x14095e21c: mov      byte ptr [rsp + 0x2f], 0
+0x14095e221: mov      rdx, qword ptr [rsp + 0xe0]
+0x14095e229: mov      rax, qword ptr [rdx]
+0x14095e22c: call     rax
+0x14095e22e: add      rsp, 0xf8
+0x14095e235: pop      rbp
+0x14095e236: ret      
+0x14095e237: lea      rcx, [rip + 0x4e2]
+0x14095e23e: mov      qword ptr [rsp + 0xa0], rcx
+0x14095e246: mov      rcx, qword ptr [rsp + 0x108]
+0x14095e24e: mov      qword ptr [rsp + 0xa8], rcx
+0x14095e256: mov      qword ptr [rsp + 0xb0], rax
+0x14095e25e: lea      rcx, [rsp + 0xa0]
+0x14095e266: mov      qword ptr [rsp + 0xe8], rcx
+0x14095e26e: mov      byte ptr [rsp + 0x2f], 3
+0x14095e273: nop      
+0x14095e274: lea      rax, [rip + 0x19f765]
+0x14095e27b: nop      dword ptr [rax + rax]
+0x14095e280: call     0x14001ae20   ; runtime.newobject
+0x14095e285: mov      rcx, qword ptr [rsp + 0x108]
+0x14095e28d: mov      qword ptr [rax], rcx
+0x14095e290: mov      qword ptr [rax + 8], 1
+0x14095e298: mov      rcx, qword ptr [rip + 0x1264451]
+0x14095e29f: mov      rbx, rax
+0x14095e2a2: mov      edi, 2
+0x14095e2a7: mov      rax, rcx
+0x14095e2aa: mov      rcx, rdi
+0x14095e2ad: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095e2b2: test     rax, rax
+0x14095e2b5: je       0x14095e5ef   ; main.drawQRCodeDashedSelectionBorder+0x50f
+0x14095e2bb: lea      r8, [rip + 0x39e]
+0x14095e2c2: mov      qword ptr [rsp + 0x88], r8
+0x14095e2ca: mov      r8, qword ptr [rsp + 0x108]
+0x14095e2d2: mov      qword ptr [rsp + 0x90], r8
+0x14095e2da: mov      qword ptr [rsp + 0x98], rax
+0x14095e2e2: lea      r9, [rsp + 0x88]
+0x14095e2ea: mov      qword ptr [rsp + 0xf0], r9
+0x14095e2f2: mov      byte ptr [rsp + 0x2f], 7
+0x14095e2f7: mov      rcx, qword ptr [rsp + 0x78]
+0x14095e2fc: lea      r9, [rcx - 1]
+0x14095e300: mov      rax, qword ptr [rsp + 0x68]
+0x14095e305: cmp      rax, r9
+0x14095e308: jge      0x14095e325   ; main.drawQRCodeDashedSelectionBorder+0x245
+0x14095e30a: mov      rdi, qword ptr [rsp + 0x80]
+0x14095e312: lea      r9, [rdi - 1]
+0x14095e316: mov      rbx, qword ptr [rsp + 0x70]
+0x14095e31b: nop      dword ptr [rax + rax]
+0x14095e320: cmp      rbx, r9
+0x14095e323: jl       0x14095e364   ; main.drawQRCodeDashedSelectionBorder+0x284
+0x14095e325: mov      byte ptr [rsp + 0x2f], 3
+0x14095e32a: mov      rdx, qword ptr [rsp + 0xf0]
+0x14095e332: mov      rax, qword ptr [rdx]
+0x14095e335: call     rax
+0x14095e337: mov      byte ptr [rsp + 0x2f], 1
+0x14095e33c: mov      rdx, qword ptr [rsp + 0xe8]
+0x14095e344: mov      rax, qword ptr [rdx]
+0x14095e347: call     rax
+0x14095e349: mov      byte ptr [rsp + 0x2f], 0
+0x14095e34e: mov      rdx, qword ptr [rsp + 0xe0]
+0x14095e356: mov      rax, qword ptr [rdx]
+0x14095e359: call     rax
+0x14095e35b: add      rsp, 0xf8
+0x14095e362: pop      rbp
+0x14095e363: ret      
+0x14095e364: xor      edx, edx
+0x14095e366: jmp      0x14095e540   ; main.drawQRCodeDashedSelectionBorder+0x460
+0x14095e36b: add      rsp, 0xf8
+0x14095e372: pop      rbp
+0x14095e373: ret      
+0x14095e374: mov      qword ptr [rsp + 0x60], rbx
+0x14095e379: mov      qword ptr [rsp + 0x58], rax
+0x14095e37e: dec      rdx
+0x14095e381: dec      rcx
+0x14095e384: movsxd   rdx, edx
+0x14095e387: mov      qword ptr [rsp + 0x50], rdx
+0x14095e38c: movsxd   rdx, ebx
+0x14095e38f: mov      qword ptr [rsp + 0x48], rdx
+0x14095e394: movsxd   rcx, ecx
+0x14095e397: mov      qword ptr [rsp + 0x40], rcx
+0x14095e39c: movsxd   rcx, eax
+0x14095e39f: mov      qword ptr [rsp + 0x38], rcx
+0x14095e3a4: nop      
+0x14095e3a5: mov      qword ptr [rsp + 0xc8], 0
+0x14095e3b1: lea      rax, [rip + 0x19f7a8]
+0x14095e3b8: call     0x14001ae20   ; runtime.newobject
+0x14095e3bd: mov      rcx, qword ptr [rsp + 0x108]
+0x14095e3c5: mov      qword ptr [rax], rcx
+0x14095e3c8: mov      rcx, qword ptr [rsp + 0x58]
+0x14095e3cd: mov      qword ptr [rax + 8], rcx
+0x14095e3d1: mov      rcx, qword ptr [rsp + 0x60]
+0x14095e3d6: mov      qword ptr [rax + 0x10], rcx
+0x14095e3da: mov      rcx, qword ptr [rsp + 0xc8]
+0x14095e3e2: mov      qword ptr [rax + 0x18], rcx
+0x14095e3e6: mov      rcx, qword ptr [rip + 0x12642f3]
+0x14095e3ed: mov      rbx, rax
+0x14095e3f0: mov      edi, 4
+0x14095e3f5: mov      rax, rcx
+0x14095e3f8: mov      rcx, rdi
+0x14095e3fb: nop      dword ptr [rax + rax]
+0x14095e400: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095e405: nop      
+0x14095e406: lea      rax, [rip + 0x19d833]
+0x14095e40d: call     0x14001ae20   ; runtime.newobject
+0x14095e412: mov      rcx, qword ptr [rsp + 0x108]
+0x14095e41a: mov      qword ptr [rax], rcx
+0x14095e41d: mov      rcx, qword ptr [rsp + 0x50]
+0x14095e422: mov      qword ptr [rax + 8], rcx
+0x14095e426: mov      rcx, qword ptr [rsp + 0x48]
+0x14095e42b: mov      qword ptr [rax + 0x10], rcx
+0x14095e42f: mov      rcx, qword ptr [rip + 0x12642a2]
+0x14095e436: mov      rbx, rax
+0x14095e439: mov      edi, 3
+0x14095e43e: mov      rax, rcx
+0x14095e441: mov      rcx, rdi
+0x14095e444: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095e449: nop      
+0x14095e44a: lea      rax, [rip + 0x19d7ef]
+0x14095e451: call     0x14001ae20   ; runtime.newobject
+0x14095e456: mov      rcx, qword ptr [rsp + 0x108]
+0x14095e45e: mov      qword ptr [rax], rcx
+0x14095e461: mov      rcx, qword ptr [rsp + 0x50]
+0x14095e466: mov      qword ptr [rax + 8], rcx
+0x14095e46a: mov      rcx, qword ptr [rsp + 0x40]
+0x14095e46f: mov      qword ptr [rax + 0x10], rcx
+0x14095e473: mov      rcx, qword ptr [rip + 0x126425e]
+0x14095e47a: mov      rbx, rax
+0x14095e47d: mov      edi, 3
+0x14095e482: mov      rax, rcx
+0x14095e485: mov      rcx, rdi
+0x14095e488: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095e48d: nop      
+0x14095e48e: lea      rax, [rip + 0x19d7ab]
+0x14095e495: call     0x14001ae20   ; runtime.newobject
+0x14095e49a: mov      rcx, qword ptr [rsp + 0x108]
+0x14095e4a2: mov      qword ptr [rax], rcx
+0x14095e4a5: mov      rcx, qword ptr [rsp + 0x38]
+0x14095e4aa: mov      qword ptr [rax + 8], rcx
+0x14095e4ae: mov      rcx, qword ptr [rsp + 0x40]
+0x14095e4b3: mov      qword ptr [rax + 0x10], rcx
+0x14095e4b7: mov      rcx, qword ptr [rip + 0x126421a]
+0x14095e4be: mov      rbx, rax
+0x14095e4c1: mov      edi, 3
+0x14095e4c6: mov      rax, rcx
+0x14095e4c9: mov      rcx, rdi
+0x14095e4cc: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095e4d1: nop      
+0x14095e4d2: lea      rax, [rip + 0x19d767]
+0x14095e4d9: call     0x14001ae20   ; runtime.newobject
+0x14095e4de: mov      rcx, qword ptr [rsp + 0x108]
+0x14095e4e6: mov      qword ptr [rax], rcx
+0x14095e4e9: mov      rcx, qword ptr [rsp + 0x38]
+0x14095e4ee: mov      qword ptr [rax + 8], rcx
+0x14095e4f2: mov      rcx, qword ptr [rsp + 0x48]
+0x14095e4f7: mov      qword ptr [rax + 0x10], rcx
+0x14095e4fb: mov      rcx, qword ptr [rip + 0x12641d6]
+0x14095e502: mov      rbx, rax
+0x14095e505: mov      edi, 3
+0x14095e50a: mov      rax, rcx
+0x14095e50d: mov      rcx, rdi
+0x14095e510: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095e515: mov      rdx, qword ptr [rsp + 0x30]
+0x14095e51a: inc      rdx
+0x14095e51d: mov      rax, qword ptr [rsp + 0x68]
+0x14095e522: mov      rcx, qword ptr [rsp + 0x78]
+0x14095e527: mov      rbx, qword ptr [rsp + 0x70]
+0x14095e52c: mov      rdi, qword ptr [rsp + 0x80]
+0x14095e534: mov      r8, qword ptr [rsp + 0x108]
+0x14095e53c: nop      dword ptr [rax]
+0x14095e540: cmp      rdx, 2
+0x14095e544: jge      0x14095e5af   ; main.drawQRCodeDashedSelectionBorder+0x4cf
+0x14095e546: mov      qword ptr [rsp + 0x30], rdx
+0x14095e54b: mov      rsi, rdx
+0x14095e54e: call     0x1401a10e0   ; image.Rectangle.Inset
+0x14095e553: mov      rdx, rcx
+0x14095e556: sub      rcx, rax
+0x14095e559: cmp      rcx, 1
+0x14095e55d: jle      0x14095e56f   ; main.drawQRCodeDashedSelectionBorder+0x48f
+0x14095e55f: mov      rcx, rdi
+0x14095e562: sub      rdi, rbx
+0x14095e565: cmp      rdi, 1
+0x14095e569: jg       0x14095e374   ; main.drawQRCodeDashedSelectionBorder+0x294
+0x14095e56f: mov      byte ptr [rsp + 0x2f], 3
+0x14095e574: mov      rdx, qword ptr [rsp + 0xf0]
+0x14095e57c: mov      rax, qword ptr [rdx]
+0x14095e57f: nop      
+0x14095e580: call     rax
+0x14095e582: mov      byte ptr [rsp + 0x2f], 1
+0x14095e587: mov      rdx, qword ptr [rsp + 0xe8]
+0x14095e58f: mov      rax, qword ptr [rdx]
+0x14095e592: call     rax
+0x14095e594: mov      byte ptr [rsp + 0x2f], 0
+0x14095e599: mov      rdx, qword ptr [rsp + 0xe0]
+0x14095e5a1: mov      rax, qword ptr [rdx]
+0x14095e5a4: call     rax
+0x14095e5a6: add      rsp, 0xf8
+0x14095e5ad: pop      rbp
+0x14095e5ae: ret      
+0x14095e5af: mov      byte ptr [rsp + 0x2f], 3
+0x14095e5b4: mov      rdx, qword ptr [rsp + 0xf0]
+0x14095e5bc: mov      rax, qword ptr [rdx]
+0x14095e5bf: nop      
+0x14095e5c0: call     rax
+0x14095e5c2: mov      byte ptr [rsp + 0x2f], 1
+0x14095e5c7: mov      rdx, qword ptr [rsp + 0xe8]
+0x14095e5cf: mov      rax, qword ptr [rdx]
+0x14095e5d2: call     rax
+0x14095e5d4: mov      byte ptr [rsp + 0x2f], 0
+0x14095e5d9: mov      rdx, qword ptr [rsp + 0xe0]
+0x14095e5e1: mov      rax, qword ptr [rdx]
+0x14095e5e4: call     rax
+0x14095e5e6: add      rsp, 0xf8
+0x14095e5ed: pop      rbp
+0x14095e5ee: ret      
+0x14095e5ef: lea      rax, [rip + 0x18b80a]
+0x14095e5f6: lea      rbx, [rip + 0x870563]
+0x14095e5fd: nop      dword ptr [rax]
+0x14095e600: call     0x1400789c0   ; runtime.gopanic
+0x14095e605: nop      
+0x14095e606: call     0x1400435e0   ; runtime.deferreturn
+0x14095e60b: add      rsp, 0xf8
+0x14095e612: pop      rbp
+0x14095e613: ret      
+0x14095e614: mov      qword ptr [rsp + 8], rax
+0x14095e619: mov      qword ptr [rsp + 0x10], rbx
+0x14095e61e: mov      qword ptr [rsp + 0x18], rcx
+0x14095e623: mov      qword ptr [rsp + 0x20], rdi
+0x14095e628: mov      qword ptr [rsp + 0x28], rsi
+0x14095e62d: call     0x14007f140   ; runtime.morestack_noctxt
+0x14095e632: mov      rax, qword ptr [rsp + 8]
+0x14095e637: mov      rbx, qword ptr [rsp + 0x10]
+0x14095e63c: mov      rcx, qword ptr [rsp + 0x18]
+0x14095e641: mov      rdi, qword ptr [rsp + 0x20]
+0x14095e646: mov      rsi, qword ptr [rsp + 0x28]
+0x14095e64b: jmp      0x14095e0e0   ; main.drawQRCodeDashedSelectionBorder
+0x14095e650: int3     
+0x14095e651: int3     
+0x14095e652: int3     
+0x14095e653: int3     
+0x14095e654: int3     
+0x14095e655: int3     
+0x14095e656: int3     
+0x14095e657: int3     
+0x14095e658: int3     
+0x14095e659: int3     
+0x14095e65a: int3     
+0x14095e65b: int3     
+0x14095e65c: int3     
+0x14095e65d: int3     
+0x14095e65e: int3     
+0x14095e65f: int3     

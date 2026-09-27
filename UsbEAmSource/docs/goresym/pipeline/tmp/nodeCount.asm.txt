@@ -1,0 +1,66 @@
+0x140809280: lea      r12, [rsp - 0x288]
+0x140809288: cmp      r12, qword ptr [r14 + 0x10]
+0x14080928c: jbe      0x1408093c9   ; main.VolumeIndex.NodeCount+0x149
+0x140809292: push     rbp
+0x140809293: mov      rbp, rsp
+0x140809296: sub      rsp, 0x300
+0x14080929d: movq     qword ptr [rsp + 0x2f8], xmm15
+0x1408092a7: mov      byte ptr [rsp + 0x107], 0
+0x1408092af: mov      qword ptr [rsp + 0x108], 0
+0x1408092bb: nop      dword ptr [rax + rax]
+0x1408092c0: call     0x1407e5ac0   ; main.VolumeIndex.acquireReadView
+0x1408092c5: mov      rcx, qword ptr [rsp]
+0x1408092c9: mov      qword ptr [rsp + 0x1f0], rcx
+0x1408092d1: lea      rdi, [rsp + 0x1f8]
+0x1408092d9: lea      rsi, [rsp + 8]
+0x1408092de: nop      
+0x1408092e0: mov      qword ptr [rsp - 0x10], rbp
+0x1408092e5: lea      rbp, [rsp - 0x10]
+0x1408092ea: call     0x140081a0e   ; runtime.duffcopy+0x2ae
+0x1408092ef: mov      rbp, qword ptr [rbp]
+0x1408092f3: lea      rcx, [rip + 0xe6]
+0x1408092fa: mov      qword ptr [rsp + 0x2e8], rcx
+0x140809302: lea      rcx, [rsp + 0x1f0]
+0x14080930a: mov      qword ptr [rsp + 0x2f0], rcx
+0x140809312: lea      rcx, [rsp + 0x2e8]
+0x14080931a: mov      qword ptr [rsp + 0x2f8], rcx
+0x140809322: mov      byte ptr [rsp + 0x107], 1
+0x14080932a: lea      rdi, [rsp + 0x110]
+0x140809332: lea      rsi, [rsp + 0x1f8]
+0x14080933a: nop      word ptr [rax + rax]
+0x140809340: mov      qword ptr [rsp - 0x10], rbp
+0x140809345: lea      rbp, [rsp - 0x10]
+0x14080934a: call     0x140081a1c   ; runtime.duffcopy+0x2bc
+0x14080934f: mov      rbp, qword ptr [rbp]
+0x140809353: mov      rcx, qword ptr [rsp + 0x140]
+0x14080935b: nop      dword ptr [rax + rax]
+0x140809360: test     rcx, rcx
+0x140809363: je       0x14080937b   ; main.VolumeIndex.NodeCount+0xfb
+0x140809365: movabs   rax, 0xaaaaaaaaaaaaaaab
+0x14080936f: imul     rcx
+0x140809372: add      rcx, rdx
+0x140809375: sar      rcx, 4
+0x140809379: jmp      0x140809383   ; main.VolumeIndex.NodeCount+0x103
+0x14080937b: mov      rcx, qword ptr [rsp + 0x128]
+0x140809383: mov      qword ptr [rsp + 0x108], rcx
+0x14080938b: mov      byte ptr [rsp + 0x107], 0
+0x140809393: mov      rdx, qword ptr [rsp + 0x2f8]
+0x14080939b: mov      rax, qword ptr [rdx]
+0x14080939e: nop      
+0x1408093a0: call     rax
+0x1408093a2: mov      rax, qword ptr [rsp + 0x108]
+0x1408093aa: add      rsp, 0x300
+0x1408093b1: pop      rbp
+0x1408093b2: ret      
+0x1408093b3: call     0x1400435e0   ; runtime.deferreturn
+0x1408093b8: mov      rax, qword ptr [rsp + 0x108]
+0x1408093c0: add      rsp, 0x300
+0x1408093c7: pop      rbp
+0x1408093c8: ret      
+0x1408093c9: mov      qword ptr [rsp + 8], rax
+0x1408093ce: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408093d3: mov      rax, qword ptr [rsp + 8]
+0x1408093d8: jmp      0x140809280   ; main.VolumeIndex.NodeCount
+0x1408093dd: int3     
+0x1408093de: int3     
+0x1408093df: int3     

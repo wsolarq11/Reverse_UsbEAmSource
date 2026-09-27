@@ -1,0 +1,201 @@
+0x14085cae0: lea      r12, [rsp - 0x220]
+0x14085cae8: cmp      r12, qword ptr [r14 + 0x10]
+0x14085caec: jbe      0x14085ce75   ; main.resolveProcessNameByPID+0x395
+0x14085caf2: push     rbp
+0x14085caf3: mov      rbp, rsp
+0x14085caf6: sub      rsp, 0x298
+0x14085cafd: movq     qword ptr [rsp + 0x290], xmm15
+0x14085cb07: mov      byte ptr [rsp + 0x1f], 0
+0x14085cb0c: movups   xmmword ptr [rsp + 0x280], xmm15
+0x14085cb15: movups   xmmword ptr [rsp + 0x270], xmm15
+0x14085cb1e: nop      
+0x14085cb20: test     eax, eax
+0x14085cb22: je       0x14085cc58   ; main.resolveProcessNameByPID+0x178
+0x14085cb28: mov      dword ptr [rsp + 0x2a8], eax
+0x14085cb2f: mov      eax, 2
+0x14085cb34: xor      ebx, ebx
+0x14085cb36: call     0x140196420   ; golang.org/x/sys/windows.CreateToolhelp32Snapshot
+0x14085cb3b: nop      dword ptr [rax + rax]
+0x14085cb40: test     rbx, rbx
+0x14085cb43: jne      0x14085cc1d   ; main.resolveProcessNameByPID+0x13d
+0x14085cb49: mov      qword ptr [rsp + 0x20], rax
+0x14085cb4e: lea      rcx, [rip + 0x34b]
+0x14085cb55: mov      qword ptr [rsp + 0x260], rcx
+0x14085cb5d: mov      qword ptr [rsp + 0x268], rax
+0x14085cb65: lea      rcx, [rsp + 0x260]
+0x14085cb6d: mov      qword ptr [rsp + 0x290], rcx
+0x14085cb75: mov      byte ptr [rsp + 0x1f], 1
+0x14085cb7a: mov      qword ptr [rsp + 0x28], 0x238
+0x14085cb83: lea      rdi, [rsp + 0x30]
+0x14085cb88: lea      rsi, [rip + 0x98b939]
+0x14085cb8f: nop      word ptr [rax + rax]
+0x14085cb98: nop      dword ptr [rax + rax]
+0x14085cba0: mov      qword ptr [rsp - 0x10], rbp
+0x14085cba5: lea      rbp, [rsp - 0x10]
+0x14085cbaa: call     0x1400818f6   ; runtime.duffcopy+0x196
+0x14085cbaf: mov      rbp, qword ptr [rbp]
+0x14085cbb3: lea      rbx, [rsp + 0x28]
+0x14085cbb8: call     0x140198a20   ; golang.org/x/sys/windows.Process32First
+0x14085cbbd: nop      dword ptr [rax]
+0x14085cbc0: test     rax, rax
+0x14085cbc3: je       0x14085ccbe   ; main.resolveProcessNameByPID+0x1de
+0x14085cbc9: movups   xmmword ptr [rsp + 0x280], xmm15
+0x14085cbd2: mov      qword ptr [rsp + 0x270], rax
+0x14085cbda: mov      qword ptr [rsp + 0x278], rbx
+0x14085cbe2: mov      byte ptr [rsp + 0x1f], 0
+0x14085cbe7: mov      rdx, qword ptr [rsp + 0x290]
+0x14085cbef: mov      rax, qword ptr [rdx]
+0x14085cbf2: call     rax
+0x14085cbf4: mov      rcx, qword ptr [rsp + 0x270]
+0x14085cbfc: mov      rax, qword ptr [rsp + 0x280]
+0x14085cc04: mov      rbx, qword ptr [rsp + 0x288]
+0x14085cc0c: mov      rdi, qword ptr [rsp + 0x278]
+0x14085cc14: add      rsp, 0x298
+0x14085cc1b: pop      rbp
+0x14085cc1c: ret      
+0x14085cc1d: movups   xmmword ptr [rsp + 0x280], xmm15
+0x14085cc26: mov      qword ptr [rsp + 0x270], rbx
+0x14085cc2e: mov      qword ptr [rsp + 0x278], rcx
+0x14085cc36: mov      rax, qword ptr [rsp + 0x280]
+0x14085cc3e: mov      rdx, qword ptr [rsp + 0x288]
+0x14085cc46: mov      rdi, rcx
+0x14085cc49: mov      rcx, rbx
+0x14085cc4c: mov      rbx, rdx
+0x14085cc4f: add      rsp, 0x298
+0x14085cc56: pop      rbp
+0x14085cc57: ret      
+0x14085cc58: lea      rax, [rip + 0x2f7721]
+0x14085cc5f: nop      
+0x14085cc60: call     0x14001ae20   ; runtime.newobject
+0x14085cc65: mov      qword ptr [rax + 8], 0x10
+0x14085cc6d: lea      rcx, [rip + 0x3f8516]
+0x14085cc74: mov      qword ptr [rax], rcx
+0x14085cc77: movups   xmmword ptr [rsp + 0x280], xmm15
+0x14085cc80: lea      rcx, [rip + 0x976479]
+0x14085cc87: mov      qword ptr [rsp + 0x270], rcx
+0x14085cc8f: mov      qword ptr [rsp + 0x278], rax
+0x14085cc97: mov      rcx, qword ptr [rsp + 0x270]
+0x14085cc9f: mov      rdx, qword ptr [rsp + 0x280]
+0x14085cca7: mov      rbx, qword ptr [rsp + 0x288]
+0x14085ccaf: mov      rdi, rax
+0x14085ccb2: mov      rax, rdx
+0x14085ccb5: add      rsp, 0x298
+0x14085ccbc: pop      rbp
+0x14085ccbd: ret      
+0x14085ccbe: mov      edx, dword ptr [rsp + 0x2a8]
+0x14085ccc5: cmp      dword ptr [rsp + 0x30], edx
+0x14085ccc9: je       0x14085cd5e   ; main.resolveProcessNameByPID+0x27e
+0x14085cccf: mov      rax, qword ptr [rsp + 0x20]
+0x14085ccd4: lea      rbx, [rsp + 0x28]
+0x14085ccd9: call     0x140198b20   ; golang.org/x/sys/windows.Process32Next
+0x14085ccde: nop      
+0x14085cce0: test     rax, rax
+0x14085cce3: je       0x14085ccbe   ; main.resolveProcessNameByPID+0x1de
+0x14085cce5: lea      rax, [rip + 0x2f7694]
+0x14085ccec: call     0x14001ae20   ; runtime.newobject
+0x14085ccf1: mov      qword ptr [rax + 8], 0x15
+0x14085ccf9: lea      rcx, [rip + 0x402a31]
+0x14085cd00: mov      qword ptr [rax], rcx
+0x14085cd03: movups   xmmword ptr [rsp + 0x280], xmm15
+0x14085cd0c: lea      rcx, [rip + 0x9763ed]
+0x14085cd13: mov      qword ptr [rsp + 0x270], rcx
+0x14085cd1b: mov      qword ptr [rsp + 0x278], rax
+0x14085cd23: mov      byte ptr [rsp + 0x1f], 0
+0x14085cd28: mov      rdx, qword ptr [rsp + 0x290]
+0x14085cd30: mov      rcx, qword ptr [rdx]
+0x14085cd33: call     rcx
+0x14085cd35: mov      rcx, qword ptr [rsp + 0x270]
+0x14085cd3d: mov      rax, qword ptr [rsp + 0x280]
+0x14085cd45: mov      rbx, qword ptr [rsp + 0x288]
+0x14085cd4d: mov      rdi, qword ptr [rsp + 0x278]
+0x14085cd55: add      rsp, 0x298
+0x14085cd5c: pop      rbp
+0x14085cd5d: ret      
+0x14085cd5e: lea      rax, [rsp + 0x54]
+0x14085cd63: mov      ebx, 0x104
+0x14085cd68: mov      rcx, rbx
+0x14085cd6b: call     0x1400e6000   ; syscall.UTF16ToString
+0x14085cd70: call     0x1400a2200   ; strings.TrimSpace
+0x14085cd75: test     rbx, rbx
+0x14085cd78: jne      0x14085cdf3   ; main.resolveProcessNameByPID+0x313
+0x14085cd7a: lea      rax, [rip + 0x2f75ff]
+0x14085cd81: call     0x14001ae20   ; runtime.newobject
+0x14085cd86: mov      qword ptr [rax + 8], 0x15
+0x14085cd8e: lea      rcx, [rip + 0x402987]
+0x14085cd95: mov      qword ptr [rax], rcx
+0x14085cd98: movups   xmmword ptr [rsp + 0x280], xmm15
+0x14085cda1: lea      rcx, [rip + 0x976358]
+0x14085cda8: mov      qword ptr [rsp + 0x270], rcx
+0x14085cdb0: mov      qword ptr [rsp + 0x278], rax
+0x14085cdb8: mov      byte ptr [rsp + 0x1f], 0
+0x14085cdbd: mov      rdx, qword ptr [rsp + 0x290]
+0x14085cdc5: mov      rcx, qword ptr [rdx]
+0x14085cdc8: call     rcx
+0x14085cdca: mov      rcx, qword ptr [rsp + 0x270]
+0x14085cdd2: mov      rbx, qword ptr [rsp + 0x288]
+0x14085cdda: mov      rdi, qword ptr [rsp + 0x278]
+0x14085cde2: mov      rax, qword ptr [rsp + 0x280]
+0x14085cdea: add      rsp, 0x298
+0x14085cdf1: pop      rbp
+0x14085cdf2: ret      
+0x14085cdf3: mov      qword ptr [rsp + 0x280], rax
+0x14085cdfb: mov      qword ptr [rsp + 0x288], rbx
+0x14085ce03: movups   xmmword ptr [rsp + 0x270], xmm15
+0x14085ce0c: mov      byte ptr [rsp + 0x1f], 0
+0x14085ce11: mov      rdx, qword ptr [rsp + 0x290]
+0x14085ce19: mov      rax, qword ptr [rdx]
+0x14085ce1c: call     rax
+0x14085ce1e: mov      rcx, qword ptr [rsp + 0x270]
+0x14085ce26: mov      rax, qword ptr [rsp + 0x280]
+0x14085ce2e: mov      rbx, qword ptr [rsp + 0x288]
+0x14085ce36: mov      rdi, qword ptr [rsp + 0x278]
+0x14085ce3e: add      rsp, 0x298
+0x14085ce45: pop      rbp
+0x14085ce46: ret      
+0x14085ce47: call     0x1400435e0   ; runtime.deferreturn
+0x14085ce4c: mov      rax, qword ptr [rsp + 0x280]
+0x14085ce54: mov      rbx, qword ptr [rsp + 0x288]
+0x14085ce5c: mov      rcx, qword ptr [rsp + 0x270]
+0x14085ce64: mov      rdi, qword ptr [rsp + 0x278]
+0x14085ce6c: add      rsp, 0x298
+0x14085ce73: pop      rbp
+0x14085ce74: ret      
+0x14085ce75: mov      dword ptr [rsp + 8], eax
+0x14085ce79: call     0x14007f140   ; runtime.morestack_noctxt
+0x14085ce7e: mov      eax, dword ptr [rsp + 8]
+0x14085ce82: jmp      0x14085cae0   ; main.resolveProcessNameByPID
+0x14085ce87: int3     
+0x14085ce88: int3     
+0x14085ce89: int3     
+0x14085ce8a: int3     
+0x14085ce8b: int3     
+0x14085ce8c: int3     
+0x14085ce8d: int3     
+0x14085ce8e: int3     
+0x14085ce8f: int3     
+0x14085ce90: int3     
+0x14085ce91: int3     
+0x14085ce92: int3     
+0x14085ce93: int3     
+0x14085ce94: int3     
+0x14085ce95: int3     
+0x14085ce96: int3     
+0x14085ce97: int3     
+0x14085ce98: int3     
+0x14085ce99: int3     
+0x14085ce9a: int3     
+0x14085ce9b: int3     
+0x14085ce9c: int3     
+0x14085ce9d: int3     
+0x14085ce9e: int3     
+0x14085ce9f: int3     
+0x14085cea0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14085cea4: jbe      0x14085cecb   ; main.resolveProcessNameByPID.deferwrap1+0x2b
+0x14085cea6: push     rbp
+0x14085cea7: mov      rbp, rsp
+0x14085ceaa: sub      rsp, 8
+0x14085ceae: mov      r12, qword ptr [r14 + 0x20]
+0x14085ceb2: test     r12, r12
+0x14085ceb5: jne      0x14085ced2   ; main.resolveProcessNameByPID.deferwrap1+0x32
+0x14085ceb7: mov      rax, qword ptr [rdx + 8]
+0x14085cebb: nop      dword ptr [rax + rax]

@@ -1,0 +1,17 @@
+0x140914aa0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140914aa4: jbe      0x140914ab1   ; main.oledBlackoutCurrentCursorPhysicalPoint+0x11
+0x140914aa6: push     rbp
+0x140914aa7: mov      rbp, rsp
+0x140914aaa: call     0x1401e0be0   ; github.com/wailsapp/wails/v3/pkg/w32.GetCursorPos
+0x140914aaf: pop      rbp
+0x140914ab0: ret      
+0x140914ab1: call     0x14007f140   ; runtime.morestack_noctxt
+0x140914ab6: jmp      0x140914aa0   ; main.oledBlackoutCurrentCursorPhysicalPoint
+0x140914ab8: int3     
+0x140914ab9: int3     
+0x140914aba: int3     
+0x140914abb: int3     
+0x140914abc: int3     
+0x140914abd: int3     
+0x140914abe: int3     
+0x140914abf: int3     

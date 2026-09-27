@@ -1,0 +1,76 @@
+0x1408b6b60: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408b6b64: jbe      0x1408b6c0e   ; main.normalizeLauncherUpdatePackageRoot+0xae
+0x1408b6b6a: push     rbp
+0x1408b6b6b: mov      rbp, rsp
+0x1408b6b6e: sub      rsp, 0x48
+0x1408b6b72: mov      qword ptr [rsp + 0x58], rax
+0x1408b6b77: lea      rcx, [rip + 0x9140c2]
+0x1408b6b7e: mov      edi, 1
+0x1408b6b83: lea      rsi, [rip + 0x37caa5]
+0x1408b6b8a: mov      r8, rdi
+0x1408b6b8d: mov      r9, 0xffffffffffffffff
+0x1408b6b94: call     0x1400a2340   ; strings.Replace
+0x1408b6b99: call     0x1400a2200   ; strings.TrimSpace
+0x1408b6b9e: nop      
+0x1408b6ba0: test     rbx, rbx
+0x1408b6ba3: je       0x1408b6c04   ; main.normalizeLauncherUpdatePackageRoot+0xa4
+0x1408b6ba5: mov      qword ptr [rsp + 0x38], rbx
+0x1408b6baa: mov      qword ptr [rsp + 0x40], rax
+0x1408b6baf: lea      rcx, [rip + 0x37ca79]
+0x1408b6bb6: mov      edi, 1
+0x1408b6bbb: nop      dword ptr [rax + rax]
+0x1408b6bc0: call     0x140006860   ; internal/stringslite.Index
+0x1408b6bc5: test     rax, rax
+0x1408b6bc8: jge      0x1408b6bf4   ; main.normalizeLauncherUpdatePackageRoot+0x94
+0x1408b6bca: mov      rbx, qword ptr [rsp + 0x38]
+0x1408b6bcf: cmp      rbx, 1
+0x1408b6bd3: jne      0x1408b6be2   ; main.normalizeLauncherUpdatePackageRoot+0x82
+0x1408b6bd5: mov      rax, qword ptr [rsp + 0x40]
+0x1408b6bda: cmp      byte ptr [rax], 0x2e
+0x1408b6bdd: je       0x1408b6bf4   ; main.normalizeLauncherUpdatePackageRoot+0x94
+0x1408b6bdf: nop      
+0x1408b6be0: jmp      0x1408b6be7   ; main.normalizeLauncherUpdatePackageRoot+0x87
+0x1408b6be2: mov      rax, qword ptr [rsp + 0x40]
+0x1408b6be7: cmp      rbx, 2
+0x1408b6beb: jne      0x1408b6bfe   ; main.normalizeLauncherUpdatePackageRoot+0x9e
+0x1408b6bed: cmp      word ptr [rax], 0x2e2e
+0x1408b6bf2: jne      0x1408b6bfe   ; main.normalizeLauncherUpdatePackageRoot+0x9e
+0x1408b6bf4: xor      eax, eax
+0x1408b6bf6: xor      ebx, ebx
+0x1408b6bf8: add      rsp, 0x48
+0x1408b6bfc: pop      rbp
+0x1408b6bfd: ret      
+0x1408b6bfe: add      rsp, 0x48
+0x1408b6c02: pop      rbp
+0x1408b6c03: ret      
+0x1408b6c04: xor      eax, eax
+0x1408b6c06: xor      ebx, ebx
+0x1408b6c08: add      rsp, 0x48
+0x1408b6c0c: pop      rbp
+0x1408b6c0d: ret      
+0x1408b6c0e: mov      qword ptr [rsp + 8], rax
+0x1408b6c13: mov      qword ptr [rsp + 0x10], rbx
+0x1408b6c18: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408b6c1d: mov      rax, qword ptr [rsp + 8]
+0x1408b6c22: mov      rbx, qword ptr [rsp + 0x10]
+0x1408b6c27: jmp      0x1408b6b60   ; main.normalizeLauncherUpdatePackageRoot
+0x1408b6c2c: int3     
+0x1408b6c2d: int3     
+0x1408b6c2e: int3     
+0x1408b6c2f: int3     
+0x1408b6c30: int3     
+0x1408b6c31: int3     
+0x1408b6c32: int3     
+0x1408b6c33: int3     
+0x1408b6c34: int3     
+0x1408b6c35: int3     
+0x1408b6c36: int3     
+0x1408b6c37: int3     
+0x1408b6c38: int3     
+0x1408b6c39: int3     
+0x1408b6c3a: int3     
+0x1408b6c3b: int3     
+0x1408b6c3c: int3     
+0x1408b6c3d: int3     
+0x1408b6c3e: int3     
+0x1408b6c3f: int3     

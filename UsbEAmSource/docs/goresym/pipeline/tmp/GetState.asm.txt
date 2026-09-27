@@ -1,0 +1,448 @@
+0x140775e20: mov      r12, rsp
+0x140775e23: sub      r12, 0x2918
+0x140775e2a: jb       0x1407766ea    ; main.BootstrapService.GetState+0x8ca
+0x140775e30: cmp      r12, qword ptr [r14 + 0x10]
+0x140775e34: jbe      0x1407766ea    ; main.BootstrapService.GetState+0x8ca
+0x140775e3a: push     rbp
+0x140775e3b: mov      rbp, rsp
+0x140775e3e: sub      rsp, 0x2990
+0x140775e45: mov      qword ptr [rsp + 0x33b8], rax
+0x140775e4d: movups   xmmword ptr [rsp + 0x29a0], xmm15
+0x140775e56: lea      rdi, [rsp + 0x29a8]
+0x140775e5e: mov      ecx, 0x142
+0x140775e63: mov      rdx, rax
+0x140775e66: xor      eax, eax
+0x140775e68: rep stosq qword ptr [rdi], rax
+0x140775e6b: mov      rax, rdx
+0x140775e6e: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x140775e73: lea      rdi, [rsp + 0x1530]
+0x140775e7b: mov      rsi, rsp
+0x140775e7e: nop      
+0x140775e80: mov      qword ptr [rsp - 0x10], rbp
+0x140775e85: lea      rbp, [rsp - 0x10]
+0x140775e8a: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x140775e8f: mov      rbp, qword ptr [rbp]
+0x140775e93: mov      rdi, rsp
+0x140775e96: lea      rsi, [rsp + 0x1530]
+0x140775e9e: nop      
+0x140775ea0: mov      qword ptr [rsp - 0x10], rbp
+0x140775ea5: lea      rbp, [rsp - 0x10]
+0x140775eaa: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x140775eaf: mov      rbp, qword ptr [rbp]
+0x140775eb3: call     0x1407a2520    ; main.ensureWorkspaceDirectories
+0x140775eb8: nop      dword ptr [rax + rax]
+0x140775ec0: test     rax, rax
+0x140775ec3: jne      0x140776298    ; main.BootstrapService.GetState+0x478
+0x140775ec9: movups   xmmword ptr [rsp + 0x1f78], xmm15
+0x140775ed2: lea      rdi, [rsp + 0x1f80]
+0x140775eda: mov      ecx, 0x126
+0x140775edf: xor      eax, eax
+0x140775ee1: rep stosq qword ptr [rdi], rax
+0x140775ee4: mov      rax, qword ptr [rsp + 0x1540]
+0x140775eec: mov      rbx, qword ptr [rsp + 0x1548]
+0x140775ef4: call     0x1408760e0    ; main.loadLauncherConfigIfExists
+0x140775ef9: mov      rdx, qword ptr [rsp]
+0x140775efd: mov      qword ptr [rsp + 0x1f78], rdx
+0x140775f05: lea      rdi, [rsp + 0x1f80]
+0x140775f0d: lea      rsi, [rsp + 8]
+0x140775f12: mov      rdx, rcx
+0x140775f15: mov      ecx, 0x126
+0x140775f1a: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140775f1d: mov      rsi, qword ptr [rsp + 0x1f78]
+0x140775f25: mov      qword ptr [rsp + 0x1530], rsi
+0x140775f2d: lea      rdi, [rsp + 0x1538]
+0x140775f35: lea      rsi, [rsp + 0x1f80]
+0x140775f3d: mov      ecx, 0x126
+0x140775f42: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140775f45: test     rbx, rbx
+0x140775f48: jne      0x14077626e    ; main.BootstrapService.GetState+0x44e
+0x140775f4e: test     al, al
+0x140775f50: je       0x14077621f    ; main.BootstrapService.GetState+0x3ff
+0x140775f56: cmp      byte ptr [rsp + 0x1540], 0
+0x140775f5e: nop      
+0x140775f60: jne      0x140775f90    ; main.BootstrapService.GetState+0x170
+0x140775f62: mov      rax, qword ptr [rsp + 0x1f78]
+0x140775f6a: mov      qword ptr [rsp], rax
+0x140775f6e: lea      rdi, [rsp + 8]
+0x140775f73: lea      rsi, [rsp + 0x1f80]
+0x140775f7b: mov      ecx, 0x126
+0x140775f80: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140775f83: call     0x140778740    ; main.isLauncherConfigEmptyInitialConfig
+0x140775f88: test     al, al
+0x140775f8a: jne      0x1407761d0    ; main.BootstrapService.GetState+0x3b0
+0x140775f90: mov      rbx, qword ptr [rsp + 0x1a30]
+0x140775f98: mov      rcx, qword ptr [rsp + 0x1a38]
+0x140775fa0: mov      rdi, qword ptr [rsp + 0x1a40]
+0x140775fa8: mov      rax, qword ptr [rsp + 0x33b8]
+0x140775fb0: call     0x14079cb80    ; main.BootstrapService.cacheBookmarkSources
+0x140775fb5: mov      rdx, qword ptr [rsp + 0x16d0]
+0x140775fbd: nop      dword ptr [rax]
+0x140775fc0: test     rdx, rdx
+0x140775fc3: je       0x140775fca    ; main.BootstrapService.GetState+0x1aa
+0x140775fc5: movzx    ecx, byte ptr [rdx]
+0x140775fc8: jmp      0x140775fcf    ; main.BootstrapService.GetState+0x1af
+0x140775fca: mov      ecx, 1
+0x140775fcf: mov      byte ptr [rsp + 0x142e], cl
+0x140775fd6: mov      rax, qword ptr [rsp + 0x16d8]
+0x140775fde: mov      rbx, qword ptr [rsp + 0x16e0]
+0x140775fe6: call     0x1400a2200    ; strings.TrimSpace
+0x140775feb: mov      rcx, qword ptr [rsp + 0x16e8]
+0x140775ff3: test     rcx, rcx
+0x140775ff6: je       0x140775ffd    ; main.BootstrapService.GetState+0x1dd
+0x140775ff8: movzx    ecx, byte ptr [rcx]
+0x140775ffb: jmp      0x140776003    ; main.BootstrapService.GetState+0x1e3
+0x140775ffd: test     rbx, rbx
+0x140776000: setne    cl
+0x140776003: mov      byte ptr [rsp + 0x142d], cl
+0x14077600a: mov      rax, qword ptr [rsp + 0x16f0]
+0x140776012: mov      rbx, qword ptr [rsp + 0x16f8]
+0x14077601a: call     0x1400a2200    ; strings.TrimSpace
+0x14077601f: mov      rcx, qword ptr [rsp + 0x1700]
+0x140776027: test     rcx, rcx
+0x14077602a: je       0x140776031    ; main.BootstrapService.GetState+0x211
+0x14077602c: movzx    ecx, byte ptr [rcx]
+0x14077602f: jmp      0x140776037    ; main.BootstrapService.GetState+0x217
+0x140776031: test     rbx, rbx
+0x140776034: setne    cl
+0x140776037: mov      byte ptr [rsp + 0x142c], cl
+0x14077603e: mov      rax, qword ptr [rsp + 0x1708]
+0x140776046: mov      rbx, qword ptr [rsp + 0x1710]
+0x14077604e: call     0x1400a2200    ; strings.TrimSpace
+0x140776053: mov      rcx, qword ptr [rsp + 0x1718]
+0x14077605b: nop      dword ptr [rax + rax]
+0x140776060: test     rcx, rcx
+0x140776063: je       0x14077606a    ; main.BootstrapService.GetState+0x24a
+0x140776065: movzx    ecx, byte ptr [rcx]
+0x140776068: jmp      0x140776070    ; main.BootstrapService.GetState+0x250
+0x14077606a: test     rbx, rbx
+0x14077606d: setne    cl
+0x140776070: mov      byte ptr [rsp + 0x142b], cl
+0x140776077: mov      rax, qword ptr [rsp + 0x1720]
+0x14077607f: mov      rbx, qword ptr [rsp + 0x1728]
+0x140776087: call     0x1400a2200    ; strings.TrimSpace
+0x14077608c: mov      rcx, qword ptr [rsp + 0x1730]
+0x140776094: test     rcx, rcx
+0x140776097: je       0x14077609e    ; main.BootstrapService.GetState+0x27e
+0x140776099: movzx    ecx, byte ptr [rcx]
+0x14077609c: jmp      0x1407760a4    ; main.BootstrapService.GetState+0x284
+0x14077609e: test     rbx, rbx
+0x1407760a1: setne    cl
+0x1407760a4: mov      byte ptr [rsp + 0x142a], cl
+0x1407760ab: mov      rax, qword ptr [rsp + 0x1738]
+0x1407760b3: mov      rbx, qword ptr [rsp + 0x1740]
+0x1407760bb: nop      dword ptr [rax + rax]
+0x1407760c0: call     0x1400a2200    ; strings.TrimSpace
+0x1407760c5: mov      rcx, qword ptr [rsp + 0x1748]
+0x1407760cd: test     rcx, rcx
+0x1407760d0: je       0x1407760d7    ; main.BootstrapService.GetState+0x2b7
+0x1407760d2: movzx    ecx, byte ptr [rcx]
+0x1407760d5: jmp      0x1407760dd    ; main.BootstrapService.GetState+0x2bd
+0x1407760d7: test     rbx, rbx
+0x1407760da: setne    cl
+0x1407760dd: mov      byte ptr [rsp + 0x1429], cl
+0x1407760e4: mov      rax, qword ptr [rsp + 0x1750]
+0x1407760ec: mov      rbx, qword ptr [rsp + 0x1758]
+0x1407760f4: call     0x1400a2200    ; strings.TrimSpace
+0x1407760f9: mov      rcx, qword ptr [rsp + 0x1760]
+0x140776101: test     rcx, rcx
+0x140776104: je       0x14077610b    ; main.BootstrapService.GetState+0x2eb
+0x140776106: movzx    edx, byte ptr [rcx]
+0x140776109: jmp      0x140776111    ; main.BootstrapService.GetState+0x2f1
+0x14077610b: test     rbx, rbx
+0x14077610e: setne    dl
+0x140776111: mov      byte ptr [rsp + 0x1428], dl
+0x140776118: mov      rbx, qword ptr [rip + 0x1450789]
+0x14077611f: mov      rsi, qword ptr [rsp + 0x1878]
+0x140776127: mov      qword ptr [rsp + 0x1450], rsi
+0x14077612f: nop      
+0x140776130: movups   xmmword ptr [rsp + 0x1f48], xmm15
+0x140776139: movups   xmmword ptr [rsp + 0x1f58], xmm15
+0x140776142: movups   xmmword ptr [rsp + 0x1f68], xmm15
+0x14077614b: cmp      rbx, 8
+0x14077614f: jg       0x140776197    ; main.BootstrapService.GetState+0x377
+0x140776151: movups   xmmword ptr [rsp + 0x1e80], xmm15
+0x14077615a: lea      rdi, [rsp + 0x1e88]
+0x140776162: mov      qword ptr [rsp - 0x10], rbp
+0x140776167: lea      rbp, [rsp - 0x10]
+0x14077616c: call     0x14008170b    ; runtime.duffzero+0x12b
+0x140776171: mov      rbp, qword ptr [rbp]
+0x140776175: movabs   r8, 0x8080808080808080
+0x14077617f: mov      qword ptr [rsp + 0x1e80], r8
+0x140776187: lea      r8, [rsp + 0x1e80]
+0x14077618f: mov      qword ptr [rsp + 0x1f58], r8
+0x140776197: lea      rax, [rip + 0x3d2b02]
+0x14077619e: lea      rcx, [rsp + 0x1f48]
+0x1407761a6: call     0x140076d80    ; runtime.makemap
+0x1407761ab: mov      qword ptr [rsp + 0x1448], rax
+0x1407761b3: mov      rdx, qword ptr [rip + 0x14506e6]
+0x1407761ba: mov      rsi, qword ptr [rip + 0x14506e7]
+0x1407761c1: mov      qword ptr [rsp + 0x1440], rsi
+0x1407761c9: xor      ecx, ecx
+0x1407761cb: jmp      0x140776312    ; main.BootstrapService.GetState+0x4f2
+0x1407761d0: lea      rax, [rip + 0x3de1a9]
+0x1407761d7: call     0x14001ae20    ; runtime.newobject
+0x1407761dc: mov      qword ptr [rax + 8], 0x15
+0x1407761e4: lea      rcx, [rip + 0x4e93cc]
+0x1407761eb: mov      qword ptr [rax], rcx
+0x1407761ee: movups   xmmword ptr [rsp + 0x29a0], xmm15
+0x1407761f7: lea      rdi, [rsp + 0x29a8]
+0x1407761ff: mov      ecx, 0x142
+0x140776204: mov      rdx, rax
+0x140776207: xor      eax, eax
+0x140776209: rep stosq qword ptr [rdi], rax
+0x14077620c: lea      rax, [rip + 0xa5ceed]
+0x140776213: mov      rbx, rdx
+0x140776216: add      rsp, 0x2990
+0x14077621d: pop      rbp
+0x14077621e: ret      
+0x14077621f: lea      rax, [rip + 0x3de15a]
+0x140776226: call     0x14001ae20    ; runtime.newobject
+0x14077622b: mov      qword ptr [rax + 8], 0x15
+0x140776233: lea      rcx, [rip + 0x4e937d]
+0x14077623a: mov      qword ptr [rax], rcx
+0x14077623d: movups   xmmword ptr [rsp + 0x29a0], xmm15
+0x140776246: lea      rdi, [rsp + 0x29a8]
+0x14077624e: mov      ecx, 0x142
+0x140776253: mov      rdx, rax
+0x140776256: xor      eax, eax
+0x140776258: rep stosq qword ptr [rdi], rax
+0x14077625b: lea      rax, [rip + 0xa5ce9e]
+0x140776262: mov      rbx, rdx
+0x140776265: add      rsp, 0x2990
+0x14077626c: pop      rbp
+0x14077626d: ret      
+0x14077626e: movups   xmmword ptr [rsp + 0x29a0], xmm15
+0x140776277: lea      rdi, [rsp + 0x29a8]
+0x14077627f: mov      ecx, 0x142
+0x140776284: xor      eax, eax
+0x140776286: rep stosq qword ptr [rdi], rax
+0x140776289: mov      rax, rbx
+0x14077628c: mov      rbx, rdx
+0x14077628f: add      rsp, 0x2990
+0x140776296: pop      rbp
+0x140776297: ret      
+0x140776298: movups   xmmword ptr [rsp + 0x29a0], xmm15
+0x1407762a1: lea      rdi, [rsp + 0x29a8]
+0x1407762a9: mov      ecx, 0x142
+0x1407762ae: mov      rdx, rax
+0x1407762b1: xor      eax, eax
+0x1407762b3: rep stosq qword ptr [rdi], rax
+0x1407762b6: mov      rax, rdx
+0x1407762b9: add      rsp, 0x2990
+0x1407762c0: pop      rbp
+0x1407762c1: ret      
+0x1407762c2: mov      qword ptr [rsp + 0x1438], rcx
+0x1407762ca: mov      qword ptr [rsp + 0x1e78], rdx
+0x1407762d2: mov      rcx, qword ptr [rdx]
+0x1407762d5: mov      rdi, qword ptr [rdx + 8]
+0x1407762d9: mov      rbx, rax
+0x1407762dc: lea      rax, [rip + 0x3d29bd]
+0x1407762e3: call     0x14000de60    ; runtime.mapassign_faststr
+0x1407762e8: mov      byte ptr [rax], 1
+0x1407762eb: mov      rdx, qword ptr [rsp + 0x1e78]
+0x1407762f3: add      rdx, 0x10
+0x1407762f7: mov      rcx, qword ptr [rsp + 0x1438]
+0x1407762ff: inc      rcx
+0x140776302: mov      rax, qword ptr [rsp + 0x1448]
+0x14077630a: mov      rsi, qword ptr [rsp + 0x1440]
+0x140776312: cmp      rcx, rsi
+0x140776315: jl       0x1407762c2    ; main.BootstrapService.GetState+0x4a2
+0x140776317: mov      rdx, qword ptr [rip + 0x1450582]
+0x14077631e: mov      rsi, qword ptr [rip + 0x1450583]
+0x140776325: mov      qword ptr [rsp + 0x1440], rsi
+0x14077632d: xor      ecx, ecx
+0x14077632f: jmp      0x140776358    ; main.BootstrapService.GetState+0x538
+0x140776331: mov      rdx, qword ptr [rsp + 0x1e78]
+0x140776339: add      rdx, 0x10
+0x14077633d: mov      rcx, qword ptr [rsp + 0x1438]
+0x140776345: inc      rcx
+0x140776348: mov      rax, qword ptr [rsp + 0x1448]
+0x140776350: mov      rsi, qword ptr [rsp + 0x1440]
+0x140776358: cmp      rcx, rsi
+0x14077635b: jge      0x1407763d9    ; main.BootstrapService.GetState+0x5b9
+0x14077635d: mov      qword ptr [rsp + 0x1438], rcx
+0x140776365: mov      qword ptr [rsp + 0x1e78], rdx
+0x14077636d: mov      rcx, qword ptr [rdx]
+0x140776370: mov      qword ptr [rsp + 0x1528], rcx
+0x140776378: mov      rdi, qword ptr [rdx + 8]
+0x14077637c: mov      qword ptr [rsp + 0x1430], rdi
+0x140776384: lea      rax, [rip + 0x3d2915]
+0x14077638b: mov      rbx, qword ptr [rsp + 0x1450]
+0x140776393: call     0x14000dbc0    ; runtime.mapaccess2_faststr
+0x140776398: test     bl, bl
+0x14077639a: je       0x140776331    ; main.BootstrapService.GetState+0x511
+0x14077639c: movzx    edx, byte ptr [rax]
+0x14077639f: mov      byte ptr [rsp + 0x142f], dl
+0x1407763a6: lea      rax, [rip + 0x3d28f3]
+0x1407763ad: mov      rbx, qword ptr [rsp + 0x1448]
+0x1407763b5: mov      rcx, qword ptr [rsp + 0x1528]
+0x1407763bd: mov      rdi, qword ptr [rsp + 0x1430]
+0x1407763c5: call     0x14000de60    ; runtime.mapassign_faststr
+0x1407763ca: movzx    edx, byte ptr [rsp + 0x142f]
+0x1407763d2: mov      byte ptr [rax], dl
+0x1407763d4: jmp      0x140776331    ; main.BootstrapService.GetState+0x511
+0x1407763d9: mov      rbx, rax
+0x1407763dc: lea      rcx, [rip + 0x4cdba4]
+0x1407763e3: mov      edi, 0xa
+0x1407763e8: lea      rax, [rip + 0x3d28b1]
+0x1407763ef: call     0x14000d920    ; runtime.mapaccess1_faststr
+0x1407763f4: mov      rbx, qword ptr [rsp + 0x16c0]
+0x1407763fc: mov      qword ptr [rsp + 0x1e70], rbx
+0x140776404: mov      rcx, qword ptr [rsp + 0x16c8]
+0x14077640c: mov      qword ptr [rsp + 0x1440], rcx
+0x140776414: mov      rsi, qword ptr [rsp + 0x16d8]
+0x14077641c: mov      qword ptr [rsp + 0x1e68], rsi
+0x140776424: mov      r8, qword ptr [rsp + 0x16e0]
+0x14077642c: mov      r10, qword ptr [rsp + 0x16f0]
+0x140776434: mov      r11, qword ptr [rsp + 0x16f8]
+0x14077643c: mov      rdx, qword ptr [rsp + 0x1708]
+0x140776444: mov      r9, qword ptr [rsp + 0x1710]
+0x14077644c: mov      r12, qword ptr [rsp + 0x1720]
+0x140776454: mov      r13, qword ptr [rsp + 0x1728]
+0x14077645c: mov      r15, qword ptr [rsp + 0x1738]
+0x140776464: mov      rdi, qword ptr [rsp + 0x1740]
+0x14077646c: mov      rcx, qword ptr [rsp + 0x1750]
+0x140776474: mov      rbx, qword ptr [rsp + 0x1758]
+0x14077647c: movzx    eax, byte ptr [rax]
+0x14077647f: movzx    esi, byte ptr [rsp + 0x142c]
+0x140776487: mov      byte ptr [rsp], sil
+0x14077648b: mov      qword ptr [rsp + 8], rdx
+0x140776490: mov      qword ptr [rsp + 0x10], r9
+0x140776495: movzx    edx, byte ptr [rsp + 0x142b]
+0x14077649d: mov      byte ptr [rsp + 0x18], dl
+0x1407764a1: mov      qword ptr [rsp + 0x20], r12
+0x1407764a6: mov      qword ptr [rsp + 0x28], r13
+0x1407764ab: movzx    edx, byte ptr [rsp + 0x142a]
+0x1407764b3: mov      byte ptr [rsp + 0x30], dl
+0x1407764b7: mov      qword ptr [rsp + 0x38], r15
+0x1407764bc: mov      qword ptr [rsp + 0x40], rdi
+0x1407764c1: movzx    edx, byte ptr [rsp + 0x1429]
+0x1407764c9: mov      byte ptr [rsp + 0x48], dl
+0x1407764cd: mov      qword ptr [rsp + 0x50], rcx
+0x1407764d2: mov      qword ptr [rsp + 0x58], rbx
+0x1407764d7: movzx    edx, byte ptr [rsp + 0x1428]
+0x1407764df: mov      byte ptr [rsp + 0x60], dl
+0x1407764e3: mov      byte ptr [rsp + 0x61], al
+0x1407764e7: mov      rax, qword ptr [rsp + 0x33b8]
+0x1407764ef: mov      rbx, qword ptr [rsp + 0x1e70]
+0x1407764f7: mov      rcx, qword ptr [rsp + 0x1440]
+0x1407764ff: movzx    edi, byte ptr [rsp + 0x142e]
+0x140776507: mov      rsi, qword ptr [rsp + 0x1e68]
+0x14077650f: movzx    r9d, byte ptr [rsp + 0x142d]
+0x140776518: call     0x140791400    ; main.BootstrapService.syncHotkeyBindings
+0x14077651d: mov      rdx, qword ptr [rsp + 0x1530]
+0x140776525: mov      qword ptr [rsp], rdx
+0x140776529: lea      rdi, [rsp + 8]
+0x14077652e: lea      rsi, [rsp + 0x1538]
+0x140776536: mov      ecx, 0x126
+0x14077653b: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14077653e: mov      rax, qword ptr [rsp + 0x33b8]
+0x140776546: call     0x14079f060    ; main.BootstrapService.syncRuntimeServices
+0x14077654b: lea      rdi, [rsp + 0x1f78]
+0x140776553: lea      rdi, [rdi - 0x30]
+0x140776557: nop      word ptr [rax + rax]
+0x140776560: mov      qword ptr [rsp - 0x10], rbp
+0x140776565: lea      rbp, [rsp - 0x10]
+0x14077656a: call     0x140081702    ; runtime.duffzero+0x122
+0x14077656f: mov      rbp, qword ptr [rbp]
+0x140776573: mov      rax, qword ptr [rsp + 0x33b8]
+0x14077657b: nop      dword ptr [rax + rax]
+0x140776580: call     0x1407741a0    ; main.BootstrapService.GetSnapshot
+0x140776585: lea      rdi, [rsp + 0x1f78]
+0x14077658d: mov      rsi, rsp
+0x140776590: nop      word ptr [rax + rax]
+0x140776599: nop      dword ptr [rax]
+0x1407765a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407765a5: lea      rbp, [rsp - 0x10]
+0x1407765aa: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x1407765af: mov      rbp, qword ptr [rbp]
+0x1407765b3: lea      rdi, [rsp + 0x1458]
+0x1407765bb: lea      rsi, [rsp + 0x1f78]
+0x1407765c3: mov      qword ptr [rsp - 0x10], rbp
+0x1407765c8: lea      rbp, [rsp - 0x10]
+0x1407765cd: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x1407765d2: mov      rbp, qword ptr [rbp]
+0x1407765d6: test     rax, rax
+0x1407765d9: je       0x140776605    ; main.BootstrapService.GetState+0x7e5
+0x1407765db: movups   xmmword ptr [rsp + 0x29a0], xmm15
+0x1407765e4: lea      rdi, [rsp + 0x29a8]
+0x1407765ec: mov      ecx, 0x142
+0x1407765f1: mov      rdx, rax
+0x1407765f4: xor      eax, eax
+0x1407765f6: rep stosq qword ptr [rdi], rax
+0x1407765f9: mov      rax, rdx
+0x1407765fc: add      rsp, 0x2990
+0x140776603: pop      rbp
+0x140776604: ret      
+0x140776605: mov      rdx, qword ptr [rsp + 0x1530]
+0x14077660d: mov      qword ptr [rsp], rdx
+0x140776611: lea      rdi, [rsp + 8]
+0x140776616: lea      rsi, [rsp + 0x1538]
+0x14077661e: mov      ecx, 0x126
+0x140776623: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140776626: lea      rdi, [rsp + 0x938]
+0x14077662e: lea      rsi, [rsp + 0x1458]
+0x140776636: nop      word ptr [rax + rax]
+0x14077663f: nop      
+0x140776640: mov      qword ptr [rsp - 0x10], rbp
+0x140776645: lea      rbp, [rsp - 0x10]
+0x14077664a: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x14077664f: mov      rbp, qword ptr [rbp]
+0x140776653: mov      rax, qword ptr [rsp + 0x33b8]
+0x14077665b: nop      dword ptr [rax + rax]
+0x140776660: call     0x140776920    ; main.BootstrapService.launcherStateFromCommittedConfigWithSnapshot
+0x140776665: mov      rdx, qword ptr [rsp + 0xa08]
+0x14077666d: mov      qword ptr [rsp + 0x1f78], rdx
+0x140776675: lea      rdi, [rsp + 0x1f80]
+0x14077667d: lea      rsi, [rsp + 0xa10]
+0x140776685: mov      ecx, 0x142
+0x14077668a: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14077668d: mov      rdx, qword ptr [rsp + 0x1f78]
+0x140776695: mov      qword ptr [rsp + 0x29a0], rdx
+0x14077669d: lea      rdi, [rsp + 0x29a8]
+0x1407766a5: lea      rsi, [rsp + 0x1f80]
+0x1407766ad: mov      ecx, 0x142
+0x1407766b2: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407766b5: mov      rdx, qword ptr [rsp + 0x1f78]
+0x1407766bd: mov      qword ptr [rsp + 0x29a0], rdx
+0x1407766c5: lea      rdi, [rsp + 0x29a8]
+0x1407766cd: lea      rsi, [rsp + 0x1f80]
+0x1407766d5: mov      ecx, 0x142
+0x1407766da: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407766dd: xor      eax, eax
+0x1407766df: xor      ebx, ebx
+0x1407766e1: add      rsp, 0x2990
+0x1407766e8: pop      rbp
+0x1407766e9: ret      
+0x1407766ea: mov      qword ptr [rsp + 0xa20], rax
+0x1407766f2: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407766f7: mov      rax, qword ptr [rsp + 0xa20]
+0x1407766ff: nop      
+0x140776700: jmp      0x140775e20    ; main.BootstrapService.GetState
+0x140776705: int3     
+0x140776706: int3     
+0x140776707: int3     
+0x140776708: int3     
+0x140776709: int3     
+0x14077670a: int3     
+0x14077670b: int3     
+0x14077670c: int3     
+0x14077670d: int3     
+0x14077670e: int3     
+0x14077670f: int3     
+0x140776710: int3     
+0x140776711: int3     
+0x140776712: int3     
+0x140776713: int3     
+0x140776714: int3     
+0x140776715: int3     
+0x140776716: int3     
+0x140776717: int3     
+0x140776718: int3     
+0x140776719: int3     
+0x14077671a: int3     
+0x14077671b: int3     
+0x14077671c: int3     
+0x14077671d: int3     
+0x14077671e: int3     
+0x14077671f: int3     

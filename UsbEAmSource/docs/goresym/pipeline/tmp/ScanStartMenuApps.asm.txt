@@ -1,0 +1,172 @@
+0x1409c3da0: lea      r12, [rsp - 0x250]
+0x1409c3da8: cmp      r12, qword ptr [r14 + 0x10]
+0x1409c3dac: jbe      0x1409c40d8    ; main.BootstrapService.scanStartMenuApps+0x218
+0x1409c3db2: push     rbp
+0x1409c3db3: mov      rbp, rsp
+0x1409c3db6: sub      rsp, 0x2c8
+0x1409c3dbd: mov      qword ptr [rsp + 0x2d8], rax
+0x1409c3dc5: mov      byte ptr [rsp + 0x2f8], sil
+0x1409c3dcd: mov      qword ptr [rsp + 0x2e8], rcx
+0x1409c3dd5: mov      qword ptr [rsp + 0x2e0], rbx
+0x1409c3ddd: lea      rax, [rip + 0x1296abc]
+0x1409c3de4: mov      qword ptr [rsp + 0x40], rax
+0x1409c3de9: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1409c3def: movups   xmmword ptr [rsp + 0x238], xmm15
+0x1409c3df8: movups   xmmword ptr [rsp + 0x248], xmm15
+0x1409c3e01: movups   xmmword ptr [rsp + 0x258], xmm15
+0x1409c3e0a: movups   xmmword ptr [rsp + 0x170], xmm15
+0x1409c3e13: lea      rdi, [rsp + 0x178]
+0x1409c3e1b: nop      dword ptr [rax + rax]
+0x1409c3e20: mov      qword ptr [rsp - 0x10], rbp
+0x1409c3e25: lea      rbp, [rsp - 0x10]
+0x1409c3e2a: call     0x1400815eb    ; runtime.duffzero+0xb
+0x1409c3e2f: mov      rbp, qword ptr [rbp]
+0x1409c3e33: movabs   rax, 0x8080808080808080
+0x1409c3e3d: mov      qword ptr [rsp + 0x170], rax
+0x1409c3e45: lea      rax, [rsp + 0x170]
+0x1409c3e4d: mov      qword ptr [rsp + 0x248], rax
+0x1409c3e55: call     0x1400796a0    ; sync.runtime_procUnpin
+0x1409c3e5a: mov      qword ptr [rsp + 0x240], rax
+0x1409c3e62: nop      
+0x1409c3e63: movups   xmmword ptr [rsp + 0x140], xmm15
+0x1409c3e6c: movups   xmmword ptr [rsp + 0x150], xmm15
+0x1409c3e75: movups   xmmword ptr [rsp + 0x160], xmm15
+0x1409c3e7e: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1409c3e84: lea      rdi, [rsp + 0x80]
+0x1409c3e8c: mov      qword ptr [rsp - 0x10], rbp
+0x1409c3e91: lea      rbp, [rsp - 0x10]
+0x1409c3e96: call     0x1400815eb    ; runtime.duffzero+0xb
+0x1409c3e9b: mov      rbp, qword ptr [rbp]
+0x1409c3e9f: movabs   rax, 0x8080808080808080
+0x1409c3ea9: mov      qword ptr [rsp + 0x78], rax
+0x1409c3eae: lea      rax, [rsp + 0x78]
+0x1409c3eb3: mov      qword ptr [rsp + 0x150], rax
+0x1409c3ebb: nop      dword ptr [rax + rax]
+0x1409c3ec0: call     0x1400796a0    ; sync.runtime_procUnpin
+0x1409c3ec5: mov      qword ptr [rsp + 0x148], rax
+0x1409c3ecd: lea      rax, [rsp + 0x140]
+0x1409c3ed5: mov      qword ptr [rsp + 0x70], rax
+0x1409c3eda: mov      rax, qword ptr [rsp + 0x2e0]
+0x1409c3ee2: xor      ecx, ecx
+0x1409c3ee4: jmp      0x1409c3ef7    ; main.BootstrapService.scanStartMenuApps+0x37
+0x1409c3ee6: mov      rax, qword ptr [rsp + 0x68]
+0x1409c3eeb: add      rax, 0x20
+0x1409c3eef: mov      rcx, qword ptr [rsp + 0x38]
+0x1409c3ef4: inc      rcx
+0x1409c3ef7: mov      rdx, qword ptr [rsp + 0x2e8]
+0x1409c3eff: nop      
+0x1409c3f00: cmp      rdx, rcx
+0x1409c3f03: jle      0x1409c4075    ; main.BootstrapService.scanStartMenuApps+0x1b5
+0x1409c3f09: mov      qword ptr [rsp + 0x38], rcx
+0x1409c3f0e: mov      qword ptr [rsp + 0x68], rax
+0x1409c3f13: mov      rcx, qword ptr [rax]
+0x1409c3f16: mov      qword ptr [rsp + 0x60], rcx
+0x1409c3f1b: mov      rbx, qword ptr [rax + 8]
+0x1409c3f1f: mov      qword ptr [rsp + 0x30], rbx
+0x1409c3f24: mov      rdx, qword ptr [rax + 0x10]
+0x1409c3f28: mov      qword ptr [rsp + 0x58], rdx
+0x1409c3f2d: mov      rdx, qword ptr [rax + 0x18]
+0x1409c3f31: mov      qword ptr [rsp + 0x28], rdx
+0x1409c3f36: mov      rax, rcx
+0x1409c3f39: call     0x1400a20e0    ; strings.TrimRight+0xe0
+0x1409c3f3e: nop      
+0x1409c3f40: test     rbx, rbx
+0x1409c3f43: je       0x1409c3ee6    ; main.BootstrapService.scanStartMenuApps+0x26
+0x1409c3f45: mov      rax, qword ptr [rsp + 0x60]
+0x1409c3f4a: mov      rbx, qword ptr [rsp + 0x30]
+0x1409c3f4f: lea      rcx, [rip + 0x6d290a]
+0x1409c3f56: lea      rdi, [rip + 0x6d290b]
+0x1409c3f5d: lea      rsi, [rip + 0x6d2d6c]
+0x1409c3f64: call     0x14075b060    ; main.audioIPolicyConfigVista.SetDefaultEndpoint+0x20
+0x1409c3f69: cmp      rbx, 5
+0x1409c3f6d: jne      0x1409c3ee6    ; main.BootstrapService.scanStartMenuApps+0x26
+0x1409c3f73: cmp      dword ptr [rax], 0x61636f6c
+0x1409c3f79: jne      0x1409c3ee6    ; main.BootstrapService.scanStartMenuApps+0x26
+0x1409c3f7f: cmp      byte ptr [rax + 4], 0x6c
+0x1409c3f83: jne      0x1409c3ee6    ; main.BootstrapService.scanStartMenuApps+0x26
+0x1409c3f89: mov      rax, qword ptr [rsp + 0x60]
+0x1409c3f8e: mov      rbx, qword ptr [rsp + 0x30]
+0x1409c3f93: call     0x14012d820    ; os.readReparseLinkAt+0x240
+0x1409c3f98: test     rcx, rcx
+0x1409c3f9b: je       0x1409c3fa4    ; main.BootstrapService.scanStartMenuApps+0xe4
+0x1409c3f9d: mov      eax, 1
+0x1409c3fa2: jmp      0x1409c3fb0    ; main.BootstrapService.scanStartMenuApps+0xf0
+0x1409c3fa4: mov      rcx, qword ptr [rax + 0x18]
+0x1409c3fa8: mov      rax, rbx
+0x1409c3fab: call     rcx
+0x1409c3fad: xor      eax, 1
+0x1409c3fb0: test     al, al
+0x1409c3fb2: jne      0x1409c3ee6    ; main.BootstrapService.scanStartMenuApps+0x26
+0x1409c3fb8: lea      rdi, [rsp + 0x278]
+0x1409c3fc0: lea      rdi, [rdi - 0x30]
+0x1409c3fc4: mov      qword ptr [rsp - 0x10], rbp
+0x1409c3fc9: lea      rbp, [rsp - 0x10]
+0x1409c3fce: call     0x140081610    ; runtime.duffzero+0x30
+0x1409c3fd3: mov      rbp, qword ptr [rbp]
+0x1409c3fd7: lea      rdx, [rip + 0x322]
+0x1409c3fde: mov      qword ptr [rsp + 0x278], rdx
+0x1409c3fe6: lea      rdx, [rsp + 0x238]
+0x1409c3fee: mov      qword ptr [rsp + 0x280], rdx
+0x1409c3ff6: mov      rbx, qword ptr [rsp + 0x30]
+0x1409c3ffb: mov      qword ptr [rsp + 0x290], rbx
+0x1409c4003: mov      rdx, qword ptr [rsp + 0x28]
+0x1409c4008: mov      qword ptr [rsp + 0x2a0], rdx
+0x1409c4010: mov      rax, qword ptr [rsp + 0x60]
+0x1409c4015: mov      qword ptr [rsp + 0x288], rax
+0x1409c401d: mov      rdx, qword ptr [rsp + 0x58]
+0x1409c4022: mov      qword ptr [rsp + 0x298], rdx
+0x1409c402a: lea      rdx, [rsp + 0x70]
+0x1409c402f: mov      qword ptr [rsp + 0x2a8], rdx
+0x1409c4037: movzx    edx, byte ptr [rsp + 0x2f8]
+0x1409c403f: mov      byte ptr [rsp + 0x2b0], dl
+0x1409c4046: lea      rdx, [rsp + 0x40]
+0x1409c404b: mov      qword ptr [rsp + 0x2b8], rdx
+0x1409c4053: mov      rdx, qword ptr [rsp + 0x2d8]
+0x1409c405b: mov      qword ptr [rsp + 0x2c0], rdx
+0x1409c4063: lea      rcx, [rsp + 0x278]
+0x1409c406b: call     0x1401cce00    ; path/filepath.walk+0x220
+0x1409c4070: jmp      0x1409c3ee6    ; main.BootstrapService.scanStartMenuApps+0x26
+0x1409c4075: mov      rax, qword ptr [rsp + 0x40]
+0x1409c407a: mov      rbx, qword ptr [rsp + 0x48]
+0x1409c407f: mov      rcx, qword ptr [rsp + 0x50]
+0x1409c4084: call     0x1400765e0    ; runtime.convT64
+0x1409c4089: lea      rdx, [rip + 0x90]
+0x1409c4090: mov      qword ptr [rsp + 0x268], rdx
+0x1409c4098: lea      rdx, [rsp + 0x40]
+0x1409c409d: mov      qword ptr [rsp + 0x270], rdx
+0x1409c40a5: mov      rbx, rax
+0x1409c40a8: lea      rcx, [rsp + 0x268]
+0x1409c40b0: lea      rax, [rip + 0x1155a9]
+0x1409c40b7: call     0x1401af6c0    ; image/draw.Op.Draw+0x100
+0x1409c40bc: mov      rax, qword ptr [rsp + 0x40]
+0x1409c40c1: mov      rbx, qword ptr [rsp + 0x48]
+0x1409c40c6: mov      rcx, qword ptr [rsp + 0x50]
+0x1409c40cb: xor      edi, edi
+0x1409c40cd: xor      esi, esi
+0x1409c40cf: add      rsp, 0x2c8
+0x1409c40d6: pop      rbp
+0x1409c40d7: ret      
+0x1409c40d8: mov      qword ptr [rsp + 8], rax
+0x1409c40dd: mov      qword ptr [rsp + 0x10], rbx
+0x1409c40e2: mov      qword ptr [rsp + 0x18], rcx
+0x1409c40e7: mov      qword ptr [rsp + 0x20], rdi
+0x1409c40ec: mov      byte ptr [rsp + 0x28], sil
+0x1409c40f1: call     0x14007f020    ; runtime.systemstack+0x20
+0x1409c40f6: mov      rax, qword ptr [rsp + 8]
+0x1409c40fb: mov      rbx, qword ptr [rsp + 0x10]
+0x1409c4100: mov      rcx, qword ptr [rsp + 0x18]
+0x1409c4105: mov      rdi, qword ptr [rsp + 0x20]
+0x1409c410a: movzx    esi, byte ptr [rsp + 0x28]
+0x1409c410f: jmp      0x1409c3da0    ; main.BootstrapService.ScanStartMenuApps
+0x1409c4114: int3     
+0x1409c4115: int3     
+0x1409c4116: int3     
+0x1409c4117: int3     
+0x1409c4118: int3     
+0x1409c4119: int3     
+0x1409c411a: int3     
+0x1409c411b: int3     
+0x1409c411c: int3     
+0x1409c411d: int3     
+0x1409c411e: int3     
+0x1409c411f: int3     

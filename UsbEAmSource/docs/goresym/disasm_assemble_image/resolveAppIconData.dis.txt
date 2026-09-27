@@ -1,0 +1,47 @@
+0x140749480: cmp      rsp, qword ptr [r14 + 0x10]
+0x140749484: jbe      0x1407494cf   ; main.resolveAppIconData+0x4f
+0x140749486: push     rbp
+0x140749487: mov      rbp, rsp
+0x14074948a: sub      rsp, 0x50
+0x14074948e: mov      qword ptr [rsp + 0x60], rax
+0x140749493: mov      rdx, qword ptr [rip + 0x14a0066]
+0x14074949a: mov      qword ptr [rsp], rdx
+0x14074949e: movups   xmm0, xmmword ptr [rip + 0x14a0063]
+0x1407494a5: movups   xmmword ptr [rsp + 8], xmm0
+0x1407494aa: movups   xmm0, xmmword ptr [rip + 0x14a0067]
+0x1407494b1: movups   xmmword ptr [rsp + 0x18], xmm0
+0x1407494b6: movups   xmm0, xmmword ptr [rip + 0x14a006b]
+0x1407494bd: movups   xmmword ptr [rsp + 0x28], xmm0
+0x1407494c2: xor      ecx, ecx
+0x1407494c4: call     0x1407496a0   ; main.resolveAppIconDataWithOptions
+0x1407494c9: add      rsp, 0x50
+0x1407494cd: pop      rbp
+0x1407494ce: ret      
+0x1407494cf: mov      qword ptr [rsp + 8], rax
+0x1407494d4: mov      qword ptr [rsp + 0x10], rbx
+0x1407494d9: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407494de: mov      rax, qword ptr [rsp + 8]
+0x1407494e3: mov      rbx, qword ptr [rsp + 0x10]
+0x1407494e8: jmp      0x140749480   ; main.resolveAppIconData
+0x1407494ea: int3     
+0x1407494eb: int3     
+0x1407494ec: int3     
+0x1407494ed: int3     
+0x1407494ee: int3     
+0x1407494ef: int3     
+0x1407494f0: int3     
+0x1407494f1: int3     
+0x1407494f2: int3     
+0x1407494f3: int3     
+0x1407494f4: int3     
+0x1407494f5: int3     
+0x1407494f6: int3     
+0x1407494f7: int3     
+0x1407494f8: int3     
+0x1407494f9: int3     
+0x1407494fa: int3     
+0x1407494fb: int3     
+0x1407494fc: int3     
+0x1407494fd: int3     
+0x1407494fe: int3     
+0x1407494ff: int3     

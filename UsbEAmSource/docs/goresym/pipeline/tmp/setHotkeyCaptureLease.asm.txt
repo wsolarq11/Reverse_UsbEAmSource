@@ -1,0 +1,311 @@
+0x1407906e0: lea      r12, [rsp - 0xf0]
+0x1407906e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407906ec: jbe      0x140790d96    ; main.BootstrapService.setHotkeyCaptureLease+0x6b6
+0x1407906f2: push     rbp
+0x1407906f3: mov      rbp, rsp
+0x1407906f6: sub      rsp, 0x168
+0x1407906fd: movq     qword ptr [rsp + 0x160], xmm15
+0x140790707: mov      qword ptr [rsp + 0x178], rax
+0x14079070f: mov      byte ptr [rsp + 0x190], dil
+0x140790717: mov      byte ptr [rsp + 0x191], sil
+0x14079071f: mov      qword ptr [rsp + 0x188], rcx
+0x140790727: mov      qword ptr [rsp + 0x180], rbx
+0x14079072f: mov      byte ptr [rsp + 0xbd], 0
+0x140790737: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x140790740: nop      
+0x140790741: mov      rdx, rax
+0x140790744: xor      eax, eax
+0x140790746: mov      r12d, 1
+0x14079074c: lock cmpxchg dword ptr [rdx + 0x1c8], r12d
+0x140790755: sete     r13b
+0x140790759: test     r13b, r13b
+0x14079075c: jne      0x140790798    ; main.BootstrapService.setHotkeyCaptureLease+0xb8
+0x14079075e: lea      rax, [rdx + 0x1c8]
+0x140790765: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14079076a: mov      rcx, qword ptr [rsp + 0x188]
+0x140790772: mov      rdx, qword ptr [rsp + 0x178]
+0x14079077a: mov      rbx, qword ptr [rsp + 0x180]
+0x140790782: movzx    esi, byte ptr [rsp + 0x191]
+0x14079078a: movzx    edi, byte ptr [rsp + 0x190]
+0x140790792: mov      r12d, 1
+0x140790798: lea      r13, [rip + 0x641]
+0x14079079f: mov      qword ptr [rsp + 0x150], r13
+0x1407907a7: lea      r13, [rdx + 0x1c8]
+0x1407907ae: mov      qword ptr [rsp + 0x158], r13
+0x1407907b6: lea      r13, [rsp + 0x150]
+0x1407907be: mov      qword ptr [rsp + 0x160], r13
+0x1407907c6: mov      byte ptr [rsp + 0xbd], 1
+0x1407907ce: nop      
+0x1407907cf: lea      r13, [rdx + 0x540]
+0x1407907d6: mov      qword ptr [rsp + 0x140], r13
+0x1407907de: xor      eax, eax
+0x1407907e0: lock cmpxchg dword ptr [rdx + 0x540], r12d
+0x1407907e9: sete     r12b
+0x1407907ed: test     r12b, r12b
+0x1407907f0: jne      0x14079082a    ; main.BootstrapService.setHotkeyCaptureLease+0x14a
+0x1407907f2: mov      rax, r13
+0x1407907f5: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x1407907fa: mov      rcx, qword ptr [rsp + 0x188]
+0x140790802: mov      rdx, qword ptr [rsp + 0x178]
+0x14079080a: mov      rbx, qword ptr [rsp + 0x180]
+0x140790812: movzx    esi, byte ptr [rsp + 0x191]
+0x14079081a: movzx    edi, byte ptr [rsp + 0x190]
+0x140790822: mov      r13, qword ptr [rsp + 0x140]
+0x14079082a: movzx    r12d, byte ptr [rdx + 0x1b0]
+0x140790832: mov      byte ptr [rsp + 0xba], r12b
+0x14079083a: test     sil, sil
+0x14079083d: je       0x140790878    ; main.BootstrapService.setHotkeyCaptureLease+0x198
+0x14079083f: nop      
+0x140790840: test     dil, dil
+0x140790843: je       0x140790851    ; main.BootstrapService.setHotkeyCaptureLease+0x171
+0x140790845: inc      qword ptr [rdx + 0x1b8]
+0x14079084c: jmp      0x140790967    ; main.BootstrapService.setHotkeyCaptureLease+0x287
+0x140790851: mov      r15, qword ptr [rdx + 0x1b8]
+0x140790858: nop      dword ptr [rax + rax]
+0x140790860: test     r15, r15
+0x140790863: jle      0x140790967    ; main.BootstrapService.setHotkeyCaptureLease+0x287
+0x140790869: dec      r15
+0x14079086c: mov      qword ptr [rdx + 0x1b8], r15
+0x140790873: jmp      0x140790967    ; main.BootstrapService.setHotkeyCaptureLease+0x287
+0x140790878: cmp      qword ptr [rdx + 0x1c0], 0
+0x140790880: jne      0x1407908ed    ; main.BootstrapService.setHotkeyCaptureLease+0x20d
+0x140790882: call     0x140076d40    ; runtime.makemap_small
+0x140790887: cmp      dword ptr [rip + 0x14caac2], 0
+0x14079088e: jne      0x14079089a    ; main.BootstrapService.setHotkeyCaptureLease+0x1ba
+0x140790890: mov      rdx, qword ptr [rsp + 0x178]
+0x140790898: jmp      0x1407908b5    ; main.BootstrapService.setHotkeyCaptureLease+0x1d5
+0x14079089a: mov      rdx, qword ptr [rsp + 0x178]
+0x1407908a2: mov      rsi, qword ptr [rdx + 0x1c0]
+0x1407908a9: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1407908ae: mov      qword ptr [r11], rax
+0x1407908b1: mov      qword ptr [r11 + 8], rsi
+0x1407908b5: mov      qword ptr [rdx + 0x1c0], rax
+0x1407908bc: mov      rcx, qword ptr [rsp + 0x188]
+0x1407908c4: mov      rbx, qword ptr [rsp + 0x180]
+0x1407908cc: movzx    esi, byte ptr [rsp + 0x191]
+0x1407908d4: movzx    edi, byte ptr [rsp + 0x190]
+0x1407908dc: movzx    r12d, byte ptr [rsp + 0xba]
+0x1407908e5: mov      r13, qword ptr [rsp + 0x140]
+0x1407908ed: test     dil, dil
+0x1407908f0: je       0x140790912    ; main.BootstrapService.setHotkeyCaptureLease+0x232
+0x1407908f2: mov      rdx, qword ptr [rdx + 0x1c0]
+0x1407908f9: lea      rax, [rip + 0x3b81a0]
+0x140790900: mov      rdi, rcx
+0x140790903: mov      rcx, rbx
+0x140790906: mov      rbx, rdx
+0x140790909: call     0x14000de60    ; runtime.mapassign_faststr
+0x14079090e: test     byte ptr [rax], al
+0x140790910: jmp      0x14079092e    ; main.BootstrapService.setHotkeyCaptureLease+0x24e
+0x140790912: mov      rdx, qword ptr [rdx + 0x1c0]
+0x140790919: lea      rax, [rip + 0x3b8180]
+0x140790920: mov      rdi, rcx
+0x140790923: mov      rcx, rbx
+0x140790926: mov      rbx, rdx
+0x140790929: call     0x14000e3e0    ; runtime.mapdelete_faststr
+0x14079092e: mov      rcx, qword ptr [rsp + 0x188]
+0x140790936: mov      rdx, qword ptr [rsp + 0x178]
+0x14079093e: mov      rbx, qword ptr [rsp + 0x180]
+0x140790946: movzx    esi, byte ptr [rsp + 0x191]
+0x14079094e: movzx    edi, byte ptr [rsp + 0x190]
+0x140790956: movzx    r12d, byte ptr [rsp + 0xba]
+0x14079095f: mov      r13, qword ptr [rsp + 0x140]
+0x140790967: cmp      qword ptr [rdx + 0x1b8], 0
+0x14079096f: jle      0x140790979    ; main.BootstrapService.setHotkeyCaptureLease+0x299
+0x140790971: mov      r15d, 1
+0x140790977: jmp      0x140790994    ; main.BootstrapService.setHotkeyCaptureLease+0x2b4
+0x140790979: mov      r15, qword ptr [rdx + 0x1c0]
+0x140790980: test     r15, r15
+0x140790983: je       0x14079098a    ; main.BootstrapService.setHotkeyCaptureLease+0x2aa
+0x140790985: mov      r15, qword ptr [r15]
+0x140790988: jmp      0x14079098d    ; main.BootstrapService.setHotkeyCaptureLease+0x2ad
+0x14079098a: xor      r15d, r15d
+0x14079098d: test     r15, r15
+0x140790990: setg     r15b
+0x140790994: mov      byte ptr [rsp + 0xbc], r15b
+0x14079099c: mov      byte ptr [rdx + 0x1b0], r15b
+0x1407909a3: mov      rax, qword ptr [rdx + 0x1e0]
+0x1407909aa: mov      qword ptr [rsp + 0xf0], rax
+0x1407909b2: mov      r8, qword ptr [rdx + 0x1d8]
+0x1407909b9: mov      qword ptr [rsp + 0x148], r8
+0x1407909c1: movzx    r9d, byte ptr [rdx + 0x1e8]
+0x1407909c9: mov      byte ptr [rsp + 0xbb], r9b
+0x1407909d1: mov      r10, qword ptr [rdx + 0x1f8]
+0x1407909d8: mov      qword ptr [rsp + 0xc0], r10
+0x1407909e0: mov      r11, qword ptr [rdx + 0x1f0]
+0x1407909e7: mov      qword ptr [rsp + 0x108], r11
+0x1407909ef: movzx    r13d, byte ptr [rdx + 0x200]
+0x1407909f7: mov      byte ptr [rsp + 0xb5], r13b
+0x1407909ff: mov      rax, qword ptr [rdx + 0x210]
+0x140790a06: mov      qword ptr [rsp + 0xd8], rax
+0x140790a0e: mov      rax, qword ptr [rdx + 0x208]
+0x140790a15: mov      qword ptr [rsp + 0x120], rax
+0x140790a1d: movzx    eax, byte ptr [rdx + 0x218]
+0x140790a24: mov      byte ptr [rsp + 0xb8], al
+0x140790a2b: mov      r8, qword ptr [rdx + 0x228]
+0x140790a32: mov      qword ptr [rsp + 0xd0], r8
+0x140790a3a: mov      r9, qword ptr [rdx + 0x220]
+0x140790a41: mov      qword ptr [rsp + 0x118], r9
+0x140790a49: movzx    r10d, byte ptr [rdx + 0x230]
+0x140790a51: mov      byte ptr [rsp + 0xb7], r10b
+0x140790a59: mov      r11, qword ptr [rdx + 0x240]
+0x140790a60: mov      qword ptr [rsp + 0xe0], r11
+0x140790a68: mov      r13, qword ptr [rdx + 0x238]
+0x140790a6f: mov      qword ptr [rsp + 0x128], r13
+0x140790a77: movzx    r11d, byte ptr [rdx + 0x248]
+0x140790a7f: mov      byte ptr [rsp + 0xb9], r11b
+0x140790a87: mov      r11, qword ptr [rdx + 0x258]
+0x140790a8e: mov      qword ptr [rsp + 0xc8], r11
+0x140790a96: mov      r11, qword ptr [rdx + 0x250]
+0x140790a9d: mov      qword ptr [rsp + 0x110], r11
+0x140790aa5: movzx    r11d, byte ptr [rdx + 0x260]
+0x140790aad: mov      byte ptr [rsp + 0xb6], r11b
+0x140790ab5: mov      r11, qword ptr [rdx + 0x270]
+0x140790abc: mov      qword ptr [rsp + 0xe8], r11
+0x140790ac4: mov      r11, qword ptr [rdx + 0x268]
+0x140790acb: mov      qword ptr [rsp + 0x130], r11
+0x140790ad3: movzx    r11d, word ptr [rdx + 0x278]
+0x140790adb: mov      word ptr [rsp + 0xbe], r11w
+0x140790ae4: mov      r11, qword ptr [rdx + 0x380]
+0x140790aeb: nop      
+0x140790aec: nop      
+0x140790aed: mov      r13d, 0xffffffff
+0x140790af3: lock xadd dword ptr [rdx + 0x540], r13d
+0x140790afc: nop      dword ptr [rax]
+0x140790b00: dec      r13d
+0x140790b03: je       0x140790b80    ; main.BootstrapService.setHotkeyCaptureLease+0x4a0
+0x140790b05: mov      qword ptr [rsp + 0x138], r11
+0x140790b0d: mov      rax, qword ptr [rsp + 0x140]
+0x140790b15: mov      ebx, r13d
+0x140790b18: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x140790b1d: movzx    eax, byte ptr [rsp + 0xb8]
+0x140790b25: mov      rcx, qword ptr [rsp + 0x188]
+0x140790b2d: mov      rdx, qword ptr [rsp + 0x178]
+0x140790b35: mov      rbx, qword ptr [rsp + 0x180]
+0x140790b3d: movzx    esi, byte ptr [rsp + 0x191]
+0x140790b45: movzx    edi, byte ptr [rsp + 0x190]
+0x140790b4d: mov      r8, qword ptr [rsp + 0xd0]
+0x140790b55: mov      r9, qword ptr [rsp + 0x118]
+0x140790b5d: movzx    r10d, byte ptr [rsp + 0xb7]
+0x140790b66: mov      r11, qword ptr [rsp + 0x138]
+0x140790b6e: movzx    r12d, byte ptr [rsp + 0xba]
+0x140790b77: movzx    r15d, byte ptr [rsp + 0xbc]
+0x140790b80: test     r11, r11
+0x140790b83: je       0x140790be0    ; main.BootstrapService.setHotkeyCaptureLease+0x500
+0x140790b85: test     sil, sil
+0x140790b88: je       0x140790b96    ; main.BootstrapService.setHotkeyCaptureLease+0x4b6
+0x140790b8a: mov      rax, r11
+0x140790b8d: mov      ebx, edi
+0x140790b8f: call     0x140904960    ; main.oledBlackoutService.SetHotkeyCaptureActive
+0x140790b94: jmp      0x140790b9e    ; main.BootstrapService.setHotkeyCaptureLease+0x4be
+0x140790b96: mov      rax, r11
+0x140790b99: call     0x140904a60    ; main.oledBlackoutService.SetHotkeyCaptureOwnerActive
+0x140790b9e: movzx    eax, byte ptr [rsp + 0xb8]
+0x140790ba6: mov      rdx, qword ptr [rsp + 0x178]
+0x140790bae: mov      r8, qword ptr [rsp + 0xd0]
+0x140790bb6: mov      r9, qword ptr [rsp + 0x118]
+0x140790bbe: movzx    r10d, byte ptr [rsp + 0xb7]
+0x140790bc7: movzx    r12d, byte ptr [rsp + 0xba]
+0x140790bd0: movzx    r15d, byte ptr [rsp + 0xbc]
+0x140790bd9: nop      dword ptr [rax]
+0x140790be0: cmp      r15b, r12b
+0x140790be3: je       0x140790d41    ; main.BootstrapService.setHotkeyCaptureLease+0x661
+0x140790be9: test     r15b, r15b
+0x140790bec: je       0x140790c34    ; main.BootstrapService.setHotkeyCaptureLease+0x554
+0x140790bee: mov      rax, rdx
+0x140790bf1: call     0x1407937a0    ; main.BootstrapService.clearHotkeyBindings
+0x140790bf6: mov      qword ptr [rsp + 0xf8], rax
+0x140790bfe: mov      qword ptr [rsp + 0x100], rbx
+0x140790c06: mov      byte ptr [rsp + 0xbd], 0
+0x140790c0e: mov      rdx, qword ptr [rsp + 0x160]
+0x140790c16: mov      rcx, qword ptr [rdx]
+0x140790c19: call     rcx
+0x140790c1b: mov      rax, qword ptr [rsp + 0xf8]
+0x140790c23: mov      rbx, qword ptr [rsp + 0x100]
+0x140790c2b: add      rsp, 0x168
+0x140790c32: pop      rbp
+0x140790c33: ret      
+0x140790c34: mov      byte ptr [rsp], al
+0x140790c37: mov      qword ptr [rsp + 8], r9
+0x140790c3c: mov      qword ptr [rsp + 0x10], r8
+0x140790c41: mov      byte ptr [rsp + 0x18], r10b
+0x140790c46: mov      r12, qword ptr [rsp + 0x128]
+0x140790c4e: mov      qword ptr [rsp + 0x20], r12
+0x140790c53: mov      r12, qword ptr [rsp + 0xe0]
+0x140790c5b: mov      qword ptr [rsp + 0x28], r12
+0x140790c60: movzx    r12d, byte ptr [rsp + 0xb9]
+0x140790c69: mov      byte ptr [rsp + 0x30], r12b
+0x140790c6e: mov      r12, qword ptr [rsp + 0x110]
+0x140790c76: mov      qword ptr [rsp + 0x38], r12
+0x140790c7b: mov      r12, qword ptr [rsp + 0xc8]
+0x140790c83: mov      qword ptr [rsp + 0x40], r12
+0x140790c88: movzx    r12d, byte ptr [rsp + 0xb6]
+0x140790c91: mov      byte ptr [rsp + 0x48], r12b
+0x140790c96: mov      r12, qword ptr [rsp + 0x130]
+0x140790c9e: mov      qword ptr [rsp + 0x50], r12
+0x140790ca3: mov      r12, qword ptr [rsp + 0xe8]
+0x140790cab: mov      qword ptr [rsp + 0x58], r12
+0x140790cb0: movzx    r12d, word ptr [rsp + 0xbe]
+0x140790cb9: mov      word ptr [rsp + 0x60], r12w
+0x140790cbf: mov      rax, rdx
+0x140790cc2: mov      rbx, qword ptr [rsp + 0x148]
+0x140790cca: mov      rcx, qword ptr [rsp + 0xf0]
+0x140790cd2: movzx    edi, byte ptr [rsp + 0xbb]
+0x140790cda: mov      rsi, qword ptr [rsp + 0x108]
+0x140790ce2: mov      r8, qword ptr [rsp + 0xc0]
+0x140790cea: movzx    r9d, byte ptr [rsp + 0xb5]
+0x140790cf3: mov      r10, qword ptr [rsp + 0x120]
+0x140790cfb: mov      r11, qword ptr [rsp + 0xd8]
+0x140790d03: call     0x140791400    ; main.BootstrapService.syncHotkeyBindings
+0x140790d08: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x140790d11: mov      byte ptr [rsp + 0xbd], 0
+0x140790d19: mov      rdx, qword ptr [rsp + 0x160]
+0x140790d21: mov      r12, qword ptr [rdx]
+0x140790d24: call     r12
+0x140790d27: mov      rbx, qword ptr [rsp + 0x100]
+0x140790d2f: mov      rax, qword ptr [rsp + 0xf8]
+0x140790d37: add      rsp, 0x168
+0x140790d3e: pop      rbp
+0x140790d3f: nop      
+0x140790d40: ret      
+0x140790d41: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x140790d4a: mov      byte ptr [rsp + 0xbd], 0
+0x140790d52: mov      rdx, qword ptr [rsp + 0x160]
+0x140790d5a: mov      rax, qword ptr [rdx]
+0x140790d5d: call     rax
+0x140790d5f: mov      rbx, qword ptr [rsp + 0x100]
+0x140790d67: mov      rax, qword ptr [rsp + 0xf8]
+0x140790d6f: add      rsp, 0x168
+0x140790d76: pop      rbp
+0x140790d77: ret      
+0x140790d78: call     0x1400435e0    ; runtime.deferreturn
+0x140790d7d: mov      rax, qword ptr [rsp + 0xf8]
+0x140790d85: mov      rbx, qword ptr [rsp + 0x100]
+0x140790d8d: add      rsp, 0x168
+0x140790d94: pop      rbp
+0x140790d95: ret      
+0x140790d96: mov      qword ptr [rsp + 8], rax
+0x140790d9b: mov      qword ptr [rsp + 0x10], rbx
+0x140790da0: mov      qword ptr [rsp + 0x18], rcx
+0x140790da5: mov      byte ptr [rsp + 0x20], dil
+0x140790daa: mov      byte ptr [rsp + 0x21], sil
+0x140790daf: call     0x14007f140    ; runtime.morestack_noctxt
+0x140790db4: mov      rax, qword ptr [rsp + 8]
+0x140790db9: mov      rbx, qword ptr [rsp + 0x10]
+0x140790dbe: mov      rcx, qword ptr [rsp + 0x18]
+0x140790dc3: movzx    edi, byte ptr [rsp + 0x20]
+0x140790dc8: movzx    esi, byte ptr [rsp + 0x21]
+0x140790dcd: jmp      0x1407906e0    ; main.BootstrapService.setHotkeyCaptureLease
+0x140790dd2: int3     
+0x140790dd3: int3     
+0x140790dd4: int3     
+0x140790dd5: int3     
+0x140790dd6: int3     
+0x140790dd7: int3     
+0x140790dd8: int3     
+0x140790dd9: int3     
+0x140790dda: int3     
+0x140790ddb: int3     
+0x140790ddc: int3     
+0x140790ddd: int3     
+0x140790dde: int3     
+0x140790ddf: int3     

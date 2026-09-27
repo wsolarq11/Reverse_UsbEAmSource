@@ -1,0 +1,38 @@
+0x140979f60: cmp      rsp, qword ptr [r14 + 0x10]
+0x140979f64: jbe      0x140979f7d   ; main.openScreenshotDXGIOutputTarget.func1+0x1d
+0x140979f66: push     rbp
+0x140979f67: mov      rbp, rsp
+0x140979f6a: sub      rsp, 8
+0x140979f6e: mov      rax, qword ptr [rdx + 8]
+0x140979f72: call     0x14085dd20   ; main.releaseDXGIUnknown
+0x140979f77: add      rsp, 8
+0x140979f7b: pop      rbp
+0x140979f7c: ret      
+0x140979f7d: nop      dword ptr [rax]
+0x140979f80: call     0x14007f0a0   ; runtime.morestack
+0x140979f85: jmp      0x140979f60   ; main.openScreenshotDXGIOutputTarget.func1
+0x140979f87: int3     
+0x140979f88: int3     
+0x140979f89: int3     
+0x140979f8a: int3     
+0x140979f8b: int3     
+0x140979f8c: int3     
+0x140979f8d: int3     
+0x140979f8e: int3     
+0x140979f8f: int3     
+0x140979f90: int3     
+0x140979f91: int3     
+0x140979f92: int3     
+0x140979f93: int3     
+0x140979f94: int3     
+0x140979f95: int3     
+0x140979f96: int3     
+0x140979f97: int3     
+0x140979f98: int3     
+0x140979f99: int3     
+0x140979f9a: int3     
+0x140979f9b: int3     
+0x140979f9c: int3     
+0x140979f9d: int3     
+0x140979f9e: int3     
+0x140979f9f: int3     

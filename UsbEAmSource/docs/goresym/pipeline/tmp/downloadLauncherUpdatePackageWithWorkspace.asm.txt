@@ -1,0 +1,189 @@
+0x1408b8f20: lea      r12, [rsp - 0x60]
+0x1408b8f25: cmp      r12, qword ptr [r14 + 0x10]
+0x1408b8f29: jbe      0x1408b9285    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x365
+0x1408b8f2f: push     rbp
+0x1408b8f30: mov      rbp, rsp
+0x1408b8f33: sub      rsp, 0xd8
+0x1408b8f3a: mov      qword ptr [rsp + 0x1d0], rbx
+0x1408b8f42: mov      qword ptr [rsp + 0x1d8], rcx
+0x1408b8f4a: mov      qword ptr [rsp + 0x1e8], rsi
+0x1408b8f52: cmp      byte ptr [rsp + 0x188], 0
+0x1408b8f5a: nop      word ptr [rax + rax]
+0x1408b8f60: je       0x1408b925a    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x33a
+0x1408b8f66: cmp      qword ptr [rsp + 0x1b0], 0x20000000
+0x1408b8f72: jg       0x1408b922c    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x30c
+0x1408b8f78: mov      qword ptr [rsp + 0x1c8], rax
+0x1408b8f80: mov      qword ptr [rsp + 0x1e0], rdi
+0x1408b8f88: mov      qword ptr [rsp + 0x1f0], r8
+0x1408b8f90: mov      qword ptr [rsp + 0x1e8], rsi
+0x1408b8f98: mov      qword ptr [rsp + 0x1d8], rcx
+0x1408b8fa0: mov      qword ptr [rsp + 0x1d0], rbx
+0x1408b8fa8: mov      rax, qword ptr [rsp + 0xf8]
+0x1408b8fb0: mov      rbx, qword ptr [rsp + 0x100]
+0x1408b8fb8: call     0x1408a5640    ; main.newLauncherNetworkAccess
+0x1408b8fbd: mov      qword ptr [rsp + 0x88], rax
+0x1408b8fc5: mov      qword ptr [rsp + 0x90], rbx
+0x1408b8fcd: mov      rsi, qword ptr [rsp + 0x190]
+0x1408b8fd5: mov      r8, qword ptr [rsp + 0x198]
+0x1408b8fdd: mov      rcx, rax
+0x1408b8fe0: mov      rdi, rbx
+0x1408b8fe3: mov      rax, qword ptr [rsp + 0x1d0]
+0x1408b8feb: mov      rbx, qword ptr [rsp + 0x1d8]
+0x1408b8ff3: call     0x1408b9300    ; main.probeLauncherUpdatePackageRange
+0x1408b8ff8: nop      dword ptr [rax + rax]
+0x1408b9000: test     rcx, rcx
+0x1408b9003: jne      0x1408b9206    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x2e6
+0x1408b9009: cmp      rbx, 0x20000000
+0x1408b9010: jg       0x1408b91db    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x2bb
+0x1408b9016: mov      rdx, qword ptr [rsp + 0x1b0]
+0x1408b901e: nop      
+0x1408b9020: test     rdx, rdx
+0x1408b9023: jle      0x1408b905f    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x13f
+0x1408b9025: test     rbx, rbx
+0x1408b9028: jle      0x1408b905f    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x13f
+0x1408b902a: cmp      rbx, rdx
+0x1408b902d: je       0x1408b905f    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x13f
+0x1408b902f: lea      rax, [rip + 0x3bca27]
+0x1408b9036: mov      ebx, 0x22
+0x1408b903b: nop      dword ptr [rax + rax]
+0x1408b9040: call     0x1400a2200    ; strings.TrimSpace
+0x1408b9045: call     0x140076660    ; runtime.convTstring
+0x1408b904a: lea      rbx, [rip + 0x919e0f]
+0x1408b9051: mov      rcx, rax
+0x1408b9054: xor      eax, eax
+0x1408b9056: add      rsp, 0xd8
+0x1408b905d: pop      rbp
+0x1408b905e: ret      
+0x1408b905f: movups   xmm0, xmmword ptr [rsp + 0x188]
+0x1408b9067: movups   xmmword ptr [rsp + 0x98], xmm0
+0x1408b906f: movups   xmm0, xmmword ptr [rsp + 0x198]
+0x1408b9077: movups   xmmword ptr [rsp + 0xa8], xmm0
+0x1408b907f: movups   xmm0, xmmword ptr [rsp + 0x1a8]
+0x1408b9087: movups   xmmword ptr [rsp + 0xb8], xmm0
+0x1408b908f: movups   xmm0, xmmword ptr [rsp + 0x1b8]
+0x1408b9097: movups   xmmword ptr [rsp + 0xc8], xmm0
+0x1408b909f: nop      
+0x1408b90a0: test     al, al
+0x1408b90a2: je       0x1408b915a    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x23a
+0x1408b90a8: test     rbx, rbx
+0x1408b90ab: jle      0x1408b915a    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x23a
+0x1408b90b1: mov      rdx, qword ptr [rsp + 0xc0]
+0x1408b90b9: test     rdx, rdx
+0x1408b90bc: jle      0x1408b90c9    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x1a9
+0x1408b90be: nop      
+0x1408b90c0: cmp      rbx, rdx
+0x1408b90c3: jne      0x1408b915a    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x23a
+0x1408b90c9: cmp      rbx, 0x40000
+0x1408b90d0: jle      0x1408b915a    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace+0x23a
+0x1408b90d6: movups   xmm0, xmmword ptr [rsp + 0x188]
+0x1408b90de: movups   xmmword ptr [rsp], xmm0
+0x1408b90e2: movups   xmm0, xmmword ptr [rsp + 0x198]
+0x1408b90ea: movups   xmmword ptr [rsp + 0x10], xmm0
+0x1408b90ef: movups   xmm0, xmmword ptr [rsp + 0x1a8]
+0x1408b90f7: movups   xmmword ptr [rsp + 0x20], xmm0
+0x1408b90fc: movups   xmm0, xmmword ptr [rsp + 0x1b8]
+0x1408b9104: movups   xmmword ptr [rsp + 0x30], xmm0
+0x1408b9109: mov      rax, qword ptr [rsp + 0x1c8]
+0x1408b9111: mov      rcx, qword ptr [rsp + 0x1d8]
+0x1408b9119: mov      rdi, qword ptr [rsp + 0x1e0]
+0x1408b9121: mov      rsi, qword ptr [rsp + 0x88]
+0x1408b9129: mov      r8, qword ptr [rsp + 0x90]
+0x1408b9131: mov      r9, rbx
+0x1408b9134: mov      r10, qword ptr [rsp + 0x1e8]
+0x1408b913c: mov      r11, qword ptr [rsp + 0x1f0]
+0x1408b9144: mov      rbx, qword ptr [rsp + 0x1d0]
+0x1408b914c: call     0x1408ba9a0    ; main.BootstrapService.downloadLauncherUpdatePackageConcurrently
+0x1408b9151: add      rsp, 0xd8
+0x1408b9158: pop      rbp
+0x1408b9159: ret      
+0x1408b915a: movups   xmm0, xmmword ptr [rsp + 0x188]
+0x1408b9162: movups   xmmword ptr [rsp], xmm0
+0x1408b9166: movups   xmm0, xmmword ptr [rsp + 0x198]
+0x1408b916e: movups   xmmword ptr [rsp + 0x10], xmm0
+0x1408b9173: movups   xmm0, xmmword ptr [rsp + 0x1a8]
+0x1408b917b: movups   xmmword ptr [rsp + 0x20], xmm0
+0x1408b9180: movups   xmm0, xmmword ptr [rsp + 0x1b8]
+0x1408b9188: movups   xmmword ptr [rsp + 0x30], xmm0
+0x1408b918d: mov      rax, qword ptr [rsp + 0x1c8]
+0x1408b9195: mov      rbx, qword ptr [rsp + 0x1d0]
+0x1408b919d: mov      rcx, qword ptr [rsp + 0x1d8]
+0x1408b91a5: mov      rdi, qword ptr [rsp + 0x1e0]
+0x1408b91ad: mov      rsi, qword ptr [rsp + 0x88]
+0x1408b91b5: mov      r8, qword ptr [rsp + 0x90]
+0x1408b91bd: mov      r9, qword ptr [rsp + 0x1e8]
+0x1408b91c5: mov      r10, qword ptr [rsp + 0x1f0]
+0x1408b91cd: call     0x1408b9a60    ; main.BootstrapService.downloadLauncherUpdatePackageSequentially
+0x1408b91d2: add      rsp, 0xd8
+0x1408b91d9: pop      rbp
+0x1408b91da: ret      
+0x1408b91db: lea      rax, [rip + 0x3b5fad]
+0x1408b91e2: mov      ebx, 0x1e
+0x1408b91e7: call     0x1400a2200    ; strings.TrimSpace
+0x1408b91ec: call     0x140076660    ; runtime.convTstring
+0x1408b91f1: lea      rbx, [rip + 0x919c68]
+0x1408b91f8: mov      rcx, rax
+0x1408b91fb: xor      eax, eax
+0x1408b91fd: add      rsp, 0xd8
+0x1408b9204: pop      rbp
+0x1408b9205: ret      
+0x1408b9206: mov      rax, qword ptr [rsp + 0x1d0]
+0x1408b920e: mov      rbx, qword ptr [rsp + 0x1d8]
+0x1408b9216: call     0x1408b7fa0    ; main.normalizeLauncherUpdateContextError
+0x1408b921b: mov      rcx, rbx
+0x1408b921e: mov      rbx, rax
+0x1408b9221: xor      eax, eax
+0x1408b9223: add      rsp, 0xd8
+0x1408b922a: pop      rbp
+0x1408b922b: ret      
+0x1408b922c: lea      rax, [rip + 0x3b5f5c]
+0x1408b9233: mov      ebx, 0x1e
+0x1408b9238: call     0x1400a2200    ; strings.TrimSpace
+0x1408b923d: nop      dword ptr [rax]
+0x1408b9240: call     0x140076660    ; runtime.convTstring
+0x1408b9245: lea      rbx, [rip + 0x919c14]
+0x1408b924c: mov      rcx, rax
+0x1408b924f: xor      eax, eax
+0x1408b9251: add      rsp, 0xd8
+0x1408b9258: pop      rbp
+0x1408b9259: ret      
+0x1408b925a: lea      rax, [rip + 0x3b4375]
+0x1408b9261: mov      ebx, 0x1d
+0x1408b9266: call     0x1400a2200    ; strings.TrimSpace
+0x1408b926b: call     0x140076660    ; runtime.convTstring
+0x1408b9270: lea      rbx, [rip + 0x919be9]
+0x1408b9277: mov      rcx, rax
+0x1408b927a: xor      eax, eax
+0x1408b927c: add      rsp, 0xd8
+0x1408b9283: pop      rbp
+0x1408b9284: ret      
+0x1408b9285: mov      qword ptr [rsp + 0xe8], rax
+0x1408b928d: mov      qword ptr [rsp + 0xf0], rbx
+0x1408b9295: mov      qword ptr [rsp + 0xf8], rcx
+0x1408b929d: mov      qword ptr [rsp + 0x100], rdi
+0x1408b92a5: mov      qword ptr [rsp + 0x108], rsi
+0x1408b92ad: mov      qword ptr [rsp + 0x110], r8
+0x1408b92b5: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408b92ba: mov      rax, qword ptr [rsp + 0xe8]
+0x1408b92c2: mov      rbx, qword ptr [rsp + 0xf0]
+0x1408b92ca: mov      rcx, qword ptr [rsp + 0xf8]
+0x1408b92d2: mov      rdi, qword ptr [rsp + 0x100]
+0x1408b92da: mov      rsi, qword ptr [rsp + 0x108]
+0x1408b92e2: mov      r8, qword ptr [rsp + 0x110]
+0x1408b92ea: jmp      0x1408b8f20    ; main.BootstrapService.downloadLauncherUpdatePackageWithWorkspace
+0x1408b92ef: int3     
+0x1408b92f0: int3     
+0x1408b92f1: int3     
+0x1408b92f2: int3     
+0x1408b92f3: int3     
+0x1408b92f4: int3     
+0x1408b92f5: int3     
+0x1408b92f6: int3     
+0x1408b92f7: int3     
+0x1408b92f8: int3     
+0x1408b92f9: int3     
+0x1408b92fa: int3     
+0x1408b92fb: int3     
+0x1408b92fc: int3     
+0x1408b92fd: int3     
+0x1408b92fe: int3     
+0x1408b92ff: int3     

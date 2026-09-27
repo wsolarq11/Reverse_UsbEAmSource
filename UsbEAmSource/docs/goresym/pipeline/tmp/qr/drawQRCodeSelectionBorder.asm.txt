@@ -1,0 +1,105 @@
+0x14095da60: cmp      rsp, qword ptr [r14 + 0x10]
+0x14095da64: jbe      0x14095db68   ; main.drawQRCodeSelectionBorder+0x108
+0x14095da6a: push     rbp
+0x14095da6b: mov      rbp, rsp
+0x14095da6e: sub      rsp, 0x58
+0x14095da72: test     r8, r8
+0x14095da75: je       0x14095dada   ; main.drawQRCodeSelectionBorder+0x7a
+0x14095da77: cmp      rdi, rbx
+0x14095da7a: jle      0x14095dada   ; main.drawQRCodeSelectionBorder+0x7a
+0x14095da7c: nop      dword ptr [rax]
+0x14095da80: cmp      rcx, rsi
+0x14095da83: jge      0x14095dada   ; main.drawQRCodeSelectionBorder+0x7a
+0x14095da85: mov      qword ptr [rsp + 0x68], rax
+0x14095da8a: mov      qword ptr [rsp + 0x90], r8
+0x14095da92: mov      qword ptr [rsp + 0x40], rbx
+0x14095da97: mov      qword ptr [rsp + 0x38], rsi
+0x14095da9c: mov      qword ptr [rsp + 0x30], rdi
+0x14095daa1: mov      qword ptr [rsp + 0x28], rcx
+0x14095daa6: lea      rax, [rip + 0x258853]
+0x14095daad: call     0x14001ae20   ; runtime.newobject
+0x14095dab2: mov      qword ptr [rsp + 0x50], rax
+0x14095dab7: mov      rcx, qword ptr [rsp + 0x40]
+0x14095dabc: mov      dword ptr [rax], ecx
+0x14095dabe: mov      rcx, qword ptr [rsp + 0x28]
+0x14095dac3: mov      dword ptr [rax + 4], ecx
+0x14095dac6: mov      rcx, qword ptr [rsp + 0x30]
+0x14095dacb: mov      dword ptr [rax + 8], ecx
+0x14095dace: mov      rcx, qword ptr [rsp + 0x38]
+0x14095dad3: mov      dword ptr [rax + 0xc], ecx
+0x14095dad6: xor      ecx, ecx
+0x14095dad8: jmp      0x14095db47   ; main.drawQRCodeSelectionBorder+0xe7
+0x14095dada: add      rsp, 0x58
+0x14095dade: pop      rbp
+0x14095dadf: nop      
+0x14095dae0: ret      
+0x14095dae1: mov      qword ptr [rsp + 0x20], rcx
+0x14095dae6: nop      
+0x14095dae7: mov      qword ptr [rsp + 0x48], rax
+0x14095daec: lea      rax, [rip + 0x19e14d]
+0x14095daf3: call     0x14001ae20   ; runtime.newobject
+0x14095daf8: mov      rcx, qword ptr [rsp + 0x68]
+0x14095dafd: mov      qword ptr [rax], rcx
+0x14095db00: mov      rcx, qword ptr [rsp + 0x48]
+0x14095db05: mov      qword ptr [rax + 8], rcx
+0x14095db09: mov      rcx, qword ptr [rsp + 0x90]
+0x14095db11: mov      qword ptr [rax + 0x10], rcx
+0x14095db15: mov      rcx, qword ptr [rip + 0x1264e94]
+0x14095db1c: mov      rbx, rax
+0x14095db1f: mov      edi, 3
+0x14095db24: mov      rax, rcx
+0x14095db27: mov      rcx, rdi
+0x14095db2a: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095db2f: mov      rax, qword ptr [rsp + 0x50]
+0x14095db34: inc      dword ptr [rax]
+0x14095db36: inc      dword ptr [rax + 4]
+0x14095db39: dec      dword ptr [rax + 8]
+0x14095db3c: dec      dword ptr [rax + 0xc]
+0x14095db3f: mov      rcx, qword ptr [rsp + 0x20]
+0x14095db44: inc      rcx
+0x14095db47: cmp      rcx, 2
+0x14095db4b: jge      0x14095db62   ; main.drawQRCodeSelectionBorder+0x102
+0x14095db4d: mov      edx, dword ptr [rax + 8]
+0x14095db50: cmp      dword ptr [rax], edx
+0x14095db52: jge      0x14095db5c   ; main.drawQRCodeSelectionBorder+0xfc
+0x14095db54: mov      edx, dword ptr [rax + 0xc]
+0x14095db57: cmp      dword ptr [rax + 4], edx
+0x14095db5a: jl       0x14095dae1   ; main.drawQRCodeSelectionBorder+0x81
+0x14095db5c: add      rsp, 0x58
+0x14095db60: pop      rbp
+0x14095db61: ret      
+0x14095db62: add      rsp, 0x58
+0x14095db66: pop      rbp
+0x14095db67: ret      
+0x14095db68: mov      qword ptr [rsp + 8], rax
+0x14095db6d: mov      qword ptr [rsp + 0x10], rbx
+0x14095db72: mov      qword ptr [rsp + 0x18], rcx
+0x14095db77: mov      qword ptr [rsp + 0x20], rdi
+0x14095db7c: mov      qword ptr [rsp + 0x28], rsi
+0x14095db81: mov      qword ptr [rsp + 0x30], r8
+0x14095db86: call     0x14007f140   ; runtime.morestack_noctxt
+0x14095db8b: mov      rax, qword ptr [rsp + 8]
+0x14095db90: mov      rbx, qword ptr [rsp + 0x10]
+0x14095db95: mov      rcx, qword ptr [rsp + 0x18]
+0x14095db9a: mov      rdi, qword ptr [rsp + 0x20]
+0x14095db9f: mov      rsi, qword ptr [rsp + 0x28]
+0x14095dba4: mov      r8, qword ptr [rsp + 0x30]
+0x14095dba9: jmp      0x14095da60   ; main.drawQRCodeSelectionBorder
+0x14095dbae: int3     
+0x14095dbaf: int3     
+0x14095dbb0: int3     
+0x14095dbb1: int3     
+0x14095dbb2: int3     
+0x14095dbb3: int3     
+0x14095dbb4: int3     
+0x14095dbb5: int3     
+0x14095dbb6: int3     
+0x14095dbb7: int3     
+0x14095dbb8: int3     
+0x14095dbb9: int3     
+0x14095dbba: int3     
+0x14095dbbb: int3     
+0x14095dbbc: int3     
+0x14095dbbd: int3     
+0x14095dbbe: int3     
+0x14095dbbf: int3     

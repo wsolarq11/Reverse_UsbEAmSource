@@ -1,0 +1,138 @@
+0x140970b60: lea      r12, [rsp - 0x128]
+0x140970b68: cmp      r12, qword ptr [r14 + 0x10]
+0x140970b6c: jbe      0x140970eb0   ; main.formatScreenshotDisplayCaptureInfoForDebug+0x350
+0x140970b72: push     rbp
+0x140970b73: mov      rbp, rsp
+0x140970b76: sub      rsp, 0x1a0
+0x140970b7d: mov      rdi, rsp
+0x140970b80: lea      rsi, [rsp + 0x1b0]
+0x140970b88: mov      qword ptr [rsp - 0x10], rbp
+0x140970b8d: lea      rbp, [rsp - 0x10]
+0x140970b92: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x140970b97: mov      rbp, qword ptr [rbp]
+0x140970b9b: nop      dword ptr [rax + rax]
+0x140970ba0: call     0x1409706c0   ; main.screenshotDisplayCaptureLabel
+0x140970ba5: mov      qword ptr [rsp + 0x198], rax
+0x140970bad: mov      qword ptr [rsp + 0x88], rbx
+0x140970bb5: mov      rax, qword ptr [rsp + 0x1c0]
+0x140970bbd: mov      rbx, qword ptr [rsp + 0x1c8]
+0x140970bc5: call     0x1400a2200   ; strings.TrimSpace
+0x140970bca: mov      qword ptr [rsp + 0x190], rax
+0x140970bd2: mov      qword ptr [rsp + 0x80], rbx
+0x140970bda: mov      rax, qword ptr [rsp + 0x1d0]
+0x140970be2: mov      rbx, qword ptr [rsp + 0x1d8]
+0x140970bea: call     0x1400a2200   ; strings.TrimSpace
+0x140970bef: mov      qword ptr [rsp + 0x188], rax
+0x140970bf7: mov      qword ptr [rsp + 0x78], rbx
+0x140970bfc: mov      eax, dword ptr [rsp + 0x20c]
+0x140970c03: call     0x140970ec0   ; main.screenshotDXGIColorSpaceDebugName
+0x140970c08: mov      qword ptr [rsp + 0x180], rax
+0x140970c10: mov      qword ptr [rsp + 0x70], rbx
+0x140970c15: lea      rdi, [rsp + 0x90]
+0x140970c1d: lea      rdi, [rdi - 0x10]
+0x140970c21: mov      qword ptr [rsp - 0x10], rbp
+0x140970c26: lea      rbp, [rsp - 0x10]
+0x140970c2b: call     0x1400816f8   ; runtime.duffzero+0x118
+0x140970c30: mov      rbp, qword ptr [rbp]
+0x140970c34: mov      rax, qword ptr [rsp + 0x198]
+0x140970c3c: mov      rbx, qword ptr [rsp + 0x88]
+0x140970c44: call     0x140076660   ; runtime.convTstring
+0x140970c49: lea      rcx, [rip + 0x1791b0]
+0x140970c50: mov      qword ptr [rsp + 0x90], rcx
+0x140970c58: mov      qword ptr [rsp + 0x98], rax
+0x140970c60: mov      rax, qword ptr [rsp + 0x1b0]
+0x140970c68: call     0x1400765e0   ; runtime.convT64
+0x140970c6d: lea      rcx, [rip + 0x1793cc]
+0x140970c74: mov      qword ptr [rsp + 0xa0], rcx
+0x140970c7c: mov      qword ptr [rsp + 0xa8], rax
+0x140970c84: mov      rax, qword ptr [rsp + 0x1b8]
+0x140970c8c: call     0x1400765e0   ; runtime.convT64
+0x140970c91: lea      rcx, [rip + 0x1793a8]
+0x140970c98: mov      qword ptr [rsp + 0xb0], rcx
+0x140970ca0: mov      qword ptr [rsp + 0xb8], rax
+0x140970ca8: mov      rax, qword ptr [rsp + 0x190]
+0x140970cb0: mov      rbx, qword ptr [rsp + 0x80]
+0x140970cb8: call     0x140076660   ; runtime.convTstring
+0x140970cbd: lea      rcx, [rip + 0x17913c]
+0x140970cc4: mov      qword ptr [rsp + 0xc0], rcx
+0x140970ccc: mov      qword ptr [rsp + 0xc8], rax
+0x140970cd4: mov      rax, qword ptr [rsp + 0x188]
+0x140970cdc: mov      rbx, qword ptr [rsp + 0x78]
+0x140970ce1: call     0x140076660   ; runtime.convTstring
+0x140970ce6: lea      rcx, [rip + 0x179113]
+0x140970ced: mov      qword ptr [rsp + 0xd0], rcx
+0x140970cf5: mov      qword ptr [rsp + 0xd8], rax
+0x140970cfd: movzx    eax, byte ptr [rsp + 0x204]
+0x140970d05: lea      rcx, [rip + 0x1794f4]
+0x140970d0c: mov      qword ptr [rsp + 0xe0], rcx
+0x140970d14: lea      rcx, [rip + 0x882a05]
+0x140970d1b: lea      rax, [rcx + rax*8]
+0x140970d1f: mov      qword ptr [rsp + 0xe8], rax
+0x140970d27: lea      rax, [rip + 0x2926f2]
+0x140970d2e: lea      rbx, [rsp + 0x1e0]
+0x140970d36: call     0x1400172c0   ; runtime.convTnoptr
+0x140970d3b: lea      rcx, [rip + 0x2926de]
+0x140970d42: mov      qword ptr [rsp + 0xf0], rcx
+0x140970d4a: mov      qword ptr [rsp + 0xf8], rax
+0x140970d52: mov      eax, dword ptr [rsp + 0x200]
+0x140970d59: call     0x1400173c0   ; runtime.convT32
+0x140970d5e: lea      rcx, [rip + 0x17921b]
+0x140970d65: mov      qword ptr [rsp + 0x100], rcx
+0x140970d6d: mov      qword ptr [rsp + 0x108], rax
+0x140970d75: mov      eax, dword ptr [rsp + 0x208]
+0x140970d7c: nop      dword ptr [rax]
+0x140970d80: call     0x1400173c0   ; runtime.convT32
+0x140970d85: lea      rcx, [rip + 0x1791f4]
+0x140970d8c: mov      qword ptr [rsp + 0x110], rcx
+0x140970d94: mov      qword ptr [rsp + 0x118], rax
+0x140970d9c: mov      rax, qword ptr [rsp + 0x180]
+0x140970da4: mov      rbx, qword ptr [rsp + 0x70]
+0x140970da9: call     0x140076660   ; runtime.convTstring
+0x140970dae: lea      rcx, [rip + 0x17904b]
+0x140970db5: mov      qword ptr [rsp + 0x120], rcx
+0x140970dbd: mov      qword ptr [rsp + 0x128], rax
+0x140970dc5: movzx    eax, byte ptr [rsp + 0x210]
+0x140970dcd: lea      rcx, [rip + 0x17942c]
+0x140970dd4: mov      qword ptr [rsp + 0x130], rcx
+0x140970ddc: lea      rdx, [rip + 0x88293d]
+0x140970de3: lea      rax, [rdx + rax*8]
+0x140970de7: mov      qword ptr [rsp + 0x138], rax
+0x140970def: movzx    eax, byte ptr [rsp + 0x211]
+0x140970df7: mov      qword ptr [rsp + 0x140], rcx
+0x140970dff: lea      rax, [rdx + rax*8]
+0x140970e03: mov      qword ptr [rsp + 0x148], rax
+0x140970e0b: movss    xmm0, dword ptr [rsp + 0x214]
+0x140970e14: movd     eax, xmm0
+0x140970e18: call     0x1400173c0   ; runtime.convT32
+0x140970e1d: lea      rcx, [rip + 0x17935c]
+0x140970e24: mov      qword ptr [rsp + 0x150], rcx
+0x140970e2c: mov      qword ptr [rsp + 0x158], rax
+0x140970e34: movss    xmm0, dword ptr [rsp + 0x218]
+0x140970e3d: movd     eax, xmm0
+0x140970e41: call     0x1400173c0   ; runtime.convT32
+0x140970e46: lea      rcx, [rip + 0x179333]
+0x140970e4d: mov      qword ptr [rsp + 0x160], rcx
+0x140970e55: mov      qword ptr [rsp + 0x168], rax
+0x140970e5d: movss    xmm0, dword ptr [rsp + 0x21c]
+0x140970e66: movd     eax, xmm0
+0x140970e6a: call     0x1400173c0   ; runtime.convT32
+0x140970e6f: lea      rcx, [rip + 0x17930a]
+0x140970e76: mov      qword ptr [rsp + 0x170], rcx
+0x140970e7e: mov      qword ptr [rsp + 0x178], rax
+0x140970e86: lea      rax, [rip + 0x3250a6]
+0x140970e8d: mov      ebx, 0xad
+0x140970e92: lea      rcx, [rsp + 0x90]
+0x140970e9a: mov      edi, 0xf
+0x140970e9f: mov      rsi, rdi
+0x140970ea2: call     0x140136340   ; fmt.Sprintf
+0x140970ea7: add      rsp, 0x1a0
+0x140970eae: pop      rbp
+0x140970eaf: ret      
+0x140970eb0: call     0x14007f140   ; runtime.morestack_noctxt
+0x140970eb5: jmp      0x140970b60   ; main.formatScreenshotDisplayCaptureInfoForDebug
+0x140970eba: int3     
+0x140970ebb: int3     
+0x140970ebc: int3     
+0x140970ebd: int3     
+0x140970ebe: int3     
+0x140970ebf: int3     

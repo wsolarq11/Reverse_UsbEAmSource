@@ -1,0 +1,203 @@
+0x14088bd80: lea      r12, [rsp - 0x60]
+0x14088bd85: cmp      r12, qword ptr [r14 + 0x10]
+0x14088bd89: jbe      0x14088c129    ; main.writeJSONFile+0x3a9
+0x14088bd8f: push     rbp
+0x14088bd90: mov      rbp, rsp
+0x14088bd93: sub      rsp, 0xd8
+0x14088bd9a: mov      qword ptr [rsp + 0xe8], rax
+0x14088bda2: mov      qword ptr [rsp + 0xf8], rcx
+0x14088bdaa: mov      qword ptr [rsp + 0x100], rdi
+0x14088bdb2: call     0x1400a2200    ; strings.TrimSpace
+0x14088bdb7: nop      word ptr [rax + rax]
+0x14088bdc0: test     rbx, rbx
+0x14088bdc3: je       0x14088bffd    ; main.writeJSONFile+0x27d
+0x14088bdc9: mov      qword ptr [rsp + 0x58], rbx
+0x14088bdce: mov      qword ptr [rsp + 0xa0], rax
+0x14088bdd6: call     0x140116440    ; internal/filepathlite.Dir
+0x14088bddb: mov      ecx, 0x1ed
+0x14088bde0: call     0x14012bbe0    ; os.MkdirAll
+0x14088bde5: test     rax, rax
+0x14088bde8: jne      0x14088bff4    ; main.writeJSONFile+0x274
+0x14088bdee: mov      rax, qword ptr [rsp + 0xf8]
+0x14088bdf6: mov      rbx, qword ptr [rsp + 0x100]
+0x14088bdfe: xor      ecx, ecx
+0x14088be00: xor      edi, edi
+0x14088be02: lea      rsi, [rip + 0x3a7862]
+0x14088be09: mov      r8d, 2
+0x14088be0f: call     0x1405899c0    ; encoding/json.MarshalIndent
+0x14088be14: test     rdi, rdi
+0x14088be17: jne      0x14088bfe5    ; main.writeJSONFile+0x265
+0x14088be1d: nop      dword ptr [rax]
+0x14088be20: cmp      rbx, 0x4000000
+0x14088be27: jg       0x14088bf7f    ; main.writeJSONFile+0x1ff
+0x14088be2d: inc      rbx
+0x14088be30: cmp      rcx, rbx
+0x14088be33: jae      0x14088be46    ; main.writeJSONFile+0xc6
+0x14088be35: mov      edi, 1
+0x14088be3a: lea      rsi, [rip + 0x25e03f]
+0x14088be41: call     0x14007ad20    ; runtime.growslice
+0x14088be46: mov      qword ptr [rsp + 0xb0], rax
+0x14088be4e: mov      qword ptr [rsp + 0x70], rbx
+0x14088be53: mov      qword ptr [rsp + 0x78], rcx
+0x14088be58: mov      byte ptr [rbx + rax - 1], 0xa
+0x14088be5d: mov      rax, qword ptr [rsp + 0xa0]
+0x14088be65: mov      rbx, qword ptr [rsp + 0x58]
+0x14088be6a: call     0x140116440    ; internal/filepathlite.Dir
+0x14088be6f: lea      rcx, [rip + 0x3c6ec1]
+0x14088be76: mov      edi, 0xf
+0x14088be7b: nop      dword ptr [rax + rax]
+0x14088be80: call     0x14012eba0    ; os.CreateTemp
+0x14088be85: test     rbx, rbx
+0x14088be88: jne      0x14088bf70    ; main.writeJSONFile+0x1f0
+0x14088be8e: mov      qword ptr [rsp + 0x90], rax
+0x14088be96: mov      rdx, qword ptr [rax]
+0x14088be99: nop      
+0x14088be9a: mov      rsi, qword ptr [rdx + 0x220]
+0x14088bea1: mov      qword ptr [rsp + 0x80], rsi
+0x14088bea9: mov      rdx, qword ptr [rdx + 0x228]
+0x14088beb0: mov      qword ptr [rsp + 0x40], rdx
+0x14088beb5: mov      rbx, qword ptr [rsp + 0xb0]
+0x14088bebd: mov      rcx, qword ptr [rsp + 0x70]
+0x14088bec2: mov      rdi, qword ptr [rsp + 0x78]
+0x14088bec7: call     0x140127fc0    ; os.File.Write
+0x14088becc: test     rbx, rbx
+0x14088becf: jne      0x14088bf2a    ; main.writeJSONFile+0x1aa
+0x14088bed1: mov      rcx, qword ptr [rsp + 0x90]
+0x14088bed9: mov      rax, qword ptr [rcx]
+0x14088bedc: nop      dword ptr [rax]
+0x14088bee0: call     0x14012a320    ; os.file.close
+0x14088bee5: test     rax, rax
+0x14088bee8: jne      0x14088bef5    ; main.writeJSONFile+0x175
+0x14088beea: xor      eax, eax
+0x14088beec: xor      ecx, ecx
+0x14088beee: xor      edx, edx
+0x14088bef0: jmp      0x14088c04d    ; main.writeJSONFile+0x2cd
+0x14088bef5: mov      qword ptr [rsp + 0x88], rbx
+0x14088befd: mov      qword ptr [rsp + 0x48], rax
+0x14088bf02: mov      rax, qword ptr [rsp + 0x80]
+0x14088bf0a: mov      rbx, qword ptr [rsp + 0x40]
+0x14088bf0f: call     0x14012a5c0    ; os.Remove
+0x14088bf14: mov      rax, qword ptr [rsp + 0x48]
+0x14088bf19: mov      rbx, qword ptr [rsp + 0x88]
+0x14088bf21: add      rsp, 0xd8
+0x14088bf28: pop      rbp
+0x14088bf29: ret      
+0x14088bf2a: mov      qword ptr [rsp + 0xa8], rcx
+0x14088bf32: mov      qword ptr [rsp + 0x68], rbx
+0x14088bf37: mov      rcx, qword ptr [rsp + 0x90]
+0x14088bf3f: mov      rax, qword ptr [rcx]
+0x14088bf42: nop      
+0x14088bf43: call     0x14012a320    ; os.file.close
+0x14088bf48: mov      rax, qword ptr [rsp + 0x80]
+0x14088bf50: mov      rbx, qword ptr [rsp + 0x40]
+0x14088bf55: call     0x14012a5c0    ; os.Remove
+0x14088bf5a: mov      rax, qword ptr [rsp + 0x68]
+0x14088bf5f: mov      rbx, qword ptr [rsp + 0xa8]
+0x14088bf67: add      rsp, 0xd8
+0x14088bf6e: pop      rbp
+0x14088bf6f: ret      
+0x14088bf70: mov      rax, rbx
+0x14088bf73: mov      rbx, rcx
+0x14088bf76: add      rsp, 0xd8
+0x14088bf7d: pop      rbp
+0x14088bf7e: ret      
+0x14088bf7f: lea      rdx, [rip + 0x25de7a]
+0x14088bf86: mov      qword ptr [rsp + 0xb8], rdx
+0x14088bf8e: lea      rdx, [rip + 0x942afb]
+0x14088bf95: mov      qword ptr [rsp + 0xc0], rdx
+0x14088bf9d: lea      rdx, [rip + 0x25e09c]
+0x14088bfa4: mov      qword ptr [rsp + 0xc8], rdx
+0x14088bfac: lea      rdx, [rip + 0x9415bd]
+0x14088bfb3: mov      qword ptr [rsp + 0xd0], rdx
+0x14088bfbb: lea      rax, [rip + 0x3ef25e]
+0x14088bfc2: mov      ebx, 0x26
+0x14088bfc7: lea      rcx, [rsp + 0xb8]
+0x14088bfcf: mov      edi, 2
+0x14088bfd4: mov      rsi, rdi
+0x14088bfd7: call     0x140133280    ; fmt.Errorf
+0x14088bfdc: add      rsp, 0xd8
+0x14088bfe3: pop      rbp
+0x14088bfe4: ret      
+0x14088bfe5: mov      rax, rdi
+0x14088bfe8: mov      rbx, rsi
+0x14088bfeb: add      rsp, 0xd8
+0x14088bff2: pop      rbp
+0x14088bff3: ret      
+0x14088bff4: add      rsp, 0xd8
+0x14088bffb: pop      rbp
+0x14088bffc: ret      
+0x14088bffd: lea      rax, [rip + 0x2c837c]
+0x14088c004: call     0x14001ae20    ; runtime.newobject
+0x14088c009: mov      qword ptr [rax + 8], 0x18
+0x14088c011: lea      rcx, [rip + 0x3d9010]
+0x14088c018: mov      qword ptr [rax], rcx
+0x14088c01b: mov      rbx, rax
+0x14088c01e: lea      rax, [rip + 0x9470db]
+0x14088c025: add      rsp, 0xd8
+0x14088c02c: pop      rbp
+0x14088c02d: ret      
+0x14088c02e: mov      eax, 0x2faf080
+0x14088c033: call     0x14007d0c0    ; time.Sleep
+0x14088c038: mov      rax, qword ptr [rsp + 0x60]
+0x14088c03d: inc      rax
+0x14088c040: mov      rcx, qword ptr [rsp + 0x50]
+0x14088c045: mov      rdx, qword ptr [rsp + 0x98]
+0x14088c04d: cmp      rax, 5
+0x14088c051: jge      0x14088c0f4    ; main.writeJSONFile+0x374
+0x14088c057: mov      qword ptr [rsp + 0x60], rax
+0x14088c05c: nop      
+0x14088c05d: mov      rax, qword ptr [rsp + 0x80]
+0x14088c065: mov      rbx, qword ptr [rsp + 0x40]
+0x14088c06a: mov      rcx, qword ptr [rsp + 0xa0]
+0x14088c072: mov      rdi, qword ptr [rsp + 0x58]
+0x14088c077: call     0x14012a840    ; os.rename
+0x14088c07c: nop      dword ptr [rax]
+0x14088c080: test     rax, rax
+0x14088c083: je       0x14088c0e7    ; main.writeJSONFile+0x367
+0x14088c085: mov      qword ptr [rsp + 0x98], rbx
+0x14088c08d: mov      qword ptr [rsp + 0x50], rax
+0x14088c092: mov      rcx, qword ptr [rip + 0x13848d7]
+0x14088c099: mov      rdi, qword ptr [rip + 0x13848d8]
+0x14088c0a0: call     0x1400904a0    ; errors.Is
+0x14088c0a5: test     al, al
+0x14088c0a7: je       0x14088c0b0    ; main.writeJSONFile+0x330
+0x14088c0a9: mov      eax, 1
+0x14088c0ae: jmp      0x14088c0d0    ; main.writeJSONFile+0x350
+0x14088c0b0: mov      rcx, qword ptr [rip + 0x13848c9]
+0x14088c0b7: mov      rdi, qword ptr [rip + 0x13848ca]
+0x14088c0be: mov      rax, qword ptr [rsp + 0x50]
+0x14088c0c3: mov      rbx, qword ptr [rsp + 0x98]
+0x14088c0cb: call     0x1400904a0    ; errors.Is
+0x14088c0d0: test     al, al
+0x14088c0d2: jne      0x14088c02e    ; main.writeJSONFile+0x2ae
+0x14088c0d8: mov      rcx, qword ptr [rsp + 0x50]
+0x14088c0dd: mov      rdx, qword ptr [rsp + 0x98]
+0x14088c0e5: jmp      0x14088c0f4    ; main.writeJSONFile+0x374
+0x14088c0e7: xor      eax, eax
+0x14088c0e9: xor      ebx, ebx
+0x14088c0eb: add      rsp, 0xd8
+0x14088c0f2: pop      rbp
+0x14088c0f3: ret      
+0x14088c0f4: mov      qword ptr [rsp + 0x50], rcx
+0x14088c0f9: mov      qword ptr [rsp + 0x98], rdx
+0x14088c101: mov      rax, qword ptr [rsp + 0x80]
+0x14088c109: mov      rbx, qword ptr [rsp + 0x40]
+0x14088c10e: call     0x14012a5c0    ; os.Remove
+0x14088c113: mov      rax, qword ptr [rsp + 0x50]
+0x14088c118: mov      rbx, qword ptr [rsp + 0x98]
+0x14088c120: add      rsp, 0xd8
+0x14088c127: pop      rbp
+0x14088c128: ret      
+0x14088c129: mov      qword ptr [rsp + 8], rax
+0x14088c12e: mov      qword ptr [rsp + 0x10], rbx
+0x14088c133: mov      qword ptr [rsp + 0x18], rcx
+0x14088c138: mov      qword ptr [rsp + 0x20], rdi
+0x14088c13d: nop      dword ptr [rax]
+0x14088c140: call     0x14007f140    ; runtime.morestack_noctxt
+0x14088c145: mov      rax, qword ptr [rsp + 8]
+0x14088c14a: mov      rbx, qword ptr [rsp + 0x10]
+0x14088c14f: mov      rcx, qword ptr [rsp + 0x18]
+0x14088c154: mov      rdi, qword ptr [rsp + 0x20]
+0x14088c159: jmp      0x14088bd80    ; main.writeJSONFile
+0x14088c15e: int3     
+0x14088c15f: int3     

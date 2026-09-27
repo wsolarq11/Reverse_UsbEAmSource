@@ -1,0 +1,78 @@
+0x1407d2620: lea      r12, [rsp - 0x1a0]
+0x1407d2628: cmp      r12, qword ptr [r14 + 0x10]
+0x1407d262c: jbe      0x1407d2936   ; main.fileLocatorService.publishProgress+0x316
+0x1407d2632: push     rbp
+0x1407d2633: mov      rbp, rsp
+0x1407d2636: sub      rsp, 0x218
+0x1407d263d: mov      qword ptr [rsp + 0x3b0], rsi
+0x1407d2645: movq     qword ptr [rsp + 0x210], xmm15
+0x1407d264f: mov      qword ptr [rsp + 0x390], rax
+0x1407d2657: mov      qword ptr [rsp + 0x398], rbx
+0x1407d265f: mov      qword ptr [rsp + 0x1f8], rsi
+0x1407d2667: mov      qword ptr [rsp + 0x38], rdi
+0x1407d266c: mov      qword ptr [rsp + 0x30], rcx
+0x1407d2671: mov      byte ptr [rsp + 0x27], 0
+0x1407d2676: test     byte ptr [rax], al
+0x1407d2678: call     0x140093540   ; sync.RWMutex.Lock
+0x1407d267d: lea      rcx, [rip + 0x31c]
+0x1407d2684: mov      qword ptr [rsp + 0x200], rcx
+0x1407d268c: mov      rsi, qword ptr [rsp + 0x390]
+0x1407d2694: mov      qword ptr [rsp + 0x208], rsi
+0x1407d269c: lea      rdx, [rsp + 0x200]
+0x1407d26a4: mov      qword ptr [rsp + 0x210], rdx
+0x1407d26ac: mov      byte ptr [rsp + 0x27], 1
+0x1407d26b1: mov      rcx, qword ptr [rsp + 0x398]
+0x1407d26b9: nop      dword ptr [rax]
+0x1407d26c0: cmp      qword ptr [rsi + 0x20], rcx
+0x1407d26c4: jne      0x1407d2910   ; main.fileLocatorService.publishProgress+0x2f0
+0x1407d26ca: cmp      byte ptr [rsi + 0x118], 0
+0x1407d26d1: je       0x1407d28f8   ; main.fileLocatorService.publishProgress+0x2d8
+0x1407d26d7: add      rsi, 0x28
+0x1407d26db: mov      qword ptr [rsp + 0x1f0], rsi
+0x1407d26e3: lea      rdi, [rsp + 0x40]
+0x1407d26e8: mov      qword ptr [rsp - 0x10], rbp
+0x1407d26ed: lea      rbp, [rsp - 0x10]
+0x1407d26f2: call     0x140081966   ; runtime.duffcopy+0x206
+0x1407d26f7: mov      rbp, qword ptr [rbp]
+0x1407d26fb: lea      rdi, [rsp + 0x40]
+0x1407d2700: lea      rsi, [rsp + 0x228]
+0x1407d2708: mov      qword ptr [rsp - 0x10], rbp
+0x1407d270d: lea      rbp, [rsp - 0x10]
+0x1407d2712: call     0x140081a0e   ; runtime.duffcopy+0x2ae
+0x1407d2717: mov      rbp, qword ptr [rbp]
+0x1407d271b: mov      byte ptr [rsp + 0x130], 1
+0x1407d2723: mov      word ptr [rsp + 0x132], 0
+0x1407d272d: mov      rdx, qword ptr [rsp + 0x360]
+0x1407d2735: mov      r8, qword ptr [rsp + 0x368]
+0x1407d273d: mov      qword ptr [rsp + 0x160], rdx
+0x1407d2745: mov      qword ptr [rsp + 0x168], r8
+0x1407d274d: mov      rdx, qword ptr [rsp + 0x318]
+0x1407d2755: mov      qword ptr [rsp + 0x170], rdx
+0x1407d275d: mov      rdx, qword ptr [rsp + 0x320]
+0x1407d2765: mov      qword ptr [rsp + 0x178], rdx
+0x1407d276d: mov      rdx, qword ptr [rsp + 0x328]
+0x1407d2775: mov      qword ptr [rsp + 0x180], rdx
+0x1407d277d: mov      rdx, qword ptr [rsp + 0x330]
+0x1407d2785: mov      qword ptr [rsp + 0x188], rdx
+0x1407d278d: mov      rdx, qword ptr [rsp + 0x338]
+0x1407d2795: mov      qword ptr [rsp + 0x190], rdx
+0x1407d279d: mov      rdx, qword ptr [rsp + 0x340]
+0x1407d27a5: mov      qword ptr [rsp + 0x198], rdx
+0x1407d27ad: mov      rdx, qword ptr [rsp + 0x348]
+0x1407d27b5: mov      qword ptr [rsp + 0x1a0], rdx
+0x1407d27bd: mov      rdx, qword ptr [rsp + 0x350]
+0x1407d27c5: mov      qword ptr [rsp + 0x1a8], rdx
+0x1407d27cd: mov      rdx, qword ptr [rsp + 0x358]
+0x1407d27d5: mov      qword ptr [rsp + 0x1b0], rdx
+0x1407d27dd: mov      rax, qword ptr [rsp + 0x30]
+0x1407d27e2: mov      rbx, qword ptr [rsp + 0x38]
+0x1407d27e7: mov      rcx, qword ptr [rsp + 0x1f8]
+0x1407d27ef: call     0x1400fbbe0   ; time.Since
+0x1407d27f4: mov      rdx, rax
+0x1407d27f7: sar      rax, 0x3f
+0x1407d27fb: mov      rcx, rax
+0x1407d27fe: movabs   rax, 0x431bde82d7b634db
+0x1407d2808: imul     rdx
+0x1407d280b: sar      rdx, 0x12
+0x1407d280f: sub      rdx, rcx
+0x1407d2812: mov      qword ptr [rsp + 0x158], rdx

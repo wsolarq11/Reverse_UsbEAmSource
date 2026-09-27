@@ -1,0 +1,435 @@
+0x1407a54a0: lea      r12, [rsp - 0x628]
+0x1407a54a8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a54ac: jbe      0x1407a5dd8   ; main.discoverPluginsUnlocked+0x938
+0x1407a54b2: push     rbp
+0x1407a54b3: mov      rbp, rsp
+0x1407a54b6: sub      rsp, 0x6a0
+0x1407a54bd: mov      qword ptr [rsp + 0x6b8], rbx
+0x1407a54c5: mov      qword ptr [rsp + 0x6b0], rax
+0x1407a54cd: movups   xmmword ptr [rsp + 0x440], xmm15
+0x1407a54d6: movups   xmmword ptr [rsp + 0x450], xmm15
+0x1407a54df: movups   xmmword ptr [rsp + 0x460], xmm15
+0x1407a54e8: movups   xmmword ptr [rsp + 0x378], xmm15
+0x1407a54f1: lea      rdi, [rsp + 0x380]
+0x1407a54f9: nop      dword ptr [rax]
+0x1407a5500: mov      qword ptr [rsp - 0x10], rbp
+0x1407a5505: lea      rbp, [rsp - 0x10]
+0x1407a550a: call     0x14008170b   ; runtime.duffzero+0x12b
+0x1407a550f: mov      rbp, qword ptr [rbp]
+0x1407a5513: movabs   rax, 0x8080808080808080
+0x1407a551d: mov      qword ptr [rsp + 0x378], rax
+0x1407a5525: lea      rax, [rsp + 0x378]
+0x1407a552d: mov      qword ptr [rsp + 0x450], rax
+0x1407a5535: call     0x1400797c0   ; runtime.rand
+0x1407a553a: mov      qword ptr [rsp + 0x448], rax
+0x1407a5542: mov      rax, qword ptr [rsp + 0x6b0]
+0x1407a554a: xor      ecx, ecx
+0x1407a554c: jmp      0x1407a5565   ; main.discoverPluginsUnlocked+0xc5
+0x1407a554e: mov      rax, qword ptr [rsp + 0x698]
+0x1407a5556: add      rax, 0x10
+0x1407a555a: mov      rcx, qword ptr [rsp + 0x1b8]
+0x1407a5562: inc      rcx
+0x1407a5565: mov      rdx, qword ptr [rsp + 0x6b8]
+0x1407a556d: cmp      rdx, rcx
+0x1407a5570: jle      0x1407a55b9   ; main.discoverPluginsUnlocked+0x119
+0x1407a5572: mov      qword ptr [rsp + 0x1b8], rcx
+0x1407a557a: mov      qword ptr [rsp + 0x698], rax
+0x1407a5582: mov      rcx, qword ptr [rax]
+0x1407a5585: mov      qword ptr [rsp + 0x1e0], rcx
+0x1407a558d: mov      rbx, qword ptr [rax + 8]
+0x1407a5591: mov      qword ptr [rsp + 0x188], rbx
+0x1407a5599: mov      rax, rcx
+0x1407a559c: nop      dword ptr [rax]
+0x1407a55a0: call     0x140124240   ; os.ReadDir
+0x1407a55a5: test     rdi, rdi
+0x1407a55a8: jne      0x1407a554e   ; main.discoverPluginsUnlocked+0xae
+0x1407a55aa: mov      qword ptr [rsp + 0x1b0], rbx
+0x1407a55b2: xor      ecx, ecx
+0x1407a55b4: jmp      0x1407a5855   ; main.discoverPluginsUnlocked+0x3b5
+0x1407a55b9: mov      rcx, qword ptr [rsp + 0x440]
+0x1407a55c1: mov      qword ptr [rsp + 0x1d8], rcx
+0x1407a55c9: lea      rax, [rip + 0x46fa90]
+0x1407a55d0: xor      ebx, ebx
+0x1407a55d2: call     0x14007ac40   ; runtime.makeslice
+0x1407a55d7: mov      qword ptr [rsp + 0x698], rax
+0x1407a55df: lea      rdi, [rsp + 0x490]
+0x1407a55e7: lea      rdi, [rdi - 0x20]
+0x1407a55eb: mov      qword ptr [rsp - 0x10], rbp
+0x1407a55f0: lea      rbp, [rsp - 0x10]
+0x1407a55f5: call     0x14008172b   ; runtime.duffzero+0x14b
+0x1407a55fa: mov      rbp, qword ptr [rbp]
+0x1407a55fe: lea      rax, [rip + 0x3a5c1b]
+0x1407a5605: lea      rbx, [rsp + 0x440]
+0x1407a560d: lea      rcx, [rsp + 0x490]
+0x1407a5615: call     0x14001b520   ; runtime.mapIterStart
+0x1407a561a: mov      rax, qword ptr [rsp + 0x1d8]
+0x1407a5622: mov      rcx, qword ptr [rsp + 0x698]
+0x1407a562a: xor      edx, edx
+0x1407a562c: jmp      0x1407a569d   ; main.discoverPluginsUnlocked+0x1fd
+0x1407a562e: lea      rdi, [rdx + rcx]
+0x1407a5632: lea      rdi, [rdi - 0x170]
+0x1407a5639: mov      rbx, qword ptr [rsp + 0x4f0]
+0x1407a5641: mov      qword ptr [rdx + rcx - 0x178], rbx
+0x1407a5649: lea      rsi, [rsp + 0x4f8]
+0x1407a5651: nop      word ptr [rax + rax]
+0x1407a565a: nop      word ptr [rax + rax]
+0x1407a5660: mov      qword ptr [rsp - 0x10], rbp
+0x1407a5665: lea      rbp, [rsp - 0x10]
+0x1407a566a: call     0x14008199e   ; runtime.duffcopy+0x23e
+0x1407a566f: mov      rbp, qword ptr [rbp]
+0x1407a5673: lea      rax, [rsp + 0x490]
+0x1407a567b: nop      dword ptr [rax + rax]
+0x1407a5680: call     0x14001b580   ; runtime.mapIterNext
+0x1407a5685: mov      rax, qword ptr [rsp + 0x198]
+0x1407a568d: mov      rcx, qword ptr [rsp + 0x1e8]
+0x1407a5695: mov      rdx, qword ptr [rsp + 0x190]
+0x1407a569d: cmp      qword ptr [rsp + 0x490], 0
+0x1407a56a6: je       0x1407a578a   ; main.discoverPluginsUnlocked+0x2ea
+0x1407a56ac: mov      rsi, qword ptr [rsp + 0x498]
+0x1407a56b4: test     byte ptr [rsi], al
+0x1407a56b6: mov      r8, qword ptr [rsi]
+0x1407a56b9: mov      qword ptr [rsp + 0x4f0], r8
+0x1407a56c1: add      rsi, 8
+0x1407a56c5: lea      rdi, [rsp + 0x4f8]
+0x1407a56cd: nop      word ptr [rax + rax]
+0x1407a56d6: nop      word ptr [rax + rax]
+0x1407a56df: nop      
+0x1407a56e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a56e5: lea      rbp, [rsp - 0x10]
+0x1407a56ea: call     0x14008199e   ; runtime.duffcopy+0x23e
+0x1407a56ef: mov      rbp, qword ptr [rbp]
+0x1407a56f3: lea      rbx, [rdx + 1]
+0x1407a56f7: cmp      rax, rbx
+0x1407a56fa: jae      0x1407a571f   ; main.discoverPluginsUnlocked+0x27f
+0x1407a56fc: mov      edi, 1
+0x1407a5701: lea      rsi, [rip + 0x46f958]
+0x1407a5708: mov      rdx, rax
+0x1407a570b: mov      rax, rcx
+0x1407a570e: mov      rcx, rdx
+0x1407a5711: call     0x14007ad20   ; runtime.growslice
+0x1407a5716: mov      rdx, rcx
+0x1407a5719: mov      rcx, rax
+0x1407a571c: mov      rax, rdx
+0x1407a571f: mov      qword ptr [rsp + 0x1e8], rcx
+0x1407a5727: mov      qword ptr [rsp + 0x190], rbx
+0x1407a572f: mov      qword ptr [rsp + 0x198], rax
+0x1407a5737: imul     rdx, rbx, 0x178
+0x1407a573e: lea      r8, [rdx + rcx]
+0x1407a5742: lea      r8, [r8 - 0x178]
+0x1407a5749: cmp      dword ptr [rip + 0x14b5c00], 0
+0x1407a5750: je       0x1407a562e   ; main.discoverPluginsUnlocked+0x18e
+0x1407a5756: mov      qword ptr [rsp + 0x1b8], rdx
+0x1407a575e: lea      rax, [rip + 0x46f8fb]
+0x1407a5765: mov      rbx, r8
+0x1407a5768: lea      rcx, [rsp + 0x4f0]
+0x1407a5770: call     0x14001b620   ; runtime.wbMove
+0x1407a5775: mov      rcx, qword ptr [rsp + 0x1e8]
+0x1407a577d: mov      rdx, qword ptr [rsp + 0x1b8]
+0x1407a5785: jmp      0x1407a562e   ; main.discoverPluginsUnlocked+0x18e
+0x1407a578a: mov      qword ptr [rsp + 0x690], rcx
+0x1407a5792: mov      qword ptr [rsp + 0x190], rdx
+0x1407a579a: mov      qword ptr [rsp + 0x1d0], rax
+0x1407a57a2: mov      rbx, rdx
+0x1407a57a5: mov      rdx, rax
+0x1407a57a8: mov      rax, rcx
+0x1407a57ab: mov      rcx, rdx
+0x1407a57ae: call     0x140076700   ; runtime.convTslice
+0x1407a57b3: mov      qword ptr [rsp + 0x488], 0
+0x1407a57bf: lea      rdx, [rip + 0x65a]
+0x1407a57c6: mov      qword ptr [rsp + 0x470], rdx
+0x1407a57ce: mov      rdx, qword ptr [rsp + 0x190]
+0x1407a57d6: mov      qword ptr [rsp + 0x480], rdx
+0x1407a57de: mov      rdx, qword ptr [rsp + 0x1d0]
+0x1407a57e6: mov      qword ptr [rsp + 0x488], rdx
+0x1407a57ee: mov      rdx, qword ptr [rsp + 0x690]
+0x1407a57f6: mov      qword ptr [rsp + 0x478], rdx
+0x1407a57fe: mov      rbx, rax
+0x1407a5801: lea      rcx, [rsp + 0x470]
+0x1407a5809: lea      rax, [rip + 0x332db0]
+0x1407a5810: call     0x1401af7e0   ; sort.Slice
+0x1407a5815: mov      rax, qword ptr [rsp + 0x690]
+0x1407a581d: mov      rbx, qword ptr [rsp + 0x190]
+0x1407a5825: mov      rcx, qword ptr [rsp + 0x1d0]
+0x1407a582d: add      rsp, 0x6a0
+0x1407a5834: pop      rbp
+0x1407a5835: ret      
+0x1407a5836: mov      rax, qword ptr [rsp + 0x688]
+0x1407a583e: add      rax, 0x10
+0x1407a5842: mov      rcx, qword ptr [rsp + 0x1c8]
+0x1407a584a: inc      rcx
+0x1407a584d: mov      rbx, qword ptr [rsp + 0x1b0]
+0x1407a5855: cmp      rbx, rcx
+0x1407a5858: jle      0x1407a554e   ; main.discoverPluginsUnlocked+0xae
+0x1407a585e: mov      qword ptr [rsp + 0x1c8], rcx
+0x1407a5866: mov      qword ptr [rsp + 0x688], rax
+0x1407a586e: mov      rcx, qword ptr [rax]
+0x1407a5871: mov      qword ptr [rsp + 0x1a8], rcx
+0x1407a5879: mov      rax, qword ptr [rax + 8]
+0x1407a587d: mov      qword ptr [rsp + 0x370], rax
+0x1407a5885: mov      rcx, qword ptr [rcx + 0x20]
+0x1407a5889: call     rcx
+0x1407a588b: test     al, al
+0x1407a588d: jne      0x1407a5896   ; main.discoverPluginsUnlocked+0x3f6
+0x1407a588f: mov      ecx, 1
+0x1407a5894: jmp      0x1407a58b3   ; main.discoverPluginsUnlocked+0x413
+0x1407a5896: mov      rcx, qword ptr [rsp + 0x1a8]
+0x1407a589e: mov      rcx, qword ptr [rcx + 0x30]
+0x1407a58a2: mov      rax, qword ptr [rsp + 0x370]
+0x1407a58aa: call     rcx
+0x1407a58ac: bt       eax, 0x1b
+0x1407a58b0: setb     cl
+0x1407a58b3: test     cl, cl
+0x1407a58b5: jne      0x1407a5836   ; main.discoverPluginsUnlocked+0x396
+0x1407a58bb: mov      rcx, qword ptr [rsp + 0x1a8]
+0x1407a58c3: mov      rcx, qword ptr [rcx + 0x28]
+0x1407a58c7: mov      rax, qword ptr [rsp + 0x370]
+0x1407a58cf: call     rcx
+0x1407a58d1: mov      qword ptr [rsp + 0x668], rax
+0x1407a58d9: mov      qword ptr [rsp + 0x670], rbx
+0x1407a58e1: call     0x1400a2200   ; strings.TrimSpace
+0x1407a58e6: test     rbx, rbx
+0x1407a58e9: je       0x1407a58f3   ; main.discoverPluginsUnlocked+0x453
+0x1407a58eb: cmp      byte ptr [rax], 0x2e
+0x1407a58ee: sete     dl
+0x1407a58f1: jmp      0x1407a58f5   ; main.discoverPluginsUnlocked+0x455
+0x1407a58f3: xor      edx, edx
+0x1407a58f5: test     dl, dl
+0x1407a58f7: jne      0x1407a5836   ; main.discoverPluginsUnlocked+0x396
+0x1407a58fd: mov      rcx, qword ptr [rsp + 0x1a8]
+0x1407a5905: mov      rcx, qword ptr [rcx + 0x28]
+0x1407a5909: mov      rax, qword ptr [rsp + 0x370]
+0x1407a5911: call     rcx
+0x1407a5913: movups   xmmword ptr [rsp + 0x668], xmm15
+0x1407a591c: mov      rcx, rax
+0x1407a591f: mov      rdi, rbx
+0x1407a5922: mov      esi, 1
+0x1407a5927: mov      rax, qword ptr [rsp + 0x1e0]
+0x1407a592f: mov      rbx, qword ptr [rsp + 0x188]
+0x1407a5937: call     0x1409248e0   ; main.resolvePluginPathSecurely
+0x1407a593c: mov      qword ptr [rsp + 0x668], rax
+0x1407a5944: mov      qword ptr [rsp + 0x670], rbx
+0x1407a594c: test     rcx, rcx
+0x1407a594f: jne      0x1407a5836   ; main.discoverPluginsUnlocked+0x396
+0x1407a5955: mov      qword ptr [rsp + 0x1c0], rbx
+0x1407a595d: mov      qword ptr [rsp + 0x680], rax
+0x1407a5965: movups   xmmword ptr [rsp + 0x668], xmm15
+0x1407a596e: lea      rcx, [rip + 0x4a1b1f]
+0x1407a5975: mov      edi, 0xb
+0x1407a597a: xor      esi, esi
+0x1407a597c: nop      dword ptr [rax]
+0x1407a5980: call     0x1409248e0   ; main.resolvePluginPathSecurely
+0x1407a5985: mov      qword ptr [rsp + 0x668], rax
+0x1407a598d: mov      qword ptr [rsp + 0x670], rbx
+0x1407a5995: test     rcx, rcx
+0x1407a5998: jne      0x1407a5836   ; main.discoverPluginsUnlocked+0x396
+0x1407a599e: movups   xmmword ptr [rsp + 0x4f0], xmm15
+0x1407a59a7: lea      rdi, [rsp + 0x4f8]
+0x1407a59af: lea      rdi, [rdi - 0x10]
+0x1407a59b3: nop      word ptr [rax + rax]
+0x1407a59bc: nop      dword ptr [rax]
+0x1407a59c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a59c5: lea      rbp, [rsp - 0x10]
+0x1407a59ca: call     0x1400816ca   ; runtime.duffzero+0xea
+0x1407a59cf: mov      rbp, qword ptr [rbp]
+0x1407a59d3: call     0x140924480   ; main.readPluginManifestBounded
+0x1407a59d8: mov      rcx, qword ptr [rsp]
+0x1407a59dc: mov      qword ptr [rsp + 0x4f0], rcx
+0x1407a59e4: lea      rdi, [rsp + 0x4f8]
+0x1407a59ec: lea      rsi, [rsp + 8]
+0x1407a59f1: nop      word ptr [rax + rax]
+0x1407a59fa: nop      word ptr [rax + rax]
+0x1407a5a00: mov      qword ptr [rsp - 0x10], rbp
+0x1407a5a05: lea      rbp, [rsp - 0x10]
+0x1407a5a0a: call     0x14008199e   ; runtime.duffcopy+0x23e
+0x1407a5a0f: mov      rbp, qword ptr [rbp]
+0x1407a5a13: mov      rcx, qword ptr [rsp + 0x4f0]
+0x1407a5a1b: mov      qword ptr [rsp + 0x1f0], rcx
+0x1407a5a23: lea      rdi, [rsp + 0x1f8]
+0x1407a5a2b: lea      rsi, [rsp + 0x4f8]
+0x1407a5a33: nop      word ptr [rax + rax]
+0x1407a5a3c: nop      dword ptr [rax]
+0x1407a5a40: mov      qword ptr [rsp - 0x10], rbp
+0x1407a5a45: lea      rbp, [rsp - 0x10]
+0x1407a5a4a: call     0x14008199e   ; runtime.duffcopy+0x23e
+0x1407a5a4f: mov      rbp, qword ptr [rbp]
+0x1407a5a53: test     rax, rax
+0x1407a5a56: jne      0x1407a5836   ; main.discoverPluginsUnlocked+0x396
+0x1407a5a5c: mov      rax, qword ptr [rsp + 0x240]
+0x1407a5a64: mov      rbx, qword ptr [rsp + 0x248]
+0x1407a5a6c: call     0x1400a2200   ; strings.TrimSpace
+0x1407a5a71: mov      qword ptr [rsp + 0x668], rax
+0x1407a5a79: mov      qword ptr [rsp + 0x670], rbx
+0x1407a5a81: test     rbx, rbx
+0x1407a5a84: jne      0x1407a5aa1   ; main.discoverPluginsUnlocked+0x601
+0x1407a5a86: lea      rdx, [rip + 0x49e608]
+0x1407a5a8d: mov      qword ptr [rsp + 0x240], rdx
+0x1407a5a95: mov      qword ptr [rsp + 0x248], 0xa
+0x1407a5aa1: movups   xmmword ptr [rsp + 0x668], xmm15
+0x1407a5aaa: mov      rcx, qword ptr [rsp + 0x240]
+0x1407a5ab2: mov      rdi, qword ptr [rsp + 0x248]
+0x1407a5aba: mov      rax, qword ptr [rsp + 0x680]
+0x1407a5ac2: mov      rbx, qword ptr [rsp + 0x1c0]
+0x1407a5aca: xor      esi, esi
+0x1407a5acc: call     0x1409248e0   ; main.resolvePluginPathSecurely
+0x1407a5ad1: mov      qword ptr [rsp + 0x668], rax
+0x1407a5ad9: mov      qword ptr [rsp + 0x670], rbx
+0x1407a5ae1: test     rcx, rcx
+0x1407a5ae4: jne      0x1407a5836   ; main.discoverPluginsUnlocked+0x396
+0x1407a5aea: mov      rcx, qword ptr [rsp + 0x680]
+0x1407a5af2: mov      qword ptr [rsp + 0x300], rcx
+0x1407a5afa: mov      rcx, qword ptr [rsp + 0x1c0]
+0x1407a5b02: mov      qword ptr [rsp + 0x308], rcx
+0x1407a5b0a: mov      byte ptr [rsp + 0x310], 1
+0x1407a5b12: mov      rax, qword ptr [rsp + 0x270]
+0x1407a5b1a: mov      rbx, qword ptr [rsp + 0x278]
+0x1407a5b22: call     0x14092bb20   ; main.normalizePluginIconFile
+0x1407a5b27: mov      qword ptr [rsp + 0x668], rax
+0x1407a5b2f: mov      qword ptr [rsp + 0x670], rbx
+0x1407a5b37: mov      qword ptr [rsp + 0x270], rax
+0x1407a5b3f: mov      qword ptr [rsp + 0x278], rbx
+0x1407a5b47: test     rbx, rbx
+0x1407a5b4a: je       0x1407a5bb4   ; main.discoverPluginsUnlocked+0x714
+0x1407a5b4c: movups   xmmword ptr [rsp + 0x668], xmm15
+0x1407a5b55: mov      rcx, qword ptr [rsp + 0x270]
+0x1407a5b5d: mov      rdi, qword ptr [rsp + 0x278]
+0x1407a5b65: mov      rax, qword ptr [rsp + 0x680]
+0x1407a5b6d: mov      rbx, qword ptr [rsp + 0x1c0]
+0x1407a5b75: xor      esi, esi
+0x1407a5b77: call     0x1409248e0   ; main.resolvePluginPathSecurely
+0x1407a5b7c: mov      qword ptr [rsp + 0x668], rax
+0x1407a5b84: mov      qword ptr [rsp + 0x670], rbx
+0x1407a5b8c: test     rcx, rcx
+0x1407a5b8f: je       0x1407a5b9c   ; main.discoverPluginsUnlocked+0x6fc
+0x1407a5b91: movups   xmmword ptr [rsp + 0x270], xmm15
+0x1407a5b9a: jmp      0x1407a5bb4   ; main.discoverPluginsUnlocked+0x714
+0x1407a5b9c: mov      ecx, 0x100000
+0x1407a5ba1: call     0x140923f00   ; main.readPluginFileBounded
+0x1407a5ba6: test     rdi, rdi
+0x1407a5ba9: je       0x1407a5bb4   ; main.discoverPluginsUnlocked+0x714
+0x1407a5bab: movups   xmmword ptr [rsp + 0x270], xmm15
+0x1407a5bb4: mov      rax, qword ptr [rsp + 0x1f0]
+0x1407a5bbc: mov      qword ptr [rsp], rax
+0x1407a5bc0: lea      rdi, [rsp + 8]
+0x1407a5bc5: lea      rsi, [rsp + 0x1f8]
+0x1407a5bcd: nop      word ptr [rax + rax]
+0x1407a5bd6: nop      word ptr [rax + rax]
+0x1407a5bdf: nop      
+0x1407a5be0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a5be5: lea      rbp, [rsp - 0x10]
+0x1407a5bea: call     0x14008199e   ; runtime.duffcopy+0x23e
+0x1407a5bef: mov      rbp, qword ptr [rbp]
+0x1407a5bf3: call     0x14092c040   ; main.resolvePluginLocalIconURL
+0x1407a5bf8: mov      qword ptr [rsp + 0x668], rax
+0x1407a5c00: mov      qword ptr [rsp + 0x670], rbx
+0x1407a5c08: mov      qword ptr [rsp + 0x280], rax
+0x1407a5c10: mov      qword ptr [rsp + 0x288], rbx
+0x1407a5c18: mov      rax, qword ptr [rsp + 0x1f0]
+0x1407a5c20: mov      qword ptr [rsp], rax
+0x1407a5c24: lea      rdi, [rsp + 8]
+0x1407a5c29: lea      rsi, [rsp + 0x1f8]
+0x1407a5c31: nop      word ptr [rax + rax]
+0x1407a5c3a: nop      word ptr [rax + rax]
+0x1407a5c40: mov      qword ptr [rsp - 0x10], rbp
+0x1407a5c45: lea      rbp, [rsp - 0x10]
+0x1407a5c4a: call     0x14008199e   ; runtime.duffcopy+0x23e
+0x1407a5c4f: mov      rbp, qword ptr [rbp]
+0x1407a5c53: call     0x1407a5ec0   ; main.loadPluginLocalizations
+0x1407a5c58: mov      qword ptr [rsp + 0x2f8], rax
+0x1407a5c60: mov      rax, qword ptr [rsp + 0x1f0]
+0x1407a5c68: mov      rbx, qword ptr [rsp + 0x1f8]
+0x1407a5c70: call     0x1400a2200   ; strings.TrimSpace
+0x1407a5c75: mov      qword ptr [rsp + 0x668], rax
+0x1407a5c7d: mov      qword ptr [rsp + 0x670], rbx
+0x1407a5c85: call     0x1400a1500   ; strings.ToLower
+0x1407a5c8a: mov      qword ptr [rsp + 0x368], rax
+0x1407a5c92: mov      qword ptr [rsp + 0x1a0], rbx
+0x1407a5c9a: mov      qword ptr [rsp + 0x668], rax
+0x1407a5ca2: mov      qword ptr [rsp + 0x670], rbx
+0x1407a5caa: movups   xmmword ptr [rsp + 0x4f0], xmm15
+0x1407a5cb3: lea      rdi, [rsp + 0x4f8]
+0x1407a5cbb: lea      rdi, [rdi - 0x10]
+0x1407a5cbf: nop      
+0x1407a5cc0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a5cc5: lea      rbp, [rsp - 0x10]
+0x1407a5cca: call     0x1400816ca   ; runtime.duffzero+0xea
+0x1407a5ccf: mov      rbp, qword ptr [rbp]
+0x1407a5cd3: lea      rax, [rip + 0x3a5546]
+0x1407a5cda: lea      rbx, [rsp + 0x440]
+0x1407a5ce2: lea      rcx, [rsp + 0x668]
+0x1407a5cea: call     0x14000e720   ; runtime.mapaccess2
+0x1407a5cef: mov      rcx, qword ptr [rax]
+0x1407a5cf2: mov      qword ptr [rsp + 0x4f0], rcx
+0x1407a5cfa: lea      rsi, [rax + 8]
+0x1407a5cfe: lea      rdi, [rsp + 0x4f8]
+0x1407a5d06: mov      qword ptr [rsp - 0x10], rbp
+0x1407a5d0b: lea      rbp, [rsp - 0x10]
+0x1407a5d10: call     0x14008199e   ; runtime.duffcopy+0x23e
+0x1407a5d15: mov      rbp, qword ptr [rbp]
+0x1407a5d19: nop      dword ptr [rax]
+0x1407a5d20: test     bl, bl
+0x1407a5d22: jne      0x1407a5836   ; main.discoverPluginsUnlocked+0x396
+0x1407a5d28: mov      rdx, qword ptr [rsp + 0x368]
+0x1407a5d30: mov      qword ptr [rsp + 0x668], rdx
+0x1407a5d38: mov      rdx, qword ptr [rsp + 0x1a0]
+0x1407a5d40: mov      qword ptr [rsp + 0x670], rdx
+0x1407a5d48: lea      rax, [rip + 0x3a54d1]
+0x1407a5d4f: lea      rbx, [rsp + 0x440]
+0x1407a5d57: lea      rcx, [rsp + 0x668]
+0x1407a5d5f: nop      
+0x1407a5d60: call     0x14000e9e0   ; runtime.mapassign
+0x1407a5d65: test     byte ptr [rax], al
+0x1407a5d67: cmp      dword ptr [rip + 0x14b55e2], 0
+0x1407a5d6e: je       0x1407a5d97   ; main.discoverPluginsUnlocked+0x8f7
+0x1407a5d70: mov      qword ptr [rsp + 0x678], rax
+0x1407a5d78: mov      rbx, rax
+0x1407a5d7b: lea      rcx, [rsp + 0x1f0]
+0x1407a5d83: lea      rax, [rip + 0x46f2d6]
+0x1407a5d8a: call     0x14001b620   ; runtime.wbMove
+0x1407a5d8f: mov      rax, qword ptr [rsp + 0x678]
+0x1407a5d97: mov      rdx, qword ptr [rsp + 0x1f0]
+0x1407a5d9f: mov      qword ptr [rax], rdx
+0x1407a5da2: lea      rdi, [rax + 8]
+0x1407a5da6: lea      rsi, [rsp + 0x1f8]
+0x1407a5dae: nop      word ptr [rax + rax]
+0x1407a5db7: nop      word ptr [rax + rax]
+0x1407a5dc0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a5dc5: lea      rbp, [rsp - 0x10]
+0x1407a5dca: call     0x14008199e   ; runtime.duffcopy+0x23e
+0x1407a5dcf: mov      rbp, qword ptr [rbp]
+0x1407a5dd3: jmp      0x1407a5836   ; main.discoverPluginsUnlocked+0x396
+0x1407a5dd8: mov      qword ptr [rsp + 8], rax
+0x1407a5ddd: mov      qword ptr [rsp + 0x10], rbx
+0x1407a5de2: mov      qword ptr [rsp + 0x18], rcx
+0x1407a5de7: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a5dec: mov      rax, qword ptr [rsp + 8]
+0x1407a5df1: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a5df6: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a5dfb: nop      dword ptr [rax + rax]
+0x1407a5e00: jmp      0x1407a54a0   ; main.discoverPluginsUnlocked
+0x1407a5e05: int3     
+0x1407a5e06: int3     
+0x1407a5e07: int3     
+0x1407a5e08: int3     
+0x1407a5e09: int3     
+0x1407a5e0a: int3     
+0x1407a5e0b: int3     
+0x1407a5e0c: int3     
+0x1407a5e0d: int3     
+0x1407a5e0e: int3     
+0x1407a5e0f: int3     
+0x1407a5e10: int3     
+0x1407a5e11: int3     
+0x1407a5e12: int3     
+0x1407a5e13: int3     
+0x1407a5e14: int3     
+0x1407a5e15: int3     
+0x1407a5e16: int3     
+0x1407a5e17: int3     
+0x1407a5e18: int3     
+0x1407a5e19: int3     
+0x1407a5e1a: int3     
+0x1407a5e1b: int3     
+0x1407a5e1c: int3     
+0x1407a5e1d: int3     
+0x1407a5e1e: int3     
+0x1407a5e1f: int3     

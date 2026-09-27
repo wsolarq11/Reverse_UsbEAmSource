@@ -1,0 +1,70 @@
+0x1407c4e20: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407c4e24: jbe      0x1407c4f03   ; main.ensureDesktopWidgetJSONEOF+0xe3
+0x1407c4e2a: push     rbp
+0x1407c4e2b: mov      rbp, rsp
+0x1407c4e2e: sub      rsp, 0x48
+0x1407c4e32: mov      qword ptr [rsp + 0x58], rax
+0x1407c4e37: lea      rax, [rip + 0x355742]
+0x1407c4e3e: nop      
+0x1407c4e40: call     0x14001ae20   ; runtime.newobject
+0x1407c4e45: lea      rbx, [rip + 0x3037f4]
+0x1407c4e4c: mov      rcx, rax
+0x1407c4e4f: mov      rax, qword ptr [rsp + 0x58]
+0x1407c4e54: call     0x1405941e0   ; encoding/json.Decoder.Decode
+0x1407c4e59: mov      qword ptr [rsp + 0x28], rax
+0x1407c4e5e: mov      qword ptr [rsp + 0x30], rbx
+0x1407c4e63: mov      rcx, qword ptr [rip + 0x13ff736]
+0x1407c4e6a: mov      rdi, qword ptr [rip + 0x13ff737]
+0x1407c4e71: call     0x1400904a0   ; errors.Is
+0x1407c4e76: test     al, al
+0x1407c4e78: jne      0x1407c4ef9   ; main.ensureDesktopWidgetJSONEOF+0xd9
+0x1407c4e7a: mov      rdx, qword ptr [rsp + 0x28]
+0x1407c4e7f: nop      
+0x1407c4e80: test     rdx, rdx
+0x1407c4e83: je       0x1407c4ecb   ; main.ensureDesktopWidgetJSONEOF+0xab
+0x1407c4e85: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1407c4e8b: je       0x1407c4e93   ; main.ensureDesktopWidgetJSONEOF+0x73
+0x1407c4e8d: mov      rax, qword ptr [rdx + 8]
+0x1407c4e91: jmp      0x1407c4e96   ; main.ensureDesktopWidgetJSONEOF+0x76
+0x1407c4e93: mov      rax, rdx
+0x1407c4e96: mov      qword ptr [rsp + 0x38], rax
+0x1407c4e9b: mov      rdx, qword ptr [rsp + 0x30]
+0x1407c4ea0: mov      qword ptr [rsp + 0x40], rdx
+0x1407c4ea5: lea      rax, [rip + 0x4a4e44]
+0x1407c4eac: mov      ebx, 0x1b
+0x1407c4eb1: lea      rcx, [rsp + 0x38]
+0x1407c4eb6: mov      edi, 1
+0x1407c4ebb: mov      rsi, rdi
+0x1407c4ebe: nop      
+0x1407c4ec0: call     0x140133280   ; fmt.Errorf
+0x1407c4ec5: add      rsp, 0x48
+0x1407c4ec9: pop      rbp
+0x1407c4eca: ret      
+0x1407c4ecb: lea      rax, [rip + 0x38f4ae]
+0x1407c4ed2: call     0x14001ae20   ; runtime.newobject
+0x1407c4ed7: mov      qword ptr [rax + 8], 0x1a
+0x1407c4edf: lea      rcx, [rip + 0x4a33b9]
+0x1407c4ee6: mov      qword ptr [rax], rcx
+0x1407c4ee9: mov      rbx, rax
+0x1407c4eec: lea      rax, [rip + 0xa0e20d]
+0x1407c4ef3: add      rsp, 0x48
+0x1407c4ef7: pop      rbp
+0x1407c4ef8: ret      
+0x1407c4ef9: xor      eax, eax
+0x1407c4efb: xor      ebx, ebx
+0x1407c4efd: add      rsp, 0x48
+0x1407c4f01: pop      rbp
+0x1407c4f02: ret      
+0x1407c4f03: mov      qword ptr [rsp + 8], rax
+0x1407c4f08: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407c4f0d: mov      rax, qword ptr [rsp + 8]
+0x1407c4f12: jmp      0x1407c4e20   ; main.ensureDesktopWidgetJSONEOF
+0x1407c4f17: int3     
+0x1407c4f18: int3     
+0x1407c4f19: int3     
+0x1407c4f1a: int3     
+0x1407c4f1b: int3     
+0x1407c4f1c: int3     
+0x1407c4f1d: int3     
+0x1407c4f1e: int3     
+0x1407c4f1f: int3     

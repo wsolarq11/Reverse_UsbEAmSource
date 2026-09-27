@@ -1,0 +1,77 @@
+0x14093b0a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14093b0a4: jbe      0x14093b142   ; main.qrCodeScreenSelectionSession.selectionResizeHandleAt+0xa2
+0x14093b0aa: push     rbp
+0x14093b0ab: mov      rbp, rsp
+0x14093b0ae: sub      rsp, 0x40
+0x14093b0b2: cmp      byte ptr [rax + 0x269], 0
+0x14093b0b9: je       0x14093b13a   ; main.qrCodeScreenSelectionSession.selectionResizeHandleAt+0x9a
+0x14093b0bb: cmp      byte ptr [rax + 0x26a], 0
+0x14093b0c2: jne      0x14093b13a   ; main.qrCodeScreenSelectionSession.selectionResizeHandleAt+0x9a
+0x14093b0c4: mov      qword ptr [rsp + 0x38], rcx
+0x14093b0c9: mov      qword ptr [rsp + 0x30], rbx
+0x14093b0ce: cmp      qword ptr [rax + 0x2e8], 0
+0x14093b0d6: je       0x14093b11e   ; main.qrCodeScreenSelectionSession.selectionResizeHandleAt+0x7e
+0x14093b0d8: mov      qword ptr [rsp + 0x50], rax
+0x14093b0dd: nop      dword ptr [rax]
+0x14093b0e0: call     0x14094c7a0   ; main.qrCodeScreenSelectionSession.annotationTextEditorRect
+0x14093b0e5: mov      rdx, qword ptr [rsp + 0x30]
+0x14093b0ea: cmp      rax, rdx
+0x14093b0ed: jg       0x14093b114   ; main.qrCodeScreenSelectionSession.selectionResizeHandleAt+0x74
+0x14093b0ef: cmp      rcx, rdx
+0x14093b0f2: jle      0x14093b10d   ; main.qrCodeScreenSelectionSession.selectionResizeHandleAt+0x6d
+0x14093b0f4: mov      rcx, qword ptr [rsp + 0x38]
+0x14093b0f9: cmp      rbx, rcx
+0x14093b0fc: jg       0x14093b119   ; main.qrCodeScreenSelectionSession.selectionResizeHandleAt+0x79
+0x14093b0fe: nop      
+0x14093b100: cmp      rdi, rcx
+0x14093b103: jle      0x14093b119   ; main.qrCodeScreenSelectionSession.selectionResizeHandleAt+0x79
+0x14093b105: xor      eax, eax
+0x14093b107: add      rsp, 0x40
+0x14093b10b: pop      rbp
+0x14093b10c: ret      
+0x14093b10d: mov      rcx, qword ptr [rsp + 0x38]
+0x14093b112: jmp      0x14093b119   ; main.qrCodeScreenSelectionSession.selectionResizeHandleAt+0x79
+0x14093b114: mov      rcx, qword ptr [rsp + 0x38]
+0x14093b119: mov      rax, qword ptr [rsp + 0x50]
+0x14093b11e: nop      
+0x14093b120: call     0x14093afa0   ; main.qrCodeScreenSelectionSession.activeSelectionRect
+0x14093b125: mov      rsi, qword ptr [rsp + 0x30]
+0x14093b12a: mov      r8, qword ptr [rsp + 0x38]
+0x14093b12f: call     0x14095a6a0   ; main.qrCodeSelectionResizeHandleAtPoint
+0x14093b134: add      rsp, 0x40
+0x14093b138: pop      rbp
+0x14093b139: ret      
+0x14093b13a: xor      eax, eax
+0x14093b13c: add      rsp, 0x40
+0x14093b140: pop      rbp
+0x14093b141: ret      
+0x14093b142: mov      qword ptr [rsp + 8], rax
+0x14093b147: mov      qword ptr [rsp + 0x10], rbx
+0x14093b14c: mov      qword ptr [rsp + 0x18], rcx
+0x14093b151: call     0x14007f140   ; runtime.morestack_noctxt
+0x14093b156: mov      rax, qword ptr [rsp + 8]
+0x14093b15b: mov      rbx, qword ptr [rsp + 0x10]
+0x14093b160: mov      rcx, qword ptr [rsp + 0x18]
+0x14093b165: jmp      0x14093b0a0   ; main.qrCodeScreenSelectionSession.selectionResizeHandleAt
+0x14093b16a: int3     
+0x14093b16b: int3     
+0x14093b16c: int3     
+0x14093b16d: int3     
+0x14093b16e: int3     
+0x14093b16f: int3     
+0x14093b170: int3     
+0x14093b171: int3     
+0x14093b172: int3     
+0x14093b173: int3     
+0x14093b174: int3     
+0x14093b175: int3     
+0x14093b176: int3     
+0x14093b177: int3     
+0x14093b178: int3     
+0x14093b179: int3     
+0x14093b17a: int3     
+0x14093b17b: int3     
+0x14093b17c: int3     
+0x14093b17d: int3     
+0x14093b17e: int3     
+0x14093b17f: int3     

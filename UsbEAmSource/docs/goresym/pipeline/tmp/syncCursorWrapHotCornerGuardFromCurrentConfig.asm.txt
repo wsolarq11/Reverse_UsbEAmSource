@@ -1,0 +1,172 @@
+0x14079fd20: mov      r12, rsp
+0x14079fd23: sub      r12, 0x1c78
+0x14079fd2a: jb       0x1407a002f    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x30f
+0x14079fd30: cmp      r12, qword ptr [r14 + 0x10]
+0x14079fd34: jbe      0x1407a002f    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x30f
+0x14079fd3a: push     rbp
+0x14079fd3b: mov      rbp, rsp
+0x14079fd3e: sub      rsp, 0x1cf0
+0x14079fd45: mov      qword ptr [rsp + 0x1d00], rax
+0x14079fd4d: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x14079fd52: lea      rdi, [rsp + 0x980]
+0x14079fd5a: mov      rsi, rsp
+0x14079fd5d: nop      dword ptr [rax]
+0x14079fd60: mov      qword ptr [rsp - 0x10], rbp
+0x14079fd65: lea      rbp, [rsp - 0x10]
+0x14079fd6a: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x14079fd6f: mov      rbp, qword ptr [rbp]
+0x14079fd73: mov      rcx, qword ptr [rsp + 0x1d00]
+0x14079fd7b: cmp      qword ptr [rcx + 0x388], 0
+0x14079fd83: je       0x14079fed8    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x1b8
+0x14079fd89: cmp      qword ptr [rsp + 0x998], 0
+0x14079fd92: je       0x14079fed8    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x1b8
+0x14079fd98: movups   xmmword ptr [rsp + 0x13b8], xmm15
+0x14079fda1: lea      rdi, [rsp + 0x13c0]
+0x14079fda9: mov      ecx, 0x126
+0x14079fdae: xor      eax, eax
+0x14079fdb0: rep stosq qword ptr [rdi], rax
+0x14079fdb3: mov      rax, qword ptr [rsp + 0x990]
+0x14079fdbb: mov      rbx, qword ptr [rsp + 0x998]
+0x14079fdc3: call     0x1408760e0    ; main.loadLauncherConfigIfExists
+0x14079fdc8: mov      rdx, qword ptr [rsp]
+0x14079fdcc: mov      qword ptr [rsp + 0x13b8], rdx
+0x14079fdd4: lea      rdi, [rsp + 0x13c0]
+0x14079fddc: lea      rsi, [rsp + 8]
+0x14079fde1: mov      ecx, 0x126
+0x14079fde6: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14079fde9: mov      rdx, qword ptr [rsp + 0x13b8]
+0x14079fdf1: mov      qword ptr [rsp + 0x980], rdx
+0x14079fdf9: lea      rdi, [rsp + 0x988]
+0x14079fe01: lea      rsi, [rsp + 0x13c0]
+0x14079fe09: mov      ecx, 0x126
+0x14079fe0e: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14079fe11: test     rbx, rbx
+0x14079fe14: jne      0x14079fecf    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x1af
+0x14079fe1a: mov      rbx, qword ptr [rip + 0x1426a87]
+0x14079fe21: mov      rdx, qword ptr [rsp + 0xcc8]
+0x14079fe29: mov      qword ptr [rsp + 0x968], rdx
+0x14079fe31: nop      
+0x14079fe32: movups   xmmword ptr [rsp + 0x1388], xmm15
+0x14079fe3b: movups   xmmword ptr [rsp + 0x1398], xmm15
+0x14079fe44: movups   xmmword ptr [rsp + 0x13a8], xmm15
+0x14079fe4d: cmp      rbx, 8
+0x14079fe51: jg       0x14079fe99    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x179
+0x14079fe53: movups   xmmword ptr [rsp + 0x12c0], xmm15
+0x14079fe5c: lea      rdi, [rsp + 0x12c8]
+0x14079fe64: mov      qword ptr [rsp - 0x10], rbp
+0x14079fe69: lea      rbp, [rsp - 0x10]
+0x14079fe6e: call     0x14008170b    ; runtime.duffzero+0x12b
+0x14079fe73: mov      rbp, qword ptr [rbp]
+0x14079fe77: movabs   rsi, 0x8080808080808080
+0x14079fe81: mov      qword ptr [rsp + 0x12c0], rsi
+0x14079fe89: lea      rsi, [rsp + 0x12c0]
+0x14079fe91: mov      qword ptr [rsp + 0x1398], rsi
+0x14079fe99: lea      rax, [rip + 0x3a8e00]
+0x14079fea0: lea      rcx, [rsp + 0x1388]
+0x14079fea8: call     0x140076d80    ; runtime.makemap
+0x14079fead: mov      qword ptr [rsp + 0x970], rax
+0x14079feb5: mov      rdx, qword ptr [rip + 0x14269e4]
+0x14079febc: mov      rsi, qword ptr [rip + 0x14269e5]
+0x14079fec3: mov      qword ptr [rsp + 0x960], rsi
+0x14079fecb: xor      ecx, ecx
+0x14079fecd: jmp      0x14079ff31    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x211
+0x14079fecf: add      rsp, 0x1cf0
+0x14079fed6: pop      rbp
+0x14079fed7: ret      
+0x14079fed8: add      rsp, 0x1cf0
+0x14079fedf: pop      rbp
+0x14079fee0: ret      
+0x14079fee1: mov      qword ptr [rsp + 0x958], rcx
+0x14079fee9: mov      qword ptr [rsp + 0x12b8], rdx
+0x14079fef1: mov      rcx, qword ptr [rdx]
+0x14079fef4: mov      rdi, qword ptr [rdx + 8]
+0x14079fef8: mov      rbx, rax
+0x14079fefb: lea      rax, [rip + 0x3a8d9e]
+0x14079ff02: call     0x14000de60    ; runtime.mapassign_faststr
+0x14079ff07: mov      byte ptr [rax], 1
+0x14079ff0a: mov      rdx, qword ptr [rsp + 0x12b8]
+0x14079ff12: add      rdx, 0x10
+0x14079ff16: mov      rcx, qword ptr [rsp + 0x958]
+0x14079ff1e: inc      rcx
+0x14079ff21: mov      rax, qword ptr [rsp + 0x970]
+0x14079ff29: mov      rsi, qword ptr [rsp + 0x960]
+0x14079ff31: cmp      rcx, rsi
+0x14079ff34: jl       0x14079fee1    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x1c1
+0x14079ff36: mov      rdx, qword ptr [rip + 0x1426963]
+0x14079ff3d: mov      r8, qword ptr [rip + 0x1426964]
+0x14079ff44: mov      qword ptr [rsp + 0x960], r8
+0x14079ff4c: xor      ecx, ecx
+0x14079ff4e: jmp      0x14079ff77    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x257
+0x14079ff50: mov      rdx, qword ptr [rsp + 0x12b8]
+0x14079ff58: add      rdx, 0x10
+0x14079ff5c: mov      rcx, qword ptr [rsp + 0x958]
+0x14079ff64: inc      rcx
+0x14079ff67: mov      rax, qword ptr [rsp + 0x970]
+0x14079ff6f: mov      r8, qword ptr [rsp + 0x960]
+0x14079ff77: cmp      rcx, r8
+0x14079ff7a: jge      0x14079fff8    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x2d8
+0x14079ff7c: mov      qword ptr [rsp + 0x958], rcx
+0x14079ff84: mov      qword ptr [rsp + 0x12b8], rdx
+0x14079ff8c: mov      rcx, qword ptr [rdx]
+0x14079ff8f: mov      qword ptr [rsp + 0x978], rcx
+0x14079ff97: mov      rdi, qword ptr [rdx + 8]
+0x14079ff9b: mov      qword ptr [rsp + 0x950], rdi
+0x14079ffa3: lea      rax, [rip + 0x3a8cf6]
+0x14079ffaa: mov      rbx, qword ptr [rsp + 0x968]
+0x14079ffb2: call     0x14000dbc0    ; runtime.mapaccess2_faststr
+0x14079ffb7: test     bl, bl
+0x14079ffb9: je       0x14079ff50    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x230
+0x14079ffbb: movzx    edx, byte ptr [rax]
+0x14079ffbe: mov      byte ptr [rsp + 0x94f], dl
+0x14079ffc5: lea      rax, [rip + 0x3a8cd4]
+0x14079ffcc: mov      rbx, qword ptr [rsp + 0x970]
+0x14079ffd4: mov      rcx, qword ptr [rsp + 0x978]
+0x14079ffdc: mov      rdi, qword ptr [rsp + 0x950]
+0x14079ffe4: call     0x14000de60    ; runtime.mapassign_faststr
+0x14079ffe9: movzx    edx, byte ptr [rsp + 0x94f]
+0x14079fff1: mov      byte ptr [rax], dl
+0x14079fff3: jmp      0x14079ff50    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig+0x230
+0x14079fff8: mov      rdi, rsp
+0x14079fffb: lea      rsi, [rsp + 0x11a8]
+0x1407a0003: mov      qword ptr [rsp - 0x10], rbp
+0x1407a0008: lea      rbp, [rsp - 0x10]
+0x1407a000d: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x1407a0012: mov      rbp, qword ptr [rbp]
+0x1407a0016: mov      rbx, rax
+0x1407a0019: mov      rax, qword ptr [rsp + 0x1d00]
+0x1407a0021: call     0x14079fb60    ; main.BootstrapService.syncCursorWrapHotCornerGuard
+0x1407a0026: add      rsp, 0x1cf0
+0x1407a002d: pop      rbp
+0x1407a002e: ret      
+0x1407a002f: mov      qword ptr [rsp + 8], rax
+0x1407a0034: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a0039: mov      rax, qword ptr [rsp + 8]
+0x1407a003e: nop      
+0x1407a0040: jmp      0x14079fd20    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig
+0x1407a0045: int3     
+0x1407a0046: int3     
+0x1407a0047: int3     
+0x1407a0048: int3     
+0x1407a0049: int3     
+0x1407a004a: int3     
+0x1407a004b: int3     
+0x1407a004c: int3     
+0x1407a004d: int3     
+0x1407a004e: int3     
+0x1407a004f: int3     
+0x1407a0050: int3     
+0x1407a0051: int3     
+0x1407a0052: int3     
+0x1407a0053: int3     
+0x1407a0054: int3     
+0x1407a0055: int3     
+0x1407a0056: int3     
+0x1407a0057: int3     
+0x1407a0058: int3     
+0x1407a0059: int3     
+0x1407a005a: int3     
+0x1407a005b: int3     
+0x1407a005c: int3     
+0x1407a005d: int3     
+0x1407a005e: int3     
+0x1407a005f: int3     

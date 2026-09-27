@@ -1,0 +1,81 @@
+0x140877b20: lea      r12, [rsp - 0x48]
+0x140877b25: cmp      r12, qword ptr [r14 + 0x10]
+0x140877b29: jbe      0x140877c53    ; main.launcherConfigBackupPath+0x133
+0x140877b2f: push     rbp
+0x140877b30: mov      rbp, rsp
+0x140877b33: sub      rsp, 0xc0
+0x140877b3a: mov      qword ptr [rsp + 0xf0], rsi
+0x140877b42: mov      qword ptr [rsp + 0x78], rcx
+0x140877b47: mov      qword ptr [rsp + 0x70], rdi
+0x140877b4c: mov      qword ptr [rsp + 0x98], rsi
+0x140877b54: mov      qword ptr [rsp + 0xd8], rbx
+0x140877b5c: mov      qword ptr [rsp + 0xd0], rax
+0x140877b64: call     0x140877ca0    ; main.launcherConfigBackupFilenameParts
+0x140877b69: mov      qword ptr [rsp + 0x80], rax
+0x140877b71: mov      qword ptr [rsp + 0x88], rcx
+0x140877b79: mov      qword ptr [rsp + 0x58], rbx
+0x140877b7e: mov      qword ptr [rsp + 0x60], rdi
+0x140877b83: mov      rax, qword ptr [rsp + 0xd0]
+0x140877b8b: mov      rbx, qword ptr [rsp + 0xd8]
+0x140877b93: call     0x140877aa0    ; main.launcherConfigBackupDir
+0x140877b98: mov      qword ptr [rsp + 0x90], rax
+0x140877ba0: mov      qword ptr [rsp + 0x68], rbx
+0x140877ba5: mov      rax, qword ptr [rsp + 0x78]
+0x140877baa: mov      rbx, qword ptr [rsp + 0x70]
+0x140877baf: mov      rcx, qword ptr [rsp + 0x98]
+0x140877bb7: lea      rdi, [rip + 0x3cc5db]
+0x140877bbe: mov      esi, 0xa
+0x140877bc3: call     0x1400f2cc0    ; time.Time.Format
+0x140877bc8: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x140877bd1: movups   xmmword ptr [rsp + 0xb0], xmm15
+0x140877bda: mov      rcx, qword ptr [rsp + 0x68]
+0x140877bdf: mov      qword ptr [rsp + 0xa8], rcx
+0x140877be7: mov      rcx, qword ptr [rsp + 0x90]
+0x140877bef: mov      qword ptr [rsp + 0xa0], rcx
+0x140877bf7: mov      rcx, qword ptr [rsp + 0x58]
+0x140877bfc: mov      rdi, rax
+0x140877bff: mov      rsi, rbx
+0x140877c02: mov      r8, qword ptr [rsp + 0x88]
+0x140877c0a: mov      r9, qword ptr [rsp + 0x60]
+0x140877c0f: lea      rax, [rsp + 0x38]
+0x140877c14: mov      rbx, qword ptr [rsp + 0x80]
+0x140877c1c: nop      dword ptr [rax]
+0x140877c20: call     0x14005fca0    ; runtime.concatstring3
+0x140877c25: mov      qword ptr [rsp + 0xb8], rbx
+0x140877c2d: mov      qword ptr [rsp + 0xb0], rax
+0x140877c35: lea      rax, [rsp + 0xa0]
+0x140877c3d: mov      ebx, 2
+0x140877c42: mov      rcx, rbx
+0x140877c45: call     0x1401cd660    ; path/filepath.join
+0x140877c4a: add      rsp, 0xc0
+0x140877c51: pop      rbp
+0x140877c52: ret      
+0x140877c53: mov      qword ptr [rsp + 8], rax
+0x140877c58: mov      qword ptr [rsp + 0x10], rbx
+0x140877c5d: mov      qword ptr [rsp + 0x18], rcx
+0x140877c62: mov      qword ptr [rsp + 0x20], rdi
+0x140877c67: mov      qword ptr [rsp + 0x28], rsi
+0x140877c6c: call     0x14007f140    ; runtime.morestack_noctxt
+0x140877c71: mov      rax, qword ptr [rsp + 8]
+0x140877c76: mov      rbx, qword ptr [rsp + 0x10]
+0x140877c7b: mov      rcx, qword ptr [rsp + 0x18]
+0x140877c80: mov      rdi, qword ptr [rsp + 0x20]
+0x140877c85: mov      rsi, qword ptr [rsp + 0x28]
+0x140877c8a: jmp      0x140877b20    ; main.launcherConfigBackupPath
+0x140877c8f: int3     
+0x140877c90: int3     
+0x140877c91: int3     
+0x140877c92: int3     
+0x140877c93: int3     
+0x140877c94: int3     
+0x140877c95: int3     
+0x140877c96: int3     
+0x140877c97: int3     
+0x140877c98: int3     
+0x140877c99: int3     
+0x140877c9a: int3     
+0x140877c9b: int3     
+0x140877c9c: int3     
+0x140877c9d: int3     
+0x140877c9e: int3     
+0x140877c9f: int3     

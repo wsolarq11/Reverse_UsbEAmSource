@@ -1,0 +1,244 @@
+0x140947840: lea      r12, [rsp - 0xa0]
+0x140947848: cmp      r12, qword ptr [r14 + 0x10]
+0x14094784c: jbe      0x140947ac0   ; main.qrCodeScreenSelectionSession.undoAnnotationAndInvalidate+0x280
+0x140947852: push     rbp
+0x140947853: mov      rbp, rsp
+0x140947856: sub      rsp, 0x118
+0x14094785d: mov      qword ptr [rsp + 0x128], rax
+0x140947865: mov      qword ptr [rsp + 0x130], rbx
+0x14094786d: call     0x14094bfa0   ; main.qrCodeScreenSelectionSession.annotationContentInvalidationRect
+0x140947872: mov      qword ptr [rsp + 0x68], rax
+0x140947877: mov      qword ptr [rsp + 0x60], rbx
+0x14094787c: mov      qword ptr [rsp + 0x58], rcx
+0x140947881: mov      qword ptr [rsp + 0x50], rdi
+0x140947886: mov      rdx, qword ptr [rsp + 0x128]
+0x14094788e: mov      rsi, qword ptr [rdx + 0x2b0]
+0x140947895: nop      
+0x140947896: test     rsi, rsi
+0x140947899: je       0x140947a5c   ; main.qrCodeScreenSelectionSession.undoAnnotationAndInvalidate+0x21c
+0x14094789f: mov      r8, qword ptr [rdx + 0x2a8]
+0x1409478a6: imul     r9, rsi, 0x98
+0x1409478ad: mov      r10, qword ptr [r9 + r8 - 0x98]
+0x1409478b5: mov      qword ptr [rsp + 0x70], r10
+0x1409478ba: lea      rsi, [r9 + r8]
+0x1409478be: lea      rsi, [rsi - 0x90]
+0x1409478c5: lea      rdi, [rsp + 0x78]
+0x1409478ca: mov      qword ptr [rsp - 0x10], rbp
+0x1409478cf: lea      rbp, [rsp - 0x10]
+0x1409478d4: call     0x140081a62   ; runtime.duffcopy+0x302
+0x1409478d9: mov      rbp, qword ptr [rbp]
+0x1409478dd: mov      r9, qword ptr [rdx + 0x2b8]
+0x1409478e4: mov      r10, qword ptr [rdx + 0x2b0]
+0x1409478eb: dec      r10
+0x1409478ee: cmp      r9, r10
+0x1409478f1: jb       0x140947ab4   ; main.qrCodeScreenSelectionSession.undoAnnotationAndInvalidate+0x274
+0x1409478f7: mov      qword ptr [rdx + 0x2b0], r10
+0x1409478fe: lea      rax, [rip + 0x1b5fbb]
+0x140947905: call     0x14001ae20   ; runtime.newobject
+0x14094790a: cmp      dword ptr [rip + 0x1313a3f], 0
+0x140947911: je       0x140947937   ; main.qrCodeScreenSelectionSession.undoAnnotationAndInvalidate+0xf7
+0x140947913: mov      qword ptr [rsp + 0x110], rax
+0x14094791b: mov      rbx, rax
+0x14094791e: lea      rcx, [rsp + 0x70]
+0x140947923: lea      rax, [rip + 0x2b2396]
+0x14094792a: call     0x14001b620   ; runtime.wbMove
+0x14094792f: mov      rax, qword ptr [rsp + 0x110]
+0x140947937: mov      rdx, qword ptr [rsp + 0x70]
+0x14094793c: mov      qword ptr [rax], rdx
+0x14094793f: lea      rdi, [rax + 8]
+0x140947943: lea      rsi, [rsp + 0x78]
+0x140947948: mov      qword ptr [rsp - 0x10], rbp
+0x14094794d: lea      rbp, [rsp - 0x10]
+0x140947952: call     0x140081a62   ; runtime.duffcopy+0x302
+0x140947957: mov      rbp, qword ptr [rbp]
+0x14094795b: mov      rdx, qword ptr [rsp + 0x128]
+0x140947963: mov      rbx, qword ptr [rdx + 0x2c8]
+0x14094796a: lea      r8, [rbx + 1]
+0x14094796e: mov      rdi, qword ptr [rdx + 0x2c0]
+0x140947975: cmp      r8, 1
+0x140947979: ja       0x140947987   ; main.qrCodeScreenSelectionSession.undoAnnotationAndInvalidate+0x147
+0x14094797b: mov      ecx, 1
+0x140947980: mov      esi, 1
+0x140947985: jmp      0x1409479be   ; main.qrCodeScreenSelectionSession.undoAnnotationAndInvalidate+0x17e
+0x140947987: mov      qword ptr [rsp + 0x108], rdi
+0x14094798f: mov      qword ptr [rsp + 0x48], rbx
+0x140947994: mov      ecx, 1
+0x140947999: mov      rdi, rbx
+0x14094799c: lea      rsi, [rip + 0x2b231d]
+0x1409479a3: mov      rbx, r8
+0x1409479a6: call     0x14007ad20   ; runtime.growslice
+0x1409479ab: mov      rdi, qword ptr [rsp + 0x108]
+0x1409479b3: mov      rsi, rcx
+0x1409479b6: mov      rcx, rbx
+0x1409479b9: mov      rbx, qword ptr [rsp + 0x48]
+0x1409479be: mov      qword ptr [rsp + 0x48], rcx
+0x1409479c3: mov      qword ptr [rsp + 0x108], rax
+0x1409479cb: mov      qword ptr [rsp + 0x40], rsi
+0x1409479d0: dec      rcx
+0x1409479d3: lea      rdx, [rsi - 1]
+0x1409479d7: neg      rdx
+0x1409479da: sar      rdx, 0x3f
+0x1409479de: and      edx, 0x98
+0x1409479e4: add      rdx, rax
+0x1409479e7: lea      rax, [rip + 0x2b22d2]
+0x1409479ee: mov      rsi, rbx
+0x1409479f1: mov      rbx, rdx
+0x1409479f4: call     0x140077380   ; runtime.typedslicecopy
+0x1409479f9: mov      rdx, qword ptr [rsp + 0x48]
+0x1409479fe: mov      rax, qword ptr [rsp + 0x128]
+0x140947a06: mov      qword ptr [rax + 0x2c8], rdx
+0x140947a0d: mov      rdx, qword ptr [rsp + 0x40]
+0x140947a12: mov      qword ptr [rax + 0x2d0], rdx
+0x140947a19: cmp      dword ptr [rip + 0x1313930], 0
+0x140947a20: jne      0x140947a2c   ; main.qrCodeScreenSelectionSession.undoAnnotationAndInvalidate+0x1ec
+0x140947a22: mov      rdx, qword ptr [rsp + 0x108]
+0x140947a2a: jmp      0x140947a47   ; main.qrCodeScreenSelectionSession.undoAnnotationAndInvalidate+0x207
+0x140947a2c: mov      rcx, qword ptr [rax + 0x2c0]
+0x140947a33: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140947a38: mov      rdx, qword ptr [rsp + 0x108]
+0x140947a40: mov      qword ptr [r11], rdx
+0x140947a43: mov      qword ptr [r11 + 8], rcx
+0x140947a47: mov      qword ptr [rax + 0x2c0], rdx
+0x140947a4e: mov      qword ptr [rax + 0x368], 0
+0x140947a59: mov      rdx, rax
+0x140947a5c: mov      rax, rdx
+0x140947a5f: nop      
+0x140947a60: call     0x14094bfa0   ; main.qrCodeScreenSelectionSession.annotationContentInvalidationRect
+0x140947a65: mov      rsi, rax
+0x140947a68: mov      r8, rbx
+0x140947a6b: mov      r9, rcx
+0x140947a6e: mov      r10, rdi
+0x140947a71: mov      rax, qword ptr [rsp + 0x68]
+0x140947a76: mov      rbx, qword ptr [rsp + 0x60]
+0x140947a7b: mov      rcx, qword ptr [rsp + 0x58]
+0x140947a80: mov      rdi, qword ptr [rsp + 0x50]
+0x140947a85: call     0x14094c700   ; main.unionQRCodeAnnotationRects
+0x140947a8a: mov      rsi, rcx
+0x140947a8d: mov      r8, rdi
+0x140947a90: mov      rcx, rax
+0x140947a93: mov      rdi, rbx
+0x140947a96: mov      rax, qword ptr [rsp + 0x128]
+0x140947a9e: mov      rbx, qword ptr [rsp + 0x130]
+0x140947aa6: call     0x14094bc80   ; main.qrCodeScreenSelectionSession.invalidateAnnotationDirtyRect
+0x140947aab: add      rsp, 0x118
+0x140947ab2: pop      rbp
+0x140947ab3: ret      
+0x140947ab4: mov      rcx, r10
+0x140947ab7: mov      rdx, r9
+0x140947aba: call     0x140081480   ; runtime.panicSliceAcap
+0x140947abf: nop      
+0x140947ac0: mov      qword ptr [rsp + 8], rax
+0x140947ac5: mov      qword ptr [rsp + 0x10], rbx
+0x140947aca: call     0x14007f140   ; runtime.morestack_noctxt
+0x140947acf: mov      rax, qword ptr [rsp + 8]
+0x140947ad4: mov      rbx, qword ptr [rsp + 0x10]
+0x140947ad9: jmp      0x140947840   ; main.qrCodeScreenSelectionSession.undoAnnotationAndInvalidate
+0x140947ade: int3     
+0x140947adf: int3     
+0x140947ae0: lea      r12, [rsp - 0x160]
+0x140947ae8: cmp      r12, qword ptr [r14 + 0x10]
+0x140947aec: jbe      0x140947e90   ; main.qrCodeScreenSelectionSession.finalizeAnnotationText+0x3b0
+0x140947af2: push     rbp
+0x140947af3: mov      rbp, rsp
+0x140947af6: sub      rsp, 0x1d8
+0x140947afd: cmp      qword ptr [rax + 0x2e8], 0
+0x140947b05: je       0x140947e6e   ; main.qrCodeScreenSelectionSession.finalizeAnnotationText+0x38e
+0x140947b0b: mov      rcx, qword ptr [rax + 0x2f8]
+0x140947b12: mov      rdx, rcx
+0x140947b15: neg      rcx
+0x140947b18: mov      rbx, qword ptr [rax + 0x300]
+0x140947b1f: nop      
+0x140947b20: cmp      rbx, rcx
+0x140947b23: ja       0x140947e80   ; main.qrCodeScreenSelectionSession.finalizeAnnotationText+0x3a0
+0x140947b29: mov      qword ptr [rsp + 0x1e8], rax
+0x140947b31: mov      rax, rdx
+0x140947b34: call     0x1400a2200   ; strings.TrimSpace
+0x140947b39: test     rbx, rbx
+0x140947b3c: jne      0x140947b4b   ; main.qrCodeScreenSelectionSession.finalizeAnnotationText+0x6b
+0x140947b3e: mov      rax, qword ptr [rsp + 0x1e8]
+0x140947b46: jmp      0x140947d9c   ; main.qrCodeScreenSelectionSession.finalizeAnnotationText+0x2bc
+0x140947b4b: mov      rcx, qword ptr [rsp + 0x1e8]
+0x140947b53: mov      rsi, qword ptr [rcx + 0x2e8]
+0x140947b5a: test     byte ptr [rsi], al
+0x140947b5c: mov      rcx, qword ptr [rsi]
+0x140947b5f: mov      qword ptr [rsp + 0x138], rcx
+0x140947b67: add      rsi, 8
+0x140947b6b: lea      rdi, [rsp + 0x140]
+0x140947b73: nop      word ptr [rax + rax]
+0x140947b7c: nop      dword ptr [rax]
+0x140947b80: mov      qword ptr [rsp - 0x10], rbp
+0x140947b85: lea      rbp, [rsp - 0x10]
+0x140947b8a: call     0x140081a62   ; runtime.duffcopy+0x302
+0x140947b8f: mov      rbp, qword ptr [rbp]
+0x140947b93: mov      qword ptr [rsp + 0x1b0], rax
+0x140947b9b: mov      qword ptr [rsp + 0x1b8], rbx
+0x140947ba3: mov      rax, qword ptr [rsp + 0x138]
+0x140947bab: mov      qword ptr [rsp], rax
+0x140947baf: lea      rdi, [rsp + 8]
+0x140947bb4: lea      rsi, [rsp + 0x140]
+0x140947bbc: nop      dword ptr [rax]
+0x140947bc0: mov      qword ptr [rsp - 0x10], rbp
+0x140947bc5: lea      rbp, [rsp - 0x10]
+0x140947bca: call     0x140081a62   ; runtime.duffcopy+0x302
+0x140947bcf: mov      rbp, qword ptr [rbp]
+0x140947bd3: call     0x1409500e0   ; main.qrCodeAnnotationTextMeasuredWidth
+0x140947bd8: mov      rcx, qword ptr [rsp + 0x1c0]
+0x140947be0: cmp      rax, rcx
+0x140947be3: cmovg    rcx, rax
+0x140947be7: mov      qword ptr [rsp + 0x1c0], rcx
+0x140947bef: mov      rax, qword ptr [rsp + 0x1a0]
+0x140947bf7: mov      rbx, qword ptr [rsp + 0x1a8]
+0x140947bff: nop      
+0x140947c00: call     0x140947100   ; main.normalizedQRCodeAnnotationFontFamily
+0x140947c05: mov      qword ptr [rsp + 0x1a0], rax
+0x140947c0d: mov      qword ptr [rsp + 0x1a8], rbx
+0x140947c15: mov      rax, qword ptr [rsp + 0x138]
+0x140947c1d: mov      qword ptr [rsp + 0xa0], rax
+0x140947c25: lea      rdi, [rsp + 0xa8]
+0x140947c2d: lea      rsi, [rsp + 0x140]
+0x140947c35: nop      word ptr [rax + rax]
+0x140947c3e: nop      
+0x140947c40: mov      qword ptr [rsp - 0x10], rbp
+0x140947c45: lea      rbp, [rsp - 0x10]
+0x140947c4a: call     0x140081a62   ; runtime.duffcopy+0x302
+0x140947c4f: mov      rbp, qword ptr [rbp]
+0x140947c53: mov      rax, qword ptr [rsp + 0x1e8]
+0x140947c5b: mov      rcx, qword ptr [rax + 0x2b8]
+0x140947c62: mov      rbx, qword ptr [rax + 0x2b0]
+0x140947c69: inc      rbx
+0x140947c6c: mov      rdx, qword ptr [rax + 0x2a8]
+0x140947c73: cmp      rcx, rbx
+0x140947c76: jae      0x140947cc9   ; main.qrCodeScreenSelectionSession.finalizeAnnotationText+0x1e9
+0x140947c78: mov      rax, rdx
+0x140947c7b: mov      edi, 1
+0x140947c80: lea      rsi, [rip + 0x2b2039]
+0x140947c87: call     0x14007ad20   ; runtime.growslice
+0x140947c8c: mov      rdx, qword ptr [rsp + 0x1e8]
+0x140947c94: mov      qword ptr [rdx + 0x2b8], rcx
+0x140947c9b: cmp      dword ptr [rip + 0x13136ae], 0
+0x140947ca2: je       0x140947cb7   ; main.qrCodeScreenSelectionSession.finalizeAnnotationText+0x1d7
+0x140947ca4: mov      r8, qword ptr [rdx + 0x2a8]
+0x140947cab: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140947cb0: mov      qword ptr [r11], rax
+0x140947cb3: mov      qword ptr [r11 + 8], r8
+0x140947cb7: mov      qword ptr [rdx + 0x2a8], rax
+0x140947cbe: mov      rdx, rax
+0x140947cc1: mov      rax, qword ptr [rsp + 0x1e8]
+0x140947cc9: mov      qword ptr [rax + 0x2b0], rbx
+0x140947cd0: imul     r8, rbx, 0x98
+0x140947cd7: lea      rbx, [r8 + rdx]
+0x140947cdb: lea      rbx, [rbx - 0x98]
+0x140947ce2: cmp      dword ptr [rip + 0x1313667], 0
+0x140947ce9: je       0x140947d36   ; main.qrCodeScreenSelectionSession.finalizeAnnotationText+0x256
+0x140947ceb: mov      qword ptr [rsp + 0x98], r8
+0x140947cf3: mov      qword ptr [rsp + 0x1d0], rdx
+0x140947cfb: mov      rdx, qword ptr [rax + 0x2c0]
+0x140947d02: call     0x140081040   ; runtime.gcWriteBarrier1
+0x140947d07: mov      qword ptr [r11], rdx
+0x140947d0a: lea      rax, [rip + 0x2b1faf]
+0x140947d11: lea      rcx, [rsp + 0xa0]
+0x140947d19: call     0x14001b620   ; runtime.wbMove
+0x140947d1e: mov      rax, qword ptr [rsp + 0x1e8]
+0x140947d26: mov      rdx, qword ptr [rsp + 0x1d0]
+0x140947d2e: mov      r8, qword ptr [rsp + 0x98]
+0x140947d36: lea      rdi, [r8 + rdx]

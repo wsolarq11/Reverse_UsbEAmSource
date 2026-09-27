@@ -1,0 +1,124 @@
+0x1408c96c0: lea      r12, [rsp - 0x80]
+0x1408c96c5: cmp      r12, qword ptr [r14 + 0x10]
+0x1408c96c9: jbe      0x1408c98dc    ; main.unmarshalLauncherUpdatePlan+0x21c
+0x1408c96cf: push     rbp
+0x1408c96d0: mov      rbp, rsp
+0x1408c96d3: sub      rsp, 0xf8
+0x1408c96da: mov      qword ptr [rsp + 0x1f0], rax
+0x1408c96e2: movups   xmmword ptr [rsp + 0x108], xmm15
+0x1408c96eb: lea      rdi, [rsp + 0x110]
+0x1408c96f3: lea      rdi, [rdi - 0x20]
+0x1408c96f7: nop      word ptr [rax + rax]
+0x1408c9700: mov      qword ptr [rsp - 0x10], rbp
+0x1408c9705: lea      rbp, [rsp - 0x10]
+0x1408c970a: call     0x1400816fd    ; runtime.duffzero+0x11d
+0x1408c970f: mov      rbp, qword ptr [rbp]
+0x1408c9713: test     rbx, rbx
+0x1408c9716: je       0x1408c9729    ; main.unmarshalLauncherUpdatePlan+0x69
+0x1408c9718: nop      dword ptr [rax + rax]
+0x1408c9720: cmp      rbx, 0x800000
+0x1408c9727: jle      0x1408c9786    ; main.unmarshalLauncherUpdatePlan+0xc6
+0x1408c9729: lea      rax, [rip + 0x28ac50]
+0x1408c9730: call     0x14001ae20    ; runtime.newobject
+0x1408c9735: mov      qword ptr [rax + 8], 0x18
+0x1408c973d: lea      rcx, [rip + 0x39bb54]
+0x1408c9744: mov      qword ptr [rax], rcx
+0x1408c9747: movups   xmmword ptr [rsp + 0x108], xmm15
+0x1408c9750: lea      rdi, [rsp + 0x110]
+0x1408c9758: lea      rdi, [rdi - 0x20]
+0x1408c975c: nop      dword ptr [rax]
+0x1408c9760: mov      qword ptr [rsp - 0x10], rbp
+0x1408c9765: lea      rbp, [rsp - 0x10]
+0x1408c976a: call     0x1400816fd    ; runtime.duffzero+0x11d
+0x1408c976f: mov      rbp, qword ptr [rbp]
+0x1408c9773: mov      rbx, rax
+0x1408c9776: lea      rax, [rip + 0x909983]
+0x1408c977d: add      rsp, 0xf8
+0x1408c9784: pop      rbp
+0x1408c9785: ret      
+0x1408c9786: mov      qword ptr [rsp + 0x1f0], rax
+0x1408c978e: mov      qword ptr [rsp + 0x200], rcx
+0x1408c9796: mov      qword ptr [rsp + 0x1f8], rbx
+0x1408c979e: lea      rax, [rip + 0x33cadb]
+0x1408c97a5: call     0x14001ae20    ; runtime.newobject
+0x1408c97aa: mov      qword ptr [rsp + 0xf0], rax
+0x1408c97b2: mov      rbx, qword ptr [rsp + 0x1f8]
+0x1408c97ba: mov      rcx, qword ptr [rsp + 0x200]
+0x1408c97c2: lea      rdi, [rip + 0x1fcd77]
+0x1408c97c9: mov      rsi, rax
+0x1408c97cc: mov      rax, qword ptr [rsp + 0x1f0]
+0x1408c97d4: call     0x1408c7160    ; main.decodeStrictUpdaterJSON
+0x1408c97d9: nop      dword ptr [rax]
+0x1408c97e0: test     rax, rax
+0x1408c97e3: jne      0x1408c98a1    ; main.unmarshalLauncherUpdatePlan+0x1e1
+0x1408c97e9: mov      rsi, qword ptr [rsp + 0xf0]
+0x1408c97f1: mov      rax, qword ptr [rsi]
+0x1408c97f4: mov      qword ptr [rsp], rax
+0x1408c97f8: add      rsi, 8
+0x1408c97fc: mov      qword ptr [rsp + 0xe8], rsi
+0x1408c9804: lea      rdi, [rsp + 8]
+0x1408c9809: mov      qword ptr [rsp - 0x10], rbp
+0x1408c980e: lea      rbp, [rsp - 0x10]
+0x1408c9813: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x1408c9818: mov      rbp, qword ptr [rbp]
+0x1408c981c: nop      dword ptr [rax]
+0x1408c9820: call     0x1408c9920    ; main.validateLauncherUpdatePlan
+0x1408c9825: test     rax, rax
+0x1408c9828: je       0x1408c985c    ; main.unmarshalLauncherUpdatePlan+0x19c
+0x1408c982a: movups   xmmword ptr [rsp + 0x108], xmm15
+0x1408c9833: lea      rdi, [rsp + 0x110]
+0x1408c983b: lea      rdi, [rdi - 0x20]
+0x1408c983f: nop      
+0x1408c9840: mov      qword ptr [rsp - 0x10], rbp
+0x1408c9845: lea      rbp, [rsp - 0x10]
+0x1408c984a: call     0x1400816fd    ; runtime.duffzero+0x11d
+0x1408c984f: mov      rbp, qword ptr [rbp]
+0x1408c9853: add      rsp, 0xf8
+0x1408c985a: pop      rbp
+0x1408c985b: ret      
+0x1408c985c: mov      rcx, qword ptr [rsp + 0xf0]
+0x1408c9864: mov      rcx, qword ptr [rcx]
+0x1408c9867: mov      qword ptr [rsp + 0x108], rcx
+0x1408c986f: lea      rdi, [rsp + 0x110]
+0x1408c9877: mov      rsi, qword ptr [rsp + 0xe8]
+0x1408c987f: nop      
+0x1408c9880: mov      qword ptr [rsp - 0x10], rbp
+0x1408c9885: lea      rbp, [rsp - 0x10]
+0x1408c988a: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x1408c988f: mov      rbp, qword ptr [rbp]
+0x1408c9893: xor      eax, eax
+0x1408c9895: xor      ebx, ebx
+0x1408c9897: add      rsp, 0xf8
+0x1408c989e: pop      rbp
+0x1408c989f: nop      
+0x1408c98a0: ret      
+0x1408c98a1: movups   xmmword ptr [rsp + 0x108], xmm15
+0x1408c98aa: lea      rdi, [rsp + 0x110]
+0x1408c98b2: lea      rdi, [rdi - 0x20]
+0x1408c98b6: nop      word ptr [rax + rax]
+0x1408c98bf: nop      
+0x1408c98c0: mov      qword ptr [rsp - 0x10], rbp
+0x1408c98c5: lea      rbp, [rsp - 0x10]
+0x1408c98ca: call     0x1400816fd    ; runtime.duffzero+0x11d
+0x1408c98cf: mov      rbp, qword ptr [rbp]
+0x1408c98d3: add      rsp, 0xf8
+0x1408c98da: pop      rbp
+0x1408c98db: ret      
+0x1408c98dc: mov      qword ptr [rsp + 0xf0], rax
+0x1408c98e4: mov      qword ptr [rsp + 0xf8], rbx
+0x1408c98ec: mov      qword ptr [rsp + 0x100], rcx
+0x1408c98f4: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408c98f9: mov      rax, qword ptr [rsp + 0xf0]
+0x1408c9901: mov      rbx, qword ptr [rsp + 0xf8]
+0x1408c9909: mov      rcx, qword ptr [rsp + 0x100]
+0x1408c9911: jmp      0x1408c96c0    ; main.unmarshalLauncherUpdatePlan
+0x1408c9916: int3     
+0x1408c9917: int3     
+0x1408c9918: int3     
+0x1408c9919: int3     
+0x1408c991a: int3     
+0x1408c991b: int3     
+0x1408c991c: int3     
+0x1408c991d: int3     
+0x1408c991e: int3     
+0x1408c991f: int3     

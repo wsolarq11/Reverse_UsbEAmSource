@@ -1,0 +1,49 @@
+0x1409715c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409715c4: jbe      0x1409715f9   ; main.isScreenshotHDRCaptureDebugEnabled+0x39
+0x1409715c6: push     rbp
+0x1409715c7: mov      rbp, rsp
+0x1409715ca: sub      rsp, 0x10
+0x1409715ce: nop      
+0x1409715cf: mov      ecx, dword ptr [rip + 0x12e9a2b]
+0x1409715d5: test     ecx, ecx
+0x1409715d7: jne      0x1409715ec   ; main.isScreenshotHDRCaptureDebugEnabled+0x2c
+0x1409715d9: lea      rax, [rip + 0x12e9a20]
+0x1409715e0: lea      rbx, [rip + 0x7254f9]
+0x1409715e7: call     0x140092520   ; sync.Once.doSlow
+0x1409715ec: movzx    eax, byte ptr [rip + 0x12e93d7]
+0x1409715f3: add      rsp, 0x10
+0x1409715f7: pop      rbp
+0x1409715f8: ret      
+0x1409715f9: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409715fe: nop      
+0x140971600: jmp      0x1409715c0   ; main.isScreenshotHDRCaptureDebugEnabled
+0x140971602: int3     
+0x140971603: int3     
+0x140971604: int3     
+0x140971605: int3     
+0x140971606: int3     
+0x140971607: int3     
+0x140971608: int3     
+0x140971609: int3     
+0x14097160a: int3     
+0x14097160b: int3     
+0x14097160c: int3     
+0x14097160d: int3     
+0x14097160e: int3     
+0x14097160f: int3     
+0x140971610: int3     
+0x140971611: int3     
+0x140971612: int3     
+0x140971613: int3     
+0x140971614: int3     
+0x140971615: int3     
+0x140971616: int3     
+0x140971617: int3     
+0x140971618: int3     
+0x140971619: int3     
+0x14097161a: int3     
+0x14097161b: int3     
+0x14097161c: int3     
+0x14097161d: int3     
+0x14097161e: int3     
+0x14097161f: int3     

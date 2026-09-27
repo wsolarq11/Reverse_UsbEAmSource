@@ -1,0 +1,73 @@
+0x1408d1ac0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408d1ac4: jbe      0x1408d1b9d   ; main.buildEnvLinkBrowserPath+0xdd
+0x1408d1aca: push     rbp
+0x1408d1acb: mov      rbp, rsp
+0x1408d1ace: sub      rsp, 0x50
+0x1408d1ad2: mov      qword ptr [rsp + 0x60], rax
+0x1408d1ad7: mov      qword ptr [rsp + 0x70], rcx
+0x1408d1adc: mov      qword ptr [rsp + 0x78], rdi
+0x1408d1ae1: call     0x140125a00   ; os.Getenv
+0x1408d1ae6: call     0x1400a2200   ; strings.TrimSpace
+0x1408d1aeb: test     rbx, rbx
+0x1408d1aee: je       0x1408d1b93   ; main.buildEnvLinkBrowserPath+0xd3
+0x1408d1af4: mov      rdi, qword ptr [rsp + 0x78]
+0x1408d1af9: lea      rdx, [rdi + 1]
+0x1408d1afd: mov      qword ptr [rsp + 0x48], rbx
+0x1408d1b02: mov      qword ptr [rsp + 0x40], rax
+0x1408d1b07: cmp      rdx, 1
+0x1408d1b0b: ja       0x1408d1b1e   ; main.buildEnvLinkBrowserPath+0x5e
+0x1408d1b0d: mov      ecx, 1
+0x1408d1b12: mov      ebx, 1
+0x1408d1b17: lea      rax, [rsp + 0x40]
+0x1408d1b1c: jmp      0x1408d1b3c   ; main.buildEnvLinkBrowserPath+0x7c
+0x1408d1b1e: lea      rax, [rsp + 0x40]
+0x1408d1b23: mov      rbx, rdx
+0x1408d1b26: mov      ecx, 1
+0x1408d1b2b: lea      rsi, [rip + 0x2182ce]
+0x1408d1b32: call     0x14007ad20   ; runtime.growslice
+0x1408d1b37: mov      rdi, qword ptr [rsp + 0x78]
+0x1408d1b3c: mov      qword ptr [rsp + 0x38], rax
+0x1408d1b41: mov      qword ptr [rsp + 0x30], rcx
+0x1408d1b46: mov      qword ptr [rsp + 0x28], rbx
+0x1408d1b4b: lea      rdx, [rbx - 1]
+0x1408d1b4f: lea      r8, [rcx - 1]
+0x1408d1b53: neg      r8
+0x1408d1b56: sar      r8, 0x3f
+0x1408d1b5a: and      r8d, 0x10
+0x1408d1b5e: lea      rbx, [rax + r8]
+0x1408d1b62: lea      rax, [rip + 0x218297]
+0x1408d1b69: mov      rcx, rdx
+0x1408d1b6c: mov      rsi, rdi
+0x1408d1b6f: mov      rdi, qword ptr [rsp + 0x70]
+0x1408d1b74: call     0x140077380   ; runtime.typedslicecopy
+0x1408d1b79: mov      rax, qword ptr [rsp + 0x38]
+0x1408d1b7e: mov      rbx, qword ptr [rsp + 0x28]
+0x1408d1b83: mov      rcx, qword ptr [rsp + 0x30]
+0x1408d1b88: call     0x1401cd660   ; path/filepath.join
+0x1408d1b8d: add      rsp, 0x50
+0x1408d1b91: pop      rbp
+0x1408d1b92: ret      
+0x1408d1b93: xor      eax, eax
+0x1408d1b95: xor      ebx, ebx
+0x1408d1b97: add      rsp, 0x50
+0x1408d1b9b: pop      rbp
+0x1408d1b9c: ret      
+0x1408d1b9d: mov      qword ptr [rsp + 8], rax
+0x1408d1ba2: mov      qword ptr [rsp + 0x10], rbx
+0x1408d1ba7: mov      qword ptr [rsp + 0x18], rcx
+0x1408d1bac: mov      qword ptr [rsp + 0x20], rdi
+0x1408d1bb1: mov      qword ptr [rsp + 0x28], rsi
+0x1408d1bb6: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408d1bbb: mov      rax, qword ptr [rsp + 8]
+0x1408d1bc0: mov      rbx, qword ptr [rsp + 0x10]
+0x1408d1bc5: mov      rcx, qword ptr [rsp + 0x18]
+0x1408d1bca: mov      rdi, qword ptr [rsp + 0x20]
+0x1408d1bcf: mov      rsi, qword ptr [rsp + 0x28]
+0x1408d1bd4: jmp      0x1408d1ac0   ; main.buildEnvLinkBrowserPath
+0x1408d1bd9: int3     
+0x1408d1bda: int3     
+0x1408d1bdb: int3     
+0x1408d1bdc: int3     
+0x1408d1bdd: int3     
+0x1408d1bde: int3     
+0x1408d1bdf: int3     

@@ -1,0 +1,90 @@
+0x1407e0e80: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407e0e84: jbe      0x1407e0fbc   ; main.fileSearchIgnoreMatcher.IsIgnoredDirectory+0x13c
+0x1407e0e8a: push     rbp
+0x1407e0e8b: mov      rbp, rsp
+0x1407e0e8e: sub      rsp, 0x58
+0x1407e0e92: mov      qword ptr [rsp + 0x68], rax
+0x1407e0e97: mov      qword ptr [rsp + 0x70], rbx
+0x1407e0e9c: mov      qword ptr [rsp + 0x88], rsi
+0x1407e0ea4: mov      qword ptr [rsp + 0x98], r9
+0x1407e0eac: test     rax, rax
+0x1407e0eaf: je       0x1407e0eb6   ; main.fileSearchIgnoreMatcher.IsIgnoredDirectory+0x36
+0x1407e0eb1: mov      rdx, qword ptr [rax]
+0x1407e0eb4: jmp      0x1407e0eb8   ; main.fileSearchIgnoreMatcher.IsIgnoredDirectory+0x38
+0x1407e0eb6: xor      edx, edx
+0x1407e0eb8: mov      qword ptr [rsp + 0x30], rcx
+0x1407e0ebd: mov      qword ptr [rsp + 0x50], rbx
+0x1407e0ec2: test     rdx, rdx
+0x1407e0ec5: jle      0x1407e0f23   ; main.fileSearchIgnoreMatcher.IsIgnoredDirectory+0xa3
+0x1407e0ec7: mov      qword ptr [rsp + 0x48], rax
+0x1407e0ecc: mov      qword ptr [rsp + 0xa0], r10
+0x1407e0ed4: mov      qword ptr [rsp + 0x98], r9
+0x1407e0edc: mov      rax, rsi
+0x1407e0edf: mov      rbx, r8
+0x1407e0ee2: call     0x1400a2200   ; strings.TrimSpace
+0x1407e0ee7: call     0x1400a1500   ; strings.ToLower
+0x1407e0eec: mov      rcx, rax
+0x1407e0eef: mov      rdi, rbx
+0x1407e0ef2: lea      rax, [rip + 0x367ba7]
+0x1407e0ef9: mov      rbx, qword ptr [rsp + 0x48]
+0x1407e0efe: nop      
+0x1407e0f00: call     0x14000dbc0   ; runtime.mapaccess2_faststr
+0x1407e0f05: test     bl, bl
+0x1407e0f07: jne      0x1407e0f5b   ; main.fileSearchIgnoreMatcher.IsIgnoredDirectory+0xdb
+0x1407e0f09: mov      rcx, qword ptr [rsp + 0x30]
+0x1407e0f0e: mov      rbx, qword ptr [rsp + 0x50]
+0x1407e0f13: mov      r9, qword ptr [rsp + 0x98]
+0x1407e0f1b: mov      r10, qword ptr [rsp + 0xa0]
+0x1407e0f23: test     rcx, rcx
+0x1407e0f26: je       0x1407e0f53   ; main.fileSearchIgnoreMatcher.IsIgnoredDirectory+0xd3
+0x1407e0f28: mov      rax, r9
+0x1407e0f2b: mov      rbx, r10
+0x1407e0f2e: call     0x1407e09a0   ; main.normalizeFileSearchIgnoredDirectoryMatchPath
+0x1407e0f33: test     rbx, rbx
+0x1407e0f36: je       0x1407e0f4b   ; main.fileSearchIgnoreMatcher.IsIgnoredDirectory+0xcb
+0x1407e0f38: mov      qword ptr [rsp + 0x20], rbx
+0x1407e0f3d: mov      qword ptr [rsp + 0x38], rax
+0x1407e0f42: mov      rdx, qword ptr [rsp + 0x50]
+0x1407e0f47: xor      ecx, ecx
+0x1407e0f49: jmp      0x1407e0f81   ; main.fileSearchIgnoreMatcher.IsIgnoredDirectory+0x101
+0x1407e0f4b: xor      eax, eax
+0x1407e0f4d: add      rsp, 0x58
+0x1407e0f51: pop      rbp
+0x1407e0f52: ret      
+0x1407e0f53: xor      eax, eax
+0x1407e0f55: add      rsp, 0x58
+0x1407e0f59: pop      rbp
+0x1407e0f5a: ret      
+0x1407e0f5b: mov      eax, 1
+0x1407e0f60: add      rsp, 0x58
+0x1407e0f64: pop      rbp
+0x1407e0f65: ret      
+0x1407e0f66: mov      rdx, qword ptr [rsp + 0x40]
+0x1407e0f6b: add      rdx, 0x10
+0x1407e0f6f: mov      rcx, qword ptr [rsp + 0x28]
+0x1407e0f74: inc      rcx
+0x1407e0f77: mov      rax, qword ptr [rsp + 0x38]
+0x1407e0f7c: mov      rbx, qword ptr [rsp + 0x20]
+0x1407e0f81: mov      rsi, qword ptr [rsp + 0x30]
+0x1407e0f86: cmp      rsi, rcx
+0x1407e0f89: jle      0x1407e0fb4   ; main.fileSearchIgnoreMatcher.IsIgnoredDirectory+0x134
+0x1407e0f8b: mov      qword ptr [rsp + 0x28], rcx
+0x1407e0f90: mov      qword ptr [rsp + 0x40], rdx
+0x1407e0f95: mov      rcx, qword ptr [rdx]
+0x1407e0f98: mov      rdi, qword ptr [rdx + 8]
+0x1407e0f9c: nop      dword ptr [rax]
+0x1407e0fa0: call     0x1407e0a80   ; main.fileSearchPathWithinIgnoredDirectory
+0x1407e0fa5: test     al, al
+0x1407e0fa7: je       0x1407e0f66   ; main.fileSearchIgnoreMatcher.IsIgnoredDirectory+0xe6
+0x1407e0fa9: mov      eax, 1
+0x1407e0fae: add      rsp, 0x58
+0x1407e0fb2: pop      rbp
+0x1407e0fb3: ret      
+0x1407e0fb4: xor      eax, eax
+0x1407e0fb6: add      rsp, 0x58
+0x1407e0fba: pop      rbp
+0x1407e0fbb: ret      
+0x1407e0fbc: mov      qword ptr [rsp + 8], rax
+0x1407e0fc1: mov      qword ptr [rsp + 0x10], rbx
+0x1407e0fc6: mov      qword ptr [rsp + 0x18], rcx
+0x1407e0fcb: mov      qword ptr [rsp + 0x20], rdi

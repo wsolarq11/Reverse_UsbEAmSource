@@ -1,0 +1,76 @@
+0x140945f20: cmp      rsp, qword ptr [r14 + 0x10]
+0x140945f24: jbe      0x140945fdc
+0x140945f2a: push     rbp
+0x140945f2b: mov      rbp, rsp
+0x140945f2e: sub      rsp, 0x10
+0x140945f32: mov      rcx, qword ptr [rax + 0x2f8]
+0x140945f39: mov      rdx, rcx
+0x140945f3c: neg      rcx
+0x140945f3f: mov      rbx, qword ptr [rax + 0x300]
+0x140945f46: nop      
+0x140945f47: cmp      rbx, rcx
+0x140945f4a: ja       0x140945fcc
+0x140945f50: mov      qword ptr [rsp + 0x20], rax
+0x140945f55: mov      rax, rdx
+0x140945f58: call     0x140073340
+0x140945f5d: mov      rcx, qword ptr [rsp + 0x20]
+0x140945f62: mov      rdx, qword ptr [rcx + 0x328]
+0x140945f69: test     rdx, rdx
+0x140945f6c: jge      0x140945f72
+0x140945f6e: xor      edx, edx
+0x140945f70: jmp      0x140945f7a
+0x140945f72: cmp      rax, rdx
+0x140945f75: jge      0x140945f7a
+0x140945f77: mov      rdx, rax
+0x140945f7a: mov      qword ptr [rcx + 0x328], rdx
+0x140945f81: mov      rsi, qword ptr [rcx + 0x330]
+0x140945f88: test     rsi, rsi
+0x140945f8b: jge      0x140945f91
+0x140945f8d: xor      eax, eax
+0x140945f8f: jmp      0x140945f99
+0x140945f91: cmp      rax, rsi
+0x140945f94: jl       0x140945f99
+0x140945f96: mov      rax, rsi
+0x140945f99: mov      qword ptr [rcx + 0x330], rax
+0x140945fa0: cmp      rax, rdx
+0x140945fa3: jne      0x140945fb2
+0x140945fa5: xor      eax, eax
+0x140945fa7: mov      rbx, rax
+0x140945faa: xor      ecx, ecx
+0x140945fac: add      rsp, 0x10
+0x140945fb0: pop      rbp
+0x140945fb1: ret      
+0x140945fb2: mov      rbx, rdx
+0x140945fb5: cmovl    rdx, rax
+0x140945fb9: cmovg    rbx, rax
+0x140945fbd: cmp      rbx, rdx
+0x140945fc0: setg     cl
+0x140945fc3: mov      rax, rdx
+0x140945fc6: add      rsp, 0x10
+0x140945fca: pop      rbp
+0x140945fcb: ret      
+0x140945fcc: test     rdx, rdx
+0x140945fcf: je       0x140945fd6
+0x140945fd1: call     0x140073180
+0x140945fd6: call     0x1400731c0
+0x140945fdb: nop      
+0x140945fdc: mov      qword ptr [rsp + 8], rax
+0x140945fe1: call     0x14007f140
+0x140945fe6: mov      rax, qword ptr [rsp + 8]
+0x140945feb: jmp      0x140945f20
+0x140945ff0: int3     
+0x140945ff1: int3     
+0x140945ff2: int3     
+0x140945ff3: int3     
+0x140945ff4: int3     
+0x140945ff5: int3     
+0x140945ff6: int3     
+0x140945ff7: int3     
+0x140945ff8: int3     
+0x140945ff9: int3     
+0x140945ffa: int3     
+0x140945ffb: int3     
+0x140945ffc: int3     
+0x140945ffd: int3     
+0x140945ffe: int3     
+0x140945fff: int3     

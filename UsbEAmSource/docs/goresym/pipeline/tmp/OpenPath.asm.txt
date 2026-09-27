@@ -1,0 +1,60 @@
+0x1408a6760: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a6764: jbe      0x1408a67be   ; main.BootstrapService.OpenPath+0x5e
+0x1408a6766: push     rbp
+0x1408a6767: mov      rbp, rsp
+0x1408a676a: sub      rsp, 0x10
+0x1408a676e: mov      qword ptr [rsp + 0x28], rbx
+0x1408a6773: mov      rax, rbx
+0x1408a6776: mov      rbx, rcx
+0x1408a6779: call     0x1400a2200   ; strings.TrimSpace
+0x1408a677e: nop      
+0x1408a6780: test     rbx, rbx
+0x1408a6783: jne      0x1408a67b3   ; main.BootstrapService.OpenPath+0x53
+0x1408a6785: lea      rax, [rip + 0x2adbf4]
+0x1408a678c: call     0x14001ae20   ; runtime.newobject
+0x1408a6791: mov      qword ptr [rax + 8], 0x12
+0x1408a6799: lea      rcx, [rip + 0x3b36be]
+0x1408a67a0: mov      qword ptr [rax], rcx
+0x1408a67a3: mov      rbx, rax
+0x1408a67a6: lea      rax, [rip + 0x92c953]
+0x1408a67ad: add      rsp, 0x10
+0x1408a67b1: pop      rbp
+0x1408a67b2: ret      
+0x1408a67b3: call     0x1408a8de0   ; main.openWithDefaultHandler
+0x1408a67b8: add      rsp, 0x10
+0x1408a67bc: pop      rbp
+0x1408a67bd: ret      
+0x1408a67be: mov      qword ptr [rsp + 8], rax
+0x1408a67c3: mov      qword ptr [rsp + 0x10], rbx
+0x1408a67c8: mov      qword ptr [rsp + 0x18], rcx
+0x1408a67cd: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a67d2: mov      rax, qword ptr [rsp + 8]
+0x1408a67d7: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a67dc: mov      rcx, qword ptr [rsp + 0x18]
+0x1408a67e1: jmp      0x1408a6760   ; main.BootstrapService.OpenPath
+0x1408a67e6: int3     
+0x1408a67e7: int3     
+0x1408a67e8: int3     
+0x1408a67e9: int3     
+0x1408a67ea: int3     
+0x1408a67eb: int3     
+0x1408a67ec: int3     
+0x1408a67ed: int3     
+0x1408a67ee: int3     
+0x1408a67ef: int3     
+0x1408a67f0: int3     
+0x1408a67f1: int3     
+0x1408a67f2: int3     
+0x1408a67f3: int3     
+0x1408a67f4: int3     
+0x1408a67f5: int3     
+0x1408a67f6: int3     
+0x1408a67f7: int3     
+0x1408a67f8: int3     
+0x1408a67f9: int3     
+0x1408a67fa: int3     
+0x1408a67fb: int3     
+0x1408a67fc: int3     
+0x1408a67fd: int3     
+0x1408a67fe: int3     
+0x1408a67ff: int3     

@@ -1,0 +1,292 @@
+0x140784300: lea      r12, [rsp - 0x150]
+0x140784308: cmp      r12, qword ptr [r14 + 0x10]
+0x14078430c: jbe      0x140784889    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x589
+0x140784312: push     rbp
+0x140784313: mov      rbp, rsp
+0x140784316: sub      rsp, 0x1c8
+0x14078431d: mov      qword ptr [rsp + 0x358], rax
+0x140784325: lea      rdi, [rsp + 0x298]
+0x14078432d: nop      word ptr [rax + rax]
+0x140784336: nop      word ptr [rax + rax]
+0x14078433f: nop      
+0x140784340: mov      qword ptr [rsp - 0x10], rbp
+0x140784345: lea      rbp, [rsp - 0x10]
+0x14078434a: call     0x14008170b    ; runtime.duffzero+0x12b
+0x14078434f: mov      rbp, qword ptr [rbp]
+0x140784353: mov      rdi, rsp
+0x140784356: lea      rsi, [rsp + 0x1d8]
+0x14078435e: nop      
+0x140784360: mov      qword ptr [rsp - 0x10], rbp
+0x140784365: lea      rbp, [rsp - 0x10]
+0x14078436a: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x14078436f: mov      rbp, qword ptr [rbp]
+0x140784373: call     0x1408d6300    ; main.normalizeMouseGestureConfig
+0x140784378: lea      rdi, [rsp + 0x1d8]
+0x140784380: lea      rsi, [rsp + 0xc0]
+0x140784388: mov      qword ptr [rsp - 0x10], rbp
+0x14078438d: lea      rbp, [rsp - 0x10]
+0x140784392: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x140784397: mov      rbp, qword ptr [rbp]
+0x14078439b: mov      rax, qword ptr [rsp + 0x248]
+0x1407843a3: mov      qword ptr [rsp + 0x1a8], rax
+0x1407843ab: xor      ecx, ecx
+0x1407843ad: jmp      0x1407843c0    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0xc0
+0x1407843af: lea      rcx, [rax + 1]
+0x1407843b3: mov      rax, qword ptr [rsp + 0x1a8]
+0x1407843bb: nop      dword ptr [rax + rax]
+0x1407843c0: cmp      rcx, rax
+0x1407843c3: jge      0x140784678    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x378
+0x1407843c9: mov      rdx, qword ptr [rsp + 0x248]
+0x1407843d1: cmp      rcx, rdx
+0x1407843d4: jae      0x14078487d    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x57d
+0x1407843da: mov      qword ptr [rsp + 0x188], rcx
+0x1407843e2: mov      rdx, qword ptr [rsp + 0x240]
+0x1407843ea: mov      qword ptr [rsp + 0x1c0], rdx
+0x1407843f2: imul     rcx, rcx, 0x118
+0x1407843f9: mov      qword ptr [rsp + 0x1a0], rcx
+0x140784401: mov      rax, qword ptr [rdx + rcx + 0xd0]
+0x140784409: mov      rbx, qword ptr [rdx + rcx + 0xd8]
+0x140784411: call     0x1408808a0    ; main.normalizeConsoleIconData
+0x140784416: mov      rcx, qword ptr [rsp + 0x1a0]
+0x14078441e: mov      rdx, qword ptr [rsp + 0x1c0]
+0x140784426: mov      qword ptr [rdx + rcx + 0xd8], rbx
+0x14078442e: cmp      dword ptr [rip + 0x14d6f1b], 0
+0x140784435: je       0x14078444c    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x14c
+0x140784437: mov      rsi, qword ptr [rcx + rdx + 0xd0]
+0x14078443f: nop      
+0x140784440: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140784445: mov      qword ptr [r11], rax
+0x140784448: mov      qword ptr [r11 + 8], rsi
+0x14078444c: mov      qword ptr [rdx + rcx + 0xd0], rax
+0x140784454: mov      rax, qword ptr [rdx + rcx + 0xe0]
+0x14078445c: mov      rbx, qword ptr [rdx + rcx + 0xe8]
+0x140784464: call     0x1400a2200    ; strings.TrimSpace
+0x140784469: mov      rcx, qword ptr [rsp + 0x1a0]
+0x140784471: mov      rdx, qword ptr [rsp + 0x1c0]
+0x140784479: mov      qword ptr [rdx + rcx + 0xe8], rbx
+0x140784481: cmp      dword ptr [rip + 0x14d6ec8], 0
+0x140784488: je       0x14078449e    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x19e
+0x14078448a: mov      r8, qword ptr [rdx + rcx + 0xe0]
+0x140784492: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140784497: mov      qword ptr [r11], rax
+0x14078449a: mov      qword ptr [r11 + 8], r8
+0x14078449e: mov      qword ptr [rdx + rcx + 0xe0], rax
+0x1407844a6: mov      r8, qword ptr [rdx + rcx + 0xd8]
+0x1407844ae: test     r8, r8
+0x1407844b1: jne      0x140784518    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x218
+0x1407844b3: test     rbx, rbx
+0x1407844b6: jne      0x140784518    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x218
+0x1407844b8: mov      rsi, qword ptr [rdx + rcx + 0xf8]
+0x1407844c0: mov      rdi, qword ptr [rdx + rcx + 0xf0]
+0x1407844c8: mov      rax, qword ptr [rsp + 0x358]
+0x1407844d0: xor      ebx, ebx
+0x1407844d2: xor      ecx, ecx
+0x1407844d4: call     0x140785e00    ; main.BootstrapService.mouseGestureIconDataFromResourceURL
+0x1407844d9: mov      rdx, qword ptr [rsp + 0x1a0]
+0x1407844e1: mov      r8, qword ptr [rsp + 0x1c0]
+0x1407844e9: mov      qword ptr [r8 + rdx + 0xd8], rbx
+0x1407844f1: cmp      dword ptr [rip + 0x14d6e58], 0
+0x1407844f8: je       0x14078450e    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x20e
+0x1407844fa: mov      r9, qword ptr [rdx + r8 + 0xd0]
+0x140784502: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140784507: mov      qword ptr [r11], rax
+0x14078450a: mov      qword ptr [r11 + 8], r9
+0x14078450e: mov      qword ptr [r8 + rdx + 0xd0], rax
+0x140784516: jmp      0x140784523    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x223
+0x140784518: mov      rdx, rcx
+0x14078451b: mov      r8, qword ptr [rsp + 0x1c0]
+0x140784523: mov      qword ptr [r8 + rdx + 0xf8], 0
+0x14078452f: cmp      dword ptr [rip + 0x14d6e1a], 0
+0x140784536: je       0x140784548    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x248
+0x140784538: mov      r9, qword ptr [r8 + rdx + 0xf0]
+0x140784540: call     0x140081040    ; runtime.gcWriteBarrier1
+0x140784545: mov      qword ptr [r11], r9
+0x140784548: mov      qword ptr [r8 + rdx + 0xf0], 0
+0x140784554: mov      rcx, qword ptr [rsp + 0x248]
+0x14078455c: mov      rax, qword ptr [rsp + 0x188]
+0x140784564: cmp      rax, rcx
+0x140784567: jae      0x140784878    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x578
+0x14078456d: mov      r9, qword ptr [rsp + 0x240]
+0x140784575: mov      r9, qword ptr [rdx + r9 + 0xa0]
+0x14078457d: mov      qword ptr [rsp + 0x198], r9
+0x140784585: xor      ecx, ecx
+0x140784587: jmp      0x140784700    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x400
+0x14078458c: mov      r9, qword ptr [r8 + rdx + 0xa0]
+0x140784594: mov      rsi, qword ptr [rdx + r8 + 0x98]
+0x14078459c: nop      dword ptr [rax]
+0x1407845a0: test     r9, r9
+0x1407845a3: je       0x140784618    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x318
+0x1407845a5: lea      rdi, [rdx + r8]
+0x1407845a9: lea      rdi, [rdi + 0x38]
+0x1407845ad: cmp      dword ptr [rip + 0x14d6d9c], 0
+0x1407845b4: je       0x140784600    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x300
+0x1407845b6: mov      qword ptr [rsp + 0x1b8], rdi
+0x1407845be: mov      qword ptr [rsp + 0x1b0], rsi
+0x1407845c6: lea      rax, [rip + 0x44df73]
+0x1407845cd: mov      rbx, rdi
+0x1407845d0: mov      rcx, rsi
+0x1407845d3: call     0x14001b620    ; runtime.wbMove
+0x1407845d8: mov      rax, qword ptr [rsp + 0x188]
+0x1407845e0: mov      rsi, qword ptr [rsp + 0x1b0]
+0x1407845e8: mov      rdi, qword ptr [rsp + 0x1b8]
+0x1407845f0: nop      word ptr [rax + rax]
+0x1407845f9: nop      dword ptr [rax]
+0x140784600: mov      qword ptr [rsp - 0x10], rbp
+0x140784605: lea      rbp, [rsp - 0x10]
+0x14078460a: call     0x140081a8c    ; runtime.duffcopy+0x32c
+0x14078460f: mov      rbp, qword ptr [rbp]
+0x140784613: jmp      0x1407843af    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0xaf
+0x140784618: lea      rdi, [rdx + r8]
+0x14078461c: lea      rdi, [rdi + 0x38]
+0x140784620: cmp      dword ptr [rip + 0x14d6d29], 0
+0x140784627: je       0x140784655    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x355
+0x140784629: mov      qword ptr [rsp + 0x1b8], rdi
+0x140784631: lea      rax, [rip + 0x44df08]
+0x140784638: mov      rbx, rdi
+0x14078463b: nop      dword ptr [rax + rax]
+0x140784640: call     0x14001b600    ; runtime.wbZero
+0x140784645: mov      rax, qword ptr [rsp + 0x188]
+0x14078464d: mov      rdi, qword ptr [rsp + 0x1b8]
+0x140784655: lea      rdi, [rdi - 0x20]
+0x140784659: nop      dword ptr [rax]
+0x140784660: mov      qword ptr [rsp - 0x10], rbp
+0x140784665: lea      rbp, [rsp - 0x10]
+0x14078466a: call     0x14008172b    ; runtime.duffzero+0x14b
+0x14078466f: mov      rbp, qword ptr [rbp]
+0x140784673: jmp      0x1407843af    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0xaf
+0x140784678: lea      rdi, [rsp + 0x298]
+0x140784680: lea      rsi, [rsp + 0x1d8]
+0x140784688: mov      qword ptr [rsp - 0x10], rbp
+0x14078468d: lea      rbp, [rsp - 0x10]
+0x140784692: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x140784697: mov      rbp, qword ptr [rbp]
+0x14078469b: lea      rdi, [rsp + 0x298]
+0x1407846a3: lea      rsi, [rsp + 0x1d8]
+0x1407846ab: mov      qword ptr [rsp - 0x10], rbp
+0x1407846b0: lea      rbp, [rsp - 0x10]
+0x1407846b5: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x1407846ba: mov      rbp, qword ptr [rbp]
+0x1407846be: add      rsp, 0x1c8
+0x1407846c5: pop      rbp
+0x1407846c6: ret      
+0x1407846c7: mov      qword ptr [r8 + rdx + 0x50], 0
+0x1407846d0: mov      rcx, qword ptr [rsp + 0x180]
+0x1407846d8: inc      rcx
+0x1407846db: mov      rax, qword ptr [rsp + 0x188]
+0x1407846e3: mov      rdx, qword ptr [rsp + 0x1a0]
+0x1407846eb: mov      r8, qword ptr [rsp + 0x1c0]
+0x1407846f3: mov      r9, qword ptr [rsp + 0x198]
+0x1407846fb: nop      dword ptr [rax + rax]
+0x140784700: cmp      rcx, r9
+0x140784703: jge      0x14078458c    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x28c
+0x140784709: mov      rsi, qword ptr [rdx + r8 + 0xa0]
+0x140784711: mov      rdi, qword ptr [rdx + r8 + 0x98]
+0x140784719: nop      dword ptr [rax]
+0x140784720: cmp      rcx, rsi
+0x140784723: jae      0x14078486d    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x56d
+0x140784729: mov      qword ptr [rsp + 0x1b8], rdi
+0x140784731: mov      qword ptr [rsp + 0x180], rcx
+0x140784739: lea      rcx, [rcx + rcx*2]
+0x14078473d: shl      rcx, 5
+0x140784741: mov      qword ptr [rsp + 0x190], rcx
+0x140784749: mov      rax, qword ptr [rdi + rcx + 0x30]
+0x14078474e: mov      rbx, qword ptr [rdi + rcx + 0x38]
+0x140784753: call     0x1408808a0    ; main.normalizeConsoleIconData
+0x140784758: mov      rcx, qword ptr [rsp + 0x190]
+0x140784760: mov      rdx, qword ptr [rsp + 0x1b8]
+0x140784768: mov      qword ptr [rdx + rcx + 0x38], rbx
+0x14078476d: cmp      dword ptr [rip + 0x14d6bdc], 0
+0x140784774: je       0x14078478c    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x48c
+0x140784776: mov      rsi, qword ptr [rcx + rdx + 0x30]
+0x14078477b: nop      dword ptr [rax + rax]
+0x140784780: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140784785: mov      qword ptr [r11], rax
+0x140784788: mov      qword ptr [r11 + 8], rsi
+0x14078478c: mov      qword ptr [rdx + rcx + 0x30], rax
+0x140784791: mov      rax, qword ptr [rdx + rcx + 0x40]
+0x140784796: mov      rbx, qword ptr [rdx + rcx + 0x48]
+0x14078479b: nop      dword ptr [rax + rax]
+0x1407847a0: call     0x1400a2200    ; strings.TrimSpace
+0x1407847a5: mov      rcx, qword ptr [rsp + 0x190]
+0x1407847ad: mov      rdx, qword ptr [rsp + 0x1b8]
+0x1407847b5: mov      qword ptr [rdx + rcx + 0x48], rbx
+0x1407847ba: cmp      dword ptr [rip + 0x14d6b8f], 0
+0x1407847c1: je       0x1407847d4    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x4d4
+0x1407847c3: mov      r8, qword ptr [rdx + rcx + 0x40]
+0x1407847c8: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1407847cd: mov      qword ptr [r11], rax
+0x1407847d0: mov      qword ptr [r11 + 8], r8
+0x1407847d4: mov      qword ptr [rdx + rcx + 0x40], rax
+0x1407847d9: mov      r8, qword ptr [rdx + rcx + 0x38]
+0x1407847de: nop      
+0x1407847e0: test     r8, r8
+0x1407847e3: jne      0x14078483b    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x53b
+0x1407847e5: test     rbx, rbx
+0x1407847e8: jne      0x14078483b    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x53b
+0x1407847ea: mov      rsi, qword ptr [rdx + rcx + 0x58]
+0x1407847ef: mov      rdi, qword ptr [rdx + rcx + 0x50]
+0x1407847f4: mov      rax, qword ptr [rsp + 0x358]
+0x1407847fc: xor      ebx, ebx
+0x1407847fe: xor      ecx, ecx
+0x140784800: call     0x140785e00    ; main.BootstrapService.mouseGestureIconDataFromResourceURL
+0x140784805: mov      rdx, qword ptr [rsp + 0x190]
+0x14078480d: mov      r8, qword ptr [rsp + 0x1b8]
+0x140784815: mov      qword ptr [r8 + rdx + 0x38], rbx
+0x14078481a: cmp      dword ptr [rip + 0x14d6b2f], 0
+0x140784821: je       0x140784834    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x534
+0x140784823: mov      r9, qword ptr [rdx + r8 + 0x30]
+0x140784828: call     0x140081060    ; runtime.gcWriteBarrier2
+0x14078482d: mov      qword ptr [r11], rax
+0x140784830: mov      qword ptr [r11 + 8], r9
+0x140784834: mov      qword ptr [r8 + rdx + 0x30], rax
+0x140784839: jmp      0x140784841    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x541
+0x14078483b: mov      r8, rdx
+0x14078483e: mov      rdx, rcx
+0x140784841: mov      qword ptr [r8 + rdx + 0x58], 0
+0x14078484a: cmp      dword ptr [rip + 0x14d6aff], 0
+0x140784851: je       0x1407846c7    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x3c7
+0x140784857: mov      r9, qword ptr [r8 + rdx + 0x50]
+0x14078485c: nop      dword ptr [rax]
+0x140784860: call     0x140081040    ; runtime.gcWriteBarrier1
+0x140784865: mov      qword ptr [r11], r9
+0x140784868: jmp      0x1407846c7    ; main.BootstrapService.stripMouseGestureConfigIconURLs+0x3c7
+0x14078486d: mov      rax, rcx
+0x140784870: mov      rcx, rsi
+0x140784873: call     0x140081400    ; runtime.panicIndex
+0x140784878: call     0x140081400    ; runtime.panicIndex
+0x14078487d: mov      rax, rcx
+0x140784880: mov      rcx, rdx
+0x140784883: call     0x140081400    ; runtime.panicIndex
+0x140784888: nop      
+0x140784889: mov      qword ptr [rsp + 0x188], rax
+0x140784891: call     0x14007f140    ; runtime.morestack_noctxt
+0x140784896: mov      rax, qword ptr [rsp + 0x188]
+0x14078489e: nop      
+0x1407848a0: jmp      0x140784300    ; main.BootstrapService.stripMouseGestureConfigIconURLs
+0x1407848a5: int3     
+0x1407848a6: int3     
+0x1407848a7: int3     
+0x1407848a8: int3     
+0x1407848a9: int3     
+0x1407848aa: int3     
+0x1407848ab: int3     
+0x1407848ac: int3     
+0x1407848ad: int3     
+0x1407848ae: int3     
+0x1407848af: int3     
+0x1407848b0: int3     
+0x1407848b1: int3     
+0x1407848b2: int3     
+0x1407848b3: int3     
+0x1407848b4: int3     
+0x1407848b5: int3     
+0x1407848b6: int3     
+0x1407848b7: int3     
+0x1407848b8: int3     
+0x1407848b9: int3     
+0x1407848ba: int3     
+0x1407848bb: int3     
+0x1407848bc: int3     
+0x1407848bd: int3     
+0x1407848be: int3     
+0x1407848bf: int3     

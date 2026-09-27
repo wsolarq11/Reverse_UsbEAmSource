@@ -1,0 +1,51 @@
+0x140750260: cmp      rsp, qword ptr [r14 + 0x10]
+0x140750264: jbe      0x14075028b    ; main.extractArchiveRegularFile.deferwrap1+0x2b
+0x140750266: push     rbp
+0x140750267: mov      rbp, rsp
+0x14075026a: sub      rsp, 8
+0x14075026e: mov      r12, qword ptr [r14 + 0x20]
+0x140750272: test     r12, r12
+0x140750275: jne      0x140750292    ; main.extractArchiveRegularFile.deferwrap1+0x32
+0x140750277: mov      rcx, qword ptr [rdx + 8]
+0x14075027b: mov      rax, qword ptr [rdx + 0x10]
+0x14075027f: mov      rcx, qword ptr [rcx + 0x18]
+0x140750283: call     rcx
+0x140750285: add      rsp, 8
+0x140750289: pop      rbp
+0x14075028a: ret      
+0x14075028b: call     0x14007f0a0    ; runtime.morestack
+0x140750290: jmp      0x140750260    ; main.extractArchiveRegularFile.deferwrap1
+0x140750292: lea      r13, [rsp + 0x18]
+0x140750297: cmp      qword ptr [r12], r13
+0x14075029b: jne      0x140750277    ; main.extractArchiveRegularFile.deferwrap1+0x17
+0x14075029d: mov      qword ptr [r12], rsp
+0x1407502a1: jmp      0x140750277    ; main.extractArchiveRegularFile.deferwrap1+0x17
+0x1407502a3: int3     
+0x1407502a4: int3     
+0x1407502a5: int3     
+0x1407502a6: int3     
+0x1407502a7: int3     
+0x1407502a8: int3     
+0x1407502a9: int3     
+0x1407502aa: int3     
+0x1407502ab: int3     
+0x1407502ac: int3     
+0x1407502ad: int3     
+0x1407502ae: int3     
+0x1407502af: int3     
+0x1407502b0: int3     
+0x1407502b1: int3     
+0x1407502b2: int3     
+0x1407502b3: int3     
+0x1407502b4: int3     
+0x1407502b5: int3     
+0x1407502b6: int3     
+0x1407502b7: int3     
+0x1407502b8: int3     
+0x1407502b9: int3     
+0x1407502ba: int3     
+0x1407502bb: int3     
+0x1407502bc: int3     
+0x1407502bd: int3     
+0x1407502be: int3     
+0x1407502bf: int3     

@@ -1,0 +1,59 @@
+0x14095bca0: nop      
+0x14095bca1: cmp      rax, rcx
+0x14095bca4: jge      0x14095bcb0   ; main.qrCodeCornerRadiusThumbX+0x10
+0x14095bca6: cmp      rbx, rdi
+0x14095bca9: jge      0x14095bcb0   ; main.qrCodeCornerRadiusThumbX+0x10
+0x14095bcab: test     r8, r8
+0x14095bcae: jg       0x14095bcb1   ; main.qrCodeCornerRadiusThumbX+0x11
+0x14095bcb0: ret      
+0x14095bcb1: test     rsi, rsi
+0x14095bcb4: jge      0x14095bcba   ; main.qrCodeCornerRadiusThumbX+0x1a
+0x14095bcb6: xor      esi, esi
+0x14095bcb8: jmp      0x14095bcc2   ; main.qrCodeCornerRadiusThumbX+0x22
+0x14095bcba: cmp      r8, rsi
+0x14095bcbd: jge      0x14095bcc2   ; main.qrCodeCornerRadiusThumbX+0x22
+0x14095bcbf: mov      rsi, r8
+0x14095bcc2: xorps    xmm0, xmm0
+0x14095bcc5: cvtsi2sd xmm0, rsi
+0x14095bcca: xorps    xmm1, xmm1
+0x14095bccd: cvtsi2sd xmm1, r8
+0x14095bcd2: sub      rcx, rax
+0x14095bcd5: xorps    xmm2, xmm2
+0x14095bcd8: cvtsi2sd xmm2, rcx
+0x14095bcdd: mulsd    xmm2, xmm0
+0x14095bce1: divsd    xmm2, xmm1
+0x14095bce5: movq     rcx, xmm2
+0x14095bcea: mov      rdx, rcx
+0x14095bced: shr      rdx, 0x34
+0x14095bcf1: and      edx, 0x7ff
+0x14095bcf7: nop      
+0x14095bcf8: nop      dword ptr [rax + rax]
+0x14095bd00: cmp      rdx, 0x3ff
+0x14095bd07: jae      0x14095bd33   ; main.qrCodeCornerRadiusThumbX+0x93
+0x14095bd09: movabs   rbx, 0x8000000000000000
+0x14095bd13: and      rbx, rcx
+0x14095bd16: movabs   rcx, 0x3ff0000000000000
+0x14095bd20: or       rcx, rbx
+0x14095bd23: cmp      rdx, 0x3fe
+0x14095bd2a: cmove    rbx, rcx
+0x14095bd2e: mov      rsi, rbx
+0x14095bd31: jmp      0x14095bd71   ; main.qrCodeCornerRadiusThumbX+0xd1
+0x14095bd33: cmp      rdx, 0x433
+0x14095bd3a: jae      0x14095bd6e   ; main.qrCodeCornerRadiusThumbX+0xce
+0x14095bd3c: add      rdx, -0x3ff
+0x14095bd43: mov      rbx, rcx
+0x14095bd46: mov      rcx, rdx
+0x14095bd49: movabs   rsi, 0x8000000000000
+0x14095bd53: shr      rsi, cl
+0x14095bd56: add      rbx, rsi
+0x14095bd59: movabs   rsi, 0xfffffffffffff
+0x14095bd63: shr      rsi, cl
+0x14095bd66: not      rsi
+0x14095bd69: and      rsi, rbx
+0x14095bd6c: jmp      0x14095bd71   ; main.qrCodeCornerRadiusThumbX+0xd1
+0x14095bd6e: mov      rsi, rcx
+0x14095bd71: movq     xmm0, rsi
+0x14095bd76: cvttsd2si rcx, xmm0
+0x14095bd7b: add      rax, rcx
+0x14095bd7e: ret      
+0x14095bd7f: int3     

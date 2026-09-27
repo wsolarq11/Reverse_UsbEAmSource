@@ -1,0 +1,129 @@
+0x1409bfc00: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409bfc04: jbe      0x1409bfd53   ; main.drawAppIconForPath+0x153
+0x1409bfc0a: push     rbp
+0x1409bfc0b: mov      rbp, rsp
+0x1409bfc0e: sub      rsp, 0x70
+0x1409bfc12: mov      qword ptr [rsp + 0x88], rbx
+0x1409bfc1a: movq     qword ptr [rsp + 0x68], xmm15
+0x1409bfc21: mov      byte ptr [rsp + 0x27], 0
+0x1409bfc26: test     rax, rax
+0x1409bfc29: je       0x1409bfc35   ; main.drawAppIconForPath+0x35
+0x1409bfc2b: cmp      rdi, r8
+0x1409bfc2e: jge      0x1409bfc35   ; main.drawAppIconForPath+0x35
+0x1409bfc30: cmp      rsi, r9
+0x1409bfc33: jl       0x1409bfc3b   ; main.drawAppIconForPath+0x3b
+0x1409bfc35: add      rsp, 0x70
+0x1409bfc39: pop      rbp
+0x1409bfc3a: ret      
+0x1409bfc3b: mov      qword ptr [rsp + 0x80], rax
+0x1409bfc43: mov      qword ptr [rsp + 0x50], r9
+0x1409bfc48: mov      qword ptr [rsp + 0x48], rsi
+0x1409bfc4d: mov      qword ptr [rsp + 0x40], rdi
+0x1409bfc52: sub      r8, rdi
+0x1409bfc55: mov      qword ptr [rsp + 0x30], r8
+0x1409bfc5a: mov      rax, rbx
+0x1409bfc5d: mov      rbx, rcx
+0x1409bfc60: mov      rcx, r8
+0x1409bfc63: call     0x1409bfe40   ; main.loadBestAppIconForOverlay
+0x1409bfc68: test     rax, rax
+0x1409bfc6b: je       0x1409bfd42   ; main.drawAppIconForPath+0x142
+0x1409bfc71: mov      qword ptr [rsp + 0x38], rax
+0x1409bfc76: lea      rcx, [rip + 0x143]
+0x1409bfc7d: mov      qword ptr [rsp + 0x58], rcx
+0x1409bfc82: mov      qword ptr [rsp + 0x60], rax
+0x1409bfc87: lea      rcx, [rsp + 0x58]
+0x1409bfc8c: mov      qword ptr [rsp + 0x68], rcx
+0x1409bfc91: mov      byte ptr [rsp + 0x27], 1
+0x1409bfc96: mov      rcx, qword ptr [rsp + 0x50]
+0x1409bfc9b: mov      rdx, qword ptr [rsp + 0x48]
+0x1409bfca0: sub      rcx, rdx
+0x1409bfca3: mov      qword ptr [rsp + 0x28], rcx
+0x1409bfca8: lea      rax, [rip + 0x13eed1]
+0x1409bfcaf: call     0x14001ae20   ; runtime.newobject
+0x1409bfcb4: mov      rcx, qword ptr [rsp + 0x80]
+0x1409bfcbc: mov      qword ptr [rax], rcx
+0x1409bfcbf: mov      rcx, qword ptr [rsp + 0x40]
+0x1409bfcc4: mov      qword ptr [rax + 8], rcx
+0x1409bfcc8: mov      rcx, qword ptr [rsp + 0x48]
+0x1409bfccd: mov      qword ptr [rax + 0x10], rcx
+0x1409bfcd1: mov      rcx, qword ptr [rsp + 0x38]
+0x1409bfcd6: mov      qword ptr [rax + 0x18], rcx
+0x1409bfcda: mov      rcx, qword ptr [rsp + 0x30]
+0x1409bfcdf: mov      qword ptr [rax + 0x20], rcx
+0x1409bfce3: mov      rcx, qword ptr [rsp + 0x28]
+0x1409bfce8: mov      qword ptr [rax + 0x28], rcx
+0x1409bfcec: movups   xmmword ptr [rax + 0x30], xmm15
+0x1409bfcf1: mov      qword ptr [rax + 0x40], 3
+0x1409bfcf9: mov      rcx, qword ptr [rip + 0x1201b88]
+0x1409bfd00: mov      rbx, rax
+0x1409bfd03: mov      edi, 9
+0x1409bfd08: mov      rax, rcx
+0x1409bfd0b: mov      rcx, rdi
+0x1409bfd0e: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409bfd13: test     rax, rax
+0x1409bfd16: jne      0x1409bfd2d   ; main.drawAppIconForPath+0x12d
+0x1409bfd18: mov      byte ptr [rsp + 0x27], 0
+0x1409bfd1d: mov      rdx, qword ptr [rsp + 0x68]
+0x1409bfd22: mov      rax, qword ptr [rdx]
+0x1409bfd25: call     rax
+0x1409bfd27: add      rsp, 0x70
+0x1409bfd2b: pop      rbp
+0x1409bfd2c: ret      
+0x1409bfd2d: mov      byte ptr [rsp + 0x27], 0
+0x1409bfd32: mov      rdx, qword ptr [rsp + 0x68]
+0x1409bfd37: mov      rax, qword ptr [rdx]
+0x1409bfd3a: call     rax
+0x1409bfd3c: add      rsp, 0x70
+0x1409bfd40: pop      rbp
+0x1409bfd41: ret      
+0x1409bfd42: add      rsp, 0x70
+0x1409bfd46: pop      rbp
+0x1409bfd47: ret      
+0x1409bfd48: call     0x1400435e0   ; runtime.deferreturn
+0x1409bfd4d: add      rsp, 0x70
+0x1409bfd51: pop      rbp
+0x1409bfd52: ret      
+0x1409bfd53: mov      qword ptr [rsp + 8], rax
+0x1409bfd58: mov      qword ptr [rsp + 0x10], rbx
+0x1409bfd5d: mov      qword ptr [rsp + 0x18], rcx
+0x1409bfd62: mov      qword ptr [rsp + 0x20], rdi
+0x1409bfd67: mov      qword ptr [rsp + 0x28], rsi
+0x1409bfd6c: mov      qword ptr [rsp + 0x30], r8
+0x1409bfd71: mov      qword ptr [rsp + 0x38], r9
+0x1409bfd76: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409bfd7b: mov      rax, qword ptr [rsp + 8]
+0x1409bfd80: mov      rbx, qword ptr [rsp + 0x10]
+0x1409bfd85: mov      rcx, qword ptr [rsp + 0x18]
+0x1409bfd8a: mov      rdi, qword ptr [rsp + 0x20]
+0x1409bfd8f: mov      rsi, qword ptr [rsp + 0x28]
+0x1409bfd94: mov      r8, qword ptr [rsp + 0x30]
+0x1409bfd99: mov      r9, qword ptr [rsp + 0x38]
+0x1409bfd9e: nop      
+0x1409bfda0: jmp      0x1409bfc00   ; main.drawAppIconForPath
+0x1409bfda5: int3     
+0x1409bfda6: int3     
+0x1409bfda7: int3     
+0x1409bfda8: int3     
+0x1409bfda9: int3     
+0x1409bfdaa: int3     
+0x1409bfdab: int3     
+0x1409bfdac: int3     
+0x1409bfdad: int3     
+0x1409bfdae: int3     
+0x1409bfdaf: int3     
+0x1409bfdb0: int3     
+0x1409bfdb1: int3     
+0x1409bfdb2: int3     
+0x1409bfdb3: int3     
+0x1409bfdb4: int3     
+0x1409bfdb5: int3     
+0x1409bfdb6: int3     
+0x1409bfdb7: int3     
+0x1409bfdb8: int3     
+0x1409bfdb9: int3     
+0x1409bfdba: int3     
+0x1409bfdbb: int3     
+0x1409bfdbc: int3     
+0x1409bfdbd: int3     
+0x1409bfdbe: int3     
+0x1409bfdbf: int3     

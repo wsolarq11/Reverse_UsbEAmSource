@@ -1,0 +1,295 @@
+0x14099e920: lea      r12, [rsp - 0x38]
+0x14099e925: cmp      r12, qword ptr [r14 + 0x10]
+0x14099e929: jbe      0x14099eda1   ; main.screenshotDXGITextureRectForDesktopRect+0x481
+0x14099e92f: push     rbp
+0x14099e930: mov      rbp, rsp
+0x14099e933: sub      rsp, 0xb0
+0x14099e93a: mov      dword ptr [rsp + 0xc0], eax
+0x14099e941: mov      qword ptr [rsp + 0x98], rbx
+0x14099e949: mov      qword ptr [rsp + 0x90], rcx
+0x14099e951: mov      qword ptr [rsp + 0xd8], rdi
+0x14099e959: mov      qword ptr [rsp + 0xe0], rsi
+0x14099e961: mov      qword ptr [rsp + 0xe8], r8
+0x14099e969: mov      qword ptr [rsp + 0xf0], r9
+0x14099e971: call     0x14099e7e0   ; main.screenshotDXGITextureSizeForDesktop
+0x14099e976: test     rcx, rcx
+0x14099e979: jne      0x14099ed86   ; main.screenshotDXGITextureRectForDesktopRect+0x466
+0x14099e97f: mov      rdx, qword ptr [rsp + 0xd8]
+0x14099e987: mov      r11, qword ptr [rsp + 0xe0]
+0x14099e98f: mov      rcx, qword ptr [rsp + 0xe8]
+0x14099e997: mov      rdi, qword ptr [rsp + 0xf0]
+0x14099e99f: cmp      rcx, rdx
+0x14099e9a2: mov      r12, rcx
+0x14099e9a5: cmovl    r12, rdx
+0x14099e9a9: cmovl    rdx, rcx
+0x14099e9ad: mov      qword ptr [rsp + 0xd8], rdx
+0x14099e9b5: cmp      rdi, r11
+0x14099e9b8: mov      r13, r11
+0x14099e9bb: cmovl    r11, rdi
+0x14099e9bf: mov      qword ptr [rsp + 0xe0], r11
+0x14099e9c7: mov      qword ptr [rsp + 0xe8], r12
+0x14099e9cf: cmovl    rdi, r13
+0x14099e9d3: mov      qword ptr [rsp + 0xf0], rdi
+0x14099e9db: nop      dword ptr [rax + rax]
+0x14099e9e0: cmp      rdx, r12
+0x14099e9e3: jl       0x14099e9ef   ; main.screenshotDXGITextureRectForDesktopRect+0xcf
+0x14099e9e5: mov      edx, 1
+0x14099e9ea: jmp      0x14099ea80   ; main.screenshotDXGITextureRectForDesktopRect+0x160
+0x14099e9ef: cmp      rdi, r11
+0x14099e9f2: jg       0x14099e9fe   ; main.screenshotDXGITextureRectForDesktopRect+0xde
+0x14099e9f4: mov      edx, 1
+0x14099e9f9: jmp      0x14099ea80   ; main.screenshotDXGITextureRectForDesktopRect+0x160
+0x14099e9fe: mov      qword ptr [rsp + 0x88], rbx
+0x14099ea06: mov      qword ptr [rsp + 0x80], rax
+0x14099ea0e: mov      rax, rdx
+0x14099ea11: mov      rbx, r11
+0x14099ea14: mov      rcx, r12
+0x14099ea17: xor      esi, esi
+0x14099ea19: mov      r8, rsi
+0x14099ea1c: mov      r9, qword ptr [rsp + 0x98]
+0x14099ea24: mov      r10, qword ptr [rsp + 0x90]
+0x14099ea2c: call     0x1401a1160   ; image.Rectangle.Intersect
+0x14099ea31: cmp      qword ptr [rsp + 0xd8], rax
+0x14099ea39: jne      0x14099ea69   ; main.screenshotDXGITextureRectForDesktopRect+0x149
+0x14099ea3b: nop      dword ptr [rax + rax]
+0x14099ea40: cmp      qword ptr [rsp + 0xe0], rbx
+0x14099ea48: jne      0x14099ea69   ; main.screenshotDXGITextureRectForDesktopRect+0x149
+0x14099ea4a: cmp      qword ptr [rsp + 0xe8], rcx
+0x14099ea52: jne      0x14099ea62   ; main.screenshotDXGITextureRectForDesktopRect+0x142
+0x14099ea54: cmp      qword ptr [rsp + 0xf0], rdi
+0x14099ea5c: sete     dl
+0x14099ea5f: nop      
+0x14099ea60: jmp      0x14099ea64   ; main.screenshotDXGITextureRectForDesktopRect+0x144
+0x14099ea62: xor      edx, edx
+0x14099ea64: xor      edx, 1
+0x14099ea67: jmp      0x14099ea6e   ; main.screenshotDXGITextureRectForDesktopRect+0x14e
+0x14099ea69: mov      edx, 1
+0x14099ea6e: mov      rax, qword ptr [rsp + 0x80]
+0x14099ea76: mov      rbx, qword ptr [rsp + 0x88]
+0x14099ea7e: nop      
+0x14099ea80: test     dl, dl
+0x14099ea82: jne      0x14099ed17   ; main.screenshotDXGITextureRectForDesktopRect+0x3f7
+0x14099ea88: mov      edx, dword ptr [rsp + 0xc0]
+0x14099ea8f: cmp      edx, 2
+0x14099ea92: ja       0x14099eb25   ; main.screenshotDXGITextureRectForDesktopRect+0x205
+0x14099ea98: cmp      edx, 1
+0x14099ea9b: jne      0x14099eac5   ; main.screenshotDXGITextureRectForDesktopRect+0x1a5
+0x14099ea9d: mov      rdx, qword ptr [rsp + 0xd8]
+0x14099eaa5: mov      r11, qword ptr [rsp + 0xe0]
+0x14099eaad: mov      r12, qword ptr [rsp + 0xe8]
+0x14099eab5: mov      r13, qword ptr [rsp + 0xf0]
+0x14099eabd: nop      dword ptr [rax]
+0x14099eac0: jmp      0x14099ebe6   ; main.screenshotDXGITextureRectForDesktopRect+0x2c6
+0x14099eac5: cmp      edx, 2
+0x14099eac8: jne      0x14099ebdb   ; main.screenshotDXGITextureRectForDesktopRect+0x2bb
+0x14099eace: mov      rdx, qword ptr [rsp + 0xe0]
+0x14099ead6: mov      r15, qword ptr [rsp + 0xe8]
+0x14099eade: mov      r11, rbx
+0x14099eae1: sub      r11, r15
+0x14099eae4: mov      r12, qword ptr [rsp + 0xf0]
+0x14099eaec: mov      r15, qword ptr [rsp + 0xd8]
+0x14099eaf4: mov      r13, rbx
+0x14099eaf7: sub      r13, r15
+0x14099eafa: cmp      r12, rdx
+0x14099eafd: mov      r15, rdx
+0x14099eb00: cmovl    r15, r12
+0x14099eb04: cmovl    r12, rdx
+0x14099eb08: cmp      r13, r11
+0x14099eb0b: mov      rcx, r11
+0x14099eb0e: cmovl    rcx, r13
+0x14099eb12: cmovl    r13, r11
+0x14099eb16: mov      rdx, r15
+0x14099eb19: mov      r11, rcx
+0x14099eb1c: nop      dword ptr [rax]
+0x14099eb20: jmp      0x14099ebe6   ; main.screenshotDXGITextureRectForDesktopRect+0x2c6
+0x14099eb25: cmp      edx, 3
+0x14099eb28: jne      0x14099eb86   ; main.screenshotDXGITextureRectForDesktopRect+0x266
+0x14099eb2a: mov      r15, qword ptr [rsp + 0xe8]
+0x14099eb32: mov      rdx, rax
+0x14099eb35: sub      rdx, r15
+0x14099eb38: mov      r15, qword ptr [rsp + 0xf0]
+0x14099eb40: mov      r11, rbx
+0x14099eb43: sub      r11, r15
+0x14099eb46: mov      r15, qword ptr [rsp + 0xd8]
+0x14099eb4e: mov      r12, rax
+0x14099eb51: sub      r12, r15
+0x14099eb54: mov      r15, qword ptr [rsp + 0xe0]
+0x14099eb5c: mov      r13, rbx
+0x14099eb5f: sub      r13, r15
+0x14099eb62: cmp      r12, rdx
+0x14099eb65: mov      r15, rdx
+0x14099eb68: cmovl    r15, r12
+0x14099eb6c: cmovl    r12, rdx
+0x14099eb70: cmp      r13, r11
+0x14099eb73: mov      rcx, r11
+0x14099eb76: cmovl    rcx, r13
+0x14099eb7a: cmovl    r13, r11
+0x14099eb7e: mov      rdx, r15
+0x14099eb81: mov      r11, rcx
+0x14099eb84: jmp      0x14099ebe6   ; main.screenshotDXGITextureRectForDesktopRect+0x2c6
+0x14099eb86: cmp      edx, 4
+0x14099eb89: jne      0x14099ebdb   ; main.screenshotDXGITextureRectForDesktopRect+0x2bb
+0x14099eb8b: mov      r15, qword ptr [rsp + 0xf0]
+0x14099eb93: mov      rdx, rax
+0x14099eb96: sub      rdx, r15
+0x14099eb99: mov      r11, qword ptr [rsp + 0xd8]
+0x14099eba1: mov      r15, qword ptr [rsp + 0xe0]
+0x14099eba9: mov      r12, rax
+0x14099ebac: sub      r12, r15
+0x14099ebaf: mov      r13, qword ptr [rsp + 0xe8]
+0x14099ebb7: cmp      r12, rdx
+0x14099ebba: mov      r15, rdx
+0x14099ebbd: cmovl    r15, r12
+0x14099ebc1: cmovl    r12, rdx
+0x14099ebc5: cmp      r13, r11
+0x14099ebc8: mov      rcx, r11
+0x14099ebcb: cmovl    rcx, r13
+0x14099ebcf: cmovl    r13, r11
+0x14099ebd3: mov      rdx, r15
+0x14099ebd6: mov      r11, rcx
+0x14099ebd9: jmp      0x14099ebe6   ; main.screenshotDXGITextureRectForDesktopRect+0x2c6
+0x14099ebdb: xor      r12d, r12d
+0x14099ebde: xor      edx, edx
+0x14099ebe0: xor      r13d, r13d
+0x14099ebe3: xor      r11d, r11d
+0x14099ebe6: cmp      rdx, r12
+0x14099ebe9: jge      0x14099ec95   ; main.screenshotDXGITextureRectForDesktopRect+0x375
+0x14099ebef: cmp      r11, r13
+0x14099ebf2: jge      0x14099ec95   ; main.screenshotDXGITextureRectForDesktopRect+0x375
+0x14099ebf8: mov      qword ptr [rsp + 0x58], r13
+0x14099ebfd: mov      qword ptr [rsp + 0x50], r12
+0x14099ec02: mov      qword ptr [rsp + 0x40], r11
+0x14099ec07: mov      qword ptr [rsp + 0x48], rdx
+0x14099ec0c: mov      rcx, r12
+0x14099ec0f: mov      rdi, r13
+0x14099ec12: xor      esi, esi
+0x14099ec14: mov      r8, rsi
+0x14099ec17: mov      r9, rax
+0x14099ec1a: mov      r10, rbx
+0x14099ec1d: mov      rax, rdx
+0x14099ec20: mov      rbx, r11
+0x14099ec23: call     0x1401a1160   ; image.Rectangle.Intersect
+0x14099ec28: mov      rdx, qword ptr [rsp + 0x48]
+0x14099ec2d: cmp      rax, rdx
+0x14099ec30: jne      0x14099ec7d   ; main.screenshotDXGITextureRectForDesktopRect+0x35d
+0x14099ec32: mov      r9, qword ptr [rsp + 0x40]
+0x14099ec37: cmp      rbx, r9
+0x14099ec3a: jne      0x14099ec71   ; main.screenshotDXGITextureRectForDesktopRect+0x351
+0x14099ec3c: mov      r10, qword ptr [rsp + 0x50]
+0x14099ec41: cmp      rcx, r10
+0x14099ec44: jne      0x14099ec6a   ; main.screenshotDXGITextureRectForDesktopRect+0x34a
+0x14099ec46: mov      r11, qword ptr [rsp + 0x58]
+0x14099ec4b: cmp      rdi, r11
+0x14099ec4e: jne      0x14099ec8c   ; main.screenshotDXGITextureRectForDesktopRect+0x36c
+0x14099ec50: mov      rax, rdx
+0x14099ec53: mov      rbx, r9
+0x14099ec56: mov      rcx, r10
+0x14099ec59: mov      rdi, r11
+0x14099ec5c: xor      esi, esi
+0x14099ec5e: xor      r8d, r8d
+0x14099ec61: add      rsp, 0xb0
+0x14099ec68: pop      rbp
+0x14099ec69: ret      
+0x14099ec6a: mov      r11, qword ptr [rsp + 0x58]
+0x14099ec6f: jmp      0x14099ec8c   ; main.screenshotDXGITextureRectForDesktopRect+0x36c
+0x14099ec71: mov      r10, qword ptr [rsp + 0x50]
+0x14099ec76: mov      r11, qword ptr [rsp + 0x58]
+0x14099ec7b: jmp      0x14099ec8c   ; main.screenshotDXGITextureRectForDesktopRect+0x36c
+0x14099ec7d: mov      r9, qword ptr [rsp + 0x40]
+0x14099ec82: mov      r10, qword ptr [rsp + 0x50]
+0x14099ec87: mov      r11, qword ptr [rsp + 0x58]
+0x14099ec8c: mov      r12, r10
+0x14099ec8f: mov      r13, r11
+0x14099ec92: mov      r11, r9
+0x14099ec95: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x14099ec9e: mov      qword ptr [rsp + 0x60], rdx
+0x14099eca3: mov      qword ptr [rsp + 0x68], r11
+0x14099eca8: mov      qword ptr [rsp + 0x70], r12
+0x14099ecad: mov      qword ptr [rsp + 0x78], r13
+0x14099ecb2: lea      rax, [rip + 0x264767]
+0x14099ecb9: lea      rbx, [rsp + 0x60]
+0x14099ecbe: nop      
+0x14099ecc0: call     0x1400172c0   ; runtime.convTnoptr
+0x14099ecc5: lea      rcx, [rip + 0x264754]
+0x14099eccc: mov      qword ptr [rsp + 0xa0], rcx
+0x14099ecd4: mov      qword ptr [rsp + 0xa8], rax
+0x14099ecdc: lea      rax, [rip + 0x2cb7c0]
+0x14099ece3: mov      ebx, 0x1b
+0x14099ece8: lea      rcx, [rsp + 0xa0]
+0x14099ecf0: mov      edi, 1
+0x14099ecf5: mov      rsi, rdi
+0x14099ecf8: call     0x140133280   ; fmt.Errorf
+0x14099ecfd: xor      ecx, ecx
+0x14099ecff: mov      rdi, rcx
+0x14099ed02: mov      rsi, rax
+0x14099ed05: mov      r8, rbx
+0x14099ed08: mov      rax, rcx
+0x14099ed0b: mov      rbx, rax
+0x14099ed0e: add      rsp, 0xb0
+0x14099ed15: pop      rbp
+0x14099ed16: ret      
+0x14099ed17: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x14099ed20: lea      rax, [rip + 0x2646f9]
+0x14099ed27: lea      rbx, [rsp + 0xd8]
+0x14099ed2f: call     0x1400172c0   ; runtime.convTnoptr
+0x14099ed34: lea      rcx, [rip + 0x2646e5]
+0x14099ed3b: mov      qword ptr [rsp + 0xa0], rcx
+0x14099ed43: mov      qword ptr [rsp + 0xa8], rax
+0x14099ed4b: lea      rax, [rip + 0x2cb736]
+0x14099ed52: mov      ebx, 0x1b
+0x14099ed57: lea      rcx, [rsp + 0xa0]
+0x14099ed5f: mov      edi, 1
+0x14099ed64: mov      rsi, rdi
+0x14099ed67: call     0x140133280   ; fmt.Errorf
+0x14099ed6c: xor      ecx, ecx
+0x14099ed6e: mov      rdi, rcx
+0x14099ed71: mov      rsi, rax
+0x14099ed74: mov      r8, rbx
+0x14099ed77: mov      rax, rcx
+0x14099ed7a: mov      rbx, rax
+0x14099ed7d: add      rsp, 0xb0
+0x14099ed84: pop      rbp
+0x14099ed85: ret      
+0x14099ed86: xor      eax, eax
+0x14099ed88: mov      rbx, rax
+0x14099ed8b: mov      rsi, rcx
+0x14099ed8e: mov      r8, rdi
+0x14099ed91: mov      rcx, rax
+0x14099ed94: mov      rdi, rax
+0x14099ed97: add      rsp, 0xb0
+0x14099ed9e: pop      rbp
+0x14099ed9f: nop      
+0x14099eda0: ret      
+0x14099eda1: mov      dword ptr [rsp + 8], eax
+0x14099eda5: mov      qword ptr [rsp + 0x10], rbx
+0x14099edaa: mov      qword ptr [rsp + 0x18], rcx
+0x14099edaf: mov      qword ptr [rsp + 0x20], rdi
+0x14099edb4: mov      qword ptr [rsp + 0x28], rsi
+0x14099edb9: mov      qword ptr [rsp + 0x30], r8
+0x14099edbe: mov      qword ptr [rsp + 0x38], r9
+0x14099edc3: call     0x14007f140   ; runtime.morestack_noctxt
+0x14099edc8: mov      eax, dword ptr [rsp + 8]
+0x14099edcc: mov      rbx, qword ptr [rsp + 0x10]
+0x14099edd1: mov      rcx, qword ptr [rsp + 0x18]
+0x14099edd6: mov      rdi, qword ptr [rsp + 0x20]
+0x14099eddb: mov      rsi, qword ptr [rsp + 0x28]
+0x14099ede0: mov      r8, qword ptr [rsp + 0x30]
+0x14099ede5: mov      r9, qword ptr [rsp + 0x38]
+0x14099edea: jmp      0x14099e920   ; main.screenshotDXGITextureRectForDesktopRect
+0x14099edef: int3     
+0x14099edf0: int3     
+0x14099edf1: int3     
+0x14099edf2: int3     
+0x14099edf3: int3     
+0x14099edf4: int3     
+0x14099edf5: int3     
+0x14099edf6: int3     
+0x14099edf7: int3     
+0x14099edf8: int3     
+0x14099edf9: int3     
+0x14099edfa: int3     
+0x14099edfb: int3     
+0x14099edfc: int3     
+0x14099edfd: int3     
+0x14099edfe: int3     
+0x14099edff: int3     

@@ -1,0 +1,93 @@
+0x140a05c40: push     rbp
+0x140a05c41: mov      rbp, rsp
+0x140a05c44: mov      r12, qword ptr [r14 + 0x20]
+0x140a05c48: test     r12, r12
+0x140a05c4b: jne      0x140a05c66   ; main.launcherUpdateUserError.Error+0x26
+0x140a05c4d: test     rax, rax
+0x140a05c50: je       0x140a05c5b   ; main.launcherUpdateUserError.Error+0x1b
+0x140a05c52: mov      rbx, qword ptr [rax + 8]
+0x140a05c56: mov      rax, qword ptr [rax]
+0x140a05c59: pop      rbp
+0x140a05c5a: ret      
+0x140a05c5b: nop      dword ptr [rax + rax]
+0x140a05c60: call     0x140015dc0   ; runtime.panicwrap
+0x140a05c65: nop      
+0x140a05c66: lea      r13, [rsp + 0x10]
+0x140a05c6b: cmp      qword ptr [r12], r13
+0x140a05c6f: jne      0x140a05c4d   ; main.launcherUpdateUserError.Error+0xd
+0x140a05c71: mov      qword ptr [r12], rsp
+0x140a05c75: jmp      0x140a05c4d   ; main.launcherUpdateUserError.Error+0xd
+0x140a05c77: int3     
+0x140a05c78: int3     
+0x140a05c79: int3     
+0x140a05c7a: int3     
+0x140a05c7b: int3     
+0x140a05c7c: int3     
+0x140a05c7d: int3     
+0x140a05c7e: int3     
+0x140a05c7f: int3     
+0x140a05c80: cmp      rsp, qword ptr [r14 + 0x10]
+0x140a05c84: jbe      0x140a05cd9   ; main.screenshotGDIScreenCaptureBackend.captureScreenRect+0x59
+0x140a05c86: push     rbp
+0x140a05c87: mov      rbp, rsp
+0x140a05c8a: sub      rsp, 0x50
+0x140a05c8e: mov      r12, qword ptr [r14 + 0x20]
+0x140a05c92: test     r12, r12
+0x140a05c95: jne      0x140a05d15   ; main.screenshotGDIScreenCaptureBackend.captureScreenRect+0x95
+0x140a05c97: test     rax, rax
+0x140a05c9a: je       0x140a05cd3   ; main.screenshotGDIScreenCaptureBackend.captureScreenRect+0x53
+0x140a05c9c: movups   xmm0, xmmword ptr [rsp + 0x60]
+0x140a05ca1: movups   xmmword ptr [rsp], xmm0
+0x140a05ca5: movups   xmm0, xmmword ptr [rsp + 0x70]
+0x140a05caa: movups   xmmword ptr [rsp + 0x10], xmm0
+0x140a05caf: movups   xmm0, xmmword ptr [rsp + 0x80]
+0x140a05cb7: movups   xmmword ptr [rsp + 0x20], xmm0
+0x140a05cbc: mov      rax, rbx
+0x140a05cbf: mov      rbx, rcx
+0x140a05cc2: mov      rcx, rdi
+0x140a05cc5: mov      rdi, rsi
+0x140a05cc8: call     0x14096e840   ; main.screenshotGDIScreenCaptureBackend.captureScreenRect
+0x140a05ccd: add      rsp, 0x50
+0x140a05cd1: pop      rbp
+0x140a05cd2: ret      
+0x140a05cd3: call     0x140015dc0   ; runtime.panicwrap
+0x140a05cd8: nop      
+0x140a05cd9: mov      qword ptr [rsp + 0x38], rax
+0x140a05cde: mov      qword ptr [rsp + 0x40], rbx
+0x140a05ce3: mov      qword ptr [rsp + 0x48], rcx
+0x140a05ce8: mov      qword ptr [rsp + 0x50], rdi
+0x140a05ced: mov      qword ptr [rsp + 0x58], rsi
+0x140a05cf2: call     0x14007f140   ; runtime.morestack_noctxt
+0x140a05cf7: mov      rax, qword ptr [rsp + 0x38]
+0x140a05cfc: mov      rbx, qword ptr [rsp + 0x40]
+0x140a05d01: mov      rcx, qword ptr [rsp + 0x48]
+0x140a05d06: mov      rdi, qword ptr [rsp + 0x50]
+0x140a05d0b: mov      rsi, qword ptr [rsp + 0x58]
+0x140a05d10: jmp      0x140a05c80   ; main.screenshotGDIScreenCaptureBackend.captureScreenRect
+0x140a05d15: lea      r13, [rsp + 0x60]
+0x140a05d1a: nop      word ptr [rax + rax]
+0x140a05d20: cmp      qword ptr [r12], r13
+0x140a05d24: jne      0x140a05c97   ; main.screenshotGDIScreenCaptureBackend.captureScreenRect+0x17
+0x140a05d2a: mov      qword ptr [r12], rsp
+0x140a05d2e: jmp      0x140a05c97   ; main.screenshotGDIScreenCaptureBackend.captureScreenRect+0x17
+0x140a05d33: int3     
+0x140a05d34: int3     
+0x140a05d35: int3     
+0x140a05d36: int3     
+0x140a05d37: int3     
+0x140a05d38: int3     
+0x140a05d39: int3     
+0x140a05d3a: int3     
+0x140a05d3b: int3     
+0x140a05d3c: int3     
+0x140a05d3d: int3     
+0x140a05d3e: int3     
+0x140a05d3f: int3     
+0x140a05d40: lea      r12, [rsp - 0x18]
+0x140a05d45: cmp      r12, qword ptr [r14 + 0x10]
+0x140a05d49: jbe      0x140a05e7f   ; main.screenshotGDIScreenCaptureBackend.captureVirtualScreen+0x13f
+0x140a05d4f: push     rbp
+0x140a05d50: mov      rbp, rsp
+0x140a05d53: sub      rsp, 0x90
+0x140a05d5a: mov      r12, qword ptr [r14 + 0x20]
+0x140a05d5e: nop      

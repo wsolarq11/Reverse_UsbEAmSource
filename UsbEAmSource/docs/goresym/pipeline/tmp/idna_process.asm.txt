@@ -1,0 +1,42 @@
+0x14071d2a0: lea      r12, [rsp - 0x88]
+0x14071d2a8: cmp      r12, qword ptr [r14 + 0x10]
+0x14071d2ac: jbe      0x14071dcbc   ; golang.org/x/net/idna.Profile.process+0xa1c
+0x14071d2b2: push     rbp
+0x14071d2b3: mov      rbp, rsp
+0x14071d2b6: sub      rsp, 0x100
+0x14071d2bd: mov      qword ptr [rsp + 0x118], rbx
+0x14071d2c5: mov      qword ptr [rsp + 0x110], rax
+0x14071d2cd: mov      byte ptr [rsp + 0x128], dil
+0x14071d2d5: mov      rdx, qword ptr [rax + 0x18]
+0x14071d2d9: test     rdx, rdx
+0x14071d2dc: jne      0x14071d2e7   ; golang.org/x/net/idna.Profile.process+0x47
+0x14071d2de: xor      edx, edx
+0x14071d2e0: xor      esi, esi
+0x14071d2e2: xor      r8d, r8d
+0x14071d2e5: jmp      0x14071d308   ; golang.org/x/net/idna.Profile.process+0x68
+0x14071d2e7: mov      rsi, qword ptr [rdx]
+0x14071d2ea: call     rsi
+0x14071d2ec: mov      rdx, rdi
+0x14071d2ef: mov      r8d, ecx
+0x14071d2f2: movzx    edi, byte ptr [rsp + 0x128]
+0x14071d2fa: mov      rcx, rbx
+0x14071d2fd: mov      rbx, rax
+0x14071d300: mov      rax, qword ptr [rsp + 0x110]
+0x14071d308: cmp      byte ptr [rax + 5], 0
+0x14071d30c: jne      0x14071dca9   ; golang.org/x/net/idna.Profile.process+0xa09
+0x14071d312: mov      qword ptr [rsp + 0x60], rcx
+0x14071d317: mov      qword ptr [rsp + 0xd8], rbx
+0x14071d31f: nop      
+0x14071d320: test     rdx, rdx
+0x14071d323: jne      0x14071d3a1   ; golang.org/x/net/idna.Profile.process+0x101
+0x14071d325: cmp      byte ptr [rax + 4], 0
+0x14071d329: je       0x14071d3a1   ; golang.org/x/net/idna.Profile.process+0x101
+0x14071d32b: test     rcx, rcx
+0x14071d32e: jne      0x14071d3a1   ; golang.org/x/net/idna.Profile.process+0x101
+0x14071d330: mov      byte ptr [rsp + 0x2f], r8b
+0x14071d335: mov      qword ptr [rsp + 0xe0], rbx
+0x14071d33d: mov      qword ptr [rsp + 0xe8], rcx
+0x14071d345: lea      rcx, [rip + 0x516657]
+0x14071d34c: mov      qword ptr [rsp + 0xf0], rcx
+0x14071d354: mov      qword ptr [rsp + 0xf8], 2
+0x14071d360: lea      rax, [rip + 0x48d679]

@@ -1,0 +1,63 @@
+0x1409c8320: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409c8324: jbe      0x1409c83bd   ; main.looksLikeTwoFactorBase32Payload+0x9d
+0x1409c832a: push     rbp
+0x1409c832b: mov      rbp, rsp
+0x1409c832e: sub      rsp, 0x28
+0x1409c8332: mov      qword ptr [rsp + 0x38], rax
+0x1409c8337: call     0x1400a2200   ; strings.TrimSpace
+0x1409c833c: nop      dword ptr [rax]
+0x1409c8340: test     rbx, rbx
+0x1409c8343: je       0x1409c8353   ; main.looksLikeTwoFactorBase32Payload+0x33
+0x1409c8345: mov      qword ptr [rsp + 0x18], rbx
+0x1409c834a: mov      qword ptr [rsp + 0x20], rax
+0x1409c834f: xor      ecx, ecx
+0x1409c8351: jmp      0x1409c8360   ; main.looksLikeTwoFactorBase32Payload+0x40
+0x1409c8353: xor      eax, eax
+0x1409c8355: add      rsp, 0x28
+0x1409c8359: pop      rbp
+0x1409c835a: ret      
+0x1409c835b: mov      rcx, rsi
+0x1409c835e: nop      
+0x1409c8360: cmp      rbx, rcx
+0x1409c8363: jle      0x1409c83b2   ; main.looksLikeTwoFactorBase32Payload+0x92
+0x1409c8365: movzx    edx, byte ptr [rax + rcx]
+0x1409c8369: cmp      edx, 0x7f
+0x1409c836c: jg       0x1409c8374   ; main.looksLikeTwoFactorBase32Payload+0x54
+0x1409c836e: lea      rsi, [rcx + 1]
+0x1409c8372: jmp      0x1409c8388   ; main.looksLikeTwoFactorBase32Payload+0x68
+0x1409c8374: call     0x1400733c0   ; runtime.decoderune
+0x1409c8379: mov      edx, eax
+0x1409c837b: mov      rsi, rbx
+0x1409c837e: mov      rax, qword ptr [rsp + 0x20]
+0x1409c8383: mov      rbx, qword ptr [rsp + 0x18]
+0x1409c8388: lea      edi, [rdx - 0x41]
+0x1409c838b: cmp      edi, 0x19
+0x1409c838e: jbe      0x1409c835b   ; main.looksLikeTwoFactorBase32Payload+0x3b
+0x1409c8390: lea      edi, [rdx - 0x61]
+0x1409c8393: cmp      edi, 0x19
+0x1409c8396: jbe      0x1409c835b   ; main.looksLikeTwoFactorBase32Payload+0x3b
+0x1409c8398: lea      edi, [rdx - 0x32]
+0x1409c839b: nop      dword ptr [rax + rax]
+0x1409c83a0: cmp      edi, 5
+0x1409c83a3: jbe      0x1409c835b   ; main.looksLikeTwoFactorBase32Payload+0x3b
+0x1409c83a5: cmp      edx, 0x3d
+0x1409c83a8: je       0x1409c835b   ; main.looksLikeTwoFactorBase32Payload+0x3b
+0x1409c83aa: xor      eax, eax
+0x1409c83ac: add      rsp, 0x28
+0x1409c83b0: pop      rbp
+0x1409c83b1: ret      
+0x1409c83b2: mov      eax, 1
+0x1409c83b7: add      rsp, 0x28
+0x1409c83bb: pop      rbp
+0x1409c83bc: ret      
+0x1409c83bd: mov      qword ptr [rsp + 8], rax
+0x1409c83c2: mov      qword ptr [rsp + 0x10], rbx
+0x1409c83c7: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409c83cc: mov      rax, qword ptr [rsp + 8]
+0x1409c83d1: mov      rbx, qword ptr [rsp + 0x10]
+0x1409c83d6: jmp      0x1409c8320   ; main.looksLikeTwoFactorBase32Payload
+0x1409c83db: int3     
+0x1409c83dc: int3     
+0x1409c83dd: int3     
+0x1409c83de: int3     
+0x1409c83df: int3     

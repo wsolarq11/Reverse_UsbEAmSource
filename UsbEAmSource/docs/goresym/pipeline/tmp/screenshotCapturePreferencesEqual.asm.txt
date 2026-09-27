@@ -1,0 +1,56 @@
+0x14079d7e0: mov      rcx, qword ptr [rsp + 0x1d8]
+0x14079d7e8: test     rcx, rcx
+0x14079d7eb: je       0x14079d7f2   ; main.screenshotCapturePreferencesEqual+0x12
+0x14079d7ed: movzx    ecx, byte ptr [rcx]
+0x14079d7f0: jmp      0x14079d7f7   ; main.screenshotCapturePreferencesEqual+0x17
+0x14079d7f2: mov      ecx, 1
+0x14079d7f7: mov      rdx, qword ptr [rsp + 0x620]
+0x14079d7ff: nop      
+0x14079d800: test     rdx, rdx
+0x14079d803: je       0x14079d80a   ; main.screenshotCapturePreferencesEqual+0x2a
+0x14079d805: movzx    edx, byte ptr [rdx]
+0x14079d808: jmp      0x14079d80f   ; main.screenshotCapturePreferencesEqual+0x2f
+0x14079d80a: mov      edx, 1
+0x14079d80f: cmp      cl, dl
+0x14079d811: jne      0x14079d873   ; main.screenshotCapturePreferencesEqual+0x93
+0x14079d813: mov      rcx, qword ptr [rsp + 0x1e8]
+0x14079d81b: nop      dword ptr [rax + rax]
+0x14079d820: test     rcx, rcx
+0x14079d823: je       0x14079d82a   ; main.screenshotCapturePreferencesEqual+0x4a
+0x14079d825: movzx    ecx, byte ptr [rcx]
+0x14079d828: jmp      0x14079d82c   ; main.screenshotCapturePreferencesEqual+0x4c
+0x14079d82a: xor      ecx, ecx
+0x14079d82c: mov      rdx, qword ptr [rsp + 0x630]
+0x14079d834: test     rdx, rdx
+0x14079d837: je       0x14079d83e   ; main.screenshotCapturePreferencesEqual+0x5e
+0x14079d839: movzx    edx, byte ptr [rdx]
+0x14079d83c: jmp      0x14079d840   ; main.screenshotCapturePreferencesEqual+0x60
+0x14079d83e: xor      edx, edx
+0x14079d840: cmp      cl, dl
+0x14079d842: jne      0x14079d873   ; main.screenshotCapturePreferencesEqual+0x93
+0x14079d844: mov      rcx, qword ptr [rsp + 0x1e0]
+0x14079d84c: test     rcx, rcx
+0x14079d84f: je       0x14079d856   ; main.screenshotCapturePreferencesEqual+0x76
+0x14079d851: movzx    ecx, byte ptr [rcx]
+0x14079d854: jmp      0x14079d858   ; main.screenshotCapturePreferencesEqual+0x78
+0x14079d856: xor      ecx, ecx
+0x14079d858: mov      rdx, qword ptr [rsp + 0x628]
+0x14079d860: test     rdx, rdx
+0x14079d863: je       0x14079d86a   ; main.screenshotCapturePreferencesEqual+0x8a
+0x14079d865: movzx    edx, byte ptr [rdx]
+0x14079d868: jmp      0x14079d86c   ; main.screenshotCapturePreferencesEqual+0x8c
+0x14079d86a: xor      edx, edx
+0x14079d86c: cmp      cl, dl
+0x14079d86e: sete     cl
+0x14079d871: jmp      0x14079d875   ; main.screenshotCapturePreferencesEqual+0x95
+0x14079d873: xor      ecx, ecx
+0x14079d875: mov      eax, ecx
+0x14079d877: ret      
+0x14079d878: int3     
+0x14079d879: int3     
+0x14079d87a: int3     
+0x14079d87b: int3     
+0x14079d87c: int3     
+0x14079d87d: int3     
+0x14079d87e: int3     
+0x14079d87f: int3     

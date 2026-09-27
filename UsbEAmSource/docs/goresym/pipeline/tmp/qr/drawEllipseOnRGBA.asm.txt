@@ -1,0 +1,230 @@
+0x140955f00: lea      r12, [rsp - 0x38]
+0x140955f05: cmp      r12, qword ptr [r14 + 0x10]
+0x140955f09: jbe      0x1409562f7   ; main.drawEllipseOnRGBA+0x3f7
+0x140955f0f: push     rbp
+0x140955f10: mov      rbp, rsp
+0x140955f13: sub      rsp, 0xb0
+0x140955f1a: nop      word ptr [rax + rax]
+0x140955f20: test     rax, rax
+0x140955f23: je       0x14095614b   ; main.drawEllipseOnRGBA+0x24b
+0x140955f29: mov      rdx, rdi
+0x140955f2c: sub      rdi, rbx
+0x140955f2f: cmp      rdi, 2
+0x140955f33: jl       0x14095614b   ; main.drawEllipseOnRGBA+0x24b
+0x140955f39: mov      r12, rsi
+0x140955f3c: sub      rsi, rcx
+0x140955f3f: nop      
+0x140955f40: cmp      rsi, 2
+0x140955f44: jl       0x14095614b   ; main.drawEllipseOnRGBA+0x24b
+0x140955f4a: mov      qword ptr [rsp + 0xc8], rax
+0x140955f52: mov      byte ptr [rsp + 0x47], r11b
+0x140955f57: mov      byte ptr [rsp + 0x46], r10b
+0x140955f5c: mov      byte ptr [rsp + 0x45], r9b
+0x140955f61: mov      byte ptr [rsp + 0x44], r8b
+0x140955f66: mov      qword ptr [rsp + 0xa8], r12
+0x140955f6e: mov      qword ptr [rsp + 0xa0], rdx
+0x140955f76: mov      qword ptr [rsp + 0x98], rcx
+0x140955f7e: mov      qword ptr [rsp + 0x90], rbx
+0x140955f86: lea      rax, [rbx + rdx]
+0x140955f8a: xorps    xmm0, xmm0
+0x140955f8d: cvtsi2sd xmm0, rax
+0x140955f92: lea      rax, [rcx + r12]
+0x140955f96: xorps    xmm1, xmm1
+0x140955f99: cvtsi2sd xmm1, rax
+0x140955f9e: xorps    xmm2, xmm2
+0x140955fa1: cvtsi2sd xmm2, rdi
+0x140955fa6: xorps    xmm3, xmm3
+0x140955fa9: cvtsi2sd xmm3, rsi
+0x140955fae: movsd    xmm4, qword ptr [rip + 0x8776ca]
+0x140955fb6: mulsd    xmm0, xmm4
+0x140955fba: movsd    qword ptr [rsp + 0x88], xmm0
+0x140955fc3: mulsd    xmm1, xmm4
+0x140955fc7: movsd    qword ptr [rsp + 0x80], xmm1
+0x140955fd0: mulsd    xmm2, xmm4
+0x140955fd4: movsd    qword ptr [rsp + 0x68], xmm2
+0x140955fda: mulsd    xmm3, xmm4
+0x140955fde: movsd    qword ptr [rsp + 0x60], xmm3
+0x140955fe4: mov      qword ptr [rsp], 0
+0x140955fec: mov      rax, qword ptr [rsp + 0xc0]
+0x140955ff4: cmp      rax, 1
+0x140955ff8: mov      ecx, 1
+0x140955ffd: cmovg    rcx, rax
+0x140956001: xorps    xmm0, xmm0
+0x140956004: cvtsi2sd xmm0, rcx
+0x140956009: mulsd    xmm0, xmm4
+0x14095600d: movsd    qword ptr [rsp + 0x78], xmm0
+0x140956013: movsd    xmm1, qword ptr [rip + 0x8776a5]
+0x14095601b: subsd    xmm0, xmm1
+0x14095601f: movsd    qword ptr [rsp + 8], xmm0
+0x140956025: call     0x1400a5700   ; math.archMax
+0x14095602a: xorps    xmm15, xmm15
+0x14095602e: mov      r14, qword ptr [rip + 0x1304f43]
+0x140956035: mov      r14, qword ptr gs:[r14]
+0x140956039: mov      r14, qword ptr [r14]
+0x14095603c: movsd    xmm0, qword ptr [rip + 0x87767c]
+0x140956044: movsd    xmm1, qword ptr [rsp + 0x78]
+0x14095604a: addsd    xmm0, xmm1
+0x14095604e: movsd    qword ptr [rsp + 0x70], xmm0
+0x140956054: movsd    xmm2, qword ptr [rip + 0x877674]
+0x14095605c: addsd    xmm2, xmm0
+0x140956060: movsd    xmm3, qword ptr [rsp + 0x10]
+0x140956066: movsd    qword ptr [rsp + 0x48], xmm3
+0x14095606c: movzx    eax, byte ptr [rip + 0x130495b]
+0x140956073: test     eax, eax
+0x140956075: je       0x14095607f   ; main.drawEllipseOnRGBA+0x17f
+0x140956077: roundsd  xmm2, xmm2, 2
+0x14095607d: jmp      0x14095608a   ; main.drawEllipseOnRGBA+0x18a
+0x14095607f: movups   xmm0, xmm2
+0x140956082: call     0x1400a3c20   ; math.Ceil
+0x140956087: movups   xmm2, xmm0
+0x14095608a: cvttsd2si rdx, xmm2
+0x14095608f: mov      rax, qword ptr [rsp + 0x90]
+0x140956097: sub      rax, rdx
+0x14095609a: mov      rbx, qword ptr [rsp + 0x98]
+0x1409560a2: sub      rbx, rdx
+0x1409560a5: mov      r11, qword ptr [rsp + 0xa0]
+0x1409560ad: lea      rcx, [r11 + rdx]
+0x1409560b1: mov      r11, qword ptr [rsp + 0xa8]
+0x1409560b9: lea      rdi, [r11 + rdx]
+0x1409560bd: mov      rdx, qword ptr [rsp + 0xc8]
+0x1409560c5: mov      r8, qword ptr [rdx + 0x28]
+0x1409560c9: mov      r9, qword ptr [rdx + 0x30]
+0x1409560cd: mov      r10, qword ptr [rdx + 0x38]
+0x1409560d1: mov      rsi, qword ptr [rdx + 0x20]
+0x1409560d5: cmp      rax, rcx
+0x1409560d8: mov      rdx, rax
+0x1409560db: cmovg    rdx, rcx
+0x1409560df: cmovg    rcx, rax
+0x1409560e3: cmp      rbx, rdi
+0x1409560e6: mov      r11, rbx
+0x1409560e9: cmovg    r11, rdi
+0x1409560ed: cmovg    rdi, rbx
+0x1409560f1: mov      rax, rdx
+0x1409560f4: mov      rbx, r11
+0x1409560f7: call     0x1401a1160   ; image.Rectangle.Intersect
+0x1409560fc: nop      dword ptr [rax]
+0x140956100: cmp      rax, rcx
+0x140956103: jge      0x140956142   ; main.drawEllipseOnRGBA+0x242
+0x140956105: cmp      rbx, rdi
+0x140956108: jge      0x140956142   ; main.drawEllipseOnRGBA+0x242
+0x14095610a: mov      qword ptr [rsp + 0xa8], rdi
+0x140956112: mov      qword ptr [rsp + 0xa0], rcx
+0x14095611a: mov      qword ptr [rsp + 0x98], rax
+0x140956122: movsd    xmm2, qword ptr [rsp + 0x88]
+0x14095612b: movsd    xmm3, qword ptr [rsp + 0x80]
+0x140956134: movsd    xmm4, qword ptr [rsp + 0x68]
+0x14095613a: movsd    xmm5, qword ptr [rsp + 0x60]
+0x140956140: jmp      0x14095615a   ; main.drawEllipseOnRGBA+0x25a
+0x140956142: add      rsp, 0xb0
+0x140956149: pop      rbp
+0x14095614a: ret      
+0x14095614b: add      rsp, 0xb0
+0x140956152: pop      rbp
+0x140956153: ret      
+0x140956154: inc      rbx
+0x140956157: mov      rax, rdx
+0x14095615a: cmp      rdi, rbx
+0x14095615d: jle      0x140956169   ; main.drawEllipseOnRGBA+0x269
+0x14095615f: mov      qword ptr [rsp + 0x50], rbx
+0x140956164: mov      rdx, rax
+0x140956167: jmp      0x1409561b5   ; main.drawEllipseOnRGBA+0x2b5
+0x140956169: add      rsp, 0xb0
+0x140956170: pop      rbp
+0x140956171: ret      
+0x140956172: mov      rax, qword ptr [rsp + 0x58]
+0x140956177: inc      rax
+0x14095617a: mov      rcx, qword ptr [rsp + 0xa0]
+0x140956182: mov      rdx, qword ptr [rsp + 0x98]
+0x14095618a: mov      rbx, qword ptr [rsp + 0x50]
+0x14095618f: mov      rdi, qword ptr [rsp + 0xa8]
+0x140956197: movsd    xmm2, qword ptr [rsp + 0x88]
+0x1409561a0: movsd    xmm3, qword ptr [rsp + 0x80]
+0x1409561a9: movsd    xmm4, qword ptr [rsp + 0x68]
+0x1409561af: movsd    xmm5, qword ptr [rsp + 0x60]
+0x1409561b5: cmp      rcx, rax
+0x1409561b8: jle      0x140956154   ; main.drawEllipseOnRGBA+0x254
+0x1409561ba: mov      qword ptr [rsp + 0x58], rax
+0x1409561bf: xorps    xmm0, xmm0
+0x1409561c2: cvtsi2sd xmm0, rax
+0x1409561c7: xorps    xmm1, xmm1
+0x1409561ca: cvtsi2sd xmm1, rbx
+0x1409561cf: call     0x140958f00   ; main.qrCodeEllipseStrokeDistance
+0x1409561d4: movsd    xmm6, qword ptr [rsp + 0x48]
+0x1409561da: ucomisd  xmm6, xmm0
+0x1409561de: nop      
+0x1409561e0: jae      0x1409562b9   ; main.drawEllipseOnRGBA+0x3b9
+0x1409561e6: movsd    xmm7, qword ptr [rsp + 0x70]
+0x1409561ec: ucomisd  xmm0, xmm7
+0x1409561f0: ja       0x140956172   ; main.drawEllipseOnRGBA+0x272
+0x1409561f2: mov      rax, qword ptr [rsp + 0x58]
+0x1409561f7: mov      rbx, qword ptr [rsp + 0x50]
+0x1409561fc: movsd    xmm0, qword ptr [rsp + 0x88]
+0x140956205: movsd    xmm1, qword ptr [rsp + 0x80]
+0x14095620e: movsd    xmm2, qword ptr [rsp + 0x68]
+0x140956214: movsd    xmm3, qword ptr [rsp + 0x60]
+0x14095621a: movsd    xmm4, qword ptr [rsp + 0x78]
+0x140956220: call     0x140959080   ; main.qrCodeEllipseStrokePixelCoverage
+0x140956225: xorps    xmm5, xmm5
+0x140956228: ucomisd  xmm5, xmm0
+0x14095622c: jb       0x14095623f   ; main.drawEllipseOnRGBA+0x33f
+0x14095622e: movsd    xmm6, qword ptr [rsp + 0x48]
+0x140956234: movsd    xmm7, qword ptr [rsp + 0x70]
+0x14095623a: jmp      0x140956172   ; main.drawEllipseOnRGBA+0x272
+0x14095623f: movzx    edx, byte ptr [rsp + 0x47]
+0x140956244: movzx    r10d, dl
+0x140956248: xorps    xmm1, xmm1
+0x14095624b: cvtsi2sd xmm1, r10d
+0x140956250: mulsd    xmm1, xmm0
+0x140956254: movsd    xmm0, qword ptr [rip + 0x877424]
+0x14095625c: addsd    xmm1, xmm0
+0x140956260: cvttsd2si r10, xmm1
+0x140956265: test     r10, r10
+0x140956268: jge      0x14095626f   ; main.drawEllipseOnRGBA+0x36f
+0x14095626a: xor      r10d, r10d
+0x14095626d: jmp      0x14095627e   ; main.drawEllipseOnRGBA+0x37e
+0x14095626f: cmp      r10, 0xff
+0x140956276: jle      0x14095627e   ; main.drawEllipseOnRGBA+0x37e
+0x140956278: mov      r10d, 0xff
+0x14095627e: mov      rax, qword ptr [rsp + 0xc8]
+0x140956286: mov      rbx, qword ptr [rsp + 0x58]
+0x14095628b: mov      rcx, qword ptr [rsp + 0x50]
+0x140956290: movzx    edi, byte ptr [rsp + 0x44]
+0x140956295: movzx    esi, byte ptr [rsp + 0x45]
+0x14095629a: movzx    r8d, byte ptr [rsp + 0x46]
+0x1409562a0: mov      r9, r10
+0x1409562a3: call     0x1409597a0   ; main.blendQRCodeRGBAPixel
+0x1409562a8: movsd    xmm6, qword ptr [rsp + 0x48]
+0x1409562ae: movsd    xmm7, qword ptr [rsp + 0x70]
+0x1409562b4: jmp      0x140956172   ; main.drawEllipseOnRGBA+0x272
+0x1409562b9: mov      rax, qword ptr [rsp + 0xc8]
+0x1409562c1: mov      rbx, qword ptr [rsp + 0x58]
+0x1409562c6: mov      rcx, qword ptr [rsp + 0x50]
+0x1409562cb: movzx    edi, byte ptr [rsp + 0x44]
+0x1409562d0: movzx    esi, byte ptr [rsp + 0x45]
+0x1409562d5: movzx    r8d, byte ptr [rsp + 0x46]
+0x1409562db: movzx    r9d, byte ptr [rsp + 0x47]
+0x1409562e1: call     0x1409597a0   ; main.blendQRCodeRGBAPixel
+0x1409562e6: movsd    xmm6, qword ptr [rsp + 0x48]
+0x1409562ec: movsd    xmm7, qword ptr [rsp + 0x70]
+0x1409562f2: jmp      0x140956172   ; main.drawEllipseOnRGBA+0x272
+0x1409562f7: mov      qword ptr [rsp + 0x10], rax
+0x1409562fc: mov      qword ptr [rsp + 0x18], rbx
+0x140956301: mov      qword ptr [rsp + 0x20], rcx
+0x140956306: mov      qword ptr [rsp + 0x28], rdi
+0x14095630b: mov      qword ptr [rsp + 0x30], rsi
+0x140956310: mov      byte ptr [rsp + 0x38], r8b
+0x140956315: mov      byte ptr [rsp + 0x39], r9b
+0x14095631a: mov      byte ptr [rsp + 0x3a], r10b
+0x14095631f: mov      byte ptr [rsp + 0x3b], r11b
+0x140956324: call     0x14007f140   ; runtime.morestack_noctxt
+0x140956329: mov      rax, qword ptr [rsp + 0x10]
+0x14095632e: mov      rbx, qword ptr [rsp + 0x18]
+0x140956333: mov      rcx, qword ptr [rsp + 0x20]
+0x140956338: mov      rdi, qword ptr [rsp + 0x28]
+0x14095633d: mov      rsi, qword ptr [rsp + 0x30]
+0x140956342: movzx    r8d, byte ptr [rsp + 0x38]
+0x140956348: movzx    r9d, byte ptr [rsp + 0x39]
+0x14095634e: movzx    r10d, byte ptr [rsp + 0x3a]
+0x140956354: movzx    r11d, byte ptr [rsp + 0x3b]
+0x14095635a: jmp      0x140955f00   ; main.drawEllipseOnRGBA
+0x14095635f: int3     

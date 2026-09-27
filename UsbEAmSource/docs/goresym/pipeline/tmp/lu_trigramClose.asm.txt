@@ -1,0 +1,57 @@
+0x1407e1920: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407e1924: jbe      0x1407e1999   ; main.volumeNameTrigramIndex.close+0x79
+0x1407e1926: push     rbp
+0x1407e1927: mov      rbp, rsp
+0x1407e192a: sub      rsp, 8
+0x1407e192e: test     rax, rax
+0x1407e1931: je       0x1407e198f   ; main.volumeNameTrigramIndex.close+0x6f
+0x1407e1933: cmp      byte ptr [rax + 0x40], 0
+0x1407e1937: jne      0x1407e198f   ; main.volumeNameTrigramIndex.close+0x6f
+0x1407e1939: cmp      qword ptr [rax + 0x38], 0
+0x1407e193e: nop      
+0x1407e1940: je       0x1407e198f   ; main.volumeNameTrigramIndex.close+0x6f
+0x1407e1942: mov      byte ptr [rax + 0x40], 1
+0x1407e1946: mov      rcx, qword ptr [rax + 0x38]
+0x1407e194a: cmp      dword ptr [rip + 0x14799ff], 0
+0x1407e1951: je       0x1407e196c   ; main.volumeNameTrigramIndex.close+0x4c
+0x1407e1953: mov      rdx, qword ptr [rax + 0x38]
+0x1407e1957: mov      rbx, qword ptr [rax + 0x20]
+0x1407e195b: nop      dword ptr [rax + rax]
+0x1407e1960: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407e1965: mov      qword ptr [r11], rdx
+0x1407e1968: mov      qword ptr [r11 + 8], rbx
+0x1407e196c: mov      qword ptr [rax + 0x38], 0
+0x1407e1974: movups   xmmword ptr [rax + 0x28], xmm15
+0x1407e1979: mov      qword ptr [rax + 0x20], 0
+0x1407e1981: mov      rax, rcx
+0x1407e1984: call     0x1407fd880   ; main.volumeIndexMappedFile.Close
+0x1407e1989: add      rsp, 8
+0x1407e198d: pop      rbp
+0x1407e198e: ret      
+0x1407e198f: xor      eax, eax
+0x1407e1991: xor      ebx, ebx
+0x1407e1993: add      rsp, 8
+0x1407e1997: pop      rbp
+0x1407e1998: ret      
+0x1407e1999: mov      qword ptr [rsp + 8], rax
+0x1407e199e: nop      
+0x1407e19a0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407e19a5: mov      rax, qword ptr [rsp + 8]
+0x1407e19aa: jmp      0x1407e1920   ; main.volumeNameTrigramIndex.close
+0x1407e19af: int3     
+0x1407e19b0: int3     
+0x1407e19b1: int3     
+0x1407e19b2: int3     
+0x1407e19b3: int3     
+0x1407e19b4: int3     
+0x1407e19b5: int3     
+0x1407e19b6: int3     
+0x1407e19b7: int3     
+0x1407e19b8: int3     
+0x1407e19b9: int3     
+0x1407e19ba: int3     
+0x1407e19bb: int3     
+0x1407e19bc: int3     
+0x1407e19bd: int3     
+0x1407e19be: int3     
+0x1407e19bf: int3     

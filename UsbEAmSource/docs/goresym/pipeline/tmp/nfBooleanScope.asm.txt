@@ -1,0 +1,71 @@
+0x14087b060: cmp      rsp, qword ptr [r14 + 0x10]
+0x14087b064: jbe      0x14087b0c8   ; main.normalizeFileLocatorBooleanScope+0x68
+0x14087b066: push     rbp
+0x14087b067: mov      rbp, rsp
+0x14087b06a: sub      rsp, 0x10
+0x14087b06e: mov      qword ptr [rsp + 0x20], rax
+0x14087b073: call     0x1400a2200   ; strings.TrimSpace
+0x14087b078: call     0x1400a1500   ; strings.ToLower
+0x14087b07d: nop      dword ptr [rax]
+0x14087b080: cmp      rbx, 4
+0x14087b084: jne      0x14087b090   ; main.normalizeFileLocatorBooleanScope+0x30
+0x14087b086: cmp      dword ptr [rax], 0x656e696c
+0x14087b08c: je       0x14087b0a4   ; main.normalizeFileLocatorBooleanScope+0x44
+0x14087b08e: jmp      0x14087b0b6   ; main.normalizeFileLocatorBooleanScope+0x56
+0x14087b090: cmp      rbx, 5
+0x14087b094: jne      0x14087b0b6   ; main.normalizeFileLocatorBooleanScope+0x56
+0x14087b096: cmp      dword ptr [rax], 0x656e696c
+0x14087b09c: jne      0x14087b0b6   ; main.normalizeFileLocatorBooleanScope+0x56
+0x14087b09e: cmp      byte ptr [rax + 4], 0x73
+0x14087b0a2: jne      0x14087b0b6   ; main.normalizeFileLocatorBooleanScope+0x56
+0x14087b0a4: lea      rax, [rip + 0x3b9857]
+0x14087b0ab: mov      ebx, 4
+0x14087b0b0: add      rsp, 0x10
+0x14087b0b4: pop      rbp
+0x14087b0b5: ret      
+0x14087b0b6: lea      rax, [rip + 0x3b9621]
+0x14087b0bd: mov      ebx, 4
+0x14087b0c2: add      rsp, 0x10
+0x14087b0c6: pop      rbp
+0x14087b0c7: ret      
+0x14087b0c8: mov      qword ptr [rsp + 8], rax
+0x14087b0cd: mov      qword ptr [rsp + 0x10], rbx
+0x14087b0d2: call     0x14007f140   ; runtime.morestack_noctxt
+0x14087b0d7: mov      rax, qword ptr [rsp + 8]
+0x14087b0dc: mov      rbx, qword ptr [rsp + 0x10]
+0x14087b0e1: jmp      0x14087b060   ; main.normalizeFileLocatorBooleanScope
+0x14087b0e6: int3     
+0x14087b0e7: int3     
+0x14087b0e8: int3     
+0x14087b0e9: int3     
+0x14087b0ea: int3     
+0x14087b0eb: int3     
+0x14087b0ec: int3     
+0x14087b0ed: int3     
+0x14087b0ee: int3     
+0x14087b0ef: int3     
+0x14087b0f0: int3     
+0x14087b0f1: int3     
+0x14087b0f2: int3     
+0x14087b0f3: int3     
+0x14087b0f4: int3     
+0x14087b0f5: int3     
+0x14087b0f6: int3     
+0x14087b0f7: int3     
+0x14087b0f8: int3     
+0x14087b0f9: int3     
+0x14087b0fa: int3     
+0x14087b0fb: int3     
+0x14087b0fc: int3     
+0x14087b0fd: int3     
+0x14087b0fe: int3     
+0x14087b0ff: int3     
+0x14087b100: cmp      rsp, qword ptr [r14 + 0x10]
+0x14087b104: jbe      0x14087b219   ; main.normalizeFileLocatorFilterType+0x119
+0x14087b10a: push     rbp
+0x14087b10b: mov      rbp, rsp
+0x14087b10e: sub      rsp, 0x10
+0x14087b112: mov      qword ptr [rsp + 0x20], rax
+0x14087b117: call     0x1400a2200   ; strings.TrimSpace
+0x14087b11c: nop      dword ptr [rax]
+0x14087b120: call     0x1400a1500   ; strings.ToLower

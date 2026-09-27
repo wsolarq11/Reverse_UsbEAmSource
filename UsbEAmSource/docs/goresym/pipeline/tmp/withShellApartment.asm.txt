@@ -1,0 +1,89 @@
+0x1408af020: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408af024: jbe      0x1408af13c   ; main.withShellApartment+0x11c
+0x1408af02a: push     rbp
+0x1408af02b: mov      rbp, rsp
+0x1408af02e: sub      rsp, 0x58
+0x1408af032: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1408af038: mov      qword ptr [rsp + 0x68], rax
+0x1408af03d: mov      byte ptr [rsp + 0x27], 0
+0x1408af042: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1408af048: call     0x140052560   ; runtime.LockOSThread
+0x1408af04d: lea      rax, [rip + 0x7e7dbc]
+0x1408af054: mov      qword ptr [rsp + 0x48], rax
+0x1408af059: mov      byte ptr [rsp + 0x27], 1
+0x1408af05e: lea      rax, [rip + 0x24e97b]
+0x1408af065: call     0x14001ae20   ; runtime.newobject
+0x1408af06a: mov      qword ptr [rax + 8], 6
+0x1408af072: mov      rcx, qword ptr [rip + 0x13129c7]
+0x1408af079: mov      rbx, rax
+0x1408af07c: mov      edi, 2
+0x1408af081: mov      rax, rcx
+0x1408af084: mov      rcx, rdi
+0x1408af087: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1408af08c: test     rax, rax
+0x1408af08f: je       0x1408af097   ; main.withShellApartment+0x77
+0x1408af091: cmp      rax, 1
+0x1408af095: jne      0x1408af0c5   ; main.withShellApartment+0xa5
+0x1408af097: mov      rax, qword ptr [rip + 0x13129aa]
+0x1408af09e: lea      rcx, [rip + 0xbb]
+0x1408af0a5: mov      qword ptr [rsp + 0x38], rcx
+0x1408af0aa: mov      qword ptr [rsp + 0x40], rax
+0x1408af0af: lea      rax, [rsp + 0x38]
+0x1408af0b4: mov      qword ptr [rsp + 0x50], rax
+0x1408af0b9: mov      byte ptr [rsp + 0x27], 3
+0x1408af0be: mov      eax, 3
+0x1408af0c3: jmp      0x1408af0ca   ; main.withShellApartment+0xaa
+0x1408af0c5: mov      eax, 1
+0x1408af0ca: mov      byte ptr [rsp + 0x26], al
+0x1408af0ce: mov      rdx, qword ptr [rsp + 0x68]
+0x1408af0d3: mov      rax, qword ptr [rdx]
+0x1408af0d6: call     rax
+0x1408af0d8: mov      qword ptr [rsp + 0x28], rax
+0x1408af0dd: mov      qword ptr [rsp + 0x30], rbx
+0x1408af0e2: movzx    eax, byte ptr [rsp + 0x26]
+0x1408af0e7: test     al, 2
+0x1408af0e9: je       0x1408af107   ; main.withShellApartment+0xe7
+0x1408af0eb: and      eax, 0xfffffffd
+0x1408af0ee: mov      byte ptr [rsp + 0x26], al
+0x1408af0f2: mov      byte ptr [rsp + 0x27], al
+0x1408af0f6: mov      rdx, qword ptr [rsp + 0x50]
+0x1408af0fb: mov      rax, qword ptr [rdx]
+0x1408af0fe: nop      
+0x1408af100: call     rax
+0x1408af102: movzx    eax, byte ptr [rsp + 0x26]
+0x1408af107: test     al, 1
+0x1408af109: je       0x1408af117   ; main.withShellApartment+0xf7
+0x1408af10b: and      eax, 0xfffffffe
+0x1408af10e: mov      byte ptr [rsp + 0x27], al
+0x1408af112: call     0x1400525e0   ; runtime.UnlockOSThread
+0x1408af117: mov      rax, qword ptr [rsp + 0x28]
+0x1408af11c: mov      rbx, qword ptr [rsp + 0x30]
+0x1408af121: add      rsp, 0x58
+0x1408af125: pop      rbp
+0x1408af126: ret      
+0x1408af127: call     0x1400435e0   ; runtime.deferreturn
+0x1408af12c: mov      rax, qword ptr [rsp + 0x28]
+0x1408af131: mov      rbx, qword ptr [rsp + 0x30]
+0x1408af136: add      rsp, 0x58
+0x1408af13a: pop      rbp
+0x1408af13b: ret      
+0x1408af13c: mov      qword ptr [rsp + 8], rax
+0x1408af141: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408af146: mov      rax, qword ptr [rsp + 8]
+0x1408af14b: jmp      0x1408af020   ; main.withShellApartment
+0x1408af150: int3     
+0x1408af151: int3     
+0x1408af152: int3     
+0x1408af153: int3     
+0x1408af154: int3     
+0x1408af155: int3     
+0x1408af156: int3     
+0x1408af157: int3     
+0x1408af158: int3     
+0x1408af159: int3     
+0x1408af15a: int3     
+0x1408af15b: int3     
+0x1408af15c: int3     
+0x1408af15d: int3     
+0x1408af15e: int3     
+0x1408af15f: int3     

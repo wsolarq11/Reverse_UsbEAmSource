@@ -1,0 +1,50 @@
+0x1407a9ac0: lea      r12, [rsp - 0x20]
+0x1407a9ac5: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a9ac9: jbe      0x1407a9baf   ; main.BootstrapService.GetDesktopCalendarMonth+0xef
+0x1407a9acf: push     rbp
+0x1407a9ad0: mov      rbp, rsp
+0x1407a9ad3: sub      rsp, 0x98
+0x1407a9ada: mov      qword ptr [rsp + 0xb0], rbx
+0x1407a9ae2: mov      qword ptr [rsp + 0xb8], rcx
+0x1407a9aea: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1407a9af0: movups   xmmword ptr [rsp + 0x30], xmm15
+0x1407a9af6: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1407a9afc: movups   xmmword ptr [rsp + 0x50], xmm15
+0x1407a9b02: mov      rdx, qword ptr [rip + 0x1417e1f]
+0x1407a9b09: mov      rax, qword ptr [rdx]
+0x1407a9b0c: call     rax
+0x1407a9b0e: mov      rdi, rbx
+0x1407a9b11: mov      rsi, rcx
+0x1407a9b14: mov      rbx, qword ptr [rsp + 0xb8]
+0x1407a9b1c: mov      rcx, rax
+0x1407a9b1f: mov      rax, qword ptr [rsp + 0xb0]
+0x1407a9b27: call     0x1407a9f60   ; main.buildDesktopCalendarMonth
+0x1407a9b2c: mov      qword ptr [rsp + 0x60], rax
+0x1407a9b31: mov      qword ptr [rsp + 0x68], rbx
+0x1407a9b36: mov      qword ptr [rsp + 0x70], rcx
+0x1407a9b3b: mov      qword ptr [rsp + 0x78], rdi
+0x1407a9b40: mov      qword ptr [rsp + 0x80], rsi
+0x1407a9b48: mov      qword ptr [rsp + 0x88], r8
+0x1407a9b50: mov      qword ptr [rsp + 0x90], r9
+0x1407a9b58: mov      rax, qword ptr [rsp + 0x60]
+0x1407a9b5d: mov      qword ptr [rsp + 0x28], rax
+0x1407a9b62: movups   xmm0, xmmword ptr [rsp + 0x68]
+0x1407a9b67: movups   xmmword ptr [rsp + 0x30], xmm0
+0x1407a9b6c: movups   xmm0, xmmword ptr [rsp + 0x78]
+0x1407a9b71: movups   xmmword ptr [rsp + 0x40], xmm0
+0x1407a9b76: movups   xmm0, xmmword ptr [rsp + 0x88]
+0x1407a9b7e: movups   xmmword ptr [rsp + 0x50], xmm0
+0x1407a9b83: mov      rax, qword ptr [rsp + 0x28]
+0x1407a9b88: mov      rbx, qword ptr [rsp + 0x30]
+0x1407a9b8d: mov      rcx, qword ptr [rsp + 0x38]
+0x1407a9b92: mov      rdi, qword ptr [rsp + 0x40]
+0x1407a9b97: mov      rsi, qword ptr [rsp + 0x48]
+0x1407a9b9c: mov      r8, qword ptr [rsp + 0x50]
+0x1407a9ba1: mov      r9, qword ptr [rsp + 0x58]
+0x1407a9ba6: add      rsp, 0x98
+0x1407a9bad: pop      rbp
+0x1407a9bae: ret      
+0x1407a9baf: mov      qword ptr [rsp + 8], rax
+0x1407a9bb4: mov      qword ptr [rsp + 0x10], rbx
+0x1407a9bb9: mov      qword ptr [rsp + 0x18], rcx
+0x1407a9bbe: nop      

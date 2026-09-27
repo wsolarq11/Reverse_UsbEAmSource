@@ -1,0 +1,385 @@
+0x1409d79e0: lea      r12, [rsp - 0x108]
+0x1409d79e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1409d79ec: jbe      0x1409d822d   ; main.buildOTPAuthEntryFromProvisioning+0x84d
+0x1409d79f2: push     rbp
+0x1409d79f3: mov      rbp, rsp
+0x1409d79f6: sub      rsp, 0x180
+0x1409d79fd: mov      qword ptr [rsp + 0x260], rax
+0x1409d7a05: mov      qword ptr [rsp + 0x268], rbx
+0x1409d7a0d: lea      rdi, [rsp + 0x190]
+0x1409d7a15: lea      rdi, [rdi - 0x30]
+0x1409d7a19: nop      dword ptr [rax]
+0x1409d7a20: mov      qword ptr [rsp - 0x10], rbp
+0x1409d7a25: lea      rbp, [rsp - 0x10]
+0x1409d7a2a: call     0x140081702   ; runtime.duffzero+0x122
+0x1409d7a2f: mov      rbp, qword ptr [rbp]
+0x1409d7a33: mov      rcx, qword ptr [rax + 0x28]
+0x1409d7a37: mov      rbx, qword ptr [rax + 0x30]
+0x1409d7a3b: mov      rax, rcx
+0x1409d7a3e: nop      
+0x1409d7a40: call     0x1400a2200   ; strings.TrimSpace
+0x1409d7a45: call     0x1400a1500   ; strings.ToLower
+0x1409d7a4a: mov      qword ptr [rsp + 0x88], rbx
+0x1409d7a52: mov      qword ptr [rsp + 0xe8], rax
+0x1409d7a5a: nop      word ptr [rax + rax]
+0x1409d7a60: cmp      rbx, 4
+0x1409d7a64: jne      0x1409d7a6e   ; main.buildOTPAuthEntryFromProvisioning+0x8e
+0x1409d7a66: cmp      dword ptr [rax], 0x70746f74
+0x1409d7a6c: je       0x1409d7ad9   ; main.buildOTPAuthEntryFromProvisioning+0xf9
+0x1409d7a6e: cmp      rbx, 5
+0x1409d7a72: jne      0x1409d7a82   ; main.buildOTPAuthEntryFromProvisioning+0xa2
+0x1409d7a74: cmp      dword ptr [rax], 0x61657473
+0x1409d7a7a: jne      0x1409d7a82   ; main.buildOTPAuthEntryFromProvisioning+0xa2
+0x1409d7a7c: cmp      byte ptr [rax + 4], 0x6d
+0x1409d7a80: je       0x1409d7ad9   ; main.buildOTPAuthEntryFromProvisioning+0xf9
+0x1409d7a82: lea      rax, [rip + 0x17c8f7]
+0x1409d7a89: call     0x14001ae20   ; runtime.newobject
+0x1409d7a8e: mov      qword ptr [rax + 8], 0x1d
+0x1409d7a96: lea      rcx, [rip + 0x295e2b]
+0x1409d7a9d: mov      qword ptr [rax], rcx
+0x1409d7aa0: lea      rdi, [rsp + 0x190]
+0x1409d7aa8: lea      rdi, [rdi - 0x30]
+0x1409d7aac: mov      qword ptr [rsp - 0x10], rbp
+0x1409d7ab1: lea      rbp, [rsp - 0x10]
+0x1409d7ab6: call     0x140081702   ; runtime.duffzero+0x122
+0x1409d7abb: mov      rbp, qword ptr [rbp]
+0x1409d7abf: xor      ebx, ebx
+0x1409d7ac1: mov      rcx, rbx
+0x1409d7ac4: lea      rdi, [rip + 0x7fb635]
+0x1409d7acb: mov      rsi, rax
+0x1409d7ace: xor      eax, eax
+0x1409d7ad0: add      rsp, 0x180
+0x1409d7ad7: pop      rbp
+0x1409d7ad8: ret      
+0x1409d7ad9: movups   xmmword ptr [rsp + 0x140], xmm15
+0x1409d7ae2: movups   xmmword ptr [rsp + 0x150], xmm15
+0x1409d7aeb: movups   xmmword ptr [rsp + 0x160], xmm15
+0x1409d7af4: movups   xmmword ptr [rsp + 0x170], xmm15
+0x1409d7afd: mov      qword ptr [rsp + 0x148], 6
+0x1409d7b09: lea      rdx, [rip + 0x25fc30]
+0x1409d7b10: mov      qword ptr [rsp + 0x140], rdx
+0x1409d7b18: mov      qword ptr [rsp + 0x158], 0xd
+0x1409d7b24: lea      rdx, [rip + 0x2766a9]
+0x1409d7b2b: mov      qword ptr [rsp + 0x150], rdx
+0x1409d7b33: mov      qword ptr [rsp + 0x168], 0xc
+0x1409d7b3f: lea      rdx, [rip + 0x273ffa]
+0x1409d7b46: mov      qword ptr [rsp + 0x160], rdx
+0x1409d7b4e: mov      qword ptr [rsp + 0x178], 3
+0x1409d7b5a: lea      rdx, [rip + 0x25c00b]
+0x1409d7b61: mov      qword ptr [rsp + 0x170], rdx
+0x1409d7b69: mov      rax, qword ptr [rsp + 0x268]
+0x1409d7b71: lea      rbx, [rsp + 0x140]
+0x1409d7b79: mov      ecx, 4
+0x1409d7b7e: mov      rdi, rcx
+0x1409d7b81: call     0x1409d83e0   ; main.firstNonEmptyQueryValue
+0x1409d7b86: test     rbx, rbx
+0x1409d7b89: je       0x1409d81c6   ; main.buildOTPAuthEntryFromProvisioning+0x7e6
+0x1409d7b8f: mov      qword ptr [rsp + 0x38], rbx
+0x1409d7b94: mov      qword ptr [rsp + 0xa8], rax
+0x1409d7b9c: mov      rcx, qword ptr [rsp + 0x260]
+0x1409d7ba4: mov      rax, qword ptr [rcx + 0x38]
+0x1409d7ba8: mov      rbx, qword ptr [rcx + 0x40]
+0x1409d7bac: call     0x1409d8260   ; main.decodeProvisioningLabel
+0x1409d7bb1: call     0x1409d8300   ; main.splitProvisioningLabel
+0x1409d7bb6: mov      qword ptr [rsp + 0xc0], rax
+0x1409d7bbe: mov      qword ptr [rsp + 0xc8], rcx
+0x1409d7bc6: mov      qword ptr [rsp + 0x60], rbx
+0x1409d7bcb: mov      qword ptr [rsp + 0x68], rdi
+0x1409d7bd0: mov      qword ptr [rsp + 0x138], 6
+0x1409d7bdc: lea      rcx, [rip + 0x25fb63]
+0x1409d7be3: mov      qword ptr [rsp + 0x130], rcx
+0x1409d7beb: mov      rax, qword ptr [rsp + 0x268]
+0x1409d7bf3: lea      rbx, [rsp + 0x130]
+0x1409d7bfb: mov      ecx, 1
+0x1409d7c00: mov      rdi, rcx
+0x1409d7c03: call     0x1409d83e0   ; main.firstNonEmptyQueryValue
+0x1409d7c08: mov      qword ptr [rsp + 0xd8], rax
+0x1409d7c10: mov      qword ptr [rsp + 0x78], rbx
+0x1409d7c15: movups   xmmword ptr [rsp + 0x100], xmm15
+0x1409d7c1e: movups   xmmword ptr [rsp + 0x110], xmm15
+0x1409d7c27: movups   xmmword ptr [rsp + 0x120], xmm15
+0x1409d7c30: mov      qword ptr [rsp + 0x108], 7
+0x1409d7c3c: lea      rcx, [rip + 0x26192c]
+0x1409d7c43: mov      qword ptr [rsp + 0x100], rcx
+0x1409d7c4b: mov      qword ptr [rsp + 0x118], 0xb
+0x1409d7c57: lea      rcx, [rip + 0x26fa30]
+0x1409d7c5e: mov      qword ptr [rsp + 0x110], rcx
+0x1409d7c66: mov      qword ptr [rsp + 0x128], 4
+0x1409d7c72: lea      rcx, [rip + 0x25cb25]
+0x1409d7c79: mov      qword ptr [rsp + 0x120], rcx
+0x1409d7c81: mov      rax, qword ptr [rsp + 0x268]
+0x1409d7c89: lea      rbx, [rsp + 0x100]
+0x1409d7c91: mov      ecx, 3
+0x1409d7c96: mov      rdi, rcx
+0x1409d7c99: call     0x1409d83e0   ; main.firstNonEmptyQueryValue
+0x1409d7c9e: mov      rcx, qword ptr [rsp + 0x78]
+0x1409d7ca3: test     rcx, rcx
+0x1409d7ca6: mov      rdx, qword ptr [rsp + 0x60]
+0x1409d7cab: cmove    rcx, rdx
+0x1409d7caf: mov      qword ptr [rsp + 0x78], rcx
+0x1409d7cb4: mov      rsi, qword ptr [rsp + 0xd8]
+0x1409d7cbc: mov      rdi, qword ptr [rsp + 0xc0]
+0x1409d7cc4: cmove    rsi, rdi
+0x1409d7cc8: mov      qword ptr [rsp + 0xd8], rsi
+0x1409d7cd0: test     rbx, rbx
+0x1409d7cd3: mov      r8, qword ptr [rsp + 0x68]
+0x1409d7cd8: cmovne   r8, rbx
+0x1409d7cdc: mov      qword ptr [rsp + 0xa0], r8
+0x1409d7ce4: mov      r9, qword ptr [rsp + 0xc8]
+0x1409d7cec: cmovne   r9, rax
+0x1409d7cf0: mov      qword ptr [rsp + 0xf8], r9
+0x1409d7cf8: mov      r10, qword ptr [rsp + 0x88]
+0x1409d7d00: cmp      r10, 5
+0x1409d7d04: jne      0x1409d7d25   ; main.buildOTPAuthEntryFromProvisioning+0x345
+0x1409d7d06: mov      r10, qword ptr [rsp + 0xe8]
+0x1409d7d0e: cmp      dword ptr [r10], 0x61657473
+0x1409d7d15: jne      0x1409d7d25   ; main.buildOTPAuthEntryFromProvisioning+0x345
+0x1409d7d17: cmp      byte ptr [r10 + 4], 0x6d
+0x1409d7d1c: jne      0x1409d7d25   ; main.buildOTPAuthEntryFromProvisioning+0x345
+0x1409d7d1e: mov      eax, 1
+0x1409d7d23: jmp      0x1409d7d66   ; main.buildOTPAuthEntryFromProvisioning+0x386
+0x1409d7d25: mov      rax, rsi
+0x1409d7d28: mov      rbx, rcx
+0x1409d7d2b: lea      rcx, [rip + 0x25e062]
+0x1409d7d32: mov      edi, 5
+0x1409d7d37: call     0x1400a2c40   ; strings.EqualFold
+0x1409d7d3c: mov      rcx, qword ptr [rsp + 0x78]
+0x1409d7d41: mov      rdx, qword ptr [rsp + 0x60]
+0x1409d7d46: mov      rsi, qword ptr [rsp + 0xd8]
+0x1409d7d4e: mov      rdi, qword ptr [rsp + 0xc0]
+0x1409d7d56: mov      r8, qword ptr [rsp + 0xa0]
+0x1409d7d5e: mov      r9, qword ptr [rsp + 0xf8]
+0x1409d7d66: test     al, al
+0x1409d7d68: jne      0x1409d7d99   ; main.buildOTPAuthEntryFromProvisioning+0x3b9
+0x1409d7d6a: mov      rax, rdi
+0x1409d7d6d: mov      rbx, rdx
+0x1409d7d70: lea      rcx, [rip + 0x25e01d]
+0x1409d7d77: mov      edi, 5
+0x1409d7d7c: nop      dword ptr [rax]
+0x1409d7d80: call     0x1400a2c40   ; strings.EqualFold
+0x1409d7d85: test     al, al
+0x1409d7d87: je       0x1409d7db3   ; main.buildOTPAuthEntryFromProvisioning+0x3d3
+0x1409d7d89: mov      r8, qword ptr [rsp + 0xa0]
+0x1409d7d91: mov      r9, qword ptr [rsp + 0xf8]
+0x1409d7d99: mov      eax, 5
+0x1409d7d9e: lea      rcx, [rip + 0x25dfea]
+0x1409d7da5: mov      edx, 5
+0x1409d7daa: lea      rbx, [rip + 0x25dfe3]
+0x1409d7db1: jmp      0x1409d7dcc   ; main.buildOTPAuthEntryFromProvisioning+0x3ec
+0x1409d7db3: mov      eax, 4
+0x1409d7db8: lea      rcx, [rip + 0x25cbc7]
+0x1409d7dbf: mov      rdx, qword ptr [rsp + 0x78]
+0x1409d7dc4: mov      rbx, qword ptr [rsp + 0xd8]
+0x1409d7dcc: mov      qword ptr [rsp + 0xd0], rcx
+0x1409d7dd4: mov      qword ptr [rsp + 0x78], rdx
+0x1409d7dd9: mov      qword ptr [rsp + 0xd8], rbx
+0x1409d7de1: mov      qword ptr [rsp + 0x70], rax
+0x1409d7de6: mov      qword ptr [rsp + 0x138], 9
+0x1409d7df2: lea      rdx, [rip + 0x267ae1]
+0x1409d7df9: mov      qword ptr [rsp + 0x130], rdx
+0x1409d7e01: mov      rax, qword ptr [rsp + 0x268]
+0x1409d7e09: lea      rbx, [rsp + 0x130]
+0x1409d7e11: mov      ecx, 1
+0x1409d7e16: mov      rdi, rcx
+0x1409d7e19: call     0x1409d83e0   ; main.firstNonEmptyQueryValue
+0x1409d7e1e: mov      rcx, qword ptr [rsp + 0xd0]
+0x1409d7e26: mov      rdi, qword ptr [rsp + 0x70]
+0x1409d7e2b: call     0x1409c83e0   ; main.sanitizeTwoFactorAlgorithm
+0x1409d7e30: mov      qword ptr [rsp + 0xf0], rax
+0x1409d7e38: mov      qword ptr [rsp + 0x98], rbx
+0x1409d7e40: mov      qword ptr [rsp + 0x138], 6
+0x1409d7e4c: lea      rdx, [rip + 0x25f8f9]
+0x1409d7e53: mov      qword ptr [rsp + 0x130], rdx
+0x1409d7e5b: mov      rax, qword ptr [rsp + 0x268]
+0x1409d7e63: lea      rbx, [rsp + 0x130]
+0x1409d7e6b: mov      ecx, 1
+0x1409d7e70: mov      rdi, rcx
+0x1409d7e73: call     0x1409d83e0   ; main.firstNonEmptyQueryValue
+0x1409d7e78: call     0x1409d84c0   ; main.parseTwoFactorOptionalInt
+0x1409d7e7d: mov      qword ptr [rsp + 0x90], rax
+0x1409d7e85: mov      qword ptr [rsp + 0x138], 6
+0x1409d7e91: lea      rdx, [rip + 0x25f8ba]
+0x1409d7e98: mov      qword ptr [rsp + 0x130], rdx
+0x1409d7ea0: mov      rax, qword ptr [rsp + 0x268]
+0x1409d7ea8: lea      rbx, [rsp + 0x130]
+0x1409d7eb0: mov      ecx, 1
+0x1409d7eb5: mov      rdi, rcx
+0x1409d7eb8: call     0x1409d83e0   ; main.firstNonEmptyQueryValue
+0x1409d7ebd: nop      dword ptr [rax]
+0x1409d7ec0: call     0x1409d84c0   ; main.parseTwoFactorOptionalInt
+0x1409d7ec5: mov      qword ptr [rsp + 0x50], rax
+0x1409d7eca: mov      qword ptr [rsp + 0x138], 5
+0x1409d7ed6: lea      rdx, [rip + 0x25dec1]
+0x1409d7edd: mov      qword ptr [rsp + 0x130], rdx
+0x1409d7ee5: mov      rax, qword ptr [rsp + 0x268]
+0x1409d7eed: lea      rbx, [rsp + 0x130]
+0x1409d7ef5: mov      ecx, 1
+0x1409d7efa: mov      rdi, rcx
+0x1409d7efd: nop      dword ptr [rax]
+0x1409d7f00: call     0x1409d83e0   ; main.firstNonEmptyQueryValue
+0x1409d7f05: test     rbx, rbx
+0x1409d7f08: mov      r8, qword ptr [rsp + 0xa0]
+0x1409d7f10: mov      rdx, r8
+0x1409d7f13: cmovne   rdx, rbx
+0x1409d7f17: mov      rsi, qword ptr [rsp + 0xf8]
+0x1409d7f1f: mov      r9, rsi
+0x1409d7f22: cmovne   r9, rax
+0x1409d7f26: test     rdx, rdx
+0x1409d7f29: jne      0x1409d7f50   ; main.buildOTPAuthEntryFromProvisioning+0x570
+0x1409d7f2b: mov      rax, qword ptr [rsp + 0xd0]
+0x1409d7f33: mov      rbx, qword ptr [rsp + 0x70]
+0x1409d7f38: mov      rcx, qword ptr [rsp + 0xd8]
+0x1409d7f40: mov      rdi, qword ptr [rsp + 0x78]
+0x1409d7f45: call     0x1409c84e0   ; main.resolveTwoFactorDisplayName
+0x1409d7f4a: mov      rdx, rbx
+0x1409d7f4d: mov      r9, rax
+0x1409d7f50: mov      qword ptr [rsp + 0x58], rdx
+0x1409d7f55: mov      qword ptr [rsp + 0xb8], r9
+0x1409d7f5d: mov      qword ptr [rsp + 0x138], 4
+0x1409d7f69: lea      rdx, [rip + 0x25c84e]
+0x1409d7f70: mov      qword ptr [rsp + 0x130], rdx
+0x1409d7f78: mov      rax, qword ptr [rsp + 0x268]
+0x1409d7f80: lea      rbx, [rsp + 0x130]
+0x1409d7f88: mov      ecx, 1
+0x1409d7f8d: mov      rdi, rcx
+0x1409d7f90: call     0x1409d83e0   ; main.firstNonEmptyQueryValue
+0x1409d7f95: call     0x1409d92a0   ; main.decodeTwoFactorProvisioningIcon
+0x1409d7f9a: mov      qword ptr [rsp + 0xe0], rax
+0x1409d7fa2: mov      qword ptr [rsp + 0x80], rbx
+0x1409d7faa: mov      rax, qword ptr [rsp + 0xa8]
+0x1409d7fb2: mov      rbx, qword ptr [rsp + 0x38]
+0x1409d7fb7: mov      rcx, qword ptr [rsp + 0xd0]
+0x1409d7fbf: mov      rdi, qword ptr [rsp + 0x70]
+0x1409d7fc4: call     0x1409d4440   ; main.decodeTwoFactorSecret
+0x1409d7fc9: test     rdi, rdi
+0x1409d7fcc: jne      0x1409d8186   ; main.buildOTPAuthEntryFromProvisioning+0x7a6
+0x1409d7fd2: mov      qword ptr [rsp + 0x48], rcx
+0x1409d7fd7: mov      qword ptr [rsp + 0x40], rbx
+0x1409d7fdc: mov      qword ptr [rsp + 0xb0], rax
+0x1409d7fe4: mov      rax, qword ptr [rsp + 0xd0]
+0x1409d7fec: mov      rbx, qword ptr [rsp + 0x70]
+0x1409d7ff1: call     0x1409c7ca0   ; main.sanitizeTwoFactorKind
+0x1409d7ff6: cmp      rbx, 5
+0x1409d7ffa: jne      0x1409d8011   ; main.buildOTPAuthEntryFromProvisioning+0x631
+0x1409d7ffc: cmp      dword ptr [rax], 0x61657473
+0x1409d8002: jne      0x1409d8011   ; main.buildOTPAuthEntryFromProvisioning+0x631
+0x1409d8004: cmp      byte ptr [rax + 4], 0x6d
+0x1409d8008: jne      0x1409d8011   ; main.buildOTPAuthEntryFromProvisioning+0x631
+0x1409d800a: mov      ecx, 5
+0x1409d800f: jmp      0x1409d802b   ; main.buildOTPAuthEntryFromProvisioning+0x64b
+0x1409d8011: mov      rcx, qword ptr [rsp + 0x90]
+0x1409d8019: lea      rdx, [rcx - 4]
+0x1409d801d: nop      dword ptr [rax]
+0x1409d8020: cmp      rdx, 6
+0x1409d8024: jbe      0x1409d802b   ; main.buildOTPAuthEntryFromProvisioning+0x64b
+0x1409d8026: mov      ecx, 6
+0x1409d802b: mov      qword ptr [rsp + 0x30], rcx
+0x1409d8030: mov      rax, qword ptr [rsp + 0xd0]
+0x1409d8038: mov      rbx, qword ptr [rsp + 0x70]
+0x1409d803d: nop      dword ptr [rax]
+0x1409d8040: call     0x1409c7ca0   ; main.sanitizeTwoFactorKind
+0x1409d8045: cmp      rbx, 5
+0x1409d8049: jne      0x1409d8062   ; main.buildOTPAuthEntryFromProvisioning+0x682
+0x1409d804b: cmp      dword ptr [rax], 0x61657473
+0x1409d8051: jne      0x1409d8062   ; main.buildOTPAuthEntryFromProvisioning+0x682
+0x1409d8053: cmp      byte ptr [rax + 4], 0x6d
+0x1409d8057: jne      0x1409d8062   ; main.buildOTPAuthEntryFromProvisioning+0x682
+0x1409d8059: mov      edx, 0x1e
+0x1409d805e: nop      
+0x1409d8060: jmp      0x1409d8079   ; main.buildOTPAuthEntryFromProvisioning+0x699
+0x1409d8062: mov      rdx, qword ptr [rsp + 0x50]
+0x1409d8067: lea      r8, [rdx - 5]
+0x1409d806b: cmp      r8, 0x127
+0x1409d8072: jbe      0x1409d8079   ; main.buildOTPAuthEntryFromProvisioning+0x699
+0x1409d8074: mov      edx, 0x1e
+0x1409d8079: lea      rdi, [rsp + 0x190]
+0x1409d8081: lea      rsi, [rip + 0x80a968]
+0x1409d8088: mov      qword ptr [rsp - 0x10], rbp
+0x1409d808d: lea      rbp, [rsp - 0x10]
+0x1409d8092: call     0x140081a2a   ; runtime.duffcopy+0x2ca
+0x1409d8097: mov      rbp, qword ptr [rbp]
+0x1409d809b: mov      r8, qword ptr [rsp + 0xd0]
+0x1409d80a3: mov      qword ptr [rsp + 0x1a0], r8
+0x1409d80ab: mov      r8, qword ptr [rsp + 0x70]
+0x1409d80b0: mov      qword ptr [rsp + 0x1a8], r8
+0x1409d80b8: mov      r8, qword ptr [rsp + 0xb8]
+0x1409d80c0: mov      qword ptr [rsp + 0x1b0], r8
+0x1409d80c8: mov      r8, qword ptr [rsp + 0x58]
+0x1409d80cd: mov      qword ptr [rsp + 0x1b8], r8
+0x1409d80d5: mov      r8, qword ptr [rsp + 0xd8]
+0x1409d80dd: mov      qword ptr [rsp + 0x1c0], r8
+0x1409d80e5: mov      r8, qword ptr [rsp + 0x78]
+0x1409d80ea: mov      qword ptr [rsp + 0x1c8], r8
+0x1409d80f2: mov      r8, qword ptr [rsp + 0xf8]
+0x1409d80fa: mov      qword ptr [rsp + 0x1d0], r8
+0x1409d8102: mov      r8, qword ptr [rsp + 0xa0]
+0x1409d810a: mov      qword ptr [rsp + 0x1d8], r8
+0x1409d8112: mov      r8, qword ptr [rsp + 0xe0]
+0x1409d811a: mov      qword ptr [rsp + 0x1f0], r8
+0x1409d8122: mov      r8, qword ptr [rsp + 0x80]
+0x1409d812a: mov      qword ptr [rsp + 0x1f8], r8
+0x1409d8132: mov      r8, qword ptr [rsp + 0xf0]
+0x1409d813a: mov      qword ptr [rsp + 0x220], r8
+0x1409d8142: mov      r8, qword ptr [rsp + 0x98]
+0x1409d814a: mov      qword ptr [rsp + 0x228], r8
+0x1409d8152: mov      r8, qword ptr [rsp + 0x30]
+0x1409d8157: mov      qword ptr [rsp + 0x230], r8
+0x1409d815f: mov      qword ptr [rsp + 0x238], rdx
+0x1409d8167: mov      rax, qword ptr [rsp + 0xb0]
+0x1409d816f: mov      rbx, qword ptr [rsp + 0x40]
+0x1409d8174: mov      rcx, qword ptr [rsp + 0x48]
+0x1409d8179: xor      edi, edi
+0x1409d817b: xor      esi, esi
+0x1409d817d: add      rsp, 0x180
+0x1409d8184: pop      rbp
+0x1409d8185: ret      
+0x1409d8186: mov      rax, rdi
+0x1409d8189: lea      rdi, [rsp + 0x190]
+0x1409d8191: lea      rdi, [rdi - 0x30]
+0x1409d8195: nop      word ptr [rax + rax]
+0x1409d819e: nop      
+0x1409d81a0: mov      qword ptr [rsp - 0x10], rbp
+0x1409d81a5: lea      rbp, [rsp - 0x10]
+0x1409d81aa: call     0x140081702   ; runtime.duffzero+0x122
+0x1409d81af: mov      rbp, qword ptr [rbp]
+0x1409d81b3: xor      ebx, ebx
+0x1409d81b5: mov      rcx, rbx
+0x1409d81b8: mov      rdi, rax
+0x1409d81bb: xor      eax, eax
+0x1409d81bd: add      rsp, 0x180
+0x1409d81c4: pop      rbp
+0x1409d81c5: ret      
+0x1409d81c6: lea      rax, [rip + 0x17c1b3]
+0x1409d81cd: call     0x14001ae20   ; runtime.newobject
+0x1409d81d2: mov      qword ptr [rax + 8], 0xe
+0x1409d81da: lea      rcx, [rip + 0x278673]
+0x1409d81e1: mov      qword ptr [rax], rcx
+0x1409d81e4: lea      rdi, [rsp + 0x190]
+0x1409d81ec: lea      rdi, [rdi - 0x30]
+0x1409d81f0: nop      word ptr [rax + rax]
+0x1409d81f9: nop      dword ptr [rax]
+0x1409d8200: mov      qword ptr [rsp - 0x10], rbp
+0x1409d8205: lea      rbp, [rsp - 0x10]
+0x1409d820a: call     0x140081702   ; runtime.duffzero+0x122
+0x1409d820f: mov      rbp, qword ptr [rbp]
+0x1409d8213: xor      ebx, ebx
+0x1409d8215: mov      rcx, rbx
+0x1409d8218: lea      rdi, [rip + 0x7faee1]
+0x1409d821f: mov      rsi, rax
+0x1409d8222: xor      eax, eax
+0x1409d8224: add      rsp, 0x180
+0x1409d822b: pop      rbp
+0x1409d822c: ret      
+0x1409d822d: mov      qword ptr [rsp + 0xd8], rax
+0x1409d8235: mov      qword ptr [rsp + 0xe0], rbx
+0x1409d823d: nop      dword ptr [rax]
+0x1409d8240: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d8245: mov      rax, qword ptr [rsp + 0xd8]
+0x1409d824d: mov      rbx, qword ptr [rsp + 0xe0]
+0x1409d8255: jmp      0x1409d79e0   ; main.buildOTPAuthEntryFromProvisioning
+0x1409d825a: int3     
+0x1409d825b: int3     
+0x1409d825c: int3     
+0x1409d825d: int3     
+0x1409d825e: int3     
+0x1409d825f: int3     

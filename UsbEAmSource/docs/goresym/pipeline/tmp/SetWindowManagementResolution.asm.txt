@@ -1,0 +1,110 @@
+0x140781620: lea      r12, [rsp - 0xa60]
+0x140781628: cmp      r12, qword ptr [r14 + 0x10]
+0x14078162c: jbe      0x1407817c2    ; main.BootstrapService.SetWindowManagementResolution+0x1a2
+0x140781632: push     rbp
+0x140781633: mov      rbp, rsp
+0x140781636: sub      rsp, 0xad8
+0x14078163d: mov      qword ptr [rsp + 0xd98], rax
+0x140781645: mov      edx, edi
+0x140781647: lea      rdi, [rsp + 0xae8]
+0x14078164f: lea      rdi, [rdi - 0x10]
+0x140781653: nop      word ptr [rax + rax]
+0x14078165c: nop      dword ptr [rax]
+0x140781660: mov      qword ptr [rsp - 0x10], rbp
+0x140781665: lea      rbp, [rsp - 0x10]
+0x14078166a: call     0x140081657    ; runtime.duffzero+0x77
+0x14078166f: mov      rbp, qword ptr [rbp]
+0x140781673: lea      rdi, [rsp + 0x828]
+0x14078167b: lea      rdi, [rdi - 0x10]
+0x14078167f: nop      
+0x140781680: mov      qword ptr [rsp - 0x10], rbp
+0x140781685: lea      rbp, [rsp - 0x10]
+0x14078168a: call     0x140081657    ; runtime.duffzero+0x77
+0x14078168f: mov      rbp, qword ptr [rbp]
+0x140781693: mov      rax, qword ptr [rax + 0x388]
+0x14078169a: mov      edi, edx
+0x14078169c: nop      dword ptr [rax]
+0x1407816a0: call     0x1409e25e0    ; main.windowManagementService.SetResolution
+0x1407816a5: lea      rdi, [rsp + 0x828]
+0x1407816ad: mov      rsi, rsp
+0x1407816b0: nop      word ptr [rax + rax]
+0x1407816b9: nop      dword ptr [rax]
+0x1407816c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407816c5: lea      rbp, [rsp - 0x10]
+0x1407816ca: call     0x140081886    ; runtime.duffcopy+0x126
+0x1407816cf: mov      rbp, qword ptr [rbp]
+0x1407816d3: lea      rdi, [rsp + 0x578]
+0x1407816db: lea      rsi, [rsp + 0x828]
+0x1407816e3: mov      qword ptr [rsp - 0x10], rbp
+0x1407816e8: lea      rbp, [rsp - 0x10]
+0x1407816ed: call     0x140081886    ; runtime.duffcopy+0x126
+0x1407816f2: mov      rbp, qword ptr [rbp]
+0x1407816f6: lea      rdi, [rsp + 0x828]
+0x1407816fe: lea      rdi, [rdi - 0x10]
+0x140781702: mov      qword ptr [rsp - 0x10], rbp
+0x140781707: lea      rbp, [rsp - 0x10]
+0x14078170c: call     0x140081657    ; runtime.duffzero+0x77
+0x140781711: mov      rbp, qword ptr [rbp]
+0x140781715: mov      rdi, rsp
+0x140781718: lea      rsi, [rsp + 0x578]
+0x140781720: mov      qword ptr [rsp - 0x10], rbp
+0x140781725: lea      rbp, [rsp - 0x10]
+0x14078172a: call     0x140081886    ; runtime.duffcopy+0x126
+0x14078172f: mov      rbp, qword ptr [rbp]
+0x140781733: mov      rcx, rbx
+0x140781736: mov      rbx, rax
+0x140781739: mov      rax, qword ptr [rsp + 0xd98]
+0x140781741: call     0x1408a4a80    ; main.BootstrapService.persistAndRefreshWindowManagementState
+0x140781746: lea      rdi, [rsp + 0x828]
+0x14078174e: lea      rsi, [rsp + 0x2b0]
+0x140781756: nop      word ptr [rax + rax]
+0x14078175f: nop      
+0x140781760: mov      qword ptr [rsp - 0x10], rbp
+0x140781765: lea      rbp, [rsp - 0x10]
+0x14078176a: call     0x140081886    ; runtime.duffcopy+0x126
+0x14078176f: mov      rbp, qword ptr [rbp]
+0x140781773: lea      rdi, [rsp + 0xae8]
+0x14078177b: lea      rsi, [rsp + 0x828]
+0x140781783: mov      qword ptr [rsp - 0x10], rbp
+0x140781788: lea      rbp, [rsp - 0x10]
+0x14078178d: call     0x140081886    ; runtime.duffcopy+0x126
+0x140781792: mov      rbp, qword ptr [rbp]
+0x140781796: lea      rdi, [rsp + 0xae8]
+0x14078179e: lea      rsi, [rsp + 0x828]
+0x1407817a6: mov      qword ptr [rsp - 0x10], rbp
+0x1407817ab: lea      rbp, [rsp - 0x10]
+0x1407817b0: call     0x140081886    ; runtime.duffcopy+0x126
+0x1407817b5: mov      rbp, qword ptr [rbp]
+0x1407817b9: add      rsp, 0xad8
+0x1407817c0: pop      rbp
+0x1407817c1: ret      
+0x1407817c2: mov      qword ptr [rsp + 0x2b8], rax
+0x1407817ca: mov      qword ptr [rsp + 0x2c0], rbx
+0x1407817d2: mov      qword ptr [rsp + 0x2c8], rcx
+0x1407817da: mov      byte ptr [rsp + 0x2d0], dil
+0x1407817e2: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407817e7: mov      rax, qword ptr [rsp + 0x2b8]
+0x1407817ef: mov      rbx, qword ptr [rsp + 0x2c0]
+0x1407817f7: mov      rcx, qword ptr [rsp + 0x2c8]
+0x1407817ff: movzx    edi, byte ptr [rsp + 0x2d0]
+0x140781807: jmp      0x140781620    ; main.BootstrapService.SetWindowManagementResolution
+0x14078180c: int3     
+0x14078180d: int3     
+0x14078180e: int3     
+0x14078180f: int3     
+0x140781810: int3     
+0x140781811: int3     
+0x140781812: int3     
+0x140781813: int3     
+0x140781814: int3     
+0x140781815: int3     
+0x140781816: int3     
+0x140781817: int3     
+0x140781818: int3     
+0x140781819: int3     
+0x14078181a: int3     
+0x14078181b: int3     
+0x14078181c: int3     
+0x14078181d: int3     
+0x14078181e: int3     
+0x14078181f: int3     

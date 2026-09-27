@@ -1,0 +1,106 @@
+0x14077fb00: lea      r12, [rsp - 0xd0]
+0x14077fb08: cmp      r12, qword ptr [r14 + 0x10]
+0x14077fb0c: jbe      0x14077fca7    ; main.BootstrapService.StopInputMonitor+0x1a7
+0x14077fb12: push     rbp
+0x14077fb13: mov      rbp, rsp
+0x14077fb16: sub      rsp, 0x148
+0x14077fb1d: movups   xmmword ptr [rsp + 0x158], xmm15
+0x14077fb26: lea      rdi, [rsp + 0x160]
+0x14077fb2e: lea      rdi, [rdi - 0x30]
+0x14077fb32: nop      word ptr [rax + rax]
+0x14077fb3b: nop      dword ptr [rax + rax]
+0x14077fb40: mov      qword ptr [rsp - 0x10], rbp
+0x14077fb45: lea      rbp, [rsp - 0x10]
+0x14077fb4a: call     0x140081719    ; runtime.duffzero+0x139
+0x14077fb4f: mov      rbp, qword ptr [rbp]
+0x14077fb53: test     rax, rax
+0x14077fb56: je       0x14077fc5c    ; main.BootstrapService.StopInputMonitor+0x15c
+0x14077fb5c: mov      rax, qword ptr [rax + 0x420]
+0x14077fb63: test     rax, rax
+0x14077fb66: je       0x14077fc5c    ; main.BootstrapService.StopInputMonitor+0x15c
+0x14077fb6c: movups   xmmword ptr [rsp + 0xb0], xmm15
+0x14077fb75: lea      rdi, [rsp + 0xb8]
+0x14077fb7d: lea      rdi, [rdi - 0x30]
+0x14077fb81: mov      qword ptr [rsp - 0x10], rbp
+0x14077fb86: lea      rbp, [rsp - 0x10]
+0x14077fb8b: call     0x140081719    ; runtime.duffzero+0x139
+0x14077fb90: mov      rbp, qword ptr [rbp]
+0x14077fb94: lea      rbx, [rip + 0x4bc579]
+0x14077fb9b: mov      ecx, 8
+0x14077fba0: call     0x140864340    ; main.inputMonitorService.StopOwner
+0x14077fba5: mov      rdx, qword ptr [rsp]
+0x14077fba9: mov      qword ptr [rsp + 0xb0], rdx
+0x14077fbb1: lea      rdi, [rsp + 0xb8]
+0x14077fbb9: lea      rsi, [rsp + 8]
+0x14077fbbe: nop      
+0x14077fbc0: mov      qword ptr [rsp - 0x10], rbp
+0x14077fbc5: lea      rbp, [rsp - 0x10]
+0x14077fbca: call     0x140081a62    ; runtime.duffcopy+0x302
+0x14077fbcf: mov      rbp, qword ptr [rbp]
+0x14077fbd3: mov      rdx, qword ptr [rsp + 0xb0]
+0x14077fbdb: mov      qword ptr [rsp + 0x158], rdx
+0x14077fbe3: lea      rdi, [rsp + 0x160]
+0x14077fbeb: lea      rsi, [rsp + 0xb8]
+0x14077fbf3: nop      word ptr [rax + rax]
+0x14077fbfc: nop      dword ptr [rax]
+0x14077fc00: mov      qword ptr [rsp - 0x10], rbp
+0x14077fc05: lea      rbp, [rsp - 0x10]
+0x14077fc0a: call     0x140081a62    ; runtime.duffcopy+0x302
+0x14077fc0f: mov      rbp, qword ptr [rbp]
+0x14077fc13: mov      rdx, qword ptr [rsp + 0xb0]
+0x14077fc1b: mov      qword ptr [rsp + 0x158], rdx
+0x14077fc23: lea      rdi, [rsp + 0x160]
+0x14077fc2b: lea      rsi, [rsp + 0xb8]
+0x14077fc33: nop      word ptr [rax + rax]
+0x14077fc3c: nop      dword ptr [rax]
+0x14077fc40: mov      qword ptr [rsp - 0x10], rbp
+0x14077fc45: lea      rbp, [rsp - 0x10]
+0x14077fc4a: call     0x140081a62    ; runtime.duffcopy+0x302
+0x14077fc4f: mov      rbp, qword ptr [rbp]
+0x14077fc53: add      rsp, 0x148
+0x14077fc5a: pop      rbp
+0x14077fc5b: ret      
+0x14077fc5c: mov      byte ptr [rsp + 0x158], 0
+0x14077fc64: lea      rcx, [rip + 0x4b96c6]
+0x14077fc6b: mov      qword ptr [rsp + 0x160], rcx
+0x14077fc73: mov      qword ptr [rsp + 0x168], 7
+0x14077fc7f: lea      rcx, [rip + 0x4e9f77]
+0x14077fc86: mov      qword ptr [rsp + 0x188], rcx
+0x14077fc8e: mov      qword ptr [rsp + 0x190], 0x1b
+0x14077fc9a: xor      eax, eax
+0x14077fc9c: xor      ebx, ebx
+0x14077fc9e: add      rsp, 0x148
+0x14077fca5: pop      rbp
+0x14077fca6: ret      
+0x14077fca7: mov      qword ptr [rsp + 0xa0], rax
+0x14077fcaf: call     0x14007f140    ; runtime.morestack_noctxt
+0x14077fcb4: mov      rax, qword ptr [rsp + 0xa0]
+0x14077fcbc: nop      dword ptr [rax]
+0x14077fcc0: jmp      0x14077fb00    ; main.BootstrapService.StopInputMonitor
+0x14077fcc5: int3     
+0x14077fcc6: int3     
+0x14077fcc7: int3     
+0x14077fcc8: int3     
+0x14077fcc9: int3     
+0x14077fcca: int3     
+0x14077fccb: int3     
+0x14077fccc: int3     
+0x14077fccd: int3     
+0x14077fcce: int3     
+0x14077fccf: int3     
+0x14077fcd0: int3     
+0x14077fcd1: int3     
+0x14077fcd2: int3     
+0x14077fcd3: int3     
+0x14077fcd4: int3     
+0x14077fcd5: int3     
+0x14077fcd6: int3     
+0x14077fcd7: int3     
+0x14077fcd8: int3     
+0x14077fcd9: int3     
+0x14077fcda: int3     
+0x14077fcdb: int3     
+0x14077fcdc: int3     
+0x14077fcdd: int3     
+0x14077fcde: int3     
+0x14077fcdf: int3     

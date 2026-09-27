@@ -1,0 +1,155 @@
+0x140749220: lea      r12, [rsp - 0x20]
+0x140749225: cmp      r12, qword ptr [r14 + 0x10]
+0x140749229: jbe      0x140749424    ; main.queryVersionValueLocation+0x204
+0x14074922f: push     rbp
+0x140749230: mov      rbp, rsp
+0x140749233: sub      rsp, 0x98
+0x14074923a: mov      qword ptr [rsp + 0xa8], rax
+0x140749242: mov      qword ptr [rsp + 0xc0], rdi
+0x14074924a: test     rbx, rbx
+0x14074924d: je       0x140749410    ; main.queryVersionValueLocation+0x1f0
+0x140749253: mov      qword ptr [rsp + 0xb0], rbx
+0x14074925b: mov      qword ptr [rsp + 0xb8], rcx
+0x140749263: mov      qword ptr [rsp + 0xa8], rax
+0x14074926b: mov      rax, rdi
+0x14074926e: mov      rbx, rsi
+0x140749271: call     0x140194220    ; golang.org/x/sys/windows.UTF16PtrFromString
+0x140749276: test     rbx, rbx
+0x140749279: jne      0x1407493fc    ; main.queryVersionValueLocation+0x1dc
+0x14074927f: mov      qword ptr [rsp + 0x20], rax
+0x140749284: mov      eax, 0x10
+0x140749289: xor      ebx, ebx
+0x14074928b: mov      ecx, 1
+0x140749290: call     0x1400769e0    ; runtime.mallocgc
+0x140749295: mov      qword ptr [rsp + 0x28], rax
+0x14074929a: mov      qword ptr [rax], 0
+0x1407492a1: mov      dword ptr [rax + 8], 0
+0x1407492a8: lea      rdx, [rax + 8]
+0x1407492ac: mov      rsi, qword ptr [rsp + 0xa8]
+0x1407492b4: mov      qword ptr [rsp + 0x90], rsi
+0x1407492bc: mov      rsi, qword ptr [rsp + 0x20]
+0x1407492c1: mov      qword ptr [rsp + 0x88], rsi
+0x1407492c9: mov      qword ptr [rsp + 0x80], rax
+0x1407492d1: mov      qword ptr [rsp + 0x78], rdx
+0x1407492d6: lea      rax, [rip + 0x3b4883]
+0x1407492dd: nop      dword ptr [rax]
+0x1407492e0: call     0x14001ae20    ; runtime.newobject
+0x1407492e5: mov      rdx, qword ptr [rsp + 0x90]
+0x1407492ed: mov      qword ptr [rax], rdx
+0x1407492f0: mov      rdx, qword ptr [rsp + 0x88]
+0x1407492f8: mov      qword ptr [rax + 8], rdx
+0x1407492fc: mov      rdx, qword ptr [rsp + 0x80]
+0x140749304: mov      qword ptr [rax + 0x10], rdx
+0x140749308: mov      rdx, qword ptr [rsp + 0x78]
+0x14074930d: mov      qword ptr [rax + 0x18], rdx
+0x140749311: mov      rdx, qword ptr [rip + 0x1478500]
+0x140749318: mov      rbx, rax
+0x14074931b: mov      ecx, 4
+0x140749320: mov      rdi, rcx
+0x140749323: mov      rax, rdx
+0x140749326: call     0x1401935a0    ; golang.org/x/sys/windows.LazyProc.Call
+0x14074932b: test     rax, rax
+0x14074932e: je       0x14074933d    ; main.queryVersionValueLocation+0x11d
+0x140749330: mov      rdx, qword ptr [rsp + 0x28]
+0x140749335: mov      rax, qword ptr [rdx]
+0x140749338: test     rax, rax
+0x14074933b: jne      0x140749351    ; main.queryVersionValueLocation+0x131
+0x14074933d: mov      rax, 0xffffffffffffffff
+0x140749344: xor      ebx, ebx
+0x140749346: xor      ecx, ecx
+0x140749348: add      rsp, 0x98
+0x14074934f: pop      rbp
+0x140749350: ret      
+0x140749351: mov      rsi, qword ptr [rsp + 0xa8]
+0x140749359: mov      rdi, rsi
+0x14074935c: nop      dword ptr [rax]
+0x140749360: cmp      rsi, rax
+0x140749363: ja       0x1407493c9    ; main.queryVersionValueLocation+0x1a9
+0x140749365: sub      rax, rsi
+0x140749368: mov      rsi, qword ptr [rsp + 0xb0]
+0x140749370: cmp      rsi, rax
+0x140749373: jae      0x1407493a1    ; main.queryVersionValueLocation+0x181
+0x140749375: mov      qword ptr [rsp + 0x48], rdi
+0x14074937a: mov      qword ptr [rsp + 0x50], rsi
+0x14074937f: mov      rdx, qword ptr [rsp + 0xb8]
+0x140749387: mov      qword ptr [rsp + 0x58], rdx
+0x14074938c: mov      rax, 0xffffffffffffffff
+0x140749393: xor      ebx, ebx
+0x140749395: xor      ecx, ecx
+0x140749397: add      rsp, 0x98
+0x14074939e: pop      rbp
+0x14074939f: nop      
+0x1407493a0: ret      
+0x1407493a1: mov      qword ptr [rsp + 0x30], rdi
+0x1407493a6: mov      qword ptr [rsp + 0x38], rsi
+0x1407493ab: mov      rsi, qword ptr [rsp + 0xb8]
+0x1407493b3: mov      qword ptr [rsp + 0x40], rsi
+0x1407493b8: mov      ebx, dword ptr [rdx + 8]
+0x1407493bb: mov      ecx, 1
+0x1407493c0: add      rsp, 0x98
+0x1407493c7: pop      rbp
+0x1407493c8: ret      
+0x1407493c9: mov      qword ptr [rsp + 0x60], rdi
+0x1407493ce: mov      rdx, qword ptr [rsp + 0xb0]
+0x1407493d6: mov      qword ptr [rsp + 0x68], rdx
+0x1407493db: mov      rdx, qword ptr [rsp + 0xb8]
+0x1407493e3: mov      qword ptr [rsp + 0x70], rdx
+0x1407493e8: mov      rax, 0xffffffffffffffff
+0x1407493ef: xor      ebx, ebx
+0x1407493f1: xor      ecx, ecx
+0x1407493f3: add      rsp, 0x98
+0x1407493fa: pop      rbp
+0x1407493fb: ret      
+0x1407493fc: mov      rax, 0xffffffffffffffff
+0x140749403: xor      ebx, ebx
+0x140749405: xor      ecx, ecx
+0x140749407: add      rsp, 0x98
+0x14074940e: pop      rbp
+0x14074940f: ret      
+0x140749410: mov      rax, 0xffffffffffffffff
+0x140749417: xor      ebx, ebx
+0x140749419: xor      ecx, ecx
+0x14074941b: add      rsp, 0x98
+0x140749422: pop      rbp
+0x140749423: ret      
+0x140749424: mov      qword ptr [rsp + 8], rax
+0x140749429: mov      qword ptr [rsp + 0x10], rbx
+0x14074942e: mov      qword ptr [rsp + 0x18], rcx
+0x140749433: mov      qword ptr [rsp + 0x20], rdi
+0x140749438: mov      qword ptr [rsp + 0x28], rsi
+0x14074943d: nop      dword ptr [rax]
+0x140749440: call     0x14007f140    ; runtime.morestack_noctxt
+0x140749445: mov      rax, qword ptr [rsp + 8]
+0x14074944a: mov      rbx, qword ptr [rsp + 0x10]
+0x14074944f: mov      rcx, qword ptr [rsp + 0x18]
+0x140749454: mov      rdi, qword ptr [rsp + 0x20]
+0x140749459: mov      rsi, qword ptr [rsp + 0x28]
+0x14074945e: nop      
+0x140749460: jmp      0x140749220    ; main.queryVersionValueLocation
+0x140749465: int3     
+0x140749466: int3     
+0x140749467: int3     
+0x140749468: int3     
+0x140749469: int3     
+0x14074946a: int3     
+0x14074946b: int3     
+0x14074946c: int3     
+0x14074946d: int3     
+0x14074946e: int3     
+0x14074946f: int3     
+0x140749470: int3     
+0x140749471: int3     
+0x140749472: int3     
+0x140749473: int3     
+0x140749474: int3     
+0x140749475: int3     
+0x140749476: int3     
+0x140749477: int3     
+0x140749478: int3     
+0x140749479: int3     
+0x14074947a: int3     
+0x14074947b: int3     
+0x14074947c: int3     
+0x14074947d: int3     
+0x14074947e: int3     
+0x14074947f: int3     

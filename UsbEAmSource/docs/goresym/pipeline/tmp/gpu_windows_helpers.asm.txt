@@ -1,0 +1,1076 @@
+0x140860b40: cmp      rsp, qword ptr [r14 + 0x10]
+0x140860b44: jbe      0x140860bbc   ; main.shouldCleanupMissingGPUPreferencePath+0x7c
+0x140860b46: push     rbp
+0x140860b47: mov      rbp, rsp
+0x140860b4a: sub      rsp, 0x20
+0x140860b4e: mov      qword ptr [rsp + 0x30], rax
+0x140860b53: mov      qword ptr [rsp + 0x40], rcx
+0x140860b58: call     0x14085b600   ; main.normalizeGPUPreferencePath
+0x140860b5d: nop      dword ptr [rax]
+0x140860b60: test     rbx, rbx
+0x140860b63: je       0x140860b97   ; main.shouldCleanupMissingGPUPreferencePath+0x57
+0x140860b65: mov      rcx, qword ptr [rsp + 0x40]
+0x140860b6a: test     rcx, rcx
+0x140860b6d: je       0x140860b97   ; main.shouldCleanupMissingGPUPreferencePath+0x57
+0x140860b6f: mov      qword ptr [rsp + 0x10], rbx
+0x140860b74: mov      qword ptr [rsp + 0x18], rax
+0x140860b79: call     0x140116d20   ; internal/filepathlite.IsAbs
+0x140860b7e: nop      
+0x140860b80: test     al, al
+0x140860b82: je       0x140860b97   ; main.shouldCleanupMissingGPUPreferencePath+0x57
+0x140860b84: mov      rax, qword ptr [rsp + 0x18]
+0x140860b89: mov      rbx, qword ptr [rsp + 0x10]
+0x140860b8e: call     0x140860f40   ; main.gpuPreferencePathMayAccessFile
+0x140860b93: test     al, al
+0x140860b95: jne      0x140860b9f   ; main.shouldCleanupMissingGPUPreferencePath+0x5f
+0x140860b97: xor      eax, eax
+0x140860b99: add      rsp, 0x20
+0x140860b9d: pop      rbp
+0x140860b9e: ret      
+0x140860b9f: mov      rdx, qword ptr [rsp + 0x40]
+0x140860ba4: mov      rcx, qword ptr [rdx]
+0x140860ba7: mov      rax, qword ptr [rsp + 0x18]
+0x140860bac: mov      rbx, qword ptr [rsp + 0x10]
+0x140860bb1: call     rcx
+0x140860bb3: xor      eax, 1
+0x140860bb6: add      rsp, 0x20
+0x140860bba: pop      rbp
+0x140860bbb: ret      
+0x140860bbc: mov      qword ptr [rsp + 8], rax
+0x140860bc1: mov      qword ptr [rsp + 0x10], rbx
+0x140860bc6: mov      qword ptr [rsp + 0x18], rcx
+0x140860bcb: call     0x14007f140   ; runtime.morestack_noctxt
+0x140860bd0: mov      rax, qword ptr [rsp + 8]
+0x140860bd5: mov      rbx, qword ptr [rsp + 0x10]
+0x140860bda: mov      rcx, qword ptr [rsp + 0x18]
+0x140860bdf: nop      
+0x140860be0: jmp      0x140860b40   ; main.shouldCleanupMissingGPUPreferencePath
+0x140860be5: int3     
+0x140860be6: int3     
+0x140860be7: int3     
+0x140860be8: int3     
+0x140860be9: int3     
+0x140860bea: int3     
+0x140860beb: int3     
+0x140860bec: int3     
+0x140860bed: int3     
+0x140860bee: int3     
+0x140860bef: int3     
+0x140860bf0: int3     
+0x140860bf1: int3     
+0x140860bf2: int3     
+0x140860bf3: int3     
+0x140860bf4: int3     
+0x140860bf5: int3     
+0x140860bf6: int3     
+0x140860bf7: int3     
+0x140860bf8: int3     
+0x140860bf9: int3     
+0x140860bfa: int3     
+0x140860bfb: int3     
+0x140860bfc: int3     
+0x140860bfd: int3     
+0x140860bfe: int3     
+0x140860bff: int3     
+0x140860c00: lea      r12, [rsp - 0x38]
+0x140860c05: cmp      r12, qword ptr [r14 + 0x10]
+0x140860c09: jbe      0x140860edf   ; main.buildGPUPreferenceEntry+0x2df
+0x140860c0f: push     rbp
+0x140860c10: mov      rbp, rsp
+0x140860c13: sub      rsp, 0xb0
+0x140860c1a: mov      qword ptr [rsp + 0x140], rax
+0x140860c22: mov      qword ptr [rsp + 0x158], rdi
+0x140860c2a: mov      qword ptr [rsp + 0x150], rcx
+0x140860c32: lea      rdi, [rsp + 0xc0]
+0x140860c3a: nop      word ptr [rax + rax]
+0x140860c40: mov      qword ptr [rsp - 0x10], rbp
+0x140860c45: lea      rbp, [rsp - 0x10]
+0x140860c4a: call     0x140081722   ; runtime.duffzero+0x142
+0x140860c4f: mov      rbp, qword ptr [rbp]
+0x140860c53: call     0x14085b600   ; main.normalizeGPUPreferencePath
+0x140860c58: test     rbx, rbx
+0x140860c5b: je       0x140860c73   ; main.buildGPUPreferenceEntry+0x73
+0x140860c5d: mov      qword ptr [rsp + 0x70], rbx
+0x140860c62: mov      qword ptr [rsp + 0x98], rax
+0x140860c6a: call     0x14088cd00   ; main.looksLikeFilesystemPath
+0x140860c6f: test     al, al
+0x140860c71: jne      0x140860c9e   ; main.buildGPUPreferenceEntry+0x9e
+0x140860c73: lea      rdi, [rsp + 0xc0]
+0x140860c7b: nop      dword ptr [rax + rax]
+0x140860c80: mov      qword ptr [rsp - 0x10], rbp
+0x140860c85: lea      rbp, [rsp - 0x10]
+0x140860c8a: call     0x140081722   ; runtime.duffzero+0x142
+0x140860c8f: mov      rbp, qword ptr [rbp]
+0x140860c93: xor      eax, eax
+0x140860c95: add      rsp, 0xb0
+0x140860c9c: pop      rbp
+0x140860c9d: ret      
+0x140860c9e: mov      rax, qword ptr [rsp + 0x150]
+0x140860ca6: mov      rbx, qword ptr [rsp + 0x158]
+0x140860cae: call     0x14085af40   ; main.parseGPUPreferenceRegistryValue
+0x140860cb3: mov      qword ptr [rsp + 0x88], rax
+0x140860cbb: mov      qword ptr [rsp + 0x50], rbx
+0x140860cc0: mov      qword ptr [rsp + 0x58], rcx
+0x140860cc5: call     0x14085ade0   ; main.gpuPreferenceModeFromSettings
+0x140860cca: mov      qword ptr [rsp + 0x90], rax
+0x140860cd2: mov      qword ptr [rsp + 0x60], rcx
+0x140860cd7: mov      qword ptr [rsp + 0x68], rbx
+0x140860cdc: mov      rax, qword ptr [rsp + 0x98]
+0x140860ce4: mov      rbx, qword ptr [rsp + 0x70]
+0x140860ce9: call     0x140860f40   ; main.gpuPreferencePathMayAccessFile
+0x140860cee: test     al, al
+0x140860cf0: jne      0x140860cff   ; main.buildGPUPreferenceEntry+0xff
+0x140860cf2: xor      eax, eax
+0x140860cf4: xor      ecx, ecx
+0x140860cf6: xor      ebx, ebx
+0x140860cf8: xor      edx, edx
+0x140860cfa: jmp      0x140860d9a   ; main.buildGPUPreferenceEntry+0x19a
+0x140860cff: mov      rax, qword ptr [rsp + 0x98]
+0x140860d07: mov      rbx, qword ptr [rsp + 0x70]
+0x140860d0c: call     0x140861960   ; main.gpuPreferenceFileExists
+0x140860d11: test     al, al
+0x140860d13: jne      0x140860d1f   ; main.buildGPUPreferenceEntry+0x11f
+0x140860d15: xor      eax, eax
+0x140860d17: xor      ecx, ecx
+0x140860d19: xor      ebx, ebx
+0x140860d1b: xor      edx, edx
+0x140860d1d: jmp      0x140860d9a   ; main.buildGPUPreferenceEntry+0x19a
+0x140860d1f: mov      rax, qword ptr [rsp + 0x98]
+0x140860d27: mov      rbx, qword ptr [rsp + 0x70]
+0x140860d2c: call     0x140748280   ; main.resolveAppDisplayName
+0x140860d31: mov      qword ptr [rsp + 0xa0], rax
+0x140860d39: mov      qword ptr [rsp + 0x78], rbx
+0x140860d3e: mov      rcx, qword ptr [rip + 0x13887bb]
+0x140860d45: mov      qword ptr [rsp], rcx
+0x140860d49: movups   xmm0, xmmword ptr [rip + 0x13887b8]
+0x140860d50: movups   xmmword ptr [rsp + 8], xmm0
+0x140860d55: movups   xmm0, xmmword ptr [rip + 0x13887bc]
+0x140860d5c: movups   xmmword ptr [rsp + 0x18], xmm0
+0x140860d61: movups   xmm0, xmmword ptr [rip + 0x13887c0]
+0x140860d68: movups   xmmword ptr [rsp + 0x28], xmm0
+0x140860d6d: mov      rax, qword ptr [rsp + 0x98]
+0x140860d75: mov      rbx, qword ptr [rsp + 0x70]
+0x140860d7a: xor      ecx, ecx
+0x140860d7c: nop      dword ptr [rax]
+0x140860d80: call     0x1407496a0   ; main.resolveAppIconDataWithOptions
+0x140860d85: call     0x1400a2200   ; strings.TrimSpace
+0x140860d8a: mov      rcx, qword ptr [rsp + 0xa0]
+0x140860d92: mov      rdx, rax
+0x140860d95: mov      rax, qword ptr [rsp + 0x78]
+0x140860d9a: mov      qword ptr [rsp + 0xa8], rdx
+0x140860da2: mov      qword ptr [rsp + 0x80], rbx
+0x140860daa: mov      rbx, rax
+0x140860dad: mov      rax, rcx
+0x140860db0: call     0x1400a2200   ; strings.TrimSpace
+0x140860db5: test     rbx, rbx
+0x140860db8: jne      0x140860dcc   ; main.buildGPUPreferenceEntry+0x1cc
+0x140860dba: mov      rax, qword ptr [rsp + 0x98]
+0x140860dc2: mov      rbx, qword ptr [rsp + 0x70]
+0x140860dc7: call     0x140748040   ; main.fallbackAppDisplayName
+0x140860dcc: mov      qword ptr [rsp + 0xa0], rax
+0x140860dd4: mov      qword ptr [rsp + 0x78], rbx
+0x140860dd9: mov      rax, qword ptr [rsp + 0x88]
+0x140860de1: mov      rbx, qword ptr [rsp + 0x50]
+0x140860de6: mov      rcx, qword ptr [rsp + 0x58]
+0x140860deb: call     0x14085b240   ; main.serializeGPUPreferenceRegistrySettings
+0x140860df0: lea      rdi, [rsp + 0xc0]
+0x140860df8: lea      rsi, [rip + 0x97ede1]
+0x140860dff: nop      
+0x140860e00: mov      qword ptr [rsp - 0x10], rbp
+0x140860e05: lea      rbp, [rsp - 0x10]
+0x140860e0a: call     0x140081a70   ; runtime.duffcopy+0x310
+0x140860e0f: mov      rbp, qword ptr [rbp]
+0x140860e13: mov      rdx, qword ptr [rsp + 0x98]
+0x140860e1b: mov      qword ptr [rsp + 0xc0], rdx
+0x140860e23: mov      rdx, qword ptr [rsp + 0x70]
+0x140860e28: mov      qword ptr [rsp + 0xc8], rdx
+0x140860e30: mov      rdx, qword ptr [rsp + 0xa0]
+0x140860e38: mov      qword ptr [rsp + 0xd0], rdx
+0x140860e40: mov      rdx, qword ptr [rsp + 0x78]
+0x140860e45: mov      qword ptr [rsp + 0xd8], rdx
+0x140860e4d: mov      rdx, qword ptr [rsp + 0xa8]
+0x140860e55: mov      qword ptr [rsp + 0xf0], rdx
+0x140860e5d: mov      rdx, qword ptr [rsp + 0x80]
+0x140860e65: mov      qword ptr [rsp + 0xf8], rdx
+0x140860e6d: mov      rdx, qword ptr [rsp + 0x90]
+0x140860e75: mov      qword ptr [rsp + 0x100], rdx
+0x140860e7d: mov      rdx, qword ptr [rsp + 0x68]
+0x140860e82: mov      qword ptr [rsp + 0x108], rdx
+0x140860e8a: mov      rdx, qword ptr [rsp + 0x60]
+0x140860e8f: mov      qword ptr [rsp + 0x110], rdx
+0x140860e97: mov      rdx, qword ptr [rsp + 0x88]
+0x140860e9f: mov      qword ptr [rsp + 0x118], rdx
+0x140860ea7: mov      rdx, qword ptr [rsp + 0x50]
+0x140860eac: mov      qword ptr [rsp + 0x120], rdx
+0x140860eb4: mov      rdx, qword ptr [rsp + 0x58]
+0x140860eb9: mov      qword ptr [rsp + 0x128], rdx
+0x140860ec1: mov      qword ptr [rsp + 0x130], rax
+0x140860ec9: mov      qword ptr [rsp + 0x138], rbx
+0x140860ed1: mov      eax, 1
+0x140860ed6: add      rsp, 0xb0
+0x140860edd: pop      rbp
+0x140860ede: ret      
+0x140860edf: mov      qword ptr [rsp + 0x88], rax
+0x140860ee7: mov      qword ptr [rsp + 0x90], rbx
+0x140860eef: mov      qword ptr [rsp + 0x98], rcx
+0x140860ef7: mov      qword ptr [rsp + 0xa0], rdi
+0x140860eff: nop      
+0x140860f00: call     0x14007f140   ; runtime.morestack_noctxt
+0x140860f05: mov      rax, qword ptr [rsp + 0x88]
+0x140860f0d: mov      rbx, qword ptr [rsp + 0x90]
+0x140860f15: mov      rcx, qword ptr [rsp + 0x98]
+0x140860f1d: mov      rdi, qword ptr [rsp + 0xa0]
+0x140860f25: jmp      0x140860c00   ; main.buildGPUPreferenceEntry
+0x140860f2a: int3     
+0x140860f2b: int3     
+0x140860f2c: int3     
+0x140860f2d: int3     
+0x140860f2e: int3     
+0x140860f2f: int3     
+0x140860f30: int3     
+0x140860f31: int3     
+0x140860f32: int3     
+0x140860f33: int3     
+0x140860f34: int3     
+0x140860f35: int3     
+0x140860f36: int3     
+0x140860f37: int3     
+0x140860f38: int3     
+0x140860f39: int3     
+0x140860f3a: int3     
+0x140860f3b: int3     
+0x140860f3c: int3     
+0x140860f3d: int3     
+0x140860f3e: int3     
+0x140860f3f: int3     
+0x140860f40: cmp      rsp, qword ptr [r14 + 0x10]
+0x140860f44: jbe      0x140861087   ; main.gpuPreferencePathMayAccessFile+0x147
+0x140860f4a: push     rbp
+0x140860f4b: mov      rbp, rsp
+0x140860f4e: sub      rsp, 0x48
+0x140860f52: mov      qword ptr [rsp + 0x58], rax
+0x140860f57: lea      rcx, [rip + 0x3d26d1]
+0x140860f5e: mov      edi, 1
+0x140860f63: lea      rsi, [rip + 0x969cd6]
+0x140860f6a: mov      r8, rdi
+0x140860f6d: mov      r9, 0xffffffffffffffff
+0x140860f74: call     0x1400a2340   ; strings.Replace
+0x140860f79: call     0x1400a2200   ; strings.TrimSpace
+0x140860f7e: nop      
+0x140860f80: call     0x1400a1500   ; strings.ToLower
+0x140860f85: test     rbx, rbx
+0x140860f88: je       0x140860f9a   ; main.gpuPreferencePathMayAccessFile+0x5a
+0x140860f8a: mov      qword ptr [rsp + 0x38], rbx
+0x140860f8f: mov      qword ptr [rsp + 0x40], rax
+0x140860f94: lea      rdx, [rbx - 1]
+0x140860f98: jmp      0x140860fa5   ; main.gpuPreferencePathMayAccessFile+0x65
+0x140860f9a: xor      eax, eax
+0x140860f9c: add      rsp, 0x48
+0x140860fa0: pop      rbp
+0x140860fa1: ret      
+0x140860fa2: dec      rdx
+0x140860fa5: test     rdx, rdx
+0x140860fa8: jl       0x140860fdb   ; main.gpuPreferencePathMayAccessFile+0x9b
+0x140860faa: movzx    esi, byte ptr [rax + rdx]
+0x140860fae: cmp      sil, 0x5c
+0x140860fb2: je       0x140860fdb   ; main.gpuPreferencePathMayAccessFile+0x9b
+0x140860fb4: cmp      sil, 0x2f
+0x140860fb8: je       0x140860fdb   ; main.gpuPreferencePathMayAccessFile+0x9b
+0x140860fba: nop      word ptr [rax + rax]
+0x140860fc0: cmp      sil, 0x2e
+0x140860fc4: jne      0x140860fa2   ; main.gpuPreferencePathMayAccessFile+0x62
+0x140860fc6: sub      rbx, rdx
+0x140860fc9: mov      r8, rbx
+0x140860fcc: neg      rbx
+0x140860fcf: sar      rbx, 0x3f
+0x140860fd3: and      rdx, rbx
+0x140860fd6: add      rdx, rax
+0x140860fd9: jmp      0x140860fe0   ; main.gpuPreferencePathMayAccessFile+0xa0
+0x140860fdb: xor      r8d, r8d
+0x140860fde: xor      edx, edx
+0x140860fe0: mov      rax, rdx
+0x140860fe3: mov      rbx, r8
+0x140860fe6: lea      rcx, [rip + 0x3d3781]
+0x140860fed: mov      edi, 4
+0x140860ff2: call     0x1400a2c40   ; strings.EqualFold
+0x140860ff7: test     al, al
+0x140860ff9: je       0x140860f9a   ; main.gpuPreferencePathMayAccessFile+0x5a
+0x140860ffb: mov      rcx, qword ptr [rsp + 0x38]
+0x140861000: cmp      rcx, 2
+0x140861004: jl       0x140861015   ; main.gpuPreferencePathMayAccessFile+0xd5
+0x140861006: mov      rdx, qword ptr [rsp + 0x40]
+0x14086100b: cmp      word ptr [rdx], 0x5c5c
+0x140861010: sete     bl
+0x140861013: jmp      0x140861020   ; main.gpuPreferencePathMayAccessFile+0xe0
+0x140861015: mov      rdx, qword ptr [rsp + 0x40]
+0x14086101a: xor      ebx, ebx
+0x14086101c: nop      dword ptr [rax]
+0x140861020: test     bl, bl
+0x140861022: je       0x140861028   ; main.gpuPreferencePathMayAccessFile+0xe8
+0x140861024: xor      ebx, ebx
+0x140861026: jmp      0x140861040   ; main.gpuPreferencePathMayAccessFile+0x100
+0x140861028: nop      
+0x140861029: cmp      rcx, 4
+0x14086102d: jl       0x14086103a   ; main.gpuPreferencePathMayAccessFile+0xfa
+0x14086102f: cmp      dword ptr [rdx], 0x5c3f3f5c
+0x140861035: sete     bl
+0x140861038: jmp      0x14086103c   ; main.gpuPreferencePathMayAccessFile+0xfc
+0x14086103a: xor      ebx, ebx
+0x14086103c: xor      ebx, 1
+0x14086103f: nop      
+0x140861040: test     bl, bl
+0x140861042: je       0x14086105d   ; main.gpuPreferencePathMayAccessFile+0x11d
+0x140861044: nop      
+0x140861045: cmp      rcx, 4
+0x140861049: jl       0x140861056   ; main.gpuPreferencePathMayAccessFile+0x116
+0x14086104b: cmp      dword ptr [rdx], 0x5c3f5c5c
+0x140861051: sete     bl
+0x140861054: jmp      0x140861058   ; main.gpuPreferencePathMayAccessFile+0x118
+0x140861056: xor      ebx, ebx
+0x140861058: xor      ebx, 1
+0x14086105b: jmp      0x140861060   ; main.gpuPreferencePathMayAccessFile+0x120
+0x14086105d: xor      ebx, ebx
+0x14086105f: nop      
+0x140861060: test     bl, bl
+0x140861062: je       0x14086107d   ; main.gpuPreferencePathMayAccessFile+0x13d
+0x140861064: nop      
+0x140861065: cmp      rcx, 4
+0x140861069: jl       0x140861076   ; main.gpuPreferencePathMayAccessFile+0x136
+0x14086106b: cmp      dword ptr [rdx], 0x5c2e5c5c
+0x140861071: sete     cl
+0x140861074: jmp      0x140861078   ; main.gpuPreferencePathMayAccessFile+0x138
+0x140861076: xor      ecx, ecx
+0x140861078: xor      ecx, 1
+0x14086107b: jmp      0x14086107f   ; main.gpuPreferencePathMayAccessFile+0x13f
+0x14086107d: xor      ecx, ecx
+0x14086107f: mov      eax, ecx
+0x140861081: add      rsp, 0x48
+0x140861085: pop      rbp
+0x140861086: ret      
+0x140861087: mov      qword ptr [rsp + 8], rax
+0x14086108c: mov      qword ptr [rsp + 0x10], rbx
+0x140861091: call     0x14007f140   ; runtime.morestack_noctxt
+0x140861096: mov      rax, qword ptr [rsp + 8]
+0x14086109b: mov      rbx, qword ptr [rsp + 0x10]
+0x1408610a0: jmp      0x140860f40   ; main.gpuPreferencePathMayAccessFile
+0x1408610a5: int3     
+0x1408610a6: int3     
+0x1408610a7: int3     
+0x1408610a8: int3     
+0x1408610a9: int3     
+0x1408610aa: int3     
+0x1408610ab: int3     
+0x1408610ac: int3     
+0x1408610ad: int3     
+0x1408610ae: int3     
+0x1408610af: int3     
+0x1408610b0: int3     
+0x1408610b1: int3     
+0x1408610b2: int3     
+0x1408610b3: int3     
+0x1408610b4: int3     
+0x1408610b5: int3     
+0x1408610b6: int3     
+0x1408610b7: int3     
+0x1408610b8: int3     
+0x1408610b9: int3     
+0x1408610ba: int3     
+0x1408610bb: int3     
+0x1408610bc: int3     
+0x1408610bd: int3     
+0x1408610be: int3     
+0x1408610bf: int3     
+0x1408610c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408610c4: jbe      0x140861161   ; main.shouldReplaceGPUPreferenceEntry+0xa1
+0x1408610ca: push     rbp
+0x1408610cb: mov      rbp, rsp
+0x1408610ce: sub      rsp, 0x10
+0x1408610d2: mov      rcx, qword ptr [rsp + 0x100]
+0x1408610da: mov      rdx, qword ptr [rsp + 0x80]
+0x1408610e2: cmp      rcx, rdx
+0x1408610e5: jne      0x140861157   ; main.shouldReplaceGPUPreferenceEntry+0x97
+0x1408610e7: cmp      qword ptr [rsp + 0xd8], 0
+0x1408610f0: je       0x140861105   ; main.shouldReplaceGPUPreferenceEntry+0x45
+0x1408610f2: cmp      qword ptr [rsp + 0x58], 0
+0x1408610f8: jne      0x140861105   ; main.shouldReplaceGPUPreferenceEntry+0x45
+0x1408610fa: mov      eax, 1
+0x1408610ff: add      rsp, 0x10
+0x140861103: pop      rbp
+0x140861104: ret      
+0x140861105: mov      rax, qword ptr [rsp + 0xb0]
+0x14086110d: mov      rbx, qword ptr [rsp + 0xb8]
+0x140861115: call     0x1400a2200   ; strings.TrimSpace
+0x14086111a: test     rbx, rbx
+0x14086111d: je       0x140861133   ; main.shouldReplaceGPUPreferenceEntry+0x73
+0x14086111f: mov      rax, qword ptr [rsp + 0x30]
+0x140861124: mov      rbx, qword ptr [rsp + 0x38]
+0x140861129: call     0x1400a2200   ; strings.TrimSpace
+0x14086112e: test     rbx, rbx
+0x140861131: je       0x14086114c   ; main.shouldReplaceGPUPreferenceEntry+0x8c
+0x140861133: mov      rcx, qword ptr [rsp + 0x118]
+0x14086113b: cmp      qword ptr [rsp + 0x98], rcx
+0x140861143: setl     al
+0x140861146: add      rsp, 0x10
+0x14086114a: pop      rbp
+0x14086114b: ret      
+0x14086114c: mov      eax, 1
+0x140861151: add      rsp, 0x10
+0x140861155: pop      rbp
+0x140861156: ret      
+0x140861157: setg     al
+0x14086115a: add      rsp, 0x10
+0x14086115e: pop      rbp
+0x14086115f: nop      
+0x140861160: ret      
+0x140861161: call     0x14007f140   ; runtime.morestack_noctxt
+0x140861166: jmp      0x1408610c0   ; main.shouldReplaceGPUPreferenceEntry
+0x14086116b: int3     
+0x14086116c: int3     
+0x14086116d: int3     
+0x14086116e: int3     
+0x14086116f: int3     
+0x140861170: int3     
+0x140861171: int3     
+0x140861172: int3     
+0x140861173: int3     
+0x140861174: int3     
+0x140861175: int3     
+0x140861176: int3     
+0x140861177: int3     
+0x140861178: int3     
+0x140861179: int3     
+0x14086117a: int3     
+0x14086117b: int3     
+0x14086117c: int3     
+0x14086117d: int3     
+0x14086117e: int3     
+0x14086117f: int3     
+0x140861180: cmp      rsp, qword ptr [r14 + 0x10]
+0x140861184: jbe      0x1408611b3   ; main.validateGPUPreferenceTargetPath+0x33
+0x140861186: push     rbp
+0x140861187: mov      rbp, rsp
+0x14086118a: sub      rsp, 0x28
+0x14086118e: mov      qword ptr [rsp + 0x38], rax
+0x140861193: lea      rcx, [rip + 0x835c0e]
+0x14086119a: lea      rdi, [rip + 0x835c67]
+0x1408611a1: lea      rsi, [rip + 0x835c58]
+0x1408611a8: call     0x1408611e0   ; main.validateGPUPreferenceTargetPathWithResolver
+0x1408611ad: add      rsp, 0x28
+0x1408611b1: pop      rbp
+0x1408611b2: ret      
+0x1408611b3: mov      qword ptr [rsp + 8], rax
+0x1408611b8: mov      qword ptr [rsp + 0x10], rbx
+0x1408611bd: nop      dword ptr [rax]
+0x1408611c0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408611c5: mov      rax, qword ptr [rsp + 8]
+0x1408611ca: mov      rbx, qword ptr [rsp + 0x10]
+0x1408611cf: jmp      0x140861180   ; main.validateGPUPreferenceTargetPath
+0x1408611d1: int3     
+0x1408611d2: int3     
+0x1408611d3: int3     
+0x1408611d4: int3     
+0x1408611d5: int3     
+0x1408611d6: int3     
+0x1408611d7: int3     
+0x1408611d8: int3     
+0x1408611d9: int3     
+0x1408611da: int3     
+0x1408611db: int3     
+0x1408611dc: int3     
+0x1408611dd: int3     
+0x1408611de: int3     
+0x1408611df: int3     
+0x1408611e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408611e4: jbe      0x14086178b   ; main.validateGPUPreferenceTargetPathWithResolver+0x5ab
+0x1408611ea: push     rbp
+0x1408611eb: mov      rbp, rsp
+0x1408611ee: sub      rsp, 0x58
+0x1408611f2: mov      qword ptr [rsp + 0x78], rcx
+0x1408611f7: mov      qword ptr [rsp + 0x80], rdi
+0x1408611ff: mov      qword ptr [rsp + 0x88], rsi
+0x140861207: mov      qword ptr [rsp + 0x70], rbx
+0x14086120c: mov      qword ptr [rsp + 0x68], rax
+0x140861211: call     0x14085b600   ; main.normalizeGPUPreferencePath
+0x140861216: test     rbx, rbx
+0x140861219: je       0x14086129e   ; main.validateGPUPreferenceTargetPathWithResolver+0xbe
+0x14086121f: mov      qword ptr [rsp + 0x28], rbx
+0x140861224: mov      qword ptr [rsp + 0x38], rax
+0x140861229: call     0x14088cd00   ; main.looksLikeFilesystemPath
+0x14086122e: test     al, al
+0x140861230: je       0x140861245   ; main.validateGPUPreferenceTargetPathWithResolver+0x65
+0x140861232: mov      rcx, qword ptr [rsp + 0x28]
+0x140861237: lea      rdx, [rcx - 1]
+0x14086123b: mov      rsi, qword ptr [rsp + 0x38]
+0x140861240: jmp      0x1408612d3   ; main.validateGPUPreferenceTargetPathWithResolver+0xf3
+0x140861245: mov      rax, qword ptr [rsp + 0x68]
+0x14086124a: mov      rbx, qword ptr [rsp + 0x70]
+0x14086124f: call     0x1400a2200   ; strings.TrimSpace
+0x140861254: movups   xmmword ptr [rsp + 0x48], xmm15
+0x14086125a: call     0x140076660   ; runtime.convTstring
+0x14086125f: lea      rcx, [rip + 0x288b9a]
+0x140861266: mov      qword ptr [rsp + 0x48], rcx
+0x14086126b: mov      qword ptr [rsp + 0x50], rax
+0x140861270: lea      rax, [rip + 0x420d07]
+0x140861277: mov      ebx, 0x2b
+0x14086127c: lea      rcx, [rsp + 0x48]
+0x140861281: mov      edi, 1
+0x140861286: mov      rsi, rdi
+0x140861289: call     0x140133280   ; fmt.Errorf
+0x14086128e: mov      rcx, rax
+0x140861291: mov      rdi, rbx
+0x140861294: xor      eax, eax
+0x140861296: xor      ebx, ebx
+0x140861298: add      rsp, 0x58
+0x14086129c: pop      rbp
+0x14086129d: ret      
+0x14086129e: lea      rax, [rip + 0x2f30db]
+0x1408612a5: call     0x14001ae20   ; runtime.newobject
+0x1408612aa: mov      qword ptr [rax + 8], 0x24
+0x1408612b2: lea      rcx, [rip + 0x41710a]
+0x1408612b9: mov      qword ptr [rax], rcx
+0x1408612bc: xor      ebx, ebx
+0x1408612be: lea      rcx, [rip + 0x971e3b]
+0x1408612c5: mov      rdi, rax
+0x1408612c8: xor      eax, eax
+0x1408612ca: add      rsp, 0x58
+0x1408612ce: pop      rbp
+0x1408612cf: ret      
+0x1408612d0: dec      rdx
+0x1408612d3: test     rdx, rdx
+0x1408612d6: jl       0x14086130a   ; main.validateGPUPreferenceTargetPathWithResolver+0x12a
+0x1408612d8: movzx    edi, byte ptr [rsi + rdx]
+0x1408612dc: nop      dword ptr [rax]
+0x1408612e0: cmp      dil, 0x5c
+0x1408612e4: je       0x14086130a   ; main.validateGPUPreferenceTargetPathWithResolver+0x12a
+0x1408612e6: cmp      dil, 0x2f
+0x1408612ea: je       0x14086130a   ; main.validateGPUPreferenceTargetPathWithResolver+0x12a
+0x1408612ec: cmp      dil, 0x2e
+0x1408612f0: jne      0x1408612d0   ; main.validateGPUPreferenceTargetPathWithResolver+0xf0
+0x1408612f2: sub      rcx, rdx
+0x1408612f5: mov      r8, rcx
+0x1408612f8: neg      rcx
+0x1408612fb: sar      rcx, 0x3f
+0x1408612ff: and      rcx, rdx
+0x140861302: add      rcx, rsi
+0x140861305: mov      rax, rcx
+0x140861308: jmp      0x14086130f   ; main.validateGPUPreferenceTargetPathWithResolver+0x12f
+0x14086130a: xor      r8d, r8d
+0x14086130d: xor      eax, eax
+0x14086130f: mov      rbx, r8
+0x140861312: call     0x1400a1500   ; strings.ToLower
+0x140861317: nop      word ptr [rax + rax]
+0x140861320: cmp      rbx, 4
+0x140861324: jne      0x140861405   ; main.validateGPUPreferenceTargetPathWithResolver+0x225
+0x14086132a: cmp      dword ptr [rax], 0x6b6e6c2e
+0x140861330: jne      0x1408613eb   ; main.validateGPUPreferenceTargetPathWithResolver+0x20b
+0x140861336: mov      rdx, qword ptr [rsp + 0x78]
+0x14086133b: nop      dword ptr [rax + rax]
+0x140861340: test     rdx, rdx
+0x140861343: je       0x1408613b5   ; main.validateGPUPreferenceTargetPathWithResolver+0x1d5
+0x140861345: mov      rcx, qword ptr [rdx]
+0x140861348: mov      rax, qword ptr [rsp + 0x38]
+0x14086134d: mov      rbx, qword ptr [rsp + 0x28]
+0x140861352: call     rcx
+0x140861354: test     rcx, rcx
+0x140861357: jne      0x140861371   ; main.validateGPUPreferenceTargetPathWithResolver+0x191
+0x140861359: call     0x14085b600   ; main.normalizeGPUPreferencePath
+0x14086135e: mov      qword ptr [rsp + 0x28], rbx
+0x140861363: mov      qword ptr [rsp + 0x38], rax
+0x140861368: lea      rcx, [rbx - 1]
+0x14086136c: jmp      0x1408616f8   ; main.validateGPUPreferenceTargetPathWithResolver+0x518
+0x140861371: movups   xmmword ptr [rsp + 0x48], xmm15
+0x140861377: je       0x14086137d   ; main.validateGPUPreferenceTargetPathWithResolver+0x19d
+0x140861379: mov      rcx, qword ptr [rcx + 8]
+0x14086137d: mov      qword ptr [rsp + 0x48], rcx
+0x140861382: mov      qword ptr [rsp + 0x50], rdi
+0x140861387: lea      rax, [rip + 0x41dc9c]
+0x14086138e: mov      ebx, 0x28
+0x140861393: lea      rcx, [rsp + 0x48]
+0x140861398: mov      edi, 1
+0x14086139d: mov      rsi, rdi
+0x1408613a0: call     0x140133280   ; fmt.Errorf
+0x1408613a5: mov      rcx, rax
+0x1408613a8: mov      rdi, rbx
+0x1408613ab: xor      eax, eax
+0x1408613ad: xor      ebx, ebx
+0x1408613af: add      rsp, 0x58
+0x1408613b3: pop      rbp
+0x1408613b4: ret      
+0x1408613b5: lea      rax, [rip + 0x2f2fc4]
+0x1408613bc: nop      dword ptr [rax]
+0x1408613c0: call     0x14001ae20   ; runtime.newobject
+0x1408613c5: mov      qword ptr [rax + 8], 0x24
+0x1408613cd: lea      rcx, [rip + 0x417013]
+0x1408613d4: mov      qword ptr [rax], rcx
+0x1408613d7: xor      ebx, ebx
+0x1408613d9: lea      rcx, [rip + 0x971d20]
+0x1408613e0: mov      rdi, rax
+0x1408613e3: xor      eax, eax
+0x1408613e5: add      rsp, 0x58
+0x1408613e9: pop      rbp
+0x1408613ea: ret      
+0x1408613eb: cmp      rbx, 4
+0x1408613ef: jne      0x140861405   ; main.validateGPUPreferenceTargetPathWithResolver+0x225
+0x1408613f1: cmp      dword ptr [rax], 0x6578652e
+0x1408613f7: jne      0x140861405   ; main.validateGPUPreferenceTargetPathWithResolver+0x225
+0x1408613f9: mov      rax, qword ptr [rsp + 0x28]
+0x1408613fe: mov      rcx, qword ptr [rsp + 0x38]
+0x140861403: jmp      0x140861459   ; main.validateGPUPreferenceTargetPathWithResolver+0x279
+0x140861405: movups   xmmword ptr [rsp + 0x48], xmm15
+0x14086140b: mov      rax, qword ptr [rsp + 0x38]
+0x140861410: mov      rbx, qword ptr [rsp + 0x28]
+0x140861415: call     0x140076660   ; runtime.convTstring
+0x14086141a: lea      rcx, [rip + 0x2889df]
+0x140861421: mov      qword ptr [rsp + 0x48], rcx
+0x140861426: mov      qword ptr [rsp + 0x50], rax
+0x14086142b: lea      rax, [rip + 0x429798]
+0x140861432: mov      ebx, 0x36
+0x140861437: lea      rcx, [rsp + 0x48]
+0x14086143c: mov      edi, 1
+0x140861441: mov      rsi, rdi
+0x140861444: call     0x140133280   ; fmt.Errorf
+0x140861449: mov      rcx, rax
+0x14086144c: mov      rdi, rbx
+0x14086144f: xor      eax, eax
+0x140861451: xor      ebx, ebx
+0x140861453: add      rsp, 0x58
+0x140861457: pop      rbp
+0x140861458: ret      
+0x140861459: mov      rbx, rax
+0x14086145c: mov      rax, rcx
+0x14086145f: nop      
+0x140861460: call     0x1401cd5e0   ; path/filepath.abs
+0x140861465: test     rcx, rcx
+0x140861468: jne      0x1408614e1   ; main.validateGPUPreferenceTargetPathWithResolver+0x301
+0x14086146a: mov      rdx, qword ptr [rsp + 0x80]
+0x140861472: test     rdx, rdx
+0x140861475: je       0x140861485   ; main.validateGPUPreferenceTargetPathWithResolver+0x2a5
+0x140861477: mov      rcx, qword ptr [rdx]
+0x14086147a: call     rcx
+0x14086147c: nop      dword ptr [rax]
+0x140861480: test     rcx, rcx
+0x140861483: jne      0x14086149d   ; main.validateGPUPreferenceTargetPathWithResolver+0x2bd
+0x140861485: call     0x14085b600   ; main.normalizeGPUPreferencePath
+0x14086148a: mov      qword ptr [rsp + 0x30], rbx
+0x14086148f: mov      qword ptr [rsp + 0x40], rax
+0x140861494: lea      rcx, [rbx - 1]
+0x140861498: jmp      0x140861528   ; main.validateGPUPreferenceTargetPathWithResolver+0x348
+0x14086149d: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1408614a3: je       0x1408614a9   ; main.validateGPUPreferenceTargetPathWithResolver+0x2c9
+0x1408614a5: mov      rcx, qword ptr [rcx + 8]
+0x1408614a9: mov      qword ptr [rsp + 0x48], rcx
+0x1408614ae: mov      qword ptr [rsp + 0x50], rdi
+0x1408614b3: lea      rax, [rip + 0x4141c9]
+0x1408614ba: mov      ebx, 0x22
+0x1408614bf: lea      rcx, [rsp + 0x48]
+0x1408614c4: mov      edi, 1
+0x1408614c9: mov      rsi, rdi
+0x1408614cc: call     0x140133280   ; fmt.Errorf
+0x1408614d1: mov      rcx, rax
+0x1408614d4: mov      rdi, rbx
+0x1408614d7: xor      eax, eax
+0x1408614d9: xor      ebx, ebx
+0x1408614db: add      rsp, 0x58
+0x1408614df: pop      rbp
+0x1408614e0: ret      
+0x1408614e1: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1408614e7: je       0x1408614ed   ; main.validateGPUPreferenceTargetPathWithResolver+0x30d
+0x1408614e9: mov      rcx, qword ptr [rcx + 8]
+0x1408614ed: mov      qword ptr [rsp + 0x48], rcx
+0x1408614f2: mov      qword ptr [rsp + 0x50], rdi
+0x1408614f7: lea      rax, [rip + 0x41878f]
+0x1408614fe: mov      ebx, 0x25
+0x140861503: lea      rcx, [rsp + 0x48]
+0x140861508: mov      edi, 1
+0x14086150d: mov      rsi, rdi
+0x140861510: call     0x140133280   ; fmt.Errorf
+0x140861515: mov      rcx, rax
+0x140861518: mov      rdi, rbx
+0x14086151b: xor      eax, eax
+0x14086151d: xor      ebx, ebx
+0x14086151f: add      rsp, 0x58
+0x140861523: pop      rbp
+0x140861524: ret      
+0x140861525: dec      rcx
+0x140861528: test     rcx, rcx
+0x14086152b: jl       0x14086155b   ; main.validateGPUPreferenceTargetPathWithResolver+0x37b
+0x14086152d: movzx    edx, byte ptr [rcx + rax]
+0x140861531: cmp      dl, 0x5c
+0x140861534: je       0x14086155b   ; main.validateGPUPreferenceTargetPathWithResolver+0x37b
+0x140861536: cmp      dl, 0x2f
+0x140861539: je       0x14086155b   ; main.validateGPUPreferenceTargetPathWithResolver+0x37b
+0x14086153b: nop      dword ptr [rax + rax]
+0x140861540: cmp      dl, 0x2e
+0x140861543: jne      0x140861525   ; main.validateGPUPreferenceTargetPathWithResolver+0x345
+0x140861545: sub      rbx, rcx
+0x140861548: mov      rsi, rbx
+0x14086154b: neg      rbx
+0x14086154e: sar      rbx, 0x3f
+0x140861552: and      rbx, rcx
+0x140861555: lea      r8, [rbx + rax]
+0x140861559: jmp      0x140861560   ; main.validateGPUPreferenceTargetPathWithResolver+0x380
+0x14086155b: xor      esi, esi
+0x14086155d: xor      r8d, r8d
+0x140861560: mov      rax, r8
+0x140861563: mov      rbx, rsi
+0x140861566: lea      rcx, [rip + 0x3d3201]
+0x14086156d: mov      edi, 4
+0x140861572: call     0x1400a2c40   ; strings.EqualFold
+0x140861577: test     al, al
+0x140861579: je       0x1408616a1   ; main.validateGPUPreferenceTargetPathWithResolver+0x4c1
+0x14086157f: mov      rdx, qword ptr [rsp + 0x88]
+0x140861587: test     rdx, rdx
+0x14086158a: je       0x14086166e   ; main.validateGPUPreferenceTargetPathWithResolver+0x48e
+0x140861590: mov      rcx, qword ptr [rdx]
+0x140861593: mov      rax, qword ptr [rsp + 0x40]
+0x140861598: mov      rbx, qword ptr [rsp + 0x30]
+0x14086159d: call     rcx
+0x14086159f: nop      
+0x1408615a0: test     rcx, rcx
+0x1408615a3: jne      0x14086161a   ; main.validateGPUPreferenceTargetPathWithResolver+0x43a
+0x1408615a5: mov      rcx, qword ptr [rax + 0x18]
+0x1408615a9: mov      rax, rbx
+0x1408615ac: call     rcx
+0x1408615ae: test     al, al
+0x1408615b0: je       0x140861606   ; main.validateGPUPreferenceTargetPathWithResolver+0x426
+0x1408615b2: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1408615b8: mov      rax, qword ptr [rsp + 0x40]
+0x1408615bd: mov      rbx, qword ptr [rsp + 0x30]
+0x1408615c2: call     0x140076660   ; runtime.convTstring
+0x1408615c7: lea      rcx, [rip + 0x288832]
+0x1408615ce: mov      qword ptr [rsp + 0x48], rcx
+0x1408615d3: mov      qword ptr [rsp + 0x50], rax
+0x1408615d8: lea      rax, [rip + 0x4186d3]
+0x1408615df: mov      ebx, 0x25
+0x1408615e4: lea      rcx, [rsp + 0x48]
+0x1408615e9: mov      edi, 1
+0x1408615ee: mov      rsi, rdi
+0x1408615f1: call     0x140133280   ; fmt.Errorf
+0x1408615f6: mov      rcx, rax
+0x1408615f9: mov      rdi, rbx
+0x1408615fc: xor      eax, eax
+0x1408615fe: xor      ebx, ebx
+0x140861600: add      rsp, 0x58
+0x140861604: pop      rbp
+0x140861605: ret      
+0x140861606: mov      rax, qword ptr [rsp + 0x40]
+0x14086160b: mov      rbx, qword ptr [rsp + 0x30]
+0x140861610: xor      ecx, ecx
+0x140861612: xor      edi, edi
+0x140861614: add      rsp, 0x58
+0x140861618: pop      rbp
+0x140861619: ret      
+0x14086161a: movups   xmmword ptr [rsp + 0x48], xmm15
+0x140861620: mov      rax, qword ptr [rsp + 0x40]
+0x140861625: mov      rbx, qword ptr [rsp + 0x30]
+0x14086162a: call     0x140076660   ; runtime.convTstring
+0x14086162f: lea      rcx, [rip + 0x2887ca]
+0x140861636: mov      qword ptr [rsp + 0x48], rcx
+0x14086163b: mov      qword ptr [rsp + 0x50], rax
+0x140861640: lea      rax, [rip + 0x428267]
+0x140861647: mov      ebx, 0x34
+0x14086164c: lea      rcx, [rsp + 0x48]
+0x140861651: mov      edi, 1
+0x140861656: mov      rsi, rdi
+0x140861659: call     0x140133280   ; fmt.Errorf
+0x14086165e: mov      rcx, rax
+0x140861661: mov      rdi, rbx
+0x140861664: xor      eax, eax
+0x140861666: xor      ebx, ebx
+0x140861668: add      rsp, 0x58
+0x14086166c: pop      rbp
+0x14086166d: ret      
+0x14086166e: lea      rax, [rip + 0x2f2d0b]
+0x140861675: call     0x14001ae20   ; runtime.newobject
+0x14086167a: mov      qword ptr [rax + 8], 0x27
+0x140861682: lea      rcx, [rip + 0x41c701]
+0x140861689: mov      qword ptr [rax], rcx
+0x14086168c: xor      ebx, ebx
+0x14086168e: lea      rcx, [rip + 0x971a6b]
+0x140861695: mov      rdi, rax
+0x140861698: xor      eax, eax
+0x14086169a: add      rsp, 0x58
+0x14086169e: pop      rbp
+0x14086169f: nop      
+0x1408616a0: ret      
+0x1408616a1: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1408616a7: mov      rax, qword ptr [rsp + 0x40]
+0x1408616ac: mov      rbx, qword ptr [rsp + 0x30]
+0x1408616b1: call     0x140076660   ; runtime.convTstring
+0x1408616b6: lea      rcx, [rip + 0x288743]
+0x1408616bd: mov      qword ptr [rsp + 0x48], rcx
+0x1408616c2: mov      qword ptr [rsp + 0x50], rax
+0x1408616c7: lea      rax, [rip + 0x426298]
+0x1408616ce: mov      ebx, 0x31
+0x1408616d3: lea      rcx, [rsp + 0x48]
+0x1408616d8: mov      edi, 1
+0x1408616dd: mov      rsi, rdi
+0x1408616e0: call     0x140133280   ; fmt.Errorf
+0x1408616e5: mov      rcx, rax
+0x1408616e8: mov      rdi, rbx
+0x1408616eb: xor      eax, eax
+0x1408616ed: xor      ebx, ebx
+0x1408616ef: add      rsp, 0x58
+0x1408616f3: pop      rbp
+0x1408616f4: ret      
+0x1408616f5: dec      rcx
+0x1408616f8: test     rcx, rcx
+0x1408616fb: jl       0x140861726   ; main.validateGPUPreferenceTargetPathWithResolver+0x546
+0x1408616fd: movzx    edx, byte ptr [rax + rcx]
+0x140861701: cmp      dl, 0x5c
+0x140861704: je       0x140861726   ; main.validateGPUPreferenceTargetPathWithResolver+0x546
+0x140861706: cmp      dl, 0x2f
+0x140861709: je       0x140861726   ; main.validateGPUPreferenceTargetPathWithResolver+0x546
+0x14086170b: cmp      dl, 0x2e
+0x14086170e: jne      0x1408616f5   ; main.validateGPUPreferenceTargetPathWithResolver+0x515
+0x140861710: sub      rbx, rcx
+0x140861713: mov      rsi, rbx
+0x140861716: neg      rbx
+0x140861719: sar      rbx, 0x3f
+0x14086171d: and      rbx, rcx
+0x140861720: lea      r8, [rax + rbx]
+0x140861724: jmp      0x14086172b   ; main.validateGPUPreferenceTargetPathWithResolver+0x54b
+0x140861726: xor      esi, esi
+0x140861728: xor      r8d, r8d
+0x14086172b: mov      rax, r8
+0x14086172e: mov      rbx, rsi
+0x140861731: lea      rcx, [rip + 0x3d303a]
+0x140861738: mov      edi, 4
+0x14086173d: nop      dword ptr [rax]
+0x140861740: call     0x1400a2c40   ; strings.EqualFold
+0x140861745: test     al, al
+0x140861747: jne      0x140861758   ; main.validateGPUPreferenceTargetPathWithResolver+0x578
+0x140861749: mov      rax, qword ptr [rsp + 0x28]
+0x14086174e: mov      rcx, qword ptr [rsp + 0x38]
+0x140861753: jmp      0x140861459   ; main.validateGPUPreferenceTargetPathWithResolver+0x279
+0x140861758: lea      rax, [rip + 0x2f2c21]
+0x14086175f: nop      
+0x140861760: call     0x14001ae20   ; runtime.newobject
+0x140861765: mov      qword ptr [rax + 8], 0x27
+0x14086176d: lea      rcx, [rip + 0x41c5ef]
+0x140861774: mov      qword ptr [rax], rcx
+0x140861777: xor      ebx, ebx
+0x140861779: lea      rcx, [rip + 0x971980]
+0x140861780: mov      rdi, rax
+0x140861783: xor      eax, eax
+0x140861785: add      rsp, 0x58
+0x140861789: pop      rbp
+0x14086178a: ret      
+0x14086178b: mov      qword ptr [rsp + 8], rax
+0x140861790: mov      qword ptr [rsp + 0x10], rbx
+0x140861795: mov      qword ptr [rsp + 0x18], rcx
+0x14086179a: mov      qword ptr [rsp + 0x20], rdi
+0x14086179f: mov      qword ptr [rsp + 0x28], rsi
+0x1408617a4: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408617a9: mov      rax, qword ptr [rsp + 8]
+0x1408617ae: mov      rbx, qword ptr [rsp + 0x10]
+0x1408617b3: mov      rcx, qword ptr [rsp + 0x18]
+0x1408617b8: mov      rdi, qword ptr [rsp + 0x20]
+0x1408617bd: mov      rsi, qword ptr [rsp + 0x28]
+0x1408617c2: jmp      0x1408611e0   ; main.validateGPUPreferenceTargetPathWithResolver
+0x1408617c7: int3     
+0x1408617c8: int3     
+0x1408617c9: int3     
+0x1408617ca: int3     
+0x1408617cb: int3     
+0x1408617cc: int3     
+0x1408617cd: int3     
+0x1408617ce: int3     
+0x1408617cf: int3     
+0x1408617d0: int3     
+0x1408617d1: int3     
+0x1408617d2: int3     
+0x1408617d3: int3     
+0x1408617d4: int3     
+0x1408617d5: int3     
+0x1408617d6: int3     
+0x1408617d7: int3     
+0x1408617d8: int3     
+0x1408617d9: int3     
+0x1408617da: int3     
+0x1408617db: int3     
+0x1408617dc: int3     
+0x1408617dd: int3     
+0x1408617de: int3     
+0x1408617df: int3     
+0x1408617e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408617e4: jbe      0x140861928   ; main.deleteGPUPreferenceValueAliases+0x148
+0x1408617ea: push     rbp
+0x1408617eb: mov      rbp, rsp
+0x1408617ee: sub      rsp, 0x68
+0x1408617f2: mov      qword ptr [rsp + 0x80], rbx
+0x1408617fa: mov      qword ptr [rsp + 0x78], rax
+0x1408617ff: mov      rax, rbx
+0x140861802: mov      rbx, rcx
+0x140861805: call     0x14085b6a0   ; main.gpuPreferencePathKey
+0x14086180a: test     rbx, rbx
+0x14086180d: je       0x14086183f   ; main.deleteGPUPreferenceValueAliases+0x5f
+0x14086180f: mov      qword ptr [rsp + 0x30], rbx
+0x140861814: mov      qword ptr [rsp + 0x50], rax
+0x140861819: mov      rax, qword ptr [rsp + 0x78]
+0x14086181e: xor      ebx, ebx
+0x140861820: call     0x1401cf380   ; golang.org/x/sys/windows/registry.Key.ReadValueNames
+0x140861825: test     rdi, rdi
+0x140861828: jne      0x140861833   ; main.deleteGPUPreferenceValueAliases+0x53
+0x14086182a: mov      qword ptr [rsp + 0x20], rbx
+0x14086182f: xor      ecx, ecx
+0x140861831: jmp      0x140861862   ; main.deleteGPUPreferenceValueAliases+0x82
+0x140861833: mov      rax, rdi
+0x140861836: mov      rbx, rsi
+0x140861839: add      rsp, 0x68
+0x14086183d: pop      rbp
+0x14086183e: ret      
+0x14086183f: xor      eax, eax
+0x140861841: xor      ebx, ebx
+0x140861843: add      rsp, 0x68
+0x140861847: pop      rbp
+0x140861848: ret      
+0x140861849: mov      rax, qword ptr [rsp + 0x60]
+0x14086184e: add      rax, 0x10
+0x140861852: mov      rdx, qword ptr [rsp + 0x40]
+0x140861857: inc      rdx
+0x14086185a: mov      rbx, qword ptr [rsp + 0x20]
+0x14086185f: mov      rcx, rdx
+0x140861862: cmp      rbx, rcx
+0x140861865: jle      0x14086191e   ; main.deleteGPUPreferenceValueAliases+0x13e
+0x14086186b: mov      qword ptr [rsp + 0x40], rcx
+0x140861870: mov      qword ptr [rsp + 0x60], rax
+0x140861875: mov      rcx, qword ptr [rax]
+0x140861878: mov      qword ptr [rsp + 0x48], rcx
+0x14086187d: mov      rbx, qword ptr [rax + 8]
+0x140861881: mov      qword ptr [rsp + 0x28], rbx
+0x140861886: mov      rax, rcx
+0x140861889: call     0x14085b6a0   ; main.gpuPreferencePathKey
+0x14086188e: mov      rcx, qword ptr [rsp + 0x30]
+0x140861893: cmp      rbx, rcx
+0x140861896: jne      0x140861849   ; main.deleteGPUPreferenceValueAliases+0x69
+0x140861898: mov      rcx, rbx
+0x14086189b: mov      rbx, qword ptr [rsp + 0x50]
+0x1408618a0: call     0x140006280   ; runtime.memequal
+0x1408618a5: test     al, al
+0x1408618a7: jne      0x1408618b0   ; main.deleteGPUPreferenceValueAliases+0xd0
+0x1408618a9: mov      rcx, qword ptr [rsp + 0x30]
+0x1408618ae: jmp      0x140861849   ; main.deleteGPUPreferenceValueAliases+0x69
+0x1408618b0: mov      rax, qword ptr [rsp + 0x78]
+0x1408618b5: mov      rbx, qword ptr [rsp + 0x48]
+0x1408618ba: mov      rcx, qword ptr [rsp + 0x28]
+0x1408618bf: nop      
+0x1408618c0: call     0x1401cf2e0   ; golang.org/x/sys/windows/registry.Key.DeleteValue
+0x1408618c5: test     rax, rax
+0x1408618c8: je       0x140861904   ; main.deleteGPUPreferenceValueAliases+0x124
+0x1408618ca: mov      qword ptr [rsp + 0x58], rbx
+0x1408618cf: mov      qword ptr [rsp + 0x38], rax
+0x1408618d4: mov      rax, qword ptr [rip + 0x11007d5]
+0x1408618db: nop      dword ptr [rax + rax]
+0x1408618e0: call     0x1400765e0   ; runtime.convT64
+0x1408618e5: mov      rbx, qword ptr [rsp + 0x58]
+0x1408618ea: lea      rcx, [rip + 0x9713ef]
+0x1408618f1: mov      rdi, rax
+0x1408618f4: mov      rax, qword ptr [rsp + 0x38]
+0x1408618f9: call     0x1400904a0   ; errors.Is
+0x1408618fe: nop      
+0x140861900: test     al, al
+0x140861902: je       0x14086190e   ; main.deleteGPUPreferenceValueAliases+0x12e
+0x140861904: mov      rcx, qword ptr [rsp + 0x30]
+0x140861909: jmp      0x140861849   ; main.deleteGPUPreferenceValueAliases+0x69
+0x14086190e: mov      rax, qword ptr [rsp + 0x38]
+0x140861913: mov      rbx, qword ptr [rsp + 0x58]
+0x140861918: add      rsp, 0x68
+0x14086191c: pop      rbp
+0x14086191d: ret      
+0x14086191e: xor      eax, eax
+0x140861920: xor      ebx, ebx
+0x140861922: add      rsp, 0x68
+0x140861926: pop      rbp
+0x140861927: ret      
+0x140861928: mov      qword ptr [rsp + 8], rax
+0x14086192d: mov      qword ptr [rsp + 0x10], rbx
+0x140861932: mov      qword ptr [rsp + 0x18], rcx
+0x140861937: call     0x14007f140   ; runtime.morestack_noctxt
+0x14086193c: mov      rax, qword ptr [rsp + 8]
+0x140861941: mov      rbx, qword ptr [rsp + 0x10]
+0x140861946: mov      rcx, qword ptr [rsp + 0x18]
+0x14086194b: jmp      0x1408617e0   ; main.deleteGPUPreferenceValueAliases
+0x140861950: int3     
+0x140861951: int3     
+0x140861952: int3     
+0x140861953: int3     
+0x140861954: int3     
+0x140861955: int3     
+0x140861956: int3     
+0x140861957: int3     
+0x140861958: int3     
+0x140861959: int3     
+0x14086195a: int3     
+0x14086195b: int3     
+0x14086195c: int3     
+0x14086195d: int3     
+0x14086195e: int3     
+0x14086195f: int3     
+0x140861960: cmp      rsp, qword ptr [r14 + 0x10]
+0x140861964: jbe      0x1408619e1   ; main.gpuPreferenceFileExists+0x81
+0x140861966: push     rbp
+0x140861967: mov      rbp, rsp
+0x14086196a: sub      rsp, 0x20
+0x14086196e: mov      qword ptr [rsp + 0x30], rax
+0x140861973: call     0x1400a2200   ; strings.TrimSpace
+0x140861978: test     rbx, rbx
+0x14086197b: je       0x1408619d8   ; main.gpuPreferenceFileExists+0x78
+0x14086197d: mov      qword ptr [rsp + 0x10], rbx
+0x140861982: mov      qword ptr [rsp + 0x18], rax
+0x140861987: call     0x140194220   ; golang.org/x/sys/windows.UTF16PtrFromString
+0x14086198c: test     rbx, rbx
+0x14086198f: jne      0x14086199b   ; main.gpuPreferenceFileExists+0x3b
+0x140861991: call     0x140196f60   ; golang.org/x/sys/windows.GetFileAttributes
+0x140861996: test     rbx, rbx
+0x140861999: je       0x1408619cb   ; main.gpuPreferenceFileExists+0x6b
+0x14086199b: mov      rax, qword ptr [rsp + 0x18]
+0x1408619a0: mov      rbx, qword ptr [rsp + 0x10]
+0x1408619a5: call     0x14012d940   ; os.Stat
+0x1408619aa: test     rcx, rcx
+0x1408619ad: je       0x1408619b7   ; main.gpuPreferenceFileExists+0x57
+0x1408619af: xor      eax, eax
+0x1408619b1: add      rsp, 0x20
+0x1408619b5: pop      rbp
+0x1408619b6: ret      
+0x1408619b7: mov      rcx, qword ptr [rax + 0x18]
+0x1408619bb: mov      rax, rbx
+0x1408619be: nop      
+0x1408619c0: call     rcx
+0x1408619c2: xor      eax, 1
+0x1408619c5: add      rsp, 0x20
+0x1408619c9: pop      rbp
+0x1408619ca: ret      
+0x1408619cb: bt       eax, 4
+0x1408619cf: setae    al
+0x1408619d2: add      rsp, 0x20
+0x1408619d6: pop      rbp
+0x1408619d7: ret      
+0x1408619d8: xor      eax, eax
+0x1408619da: add      rsp, 0x20
+0x1408619de: pop      rbp
+0x1408619df: nop      
+0x1408619e0: ret      
+0x1408619e1: mov      qword ptr [rsp + 8], rax
+0x1408619e6: mov      qword ptr [rsp + 0x10], rbx
+0x1408619eb: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408619f0: mov      rax, qword ptr [rsp + 8]
+0x1408619f5: mov      rbx, qword ptr [rsp + 0x10]
+0x1408619fa: jmp      0x140861960   ; main.gpuPreferenceFileExists
+0x1408619ff: int3     
+0x140861a00: cmp      rsp, qword ptr [r14 + 0x10]
+0x140861a04: jbe      0x140861a6b   ; main.inputMonitorService.startPlatformOwned+0x6b
+0x140861a06: push     rbp
+0x140861a07: mov      rbp, rsp
+0x140861a0a: sub      rsp, 0x20
+0x140861a0e: mov      qword ptr [rsp + 0x30], rax
+0x140861a13: mov      byte ptr [rsp + 0x1f], cl
+0x140861a17: mov      byte ptr [rsp + 0x1e], bl
+0x140861a1b: nop      dword ptr [rax + rax]
+0x140861a20: call     0x140861b60   ; main.inputMonitorService.advancePlatformGeneration
+0x140861a25: mov      rcx, qword ptr [rsp + 0x30]
+0x140861a2a: mov      rdx, qword ptr [rcx + 0x100]
+0x140861a31: test     rdx, rdx
+0x140861a34: je       0x140861a4b   ; main.inputMonitorService.startPlatformOwned+0x4b
+0x140861a36: mov      rcx, qword ptr [rdx]
+0x140861a39: movzx    eax, byte ptr [rsp + 0x1e]

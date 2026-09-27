@@ -1,0 +1,36 @@
+0x140771cc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140771cc4: jbe      0x140771cf4   ; main.normalizeBookmarkPageTitle+0x34
+0x140771cc6: push     rbp
+0x140771cc7: mov      rbp, rsp
+0x140771cca: sub      rsp, 0x28
+0x140771cce: mov      qword ptr [rsp + 0x38], rax
+0x140771cd3: call     0x1400a2200   ; strings.TrimSpace
+0x140771cd8: call     0x14009fba0   ; strings.Fields
+0x140771cdd: lea      rdi, [rip + 0xa588e4]
+0x140771ce4: mov      esi, 1
+0x140771ce9: call     0x1400a0140   ; strings.Join
+0x140771cee: add      rsp, 0x28
+0x140771cf2: pop      rbp
+0x140771cf3: ret      
+0x140771cf4: mov      qword ptr [rsp + 8], rax
+0x140771cf9: mov      qword ptr [rsp + 0x10], rbx
+0x140771cfe: nop      
+0x140771d00: call     0x14007f140   ; runtime.morestack_noctxt
+0x140771d05: mov      rax, qword ptr [rsp + 8]
+0x140771d0a: mov      rbx, qword ptr [rsp + 0x10]
+0x140771d0f: jmp      0x140771cc0   ; main.normalizeBookmarkPageTitle
+0x140771d11: int3     
+0x140771d12: int3     
+0x140771d13: int3     
+0x140771d14: int3     
+0x140771d15: int3     
+0x140771d16: int3     
+0x140771d17: int3     
+0x140771d18: int3     
+0x140771d19: int3     
+0x140771d1a: int3     
+0x140771d1b: int3     
+0x140771d1c: int3     
+0x140771d1d: int3     
+0x140771d1e: int3     
+0x140771d1f: int3     

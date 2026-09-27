@@ -1,0 +1,74 @@
+0x14095bd80: nop      
+0x14095bd81: cmp      rax, rcx
+0x14095bd84: jge      0x14095bd90   ; main.qrCodeCornerRadiusFromPoint+0x10
+0x14095bd86: cmp      rbx, rdi
+0x14095bd89: jge      0x14095bd90   ; main.qrCodeCornerRadiusFromPoint+0x10
+0x14095bd8b: test     r8, r8
+0x14095bd8e: jg       0x14095bd93   ; main.qrCodeCornerRadiusFromPoint+0x13
+0x14095bd90: xor      eax, eax
+0x14095bd92: ret      
+0x14095bd93: cmp      rax, rsi
+0x14095bd96: jle      0x14095bda0   ; main.qrCodeCornerRadiusFromPoint+0x20
+0x14095bd98: mov      rdx, rax
+0x14095bd9b: jmp      0x14095bdb3   ; main.qrCodeCornerRadiusFromPoint+0x33
+0x14095bd9d: nop      dword ptr [rax]
+0x14095bda0: cmp      rcx, rsi
+0x14095bda3: jge      0x14095bdad   ; main.qrCodeCornerRadiusFromPoint+0x2d
+0x14095bda5: mov      rdx, rax
+0x14095bda8: mov      rax, rcx
+0x14095bdab: jmp      0x14095bdb3   ; main.qrCodeCornerRadiusFromPoint+0x33
+0x14095bdad: mov      rdx, rax
+0x14095bdb0: mov      rax, rsi
+0x14095bdb3: sub      rax, rdx
+0x14095bdb6: xorps    xmm0, xmm0
+0x14095bdb9: cvtsi2sd xmm0, rax
+0x14095bdbe: xorps    xmm1, xmm1
+0x14095bdc1: cvtsi2sd xmm1, r8
+0x14095bdc6: mulsd    xmm0, xmm1
+0x14095bdca: sub      rcx, rdx
+0x14095bdcd: xorps    xmm1, xmm1
+0x14095bdd0: cvtsi2sd xmm1, rcx
+0x14095bdd5: divsd    xmm0, xmm1
+0x14095bdd9: movq     rcx, xmm0
+0x14095bdde: mov      rdx, rcx
+0x14095bde1: shr      rdx, 0x34
+0x14095bde5: and      edx, 0x7ff
+0x14095bdeb: nop      
+0x14095bdec: cmp      rdx, 0x3ff
+0x14095bdf3: jae      0x14095be20   ; main.qrCodeCornerRadiusFromPoint+0xa0
+0x14095bdf5: movabs   rbx, 0x8000000000000000
+0x14095bdff: and      rbx, rcx
+0x14095be02: movabs   rcx, 0x3ff0000000000000
+0x14095be0c: or       rcx, rbx
+0x14095be0f: cmp      rdx, 0x3fe
+0x14095be16: cmove    rbx, rcx
+0x14095be1a: mov      rsi, rbx
+0x14095be1d: jmp      0x14095be5e   ; main.qrCodeCornerRadiusFromPoint+0xde
+0x14095be1f: nop      
+0x14095be20: cmp      rdx, 0x433
+0x14095be27: jae      0x14095be5b   ; main.qrCodeCornerRadiusFromPoint+0xdb
+0x14095be29: add      rdx, -0x3ff
+0x14095be30: mov      rax, rcx
+0x14095be33: mov      rcx, rdx
+0x14095be36: movabs   rbx, 0x8000000000000
+0x14095be40: shr      rbx, cl
+0x14095be43: add      rbx, rax
+0x14095be46: movabs   rsi, 0xfffffffffffff
+0x14095be50: shr      rsi, cl
+0x14095be53: not      rsi
+0x14095be56: and      rsi, rbx
+0x14095be59: jmp      0x14095be5e   ; main.qrCodeCornerRadiusFromPoint+0xde
+0x14095be5b: mov      rsi, rcx
+0x14095be5e: movq     xmm0, rsi
+0x14095be63: cvttsd2si rcx, xmm0
+0x14095be68: test     rcx, rcx
+0x14095be6b: jge      0x14095be72   ; main.qrCodeCornerRadiusFromPoint+0xf2
+0x14095be6d: xor      r8d, r8d
+0x14095be70: jmp      0x14095be7a   ; main.qrCodeCornerRadiusFromPoint+0xfa
+0x14095be72: cmp      r8, rcx
+0x14095be75: jl       0x14095be7a   ; main.qrCodeCornerRadiusFromPoint+0xfa
+0x14095be77: mov      r8, rcx
+0x14095be7a: mov      rax, r8
+0x14095be7d: ret      
+0x14095be7e: int3     
+0x14095be7f: int3     

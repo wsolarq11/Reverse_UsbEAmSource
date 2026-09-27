@@ -1,0 +1,7 @@
+L21 请求: 请求新增 GPU 首选项: rawPath=%q
+L53 校验失败: 新增 GPU 首选项校验失败: rawPath=%q err=%v
+L105 打开注册表失败: 新增 GPU 首选项打开注册表失败: path=%q err=%v
+L161 清理别名失败: 新增 GPU 首选项清理别名失败: path=%q err=%v
+L232 写入注册表失败: 新增 GPU 首选项写入注册表失败: path=%q err=%v
+L302 刷新状态失败: 新增 GPU 首选项后刷新状态失败: path=%q err=%v
+L347 成功: 新增 GPU 首选项成功: path=%q entries=%d

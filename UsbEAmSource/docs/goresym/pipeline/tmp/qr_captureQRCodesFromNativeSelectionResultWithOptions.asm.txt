@@ -1,0 +1,245 @@
+0x140934500: lea      r12, [rsp - 0x100]
+0x140934508: cmp      r12, qword ptr [r14 + 0x10]
+0x14093450c: jbe      0x140934a75   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0x575
+0x140934512: push     rbp
+0x140934513: mov      rbp, rsp
+0x140934516: sub      rsp, 0x178
+0x14093451d: movq     qword ptr [rsp + 0x170], xmm15
+0x140934527: mov      byte ptr [rsp + 0xa7], 0
+0x14093452f: movups   xmmword ptr [rsp + 0x1f8], xmm15
+0x140934538: lea      rdi, [rsp + 0x200]
+0x140934540: lea      rdi, [rdi - 0x10]
+0x140934544: mov      qword ptr [rsp - 0x10], rbp
+0x140934549: lea      rbp, [rsp - 0x10]
+0x14093454e: call     0x140081726   ; runtime.duffzero+0x146
+0x140934553: mov      rbp, qword ptr [rbp]
+0x140934557: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x140934560: call     0x1409375a0   ; main.tryReserveQRCodeSelectionSession
+0x140934565: test     al, al
+0x140934567: je       0x140934a11   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0x511
+0x14093456d: mov      byte ptr [rsp + 0xa6], 1
+0x140934575: lea      rax, [rip + 0x504]
+0x14093457c: mov      qword ptr [rsp + 0xe8], rax
+0x140934584: lea      rax, [rsp + 0xa6]
+0x14093458c: mov      qword ptr [rsp + 0xf0], rax
+0x140934594: lea      rax, [rsp + 0xe8]
+0x14093459c: mov      qword ptr [rsp + 0x170], rax
+0x1409345a4: mov      byte ptr [rsp + 0xa7], 1
+0x1409345ac: cmp      byte ptr [rsp + 0x1b8], 0
+0x1409345b4: je       0x1409345f3   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0xf3
+0x1409345b6: cmp      byte ptr [rsp + 0x1d8], 0
+0x1409345be: nop      
+0x1409345c0: jne      0x1409345f3   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0xf3
+0x1409345c2: call     0x140973f80   ; main.captureScreenshotCursorSnapshot
+0x1409345c7: mov      dword ptr [rsp + 0x1c0], eax
+0x1409345ce: mov      dword ptr [rsp + 0x1c4], ebx
+0x1409345d5: mov      qword ptr [rsp + 0x1c8], rcx
+0x1409345dd: mov      dword ptr [rsp + 0x1d0], edi
+0x1409345e4: mov      dword ptr [rsp + 0x1d4], esi
+0x1409345eb: mov      byte ptr [rsp + 0x1d8], r8b
+0x1409345f3: mov      rdi, rsp
+0x1409345f6: lea      rsi, [rsp + 0x188]
+0x1409345fe: nop      
+0x140934600: mov      qword ptr [rsp - 0x10], rbp
+0x140934605: lea      rbp, [rsp - 0x10]
+0x14093460a: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x14093460f: mov      rbp, qword ptr [rbp]
+0x140934613: call     0x140934ac0   ; main.captureQRCodeSelectionPreviewSnapshot
+0x140934618: mov      qword ptr [rsp + 0xf8], rax
+0x140934620: mov      qword ptr [rsp + 0x100], rbx
+0x140934628: mov      qword ptr [rsp + 0x108], rcx
+0x140934630: mov      qword ptr [rsp + 0x110], rdi
+0x140934638: mov      qword ptr [rsp + 0x118], rsi
+0x140934640: mov      qword ptr [rsp + 0x120], r8
+0x140934648: movups   xmm0, xmmword ptr [rsp + 0xf8]
+0x140934650: movups   xmmword ptr [rsp + 0xb8], xmm0
+0x140934658: movups   xmm0, xmmword ptr [rsp + 0x108]
+0x140934660: movups   xmmword ptr [rsp + 0xc8], xmm0
+0x140934668: movups   xmm0, xmmword ptr [rsp + 0x118]
+0x140934670: movups   xmmword ptr [rsp + 0xd8], xmm0
+0x140934678: nop      dword ptr [rax + rax]
+0x140934680: test     r9, r9
+0x140934683: jne      0x1409349a4   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0x4a4
+0x140934689: mov      rcx, qword ptr [rsp + 0xd8]
+0x140934691: test     rcx, rcx
+0x140934694: je       0x140934917   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0x417
+0x14093469a: mov      rdx, qword ptr [rcx + 0x20]
+0x14093469e: nop      
+0x1409346a0: cmp      qword ptr [rcx + 0x30], rdx
+0x1409346a4: jle      0x140934917   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0x417
+0x1409346aa: mov      rdx, qword ptr [rcx + 0x28]
+0x1409346ae: mov      rcx, qword ptr [rcx + 0x38]
+0x1409346b2: cmp      rdx, rcx
+0x1409346b5: jge      0x140934917   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0x417
+0x1409346bb: cmp      byte ptr [rsp + 0x1ba], 0
+0x1409346c3: je       0x1409346ca   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0x1ca
+0x1409346c5: call     0x14096e4e0   ; main.prewarmScreenshotHDRCaptureAsync
+0x1409346ca: call     0x140934ec0   ; main.ensureQRCodeSelectionWindowClass
+0x1409346cf: test     rax, rax
+0x1409346d2: jne      0x1409348b1   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0x3b1
+0x1409346d8: mov      rax, qword ptr [rsp + 0xb8]
+0x1409346e0: mov      rbx, qword ptr [rsp + 0xc0]
+0x1409346e8: mov      rcx, qword ptr [rsp + 0xc8]
+0x1409346f0: mov      rdx, qword ptr [rsp + 0xd0]
+0x1409346f8: mov      r9, qword ptr [rsp + 0xd8]
+0x140934700: mov      r8, qword ptr [rsp + 0xe0]
+0x140934708: mov      rdi, rsp
+0x14093470b: lea      rsi, [rsp + 0x188]
+0x140934713: nop      word ptr [rax + rax]
+0x14093471c: nop      dword ptr [rax]
+0x140934720: mov      qword ptr [rsp - 0x10], rbp
+0x140934725: lea      rbp, [rsp - 0x10]
+0x14093472a: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x14093472f: mov      rbp, qword ptr [rbp]
+0x140934733: mov      rdi, rdx
+0x140934736: mov      rsi, r9
+0x140934739: call     0x140934f20   ; main.newQRCodeScreenSelectionSession
+0x14093473e: nop      
+0x140934740: test     rbx, rbx
+0x140934743: je       0x1409347b1   ; main.captureQRCodesFromNativeSelectionResultWithOptions+0x2b1
+0x140934745: movups   xmmword ptr [rsp + 0x1f8], xmm15
+0x14093474e: lea      rdi, [rsp + 0x200]
+0x140934756: lea      rdi, [rdi - 0x10]
+0x14093475a: nop      word ptr [rax + rax]
+0x140934760: mov      qword ptr [rsp - 0x10], rbp
+0x140934765: lea      rbp, [rsp - 0x10]
+0x14093476a: call     0x140081726   ; runtime.duffzero+0x146
+0x14093476f: mov      rbp, qword ptr [rbp]
+0x140934773: mov      qword ptr [rsp + 0xa8], rbx
+0x14093477b: mov      qword ptr [rsp + 0xb0], rcx
+0x140934783: mov      byte ptr [rsp + 0xa7], 0
+0x14093478b: mov      rdx, qword ptr [rsp + 0x170]
+0x140934793: mov      rax, qword ptr [rdx]
+0x140934796: call     rax
+0x140934798: mov      rax, qword ptr [rsp + 0xa8]
+0x1409347a0: mov      rbx, qword ptr [rsp + 0xb0]
+0x1409347a8: add      rsp, 0x178
+0x1409347af: pop      rbp
+0x1409347b0: ret      
+0x1409347b1: mov      byte ptr [rsp + 0xa6], 0
+0x1409347b9: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x1409347c2: lea      rdi, [rsp + 0x100]
+0x1409347ca: lea      rdi, [rdi - 0x10]
+0x1409347ce: nop      word ptr [rax + rax]
+0x1409347d7: nop      word ptr [rax + rax]
+0x1409347e0: mov      qword ptr [rsp - 0x10], rbp
+0x1409347e5: lea      rbp, [rsp - 0x10]
+0x1409347ea: call     0x140081726   ; runtime.duffzero+0x146
+0x1409347ef: mov      rbp, qword ptr [rbp]
+0x1409347f3: call     0x1409356c0   ; main.qrCodeScreenSelectionSession.runResult
+0x1409347f8: mov      rcx, qword ptr [rsp]
+0x1409347fc: mov      qword ptr [rsp + 0xf8], rcx
+0x140934804: lea      rdi, [rsp + 0x100]
+0x14093480c: lea      rsi, [rsp + 8]
+0x140934811: nop      word ptr [rax + rax]
+0x14093481a: nop      word ptr [rax + rax]
+0x140934820: mov      qword ptr [rsp - 0x10], rbp
+0x140934825: lea      rbp, [rsp - 0x10]
+0x14093482a: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x14093482f: mov      rbp, qword ptr [rbp]
+0x140934833: mov      rcx, qword ptr [rsp + 0xf8]
+0x14093483b: mov      qword ptr [rsp + 0x1f8], rcx
+0x140934843: lea      rdi, [rsp + 0x200]
+0x14093484b: lea      rsi, [rsp + 0x100]
+0x140934853: nop      word ptr [rax + rax]
+0x14093485c: nop      dword ptr [rax]
+0x140934860: mov      qword ptr [rsp - 0x10], rbp
+0x140934865: lea      rbp, [rsp - 0x10]
+0x14093486a: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x14093486f: mov      rbp, qword ptr [rbp]
+0x140934873: mov      qword ptr [rsp + 0xa8], rax
+0x14093487b: mov      qword ptr [rsp + 0xb0], rbx
+0x140934883: mov      byte ptr [rsp + 0xa7], 0
+0x14093488b: mov      rdx, qword ptr [rsp + 0x170]
+0x140934893: mov      rcx, qword ptr [rdx]
+0x140934896: call     rcx
+0x140934898: mov      rax, qword ptr [rsp + 0xa8]
+0x1409348a0: mov      rbx, qword ptr [rsp + 0xb0]
+0x1409348a8: add      rsp, 0x178
+0x1409348af: pop      rbp
+0x1409348b0: ret      
+0x1409348b1: movups   xmmword ptr [rsp + 0x1f8], xmm15
+0x1409348ba: lea      rdi, [rsp + 0x200]
+0x1409348c2: lea      rdi, [rdi - 0x10]
+0x1409348c6: mov      qword ptr [rsp - 0x10], rbp
+0x1409348cb: lea      rbp, [rsp - 0x10]
+0x1409348d0: call     0x140081726   ; runtime.duffzero+0x146
+0x1409348d5: mov      rbp, qword ptr [rbp]
+0x1409348d9: mov      qword ptr [rsp + 0xa8], rax
+0x1409348e1: mov      qword ptr [rsp + 0xb0], rbx
+0x1409348e9: mov      byte ptr [rsp + 0xa7], 0
+0x1409348f1: mov      rdx, qword ptr [rsp + 0x170]
+0x1409348f9: mov      rax, qword ptr [rdx]
+0x1409348fc: call     rax
+0x1409348fe: mov      rax, qword ptr [rsp + 0xa8]
+0x140934906: mov      rbx, qword ptr [rsp + 0xb0]
+0x14093490e: add      rsp, 0x178
+0x140934915: pop      rbp
+0x140934916: ret      
+0x140934917: lea      rax, [rip + 0x21fa62]
+0x14093491e: nop      
+0x140934920: call     0x14001ae20   ; runtime.newobject
+0x140934925: mov      qword ptr [rax + 8], 0x21
+0x14093492d: lea      rcx, [rip + 0x33f6ad]
+0x140934934: mov      qword ptr [rax], rcx
+0x140934937: movups   xmmword ptr [rsp + 0x1f8], xmm15
+0x140934940: lea      rdi, [rsp + 0x200]
+0x140934948: lea      rdi, [rdi - 0x10]
+0x14093494c: mov      qword ptr [rsp - 0x10], rbp
+0x140934951: lea      rbp, [rsp - 0x10]
+0x140934956: call     0x140081726   ; runtime.duffzero+0x146
+0x14093495b: mov      rbp, qword ptr [rbp]
+0x14093495f: lea      rcx, [rip + 0x89e79a]
+0x140934966: mov      qword ptr [rsp + 0xa8], rcx
+0x14093496e: mov      qword ptr [rsp + 0xb0], rax
+0x140934976: mov      byte ptr [rsp + 0xa7], 0
+0x14093497e: mov      rdx, qword ptr [rsp + 0x170]
+0x140934986: mov      rcx, qword ptr [rdx]
+0x140934989: call     rcx
+0x14093498b: mov      rax, qword ptr [rsp + 0xa8]
+0x140934993: mov      rbx, qword ptr [rsp + 0xb0]
+0x14093499b: add      rsp, 0x178
+0x1409349a2: pop      rbp
+0x1409349a3: ret      
+0x1409349a4: movups   xmmword ptr [rsp + 0x1f8], xmm15
+0x1409349ad: lea      rdi, [rsp + 0x200]
+0x1409349b5: lea      rdi, [rdi - 0x10]
+0x1409349b9: nop      dword ptr [rax]
+0x1409349c0: mov      qword ptr [rsp - 0x10], rbp
+0x1409349c5: lea      rbp, [rsp - 0x10]
+0x1409349ca: call     0x140081726   ; runtime.duffzero+0x146
+0x1409349cf: mov      rbp, qword ptr [rbp]
+0x1409349d3: mov      qword ptr [rsp + 0xa8], r9
+0x1409349db: mov      qword ptr [rsp + 0xb0], r10
+0x1409349e3: mov      byte ptr [rsp + 0xa7], 0
+0x1409349eb: mov      rdx, qword ptr [rsp + 0x170]
+0x1409349f3: mov      rax, qword ptr [rdx]
+0x1409349f6: call     rax
+0x1409349f8: mov      rax, qword ptr [rsp + 0xa8]
+0x140934a00: mov      rbx, qword ptr [rsp + 0xb0]
+0x140934a08: add      rsp, 0x178
+0x140934a0f: pop      rbp
+0x140934a10: ret      
+0x140934a11: movups   xmmword ptr [rsp + 0x1f8], xmm15
+0x140934a1a: lea      rdi, [rsp + 0x200]
+0x140934a22: lea      rdi, [rdi - 0x10]
+0x140934a26: mov      qword ptr [rsp - 0x10], rbp
+0x140934a2b: lea      rbp, [rsp - 0x10]
+0x140934a30: call     0x140081726   ; runtime.duffzero+0x146
+0x140934a35: mov      rbp, qword ptr [rbp]
+0x140934a39: mov      byte ptr [rsp + 0x210], 1
+0x140934a41: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x140934a4a: xor      eax, eax
+0x140934a4c: xor      ebx, ebx
+0x140934a4e: add      rsp, 0x178
+0x140934a55: pop      rbp
+0x140934a56: ret      
+0x140934a57: call     0x1400435e0   ; runtime.deferreturn
+0x140934a5c: mov      rax, qword ptr [rsp + 0xa8]
+0x140934a64: mov      rbx, qword ptr [rsp + 0xb0]
+0x140934a6c: add      rsp, 0x178
+0x140934a73: pop      rbp
+0x140934a74: ret      
+0x140934a75: call     0x14007f140   ; runtime.morestack_noctxt
+0x140934a7a: jmp      0x140934500   ; main.captureQRCodesFromNativeSelectionResultWithOptions
+0x140934a7f: int3     

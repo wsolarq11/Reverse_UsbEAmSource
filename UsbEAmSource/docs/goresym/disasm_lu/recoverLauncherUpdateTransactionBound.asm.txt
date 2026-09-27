@@ -1,0 +1,170 @@
+0x1408ce940: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ce944: jbe      0x1408cebae    ; main.recoverLauncherUpdateTransactionBound+0x26e
+0x1408ce94a: push     rbp
+0x1408ce94b: mov      rbp, rsp
+0x1408ce94e: sub      rsp, 0x58
+0x1408ce952: mov      qword ptr [rsp + 0x80], rdi
+0x1408ce95a: mov      qword ptr [rsp + 0x78], rcx
+0x1408ce95f: mov      qword ptr [rsp + 0x70], rbx
+0x1408ce964: mov      qword ptr [rsp + 0x68], rax
+0x1408ce969: mov      qword ptr [rsp + 0x88], rsi
+0x1408ce971: mov      qword ptr [rsp + 0x90], r8
+0x1408ce979: call     0x1408ce820    ; main.loadLauncherUpdateTransaction
+0x1408ce97e: mov      qword ptr [rsp + 0x28], rbx
+0x1408ce983: mov      qword ptr [rsp + 0x48], rcx
+0x1408ce988: mov      qword ptr [rsp + 0x38], rax
+0x1408ce98d: mov      rdx, qword ptr [rip + 0x1341ffc]
+0x1408ce994: mov      rdi, qword ptr [rip + 0x1341ffd]
+0x1408ce99b: mov      rax, rbx
+0x1408ce99e: mov      rbx, rcx
+0x1408ce9a1: mov      rcx, rdx
+0x1408ce9a4: call     0x1400904a0    ; errors.Is
+0x1408ce9a9: test     al, al
+0x1408ce9ab: jne      0x1408ceba4    ; main.recoverLauncherUpdateTransactionBound+0x264
+0x1408ce9b1: mov      rax, qword ptr [rsp + 0x28]
+0x1408ce9b6: test     rax, rax
+0x1408ce9b9: jne      0x1408ceb99    ; main.recoverLauncherUpdateTransactionBound+0x259
+0x1408ce9bf: mov      rax, qword ptr [rsp + 0x78]
+0x1408ce9c4: mov      rbx, qword ptr [rsp + 0x80]
+0x1408ce9cc: call     0x1400a2200    ; strings.TrimSpace
+0x1408ce9d1: call     0x1401154c0    ; internal/filepathlite.Clean
+0x1408ce9d6: call     0x1408ca720    ; main.validateLauncherUpdateAbsolutePath
+0x1408ce9db: nop      dword ptr [rax + rax]
+0x1408ce9e0: test     rcx, rcx
+0x1408ce9e3: jne      0x1408ceb6b    ; main.recoverLauncherUpdateTransactionBound+0x22b
+0x1408ce9e9: mov      qword ptr [rsp + 0x30], rbx
+0x1408ce9ee: mov      qword ptr [rsp + 0x50], rax
+0x1408ce9f3: mov      rax, qword ptr [rsp + 0x88]
+0x1408ce9fb: mov      rbx, qword ptr [rsp + 0x90]
+0x1408cea03: call     0x1400a2200    ; strings.TrimSpace
+0x1408cea08: call     0x1401154c0    ; internal/filepathlite.Clean
+0x1408cea0d: call     0x1408ca720    ; main.validateLauncherUpdateAbsolutePath
+0x1408cea12: test     rcx, rcx
+0x1408cea15: jne      0x1408ceb3d    ; main.recoverLauncherUpdateTransactionBound+0x1fd
+0x1408cea1b: mov      qword ptr [rsp + 0x20], rbx
+0x1408cea20: mov      qword ptr [rsp + 0x40], rax
+0x1408cea25: mov      rdx, qword ptr [rsp + 0x38]
+0x1408cea2a: mov      rax, qword ptr [rdx + 0x58]
+0x1408cea2e: mov      rbx, qword ptr [rdx + 0x60]
+0x1408cea32: mov      rcx, qword ptr [rsp + 0x68]
+0x1408cea37: mov      rdi, qword ptr [rsp + 0x70]
+0x1408cea3c: nop      dword ptr [rax]
+0x1408cea40: call     0x1408cb060    ; main.samePathFold
+0x1408cea45: test     al, al
+0x1408cea47: je       0x1408cea6e    ; main.recoverLauncherUpdateTransactionBound+0x12e
+0x1408cea49: mov      rcx, qword ptr [rsp + 0x38]
+0x1408cea4e: mov      rax, qword ptr [rcx + 0x58]
+0x1408cea52: mov      rbx, qword ptr [rcx + 0x60]
+0x1408cea56: call     0x140116440    ; internal/filepathlite.Dir
+0x1408cea5b: mov      rcx, qword ptr [rsp + 0x50]
+0x1408cea60: mov      rdi, qword ptr [rsp + 0x30]
+0x1408cea65: call     0x1408cb060    ; main.samePathFold
+0x1408cea6a: test     al, al
+0x1408cea6c: jne      0x1408cea9c    ; main.recoverLauncherUpdateTransactionBound+0x15c
+0x1408cea6e: lea      rax, [rip + 0x28590b]
+0x1408cea75: call     0x14001ae20    ; runtime.newobject
+0x1408cea7a: mov      qword ptr [rax + 8], 0x30
+0x1408cea82: lea      rcx, [rip + 0x3b81ea]
+0x1408cea89: mov      qword ptr [rax], rcx
+0x1408cea8c: mov      rbx, rax
+0x1408cea8f: lea      rax, [rip + 0x90466a]
+0x1408cea96: add      rsp, 0x58
+0x1408cea9a: pop      rbp
+0x1408cea9b: ret      
+0x1408cea9c: mov      rax, qword ptr [rsp + 0x40]
+0x1408ceaa1: mov      rbx, qword ptr [rsp + 0x20]
+0x1408ceaa6: call     0x140116440    ; internal/filepathlite.Dir
+0x1408ceaab: mov      rcx, qword ptr [rsp + 0x38]
+0x1408ceab0: mov      rdx, qword ptr [rcx + 0x28]
+0x1408ceab4: mov      rcx, qword ptr [rcx + 0x30]
+0x1408ceab8: mov      rdi, rbx
+0x1408ceabb: mov      rbx, rcx
+0x1408ceabe: mov      rcx, rax
+0x1408ceac1: mov      rax, rdx
+0x1408ceac4: call     0x1408cb060    ; main.samePathFold
+0x1408ceac9: test     al, al
+0x1408ceacb: je       0x1408ceaed    ; main.recoverLauncherUpdateTransactionBound+0x1ad
+0x1408ceacd: mov      rdx, qword ptr [rsp + 0x38]
+0x1408cead2: mov      rax, qword ptr [rdx + 0x68]
+0x1408cead6: mov      rbx, qword ptr [rdx + 0x70]
+0x1408ceada: mov      rcx, qword ptr [rsp + 0x40]
+0x1408ceadf: mov      rdi, qword ptr [rsp + 0x20]
+0x1408ceae4: call     0x1408cb060    ; main.samePathFold
+0x1408ceae9: test     al, al
+0x1408ceaeb: jne      0x1408ceb01    ; main.recoverLauncherUpdateTransactionBound+0x1c1
+0x1408ceaed: mov      rax, qword ptr [rip + 0x12f51ec]
+0x1408ceaf4: mov      rbx, qword ptr [rip + 0x12f51ed]
+0x1408ceafb: add      rsp, 0x58
+0x1408ceaff: pop      rbp
+0x1408ceb00: ret      
+0x1408ceb01: mov      rax, qword ptr [rsp + 0x38]
+0x1408ceb06: mov      rbx, qword ptr [rsp + 0x40]
+0x1408ceb0b: mov      rcx, qword ptr [rsp + 0x20]
+0x1408ceb10: call     0x1408cec00    ; main.launcherUpdateTransactionRollbackWouldReplaceExecutable
+0x1408ceb15: test     al, al
+0x1408ceb17: je       0x1408ceb2d    ; main.recoverLauncherUpdateTransactionBound+0x1ed
+0x1408ceb19: mov      rax, qword ptr [rip + 0x12f51e0]
+0x1408ceb20: mov      rbx, qword ptr [rip + 0x12f51e1]
+0x1408ceb27: add      rsp, 0x58
+0x1408ceb2b: pop      rbp
+0x1408ceb2c: ret      
+0x1408ceb2d: mov      rax, qword ptr [rsp + 0x38]
+0x1408ceb32: call     0x1408cef40    ; main.recoverLoadedLauncherUpdateTransaction
+0x1408ceb37: add      rsp, 0x58
+0x1408ceb3b: pop      rbp
+0x1408ceb3c: ret      
+0x1408ceb3d: lea      rax, [rip + 0x28583c]
+0x1408ceb44: call     0x14001ae20    ; runtime.newobject
+0x1408ceb49: mov      qword ptr [rax + 8], 0x21
+0x1408ceb51: lea      rcx, [rip + 0x3a51f5]
+0x1408ceb58: mov      qword ptr [rax], rcx
+0x1408ceb5b: mov      rbx, rax
+0x1408ceb5e: lea      rax, [rip + 0x90459b]
+0x1408ceb65: add      rsp, 0x58
+0x1408ceb69: pop      rbp
+0x1408ceb6a: ret      
+0x1408ceb6b: lea      rax, [rip + 0x28580e]
+0x1408ceb72: call     0x14001ae20    ; runtime.newobject
+0x1408ceb77: mov      qword ptr [rax + 8], 0x18
+0x1408ceb7f: lea      rcx, [rip + 0x39675a]
+0x1408ceb86: mov      qword ptr [rax], rcx
+0x1408ceb89: mov      rbx, rax
+0x1408ceb8c: lea      rax, [rip + 0x90456d]
+0x1408ceb93: add      rsp, 0x58
+0x1408ceb97: pop      rbp
+0x1408ceb98: ret      
+0x1408ceb99: mov      rbx, qword ptr [rsp + 0x48]
+0x1408ceb9e: add      rsp, 0x58
+0x1408ceba2: pop      rbp
+0x1408ceba3: ret      
+0x1408ceba4: xor      eax, eax
+0x1408ceba6: xor      ebx, ebx
+0x1408ceba8: add      rsp, 0x58
+0x1408cebac: pop      rbp
+0x1408cebad: ret      
+0x1408cebae: mov      qword ptr [rsp + 8], rax
+0x1408cebb3: mov      qword ptr [rsp + 0x10], rbx
+0x1408cebb8: mov      qword ptr [rsp + 0x18], rcx
+0x1408cebbd: mov      qword ptr [rsp + 0x20], rdi
+0x1408cebc2: mov      qword ptr [rsp + 0x28], rsi
+0x1408cebc7: mov      qword ptr [rsp + 0x30], r8
+0x1408cebcc: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408cebd1: mov      rax, qword ptr [rsp + 8]
+0x1408cebd6: mov      rbx, qword ptr [rsp + 0x10]
+0x1408cebdb: mov      rcx, qword ptr [rsp + 0x18]
+0x1408cebe0: mov      rdi, qword ptr [rsp + 0x20]
+0x1408cebe5: mov      rsi, qword ptr [rsp + 0x28]
+0x1408cebea: mov      r8, qword ptr [rsp + 0x30]
+0x1408cebef: jmp      0x1408ce940    ; main.recoverLauncherUpdateTransactionBound
+0x1408cebf4: int3     
+0x1408cebf5: int3     
+0x1408cebf6: int3     
+0x1408cebf7: int3     
+0x1408cebf8: int3     
+0x1408cebf9: int3     
+0x1408cebfa: int3     
+0x1408cebfb: int3     
+0x1408cebfc: int3     
+0x1408cebfd: int3     
+0x1408cebfe: int3     
+0x1408cebff: int3     

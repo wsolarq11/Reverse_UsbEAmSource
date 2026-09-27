@@ -1,0 +1,103 @@
+0x140948740: cmp      rsp, qword ptr [r14 + 0x10]
+0x140948744: jbe      0x140948859   ; main.parseQRCodeAnnotationHexColor+0x119
+0x14094874a: push     rbp
+0x14094874b: mov      rbp, rsp
+0x14094874e: sub      rsp, 0x38
+0x140948752: mov      qword ptr [rsp + 0x48], rax
+0x140948757: call     0x1400a2200   ; strings.TrimSpace
+0x14094875c: nop      
+0x14094875d: nop      dword ptr [rax]
+0x140948760: test     rbx, rbx
+0x140948763: je       0x140948780   ; main.parseQRCodeAnnotationHexColor+0x40
+0x140948765: cmp      byte ptr [rax], 0x23
+0x140948768: jne      0x140948780   ; main.parseQRCodeAnnotationHexColor+0x40
+0x14094876a: dec      rbx
+0x14094876d: mov      rdx, rbx
+0x140948770: neg      rdx
+0x140948773: sar      rdx, 0x3f
+0x140948777: and      edx, 1
+0x14094877a: add      rax, rdx
+0x14094877d: nop      dword ptr [rax]
+0x140948780: cmp      rbx, 6
+0x140948784: jne      0x140948849   ; main.parseQRCodeAnnotationHexColor+0x109
+0x14094878a: mov      qword ptr [rsp + 0x30], rax
+0x14094878f: mov      ebx, 2
+0x140948794: mov      ecx, 0x10
+0x140948799: mov      edi, 8
+0x14094879e: nop      
+0x1409487a0: call     0x1400a8320   ; strconv.ParseUint
+0x1409487a5: test     rbx, rbx
+0x1409487a8: jne      0x140948839   ; main.parseQRCodeAnnotationHexColor+0xf9
+0x1409487ae: mov      qword ptr [rsp + 0x20], rax
+0x1409487b3: mov      rax, qword ptr [rsp + 0x30]
+0x1409487b8: add      rax, 2
+0x1409487bc: mov      ebx, 2
+0x1409487c1: mov      ecx, 0x10
+0x1409487c6: mov      edi, 8
+0x1409487cb: call     0x1400a8320   ; strconv.ParseUint
+0x1409487d0: test     rbx, rbx
+0x1409487d3: jne      0x140948829   ; main.parseQRCodeAnnotationHexColor+0xe9
+0x1409487d5: mov      qword ptr [rsp + 0x28], rax
+0x1409487da: mov      rax, qword ptr [rsp + 0x30]
+0x1409487df: add      rax, 4
+0x1409487e3: mov      ebx, 2
+0x1409487e8: mov      ecx, 0x10
+0x1409487ed: mov      edi, 8
+0x1409487f2: call     0x1400a8320   ; strconv.ParseUint
+0x1409487f7: test     rbx, rbx
+0x1409487fa: je       0x14094880c   ; main.parseQRCodeAnnotationHexColor+0xcc
+0x1409487fc: xor      eax, eax
+0x1409487fe: mov      ebx, eax
+0x140948800: mov      ecx, eax
+0x140948802: mov      edi, eax
+0x140948804: xor      esi, esi
+0x140948806: add      rsp, 0x38
+0x14094880a: pop      rbp
+0x14094880b: ret      
+0x14094880c: mov      rbx, qword ptr [rsp + 0x28]
+0x140948811: mov      rcx, rax
+0x140948814: mov      edi, 0xffffffff
+0x140948819: mov      esi, 1
+0x14094881e: mov      rax, qword ptr [rsp + 0x20]
+0x140948823: add      rsp, 0x38
+0x140948827: pop      rbp
+0x140948828: ret      
+0x140948829: xor      eax, eax
+0x14094882b: mov      ebx, eax
+0x14094882d: mov      ecx, eax
+0x14094882f: mov      edi, eax
+0x140948831: xor      esi, esi
+0x140948833: add      rsp, 0x38
+0x140948837: pop      rbp
+0x140948838: ret      
+0x140948839: xor      eax, eax
+0x14094883b: mov      ebx, eax
+0x14094883d: mov      ecx, eax
+0x14094883f: mov      edi, eax
+0x140948841: xor      esi, esi
+0x140948843: add      rsp, 0x38
+0x140948847: pop      rbp
+0x140948848: ret      
+0x140948849: xor      eax, eax
+0x14094884b: mov      ebx, eax
+0x14094884d: mov      ecx, eax
+0x14094884f: mov      edi, eax
+0x140948851: xor      esi, esi
+0x140948853: add      rsp, 0x38
+0x140948857: pop      rbp
+0x140948858: ret      
+0x140948859: mov      qword ptr [rsp + 8], rax
+0x14094885e: mov      qword ptr [rsp + 0x10], rbx
+0x140948863: call     0x14007f140   ; runtime.morestack_noctxt
+0x140948868: mov      rax, qword ptr [rsp + 8]
+0x14094886d: mov      rbx, qword ptr [rsp + 0x10]
+0x140948872: jmp      0x140948740   ; main.parseQRCodeAnnotationHexColor
+0x140948877: int3     
+0x140948878: int3     
+0x140948879: int3     
+0x14094887a: int3     
+0x14094887b: int3     
+0x14094887c: int3     
+0x14094887d: int3     
+0x14094887e: int3     
+0x14094887f: int3     

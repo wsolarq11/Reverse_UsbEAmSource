@@ -1,0 +1,105 @@
+0x140826c20: lea      r12, [rsp - 0x48]
+0x140826c25: cmp      r12, qword ptr [r14 + 0x10]
+0x140826c29: jbe      0x140826d91
+0x140826c2f: push     rbp
+0x140826c30: mov      rbp, rsp
+0x140826c33: sub      rsp, 0xc0
+0x140826c3a: mov      qword ptr [rsp + 0xd8], rbx
+0x140826c42: mov      qword ptr [rsp + 0xf8], r8
+0x140826c4a: mov      qword ptr [rsp + 0xd0], rax
+0x140826c52: mov      qword ptr [rsp + 0xb8], r8
+0x140826c5a: mov      qword ptr [rsp + 0x40], rsi
+0x140826c5f: mov      qword ptr [rsp + 0x38], rdi
+0x140826c64: mov      rax, rbx
+0x140826c67: mov      rbx, rcx
+0x140826c6a: call     0x14088c9a0
+0x140826c6f: nop      
+0x140826c70: mov      ecx, 1
+0x140826c75: mov      rdx, qword ptr [rsp + 0xd0]
+0x140826c7d: lock xadd dword ptr [rdx + 0x28], ecx
+0x140826c82: inc      ecx
+0x140826c84: test     ecx, ecx
+0x140826c86: jge      0x140826cba
+0x140826c88: mov      qword ptr [rsp + 0x30], rbx
+0x140826c8d: mov      qword ptr [rsp + 0xb0], rax
+0x140826c95: lea      rax, [rdx + 0x24]
+0x140826c99: xor      ebx, ebx
+0x140826c9b: xor      ecx, ecx
+0x140826c9d: nop      dword ptr [rax]
+0x140826ca0: call     0x14007a300
+0x140826ca5: mov      rax, qword ptr [rsp + 0xb0]
+0x140826cad: mov      rdx, qword ptr [rsp + 0xd0]
+0x140826cb5: mov      rbx, qword ptr [rsp + 0x30]
+0x140826cba: mov      rdx, qword ptr [rdx + 0x560]
+0x140826cc1: mov      rcx, rax
+0x140826cc4: mov      rdi, rbx
+0x140826cc7: lea      rax, [rip + 0x3233d2]
+0x140826cce: mov      rbx, rdx
+0x140826cd1: call     0x14000d920
+0x140826cd6: mov      rdx, qword ptr [rax]
+0x140826cd9: mov      qword ptr [rsp + 0x48], rdx
+0x140826cde: lea      rsi, [rax + 8]
+0x140826ce2: lea      rdi, [rsp + 0x50]
+0x140826ce7: mov      qword ptr [rsp - 0x10], rbp
+0x140826cec: lea      rbp, [rsp - 0x10]
+0x140826cf1: call     0x140081a8c
+0x140826cf6: mov      rbp, qword ptr [rbp]
+0x140826cfa: mov      ebx, 0xffffffff
+0x140826cff: mov      rax, qword ptr [rsp + 0xd0]
+0x140826d07: lock xadd dword ptr [rax + 0x28], ebx
+0x140826d0c: dec      ebx
+0x140826d0e: test     ebx, ebx
+0x140826d10: jge      0x140826d1b
+0x140826d12: add      rax, 0x18
+0x140826d16: call     0x1400934c0
+0x140826d1b: mov      rdi, qword ptr [rsp + 0x98]
+0x140826d23: mov      rsi, qword ptr [rsp + 0xa0]
+0x140826d2b: bt       rdi, 0x3f
+0x140826d30: jae      0x140826d49
+0x140826d32: lea      rdx, [rdi + rdi]
+0x140826d36: shr      rdx, 0x1f
+0x140826d3a: movabs   r9, 0xdd7b17f80
+0x140826d44: add      rdx, r9
+0x140826d47: jmp      0x140826d4c
+0x140826d49: mov      rdx, rsi
+0x140826d4c: test     rdx, rdx
+0x140826d4f: jne      0x140826d65
+0x140826d51: mov      rdx, rdi
+0x140826d54: and      edx, 0x3fffffff
+0x140826d5a: test     edx, edx
+0x140826d5c: jne      0x140826d65
+0x140826d5e: mov      eax, 1
+0x140826d63: jmp      0x140826d88
+0x140826d65: mov      r8, qword ptr [rsp + 0xa8]
+0x140826d6d: mov      rax, qword ptr [rsp + 0x38]
+0x140826d72: mov      rbx, qword ptr [rsp + 0x40]
+0x140826d77: mov      rcx, qword ptr [rsp + 0xb8]
+0x140826d7f: nop      
+0x140826d80: call     0x1400fa040
+0x140826d85: xor      eax, 1
+0x140826d88: add      rsp, 0xc0
+0x140826d8f: pop      rbp
+0x140826d90: ret      
+0x140826d91: mov      qword ptr [rsp + 8], rax
+0x140826d96: mov      qword ptr [rsp + 0x10], rbx
+0x140826d9b: mov      qword ptr [rsp + 0x18], rcx
+0x140826da0: mov      qword ptr [rsp + 0x20], rdi
+0x140826da5: mov      qword ptr [rsp + 0x28], rsi
+0x140826daa: mov      qword ptr [rsp + 0x30], r8
+0x140826daf: call     0x14007f140
+0x140826db4: mov      rax, qword ptr [rsp + 8]
+0x140826db9: mov      rbx, qword ptr [rsp + 0x10]
+0x140826dbe: mov      rcx, qword ptr [rsp + 0x18]
+0x140826dc3: mov      rdi, qword ptr [rsp + 0x20]
+0x140826dc8: mov      rsi, qword ptr [rsp + 0x28]
+0x140826dcd: mov      r8, qword ptr [rsp + 0x30]
+0x140826dd2: jmp      0x140826c20
+0x140826dd7: int3     
+0x140826dd8: int3     
+0x140826dd9: int3     
+0x140826dda: int3     
+0x140826ddb: int3     
+0x140826ddc: int3     
+0x140826ddd: int3     
+0x140826dde: int3     
+0x140826ddf: int3     

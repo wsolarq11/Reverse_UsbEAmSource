@@ -1,0 +1,99 @@
+0x1409af320: nop      
+0x1409af321: cmp      rax, rcx
+0x1409af324: jge      0x1409af335   ; main.screenshotRectMatchesBounds+0x15
+0x1409af326: cmp      rbx, rdi
+0x1409af329: jge      0x1409af335   ; main.screenshotRectMatchesBounds+0x15
+0x1409af32b: cmp      rsi, r9
+0x1409af32e: jge      0x1409af335   ; main.screenshotRectMatchesBounds+0x15
+0x1409af330: cmp      r8, r10
+0x1409af333: jl       0x1409af338   ; main.screenshotRectMatchesBounds+0x18
+0x1409af335: xor      eax, eax
+0x1409af337: ret      
+0x1409af338: cmp      rax, rsi
+0x1409af33b: jne      0x1409af363   ; main.screenshotRectMatchesBounds+0x43
+0x1409af33d: nop      dword ptr [rax]
+0x1409af340: cmp      rbx, r8
+0x1409af343: jne      0x1409af360   ; main.screenshotRectMatchesBounds+0x40
+0x1409af345: cmp      rcx, r9
+0x1409af348: jne      0x1409af35a   ; main.screenshotRectMatchesBounds+0x3a
+0x1409af34a: cmp      rdi, r10
+0x1409af34d: je       0x1409af354   ; main.screenshotRectMatchesBounds+0x34
+0x1409af34f: cmp      rax, rsi
+0x1409af352: jmp      0x1409af363   ; main.screenshotRectMatchesBounds+0x43
+0x1409af354: mov      eax, 1
+0x1409af359: ret      
+0x1409af35a: cmp      rax, rsi
+0x1409af35d: jmp      0x1409af363   ; main.screenshotRectMatchesBounds+0x43
+0x1409af35f: nop      
+0x1409af360: cmp      rax, rsi
+0x1409af363: jg       0x1409af37a   ; main.screenshotRectMatchesBounds+0x5a
+0x1409af365: cmp      rcx, r9
+0x1409af368: jl       0x1409af37a   ; main.screenshotRectMatchesBounds+0x5a
+0x1409af36a: cmp      rbx, r8
+0x1409af36d: jg       0x1409af37a   ; main.screenshotRectMatchesBounds+0x5a
+0x1409af36f: cmp      rdi, r10
+0x1409af372: jl       0x1409af37a   ; main.screenshotRectMatchesBounds+0x5a
+0x1409af374: mov      eax, 1
+0x1409af379: ret      
+0x1409af37a: mov      rdx, rax
+0x1409af37d: sub      rax, rsi
+0x1409af380: mov      r11, rsi
+0x1409af383: sub      rsi, rdx
+0x1409af386: cmp      rdx, r11
+0x1409af389: cmovg    rsi, rax
+0x1409af38d: cmp      rsi, 2
+0x1409af391: jg       0x1409af3e2   ; main.screenshotRectMatchesBounds+0xc2
+0x1409af393: mov      rdx, rbx
+0x1409af396: sub      rbx, r8
+0x1409af399: mov      rsi, r8
+0x1409af39c: sub      r8, rdx
+0x1409af39f: cmp      rdx, rsi
+0x1409af3a2: cmovg    r8, rbx
+0x1409af3a6: cmp      r8, 2
+0x1409af3aa: jg       0x1409af3e2   ; main.screenshotRectMatchesBounds+0xc2
+0x1409af3ac: mov      rdx, rcx
+0x1409af3af: sub      rcx, r9
+0x1409af3b2: mov      rbx, r9
+0x1409af3b5: sub      r9, rdx
+0x1409af3b8: cmp      rdx, rbx
+0x1409af3bb: cmovg    r9, rcx
+0x1409af3bf: nop      
+0x1409af3c0: cmp      r9, 2
+0x1409af3c4: jg       0x1409af3e2   ; main.screenshotRectMatchesBounds+0xc2
+0x1409af3c6: mov      rcx, rdi
+0x1409af3c9: sub      rdi, r10
+0x1409af3cc: mov      rdx, r10
+0x1409af3cf: sub      r10, rcx
+0x1409af3d2: cmp      rcx, rdx
+0x1409af3d5: cmovg    r10, rdi
+0x1409af3d9: cmp      r10, 2
+0x1409af3dd: setle    cl
+0x1409af3e0: jmp      0x1409af3e4   ; main.screenshotRectMatchesBounds+0xc4
+0x1409af3e2: xor      ecx, ecx
+0x1409af3e4: mov      eax, ecx
+0x1409af3e6: ret      
+0x1409af3e7: int3     
+0x1409af3e8: int3     
+0x1409af3e9: int3     
+0x1409af3ea: int3     
+0x1409af3eb: int3     
+0x1409af3ec: int3     
+0x1409af3ed: int3     
+0x1409af3ee: int3     
+0x1409af3ef: int3     
+0x1409af3f0: int3     
+0x1409af3f1: int3     
+0x1409af3f2: int3     
+0x1409af3f3: int3     
+0x1409af3f4: int3     
+0x1409af3f5: int3     
+0x1409af3f6: int3     
+0x1409af3f7: int3     
+0x1409af3f8: int3     
+0x1409af3f9: int3     
+0x1409af3fa: int3     
+0x1409af3fb: int3     
+0x1409af3fc: int3     
+0x1409af3fd: int3     
+0x1409af3fe: int3     
+0x1409af3ff: int3     

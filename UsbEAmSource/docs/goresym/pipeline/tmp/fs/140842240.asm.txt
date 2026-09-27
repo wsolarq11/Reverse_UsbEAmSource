@@ -1,0 +1,19 @@
+0x140842240: cmp      rsp, qword ptr [r14 + 0x10]
+0x140842244: jbe      0x14084225b
+0x140842246: push     rbp
+0x140842247: mov      rbp, rsp
+0x14084224a: sub      rsp, 0x18
+0x14084224e: xor      edi, edi
+0x140842250: call     0x140842280
+0x140842255: add      rsp, 0x18
+0x140842259: pop      rbp
+0x14084225a: ret      
+0x14084225b: mov      qword ptr [rsp + 8], rax
+0x140842260: mov      qword ptr [rsp + 0x10], rbx
+0x140842265: mov      byte ptr [rsp + 0x18], cl
+0x140842269: call     0x14007f140
+0x14084226e: mov      rax, qword ptr [rsp + 8]
+0x140842273: mov      rbx, qword ptr [rsp + 0x10]
+0x140842278: movzx    ecx, byte ptr [rsp + 0x18]
+0x14084227d: jmp      0x140842240
+0x14084227f: int3     

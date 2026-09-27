@@ -1,0 +1,460 @@
+0x14085fde0: lea      r12, [rsp - 0xf8]
+0x14085fde8: cmp      r12, qword ptr [r14 + 0x10]
+0x14085fdec: jbe      0x1408606ca   ; main.removeGPUPreferenceEntry+0x8ea
+0x14085fdf2: push     rbp
+0x14085fdf3: mov      rbp, rsp
+0x14085fdf6: sub      rsp, 0x170
+0x14085fdfd: movq     qword ptr [rsp + 0x168], xmm15
+0x14085fe07: mov      qword ptr [rsp + 0x188], rbx
+0x14085fe0f: mov      qword ptr [rsp + 0x180], rax
+0x14085fe17: mov      byte ptr [rsp + 0x2f], 0
+0x14085fe1c: movups   xmmword ptr [rsp + 0x70], xmm15
+0x14085fe22: movups   xmmword ptr [rsp + 0x78], xmm15
+0x14085fe28: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14085fe31: movups   xmmword ptr [rsp + 0x98], xmm15
+0x14085fe3a: movups   xmmword ptr [rsp + 0x60], xmm15
+0x14085fe40: call     0x14085b600   ; main.normalizeGPUPreferencePath
+0x14085fe45: test     rbx, rbx
+0x14085fe48: je       0x14086055c   ; main.removeGPUPreferenceEntry+0x77c
+0x14085fe4e: mov      qword ptr [rsp + 0x30], rbx
+0x14085fe53: mov      qword ptr [rsp + 0xe0], rax
+0x14085fe5b: movups   xmmword ptr [rsp + 0x148], xmm15
+0x14085fe64: movups   xmmword ptr [rsp + 0x158], xmm15
+0x14085fe6d: mov      rax, qword ptr [rsp + 0x180]
+0x14085fe75: mov      rbx, qword ptr [rsp + 0x188]
+0x14085fe7d: nop      dword ptr [rax]
+0x14085fe80: call     0x140076660   ; runtime.convTstring
+0x14085fe85: lea      rcx, [rip + 0x289f74]
+0x14085fe8c: mov      qword ptr [rsp + 0x148], rcx
+0x14085fe94: mov      qword ptr [rsp + 0x150], rax
+0x14085fe9c: mov      rax, qword ptr [rsp + 0xe0]
+0x14085fea4: mov      rbx, qword ptr [rsp + 0x30]
+0x14085fea9: call     0x140076660   ; runtime.convTstring
+0x14085feae: lea      rcx, [rip + 0x289f4b]
+0x14085feb5: mov      qword ptr [rsp + 0x158], rcx
+0x14085febd: mov      qword ptr [rsp + 0x160], rax
+0x14085fec5: lea      rax, [rip + 0x42bea4]
+0x14085fecc: mov      ebx, 0x38
+0x14085fed1: lea      rcx, [rsp + 0x148]
+0x14085fed9: mov      edi, 2
+0x14085fede: mov      rsi, rdi
+0x14085fee1: call     0x14085b700   ; main.gpuPickDebugLog
+0x14085fee6: mov      eax, 0x80000001
+0x14085feeb: lea      rbx, [rip + 0x42402e]
+0x14085fef2: mov      ecx, 0x2d
+0x14085fef7: mov      edi, 3
+0x14085fefc: nop      dword ptr [rax]
+0x14085ff00: call     0x1401ce9c0   ; golang.org/x/sys/windows/registry.OpenKey
+0x14085ff05: test     rbx, rbx
+0x14085ff08: je       0x14086012d   ; main.removeGPUPreferenceEntry+0x34d
+0x14085ff0e: mov      qword ptr [rsp + 0xf0], rcx
+0x14085ff16: mov      qword ptr [rsp + 0x40], rbx
+0x14085ff1b: mov      rax, qword ptr [rip + 0x110218e]
+0x14085ff22: call     0x1400765e0   ; runtime.convT64
+0x14085ff27: mov      rbx, qword ptr [rsp + 0xf0]
+0x14085ff2f: lea      rcx, [rip + 0x972daa]
+0x14085ff36: mov      rdi, rax
+0x14085ff39: mov      rax, qword ptr [rsp + 0x40]
+0x14085ff3e: nop      
+0x14085ff40: call     0x1400904a0   ; errors.Is
+0x14085ff45: test     al, al
+0x14085ff47: jne      0x140860044   ; main.removeGPUPreferenceEntry+0x264
+0x14085ff4d: movups   xmmword ptr [rsp + 0x148], xmm15
+0x14085ff56: movups   xmmword ptr [rsp + 0x158], xmm15
+0x14085ff5f: mov      rax, qword ptr [rsp + 0xe0]
+0x14085ff67: mov      rbx, qword ptr [rsp + 0x30]
+0x14085ff6c: call     0x140076660   ; runtime.convTstring
+0x14085ff71: lea      rcx, [rip + 0x289e88]
+0x14085ff78: mov      qword ptr [rsp + 0x148], rcx
+0x14085ff80: mov      qword ptr [rsp + 0x150], rax
+0x14085ff88: mov      rcx, qword ptr [rsp + 0x40]
+0x14085ff8d: test     rcx, rcx
+0x14085ff90: je       0x14085ff98   ; main.removeGPUPreferenceEntry+0x1b8
+0x14085ff92: mov      rbx, qword ptr [rcx + 8]
+0x14085ff96: jmp      0x14085ff9b   ; main.removeGPUPreferenceEntry+0x1bb
+0x14085ff98: mov      rbx, rcx
+0x14085ff9b: mov      qword ptr [rsp + 0x158], rbx
+0x14085ffa3: mov      rdx, qword ptr [rsp + 0xf0]
+0x14085ffab: mov      qword ptr [rsp + 0x160], rdx
+0x14085ffb3: lea      rax, [rip + 0x42c6b7]
+0x14085ffba: mov      ebx, 0x39
+0x14085ffbf: lea      rcx, [rsp + 0x148]
+0x14085ffc7: mov      edi, 2
+0x14085ffcc: mov      rsi, rdi
+0x14085ffcf: call     0x14085b700   ; main.gpuPickDebugLog
+0x14085ffd4: movups   xmmword ptr [rsp + 0x70], xmm15
+0x14085ffda: movups   xmmword ptr [rsp + 0x78], xmm15
+0x14085ffe0: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14085ffe9: movups   xmmword ptr [rsp + 0x98], xmm15
+0x14085fff2: mov      r10, qword ptr [rsp + 0x40]
+0x14085fff7: mov      qword ptr [rsp + 0x60], r10
+0x14085fffc: mov      r11, qword ptr [rsp + 0xf0]
+0x140860004: mov      qword ptr [rsp + 0x68], r11
+0x140860009: mov      rax, qword ptr [rsp + 0x70]
+0x14086000e: mov      rbx, qword ptr [rsp + 0x78]
+0x140860013: mov      rcx, qword ptr [rsp + 0x80]
+0x14086001b: mov      rdi, qword ptr [rsp + 0x88]
+0x140860023: mov      rsi, qword ptr [rsp + 0x90]
+0x14086002b: mov      r8, qword ptr [rsp + 0x98]
+0x140860033: mov      r9, qword ptr [rsp + 0xa0]
+0x14086003b: add      rsp, 0x170
+0x140860042: pop      rbp
+0x140860043: ret      
+0x140860044: movups   xmmword ptr [rsp + 0x138], xmm15
+0x14086004d: mov      rax, qword ptr [rsp + 0xe0]
+0x140860055: mov      rbx, qword ptr [rsp + 0x30]
+0x14086005a: call     0x140076660   ; runtime.convTstring
+0x14086005f: lea      rcx, [rip + 0x289d9a]
+0x140860066: mov      qword ptr [rsp + 0x138], rcx
+0x14086006e: mov      qword ptr [rsp + 0x140], rax
+0x140860076: lea      rax, [rip + 0x430a7f]
+0x14086007d: mov      ebx, 0x47
+0x140860082: lea      rcx, [rsp + 0x138]
+0x14086008a: mov      edi, 1
+0x14086008f: mov      rsi, rdi
+0x140860092: call     0x14085b700   ; main.gpuPickDebugLog
+0x140860097: call     0x14085d240   ; main.resolveGPUPreferenceAdapterInfo
+0x14086009c: movups   xmmword ptr [rsp + 0x70], xmm15
+0x1408600a2: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1408600a8: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1408600b1: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1408600ba: lea      rdx, [rip + 0x13fa8ff]
+0x1408600c1: mov      qword ptr [rsp + 0x70], rdx
+0x1408600c6: mov      qword ptr [rsp + 0x88], rax
+0x1408600ce: mov      qword ptr [rsp + 0x90], rbx
+0x1408600d6: mov      qword ptr [rsp + 0x98], rcx
+0x1408600de: mov      qword ptr [rsp + 0xa0], rdi
+0x1408600e6: movups   xmmword ptr [rsp + 0x60], xmm15
+0x1408600ec: mov      rax, qword ptr [rsp + 0x70]
+0x1408600f1: mov      rbx, qword ptr [rsp + 0x78]
+0x1408600f6: mov      rcx, qword ptr [rsp + 0x80]
+0x1408600fe: mov      rdi, qword ptr [rsp + 0x88]
+0x140860106: mov      rsi, qword ptr [rsp + 0x90]
+0x14086010e: mov      r8, qword ptr [rsp + 0x98]
+0x140860116: mov      r9, qword ptr [rsp + 0xa0]
+0x14086011e: xor      r10d, r10d
+0x140860121: xor      r11d, r11d
+0x140860124: add      rsp, 0x170
+0x14086012b: pop      rbp
+0x14086012c: ret      
+0x14086012d: lea      rdx, [rip + 0x5cc]
+0x140860134: mov      qword ptr [rsp + 0x50], rdx
+0x140860139: mov      qword ptr [rsp + 0x58], rax
+0x14086013e: lea      rdx, [rsp + 0x50]
+0x140860143: mov      qword ptr [rsp + 0x168], rdx
+0x14086014b: mov      byte ptr [rsp + 0x2f], 1
+0x140860150: mov      rbx, qword ptr [rsp + 0xe0]
+0x140860158: mov      rcx, qword ptr [rsp + 0x30]
+0x14086015d: nop      dword ptr [rax]
+0x140860160: call     0x1408617e0   ; main.deleteGPUPreferenceValueAliases
+0x140860165: test     rax, rax
+0x140860168: je       0x140860294   ; main.removeGPUPreferenceEntry+0x4b4
+0x14086016e: mov      qword ptr [rsp + 0xe8], rbx
+0x140860176: mov      qword ptr [rsp + 0x38], rax
+0x14086017b: movups   xmmword ptr [rsp + 0x148], xmm15
+0x140860184: movups   xmmword ptr [rsp + 0x158], xmm15
+0x14086018d: mov      rax, qword ptr [rsp + 0xe0]
+0x140860195: mov      rbx, qword ptr [rsp + 0x30]
+0x14086019a: call     0x140076660   ; runtime.convTstring
+0x14086019f: lea      rcx, [rip + 0x289c5a]
+0x1408601a6: mov      qword ptr [rsp + 0x148], rcx
+0x1408601ae: mov      qword ptr [rsp + 0x150], rax
+0x1408601b6: mov      rcx, qword ptr [rsp + 0x38]
+0x1408601bb: nop      dword ptr [rax + rax]
+0x1408601c0: test     rcx, rcx
+0x1408601c3: je       0x1408601cb   ; main.removeGPUPreferenceEntry+0x3eb
+0x1408601c5: mov      rax, qword ptr [rcx + 8]
+0x1408601c9: jmp      0x1408601ce   ; main.removeGPUPreferenceEntry+0x3ee
+0x1408601cb: mov      rax, rcx
+0x1408601ce: mov      qword ptr [rsp + 0x158], rax
+0x1408601d6: mov      rdx, qword ptr [rsp + 0xe8]
+0x1408601de: mov      qword ptr [rsp + 0x160], rdx
+0x1408601e6: lea      rax, [rip + 0x42a9a7]
+0x1408601ed: mov      ebx, 0x36
+0x1408601f2: lea      rcx, [rsp + 0x148]
+0x1408601fa: mov      edi, 2
+0x1408601ff: mov      rsi, rdi
+0x140860202: call     0x14085b700   ; main.gpuPickDebugLog
+0x140860207: movups   xmmword ptr [rsp + 0x70], xmm15
+0x14086020d: movups   xmmword ptr [rsp + 0x78], xmm15
+0x140860213: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14086021c: movups   xmmword ptr [rsp + 0x98], xmm15
+0x140860225: mov      rdx, qword ptr [rsp + 0x38]
+0x14086022a: mov      qword ptr [rsp + 0x60], rdx
+0x14086022f: mov      rdx, qword ptr [rsp + 0xe8]
+0x140860237: mov      qword ptr [rsp + 0x68], rdx
+0x14086023c: mov      byte ptr [rsp + 0x2f], 0
+0x140860241: mov      rdx, qword ptr [rsp + 0x168]
+0x140860249: mov      r8, qword ptr [rdx]
+0x14086024c: call     r8
+0x14086024f: mov      r10, qword ptr [rsp + 0x60]
+0x140860254: mov      r11, qword ptr [rsp + 0x68]
+0x140860259: mov      rax, qword ptr [rsp + 0x70]
+0x14086025e: mov      rbx, qword ptr [rsp + 0x78]
+0x140860263: mov      rcx, qword ptr [rsp + 0x80]
+0x14086026b: mov      rdi, qword ptr [rsp + 0x88]
+0x140860273: mov      rsi, qword ptr [rsp + 0x90]
+0x14086027b: mov      r8, qword ptr [rsp + 0x98]
+0x140860283: mov      r9, qword ptr [rsp + 0xa0]
+0x14086028b: add      rsp, 0x170
+0x140860292: pop      rbp
+0x140860293: ret      
+0x140860294: call     0x14085dda0   ; main.getGPUPreferenceState
+0x140860299: mov      qword ptr [rsp + 0x100], rax
+0x1408602a1: mov      qword ptr [rsp + 0x108], rbx
+0x1408602a9: mov      qword ptr [rsp + 0x110], rcx
+0x1408602b1: mov      qword ptr [rsp + 0x118], rdi
+0x1408602b9: mov      qword ptr [rsp + 0x120], rsi
+0x1408602c1: mov      qword ptr [rsp + 0x128], r8
+0x1408602c9: mov      qword ptr [rsp + 0x130], r9
+0x1408602d1: mov      rax, qword ptr [rsp + 0x100]
+0x1408602d9: mov      qword ptr [rsp + 0xa8], rax
+0x1408602e1: movups   xmm0, xmmword ptr [rsp + 0x108]
+0x1408602e9: movups   xmmword ptr [rsp + 0xb0], xmm0
+0x1408602f1: movups   xmm0, xmmword ptr [rsp + 0x118]
+0x1408602f9: movups   xmmword ptr [rsp + 0xc0], xmm0
+0x140860301: movups   xmm0, xmmword ptr [rsp + 0x128]
+0x140860309: movups   xmmword ptr [rsp + 0xd0], xmm0
+0x140860311: test     r10, r10
+0x140860314: je       0x14086043b   ; main.removeGPUPreferenceEntry+0x65b
+0x14086031a: mov      qword ptr [rsp + 0x40], r10
+0x14086031f: mov      qword ptr [rsp + 0xf0], r11
+0x140860327: movups   xmmword ptr [rsp + 0x148], xmm15
+0x140860330: movups   xmmword ptr [rsp + 0x158], xmm15
+0x140860339: mov      rax, qword ptr [rsp + 0xe0]
+0x140860341: mov      rbx, qword ptr [rsp + 0x30]
+0x140860346: call     0x140076660   ; runtime.convTstring
+0x14086034b: lea      rcx, [rip + 0x289aae]
+0x140860352: mov      qword ptr [rsp + 0x148], rcx
+0x14086035a: mov      qword ptr [rsp + 0x150], rax
+0x140860362: mov      rcx, qword ptr [rsp + 0x40]
+0x140860367: test     rcx, rcx
+0x14086036a: je       0x140860372   ; main.removeGPUPreferenceEntry+0x592
+0x14086036c: mov      r10, qword ptr [rcx + 8]
+0x140860370: jmp      0x140860375   ; main.removeGPUPreferenceEntry+0x595
+0x140860372: mov      r10, rcx
+0x140860375: mov      qword ptr [rsp + 0x158], r10
+0x14086037d: mov      rdx, qword ptr [rsp + 0xf0]
+0x140860385: mov      qword ptr [rsp + 0x160], rdx
+0x14086038d: lea      rax, [rip + 0x42c316]
+0x140860394: mov      ebx, 0x39
+0x140860399: lea      rcx, [rsp + 0x148]
+0x1408603a1: mov      edi, 2
+0x1408603a6: mov      rsi, rdi
+0x1408603a9: call     0x14085b700   ; main.gpuPickDebugLog
+0x1408603ae: movups   xmmword ptr [rsp + 0x70], xmm15
+0x1408603b4: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1408603ba: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1408603c3: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1408603cc: mov      rdx, qword ptr [rsp + 0x40]
+0x1408603d1: mov      qword ptr [rsp + 0x60], rdx
+0x1408603d6: mov      rdx, qword ptr [rsp + 0xf0]
+0x1408603de: mov      qword ptr [rsp + 0x68], rdx
+0x1408603e3: mov      byte ptr [rsp + 0x2f], 0
+0x1408603e8: mov      rdx, qword ptr [rsp + 0x168]
+0x1408603f0: mov      r8, qword ptr [rdx]
+0x1408603f3: call     r8
+0x1408603f6: mov      r10, qword ptr [rsp + 0x60]
+0x1408603fb: mov      r11, qword ptr [rsp + 0x68]
+0x140860400: mov      rax, qword ptr [rsp + 0x70]
+0x140860405: mov      rbx, qword ptr [rsp + 0x78]
+0x14086040a: mov      rcx, qword ptr [rsp + 0x80]
+0x140860412: mov      rdi, qword ptr [rsp + 0x88]
+0x14086041a: mov      rsi, qword ptr [rsp + 0x90]
+0x140860422: mov      r8, qword ptr [rsp + 0x98]
+0x14086042a: mov      r9, qword ptr [rsp + 0xa0]
+0x140860432: add      rsp, 0x170
+0x140860439: pop      rbp
+0x14086043a: ret      
+0x14086043b: mov      rcx, qword ptr [rsp + 0xb0]
+0x140860443: mov      qword ptr [rsp + 0x48], rcx
+0x140860448: movups   xmmword ptr [rsp + 0x148], xmm15
+0x140860451: movups   xmmword ptr [rsp + 0x158], xmm15
+0x14086045a: mov      rax, qword ptr [rsp + 0xe0]
+0x140860462: mov      rbx, qword ptr [rsp + 0x30]
+0x140860467: call     0x140076660   ; runtime.convTstring
+0x14086046c: lea      rcx, [rip + 0x28998d]
+0x140860473: mov      qword ptr [rsp + 0x148], rcx
+0x14086047b: mov      qword ptr [rsp + 0x150], rax
+0x140860483: mov      rax, qword ptr [rsp + 0x48]
+0x140860488: call     0x1400765e0   ; runtime.convT64
+0x14086048d: lea      rcx, [rip + 0x289bac]
+0x140860494: mov      qword ptr [rsp + 0x158], rcx
+0x14086049c: mov      qword ptr [rsp + 0x160], rax
+0x1408604a4: lea      rax, [rip + 0x4248b9]
+0x1408604ab: mov      ebx, 0x2e
+0x1408604b0: lea      rcx, [rsp + 0x148]
+0x1408604b8: mov      edi, 2
+0x1408604bd: mov      rsi, rdi
+0x1408604c0: call     0x14085b700   ; main.gpuPickDebugLog
+0x1408604c5: mov      rcx, qword ptr [rsp + 0xa8]
+0x1408604cd: mov      qword ptr [rsp + 0x70], rcx
+0x1408604d2: movups   xmm0, xmmword ptr [rsp + 0xb0]
+0x1408604da: movups   xmmword ptr [rsp + 0x78], xmm0
+0x1408604df: movups   xmm0, xmmword ptr [rsp + 0xc0]
+0x1408604e7: movups   xmmword ptr [rsp + 0x88], xmm0
+0x1408604ef: movups   xmm0, xmmword ptr [rsp + 0xd0]
+0x1408604f7: movups   xmmword ptr [rsp + 0x98], xmm0
+0x1408604ff: movups   xmmword ptr [rsp + 0x60], xmm15
+0x140860505: mov      byte ptr [rsp + 0x2f], 0
+0x14086050a: mov      rdx, qword ptr [rsp + 0x168]
+0x140860512: mov      rcx, qword ptr [rdx]
+0x140860515: call     rcx
+0x140860517: mov      r10, qword ptr [rsp + 0x60]
+0x14086051c: mov      r11, qword ptr [rsp + 0x68]
+0x140860521: mov      rax, qword ptr [rsp + 0x70]
+0x140860526: mov      rbx, qword ptr [rsp + 0x78]
+0x14086052b: mov      rcx, qword ptr [rsp + 0x80]
+0x140860533: mov      rdi, qword ptr [rsp + 0x88]
+0x14086053b: mov      rsi, qword ptr [rsp + 0x90]
+0x140860543: mov      r8, qword ptr [rsp + 0x98]
+0x14086054b: mov      r9, qword ptr [rsp + 0xa0]
+0x140860553: add      rsp, 0x170
+0x14086055a: pop      rbp
+0x14086055b: ret      
+0x14086055c: nop      
+0x14086055d: lea      rax, [rip + 0x2f3e1c]
+0x140860564: call     0x14001ae20   ; runtime.newobject
+0x140860569: mov      qword ptr [rsp + 0xf8], rax
+0x140860571: mov      qword ptr [rax + 8], 0x24
+0x140860579: lea      rcx, [rip + 0x417e43]
+0x140860580: mov      qword ptr [rax], rcx
+0x140860583: movups   xmmword ptr [rsp + 0x148], xmm15
+0x14086058c: movups   xmmword ptr [rsp + 0x158], xmm15
+0x140860595: mov      rax, qword ptr [rsp + 0x180]
+0x14086059d: mov      rbx, qword ptr [rsp + 0x188]
+0x1408605a5: call     0x140076660   ; runtime.convTstring
+0x1408605aa: lea      rcx, [rip + 0x28984f]
+0x1408605b1: mov      qword ptr [rsp + 0x148], rcx
+0x1408605b9: mov      qword ptr [rsp + 0x150], rax
+0x1408605c1: lea      rcx, [rip + 0x2c4fb8]
+0x1408605c8: mov      qword ptr [rsp + 0x158], rcx
+0x1408605d0: mov      rcx, qword ptr [rsp + 0xf8]
+0x1408605d8: mov      qword ptr [rsp + 0x160], rcx
+0x1408605e0: lea      rax, [rip + 0x423966]
+0x1408605e7: mov      ebx, 0x2d
+0x1408605ec: lea      rcx, [rsp + 0x148]
+0x1408605f4: mov      edi, 2
+0x1408605f9: mov      rsi, rdi
+0x1408605fc: nop      dword ptr [rax]
+0x140860600: call     0x14085b700   ; main.gpuPickDebugLog
+0x140860605: movups   xmmword ptr [rsp + 0x70], xmm15
+0x14086060b: movups   xmmword ptr [rsp + 0x78], xmm15
+0x140860611: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14086061a: movups   xmmword ptr [rsp + 0x98], xmm15
+0x140860623: lea      rcx, [rip + 0x972ad6]
+0x14086062a: mov      qword ptr [rsp + 0x60], rcx
+0x14086062f: mov      r11, qword ptr [rsp + 0xf8]
+0x140860637: mov      qword ptr [rsp + 0x68], r11
+0x14086063c: mov      r10, qword ptr [rsp + 0x60]
+0x140860641: mov      rax, qword ptr [rsp + 0x70]
+0x140860646: mov      rbx, qword ptr [rsp + 0x78]
+0x14086064b: mov      rcx, qword ptr [rsp + 0x80]
+0x140860653: mov      rdi, qword ptr [rsp + 0x88]
+0x14086065b: mov      rsi, qword ptr [rsp + 0x90]
+0x140860663: mov      r8, qword ptr [rsp + 0x98]
+0x14086066b: mov      r9, qword ptr [rsp + 0xa0]
+0x140860673: add      rsp, 0x170
+0x14086067a: pop      rbp
+0x14086067b: ret      
+0x14086067c: nop      dword ptr [rax]
+0x140860680: call     0x1400435e0   ; runtime.deferreturn
+0x140860685: mov      rax, qword ptr [rsp + 0x70]
+0x14086068a: mov      rbx, qword ptr [rsp + 0x78]
+0x14086068f: mov      rcx, qword ptr [rsp + 0x80]
+0x140860697: mov      rdi, qword ptr [rsp + 0x88]
+0x14086069f: mov      rsi, qword ptr [rsp + 0x90]
+0x1408606a7: mov      r8, qword ptr [rsp + 0x98]
+0x1408606af: mov      r9, qword ptr [rsp + 0xa0]
+0x1408606b7: mov      r10, qword ptr [rsp + 0x60]
+0x1408606bc: mov      r11, qword ptr [rsp + 0x68]
+0x1408606c1: add      rsp, 0x170
+0x1408606c8: pop      rbp
+0x1408606c9: ret      
+0x1408606ca: mov      qword ptr [rsp + 8], rax
+0x1408606cf: mov      qword ptr [rsp + 0x10], rbx
+0x1408606d4: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408606d9: mov      rax, qword ptr [rsp + 8]
+0x1408606de: mov      rbx, qword ptr [rsp + 0x10]
+0x1408606e3: jmp      0x14085fde0   ; main.removeGPUPreferenceEntry
+0x1408606e8: int3     
+0x1408606e9: int3     
+0x1408606ea: int3     
+0x1408606eb: int3     
+0x1408606ec: int3     
+0x1408606ed: int3     
+0x1408606ee: int3     
+0x1408606ef: int3     
+0x1408606f0: int3     
+0x1408606f1: int3     
+0x1408606f2: int3     
+0x1408606f3: int3     
+0x1408606f4: int3     
+0x1408606f5: int3     
+0x1408606f6: int3     
+0x1408606f7: int3     
+0x1408606f8: int3     
+0x1408606f9: int3     
+0x1408606fa: int3     
+0x1408606fb: int3     
+0x1408606fc: int3     
+0x1408606fd: int3     
+0x1408606fe: int3     
+0x1408606ff: int3     
+0x140860700: cmp      rsp, qword ptr [r14 + 0x10]
+0x140860704: jbe      0x14086072b   ; main.removeGPUPreferenceEntry.deferwrap1+0x2b
+0x140860706: push     rbp
+0x140860707: mov      rbp, rsp
+0x14086070a: sub      rsp, 8
+0x14086070e: mov      r12, qword ptr [r14 + 0x20]
+0x140860712: test     r12, r12
+0x140860715: jne      0x140860732   ; main.removeGPUPreferenceEntry.deferwrap1+0x32
+0x140860717: mov      rax, qword ptr [rdx + 8]
+0x14086071b: nop      dword ptr [rax + rax]
+0x140860720: call     0x1400e97a0   ; syscall.RegCloseKey
+0x140860725: add      rsp, 8
+0x140860729: pop      rbp
+0x14086072a: ret      
+0x14086072b: call     0x14007f0a0   ; runtime.morestack
+0x140860730: jmp      0x140860700   ; main.removeGPUPreferenceEntry.deferwrap1
+0x140860732: lea      r13, [rsp + 0x18]
+0x140860737: cmp      qword ptr [r12], r13
+0x14086073b: jne      0x140860717   ; main.removeGPUPreferenceEntry.deferwrap1+0x17
+0x14086073d: mov      qword ptr [r12], rsp
+0x140860741: jmp      0x140860717   ; main.removeGPUPreferenceEntry.deferwrap1+0x17
+0x140860743: int3     
+0x140860744: int3     
+0x140860745: int3     
+0x140860746: int3     
+0x140860747: int3     
+0x140860748: int3     
+0x140860749: int3     
+0x14086074a: int3     
+0x14086074b: int3     
+0x14086074c: int3     
+0x14086074d: int3     
+0x14086074e: int3     
+0x14086074f: int3     
+0x140860750: int3     
+0x140860751: int3     
+0x140860752: int3     
+0x140860753: int3     
+0x140860754: int3     
+0x140860755: int3     
+0x140860756: int3     
+0x140860757: int3     
+0x140860758: int3     
+0x140860759: int3     
+0x14086075a: int3     
+0x14086075b: int3     
+0x14086075c: int3     
+0x14086075d: int3     
+0x14086075e: int3     
+0x14086075f: int3     
+0x140860760: lea      r12, [rsp - 0x68]
+0x140860765: cmp      r12, qword ptr [r14 + 0x10]
+0x140860769: jbe      0x140860b34   ; main.cleanupMissingGPUPreferenceEntries+0x3d4
+0x14086076f: push     rbp
+0x140860770: mov      rbp, rsp
+0x140860773: sub      rsp, 0xe0
+0x14086077a: movups   xmmword ptr [rsp + 0x50], xmm15

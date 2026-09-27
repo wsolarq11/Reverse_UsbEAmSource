@@ -1,0 +1,84 @@
+0x140759a20: lea      r12, [rsp - 0x18]
+0x140759a25: cmp      r12, qword ptr [r14 + 0x10]
+0x140759a29: jbe      0x140759b74   ; main.audioIPropertyStore.GetValue+0x154
+0x140759a2f: push     rbp
+0x140759a30: mov      rbp, rsp
+0x140759a33: sub      rsp, 0x90
+0x140759a3a: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x140759a43: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x140759a4c: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140759a52: movups   xmmword ptr [rsp + 0x30], xmm15
+0x140759a58: mov      qword ptr [rsp + 0x88], rax
+0x140759a60: mov      qword ptr [rsp + 0x80], rbx
+0x140759a68: lea      rdx, [rsp + 0x28]
+0x140759a6d: mov      qword ptr [rsp + 0x78], rdx
+0x140759a72: movups   xmmword ptr [rsp + 0x40], xmm15
+0x140759a78: movups   xmmword ptr [rsp + 0x48], xmm15
+0x140759a7e: mov      rdx, qword ptr [rsp + 0x88]
+0x140759a86: mov      qword ptr [rsp + 0x40], rdx
+0x140759a8b: mov      rdx, qword ptr [rsp + 0x80]
+0x140759a93: mov      qword ptr [rsp + 0x48], rdx
+0x140759a98: mov      rdx, qword ptr [rsp + 0x78]
+0x140759a9d: mov      qword ptr [rsp + 0x50], rdx
+0x140759aa2: mov      rdx, qword ptr [rax]
+0x140759aa5: mov      rax, qword ptr [rdx + 0x28]
+0x140759aa9: lea      rbx, [rsp + 0x40]
+0x140759aae: mov      ecx, 3
+0x140759ab3: mov      rdi, rcx
+0x140759ab6: call     0x14007cf60   ; syscall.SyscallN
+0x140759abb: test     eax, eax
+0x140759abd: jl       0x140759b01   ; main.audioIPropertyStore.GetValue+0xe1
+0x140759abf: mov      rcx, qword ptr [rsp + 0x28]
+0x140759ac4: mov      qword ptr [rsp + 0xa0], rcx
+0x140759acc: movups   xmm0, xmmword ptr [rsp + 0x30]
+0x140759ad1: movups   xmmword ptr [rsp + 0xa8], xmm0
+0x140759ad9: mov      rcx, qword ptr [rsp + 0x28]
+0x140759ade: mov      qword ptr [rsp + 0xa0], rcx
+0x140759ae6: movups   xmm0, xmmword ptr [rsp + 0x30]
+0x140759aeb: movups   xmmword ptr [rsp + 0xa8], xmm0
+0x140759af3: xor      eax, eax
+0x140759af5: xor      ebx, ebx
+0x140759af7: add      rsp, 0x90
+0x140759afe: pop      rbp
+0x140759aff: nop      
+0x140759b00: ret      
+0x140759b01: movups   xmmword ptr [rsp + 0x58], xmm15
+0x140759b07: movups   xmmword ptr [rsp + 0x68], xmm15
+0x140759b0d: lea      rcx, [rip + 0x3902ec]
+0x140759b14: mov      qword ptr [rsp + 0x58], rcx
+0x140759b19: lea      rcx, [rip + 0xa74d10]
+0x140759b20: mov      qword ptr [rsp + 0x60], rcx
+0x140759b25: call     0x1400173c0   ; runtime.convT32
+0x140759b2a: lea      rcx, [rip + 0x39044f]
+0x140759b31: mov      qword ptr [rsp + 0x68], rcx
+0x140759b36: mov      qword ptr [rsp + 0x70], rax
+0x140759b3b: lea      rax, [rip + 0x50b0c6]
+0x140759b42: mov      ebx, 0x18
+0x140759b47: lea      rcx, [rsp + 0x58]
+0x140759b4c: mov      edi, 2
+0x140759b51: mov      rsi, rdi
+0x140759b54: call     0x140133280   ; fmt.Errorf
+0x140759b59: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x140759b62: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x140759b6b: add      rsp, 0x90
+0x140759b72: pop      rbp
+0x140759b73: ret      
+0x140759b74: mov      qword ptr [rsp + 0x20], rax
+0x140759b79: mov      qword ptr [rsp + 0x28], rbx
+0x140759b7e: nop      
+0x140759b80: call     0x14007f140   ; runtime.morestack_noctxt
+0x140759b85: mov      rax, qword ptr [rsp + 0x20]
+0x140759b8a: mov      rbx, qword ptr [rsp + 0x28]
+0x140759b8f: jmp      0x140759a20   ; main.audioIPropertyStore.GetValue
+0x140759b94: int3     
+0x140759b95: int3     
+0x140759b96: int3     
+0x140759b97: int3     
+0x140759b98: int3     
+0x140759b99: int3     
+0x140759b9a: int3     
+0x140759b9b: int3     
+0x140759b9c: int3     
+0x140759b9d: int3     
+0x140759b9e: int3     
+0x140759b9f: int3     

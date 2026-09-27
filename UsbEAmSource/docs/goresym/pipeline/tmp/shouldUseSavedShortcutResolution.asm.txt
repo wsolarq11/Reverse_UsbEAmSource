@@ -1,0 +1,43 @@
+0x1408a7e60: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a7e64: jbe      0x1408a7ebe   ; main.shouldUseSavedShortcutResolution+0x5e
+0x1408a7e66: push     rbp
+0x1408a7e67: mov      rbp, rsp
+0x1408a7e6a: sub      rsp, 0x20
+0x1408a7e6e: mov      qword ptr [rsp + 0x30], rax
+0x1408a7e73: call     0x1400a2200   ; strings.TrimSpace
+0x1408a7e78: test     rbx, rbx
+0x1408a7e7b: je       0x1408a7eb3   ; main.shouldUseSavedShortcutResolution+0x53
+0x1408a7e7d: mov      qword ptr [rsp + 0x10], rbx
+0x1408a7e82: mov      qword ptr [rsp + 0x18], rax
+0x1408a7e87: call     0x1409c1ec0   ; main.isShortcutFilePath
+0x1408a7e8c: test     al, al
+0x1408a7e8e: je       0x1408a7eab   ; main.shouldUseSavedShortcutResolution+0x4b
+0x1408a7e90: mov      rax, qword ptr [rsp + 0x18]
+0x1408a7e95: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a7e9a: call     0x14012d940   ; os.Stat
+0x1408a7e9f: test     rcx, rcx
+0x1408a7ea2: setne    al
+0x1408a7ea5: add      rsp, 0x20
+0x1408a7ea9: pop      rbp
+0x1408a7eaa: ret      
+0x1408a7eab: xor      eax, eax
+0x1408a7ead: add      rsp, 0x20
+0x1408a7eb1: pop      rbp
+0x1408a7eb2: ret      
+0x1408a7eb3: mov      eax, 1
+0x1408a7eb8: add      rsp, 0x20
+0x1408a7ebc: pop      rbp
+0x1408a7ebd: ret      
+0x1408a7ebe: mov      qword ptr [rsp + 8], rax
+0x1408a7ec3: mov      qword ptr [rsp + 0x10], rbx
+0x1408a7ec8: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a7ecd: mov      rax, qword ptr [rsp + 8]
+0x1408a7ed2: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a7ed7: jmp      0x1408a7e60   ; main.shouldUseSavedShortcutResolution
+0x1408a7ed9: int3     
+0x1408a7eda: int3     
+0x1408a7edb: int3     
+0x1408a7edc: int3     
+0x1408a7edd: int3     
+0x1408a7ede: int3     
+0x1408a7edf: int3     

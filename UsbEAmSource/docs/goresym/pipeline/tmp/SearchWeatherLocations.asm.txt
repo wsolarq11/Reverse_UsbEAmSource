@@ -1,0 +1,53 @@
+0x1407a9e40: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a9e44: jbe      0x1407a9e6b    ; main.BootstrapService.SearchWeatherLocations+0x2b
+0x1407a9e46: push     rbp
+0x1407a9e47: mov      rbp, rsp
+0x1407a9e4a: sub      rsp, 0x28
+0x1407a9e4e: mov      qword ptr [rsp + 0x40], rbx
+0x1407a9e53: mov      qword ptr [rsp + 0x50], rdi
+0x1407a9e58: mov      rax, qword ptr [rax + 0x440]
+0x1407a9e5f: nop      
+0x1407a9e60: call     0x1407b7d80    ; main.desktopWidgetService.SearchWeatherLocations
+0x1407a9e65: add      rsp, 0x28
+0x1407a9e69: pop      rbp
+0x1407a9e6a: ret      
+0x1407a9e6b: mov      qword ptr [rsp + 8], rax
+0x1407a9e70: mov      qword ptr [rsp + 0x10], rbx
+0x1407a9e75: mov      qword ptr [rsp + 0x18], rcx
+0x1407a9e7a: mov      qword ptr [rsp + 0x20], rdi
+0x1407a9e7f: mov      qword ptr [rsp + 0x28], rsi
+0x1407a9e84: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a9e89: mov      rax, qword ptr [rsp + 8]
+0x1407a9e8e: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a9e93: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a9e98: mov      rdi, qword ptr [rsp + 0x20]
+0x1407a9e9d: mov      rsi, qword ptr [rsp + 0x28]
+0x1407a9ea2: jmp      0x1407a9e40    ; main.BootstrapService.SearchWeatherLocations
+0x1407a9ea4: int3     
+0x1407a9ea5: int3     
+0x1407a9ea6: int3     
+0x1407a9ea7: int3     
+0x1407a9ea8: int3     
+0x1407a9ea9: int3     
+0x1407a9eaa: int3     
+0x1407a9eab: int3     
+0x1407a9eac: int3     
+0x1407a9ead: int3     
+0x1407a9eae: int3     
+0x1407a9eaf: int3     
+0x1407a9eb0: int3     
+0x1407a9eb1: int3     
+0x1407a9eb2: int3     
+0x1407a9eb3: int3     
+0x1407a9eb4: int3     
+0x1407a9eb5: int3     
+0x1407a9eb6: int3     
+0x1407a9eb7: int3     
+0x1407a9eb8: int3     
+0x1407a9eb9: int3     
+0x1407a9eba: int3     
+0x1407a9ebb: int3     
+0x1407a9ebc: int3     
+0x1407a9ebd: int3     
+0x1407a9ebe: int3     
+0x1407a9ebf: int3     

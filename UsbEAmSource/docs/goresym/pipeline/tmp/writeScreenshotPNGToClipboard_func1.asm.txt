@@ -1,0 +1,37 @@
+0x140972e60: cmp      rsp, qword ptr [r14 + 0x10]
+0x140972e64: jbe      0x140972ed6   ; main.writeScreenshotPNGToClipboard.func1+0x76
+0x140972e66: push     rbp
+0x140972e67: mov      rbp, rsp
+0x140972e6a: sub      rsp, 0x28
+0x140972e6e: mov      rax, qword ptr [rip + 0x124ebeb]
+0x140972e75: mov      rdx, qword ptr [rdx + 8]
+0x140972e79: mov      qword ptr [rsp + 0x20], rdx
+0x140972e7e: xor      ebx, ebx
+0x140972e80: xor      ecx, ecx
+0x140972e82: mov      rdi, rcx
+0x140972e85: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140972e8a: test     rax, rax
+0x140972e8d: jne      0x140972ed0   ; main.writeScreenshotPNGToClipboard.func1+0x70
+0x140972e8f: mov      rdx, qword ptr [rsp + 0x20]
+0x140972e94: cmp      qword ptr [rdx], 0
+0x140972e98: jne      0x140972ed0   ; main.writeScreenshotPNGToClipboard.func1+0x70
+0x140972e9a: lea      rax, [rip + 0x2f750f]
+0x140972ea1: mov      ebx, 0x1b
+0x140972ea6: call     0x1408af3a0   ; main.wrapWinError
+0x140972eab: mov      rdx, qword ptr [rsp + 0x20]
+0x140972eb0: mov      qword ptr [rdx], rax
+0x140972eb3: cmp      dword ptr [rip + 0x12e8496], 0
+0x140972eba: je       0x140972ecc   ; main.writeScreenshotPNGToClipboard.func1+0x6c
+0x140972ebc: mov      rax, qword ptr [rdx + 8]
+0x140972ec0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140972ec5: mov      qword ptr [r11], rbx
+0x140972ec8: mov      qword ptr [r11 + 8], rax
+0x140972ecc: mov      qword ptr [rdx + 8], rbx
+0x140972ed0: add      rsp, 0x28
+0x140972ed4: pop      rbp
+0x140972ed5: ret      
+0x140972ed6: call     0x14007f0a0   ; runtime.morestack
+0x140972edb: jmp      0x140972e60   ; main.writeScreenshotPNGToClipboard.func1
+0x140972edd: int3     
+0x140972ede: int3     
+0x140972edf: int3     

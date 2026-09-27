@@ -1,0 +1,82 @@
+0x140972ee0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140972ee4: jbe      0x140972f9b   ; main.registerScreenshotPNGClipboardFormat+0xbb
+0x140972eea: push     rbp
+0x140972eeb: mov      rbp, rsp
+0x140972eee: sub      rsp, 0x30
+0x140972ef2: lea      rax, [rip + 0x2c0e3b]
+0x140972ef9: mov      ebx, 3
+0x140972efe: nop      
+0x140972f00: call     0x1400e5f00   ; syscall.UTF16FromString
+0x140972f05: test     rdi, rdi
+0x140972f08: je       0x140972f0e   ; main.registerScreenshotPNGClipboardFormat+0x2e
+0x140972f0a: xor      eax, eax
+0x140972f0c: jmp      0x140972f17   ; main.registerScreenshotPNGClipboardFormat+0x37
+0x140972f0e: test     rbx, rbx
+0x140972f11: jbe      0x140972f90   ; main.registerScreenshotPNGClipboardFormat+0xb0
+0x140972f13: xor      edi, edi
+0x140972f15: xor      esi, esi
+0x140972f17: test     rdi, rdi
+0x140972f1a: jne      0x140972f82   ; main.registerScreenshotPNGClipboardFormat+0xa2
+0x140972f1c: mov      qword ptr [rsp + 0x20], rax
+0x140972f21: mov      qword ptr [rsp + 0x28], rax
+0x140972f26: lea      rax, [rip + 0x18aa53]
+0x140972f2d: call     0x14001ae20   ; runtime.newobject
+0x140972f32: mov      rcx, qword ptr [rsp + 0x28]
+0x140972f37: mov      qword ptr [rax], rcx
+0x140972f3a: mov      rcx, qword ptr [rip + 0x124eb37]
+0x140972f41: mov      rbx, rax
+0x140972f44: mov      edi, 1
+0x140972f49: mov      rax, rcx
+0x140972f4c: mov      rcx, rdi
+0x140972f4f: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140972f54: test     rax, rax
+0x140972f57: jne      0x140972f78   ; main.registerScreenshotPNGClipboardFormat+0x98
+0x140972f59: lea      rax, [rip + 0x2ff7e6]
+0x140972f60: mov      ebx, 0x20
+0x140972f65: call     0x1408af3a0   ; main.wrapWinError
+0x140972f6a: mov      rcx, rbx
+0x140972f6d: mov      rbx, rax
+0x140972f70: xor      eax, eax
+0x140972f72: add      rsp, 0x30
+0x140972f76: pop      rbp
+0x140972f77: ret      
+0x140972f78: xor      ebx, ebx
+0x140972f7a: xor      ecx, ecx
+0x140972f7c: add      rsp, 0x30
+0x140972f80: pop      rbp
+0x140972f81: ret      
+0x140972f82: xor      eax, eax
+0x140972f84: mov      rbx, rdi
+0x140972f87: mov      rcx, rsi
+0x140972f8a: add      rsp, 0x30
+0x140972f8e: pop      rbp
+0x140972f8f: ret      
+0x140972f90: xor      eax, eax
+0x140972f92: mov      rcx, rax
+0x140972f95: call     0x140081400   ; runtime.panicIndex
+0x140972f9a: nop      
+0x140972f9b: nop      dword ptr [rax + rax]
+0x140972fa0: call     0x14007f140   ; runtime.morestack_noctxt
+0x140972fa5: jmp      0x140972ee0   ; main.registerScreenshotPNGClipboardFormat
+0x140972faa: int3     
+0x140972fab: int3     
+0x140972fac: int3     
+0x140972fad: int3     
+0x140972fae: int3     
+0x140972faf: int3     
+0x140972fb0: int3     
+0x140972fb1: int3     
+0x140972fb2: int3     
+0x140972fb3: int3     
+0x140972fb4: int3     
+0x140972fb5: int3     
+0x140972fb6: int3     
+0x140972fb7: int3     
+0x140972fb8: int3     
+0x140972fb9: int3     
+0x140972fba: int3     
+0x140972fbb: int3     
+0x140972fbc: int3     
+0x140972fbd: int3     
+0x140972fbe: int3     
+0x140972fbf: int3     

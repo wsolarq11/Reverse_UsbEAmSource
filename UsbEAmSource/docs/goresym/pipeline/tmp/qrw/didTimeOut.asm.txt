@@ -1,0 +1,74 @@
+0x140937280: cmp      rsp, qword ptr [r14 + 0x10]
+0x140937284: jbe      0x140937330
+0x14093728a: push     rbp
+0x14093728b: mov      rbp, rsp
+0x14093728e: sub      rsp, 0x30
+0x140937292: movq     qword ptr [rsp + 0x28], xmm15
+0x140937299: mov      byte ptr [rsp + 0xf], 0
+0x14093729e: mov      byte ptr [rsp + 0xe], 0
+0x1409372a3: nop      
+0x1409372a4: mov      rcx, rax
+0x1409372a7: xor      eax, eax
+0x1409372a9: mov      ebx, 1
+0x1409372ae: lock cmpxchg dword ptr [rcx + 0x460], ebx
+0x1409372b6: sete     bl
+0x1409372b9: test     bl, bl
+0x1409372bb: jne      0x1409372d3
+0x1409372bd: mov      qword ptr [rsp + 0x20], rcx
+0x1409372c2: lea      rax, [rcx + 0x460]
+0x1409372c9: call     0x140091940
+0x1409372ce: mov      rcx, qword ptr [rsp + 0x20]
+0x1409372d3: lea      rax, [rip + 0x86]
+0x1409372da: mov      qword ptr [rsp + 0x10], rax
+0x1409372df: lea      rax, [rcx + 0x460]
+0x1409372e6: mov      qword ptr [rsp + 0x18], rax
+0x1409372eb: lea      rdx, [rsp + 0x10]
+0x1409372f0: mov      qword ptr [rsp + 0x28], rdx
+0x1409372f5: mov      byte ptr [rsp + 0xf], 1
+0x1409372fa: movzx    eax, byte ptr [rcx + 0x470]
+0x140937301: mov      byte ptr [rsp + 0xe], al
+0x140937305: mov      byte ptr [rsp + 0xf], 0
+0x14093730a: mov      rax, qword ptr [rsp + 0x10]
+0x14093730f: call     rax
+0x140937311: movzx    eax, byte ptr [rsp + 0xe]
+0x140937316: add      rsp, 0x30
+0x14093731a: pop      rbp
+0x14093731b: ret      
+0x14093731c: nop      dword ptr [rax]
+0x140937320: call     0x1400435e0
+0x140937325: movzx    eax, byte ptr [rsp + 0xe]
+0x14093732a: add      rsp, 0x30
+0x14093732e: pop      rbp
+0x14093732f: ret      
+0x140937330: mov      qword ptr [rsp + 8], rax
+0x140937335: call     0x14007f140
+0x14093733a: mov      rax, qword ptr [rsp + 8]
+0x14093733f: nop      
+0x140937340: jmp      0x140937280
+0x140937345: int3     
+0x140937346: int3     
+0x140937347: int3     
+0x140937348: int3     
+0x140937349: int3     
+0x14093734a: int3     
+0x14093734b: int3     
+0x14093734c: int3     
+0x14093734d: int3     
+0x14093734e: int3     
+0x14093734f: int3     
+0x140937350: int3     
+0x140937351: int3     
+0x140937352: int3     
+0x140937353: int3     
+0x140937354: int3     
+0x140937355: int3     
+0x140937356: int3     
+0x140937357: int3     
+0x140937358: int3     
+0x140937359: int3     
+0x14093735a: int3     
+0x14093735b: int3     
+0x14093735c: int3     
+0x14093735d: int3     
+0x14093735e: int3     
+0x14093735f: int3     

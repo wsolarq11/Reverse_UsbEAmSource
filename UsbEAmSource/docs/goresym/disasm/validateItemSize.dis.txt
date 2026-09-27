@@ -1,0 +1,71 @@
+0x140872440: cmp      rsp, qword ptr [r14 + 0x10]
+0x140872444: jbe      0x140872512   ; main.launcherAssetService.validateItemSize+0xd2
+0x14087244a: push     rbp
+0x14087244b: mov      rbp, rsp
+0x14087244e: sub      rsp, 0x50
+0x140872452: mov      rcx, qword ptr [rax + 0x38]
+0x140872456: nop      
+0x140872457: test     rcx, rcx
+0x14087245a: mov      edx, 0x4000000
+0x14087245f: cmovle   rcx, rdx
+0x140872463: test     rbx, rbx
+0x140872466: jle      0x1408724e4   ; main.launcherAssetService.validateItemSize+0xa4
+0x140872468: cmp      rbx, rcx
+0x14087246b: jle      0x1408724da   ; main.launcherAssetService.validateItemSize+0x9a
+0x14087246d: mov      qword ptr [rsp + 0x28], rcx
+0x140872472: movups   xmmword ptr [rsp + 0x30], xmm15
+0x140872478: movups   xmmword ptr [rsp + 0x40], xmm15
+0x14087247e: mov      rax, rbx
+0x140872481: call     0x1400765e0
+0x140872486: lea      rcx, [rip + 0x277b33]
+0x14087248d: mov      qword ptr [rsp + 0x30], rcx
+0x140872492: mov      qword ptr [rsp + 0x38], rax
+0x140872497: mov      rax, qword ptr [rsp + 0x28]
+0x14087249c: nop      dword ptr [rax]
+0x1408724a0: call     0x1400765e0
+0x1408724a5: lea      rcx, [rip + 0x277b14]
+0x1408724ac: mov      qword ptr [rsp + 0x40], rcx
+0x1408724b1: mov      qword ptr [rsp + 0x48], rax
+0x1408724b6: lea      rax, [rip + 0x410b68]
+0x1408724bd: mov      ebx, 0x2c
+0x1408724c2: lea      rcx, [rsp + 0x30]
+0x1408724c7: mov      edi, 2
+0x1408724cc: mov      rsi, rdi
+0x1408724cf: call     0x140133280
+0x1408724d4: add      rsp, 0x50
+0x1408724d8: pop      rbp
+0x1408724d9: ret      
+0x1408724da: xor      eax, eax
+0x1408724dc: xor      ebx, ebx
+0x1408724de: add      rsp, 0x50
+0x1408724e2: pop      rbp
+0x1408724e3: ret      
+0x1408724e4: lea      rax, [rip + 0x2e1e95]
+0x1408724eb: call     0x14001ae20
+0x1408724f0: mov      qword ptr [rax + 8], 0x18
+0x1408724f8: lea      rcx, [rip + 0x3f2ac9]
+0x1408724ff: mov      qword ptr [rax], rcx
+0x140872502: mov      rbx, rax
+0x140872505: lea      rax, [rip + 0x960bf4]
+0x14087250c: add      rsp, 0x50
+0x140872510: pop      rbp
+0x140872511: ret      
+0x140872512: mov      qword ptr [rsp + 8], rax
+0x140872517: mov      qword ptr [rsp + 0x10], rbx
+0x14087251c: nop      dword ptr [rax]
+0x140872520: call     0x14007f140
+0x140872525: mov      rax, qword ptr [rsp + 8]
+0x14087252a: mov      rbx, qword ptr [rsp + 0x10]
+0x14087252f: jmp      0x140872440   ; main.launcherAssetService.validateItemSize
+0x140872534: int3     
+0x140872535: int3     
+0x140872536: int3     
+0x140872537: int3     
+0x140872538: int3     
+0x140872539: int3     
+0x14087253a: int3     
+0x14087253b: int3     
+0x14087253c: int3     
+0x14087253d: int3     
+0x14087253e: int3     
+0x14087253f: int3     

@@ -1,0 +1,149 @@
+0x1408fab80: lea      r12, [rsp - 0x558]
+0x1408fab88: cmp      r12, qword ptr [r14 + 0x10]
+0x1408fab8c: jbe      0x1408fae7e    ; main.BootstrapService.StartAppEntryNativeDrag+0x2fe
+0x1408fab92: push     rbp
+0x1408fab93: mov      rbp, rsp
+0x1408fab96: sub      rsp, 0x5d0
+0x1408fab9d: movq     qword ptr [rsp + 0x5c8], xmm15
+0x1408faba7: mov      qword ptr [rsp + 0x748], rax
+0x1408fabaf: mov      byte ptr [rsp + 0x16f], 0
+0x1408fabb7: movups   xmmword ptr [rsp + 0x170], xmm15
+0x1408fabc0: movups   xmmword ptr [rsp + 0x460], xmm15
+0x1408fabc9: lea      rdi, [rsp + 0x468]
+0x1408fabd1: lea      rdi, [rdi - 0x20]
+0x1408fabd5: nop      word ptr [rax + rax]
+0x1408fabde: nop      
+0x1408fabe0: mov      qword ptr [rsp - 0x10], rbp
+0x1408fabe5: lea      rbp, [rsp - 0x10]
+0x1408fabea: call     0x1400816cf    ; runtime.duffzero+0xef
+0x1408fabef: mov      rbp, qword ptr [rbp]
+0x1408fabf3: mov      rdx, qword ptr [rsp + 0x5e0]
+0x1408fabfb: mov      qword ptr [rsp + 0x460], rdx
+0x1408fac03: lea      rdi, [rsp + 0x468]
+0x1408fac0b: lea      rsi, [rsp + 0x5e8]
+0x1408fac13: nop      word ptr [rax + rax]
+0x1408fac1c: nop      dword ptr [rax]
+0x1408fac20: mov      qword ptr [rsp - 0x10], rbp
+0x1408fac25: lea      rbp, [rsp - 0x10]
+0x1408fac2a: call     0x1400819ac    ; runtime.duffcopy+0x24c
+0x1408fac2f: mov      rbp, qword ptr [rbp]
+0x1408fac33: lea      rax, [rsp + 0x460]
+0x1408fac3b: mov      ebx, 1
+0x1408fac40: mov      rcx, rbx
+0x1408fac43: call     0x140889780    ; main.normalizeAppEntries
+0x1408fac48: test     rbx, rbx
+0x1408fac4b: je       0x1408fae10    ; main.BootstrapService.StartAppEntryNativeDrag+0x290
+0x1408fac51: mov      rcx, qword ptr [rax]
+0x1408fac54: lea      rsi, [rax + 8]
+0x1408fac58: mov      qword ptr [rsp + 0x180], rcx
+0x1408fac60: lea      rdi, [rsp + 0x188]
+0x1408fac68: mov      qword ptr [rsp - 0x10], rbp
+0x1408fac6d: lea      rbp, [rsp - 0x10]
+0x1408fac72: call     0x1400819ac    ; runtime.duffcopy+0x24c
+0x1408fac77: mov      rbp, qword ptr [rbp]
+0x1408fac7b: mov      rcx, qword ptr [rsp + 0x180]
+0x1408fac83: mov      qword ptr [rsp + 0x2e8], rcx
+0x1408fac8b: lea      rdi, [rsp + 0x2f0]
+0x1408fac93: lea      rsi, [rsp + 0x188]
+0x1408fac9b: nop      dword ptr [rax + rax]
+0x1408faca0: mov      qword ptr [rsp - 0x10], rbp
+0x1408faca5: lea      rbp, [rsp - 0x10]
+0x1408facaa: call     0x1400819ac    ; runtime.duffcopy+0x24c
+0x1408facaf: mov      rbp, qword ptr [rbp]
+0x1408facb3: mov      rax, qword ptr [rsp + 0x308]
+0x1408facbb: mov      rbx, qword ptr [rsp + 0x310]
+0x1408facc3: call     0x14088a700    ; main.normalizeAppEntryType
+0x1408facc8: cmp      rbx, 9
+0x1408faccc: jne      0x1408fadc4    ; main.BootstrapService.StartAppEntryNativeDrag+0x244
+0x1408facd2: movabs   rcx, 0x726f746365726964
+0x1408facdc: nop      dword ptr [rax]
+0x1408face0: cmp      qword ptr [rax], rcx
+0x1408face3: jne      0x1408fadc4    ; main.BootstrapService.StartAppEntryNativeDrag+0x244
+0x1408face9: cmp      byte ptr [rax + 8], 0x79
+0x1408faced: jne      0x1408fadc4    ; main.BootstrapService.StartAppEntryNativeDrag+0x244
+0x1408facf3: mov      rax, qword ptr [rsp + 0x180]
+0x1408facfb: mov      qword ptr [rsp], rax
+0x1408facff: lea      rdi, [rsp + 8]
+0x1408fad04: lea      rsi, [rsp + 0x188]
+0x1408fad0c: mov      qword ptr [rsp - 0x10], rbp
+0x1408fad11: lea      rbp, [rsp - 0x10]
+0x1408fad16: call     0x1400819ac    ; runtime.duffcopy+0x24c
+0x1408fad1b: mov      rbp, qword ptr [rbp]
+0x1408fad1f: nop      
+0x1408fad20: call     0x1408fb1a0    ; main.createTemporaryDirectoryShortcut
+0x1408fad25: test     rdi, rdi
+0x1408fad28: je       0x1408fad49    ; main.BootstrapService.StartAppEntryNativeDrag+0x1c9
+0x1408fad2a: mov      qword ptr [rsp + 0x170], rdi
+0x1408fad32: mov      qword ptr [rsp + 0x178], rsi
+0x1408fad3a: mov      rax, rdi
+0x1408fad3d: mov      rbx, rsi
+0x1408fad40: add      rsp, 0x5d0
+0x1408fad47: pop      rbp
+0x1408fad48: ret      
+0x1408fad49: mov      qword ptr [rsp + 0x5c8], rcx
+0x1408fad51: mov      byte ptr [rsp + 0x16f], 1
+0x1408fad59: mov      qword ptr [rsp + 0x458], rbx
+0x1408fad61: mov      qword ptr [rsp + 0x450], rax
+0x1408fad69: mov      rax, qword ptr [rsp + 0x748]
+0x1408fad71: lea      rbx, [rsp + 0x450]
+0x1408fad79: mov      ecx, 1
+0x1408fad7e: mov      rdi, rcx
+0x1408fad81: call     0x1408fa9a0    ; main.BootstrapService.StartNativeFileDrag
+0x1408fad86: mov      qword ptr [rsp + 0x170], rax
+0x1408fad8e: mov      qword ptr [rsp + 0x178], rbx
+0x1408fad96: mov      byte ptr [rsp + 0x16f], 0
+0x1408fad9e: mov      rdx, qword ptr [rsp + 0x5c8]
+0x1408fada6: mov      rsi, qword ptr [rdx]
+0x1408fada9: call     rsi
+0x1408fadab: mov      rax, qword ptr [rsp + 0x170]
+0x1408fadb3: mov      rbx, qword ptr [rsp + 0x178]
+0x1408fadbb: add      rsp, 0x5d0
+0x1408fadc2: pop      rbp
+0x1408fadc3: ret      
+0x1408fadc4: lea      rax, [rip + 0x2595b5]
+0x1408fadcb: call     0x14001ae20    ; runtime.newobject
+0x1408fadd0: mov      qword ptr [rax + 8], 0x27
+0x1408fadd8: lea      rcx, [rip + 0x3831cd]
+0x1408faddf: mov      qword ptr [rax], rcx
+0x1408fade2: lea      rcx, [rip + 0x8d8317]
+0x1408fade9: mov      qword ptr [rsp + 0x170], rcx
+0x1408fadf1: mov      qword ptr [rsp + 0x178], rax
+0x1408fadf9: mov      rcx, qword ptr [rsp + 0x170]
+0x1408fae01: mov      rbx, rax
+0x1408fae04: mov      rax, rcx
+0x1408fae07: add      rsp, 0x5d0
+0x1408fae0e: pop      rbp
+0x1408fae0f: ret      
+0x1408fae10: lea      rax, [rip + 0x259569]
+0x1408fae17: call     0x14001ae20    ; runtime.newobject
+0x1408fae1c: mov      qword ptr [rax + 8], 0x18
+0x1408fae24: lea      rcx, [rip + 0x36a34d]
+0x1408fae2b: mov      qword ptr [rax], rcx
+0x1408fae2e: lea      rcx, [rip + 0x8d82cb]
+0x1408fae35: mov      qword ptr [rsp + 0x170], rcx
+0x1408fae3d: mov      qword ptr [rsp + 0x178], rax
+0x1408fae45: mov      rcx, qword ptr [rsp + 0x170]
+0x1408fae4d: mov      rbx, rax
+0x1408fae50: mov      rax, rcx
+0x1408fae53: add      rsp, 0x5d0
+0x1408fae5a: pop      rbp
+0x1408fae5b: ret      
+0x1408fae5c: nop      dword ptr [rax]
+0x1408fae60: call     0x1400435e0    ; runtime.deferreturn
+0x1408fae65: mov      rax, qword ptr [rsp + 0x170]
+0x1408fae6d: mov      rbx, qword ptr [rsp + 0x178]
+0x1408fae75: add      rsp, 0x5d0
+0x1408fae7c: pop      rbp
+0x1408fae7d: ret      
+0x1408fae7e: mov      qword ptr [rsp + 0x170], rax
+0x1408fae86: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408fae8b: mov      rax, qword ptr [rsp + 0x170]
+0x1408fae93: jmp      0x1408fab80    ; main.BootstrapService.StartAppEntryNativeDrag
+0x1408fae98: int3     
+0x1408fae99: int3     
+0x1408fae9a: int3     
+0x1408fae9b: int3     
+0x1408fae9c: int3     
+0x1408fae9d: int3     
+0x1408fae9e: int3     
+0x1408fae9f: int3     

@@ -1,0 +1,142 @@
+0x140815fe0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140815fe4: jbe      0x140816158   ; main.isValidFileSearchTypeGlob+0x178
+0x140815fea: push     rbp
+0x140815feb: mov      rbp, rsp
+0x140815fee: sub      rsp, 0x28
+0x140815ff2: mov      qword ptr [rsp + 0x38], rax
+0x140815ff7: test     rbx, rbx
+0x140815ffa: je       0x14081602b   ; main.isValidFileSearchTypeGlob+0x4b
+0x140815ffc: mov      qword ptr [rsp + 0x40], rbx
+0x140816001: mov      qword ptr [rsp + 0x38], rax
+0x140816006: nop      
+0x140816007: lea      rcx, [rip + 0x42972e]
+0x14081600e: mov      edi, 9
+0x140816013: call     0x14009f4c0   ; strings.IndexAny
+0x140816018: test     rax, rax
+0x14081601b: jge      0x14081602b   ; main.isValidFileSearchTypeGlob+0x4b
+0x14081601d: mov      rcx, qword ptr [rsp + 0x40]
+0x140816022: mov      rdx, qword ptr [rsp + 0x38]
+0x140816027: xor      eax, eax
+0x140816029: jmp      0x140816036   ; main.isValidFileSearchTypeGlob+0x56
+0x14081602b: xor      eax, eax
+0x14081602d: add      rsp, 0x28
+0x140816031: pop      rbp
+0x140816032: ret      
+0x140816033: inc      rax
+0x140816036: cmp      rcx, rax
+0x140816039: jle      0x1408160b5   ; main.isValidFileSearchTypeGlob+0xd5
+0x14081603b: nop      dword ptr [rax + rax]
+0x140816040: jbe      0x140816152   ; main.isValidFileSearchTypeGlob+0x172
+0x140816046: movzx    esi, byte ptr [rdx + rax]
+0x14081604a: cmp      sil, 0x5b
+0x14081604e: ja       0x140816087   ; main.isValidFileSearchTypeGlob+0xa7
+0x140816050: cmp      sil, 0x2f
+0x140816054: je       0x1408160ad   ; main.isValidFileSearchTypeGlob+0xcd
+0x140816056: cmp      sil, 0x5b
+0x14081605a: jne      0x140816033   ; main.isValidFileSearchTypeGlob+0x53
+0x14081605c: lea      rsi, [rax + 1]
+0x140816060: cmp      rcx, rsi
+0x140816063: jle      0x14081609d   ; main.isValidFileSearchTypeGlob+0xbd
+0x140816065: movzx    edi, byte ptr [rax + rdx + 1]
+0x14081606a: cmp      dil, 0x21
+0x14081606e: je       0x140816076   ; main.isValidFileSearchTypeGlob+0x96
+0x140816070: cmp      dil, 0x5e
+0x140816074: jne      0x14081607c   ; main.isValidFileSearchTypeGlob+0x9c
+0x140816076: lea      rdi, [rax + 2]
+0x14081607a: jmp      0x140816080   ; main.isValidFileSearchTypeGlob+0xa0
+0x14081607c: mov      rdi, rsi
+0x14081607f: nop      
+0x140816080: cmp      rcx, rdi
+0x140816083: jg       0x1408160c4   ; main.isValidFileSearchTypeGlob+0xe4
+0x140816085: jmp      0x140816095   ; main.isValidFileSearchTypeGlob+0xb5
+0x140816087: cmp      sil, 0x5c
+0x14081608b: je       0x1408160ad   ; main.isValidFileSearchTypeGlob+0xcd
+0x14081608d: cmp      sil, 0x5d
+0x140816091: jne      0x140816033   ; main.isValidFileSearchTypeGlob+0x53
+0x140816093: jmp      0x1408160a5   ; main.isValidFileSearchTypeGlob+0xc5
+0x140816095: xor      eax, eax
+0x140816097: add      rsp, 0x28
+0x14081609b: pop      rbp
+0x14081609c: ret      
+0x14081609d: xor      eax, eax
+0x14081609f: add      rsp, 0x28
+0x1408160a3: pop      rbp
+0x1408160a4: ret      
+0x1408160a5: xor      eax, eax
+0x1408160a7: add      rsp, 0x28
+0x1408160ab: pop      rbp
+0x1408160ac: ret      
+0x1408160ad: xor      eax, eax
+0x1408160af: add      rsp, 0x28
+0x1408160b3: pop      rbp
+0x1408160b4: ret      
+0x1408160b5: mov      eax, 1
+0x1408160ba: add      rsp, 0x28
+0x1408160be: pop      rbp
+0x1408160bf: nop      
+0x1408160c0: ret      
+0x1408160c1: inc      rdi
+0x1408160c4: cmp      rcx, rdi
+0x1408160c7: jle      0x140816137   ; main.isValidFileSearchTypeGlob+0x157
+0x1408160c9: jbe      0x14081614a   ; main.isValidFileSearchTypeGlob+0x16a
+0x1408160cb: movzx    r8d, byte ptr [rdx + rdi]
+0x1408160d0: cmp      r8b, 0x5d
+0x1408160d4: je       0x1408160ee   ; main.isValidFileSearchTypeGlob+0x10e
+0x1408160d6: cmp      r8b, 0x2f
+0x1408160da: je       0x1408160e6   ; main.isValidFileSearchTypeGlob+0x106
+0x1408160dc: nop      dword ptr [rax]
+0x1408160e0: cmp      r8b, 0x5c
+0x1408160e4: jne      0x1408160c1   ; main.isValidFileSearchTypeGlob+0xe1
+0x1408160e6: xor      eax, eax
+0x1408160e8: add      rsp, 0x28
+0x1408160ec: pop      rbp
+0x1408160ed: ret      
+0x1408160ee: cmp      rdi, rsi
+0x1408160f1: jb       0x14081613f   ; main.isValidFileSearchTypeGlob+0x15f
+0x1408160f3: mov      qword ptr [rsp + 0x20], rdi
+0x1408160f8: mov      rbx, rdi
+0x1408160fb: sub      rbx, rax
+0x1408160fe: dec      rbx
+0x140816101: mov      rcx, rbx
+0x140816104: neg      rcx
+0x140816107: sar      rcx, 0x3f
+0x14081610b: and      rsi, rcx
+0x14081610e: lea      rax, [rdx + rsi]
+0x140816112: call     0x140816180   ; main.isValidASCIICharClass
+0x140816117: test     al, al
+0x140816119: je       0x14081612f   ; main.isValidFileSearchTypeGlob+0x14f
+0x14081611b: mov      rcx, qword ptr [rsp + 0x40]
+0x140816120: mov      rdx, qword ptr [rsp + 0x38]
+0x140816125: mov      rax, qword ptr [rsp + 0x20]
+0x14081612a: jmp      0x140816033   ; main.isValidFileSearchTypeGlob+0x53
+0x14081612f: xor      eax, eax
+0x140816131: add      rsp, 0x28
+0x140816135: pop      rbp
+0x140816136: ret      
+0x140816137: xor      eax, eax
+0x140816139: add      rsp, 0x28
+0x14081613d: pop      rbp
+0x14081613e: ret      
+0x14081613f: mov      rax, rsi
+0x140816142: mov      rcx, rdi
+0x140816145: call     0x1400814c0   ; runtime.panicSliceB
+0x14081614a: mov      rax, rdi
+0x14081614d: call     0x140081400   ; runtime.panicIndex
+0x140816152: call     0x140081400   ; runtime.panicIndex
+0x140816157: nop      
+0x140816158: mov      qword ptr [rsp + 8], rax
+0x14081615d: mov      qword ptr [rsp + 0x10], rbx
+0x140816162: call     0x14007f140   ; runtime.morestack_noctxt
+0x140816167: mov      rax, qword ptr [rsp + 8]
+0x14081616c: mov      rbx, qword ptr [rsp + 0x10]
+0x140816171: jmp      0x140815fe0   ; main.isValidFileSearchTypeGlob
+0x140816176: int3     
+0x140816177: int3     
+0x140816178: int3     
+0x140816179: int3     
+0x14081617a: int3     
+0x14081617b: int3     
+0x14081617c: int3     
+0x14081617d: int3     
+0x14081617e: int3     
+0x14081617f: int3     

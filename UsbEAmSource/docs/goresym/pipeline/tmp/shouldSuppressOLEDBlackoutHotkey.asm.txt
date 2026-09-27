@@ -1,0 +1,105 @@
+0x1407a0260: mov      r12, rsp
+0x1407a0263: sub      r12, 0x1b70
+0x1407a026a: jb       0x1407a0569   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x309
+0x1407a0270: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a0274: jbe      0x1407a0569   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x309
+0x1407a027a: push     rbp
+0x1407a027b: mov      rbp, rsp
+0x1407a027e: sub      rsp, 0x1be8
+0x1407a0285: mov      qword ptr [rsp + 0x1c00], rbx
+0x1407a028d: mov      qword ptr [rsp + 0x1bf8], rax
+0x1407a0295: nop      
+0x1407a0296: nop      
+0x1407a0297: mov      rax, rbx
+0x1407a029a: mov      rbx, rcx
+0x1407a029d: lea      rcx, [rip + 0x8f6704]
+0x1407a02a4: xor      edi, edi
+0x1407a02a6: mov      esi, edi
+0x1407a02a8: mov      r8d, esi
+0x1407a02ab: call     0x1408887c0   ; main.normalizeShortcutBindingWithOptions
+0x1407a02b0: test     rbx, rbx
+0x1407a02b3: je       0x1407a04f5   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x295
+0x1407a02b9: mov      qword ptr [rsp + 0x950], rbx
+0x1407a02c1: mov      qword ptr [rsp + 0x960], rax
+0x1407a02c9: mov      rax, qword ptr [rsp + 0x1bf8]
+0x1407a02d1: call     0x1407a10c0   ; main.BootstrapService.workspaceSnapshot
+0x1407a02d6: lea      rdi, [rsp + 0x978]
+0x1407a02de: mov      rsi, rsp
+0x1407a02e1: mov      qword ptr [rsp - 0x10], rbp
+0x1407a02e6: lea      rbp, [rsp - 0x10]
+0x1407a02eb: call     0x140081a54   ; runtime.duffcopy+0x2f4
+0x1407a02f0: mov      rbp, qword ptr [rbp]
+0x1407a02f4: movups   xmmword ptr [rsp + 0x12b0], xmm15
+0x1407a02fd: lea      rdi, [rsp + 0x12b8]
+0x1407a0305: mov      ecx, 0x126
+0x1407a030a: xor      eax, eax
+0x1407a030c: rep stosq qword ptr [rdi], rax
+0x1407a030f: mov      rax, qword ptr [rsp + 0x988]
+0x1407a0317: mov      rbx, qword ptr [rsp + 0x990]
+0x1407a031f: nop      
+0x1407a0320: call     0x1408760e0   ; main.loadLauncherConfigIfExists
+0x1407a0325: mov      rcx, qword ptr [rsp]
+0x1407a0329: mov      qword ptr [rsp + 0x12b0], rcx
+0x1407a0331: lea      rdi, [rsp + 0x12b8]
+0x1407a0339: lea      rsi, [rsp + 8]
+0x1407a033e: mov      ecx, 0x126
+0x1407a0343: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407a0346: mov      rcx, qword ptr [rsp + 0x12b0]
+0x1407a034e: mov      qword ptr [rsp + 0x978], rcx
+0x1407a0356: lea      rdi, [rsp + 0x980]
+0x1407a035e: lea      rsi, [rsp + 0x12b8]
+0x1407a0366: mov      ecx, 0x126
+0x1407a036b: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407a036e: test     rbx, rbx
+0x1407a0371: jne      0x1407a04ea   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x28a
+0x1407a0377: mov      rax, qword ptr [rsp + 0x1bf8]
+0x1407a037f: xor      ebx, ebx
+0x1407a0381: xor      ecx, ecx
+0x1407a0383: call     0x140795920   ; main.BootstrapService.resolveLauncherWindow
+0x1407a0388: mov      qword ptr [rsp + 0x958], rax
+0x1407a0390: mov      qword ptr [rsp + 0x970], rbx
+0x1407a0398: test     rax, rax
+0x1407a039b: jne      0x1407a03a4   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x144
+0x1407a039d: mov      ecx, 1
+0x1407a03a2: jmp      0x1407a03c5   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x165
+0x1407a03a4: mov      rcx, qword ptr [rax + 0x110]
+0x1407a03ab: mov      rax, rbx
+0x1407a03ae: call     rcx
+0x1407a03b0: xor      eax, 1
+0x1407a03b3: mov      rbx, qword ptr [rsp + 0x970]
+0x1407a03bb: mov      ecx, eax
+0x1407a03bd: mov      rax, qword ptr [rsp + 0x958]
+0x1407a03c5: test     cl, cl
+0x1407a03c7: jne      0x1407a04df   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x27f
+0x1407a03cd: mov      rcx, qword ptr [rax + 0xe8]
+0x1407a03d4: mov      rax, rbx
+0x1407a03d7: call     rcx
+0x1407a03d9: nop      dword ptr [rax]
+0x1407a03e0: test     al, al
+0x1407a03e2: je       0x1407a04df   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x27f
+0x1407a03e8: nop      
+0x1407a03e9: mov      rdx, qword ptr [rsp + 0x1bf8]
+0x1407a03f1: lea      r8, [rdx + 0x540]
+0x1407a03f8: xor      eax, eax
+0x1407a03fa: mov      r9d, 1
+0x1407a0400: lock cmpxchg dword ptr [rdx + 0x540], r9d
+0x1407a0409: sete     r9b
+0x1407a040d: test     r9b, r9b
+0x1407a0410: jne      0x1407a0435   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x1d5
+0x1407a0412: mov      qword ptr [rsp + 0x968], r8
+0x1407a041a: mov      rax, r8
+0x1407a041d: nop      dword ptr [rax]
+0x1407a0420: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1407a0425: mov      rdx, qword ptr [rsp + 0x1bf8]
+0x1407a042d: mov      r8, qword ptr [rsp + 0x968]
+0x1407a0435: nop      
+0x1407a0436: nop      
+0x1407a0437: movzx    r9d, byte ptr [rdx + 0x1d0]
+0x1407a043f: test     r9b, r9b
+0x1407a0442: mov      ebx, 0xffffffff
+0x1407a0447: lock xadd dword ptr [rdx + 0x540], ebx
+0x1407a044f: dec      ebx
+0x1407a0451: jne      0x1407a0458   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x1f8
+0x1407a0453: test     r9b, r9b
+0x1407a0456: jmp      0x1407a0472   ; main.BootstrapService.shouldSuppressOLEDBlackoutHotkey+0x212
+0x1407a0458: mov      byte ptr [rsp + 0x94f], r9b

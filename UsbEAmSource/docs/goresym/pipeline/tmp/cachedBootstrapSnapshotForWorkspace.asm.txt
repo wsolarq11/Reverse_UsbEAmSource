@@ -1,0 +1,144 @@
+0x1407746c0: lea      r12, [rsp - 0x200]
+0x1407746c8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407746cc: jbe      0x1407748ec    ; main.BootstrapService.cachedBootstrapSnapshotForWorkspace+0x22c
+0x1407746d2: push     rbp
+0x1407746d3: mov      rbp, rsp
+0x1407746d6: sub      rsp, 0x278
+0x1407746dd: lea      rdi, [rsp + 0x328]
+0x1407746e5: lea      rdi, [rdi - 0x30]
+0x1407746e9: mov      qword ptr [rsp - 0x10], rbp
+0x1407746ee: lea      rbp, [rsp - 0x10]
+0x1407746f3: call     0x140081702    ; runtime.duffzero+0x122
+0x1407746f8: mov      rbp, qword ptr [rbp]
+0x1407746fc: nop      dword ptr [rax]
+0x140774700: test     rax, rax
+0x140774703: je       0x1407748e1    ; main.BootstrapService.cachedBootstrapSnapshotForWorkspace+0x221
+0x140774709: mov      qword ptr [rsp + 0x3f8], rax
+0x140774711: nop      
+0x140774712: lea      rcx, [rax + 0x540]
+0x140774719: mov      qword ptr [rsp + 0x1a0], rcx
+0x140774721: mov      rdx, rax
+0x140774724: xor      eax, eax
+0x140774726: mov      r8d, 1
+0x14077472c: lock cmpxchg dword ptr [rdx + 0x540], r8d
+0x140774735: sete     r8b
+0x140774739: test     r8b, r8b
+0x14077473c: jne      0x140774756    ; main.BootstrapService.cachedBootstrapSnapshotForWorkspace+0x96
+0x14077473e: mov      rax, rcx
+0x140774741: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x140774746: mov      rcx, qword ptr [rsp + 0x1a0]
+0x14077474e: mov      rdx, qword ptr [rsp + 0x3f8]
+0x140774756: cmp      byte ptr [rdx + 0x180], 0
+0x14077475d: jne      0x140774766    ; main.BootstrapService.cachedBootstrapSnapshotForWorkspace+0xa6
+0x14077475f: mov      eax, 1
+0x140774764: jmp      0x14077478d    ; main.BootstrapService.cachedBootstrapSnapshotForWorkspace+0xcd
+0x140774766: lea      rax, [rdx + 0xb0]
+0x14077476d: lea      rbx, [rsp + 0x288]
+0x140774775: call     0x1409fc100    ; .eq.main.WorkspaceLayout
+0x14077477a: xor      eax, 1
+0x14077477d: mov      rcx, qword ptr [rsp + 0x1a0]
+0x140774785: mov      rdx, qword ptr [rsp + 0x3f8]
+0x14077478d: test     al, al
+0x14077478f: je       0x1407747de    ; main.BootstrapService.cachedBootstrapSnapshotForWorkspace+0x11e
+0x140774791: nop      
+0x140774792: nop      
+0x140774793: mov      ebx, 0xffffffff
+0x140774798: lock xadd dword ptr [rdx + 0x540], ebx
+0x1407747a0: dec      ebx
+0x1407747a2: je       0x1407747ac    ; main.BootstrapService.cachedBootstrapSnapshotForWorkspace+0xec
+0x1407747a4: mov      rax, rcx
+0x1407747a7: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x1407747ac: lea      rdi, [rsp + 0x328]
+0x1407747b4: lea      rdi, [rdi - 0x30]
+0x1407747b8: nop      dword ptr [rax + rax]
+0x1407747c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407747c5: lea      rbp, [rsp - 0x10]
+0x1407747ca: call     0x140081702    ; runtime.duffzero+0x122
+0x1407747cf: mov      rbp, qword ptr [rbp]
+0x1407747d3: xor      eax, eax
+0x1407747d5: add      rsp, 0x278
+0x1407747dc: pop      rbp
+0x1407747dd: ret      
+0x1407747de: lea      rsi, [rdx + 0xb0]
+0x1407747e5: lea      rdi, [rsp + 0x1a8]
+0x1407747ed: nop      word ptr [rax + rax]
+0x1407747f6: nop      word ptr [rax + rax]
+0x1407747ff: nop      
+0x140774800: mov      qword ptr [rsp - 0x10], rbp
+0x140774805: lea      rbp, [rsp - 0x10]
+0x14077480a: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x14077480f: mov      rbp, qword ptr [rbp]
+0x140774813: nop      
+0x140774814: nop      
+0x140774815: mov      ebx, 0xffffffff
+0x14077481a: lock xadd dword ptr [rdx + 0x540], ebx
+0x140774822: dec      ebx
+0x140774824: je       0x14077482e    ; main.BootstrapService.cachedBootstrapSnapshotForWorkspace+0x16e
+0x140774826: mov      rax, rcx
+0x140774829: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14077482e: mov      rdi, rsp
+0x140774831: lea      rsi, [rsp + 0x1a8]
+0x140774839: nop      dword ptr [rax]
+0x140774840: mov      qword ptr [rsp - 0x10], rbp
+0x140774845: lea      rbp, [rsp - 0x10]
+0x14077484a: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x14077484f: mov      rbp, qword ptr [rbp]
+0x140774853: call     0x140774b40    ; main.cloneBootstrapSnapshot
+0x140774858: lea      rdi, [rsp + 0x1a8]
+0x140774860: lea      rsi, [rsp + 0xd0]
+0x140774868: mov      qword ptr [rsp - 0x10], rbp
+0x14077486d: lea      rbp, [rsp - 0x10]
+0x140774872: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x140774877: mov      rbp, qword ptr [rbp]
+0x14077487b: lea      rdi, [rsp + 0x328]
+0x140774883: lea      rsi, [rsp + 0x1a8]
+0x14077488b: mov      qword ptr [rsp - 0x10], rbp
+0x140774890: lea      rbp, [rsp - 0x10]
+0x140774895: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x14077489a: mov      rbp, qword ptr [rbp]
+0x14077489e: lea      rdi, [rsp + 0x328]
+0x1407748a6: lea      rsi, [rsp + 0x1a8]
+0x1407748ae: nop      word ptr [rax + rax]
+0x1407748b7: nop      word ptr [rax + rax]
+0x1407748c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407748c5: lea      rbp, [rsp - 0x10]
+0x1407748ca: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x1407748cf: mov      rbp, qword ptr [rbp]
+0x1407748d3: mov      eax, 1
+0x1407748d8: add      rsp, 0x278
+0x1407748df: pop      rbp
+0x1407748e0: ret      
+0x1407748e1: xor      eax, eax
+0x1407748e3: add      rsp, 0x278
+0x1407748ea: pop      rbp
+0x1407748eb: ret      
+0x1407748ec: mov      qword ptr [rsp + 0x178], rax
+0x1407748f4: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407748f9: mov      rax, qword ptr [rsp + 0x178]
+0x140774901: jmp      0x1407746c0    ; main.BootstrapService.cachedBootstrapSnapshotForWorkspace
+0x140774906: int3     
+0x140774907: int3     
+0x140774908: int3     
+0x140774909: int3     
+0x14077490a: int3     
+0x14077490b: int3     
+0x14077490c: int3     
+0x14077490d: int3     
+0x14077490e: int3     
+0x14077490f: int3     
+0x140774910: int3     
+0x140774911: int3     
+0x140774912: int3     
+0x140774913: int3     
+0x140774914: int3     
+0x140774915: int3     
+0x140774916: int3     
+0x140774917: int3     
+0x140774918: int3     
+0x140774919: int3     
+0x14077491a: int3     
+0x14077491b: int3     
+0x14077491c: int3     
+0x14077491d: int3     
+0x14077491e: int3     
+0x14077491f: int3     

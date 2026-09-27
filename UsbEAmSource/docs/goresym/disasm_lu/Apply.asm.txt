@@ -1,0 +1,214 @@
+0x1408cbf60: lea      r12, [rsp - 0x40]
+0x1408cbf65: cmp      r12, qword ptr [r14 + 0x10]
+0x1408cbf69: jbe      0x1408cc30a    ; main.launcherUpdateTransaction.Apply+0x3aa
+0x1408cbf6f: push     rbp
+0x1408cbf70: mov      rbp, rsp
+0x1408cbf73: sub      rsp, 0xb8
+0x1408cbf7a: mov      qword ptr [rsp + 0xc8], rax
+0x1408cbf82: call     0x1408cf0c0    ; main.launcherUpdateTransaction.validate
+0x1408cbf87: test     rax, rax
+0x1408cbf8a: jne      0x1408cc066    ; main.launcherUpdateTransaction.Apply+0x106
+0x1408cbf90: mov      rax, qword ptr [rsp + 0xc8]
+0x1408cbf98: cmp      qword ptr [rax + 0x20], 8
+0x1408cbf9d: jne      0x1408cbfb2    ; main.launcherUpdateTransaction.Apply+0x52
+0x1408cbf9f: mov      rcx, qword ptr [rax + 0x18]
+0x1408cbfa3: movabs   rdx, 0x6465726170657270
+0x1408cbfad: cmp      qword ptr [rcx], rdx
+0x1408cbfb0: je       0x1408cc00e    ; main.launcherUpdateTransaction.Apply+0xae
+0x1408cbfb2: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1408cbfbb: mov      rcx, qword ptr [rax + 0x18]
+0x1408cbfbf: mov      rbx, qword ptr [rax + 0x20]
+0x1408cbfc3: mov      rax, rcx
+0x1408cbfc6: call     0x140076660    ; runtime.convTstring
+0x1408cbfcb: lea      rcx, [rip + 0x21de2e]
+0x1408cbfd2: mov      qword ptr [rsp + 0xa8], rcx
+0x1408cbfda: mov      qword ptr [rsp + 0xb0], rax
+0x1408cbfe2: lea      rax, [rip + 0x3b8f75]
+0x1408cbfe9: mov      ebx, 0x2e
+0x1408cbfee: lea      rcx, [rsp + 0xa8]
+0x1408cbff6: mov      edi, 1
+0x1408cbffb: mov      rsi, rdi
+0x1408cbffe: nop      
+0x1408cc000: call     0x140133280    ; fmt.Errorf
+0x1408cc005: add      rsp, 0xb8
+0x1408cc00c: pop      rbp
+0x1408cc00d: ret      
+0x1408cc00e: mov      qword ptr [rax + 0x20], 9
+0x1408cc016: cmp      dword ptr [rip + 0x138f333], 0
+0x1408cc01d: je       0x1408cc02b    ; main.launcherUpdateTransaction.Apply+0xcb
+0x1408cc01f: mov      rcx, qword ptr [rax + 0x18]
+0x1408cc023: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408cc028: mov      qword ptr [r11], rcx
+0x1408cc02b: lea      rcx, [rip + 0x3737d9]
+0x1408cc032: mov      qword ptr [rax + 0x18], rcx
+0x1408cc036: call     0x1408cf480    ; main.launcherUpdateTransaction.persist
+0x1408cc03b: nop      dword ptr [rax + rax]
+0x1408cc040: test     rax, rax
+0x1408cc043: jne      0x1408cc05d    ; main.launcherUpdateTransaction.Apply+0xfd
+0x1408cc045: mov      rax, qword ptr [rsp + 0xc8]
+0x1408cc04d: mov      rcx, qword ptr [rax + 0x90]
+0x1408cc054: mov      qword ptr [rsp + 0x60], rcx
+0x1408cc059: xor      edx, edx
+0x1408cc05b: jmp      0x1408cc084    ; main.launcherUpdateTransaction.Apply+0x124
+0x1408cc05d: add      rsp, 0xb8
+0x1408cc064: pop      rbp
+0x1408cc065: ret      
+0x1408cc066: add      rsp, 0xb8
+0x1408cc06d: pop      rbp
+0x1408cc06e: ret      
+0x1408cc06f: mov      rdx, qword ptr [rsp + 0x48]
+0x1408cc074: inc      rdx
+0x1408cc077: mov      rax, qword ptr [rsp + 0xc8]
+0x1408cc07f: mov      rcx, qword ptr [rsp + 0x60]
+0x1408cc084: cmp      rdx, rcx
+0x1408cc087: jge      0x1408cc146    ; main.launcherUpdateTransaction.Apply+0x1e6
+0x1408cc08d: mov      qword ptr [rsp + 0x48], rdx
+0x1408cc092: mov      rbx, rdx
+0x1408cc095: call     0x1408cc320    ; main.launcherUpdateTransaction.applyFile
+0x1408cc09a: test     rax, rax
+0x1408cc09d: je       0x1408cc06f    ; main.launcherUpdateTransaction.Apply+0x10f
+0x1408cc09f: mov      qword ptr [rsp + 0x58], rax
+0x1408cc0a4: mov      qword ptr [rsp + 0x70], rbx
+0x1408cc0a9: mov      rax, qword ptr [rsp + 0xc8]
+0x1408cc0b1: call     0x1408cd1c0    ; main.launcherUpdateTransaction.Rollback
+0x1408cc0b6: test     rax, rax
+0x1408cc0b9: je       0x1408cc133    ; main.launcherUpdateTransaction.Apply+0x1d3
+0x1408cc0bb: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1408cc0c4: je       0x1408cc0ca    ; main.launcherUpdateTransaction.Apply+0x16a
+0x1408cc0c6: mov      rax, qword ptr [rax + 8]
+0x1408cc0ca: mov      qword ptr [rsp + 0xa8], rax
+0x1408cc0d2: mov      qword ptr [rsp + 0xb0], rbx
+0x1408cc0da: lea      rax, [rip + 0x39fba3]
+0x1408cc0e1: mov      ebx, 0x1c
+0x1408cc0e6: lea      rcx, [rsp + 0xa8]
+0x1408cc0ee: mov      edi, 1
+0x1408cc0f3: mov      rsi, rdi
+0x1408cc0f6: call     0x140133280    ; fmt.Errorf
+0x1408cc0fb: mov      rdx, qword ptr [rsp + 0x58]
+0x1408cc100: mov      qword ptr [rsp + 0x88], rdx
+0x1408cc108: mov      rdx, qword ptr [rsp + 0x70]
+0x1408cc10d: mov      qword ptr [rsp + 0x90], rdx
+0x1408cc115: mov      qword ptr [rsp + 0x98], rax
+0x1408cc11d: mov      qword ptr [rsp + 0xa0], rbx
+0x1408cc125: lea      rdx, [rsp + 0x88]
+0x1408cc12d: xor      eax, eax
+0x1408cc12f: xor      ecx, ecx
+0x1408cc131: jmp      0x1408cc197    ; main.launcherUpdateTransaction.Apply+0x237
+0x1408cc133: mov      rax, qword ptr [rsp + 0x58]
+0x1408cc138: mov      rbx, qword ptr [rsp + 0x70]
+0x1408cc13d: add      rsp, 0xb8
+0x1408cc144: pop      rbp
+0x1408cc145: ret      
+0x1408cc146: mov      qword ptr [rax + 0x20], 7
+0x1408cc14e: cmp      dword ptr [rip + 0x138f1fb], 0
+0x1408cc155: je       0x1408cc168    ; main.launcherUpdateTransaction.Apply+0x208
+0x1408cc157: mov      rcx, qword ptr [rax + 0x18]
+0x1408cc15b: nop      dword ptr [rax + rax]
+0x1408cc160: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408cc165: mov      qword ptr [r11], rcx
+0x1408cc168: lea      rcx, [rip + 0x36d33c]
+0x1408cc16f: mov      qword ptr [rax + 0x18], rcx
+0x1408cc173: call     0x1408cf480    ; main.launcherUpdateTransaction.persist
+0x1408cc178: add      rsp, 0xb8
+0x1408cc17f: pop      rbp
+0x1408cc180: ret      
+0x1408cc181: mov      rsi, rdx
+0x1408cc184: lea      rdi, [rcx + 1]
+0x1408cc188: add      rdx, 0x10
+0x1408cc18c: inc      rax
+0x1408cc18f: cmp      qword ptr [rsi], 0
+0x1408cc193: cmovne   rcx, rdi
+0x1408cc197: cmp      rax, 2
+0x1408cc19b: jl       0x1408cc181    ; main.launcherUpdateTransaction.Apply+0x221
+0x1408cc19d: nop      dword ptr [rax]
+0x1408cc1a0: test     rcx, rcx
+0x1408cc1a3: je       0x1408cc20c    ; main.launcherUpdateTransaction.Apply+0x2ac
+0x1408cc1a5: mov      qword ptr [rsp + 0x40], rcx
+0x1408cc1aa: lea      rax, [rip + 0x26ccef]
+0x1408cc1b1: xor      ebx, ebx
+0x1408cc1b3: call     0x14007ac40    ; runtime.makeslice
+0x1408cc1b8: mov      qword ptr [rsp + 0x80], rax
+0x1408cc1c0: lea      rax, [rip + 0x288139]
+0x1408cc1c7: call     0x14001ae20    ; runtime.newobject
+0x1408cc1cc: mov      rdx, qword ptr [rsp + 0x40]
+0x1408cc1d1: mov      qword ptr [rax + 0x10], rdx
+0x1408cc1d5: cmp      dword ptr [rip + 0x138f174], 0
+0x1408cc1dc: jne      0x1408cc1e8    ; main.launcherUpdateTransaction.Apply+0x288
+0x1408cc1de: mov      rdx, qword ptr [rsp + 0x80]
+0x1408cc1e6: jmp      0x1408cc1f8    ; main.launcherUpdateTransaction.Apply+0x298
+0x1408cc1e8: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408cc1ed: mov      rdx, qword ptr [rsp + 0x80]
+0x1408cc1f5: mov      qword ptr [r11], rdx
+0x1408cc1f8: mov      qword ptr [rsp + 0x78], rax
+0x1408cc1fd: mov      qword ptr [rax], rdx
+0x1408cc200: lea      rdx, [rsp + 0x88]
+0x1408cc208: xor      ecx, ecx
+0x1408cc20a: jmp      0x1408cc223    ; main.launcherUpdateTransaction.Apply+0x2c3
+0x1408cc20c: xor      eax, eax
+0x1408cc20e: xor      ecx, ecx
+0x1408cc210: mov      rbx, rcx
+0x1408cc213: add      rsp, 0xb8
+0x1408cc21a: pop      rbp
+0x1408cc21b: ret      
+0x1408cc21c: add      rdx, 0x10
+0x1408cc220: inc      rcx
+0x1408cc223: cmp      rcx, 2
+0x1408cc227: jge      0x1408cc2f9    ; main.launcherUpdateTransaction.Apply+0x399
+0x1408cc22d: mov      r8, qword ptr [rdx]
+0x1408cc230: mov      r9, qword ptr [rdx + 8]
+0x1408cc234: test     r8, r8
+0x1408cc237: je       0x1408cc21c    ; main.launcherUpdateTransaction.Apply+0x2bc
+0x1408cc239: mov      r10, qword ptr [rax + 0x10]
+0x1408cc23d: mov      rbx, qword ptr [rax + 8]
+0x1408cc241: inc      rbx
+0x1408cc244: mov      r11, qword ptr [rax]
+0x1408cc247: cmp      r10, rbx
+0x1408cc24a: jae      0x1408cc2bd    ; main.launcherUpdateTransaction.Apply+0x35d
+0x1408cc24c: mov      qword ptr [rsp + 0x68], r9
+0x1408cc251: mov      qword ptr [rsp + 0x50], r8
+0x1408cc256: mov      qword ptr [rsp + 0x60], rcx
+0x1408cc25b: mov      qword ptr [rsp + 0x80], rdx
+0x1408cc263: mov      rax, r11
+0x1408cc266: mov      rcx, r10
+0x1408cc269: mov      edi, 1
+0x1408cc26e: lea      rsi, [rip + 0x26cc2b]
+0x1408cc275: call     0x14007ad20    ; runtime.growslice
+0x1408cc27a: mov      rdx, qword ptr [rsp + 0x78]
+0x1408cc27f: mov      qword ptr [rdx + 0x10], rcx
+0x1408cc283: cmp      dword ptr [rip + 0x138f0c6], 0
+0x1408cc28a: je       0x1408cc29b    ; main.launcherUpdateTransaction.Apply+0x33b
+0x1408cc28c: mov      r8, qword ptr [rdx]
+0x1408cc28f: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1408cc294: mov      qword ptr [r11], rax
+0x1408cc297: mov      qword ptr [r11 + 8], r8
+0x1408cc29b: mov      qword ptr [rdx], rax
+0x1408cc29e: mov      rcx, qword ptr [rsp + 0x60]
+0x1408cc2a3: mov      rdx, qword ptr [rsp + 0x80]
+0x1408cc2ab: mov      r8, qword ptr [rsp + 0x50]
+0x1408cc2b0: mov      r9, qword ptr [rsp + 0x68]
+0x1408cc2b5: mov      r11, rax
+0x1408cc2b8: mov      rax, qword ptr [rsp + 0x78]
+0x1408cc2bd: mov      qword ptr [rax + 8], rbx
+0x1408cc2c1: lea      r10, [rbx - 1]
+0x1408cc2c5: shl      r10, 4
+0x1408cc2c9: mov      qword ptr [r11 + r10], r8
+0x1408cc2cd: cmp      dword ptr [rip + 0x138f07c], 0
+0x1408cc2d4: je       0x1408cc2ef    ; main.launcherUpdateTransaction.Apply+0x38f
+0x1408cc2d6: mov      r8, qword ptr [r11 + r10 + 8]
+0x1408cc2db: mov      rbx, r11
+0x1408cc2de: nop      
+0x1408cc2e0: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1408cc2e5: mov      qword ptr [r11], r9
+0x1408cc2e8: mov      qword ptr [r11 + 8], r8
+0x1408cc2ec: mov      r11, rbx
+0x1408cc2ef: mov      qword ptr [r11 + r10 + 8], r9
+0x1408cc2f4: jmp      0x1408cc21c    ; main.launcherUpdateTransaction.Apply+0x2bc
+0x1408cc2f9: lea      rax, [rip + 0x906e20]
+0x1408cc300: mov      rcx, qword ptr [rsp + 0x78]
+0x1408cc305: jmp      0x1408cc210    ; main.launcherUpdateTransaction.Apply+0x2b0
+0x1408cc30a: mov      qword ptr [rsp + 8], rax
+0x1408cc30f: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408cc314: mov      rax, qword ptr [rsp + 8]
+0x1408cc319: jmp      0x1408cbf60    ; main.launcherUpdateTransaction.Apply
+0x1408cc31e: int3     
+0x1408cc31f: int3     

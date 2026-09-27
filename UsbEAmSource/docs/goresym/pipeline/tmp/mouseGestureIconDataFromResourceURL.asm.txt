@@ -1,0 +1,200 @@
+0x140785e00: lea      r12, [rsp - 0x38]
+0x140785e05: cmp      r12, qword ptr [r14 + 0x10]
+0x140785e09: jbe      0x1407860cc    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x2cc
+0x140785e0f: push     rbp
+0x140785e10: mov      rbp, rsp
+0x140785e13: sub      rsp, 0xb0
+0x140785e1a: mov      qword ptr [rsp + 0xc8], rbx
+0x140785e22: mov      qword ptr [rsp + 0xc0], rax
+0x140785e2a: mov      qword ptr [rsp + 0xe0], rsi
+0x140785e32: mov      qword ptr [rsp + 0xd8], rdi
+0x140785e3a: mov      rax, rbx
+0x140785e3d: mov      rbx, rcx
+0x140785e40: call     0x1408808a0    ; main.normalizeConsoleIconData
+0x140785e45: test     rbx, rbx
+0x140785e48: jne      0x140785eef    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0xef
+0x140785e4e: mov      rax, qword ptr [rsp + 0xd8]
+0x140785e56: mov      rbx, qword ptr [rsp + 0xe0]
+0x140785e5e: nop      
+0x140785e60: call     0x1400a2200    ; strings.TrimSpace
+0x140785e65: test     rbx, rbx
+0x140785e68: je       0x140785ee2    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0xe2
+0x140785e6a: mov      rdx, qword ptr [rsp + 0xc0]
+0x140785e72: test     rdx, rdx
+0x140785e75: je       0x140785ee2    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0xe2
+0x140785e77: cmp      qword ptr [rdx + 0x398], 0
+0x140785e7f: nop      
+0x140785e80: je       0x140785ee2    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0xe2
+0x140785e82: mov      qword ptr [rsp + 0x48], rbx
+0x140785e87: mov      qword ptr [rsp + 0x70], rax
+0x140785e8c: movups   xmmword ptr [rsp + 0x90], xmm15
+0x140785e95: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x140785e9e: mov      qword ptr [rsp + 0x98], 0x16
+0x140785eaa: lea      r8, [rip + 0x4db2f1]
+0x140785eb1: mov      qword ptr [rsp + 0x90], r8
+0x140785eb9: mov      qword ptr [rsp + 0xa8], 8
+0x140785ec5: lea      r8, [rip + 0x4b6258]
+0x140785ecc: mov      qword ptr [rsp + 0xa0], r8
+0x140785ed4: lea      r8, [rsp + 0x90]
+0x140785edc: xor      ecx, ecx
+0x140785ede: nop      
+0x140785ee0: jmp      0x140785f20    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x120
+0x140785ee2: xor      eax, eax
+0x140785ee4: xor      ebx, ebx
+0x140785ee6: add      rsp, 0xb0
+0x140785eed: pop      rbp
+0x140785eee: ret      
+0x140785eef: add      rsp, 0xb0
+0x140785ef6: pop      rbp
+0x140785ef7: ret      
+0x140785ef8: mov      r8, qword ptr [rsp + 0x88]
+0x140785f00: add      r8, 0x10
+0x140785f04: mov      rcx, qword ptr [rsp + 0x68]
+0x140785f09: inc      rcx
+0x140785f0c: mov      rax, qword ptr [rsp + 0x70]
+0x140785f11: mov      rdx, qword ptr [rsp + 0xc0]
+0x140785f19: mov      rbx, qword ptr [rsp + 0x48]
+0x140785f1e: nop      
+0x140785f20: cmp      rcx, 2
+0x140785f24: jge      0x140785f5b    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x15b
+0x140785f26: mov      qword ptr [rsp + 0x68], rcx
+0x140785f2b: mov      qword ptr [rsp + 0x88], r8
+0x140785f33: mov      rdi, qword ptr [r8]
+0x140785f36: mov      rsi, qword ptr [r8 + 8]
+0x140785f3a: mov      rdx, qword ptr [rdx + 0x398]
+0x140785f41: mov      rcx, rbx
+0x140785f44: mov      rbx, rax
+0x140785f47: mov      rax, rdx
+0x140785f4a: call     0x140871220    ; main.launcherAssetService.ReadBytes
+0x140785f4f: test     r8, r8
+0x140785f52: jne      0x140785ef8    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0xf8
+0x140785f54: test     rbx, rbx
+0x140785f57: je       0x140785ef8    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0xf8
+0x140785f59: jmp      0x140785f65    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x165
+0x140785f5b: xor      ebx, ebx
+0x140785f5d: xor      ecx, ecx
+0x140785f5f: xor      eax, eax
+0x140785f61: xor      esi, esi
+0x140785f63: xor      edi, edi
+0x140785f65: test     rbx, rbx
+0x140785f68: je       0x1407860b6    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x2b6
+0x140785f6e: mov      qword ptr [rsp + 0x60], rcx
+0x140785f73: mov      qword ptr [rsp + 0x58], rbx
+0x140785f78: mov      qword ptr [rsp + 0x80], rax
+0x140785f80: mov      rax, rdi
+0x140785f83: mov      rbx, rsi
+0x140785f86: call     0x1400a2200    ; strings.TrimSpace
+0x140785f8b: mov      qword ptr [rsp + 0x78], rax
+0x140785f90: mov      qword ptr [rsp + 0x50], rbx
+0x140785f95: lea      rcx, [rip + 0xa44c74]
+0x140785f9c: mov      edi, 1
+0x140785fa1: call     0x140006860    ; internal/stringslite.Index
+0x140785fa6: test     rax, rax
+0x140785fa9: jl       0x140785fc8    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x1c8
+0x140785fab: mov      rdx, qword ptr [rsp + 0x50]
+0x140785fb0: cmp      rax, rdx
+0x140785fb3: ja       0x1407860c3    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x2c3
+0x140785fb9: mov      rbx, rax
+0x140785fbc: mov      rax, qword ptr [rsp + 0x78]
+0x140785fc1: call     0x1400a2200    ; strings.TrimSpace
+0x140785fc6: jmp      0x140785fd2    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x1d2
+0x140785fc8: mov      rbx, qword ptr [rsp + 0x50]
+0x140785fcd: mov      rax, qword ptr [rsp + 0x78]
+0x140785fd2: mov      qword ptr [rsp + 0x50], rbx
+0x140785fd7: mov      qword ptr [rsp + 0x78], rax
+0x140785fdc: nop      dword ptr [rax]
+0x140785fe0: call     0x1400a1500    ; strings.ToLower
+0x140785fe5: nop      
+0x140785fe6: cmp      rbx, 6
+0x140785fea: jl       0x140786010    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x210
+0x140785fec: lea      rbx, [rip + 0x4b15fd]
+0x140785ff3: mov      ecx, 6
+0x140785ff8: call     0x140006280    ; runtime.memequal
+0x140785ffd: nop      dword ptr [rax]
+0x140786000: test     al, al
+0x140786002: je       0x140786010    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x210
+0x140786004: mov      rbx, qword ptr [rsp + 0x50]
+0x140786009: mov      rax, qword ptr [rsp + 0x78]
+0x14078600e: jmp      0x140786027    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x227
+0x140786010: mov      rax, qword ptr [rsp + 0x80]
+0x140786018: mov      rbx, qword ptr [rsp + 0x58]
+0x14078601d: mov      rcx, qword ptr [rsp + 0x60]
+0x140786022: call     0x140338880    ; net/http.DetectContentType
+0x140786027: mov      qword ptr [rsp + 0x50], rbx
+0x14078602c: mov      qword ptr [rsp + 0x78], rax
+0x140786031: call     0x1400a1500    ; strings.ToLower
+0x140786036: nop      
+0x140786037: cmp      rbx, 6
+0x14078603b: jl       0x140786052    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x252
+0x14078603d: lea      rbx, [rip + 0x4b15ac]
+0x140786044: mov      ecx, 6
+0x140786049: call     0x140006280    ; runtime.memequal
+0x14078604e: test     al, al
+0x140786050: jne      0x14078605f    ; main.BootstrapService.mouseGestureIconDataFromResourceURL+0x25f
+0x140786052: xor      eax, eax
+0x140786054: xor      ebx, ebx
+0x140786056: add      rsp, 0xb0
+0x14078605d: pop      rbp
+0x14078605e: ret      
+0x14078605f: mov      rax, qword ptr [rip + 0x14897da]
+0x140786066: mov      rbx, qword ptr [rsp + 0x80]
+0x14078606e: mov      rcx, qword ptr [rsp + 0x58]
+0x140786073: mov      rdi, qword ptr [rsp + 0x60]
+0x140786078: call     0x14019a860    ; encoding/base64.Encoding.EncodeToString
+0x14078607d: mov      ecx, 5
+0x140786082: mov      rdi, qword ptr [rsp + 0x78]
+0x140786087: mov      rsi, qword ptr [rsp + 0x50]
+0x14078608c: lea      r8, [rip + 0x4b6039]
+0x140786093: mov      r9d, 8
+0x140786099: mov      r10, rax
+0x14078609c: mov      r11, rbx
+0x14078609f: xor      eax, eax
+0x1407860a1: lea      rbx, [rip + 0x4afb2f]
+0x1407860a8: call     0x14005fd60    ; runtime.concatstring4
+0x1407860ad: add      rsp, 0xb0
+0x1407860b4: pop      rbp
+0x1407860b5: ret      
+0x1407860b6: xor      eax, eax
+0x1407860b8: xor      ebx, ebx
+0x1407860ba: add      rsp, 0xb0
+0x1407860c1: pop      rbp
+0x1407860c2: ret      
+0x1407860c3: mov      rcx, rax
+0x1407860c6: call     0x140081440    ; runtime.panicSliceAlen
+0x1407860cb: nop      
+0x1407860cc: mov      qword ptr [rsp + 8], rax
+0x1407860d1: mov      qword ptr [rsp + 0x10], rbx
+0x1407860d6: mov      qword ptr [rsp + 0x18], rcx
+0x1407860db: mov      qword ptr [rsp + 0x20], rdi
+0x1407860e0: mov      qword ptr [rsp + 0x28], rsi
+0x1407860e5: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407860ea: mov      rax, qword ptr [rsp + 8]
+0x1407860ef: mov      rbx, qword ptr [rsp + 0x10]
+0x1407860f4: mov      rcx, qword ptr [rsp + 0x18]
+0x1407860f9: mov      rdi, qword ptr [rsp + 0x20]
+0x1407860fe: mov      rsi, qword ptr [rsp + 0x28]
+0x140786103: jmp      0x140785e00    ; main.BootstrapService.mouseGestureIconDataFromResourceURL
+0x140786108: int3     
+0x140786109: int3     
+0x14078610a: int3     
+0x14078610b: int3     
+0x14078610c: int3     
+0x14078610d: int3     
+0x14078610e: int3     
+0x14078610f: int3     
+0x140786110: int3     
+0x140786111: int3     
+0x140786112: int3     
+0x140786113: int3     
+0x140786114: int3     
+0x140786115: int3     
+0x140786116: int3     
+0x140786117: int3     
+0x140786118: int3     
+0x140786119: int3     
+0x14078611a: int3     
+0x14078611b: int3     
+0x14078611c: int3     
+0x14078611d: int3     
+0x14078611e: int3     
+0x14078611f: int3     

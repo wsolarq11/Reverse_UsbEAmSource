@@ -1,0 +1,72 @@
+0x140890d00: cmp      rsp, qword ptr [r14 + 0x10]
+0x140890d04: jbe      0x140890d5b   ; main.ensureLauncherConfigMigrationBackupFile.func1+0x5b
+0x140890d06: push     rbp
+0x140890d07: mov      rbp, rsp
+0x140890d0a: sub      rsp, 0x28
+0x140890d0e: mov      rcx, qword ptr [rdx + 8]
+0x140890d12: mov      rsi, qword ptr [rdx + 0x10]
+0x140890d16: mov      rax, qword ptr [rdx + 0x18]
+0x140890d1a: mov      rbx, qword ptr [rdx + 0x20]
+0x140890d1e: nop      
+0x140890d1f: nop      
+0x140890d20: test     rcx, rcx
+0x140890d23: je       0x140890d4b   ; main.ensureLauncherConfigMigrationBackupFile.func1+0x4b
+0x140890d25: mov      qword ptr [rsp + 0x20], rsi
+0x140890d2a: mov      qword ptr [rsp + 0x10], rbx
+0x140890d2f: mov      qword ptr [rsp + 0x18], rax
+0x140890d34: mov      rax, qword ptr [rcx]
+0x140890d37: call     0x14012a320   ; os.file.close
+0x140890d3c: mov      rax, qword ptr [rsp + 0x18]
+0x140890d41: mov      rbx, qword ptr [rsp + 0x10]
+0x140890d46: mov      rsi, qword ptr [rsp + 0x20]
+0x140890d4b: cmp      byte ptr [rsi], 0
+0x140890d4e: je       0x140890d55   ; main.ensureLauncherConfigMigrationBackupFile.func1+0x55
+0x140890d50: call     0x14012a5c0   ; os.Remove
+0x140890d55: add      rsp, 0x28
+0x140890d59: pop      rbp
+0x140890d5a: ret      
+0x140890d5b: nop      dword ptr [rax + rax]
+0x140890d60: call     0x14007f0a0   ; runtime.morestack
+0x140890d65: jmp      0x140890d00   ; main.ensureLauncherConfigMigrationBackupFile.func1
+0x140890d67: int3     
+0x140890d68: int3     
+0x140890d69: int3     
+0x140890d6a: int3     
+0x140890d6b: int3     
+0x140890d6c: int3     
+0x140890d6d: int3     
+0x140890d6e: int3     
+0x140890d6f: int3     
+0x140890d70: int3     
+0x140890d71: int3     
+0x140890d72: int3     
+0x140890d73: int3     
+0x140890d74: int3     
+0x140890d75: int3     
+0x140890d76: int3     
+0x140890d77: int3     
+0x140890d78: int3     
+0x140890d79: int3     
+0x140890d7a: int3     
+0x140890d7b: int3     
+0x140890d7c: int3     
+0x140890d7d: int3     
+0x140890d7e: int3     
+0x140890d7f: int3     
+0x140890d80: cmp      rsp, qword ptr [r14 + 0x10]
+0x140890d84: jbe      0x140890e86   ; main.launcherConfigIconHydrationError.Error+0x106
+0x140890d8a: push     rbp
+0x140890d8b: mov      rbp, rsp
+0x140890d8e: sub      rsp, 0x78
+0x140890d92: test     rax, rax
+0x140890d95: je       0x140890e74   ; main.launcherConfigIconHydrationError.Error+0xf4
+0x140890d9b: mov      qword ptr [rsp + 0x88], rax
+0x140890da3: mov      rcx, qword ptr [rax]
+0x140890da6: mov      rbx, qword ptr [rax + 8]
+0x140890daa: mov      rax, rcx
+0x140890dad: call     0x1400a2200   ; strings.TrimSpace
+0x140890db2: mov      qword ptr [rsp + 0x70], rax
+0x140890db7: mov      qword ptr [rsp + 0x30], rbx
+0x140890dbc: mov      rcx, qword ptr [rsp + 0x88]
+0x140890dc4: mov      rbx, qword ptr [rcx + 0x18]
+0x140890dc8: mov      rax, qword ptr [rcx + 0x10]

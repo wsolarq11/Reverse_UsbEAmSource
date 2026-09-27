@@ -1,0 +1,44 @@
+0x14075bd40: cmp      rsp, qword ptr [r14 + 0x10]
+0x14075bd44: jbe      0x14075bd70    ; main.automaticWindowsPathAttributes+0x30
+0x14075bd46: push     rbp
+0x14075bd47: mov      rbp, rsp
+0x14075bd4a: sub      rsp, 0x10
+0x14075bd4e: mov      qword ptr [rsp + 0x20], rax
+0x14075bd53: call     0x140194220    ; golang.org/x/sys/windows.UTF16PtrFromString
+0x14075bd58: test     rbx, rbx
+0x14075bd5b: je       0x14075bd65    ; main.automaticWindowsPathAttributes+0x25
+0x14075bd5d: xor      eax, eax
+0x14075bd5f: add      rsp, 0x10
+0x14075bd63: pop      rbp
+0x14075bd64: ret      
+0x14075bd65: call     0x140196f60    ; golang.org/x/sys/windows.GetFileAttributes
+0x14075bd6a: add      rsp, 0x10
+0x14075bd6e: pop      rbp
+0x14075bd6f: ret      
+0x14075bd70: mov      qword ptr [rsp + 8], rax
+0x14075bd75: mov      qword ptr [rsp + 0x10], rbx
+0x14075bd7a: call     0x14007f140    ; runtime.morestack_noctxt
+0x14075bd7f: mov      rax, qword ptr [rsp + 8]
+0x14075bd84: mov      rbx, qword ptr [rsp + 0x10]
+0x14075bd89: jmp      0x14075bd40    ; main.automaticWindowsPathAttributes
+0x14075bd8b: int3     
+0x14075bd8c: int3     
+0x14075bd8d: int3     
+0x14075bd8e: int3     
+0x14075bd8f: int3     
+0x14075bd90: int3     
+0x14075bd91: int3     
+0x14075bd92: int3     
+0x14075bd93: int3     
+0x14075bd94: int3     
+0x14075bd95: int3     
+0x14075bd96: int3     
+0x14075bd97: int3     
+0x14075bd98: int3     
+0x14075bd99: int3     
+0x14075bd9a: int3     
+0x14075bd9b: int3     
+0x14075bd9c: int3     
+0x14075bd9d: int3     
+0x14075bd9e: int3     
+0x14075bd9f: int3     

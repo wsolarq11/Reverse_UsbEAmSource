@@ -1,0 +1,230 @@
+0x14079ae60: lea      r12, [rsp - 0x10]
+0x14079ae65: cmp      r12, qword ptr [r14 + 0x10]
+0x14079ae69: jbe      0x14079b233    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x3d3
+0x14079ae6f: push     rbp
+0x14079ae70: mov      rbp, rsp
+0x14079ae73: sub      rsp, 0x88
+0x14079ae7a: mov      qword ptr [rsp + 0xa0], rbx
+0x14079ae82: mov      qword ptr [rsp + 0xa8], rcx
+0x14079ae8a: test     rbx, rbx
+0x14079ae8d: je       0x14079af4c    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0xec
+0x14079ae93: mov      qword ptr [rsp + 0x98], rax
+0x14079ae9b: mov      qword ptr [rsp + 0xa0], rbx
+0x14079aea3: mov      qword ptr [rsp + 0xa8], rcx
+0x14079aeab: mov      rdx, qword ptr [rbx + 0x20]
+0x14079aeaf: mov      rax, rcx
+0x14079aeb2: call     rdx
+0x14079aeb4: test     al, al
+0x14079aeb6: jne      0x14079aed2    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x72
+0x14079aeb8: mov      rcx, qword ptr [rsp + 0xa0]
+0x14079aec0: mov      rcx, qword ptr [rcx + 0x28]
+0x14079aec4: mov      rax, qword ptr [rsp + 0xa8]
+0x14079aecc: call     rcx
+0x14079aece: test     al, al
+0x14079aed0: je       0x14079aee8    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x88
+0x14079aed2: mov      rcx, qword ptr [rsp + 0xa0]
+0x14079aeda: mov      rcx, qword ptr [rcx + 0x40]
+0x14079aede: mov      rax, qword ptr [rsp + 0xa8]
+0x14079aee6: call     rcx
+0x14079aee8: mov      rcx, qword ptr [rsp + 0xa0]
+0x14079aef0: mov      rcx, qword ptr [rcx + 0x68]
+0x14079aef4: mov      rax, qword ptr [rsp + 0xa8]
+0x14079aefc: call     rcx
+0x14079aefe: mov      qword ptr [rsp + 0x48], rax
+0x14079af03: mov      qword ptr [rsp + 0x60], rbx
+0x14079af08: mov      rcx, qword ptr [rsp + 0xa0]
+0x14079af10: mov      rcx, qword ptr [rcx + 0x38]
+0x14079af14: mov      rax, qword ptr [rsp + 0xa8]
+0x14079af1c: call     rcx
+0x14079af1e: mov      qword ptr [rsp + 0x70], rax
+0x14079af23: mov      qword ptr [rsp + 0x68], rbx
+0x14079af28: mov      rcx, qword ptr [rsp + 0xa0]
+0x14079af30: test     rcx, rcx
+0x14079af33: je       0x14079af55    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0xf5
+0x14079af35: mov      rdx, qword ptr [rcx + 8]
+0x14079af39: mov      rsi, qword ptr [rip + 0x142bdc0]
+0x14079af40: mov      rdi, qword ptr [rsi]
+0x14079af43: mov      r8d, dword ptr [rcx + 0x10]
+0x14079af47: jmp      0x14079b1f2    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x392
+0x14079af4c: add      rsp, 0x88
+0x14079af53: pop      rbp
+0x14079af54: ret      
+0x14079af55: mov      rax, qword ptr [rsp + 0x98]
+0x14079af5d: mov      rbx, rcx
+0x14079af60: mov      rcx, qword ptr [rsp + 0xa8]
+0x14079af68: call     0x14079c7a0    ; main.BootstrapService.resolveLauncherScreen
+0x14079af6d: test     rax, rax
+0x14079af70: je       0x14079b1dc    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x37c
+0x14079af76: mov      rbx, qword ptr [rax + 0xa0]
+0x14079af7d: nop      dword ptr [rax]
+0x14079af80: test     rbx, rbx
+0x14079af83: jle      0x14079b1dc    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x37c
+0x14079af89: mov      rdx, qword ptr [rax + 0x98]
+0x14079af90: test     rdx, rdx
+0x14079af93: jle      0x14079afa7    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x147
+0x14079af95: cmp      rdx, 0x460
+0x14079af9c: mov      esi, 0x460
+0x14079afa1: cmovg    rdx, rsi
+0x14079afa5: jmp      0x14079afac    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x14c
+0x14079afa7: mov      edx, 0x460
+0x14079afac: mov      qword ptr [rsp + 0x80], rax
+0x14079afb4: mov      qword ptr [rsp + 0x40], rbx
+0x14079afb9: mov      qword ptr [rsp + 0x58], rdx
+0x14079afbe: cmp      rbx, 0x2d0
+0x14079afc5: mov      esi, 0x2d0
+0x14079afca: mov      rdi, rbx
+0x14079afcd: cmovg    rdi, rsi
+0x14079afd1: mov      qword ptr [rsp + 0x78], rdi
+0x14079afd6: mov      rsi, qword ptr [rsp + 0x48]
+0x14079afdb: nop      dword ptr [rax + rax]
+0x14079afe0: test     rsi, rsi
+0x14079afe3: jle      0x14079afef    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x18f
+0x14079afe5: mov      r8, qword ptr [rsp + 0x60]
+0x14079afea: test     r8, r8
+0x14079afed: jg       0x14079b04a    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x1ea
+0x14079afef: mov      rax, qword ptr [rsp + 0x98]
+0x14079aff7: call     0x14079c660    ; main.BootstrapService.loadLauncherUIScalePercent
+0x14079affc: test     rax, rax
+0x14079afff: mov      ecx, 0x64
+0x14079b004: cmovle   rax, rcx
+0x14079b008: imul     rcx, rax, 0x5a0
+0x14079b00f: lea      rdx, [rcx + 0x32]
+0x14079b013: movabs   rax, 0xa3d70a3d70a3d70b
+0x14079b01d: mov      rbx, rdx
+0x14079b020: imul     rdx
+0x14079b023: lea      rax, [rdx + rcx]
+0x14079b027: lea      rax, [rax + 0x32]
+0x14079b02b: sar      rax, 6
+0x14079b02f: sar      rbx, 0x3f
+0x14079b033: sub      rax, rbx
+0x14079b036: test     rax, rax
+0x14079b039: mov      ecx, 1
+0x14079b03e: cmovle   rax, rcx
+0x14079b042: mov      rbx, qword ptr [rsp + 0x40]
+0x14079b047: mov      rsi, rax
+0x14079b04a: mov      qword ptr [rsp + 0x48], rsi
+0x14079b04f: mov      rax, qword ptr [rsp + 0x98]
+0x14079b057: mov      rcx, qword ptr [rsp + 0x68]
+0x14079b05c: nop      dword ptr [rax]
+0x14079b060: call     0x14079ba00    ; main.BootstrapService.consumeLauncherVerticalMaximizeSnapshot
+0x14079b065: test     sil, sil
+0x14079b068: jne      0x14079b1a2    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x342
+0x14079b06e: mov      rax, qword ptr [rsp + 0x98]
+0x14079b076: mov      rbx, qword ptr [rsp + 0x48]
+0x14079b07b: mov      rcx, qword ptr [rsp + 0x60]
+0x14079b080: mov      rdi, qword ptr [rsp + 0x70]
+0x14079b085: mov      rsi, qword ptr [rsp + 0x68]
+0x14079b08a: call     0x14079b720    ; main.BootstrapService.storeLauncherVerticalMaximizeSnapshot
+0x14079b08f: mov      rdx, qword ptr [rsp + 0x80]
+0x14079b097: mov      r8, qword ptr [rdx + 0x98]
+0x14079b09e: nop      
+0x14079b0a0: test     r8, r8
+0x14079b0a3: jle      0x14079b0f4    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x294
+0x14079b0a5: mov      rbx, qword ptr [rsp + 0x58]
+0x14079b0aa: mov      rsi, qword ptr [rsp + 0x48]
+0x14079b0af: cmp      rbx, rsi
+0x14079b0b2: jle      0x14079b0b9    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x259
+0x14079b0b4: mov      rax, rbx
+0x14079b0b7: jmp      0x14079b0cc    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x26c
+0x14079b0b9: cmp      rsi, r8
+0x14079b0bc: jle      0x14079b0c6    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x266
+0x14079b0be: mov      rax, rbx
+0x14079b0c1: mov      rbx, r8
+0x14079b0c4: jmp      0x14079b0cc    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x26c
+0x14079b0c6: mov      rax, rbx
+0x14079b0c9: mov      rbx, rsi
+0x14079b0cc: sub      r8, rbx
+0x14079b0cf: test     r8, r8
+0x14079b0d2: mov      esi, 0
+0x14079b0d7: cmovl    r8, rsi
+0x14079b0db: mov      rdi, qword ptr [rsp + 0x70]
+0x14079b0e0: test     rdi, rdi
+0x14079b0e3: jge      0x14079b0ea    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x28a
+0x14079b0e5: xor      r8d, r8d
+0x14079b0e8: jmp      0x14079b103    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x2a3
+0x14079b0ea: cmp      rdi, r8
+0x14079b0ed: jg       0x14079b103    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x2a3
+0x14079b0ef: mov      r8, rdi
+0x14079b0f2: jmp      0x14079b103    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x2a3
+0x14079b0f4: mov      rax, qword ptr [rsp + 0x58]
+0x14079b0f9: mov      rbx, qword ptr [rsp + 0x48]
+0x14079b0fe: mov      r8, qword ptr [rsp + 0x70]
+0x14079b103: mov      qword ptr [rsp + 0x50], r8
+0x14079b108: mov      qword ptr [rsp + 0x48], rbx
+0x14079b10d: mov      rdx, qword ptr [rsp + 0xa0]
+0x14079b115: mov      rdx, qword ptr [rdx + 0x50]
+0x14079b119: mov      rbx, rax
+0x14079b11c: mov      rcx, qword ptr [rsp + 0x78]
+0x14079b121: mov      rax, qword ptr [rsp + 0xa8]
+0x14079b129: call     rdx
+0x14079b12b: mov      rdx, qword ptr [rsp + 0x80]
+0x14079b133: mov      rbx, qword ptr [rdx + 0x98]
+0x14079b13a: test     rbx, rbx
+0x14079b13d: jle      0x14079b15c    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x2fc
+0x14079b13f: mov      rsi, qword ptr [rsp + 0xa0]
+0x14079b147: mov      rsi, qword ptr [rsi + 0x48]
+0x14079b14b: mov      rcx, qword ptr [rdx + 0xa0]
+0x14079b152: mov      rax, qword ptr [rsp + 0xa8]
+0x14079b15a: call     rsi
+0x14079b15c: mov      rdx, qword ptr [rsp + 0xa0]
+0x14079b164: mov      rdx, qword ptr [rdx + 0x60]
+0x14079b168: mov      rax, qword ptr [rsp + 0xa8]
+0x14079b170: mov      rbx, qword ptr [rsp + 0x48]
+0x14079b175: mov      rcx, qword ptr [rsp + 0x40]
+0x14079b17a: call     rdx
+0x14079b17c: mov      rdx, qword ptr [rsp + 0xa0]
+0x14079b184: mov      rdx, qword ptr [rdx + 0x58]
+0x14079b188: mov      rax, qword ptr [rsp + 0xa8]
+0x14079b190: mov      rbx, qword ptr [rsp + 0x50]
+0x14079b195: xor      ecx, ecx
+0x14079b197: call     rdx
+0x14079b199: add      rsp, 0x88
+0x14079b1a0: pop      rbp
+0x14079b1a1: ret      
+0x14079b1a2: mov      rsi, rbx
+0x14079b1a5: mov      r8, rcx
+0x14079b1a8: mov      r9, rdi
+0x14079b1ab: mov      r10, qword ptr [rsp + 0x80]
+0x14079b1b3: mov      rbx, qword ptr [rsp + 0xa0]
+0x14079b1bb: mov      rcx, qword ptr [rsp + 0xa8]
+0x14079b1c3: mov      rdi, rax
+0x14079b1c6: mov      rax, qword ptr [rsp + 0x98]
+0x14079b1ce: call     0x14079bc40    ; main.BootstrapService.restoreLauncherWindowLayoutSnapshot
+0x14079b1d3: add      rsp, 0x88
+0x14079b1da: pop      rbp
+0x14079b1db: ret      
+0x14079b1dc: mov      rax, qword ptr [rsp + 0x98]
+0x14079b1e4: call     0x14079b8c0    ; main.BootstrapService.clearLauncherVerticalMaximizeSnapshot
+0x14079b1e9: add      rsp, 0x88
+0x14079b1f0: pop      rbp
+0x14079b1f1: ret      
+0x14079b1f2: mov      r9, r8
+0x14079b1f5: and      r8, rdi
+0x14079b1f8: shl      r8, 4
+0x14079b1fc: mov      r10, qword ptr [r8 + rsi + 8]
+0x14079b201: cmp      r10, rdx
+0x14079b204: je       0x14079b226    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x3c6
+0x14079b206: lea      r8, [r9 + 1]
+0x14079b20a: test     r10, r10
+0x14079b20d: jne      0x14079b1f2    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0x392
+0x14079b20f: lea      rax, [rip + 0x142baea]
+0x14079b216: mov      rbx, rdx
+0x14079b219: call     0x1400174a0    ; runtime.typeAssert
+0x14079b21e: mov      rcx, rax
+0x14079b221: jmp      0x14079af55    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0xf5
+0x14079b226: mov      rdx, qword ptr [r8 + rsi + 0x10]
+0x14079b22b: mov      rcx, rdx
+0x14079b22e: jmp      0x14079af55    ; main.BootstrapService.applyLauncherWindowVerticalMaximize+0xf5
+0x14079b233: mov      qword ptr [rsp + 8], rax
+0x14079b238: mov      qword ptr [rsp + 0x10], rbx
+0x14079b23d: mov      qword ptr [rsp + 0x18], rcx
+0x14079b242: call     0x14007f140    ; runtime.morestack_noctxt
+0x14079b247: mov      rax, qword ptr [rsp + 8]
+0x14079b24c: mov      rbx, qword ptr [rsp + 0x10]
+0x14079b251: mov      rcx, qword ptr [rsp + 0x18]
+0x14079b256: jmp      0x14079ae60    ; main.BootstrapService.applyLauncherWindowVerticalMaximize
+0x14079b25b: int3     
+0x14079b25c: int3     
+0x14079b25d: int3     
+0x14079b25e: int3     
+0x14079b25f: int3     

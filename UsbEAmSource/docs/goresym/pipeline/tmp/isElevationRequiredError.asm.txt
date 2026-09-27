@@ -1,0 +1,79 @@
+0x1408ace20: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ace24: jbe      0x1408acec5   ; main.isElevationRequiredError+0xa5
+0x1408ace2a: push     rbp
+0x1408ace2b: mov      rbp, rsp
+0x1408ace2e: sub      rsp, 0x28
+0x1408ace32: mov      qword ptr [rsp + 0x38], rax
+0x1408ace37: mov      qword ptr [rsp + 0x40], rbx
+0x1408ace3c: nop      dword ptr [rax]
+0x1408ace40: test     rax, rax
+0x1408ace43: je       0x1408acebd   ; main.isElevationRequiredError+0x9d
+0x1408ace45: mov      qword ptr [rsp + 0x38], rax
+0x1408ace4a: mov      qword ptr [rsp + 0x40], rbx
+0x1408ace4f: lea      rcx, [rip + 0x925e8a]
+0x1408ace56: lea      rdi, [rip + 0x920763]
+0x1408ace5d: nop      dword ptr [rax]
+0x1408ace60: call     0x1400904a0   ; errors.Is
+0x1408ace65: test     al, al
+0x1408ace67: jne      0x1408aceb2   ; main.isElevationRequiredError+0x92
+0x1408ace69: lea      rax, [rip + 0x2d4c10]
+0x1408ace70: call     0x14001ae20   ; runtime.newobject
+0x1408ace75: mov      qword ptr [rsp + 0x20], rax
+0x1408ace7a: mov      rbx, qword ptr [rsp + 0x40]
+0x1408ace7f: lea      rcx, [rip + 0x2e1d5a]
+0x1408ace86: mov      rdi, rax
+0x1408ace89: mov      rax, qword ptr [rsp + 0x38]
+0x1408ace8e: call     0x140090840   ; errors.As
+0x1408ace93: test     al, al
+0x1408ace95: je       0x1408acea8   ; main.isElevationRequiredError+0x88
+0x1408ace97: mov      rcx, qword ptr [rsp + 0x20]
+0x1408ace9c: cmp      qword ptr [rcx], 0x2e4
+0x1408acea3: sete     cl
+0x1408acea6: jmp      0x1408aceaa   ; main.isElevationRequiredError+0x8a
+0x1408acea8: xor      ecx, ecx
+0x1408aceaa: mov      eax, ecx
+0x1408aceac: add      rsp, 0x28
+0x1408aceb0: pop      rbp
+0x1408aceb1: ret      
+0x1408aceb2: mov      eax, 1
+0x1408aceb7: add      rsp, 0x28
+0x1408acebb: pop      rbp
+0x1408acebc: ret      
+0x1408acebd: xor      eax, eax
+0x1408acebf: add      rsp, 0x28
+0x1408acec3: pop      rbp
+0x1408acec4: ret      
+0x1408acec5: mov      qword ptr [rsp + 8], rax
+0x1408aceca: mov      qword ptr [rsp + 0x10], rbx
+0x1408acecf: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408aced4: mov      rax, qword ptr [rsp + 8]
+0x1408aced9: mov      rbx, qword ptr [rsp + 0x10]
+0x1408acede: nop      
+0x1408acee0: jmp      0x1408ace20   ; main.isElevationRequiredError
+0x1408acee5: int3     
+0x1408acee6: int3     
+0x1408acee7: int3     
+0x1408acee8: int3     
+0x1408acee9: int3     
+0x1408aceea: int3     
+0x1408aceeb: int3     
+0x1408aceec: int3     
+0x1408aceed: int3     
+0x1408aceee: int3     
+0x1408aceef: int3     
+0x1408acef0: int3     
+0x1408acef1: int3     
+0x1408acef2: int3     
+0x1408acef3: int3     
+0x1408acef4: int3     
+0x1408acef5: int3     
+0x1408acef6: int3     
+0x1408acef7: int3     
+0x1408acef8: int3     
+0x1408acef9: int3     
+0x1408acefa: int3     
+0x1408acefb: int3     
+0x1408acefc: int3     
+0x1408acefd: int3     
+0x1408acefe: int3     
+0x1408aceff: int3     

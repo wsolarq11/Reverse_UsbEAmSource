@@ -1,0 +1,78 @@
+0x1408ae9e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ae9e4: jbe      0x1408aea91   ; main.globalAllocMoveable+0xb1
+0x1408ae9ea: push     rbp
+0x1408ae9eb: mov      rbp, rsp
+0x1408ae9ee: sub      rsp, 0x20
+0x1408ae9f2: test     rax, rax
+0x1408ae9f5: je       0x1408aea61   ; main.globalAllocMoveable+0x81
+0x1408ae9f7: mov      qword ptr [rsp + 0x30], rax
+0x1408ae9fc: lea      rax, [rip + 0x24efdd]
+0x1408aea03: call     0x14001ae20   ; runtime.newobject
+0x1408aea08: mov      qword ptr [rax], 2
+0x1408aea0f: mov      rcx, qword ptr [rsp + 0x30]
+0x1408aea14: mov      qword ptr [rax + 8], rcx
+0x1408aea18: mov      rcx, qword ptr [rip + 0x1313061]
+0x1408aea1f: mov      rbx, rax
+0x1408aea22: mov      edi, 2
+0x1408aea27: mov      rax, rcx
+0x1408aea2a: mov      rcx, rdi
+0x1408aea2d: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1408aea32: test     rax, rax
+0x1408aea35: jne      0x1408aea56   ; main.globalAllocMoveable+0x76
+0x1408aea37: lea      rax, [rip + 0x3bb5c1]
+0x1408aea3e: mov      ebx, 0x1b
+0x1408aea43: call     0x1408af3a0   ; main.wrapWinError
+0x1408aea48: mov      rcx, rbx
+0x1408aea4b: mov      rbx, rax
+0x1408aea4e: xor      eax, eax
+0x1408aea50: add      rsp, 0x20
+0x1408aea54: pop      rbp
+0x1408aea55: ret      
+0x1408aea56: xor      ebx, ebx
+0x1408aea58: xor      ecx, ecx
+0x1408aea5a: add      rsp, 0x20
+0x1408aea5e: pop      rbp
+0x1408aea5f: nop      
+0x1408aea60: ret      
+0x1408aea61: lea      rax, [rip + 0x2a5918]
+0x1408aea68: call     0x14001ae20   ; runtime.newobject
+0x1408aea6d: mov      qword ptr [rax + 8], 0x1b
+0x1408aea75: lea      rcx, [rip + 0x3bb568]
+0x1408aea7c: mov      qword ptr [rax], rcx
+0x1408aea7f: lea      rbx, [rip + 0x92467a]
+0x1408aea86: mov      rcx, rax
+0x1408aea89: xor      eax, eax
+0x1408aea8b: add      rsp, 0x20
+0x1408aea8f: pop      rbp
+0x1408aea90: ret      
+0x1408aea91: mov      qword ptr [rsp + 8], rax
+0x1408aea96: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408aea9b: mov      rax, qword ptr [rsp + 8]
+0x1408aeaa0: jmp      0x1408ae9e0   ; main.globalAllocMoveable
+0x1408aeaa5: int3     
+0x1408aeaa6: int3     
+0x1408aeaa7: int3     
+0x1408aeaa8: int3     
+0x1408aeaa9: int3     
+0x1408aeaaa: int3     
+0x1408aeaab: int3     
+0x1408aeaac: int3     
+0x1408aeaad: int3     
+0x1408aeaae: int3     
+0x1408aeaaf: int3     
+0x1408aeab0: int3     
+0x1408aeab1: int3     
+0x1408aeab2: int3     
+0x1408aeab3: int3     
+0x1408aeab4: int3     
+0x1408aeab5: int3     
+0x1408aeab6: int3     
+0x1408aeab7: int3     
+0x1408aeab8: int3     
+0x1408aeab9: int3     
+0x1408aeaba: int3     
+0x1408aeabb: int3     
+0x1408aeabc: int3     
+0x1408aeabd: int3     
+0x1408aeabe: int3     
+0x1408aeabf: int3     

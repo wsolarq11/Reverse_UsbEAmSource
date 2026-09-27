@@ -1,0 +1,117 @@
+0x140815ec0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140815ec4: jbe      0x140815fa4   ; main.isValidNormalizedExtensionToken+0xe4
+0x140815eca: push     rbp
+0x140815ecb: mov      rbp, rsp
+0x140815ece: sub      rsp, 0x20
+0x140815ed2: mov      qword ptr [rsp + 0x30], rax
+0x140815ed7: test     rbx, rbx
+0x140815eda: je       0x140815eea   ; main.isValidNormalizedExtensionToken+0x2a
+0x140815edc: mov      qword ptr [rsp + 0x38], rbx
+0x140815ee1: mov      qword ptr [rsp + 0x30], rax
+0x140815ee6: xor      ecx, ecx
+0x140815ee8: jmp      0x140815ef5   ; main.isValidNormalizedExtensionToken+0x35
+0x140815eea: xor      eax, eax
+0x140815eec: add      rsp, 0x20
+0x140815ef0: pop      rbp
+0x140815ef1: ret      
+0x140815ef2: mov      rcx, rsi
+0x140815ef5: cmp      rbx, rcx
+0x140815ef8: jle      0x140815f4d   ; main.isValidNormalizedExtensionToken+0x8d
+0x140815efa: movzx    edx, byte ptr [rax + rcx]
+0x140815efe: nop      
+0x140815f00: cmp      edx, 0x7f
+0x140815f03: jg       0x140815f0b   ; main.isValidNormalizedExtensionToken+0x4b
+0x140815f05: lea      rsi, [rcx + 1]
+0x140815f09: jmp      0x140815f1f   ; main.isValidNormalizedExtensionToken+0x5f
+0x140815f0b: call     0x1400733c0   ; runtime.decoderune
+0x140815f10: mov      edx, eax
+0x140815f12: mov      rsi, rbx
+0x140815f15: mov      rax, qword ptr [rsp + 0x30]
+0x140815f1a: mov      rbx, qword ptr [rsp + 0x38]
+0x140815f1f: lea      edi, [rdx - 0x61]
+0x140815f22: cmp      edi, 0x19
+0x140815f25: jbe      0x140815ef2   ; main.isValidNormalizedExtensionToken+0x32
+0x140815f27: lea      edi, [rdx - 0x30]
+0x140815f2a: cmp      edi, 9
+0x140815f2d: jbe      0x140815ef2   ; main.isValidNormalizedExtensionToken+0x32
+0x140815f2f: cmp      edx, 0x2e
+0x140815f32: je       0x140815ef2   ; main.isValidNormalizedExtensionToken+0x32
+0x140815f34: cmp      edx, 0x2d
+0x140815f37: je       0x140815ef2   ; main.isValidNormalizedExtensionToken+0x32
+0x140815f39: cmp      edx, 0x5f
+0x140815f3c: je       0x140815ef2   ; main.isValidNormalizedExtensionToken+0x32
+0x140815f3e: nop      
+0x140815f40: cmp      edx, 0x2b
+0x140815f43: je       0x140815ef2   ; main.isValidNormalizedExtensionToken+0x32
+0x140815f45: xor      eax, eax
+0x140815f47: add      rsp, 0x20
+0x140815f4b: pop      rbp
+0x140815f4c: ret      
+0x140815f4d: nop      
+0x140815f4e: cmp      byte ptr [rax], 0x2e
+0x140815f51: je       0x140815f91   ; main.isValidNormalizedExtensionToken+0xd1
+0x140815f53: lea      rax, [rbx + rax]
+0x140815f57: lea      rax, [rax - 1]
+0x140815f5b: nop      
+0x140815f5c: lea      rbx, [rip + 0x9b4cc5]
+0x140815f63: mov      ecx, 1
+0x140815f68: call     0x140006280   ; runtime.memequal
+0x140815f6d: test     al, al
+0x140815f6f: jne      0x140815f91   ; main.isValidNormalizedExtensionToken+0xd1
+0x140815f71: mov      rax, qword ptr [rsp + 0x30]
+0x140815f76: mov      rbx, qword ptr [rsp + 0x38]
+0x140815f7b: lea      rcx, [rip + 0x41d6dd]
+0x140815f82: mov      edi, 2
+0x140815f87: call     0x140006860   ; internal/stringslite.Index
+0x140815f8c: test     rax, rax
+0x140815f8f: jl       0x140815f99   ; main.isValidNormalizedExtensionToken+0xd9
+0x140815f91: xor      eax, eax
+0x140815f93: add      rsp, 0x20
+0x140815f97: pop      rbp
+0x140815f98: ret      
+0x140815f99: mov      eax, 1
+0x140815f9e: add      rsp, 0x20
+0x140815fa2: pop      rbp
+0x140815fa3: ret      
+0x140815fa4: mov      qword ptr [rsp + 8], rax
+0x140815fa9: mov      qword ptr [rsp + 0x10], rbx
+0x140815fae: call     0x14007f140   ; runtime.morestack_noctxt
+0x140815fb3: mov      rax, qword ptr [rsp + 8]
+0x140815fb8: mov      rbx, qword ptr [rsp + 0x10]
+0x140815fbd: nop      dword ptr [rax]
+0x140815fc0: jmp      0x140815ec0   ; main.isValidNormalizedExtensionToken
+0x140815fc5: int3     
+0x140815fc6: int3     
+0x140815fc7: int3     
+0x140815fc8: int3     
+0x140815fc9: int3     
+0x140815fca: int3     
+0x140815fcb: int3     
+0x140815fcc: int3     
+0x140815fcd: int3     
+0x140815fce: int3     
+0x140815fcf: int3     
+0x140815fd0: int3     
+0x140815fd1: int3     
+0x140815fd2: int3     
+0x140815fd3: int3     
+0x140815fd4: int3     
+0x140815fd5: int3     
+0x140815fd6: int3     
+0x140815fd7: int3     
+0x140815fd8: int3     
+0x140815fd9: int3     
+0x140815fda: int3     
+0x140815fdb: int3     
+0x140815fdc: int3     
+0x140815fdd: int3     
+0x140815fde: int3     
+0x140815fdf: int3     
+0x140815fe0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140815fe4: jbe      0x140816158   ; main.isValidFileSearchTypeGlob+0x178
+0x140815fea: push     rbp
+0x140815feb: mov      rbp, rsp
+0x140815fee: sub      rsp, 0x28
+0x140815ff2: mov      qword ptr [rsp + 0x38], rax
+0x140815ff7: test     rbx, rbx
+0x140815ffa: je       0x14081602b   ; main.isValidFileSearchTypeGlob+0x4b

@@ -1,0 +1,38 @@
+0x140797040: cmp      rsp, qword ptr [r14 + 0x10]
+0x140797044: jbe      0x140797061   ; main.screenshotCaptureAcceptedNotifier).Emit.func1+0x21
+0x140797046: push     rbp
+0x140797047: mov      rbp, rsp
+0x14079704a: sub      rsp, 8
+0x14079704e: mov      rcx, qword ptr [rdx + 8]
+0x140797052: mov      rax, qword ptr [rcx]
+0x140797055: call     0x140797080   ; main.BootstrapService.emitScreenshotCaptureAccepted
+0x14079705a: add      rsp, 8
+0x14079705e: pop      rbp
+0x14079705f: nop      
+0x140797060: ret      
+0x140797061: call     0x14007f0a0   ; runtime.morestack
+0x140797066: jmp      0x140797040   ; main.screenshotCaptureAcceptedNotifier).Emit.func1
+0x140797068: int3     
+0x140797069: int3     
+0x14079706a: int3     
+0x14079706b: int3     
+0x14079706c: int3     
+0x14079706d: int3     
+0x14079706e: int3     
+0x14079706f: int3     
+0x140797070: int3     
+0x140797071: int3     
+0x140797072: int3     
+0x140797073: int3     
+0x140797074: int3     
+0x140797075: int3     
+0x140797076: int3     
+0x140797077: int3     
+0x140797078: int3     
+0x140797079: int3     
+0x14079707a: int3     
+0x14079707b: int3     
+0x14079707c: int3     
+0x14079707d: int3     
+0x14079707e: int3     
+0x14079707f: int3     

@@ -1,0 +1,78 @@
+0x1408adbe0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408adbe4: jbe      0x1408adc89   ; main.resolveClipboardDropEffect+0xa9
+0x1408adbea: push     rbp
+0x1408adbeb: mov      rbp, rsp
+0x1408adbee: sub      rsp, 0x10
+0x1408adbf2: mov      qword ptr [rsp + 0x20], rax
+0x1408adbf7: call     0x1400a2200   ; strings.TrimSpace
+0x1408adbfc: nop      dword ptr [rax]
+0x1408adc00: call     0x1400a1500   ; strings.ToLower
+0x1408adc05: cmp      rbx, 3
+0x1408adc09: jne      0x1408adc20   ; main.resolveClipboardDropEffect+0x40
+0x1408adc0b: cmp      word ptr [rax], 0x7563
+0x1408adc10: jne      0x1408adc54   ; main.resolveClipboardDropEffect+0x74
+0x1408adc12: cmp      byte ptr [rax + 2], 0x74
+0x1408adc16: je       0x1408adc36   ; main.resolveClipboardDropEffect+0x56
+0x1408adc18: jmp      0x1408adc54   ; main.resolveClipboardDropEffect+0x74
+0x1408adc1a: nop      word ptr [rax + rax]
+0x1408adc20: cmp      rbx, 4
+0x1408adc24: jne      0x1408adc54   ; main.resolveClipboardDropEffect+0x74
+0x1408adc26: cmp      dword ptr [rax], 0x79706f63
+0x1408adc2c: je       0x1408adc45   ; main.resolveClipboardDropEffect+0x65
+0x1408adc2e: cmp      dword ptr [rax], 0x65766f6d
+0x1408adc34: jne      0x1408adc54   ; main.resolveClipboardDropEffect+0x74
+0x1408adc36: mov      eax, 2
+0x1408adc3b: xor      ebx, ebx
+0x1408adc3d: xor      ecx, ecx
+0x1408adc3f: add      rsp, 0x10
+0x1408adc43: pop      rbp
+0x1408adc44: ret      
+0x1408adc45: mov      eax, 1
+0x1408adc4a: xor      ebx, ebx
+0x1408adc4c: xor      ecx, ecx
+0x1408adc4e: add      rsp, 0x10
+0x1408adc52: pop      rbp
+0x1408adc53: ret      
+0x1408adc54: lea      rax, [rip + 0x2a6725]
+0x1408adc5b: nop      dword ptr [rax + rax]
+0x1408adc60: call     0x14001ae20   ; runtime.newobject
+0x1408adc65: mov      qword ptr [rax + 8], 0x21
+0x1408adc6d: lea      rcx, [rip + 0x3c5f6e]
+0x1408adc74: mov      qword ptr [rax], rcx
+0x1408adc77: lea      rbx, [rip + 0x925482]
+0x1408adc7e: mov      rcx, rax
+0x1408adc81: xor      eax, eax
+0x1408adc83: add      rsp, 0x10
+0x1408adc87: pop      rbp
+0x1408adc88: ret      
+0x1408adc89: mov      qword ptr [rsp + 8], rax
+0x1408adc8e: mov      qword ptr [rsp + 0x10], rbx
+0x1408adc93: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408adc98: mov      rax, qword ptr [rsp + 8]
+0x1408adc9d: mov      rbx, qword ptr [rsp + 0x10]
+0x1408adca2: jmp      0x1408adbe0   ; main.resolveClipboardDropEffect
+0x1408adca7: int3     
+0x1408adca8: int3     
+0x1408adca9: int3     
+0x1408adcaa: int3     
+0x1408adcab: int3     
+0x1408adcac: int3     
+0x1408adcad: int3     
+0x1408adcae: int3     
+0x1408adcaf: int3     
+0x1408adcb0: int3     
+0x1408adcb1: int3     
+0x1408adcb2: int3     
+0x1408adcb3: int3     
+0x1408adcb4: int3     
+0x1408adcb5: int3     
+0x1408adcb6: int3     
+0x1408adcb7: int3     
+0x1408adcb8: int3     
+0x1408adcb9: int3     
+0x1408adcba: int3     
+0x1408adcbb: int3     
+0x1408adcbc: int3     
+0x1408adcbd: int3     
+0x1408adcbe: int3     
+0x1408adcbf: int3     

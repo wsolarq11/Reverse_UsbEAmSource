@@ -1,0 +1,82 @@
+0x1408ff340: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ff344: jbe      0x1408ff434   ; main.oledBlackoutService.beginBackgroundActivity+0xf4
+0x1408ff34a: push     rbp
+0x1408ff34b: mov      rbp, rsp
+0x1408ff34e: sub      rsp, 0x30
+0x1408ff352: movq     qword ptr [rsp + 0x28], xmm15
+0x1408ff359: mov      qword ptr [rsp + 0x40], rax
+0x1408ff35e: mov      qword ptr [rsp + 0x48], rbx
+0x1408ff363: mov      byte ptr [rsp + 0x17], 0
+0x1408ff368: mov      byte ptr [rsp + 0x16], 0
+0x1408ff36d: nop      
+0x1408ff36e: nop      
+0x1408ff36f: mov      rcx, rax
+0x1408ff372: xor      eax, eax
+0x1408ff374: mov      edx, 1
+0x1408ff379: lock cmpxchg dword ptr [rcx], edx
+0x1408ff37d: sete     dl
+0x1408ff380: test     dl, dl
+0x1408ff382: jne      0x1408ff391   ; main.oledBlackoutService.beginBackgroundActivity+0x51
+0x1408ff384: mov      rax, rcx
+0x1408ff387: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1408ff38c: mov      rcx, qword ptr [rsp + 0x40]
+0x1408ff391: lea      rdx, [rip + 0xc8]
+0x1408ff398: mov      qword ptr [rsp + 0x18], rdx
+0x1408ff39d: mov      qword ptr [rsp + 0x20], rcx
+0x1408ff3a2: lea      rdx, [rsp + 0x18]
+0x1408ff3a7: mov      qword ptr [rsp + 0x28], rdx
+0x1408ff3ac: mov      byte ptr [rsp + 0x17], 1
+0x1408ff3b1: mov      rax, rcx
+0x1408ff3b4: call     0x1408ff220   ; main.oledBlackoutService.ensureLifecycleLocked
+0x1408ff3b9: mov      rax, qword ptr [rsp + 0x40]
+0x1408ff3be: cmp      byte ptr [rax + 0x88], 0
+0x1408ff3c5: jne      0x1408ff3d5   ; main.oledBlackoutService.beginBackgroundActivity+0x95
+0x1408ff3c7: mov      rcx, qword ptr [rsp + 0x48]
+0x1408ff3cc: cmp      qword ptr [rax + 0xa8], rcx
+0x1408ff3d3: je       0x1408ff3f4   ; main.oledBlackoutService.beginBackgroundActivity+0xb4
+0x1408ff3d5: mov      byte ptr [rsp + 0x16], 0
+0x1408ff3da: mov      byte ptr [rsp + 0x17], 0
+0x1408ff3df: mov      rdx, qword ptr [rsp + 0x28]
+0x1408ff3e4: mov      rax, qword ptr [rdx]
+0x1408ff3e7: call     rax
+0x1408ff3e9: movzx    eax, byte ptr [rsp + 0x16]
+0x1408ff3ee: add      rsp, 0x30
+0x1408ff3f2: pop      rbp
+0x1408ff3f3: ret      
+0x1408ff3f4: add      rax, 0x10
+0x1408ff3f8: mov      ebx, 1
+0x1408ff3fd: nop      dword ptr [rax]
+0x1408ff400: call     0x140093820   ; sync.WaitGroup.Add
+0x1408ff405: mov      byte ptr [rsp + 0x16], 1
+0x1408ff40a: mov      byte ptr [rsp + 0x17], 0
+0x1408ff40f: mov      rdx, qword ptr [rsp + 0x28]
+0x1408ff414: mov      rcx, qword ptr [rdx]
+0x1408ff417: call     rcx
+0x1408ff419: movzx    eax, byte ptr [rsp + 0x16]
+0x1408ff41e: add      rsp, 0x30
+0x1408ff422: pop      rbp
+0x1408ff423: ret      
+0x1408ff424: call     0x1400435e0   ; runtime.deferreturn
+0x1408ff429: movzx    eax, byte ptr [rsp + 0x16]
+0x1408ff42e: add      rsp, 0x30
+0x1408ff432: pop      rbp
+0x1408ff433: ret      
+0x1408ff434: mov      qword ptr [rsp + 8], rax
+0x1408ff439: mov      qword ptr [rsp + 0x10], rbx
+0x1408ff43e: nop      
+0x1408ff440: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408ff445: mov      rax, qword ptr [rsp + 8]
+0x1408ff44a: mov      rbx, qword ptr [rsp + 0x10]
+0x1408ff44f: jmp      0x1408ff340   ; main.oledBlackoutService.beginBackgroundActivity
+0x1408ff454: int3     
+0x1408ff455: int3     
+0x1408ff456: int3     
+0x1408ff457: int3     
+0x1408ff458: int3     
+0x1408ff459: int3     
+0x1408ff45a: int3     
+0x1408ff45b: int3     
+0x1408ff45c: int3     
+0x1408ff45d: int3     
+0x1408ff45e: int3     
+0x1408ff45f: int3     

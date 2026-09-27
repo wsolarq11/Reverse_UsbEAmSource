@@ -1,0 +1,74 @@
+0x14077a900: cmp      rsp, qword ptr [r14 + 0x10]
+0x14077a904: jbe      0x14077a9d8    ; main.BootstrapService.PreviewLauncherUIScale+0xd8
+0x14077a90a: push     rbp
+0x14077a90b: mov      rbp, rsp
+0x14077a90e: sub      rsp, 0x38
+0x14077a912: mov      qword ptr [rsp + 0x48], rax
+0x14077a917: mov      qword ptr [rsp + 0x50], rbx
+0x14077a91c: nop      dword ptr [rax]
+0x14077a920: call     0x14079bf40    ; main.BootstrapService.resolveAttachedLauncherWindow
+0x14077a925: mov      rcx, qword ptr [rsp + 0x50]
+0x14077a92a: test     rcx, rcx
+0x14077a92d: jg       0x14077a936    ; main.BootstrapService.PreviewLauncherUIScale+0x36
+0x14077a92f: mov      ecx, 0x64
+0x14077a934: jmp      0x14077a951    ; main.BootstrapService.PreviewLauncherUIScale+0x51
+0x14077a936: cmp      rcx, 0x64
+0x14077a93a: jge      0x14077a943    ; main.BootstrapService.PreviewLauncherUIScale+0x43
+0x14077a93c: mov      ecx, 0x64
+0x14077a941: jmp      0x14077a951    ; main.BootstrapService.PreviewLauncherUIScale+0x51
+0x14077a943: cmp      rcx, 0x12c
+0x14077a94a: jle      0x14077a951    ; main.BootstrapService.PreviewLauncherUIScale+0x51
+0x14077a94c: mov      ecx, 0x12c
+0x14077a951: test     rax, rax
+0x14077a954: je       0x14077a96a    ; main.BootstrapService.PreviewLauncherUIScale+0x6a
+0x14077a956: mov      rdx, qword ptr [rax + 8]
+0x14077a95a: mov      r8, qword ptr [rip + 0x144c11f]
+0x14077a961: mov      r9, qword ptr [r8]
+0x14077a964: mov      r10d, dword ptr [rax + 0x10]
+0x14077a968: jmp      0x14077a98b    ; main.BootstrapService.PreviewLauncherUIScale+0x8b
+0x14077a96a: mov      rdi, rcx
+0x14077a96d: mov      esi, 1
+0x14077a972: mov      rcx, rbx
+0x14077a975: mov      rbx, rax
+0x14077a978: mov      rax, qword ptr [rsp + 0x48]
+0x14077a97d: nop      dword ptr [rax]
+0x14077a980: call     0x14079c8a0    ; main.BootstrapService.applyLauncherWindowSizing
+0x14077a985: add      rsp, 0x38
+0x14077a989: pop      rbp
+0x14077a98a: ret      
+0x14077a98b: mov      r11, r10
+0x14077a98e: and      r10, r9
+0x14077a991: shl      r10, 4
+0x14077a995: mov      r12, qword ptr [r10 + r8 + 8]
+0x14077a99a: cmp      r12, rdx
+0x14077a99d: je       0x14077a9d1    ; main.BootstrapService.PreviewLauncherUIScale+0xd1
+0x14077a99f: lea      r10, [r11 + 1]
+0x14077a9a3: test     r12, r12
+0x14077a9a6: jne      0x14077a98b    ; main.BootstrapService.PreviewLauncherUIScale+0x8b
+0x14077a9a8: mov      qword ptr [rsp + 0x28], rcx
+0x14077a9ad: mov      qword ptr [rsp + 0x30], rbx
+0x14077a9b2: lea      rax, [rip + 0x144c0c7]
+0x14077a9b9: mov      rbx, rdx
+0x14077a9bc: nop      dword ptr [rax]
+0x14077a9c0: call     0x1400174a0    ; runtime.typeAssert
+0x14077a9c5: mov      rcx, qword ptr [rsp + 0x28]
+0x14077a9ca: mov      rbx, qword ptr [rsp + 0x30]
+0x14077a9cf: jmp      0x14077a96a    ; main.BootstrapService.PreviewLauncherUIScale+0x6a
+0x14077a9d1: mov      rax, qword ptr [r10 + r8 + 0x10]
+0x14077a9d6: jmp      0x14077a96a    ; main.BootstrapService.PreviewLauncherUIScale+0x6a
+0x14077a9d8: mov      qword ptr [rsp + 8], rax
+0x14077a9dd: mov      qword ptr [rsp + 0x10], rbx
+0x14077a9e2: call     0x14007f140    ; runtime.morestack_noctxt
+0x14077a9e7: mov      rax, qword ptr [rsp + 8]
+0x14077a9ec: mov      rbx, qword ptr [rsp + 0x10]
+0x14077a9f1: jmp      0x14077a900    ; main.BootstrapService.PreviewLauncherUIScale
+0x14077a9f6: int3     
+0x14077a9f7: int3     
+0x14077a9f8: int3     
+0x14077a9f9: int3     
+0x14077a9fa: int3     
+0x14077a9fb: int3     
+0x14077a9fc: int3     
+0x14077a9fd: int3     
+0x14077a9fe: int3     
+0x14077a9ff: int3     

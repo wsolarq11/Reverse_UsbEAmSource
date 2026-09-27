@@ -1,0 +1,65 @@
+0x1409474e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409474e4: jbe      0x140947573
+0x1409474ea: push     rbp
+0x1409474eb: mov      rbp, rsp
+0x1409474ee: sub      rsp, 0x10
+0x1409474f2: mov      rcx, qword ptr [rax + 0x2e8]
+0x1409474f9: test     rcx, rcx
+0x1409474fc: je       0x14094756d
+0x1409474fe: mov      qword ptr [rsp + 0x20], rax
+0x140947503: mov      rax, qword ptr [rcx + 0x68]
+0x140947507: mov      rbx, qword ptr [rcx + 0x70]
+0x14094750b: call     0x140947200
+0x140947510: mov      rcx, qword ptr [rsp + 0x20]
+0x140947515: mov      qword ptr [rcx + 0x2a0], rbx
+0x14094751c: cmp      dword ptr [rip + 0x1313e2d], 0
+0x140947523: je       0x140947538
+0x140947525: mov      rdx, qword ptr [rcx + 0x298]
+0x14094752c: call     0x140081060
+0x140947531: mov      qword ptr [r11], rax
+0x140947534: mov      qword ptr [r11 + 8], rdx
+0x140947538: mov      qword ptr [rcx + 0x298], rax
+0x14094753f: mov      rcx, qword ptr [rcx + 0x2e8]
+0x140947546: mov      qword ptr [rcx + 0x70], rbx
+0x14094754a: cmp      dword ptr [rip + 0x1313dff], 0
+0x140947551: je       0x140947563
+0x140947553: mov      rdx, qword ptr [rcx + 0x68]
+0x140947557: call     0x140081060
+0x14094755c: mov      qword ptr [r11], rax
+0x14094755f: mov      qword ptr [r11 + 8], rdx
+0x140947563: mov      qword ptr [rcx + 0x68], rax
+0x140947567: add      rsp, 0x10
+0x14094756b: pop      rbp
+0x14094756c: ret      
+0x14094756d: add      rsp, 0x10
+0x140947571: pop      rbp
+0x140947572: ret      
+0x140947573: mov      qword ptr [rsp + 8], rax
+0x140947578: call     0x14007f140
+0x14094757d: mov      rax, qword ptr [rsp + 8]
+0x140947582: jmp      0x1409474e0
+0x140947587: int3     
+0x140947588: int3     
+0x140947589: int3     
+0x14094758a: int3     
+0x14094758b: int3     
+0x14094758c: int3     
+0x14094758d: int3     
+0x14094758e: int3     
+0x14094758f: int3     
+0x140947590: int3     
+0x140947591: int3     
+0x140947592: int3     
+0x140947593: int3     
+0x140947594: int3     
+0x140947595: int3     
+0x140947596: int3     
+0x140947597: int3     
+0x140947598: int3     
+0x140947599: int3     
+0x14094759a: int3     
+0x14094759b: int3     
+0x14094759c: int3     
+0x14094759d: int3     
+0x14094759e: int3     
+0x14094759f: int3     

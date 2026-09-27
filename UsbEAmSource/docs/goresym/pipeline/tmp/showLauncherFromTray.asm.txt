@@ -1,0 +1,68 @@
+0x140795ce0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140795ce4: jbe      0x140795d75    ; main.BootstrapService.showLauncherFromTray+0x95
+0x140795cea: push     rbp
+0x140795ceb: mov      rbp, rsp
+0x140795cee: sub      rsp, 0x28
+0x140795cf2: mov      qword ptr [rsp + 0x38], rax
+0x140795cf7: call     0x140795c00    ; main.BootstrapService.ensureLauncherWindowForShow
+0x140795cfc: nop      dword ptr [rax]
+0x140795d00: test     rax, rax
+0x140795d03: je       0x140795d19    ; main.BootstrapService.showLauncherFromTray+0x39
+0x140795d05: mov      rdx, qword ptr [rax + 8]
+0x140795d09: mov      r8, qword ptr [rip + 0x1430e30]
+0x140795d10: mov      r9, qword ptr [r8]
+0x140795d13: mov      r10d, dword ptr [rax + 0x10]
+0x140795d17: jmp      0x140795d36    ; main.BootstrapService.showLauncherFromTray+0x56
+0x140795d19: mov      rcx, rbx
+0x140795d1c: xor      edi, edi
+0x140795d1e: mov      esi, 1
+0x140795d23: mov      rbx, rax
+0x140795d26: mov      rax, qword ptr [rsp + 0x38]
+0x140795d2b: call     0x140796480    ; main.BootstrapService.showLauncherWindow
+0x140795d30: add      rsp, 0x28
+0x140795d34: pop      rbp
+0x140795d35: ret      
+0x140795d36: mov      r11, r10
+0x140795d39: and      r10, r9
+0x140795d3c: shl      r10, 4
+0x140795d40: mov      r12, qword ptr [r10 + r8 + 8]
+0x140795d45: cmp      r12, rdx
+0x140795d48: je       0x140795d6e    ; main.BootstrapService.showLauncherFromTray+0x8e
+0x140795d4a: lea      r10, [r11 + 1]
+0x140795d4e: test     r12, r12
+0x140795d51: jne      0x140795d36    ; main.BootstrapService.showLauncherFromTray+0x56
+0x140795d53: mov      qword ptr [rsp + 0x20], rbx
+0x140795d58: lea      rax, [rip + 0x1430de1]
+0x140795d5f: mov      rbx, rdx
+0x140795d62: call     0x1400174a0    ; runtime.typeAssert
+0x140795d67: mov      rbx, qword ptr [rsp + 0x20]
+0x140795d6c: jmp      0x140795d19    ; main.BootstrapService.showLauncherFromTray+0x39
+0x140795d6e: mov      rax, qword ptr [r10 + r8 + 0x10]
+0x140795d73: jmp      0x140795d19    ; main.BootstrapService.showLauncherFromTray+0x39
+0x140795d75: mov      qword ptr [rsp + 8], rax
+0x140795d7a: call     0x14007f140    ; runtime.morestack_noctxt
+0x140795d7f: mov      rax, qword ptr [rsp + 8]
+0x140795d84: jmp      0x140795ce0    ; main.BootstrapService.showLauncherFromTray
+0x140795d89: int3     
+0x140795d8a: int3     
+0x140795d8b: int3     
+0x140795d8c: int3     
+0x140795d8d: int3     
+0x140795d8e: int3     
+0x140795d8f: int3     
+0x140795d90: int3     
+0x140795d91: int3     
+0x140795d92: int3     
+0x140795d93: int3     
+0x140795d94: int3     
+0x140795d95: int3     
+0x140795d96: int3     
+0x140795d97: int3     
+0x140795d98: int3     
+0x140795d99: int3     
+0x140795d9a: int3     
+0x140795d9b: int3     
+0x140795d9c: int3     
+0x140795d9d: int3     
+0x140795d9e: int3     
+0x140795d9f: int3     

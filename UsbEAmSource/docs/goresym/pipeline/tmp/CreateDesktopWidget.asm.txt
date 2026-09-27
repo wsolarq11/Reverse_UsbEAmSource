@@ -1,0 +1,73 @@
+0x1407a7e80: lea      r12, [rsp - 0x1a0]
+0x1407a7e88: cmp      r12, qword ptr [r14 + 0x10]
+0x1407a7e8c: jbe      0x1407a7fdc    ; main.BootstrapService.CreateDesktopWidget+0x15c
+0x1407a7e92: push     rbp
+0x1407a7e93: mov      rbp, rsp
+0x1407a7e96: sub      rsp, 0x218
+0x1407a7e9d: movups   xmmword ptr [rsp + 0x2a8], xmm15
+0x1407a7ea6: lea      rdi, [rsp + 0x2b0]
+0x1407a7eae: nop      word ptr [rax + rax]
+0x1407a7eb7: nop      word ptr [rax + rax]
+0x1407a7ec0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7ec5: lea      rbp, [rsp - 0x10]
+0x1407a7eca: call     0x14008170b    ; runtime.duffzero+0x12b
+0x1407a7ecf: mov      rbp, qword ptr [rbp]
+0x1407a7ed3: movups   xmmword ptr [rsp + 0x150], xmm15
+0x1407a7edc: lea      rdi, [rsp + 0x158]
+0x1407a7ee4: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7ee9: lea      rbp, [rsp - 0x10]
+0x1407a7eee: call     0x14008170b    ; runtime.duffzero+0x12b
+0x1407a7ef3: mov      rbp, qword ptr [rbp]
+0x1407a7ef7: mov      rax, qword ptr [rax + 0x440]
+0x1407a7efe: mov      rdi, rsp
+0x1407a7f01: lea      rsi, [rsp + 0x228]
+0x1407a7f09: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7f0e: lea      rbp, [rsp - 0x10]
+0x1407a7f13: call     0x140081a70    ; runtime.duffcopy+0x310
+0x1407a7f18: mov      rbp, qword ptr [rbp]
+0x1407a7f1c: nop      dword ptr [rax]
+0x1407a7f20: call     0x1407b5140    ; main.desktopWidgetService.Create
+0x1407a7f25: mov      rcx, qword ptr [rsp + 0x80]
+0x1407a7f2d: mov      qword ptr [rsp + 0x150], rcx
+0x1407a7f35: lea      rdi, [rsp + 0x158]
+0x1407a7f3d: lea      rsi, [rsp + 0x88]
+0x1407a7f45: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7f4a: lea      rbp, [rsp - 0x10]
+0x1407a7f4f: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x1407a7f54: mov      rbp, qword ptr [rbp]
+0x1407a7f58: mov      rcx, qword ptr [rsp + 0x150]
+0x1407a7f60: mov      qword ptr [rsp + 0x2a8], rcx
+0x1407a7f68: lea      rdi, [rsp + 0x2b0]
+0x1407a7f70: lea      rsi, [rsp + 0x158]
+0x1407a7f78: nop      dword ptr [rax + rax]
+0x1407a7f80: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7f85: lea      rbp, [rsp - 0x10]
+0x1407a7f8a: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x1407a7f8f: mov      rbp, qword ptr [rbp]
+0x1407a7f93: mov      rcx, qword ptr [rsp + 0x150]
+0x1407a7f9b: mov      qword ptr [rsp + 0x2a8], rcx
+0x1407a7fa3: lea      rdi, [rsp + 0x2b0]
+0x1407a7fab: lea      rsi, [rsp + 0x158]
+0x1407a7fb3: nop      word ptr [rax + rax]
+0x1407a7fbc: nop      dword ptr [rax]
+0x1407a7fc0: mov      qword ptr [rsp - 0x10], rbp
+0x1407a7fc5: lea      rbp, [rsp - 0x10]
+0x1407a7fca: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x1407a7fcf: mov      rbp, qword ptr [rbp]
+0x1407a7fd3: add      rsp, 0x218
+0x1407a7fda: pop      rbp
+0x1407a7fdb: ret      
+0x1407a7fdc: mov      qword ptr [rsp + 0x150], rax
+0x1407a7fe4: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407a7fe9: mov      rax, qword ptr [rsp + 0x150]
+0x1407a7ff1: jmp      0x1407a7e80    ; main.BootstrapService.CreateDesktopWidget
+0x1407a7ff6: int3     
+0x1407a7ff7: int3     
+0x1407a7ff8: int3     
+0x1407a7ff9: int3     
+0x1407a7ffa: int3     
+0x1407a7ffb: int3     
+0x1407a7ffc: int3     
+0x1407a7ffd: int3     
+0x1407a7ffe: int3     
+0x1407a7fff: int3     

@@ -1,0 +1,196 @@
+0x140931fe0: lea      r12, [rsp - 0xc0]
+0x140931fe8: cmp      r12, qword ptr [r14 + 0x10]
+0x140931fec: jbe      0x1409323c8   ; main.buildQRCodeDecodeResultFromPNG+0x3e8
+0x140931ff2: push     rbp
+0x140931ff3: mov      rbp, rsp
+0x140931ff6: sub      rsp, 0x138
+0x140931ffd: mov      qword ptr [rsp + 0x1a0], rax
+0x140932005: movq     qword ptr [rsp + 0x130], xmm15
+0x14093200f: mov      byte ptr [rsp + 0x5f], 0
+0x140932014: movups   xmmword ptr [rsp + 0x148], xmm15
+0x14093201d: lea      rdi, [rsp + 0x150]
+0x140932025: lea      rdi, [rdi - 0x30]
+0x140932029: mov      qword ptr [rsp - 0x10], rbp
+0x14093202e: lea      rbp, [rsp - 0x10]
+0x140932033: call     0x140081730   ; runtime.duffzero+0x150
+0x140932038: mov      rbp, qword ptr [rbp]
+0x14093203c: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x140932045: test     rbx, rbx
+0x140932048: je       0x14093236c   ; main.buildQRCodeDecodeResultFromPNG+0x38c
+0x14093204e: mov      qword ptr [rsp + 0x1b0], rcx
+0x140932056: mov      qword ptr [rsp + 0x1a8], rbx
+0x14093205e: mov      qword ptr [rsp + 0x1a0], rax
+0x140932066: lea      rdi, [rip + 0x301a3f]
+0x14093206d: mov      esi, 3
+0x140932072: mov      r8d, 0xc
+0x140932078: call     0x1409800c0   ; main.decodeScreenshotImageBytesWithBudget
+0x14093207d: nop      dword ptr [rax]
+0x140932080: test     r8, r8
+0x140932083: je       0x14093210c   ; main.buildQRCodeDecodeResultFromPNG+0x12c
+0x140932089: movups   xmmword ptr [rsp + 0x120], xmm15
+0x140932092: je       0x140932098   ; main.buildQRCodeDecodeResultFromPNG+0xb8
+0x140932094: mov      r8, qword ptr [r8 + 8]
+0x140932098: mov      qword ptr [rsp + 0x120], r8
+0x1409320a0: mov      qword ptr [rsp + 0x128], r9
+0x1409320a8: lea      rax, [rip + 0x339d5d]
+0x1409320af: mov      ebx, 0x1c
+0x1409320b4: lea      rcx, [rsp + 0x120]
+0x1409320bc: mov      edi, 1
+0x1409320c1: mov      rsi, rdi
+0x1409320c4: call     0x140133280   ; fmt.Errorf
+0x1409320c9: movups   xmmword ptr [rsp + 0x148], xmm15
+0x1409320d2: lea      rdi, [rsp + 0x150]
+0x1409320da: lea      rdi, [rdi - 0x30]
+0x1409320de: nop      
+0x1409320e0: mov      qword ptr [rsp - 0x10], rbp
+0x1409320e5: lea      rbp, [rsp - 0x10]
+0x1409320ea: call     0x140081730   ; runtime.duffzero+0x150
+0x1409320ef: mov      rbp, qword ptr [rbp]
+0x1409320f3: mov      qword ptr [rsp + 0xa0], rax
+0x1409320fb: mov      qword ptr [rsp + 0xa8], rbx
+0x140932103: add      rsp, 0x138
+0x14093210a: pop      rbp
+0x14093210b: ret      
+0x14093210c: mov      qword ptr [rsp + 0xb8], rbx
+0x140932114: mov      qword ptr [rsp + 0x78], rax
+0x140932119: mov      qword ptr [rsp + 0x130], rsi
+0x140932121: mov      byte ptr [rsp + 0x5f], 1
+0x140932126: call     0x140932400   ; main.decodeQRCodesFromImage
+0x14093212b: mov      qword ptr [rsp + 0x80], rbx
+0x140932133: mov      qword ptr [rsp + 0xc0], rax
+0x14093213b: mov      qword ptr [rsp + 0x88], rcx
+0x140932143: mov      rax, qword ptr [rip + 0x12dd6f6]
+0x14093214a: mov      rbx, qword ptr [rsp + 0x1a0]
+0x140932152: mov      rcx, qword ptr [rsp + 0x1a8]
+0x14093215a: mov      rdi, qword ptr [rsp + 0x1b0]
+0x140932162: call     0x14019a860   ; encoding/base64.Encoding.EncodeToString
+0x140932167: mov      ecx, 0x16
+0x14093216c: mov      rdi, rax
+0x14093216f: mov      rsi, rbx
+0x140932172: xor      eax, eax
+0x140932174: lea      rbx, [rip + 0x32efe5]
+0x14093217b: nop      dword ptr [rax + rax]
+0x140932180: call     0x14005fc00   ; runtime.concatstring2
+0x140932185: mov      qword ptr [rsp + 0xb0], rax
+0x14093218d: mov      qword ptr [rsp + 0x60], rbx
+0x140932192: mov      rcx, qword ptr [rsp + 0x78]
+0x140932197: mov      rcx, qword ptr [rcx + 0x20]
+0x14093219b: mov      rax, qword ptr [rsp + 0xb8]
+0x1409321a3: call     rcx
+0x1409321a5: mov      qword ptr [rsp + 0x98], rax
+0x1409321ad: mov      qword ptr [rsp + 0x90], rcx
+0x1409321b5: mov      rcx, qword ptr [rsp + 0x78]
+0x1409321ba: mov      rcx, qword ptr [rcx + 0x20]
+0x1409321be: mov      rax, qword ptr [rsp + 0xb8]
+0x1409321c6: call     rcx
+0x1409321c8: mov      rcx, qword ptr [rsp + 0x90]
+0x1409321d0: mov      rdx, qword ptr [rsp + 0x98]
+0x1409321d8: sub      rcx, rdx
+0x1409321db: sub      rdi, rbx
+0x1409321de: mov      rdx, qword ptr [rsp + 0x80]
+0x1409321e6: cmp      rdx, 1
+0x1409321ea: je       0x1409321f5   ; main.buildQRCodeDecodeResultFromPNG+0x215
+0x1409321ec: xor      ebx, ebx
+0x1409321ee: xor      eax, eax
+0x1409321f0: jmp      0x1409322a8   ; main.buildQRCodeDecodeResultFromPNG+0x2c8
+0x1409321f5: mov      qword ptr [rsp + 0x70], rcx
+0x1409321fa: mov      qword ptr [rsp + 0x68], rdi
+0x1409321ff: mov      rsi, qword ptr [rsp + 0xc0]
+0x140932207: mov      rdx, qword ptr [rsi]
+0x14093220a: add      rsi, 8
+0x14093220e: mov      qword ptr [rsp + 0xc8], rdx
+0x140932216: lea      rdi, [rsp + 0xd0]
+0x14093221e: nop      
+0x140932220: mov      qword ptr [rsp - 0x10], rbp
+0x140932225: lea      rbp, [rsp - 0x10]
+0x14093222a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x14093222f: mov      rbp, qword ptr [rbp]
+0x140932233: mov      rax, qword ptr [rsp + 0xc8]
+0x14093223b: mov      rbx, qword ptr [rsp + 0xd0]
+0x140932243: mov      rcx, qword ptr [rsp + 0xd8]
+0x14093224b: mov      rdi, qword ptr [rsp + 0xe0]
+0x140932253: movzx    esi, byte ptr [rsp + 0xe8]
+0x14093225b: movsd    xmm0, qword ptr [rsp + 0xf0]
+0x140932264: movsd    xmm1, qword ptr [rsp + 0xf8]
+0x14093226d: movsd    xmm2, qword ptr [rsp + 0x100]
+0x140932276: movsd    xmm3, qword ptr [rsp + 0x108]
+0x14093227f: movsd    xmm4, qword ptr [rsp + 0x110]
+0x140932288: movsd    xmm5, qword ptr [rsp + 0x118]
+0x140932291: call     0x140933720   ; main.buildQRCodeDecodedEntryKey
+0x140932296: mov      rcx, qword ptr [rsp + 0x70]
+0x14093229b: mov      rdx, qword ptr [rsp + 0x80]
+0x1409322a3: mov      rdi, qword ptr [rsp + 0x68]
+0x1409322a8: movups   xmmword ptr [rsp + 0x148], xmm15
+0x1409322b1: mov      rsi, rdi
+0x1409322b4: lea      rdi, [rsp + 0x150]
+0x1409322bc: lea      rdi, [rdi - 0x30]
+0x1409322c0: mov      qword ptr [rsp - 0x10], rbp
+0x1409322c5: lea      rbp, [rsp - 0x10]
+0x1409322ca: call     0x140081730   ; runtime.duffzero+0x150
+0x1409322cf: mov      rbp, qword ptr [rbp]
+0x1409322d3: mov      r8, qword ptr [rsp + 0xb0]
+0x1409322db: mov      qword ptr [rsp + 0x148], r8
+0x1409322e3: mov      r8, qword ptr [rsp + 0x60]
+0x1409322e8: mov      qword ptr [rsp + 0x150], r8
+0x1409322f0: mov      qword ptr [rsp + 0x158], rcx
+0x1409322f8: mov      qword ptr [rsp + 0x160], rsi
+0x140932300: mov      rcx, qword ptr [rsp + 0xc0]
+0x140932308: mov      qword ptr [rsp + 0x168], rcx
+0x140932310: mov      qword ptr [rsp + 0x170], rdx
+0x140932318: mov      rcx, qword ptr [rsp + 0x88]
+0x140932320: mov      qword ptr [rsp + 0x178], rcx
+0x140932328: mov      qword ptr [rsp + 0x188], rax
+0x140932330: mov      qword ptr [rsp + 0x190], rbx
+0x140932338: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x140932341: mov      byte ptr [rsp + 0x5f], 0
+0x140932346: mov      rdx, qword ptr [rsp + 0x130]
+0x14093234e: mov      rax, qword ptr [rdx]
+0x140932351: call     rax
+0x140932353: mov      rbx, qword ptr [rsp + 0xa8]
+0x14093235b: mov      rax, qword ptr [rsp + 0xa0]
+0x140932363: add      rsp, 0x138
+0x14093236a: pop      rbp
+0x14093236b: ret      
+0x14093236c: movups   xmmword ptr [rsp + 0x148], xmm15
+0x140932375: lea      rdi, [rsp + 0x150]
+0x14093237d: lea      rdi, [rdi - 0x30]
+0x140932381: mov      qword ptr [rsp - 0x10], rbp
+0x140932386: lea      rbp, [rsp - 0x10]
+0x14093238b: call     0x140081730   ; runtime.duffzero+0x150
+0x140932390: mov      rbp, qword ptr [rbp]
+0x140932394: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x14093239d: xor      eax, eax
+0x14093239f: xor      ebx, ebx
+0x1409323a1: add      rsp, 0x138
+0x1409323a8: pop      rbp
+0x1409323a9: ret      
+0x1409323aa: call     0x1400435e0   ; runtime.deferreturn
+0x1409323af: mov      rax, qword ptr [rsp + 0xa0]
+0x1409323b7: mov      rbx, qword ptr [rsp + 0xa8]
+0x1409323bf: add      rsp, 0x138
+0x1409323c6: pop      rbp
+0x1409323c7: ret      
+0x1409323c8: mov      qword ptr [rsp + 0x60], rax
+0x1409323cd: mov      qword ptr [rsp + 0x68], rbx
+0x1409323d2: mov      qword ptr [rsp + 0x70], rcx
+0x1409323d7: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409323dc: mov      rax, qword ptr [rsp + 0x60]
+0x1409323e1: mov      rbx, qword ptr [rsp + 0x68]
+0x1409323e6: mov      rcx, qword ptr [rsp + 0x70]
+0x1409323eb: jmp      0x140931fe0   ; main.buildQRCodeDecodeResultFromPNG
+0x1409323f0: int3     
+0x1409323f1: int3     
+0x1409323f2: int3     
+0x1409323f3: int3     
+0x1409323f4: int3     
+0x1409323f5: int3     
+0x1409323f6: int3     
+0x1409323f7: int3     
+0x1409323f8: int3     
+0x1409323f9: int3     
+0x1409323fa: int3     
+0x1409323fb: int3     
+0x1409323fc: int3     
+0x1409323fd: int3     
+0x1409323fe: int3     
+0x1409323ff: int3     

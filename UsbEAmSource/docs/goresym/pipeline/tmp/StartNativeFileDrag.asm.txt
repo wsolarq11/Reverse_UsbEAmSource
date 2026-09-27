@@ -1,0 +1,98 @@
+0x1408fa9a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408fa9a4: jbe      0x1408faa8e    ; main.BootstrapService.StartNativeFileDrag+0xee
+0x1408fa9aa: push     rbp
+0x1408fa9ab: mov      rbp, rsp
+0x1408fa9ae: sub      rsp, 0x40
+0x1408fa9b2: mov      qword ptr [rsp + 0x58], rbx
+0x1408fa9b7: mov      qword ptr [rsp + 0x50], rax
+0x1408fa9bc: mov      rax, rbx
+0x1408fa9bf: mov      rbx, rcx
+0x1408fa9c2: mov      rcx, rdi
+0x1408fa9c5: call     0x1408faea0    ; main.normalizeNativeFileDragPaths
+0x1408fa9ca: test     rdi, rdi
+0x1408fa9cd: jne      0x1408faa82    ; main.BootstrapService.StartNativeFileDrag+0xe2
+0x1408fa9d3: mov      qword ptr [rsp + 0x28], rcx
+0x1408fa9d8: mov      qword ptr [rsp + 0x20], rbx
+0x1408fa9dd: mov      qword ptr [rsp + 0x38], rax
+0x1408fa9e2: mov      rax, qword ptr [rsp + 0x50]
+0x1408fa9e7: xor      ebx, ebx
+0x1408fa9e9: xor      ecx, ecx
+0x1408fa9eb: call     0x140795920    ; main.BootstrapService.resolveLauncherWindow
+0x1408fa9f0: test     rax, rax
+0x1408fa9f3: je       0x1408faa6e    ; main.BootstrapService.StartNativeFileDrag+0xce
+0x1408fa9f5: mov      qword ptr [rsp + 0x18], rax
+0x1408fa9fa: mov      qword ptr [rsp + 0x30], rbx
+0x1408fa9ff: lea      rax, [rip + 0x2993ba]
+0x1408faa06: call     0x14001ae20    ; runtime.newobject
+0x1408faa0b: lea      rcx, [rip + 0xce]
+0x1408faa12: mov      qword ptr [rax], rcx
+0x1408faa15: mov      rcx, qword ptr [rsp + 0x18]
+0x1408faa1a: mov      qword ptr [rax + 8], rcx
+0x1408faa1e: cmp      dword ptr [rip + 0x136092b], 0
+0x1408faa25: jne      0x1408faa33    ; main.BootstrapService.StartNativeFileDrag+0x93
+0x1408faa27: mov      rcx, qword ptr [rsp + 0x30]
+0x1408faa2c: mov      rdx, qword ptr [rsp + 0x38]
+0x1408faa31: jmp      0x1408faa49    ; main.BootstrapService.StartNativeFileDrag+0xa9
+0x1408faa33: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1408faa38: mov      rcx, qword ptr [rsp + 0x30]
+0x1408faa3d: mov      qword ptr [r11], rcx
+0x1408faa40: mov      rdx, qword ptr [rsp + 0x38]
+0x1408faa45: mov      qword ptr [r11 + 8], rdx
+0x1408faa49: mov      qword ptr [rax + 0x10], rcx
+0x1408faa4d: mov      rcx, qword ptr [rsp + 0x20]
+0x1408faa52: mov      qword ptr [rax + 0x20], rcx
+0x1408faa56: mov      rcx, qword ptr [rsp + 0x28]
+0x1408faa5b: mov      qword ptr [rax + 0x28], rcx
+0x1408faa5f: mov      qword ptr [rax + 0x18], rdx
+0x1408faa63: call     0x140618280    ; github.com/wailsapp/wails/v3/pkg/application.InvokeSyncWithError
+0x1408faa68: add      rsp, 0x40
+0x1408faa6c: pop      rbp
+0x1408faa6d: ret      
+0x1408faa6e: mov      rax, qword ptr [rip + 0x12c92ab]
+0x1408faa75: mov      rbx, qword ptr [rip + 0x12c92ac]
+0x1408faa7c: add      rsp, 0x40
+0x1408faa80: pop      rbp
+0x1408faa81: ret      
+0x1408faa82: mov      rax, rdi
+0x1408faa85: mov      rbx, rsi
+0x1408faa88: add      rsp, 0x40
+0x1408faa8c: pop      rbp
+0x1408faa8d: ret      
+0x1408faa8e: mov      qword ptr [rsp + 8], rax
+0x1408faa93: mov      qword ptr [rsp + 0x10], rbx
+0x1408faa98: mov      qword ptr [rsp + 0x18], rcx
+0x1408faa9d: mov      qword ptr [rsp + 0x20], rdi
+0x1408faaa2: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408faaa7: mov      rax, qword ptr [rsp + 8]
+0x1408faaac: mov      rbx, qword ptr [rsp + 0x10]
+0x1408faab1: mov      rcx, qword ptr [rsp + 0x18]
+0x1408faab6: mov      rdi, qword ptr [rsp + 0x20]
+0x1408faabb: nop      dword ptr [rax + rax]
+0x1408faac0: jmp      0x1408fa9a0    ; main.BootstrapService.StartNativeFileDrag
+0x1408faac5: int3     
+0x1408faac6: int3     
+0x1408faac7: int3     
+0x1408faac8: int3     
+0x1408faac9: int3     
+0x1408faaca: int3     
+0x1408faacb: int3     
+0x1408faacc: int3     
+0x1408faacd: int3     
+0x1408faace: int3     
+0x1408faacf: int3     
+0x1408faad0: int3     
+0x1408faad1: int3     
+0x1408faad2: int3     
+0x1408faad3: int3     
+0x1408faad4: int3     
+0x1408faad5: int3     
+0x1408faad6: int3     
+0x1408faad7: int3     
+0x1408faad8: int3     
+0x1408faad9: int3     
+0x1408faada: int3     
+0x1408faadb: int3     
+0x1408faadc: int3     
+0x1408faadd: int3     
+0x1408faade: int3     
+0x1408faadf: int3     

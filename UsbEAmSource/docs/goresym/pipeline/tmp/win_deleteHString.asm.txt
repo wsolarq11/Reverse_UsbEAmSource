@@ -1,0 +1,28 @@
+0x14091fde0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14091fde4: jbe      0x14091fe2d   ; main.oledBlackoutDeleteHString+0x4d
+0x14091fde6: push     rbp
+0x14091fde7: mov      rbp, rsp
+0x14091fdea: sub      rsp, 0x20
+0x14091fdee: test     rax, rax
+0x14091fdf1: je       0x14091fe27   ; main.oledBlackoutDeleteHString+0x47
+0x14091fdf3: mov      qword ptr [rsp + 0x30], rax
+0x14091fdf8: lea      rax, [rip + 0x1ddb81]
+0x14091fdff: nop      
+0x14091fe00: call     0x14001ae20   ; runtime.newobject
+0x14091fe05: mov      rcx, qword ptr [rsp + 0x30]
+0x14091fe0a: mov      qword ptr [rax], rcx
+0x14091fe0d: mov      rcx, qword ptr [rip + 0x12a1e04]
+0x14091fe14: mov      rbx, rax
+0x14091fe17: mov      edi, 1
+0x14091fe1c: mov      rax, rcx
+0x14091fe1f: mov      rcx, rdi
+0x14091fe22: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x14091fe27: add      rsp, 0x20
+0x14091fe2b: pop      rbp
+0x14091fe2c: ret      
+0x14091fe2d: mov      qword ptr [rsp + 8], rax
+0x14091fe32: call     0x14007f140   ; runtime.morestack_noctxt
+0x14091fe37: mov      rax, qword ptr [rsp + 8]
+0x14091fe3c: jmp      0x14091fde0   ; main.oledBlackoutDeleteHString
+0x14091fe3e: int3     
+0x14091fe3f: int3     

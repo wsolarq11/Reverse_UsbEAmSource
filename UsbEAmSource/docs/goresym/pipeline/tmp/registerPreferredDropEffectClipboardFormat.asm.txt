@@ -1,0 +1,117 @@
+0x1408aeb60: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408aeb64: jbe      0x1408aec16   ; main.registerPreferredDropEffectClipboardFormat+0xb6
+0x1408aeb6a: push     rbp
+0x1408aeb6b: mov      rbp, rsp
+0x1408aeb6e: sub      rsp, 0x28
+0x1408aeb72: lea      rax, [rip + 0x3aee3e]
+0x1408aeb79: mov      ebx, 0x14
+0x1408aeb7e: nop      
+0x1408aeb80: call     0x1400e5f00   ; syscall.UTF16FromString
+0x1408aeb85: test     rdi, rdi
+0x1408aeb88: je       0x1408aeb8e   ; main.registerPreferredDropEffectClipboardFormat+0x2e
+0x1408aeb8a: xor      eax, eax
+0x1408aeb8c: jmp      0x1408aeb97   ; main.registerPreferredDropEffectClipboardFormat+0x37
+0x1408aeb8e: test     rbx, rbx
+0x1408aeb91: jbe      0x1408aec0b   ; main.registerPreferredDropEffectClipboardFormat+0xab
+0x1408aeb93: xor      edi, edi
+0x1408aeb95: xor      esi, esi
+0x1408aeb97: test     rdi, rdi
+0x1408aeb9a: jne      0x1408aebfd   ; main.registerPreferredDropEffectClipboardFormat+0x9d
+0x1408aeb9c: mov      qword ptr [rsp + 0x20], rax
+0x1408aeba1: lea      rax, [rip + 0x24edd8]
+0x1408aeba8: call     0x14001ae20   ; runtime.newobject
+0x1408aebad: mov      rcx, qword ptr [rsp + 0x20]
+0x1408aebb2: mov      qword ptr [rax], rcx
+0x1408aebb5: mov      rcx, qword ptr [rip + 0x1312ebc]
+0x1408aebbc: mov      rbx, rax
+0x1408aebbf: mov      edi, 1
+0x1408aebc4: mov      rax, rcx
+0x1408aebc7: mov      rcx, rdi
+0x1408aebca: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1408aebcf: test     rax, rax
+0x1408aebd2: jne      0x1408aebf3   ; main.registerPreferredDropEffectClipboardFormat+0x93
+0x1408aebd4: lea      rax, [rip + 0x3cf24b]
+0x1408aebdb: mov      ebx, 0x27
+0x1408aebe0: call     0x1408af3a0   ; main.wrapWinError
+0x1408aebe5: mov      rcx, rbx
+0x1408aebe8: mov      rbx, rax
+0x1408aebeb: xor      eax, eax
+0x1408aebed: add      rsp, 0x28
+0x1408aebf1: pop      rbp
+0x1408aebf2: ret      
+0x1408aebf3: xor      ebx, ebx
+0x1408aebf5: xor      ecx, ecx
+0x1408aebf7: add      rsp, 0x28
+0x1408aebfb: pop      rbp
+0x1408aebfc: ret      
+0x1408aebfd: xor      eax, eax
+0x1408aebff: mov      rbx, rdi
+0x1408aec02: mov      rcx, rsi
+0x1408aec05: add      rsp, 0x28
+0x1408aec09: pop      rbp
+0x1408aec0a: ret      
+0x1408aec0b: xor      eax, eax
+0x1408aec0d: mov      rcx, rax
+0x1408aec10: call     0x140081400   ; runtime.panicIndex
+0x1408aec15: nop      
+0x1408aec16: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408aec1b: nop      dword ptr [rax + rax]
+0x1408aec20: jmp      0x1408aeb60   ; main.registerPreferredDropEffectClipboardFormat
+0x1408aec25: int3     
+0x1408aec26: int3     
+0x1408aec27: int3     
+0x1408aec28: int3     
+0x1408aec29: int3     
+0x1408aec2a: int3     
+0x1408aec2b: int3     
+0x1408aec2c: int3     
+0x1408aec2d: int3     
+0x1408aec2e: int3     
+0x1408aec2f: int3     
+0x1408aec30: int3     
+0x1408aec31: int3     
+0x1408aec32: int3     
+0x1408aec33: int3     
+0x1408aec34: int3     
+0x1408aec35: int3     
+0x1408aec36: int3     
+0x1408aec37: int3     
+0x1408aec38: int3     
+0x1408aec39: int3     
+0x1408aec3a: int3     
+0x1408aec3b: int3     
+0x1408aec3c: int3     
+0x1408aec3d: int3     
+0x1408aec3e: int3     
+0x1408aec3f: int3     
+0x1408aec40: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408aec44: jbe      0x1408aee28   ; main.shellExecuteProgram+0x1e8
+0x1408aec4a: push     rbp
+0x1408aec4b: mov      rbp, rsp
+0x1408aec4e: sub      rsp, 0x48
+0x1408aec52: mov      qword ptr [rsp + 0x68], rcx
+0x1408aec57: mov      qword ptr [rsp + 0x58], rax
+0x1408aec5c: mov      qword ptr [rsp + 0x90], r10
+0x1408aec64: mov      qword ptr [rsp + 0x60], rbx
+0x1408aec69: mov      qword ptr [rsp + 0x78], rsi
+0x1408aec6e: mov      qword ptr [rsp + 0x80], r8
+0x1408aec76: mov      qword ptr [rsp + 0x88], r9
+0x1408aec7e: mov      rax, rcx
+0x1408aec81: mov      rbx, rdi
+0x1408aec84: call     0x1400e5f00   ; syscall.UTF16FromString
+0x1408aec89: test     rdi, rdi
+0x1408aec8c: je       0x1408aec92   ; main.shellExecuteProgram+0x52
+0x1408aec8e: xor      eax, eax
+0x1408aec90: jmp      0x1408aeca0   ; main.shellExecuteProgram+0x60
+0x1408aec92: test     rbx, rbx
+0x1408aec95: jbe      0x1408aee1d   ; main.shellExecuteProgram+0x1dd
+0x1408aec9b: xor      edi, edi
+0x1408aec9d: xor      esi, esi
+0x1408aec9f: nop      
+0x1408aeca0: test     rdi, rdi
+0x1408aeca3: jne      0x1408aee11   ; main.shellExecuteProgram+0x1d1
+0x1408aeca9: mov      qword ptr [rsp + 0x30], rax
+0x1408aecae: mov      rax, qword ptr [rsp + 0x58]
+0x1408aecb3: mov      rbx, qword ptr [rsp + 0x60]
+0x1408aecb8: call     0x1408af2a0   ; main.utf16PtrOrNil
+0x1408aecbd: nop      dword ptr [rax]

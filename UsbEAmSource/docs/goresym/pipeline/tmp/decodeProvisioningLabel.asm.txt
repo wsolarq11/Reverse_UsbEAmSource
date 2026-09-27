@@ -1,0 +1,55 @@
+0x1409d8260: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409d8264: jbe      0x1409d82da   ; main.decodeProvisioningLabel+0x7a
+0x1409d8266: push     rbp
+0x1409d8267: mov      rbp, rsp
+0x1409d826a: sub      rsp, 0x28
+0x1409d826e: mov      qword ptr [rsp + 0x38], rax
+0x1409d8273: call     0x1400a2200   ; strings.TrimSpace
+0x1409d8278: nop      
+0x1409d8279: test     rbx, rbx
+0x1409d827c: je       0x1409d8296   ; main.decodeProvisioningLabel+0x36
+0x1409d827e: cmp      byte ptr [rax], 0x2f
+0x1409d8281: jne      0x1409d8296   ; main.decodeProvisioningLabel+0x36
+0x1409d8283: dec      rbx
+0x1409d8286: mov      rdx, rbx
+0x1409d8289: neg      rdx
+0x1409d828c: sar      rdx, 0x3f
+0x1409d8290: and      edx, 1
+0x1409d8293: add      rax, rdx
+0x1409d8296: test     rbx, rbx
+0x1409d8299: je       0x1409d82d0   ; main.decodeProvisioningLabel+0x70
+0x1409d829b: mov      qword ptr [rsp + 0x18], rbx
+0x1409d82a0: mov      qword ptr [rsp + 0x20], rax
+0x1409d82a5: nop      
+0x1409d82a6: mov      ecx, 2
+0x1409d82ab: call     0x140263e60   ; net/url.unescape
+0x1409d82b0: test     rcx, rcx
+0x1409d82b3: je       0x1409d82c5   ; main.decodeProvisioningLabel+0x65
+0x1409d82b5: mov      rax, qword ptr [rsp + 0x20]
+0x1409d82ba: mov      rbx, qword ptr [rsp + 0x18]
+0x1409d82bf: add      rsp, 0x28
+0x1409d82c3: pop      rbp
+0x1409d82c4: ret      
+0x1409d82c5: call     0x1400a2200   ; strings.TrimSpace
+0x1409d82ca: add      rsp, 0x28
+0x1409d82ce: pop      rbp
+0x1409d82cf: ret      
+0x1409d82d0: xor      eax, eax
+0x1409d82d2: xor      ebx, ebx
+0x1409d82d4: add      rsp, 0x28
+0x1409d82d8: pop      rbp
+0x1409d82d9: ret      
+0x1409d82da: mov      qword ptr [rsp + 8], rax
+0x1409d82df: mov      qword ptr [rsp + 0x10], rbx
+0x1409d82e4: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d82e9: mov      rax, qword ptr [rsp + 8]
+0x1409d82ee: mov      rbx, qword ptr [rsp + 0x10]
+0x1409d82f3: jmp      0x1409d8260   ; main.decodeProvisioningLabel
+0x1409d82f8: int3     
+0x1409d82f9: int3     
+0x1409d82fa: int3     
+0x1409d82fb: int3     
+0x1409d82fc: int3     
+0x1409d82fd: int3     
+0x1409d82fe: int3     
+0x1409d82ff: int3     

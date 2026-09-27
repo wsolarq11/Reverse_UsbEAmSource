@@ -1,0 +1,86 @@
+0x14090f240: cmp      rsp, qword ptr [r14 + 0x10]
+0x14090f244: jbe      0x14090f35a   ; main.newOLEDBlackoutHotkeyManager+0x11a
+0x14090f24a: push     rbp
+0x14090f24b: mov      rbp, rsp
+0x14090f24e: sub      rsp, 0x30
+0x14090f252: mov      qword ptr [rsp + 0x40], rax
+0x14090f257: lea      rax, [rip + 0x1ddb62]
+0x14090f25e: mov      ebx, 4
+0x14090f263: call     0x1400114c0   ; runtime.makechan
+0x14090f268: mov      qword ptr [rsp + 0x28], rax
+0x14090f26d: lea      rax, [rip + 0x1ddb8c]
+0x14090f274: xor      ebx, ebx
+0x14090f276: call     0x1400114c0   ; runtime.makechan
+0x14090f27b: mov      qword ptr [rsp + 0x20], rax
+0x14090f280: lea      rax, [rip + 0x1ddb79]
+0x14090f287: xor      ebx, ebx
+0x14090f289: call     0x1400114c0   ; runtime.makechan
+0x14090f28e: mov      qword ptr [rsp + 0x18], rax
+0x14090f293: lea      rax, [rip + 0x2c2ca6]
+0x14090f29a: call     0x14001ae20   ; runtime.newobject
+0x14090f29f: cmp      dword ptr [rip + 0x134c0aa], 0
+0x14090f2a6: jne      0x14090f2c0   ; main.newOLEDBlackoutHotkeyManager+0x80
+0x14090f2a8: mov      rcx, qword ptr [rsp + 0x40]
+0x14090f2ad: mov      rdx, qword ptr [rsp + 0x28]
+0x14090f2b2: mov      rbx, qword ptr [rsp + 0x20]
+0x14090f2b7: mov      rsi, qword ptr [rsp + 0x18]
+0x14090f2bc: jmp      0x14090f2e8   ; main.newOLEDBlackoutHotkeyManager+0xa8
+0x14090f2be: nop      
+0x14090f2c0: call     0x1400810a0   ; runtime.gcWriteBarrier4
+0x14090f2c5: mov      rcx, qword ptr [rsp + 0x40]
+0x14090f2ca: mov      qword ptr [r11], rcx
+0x14090f2cd: mov      rdx, qword ptr [rsp + 0x28]
+0x14090f2d2: mov      qword ptr [r11 + 8], rdx
+0x14090f2d6: mov      rbx, qword ptr [rsp + 0x20]
+0x14090f2db: mov      qword ptr [r11 + 0x10], rbx
+0x14090f2df: mov      rsi, qword ptr [rsp + 0x18]
+0x14090f2e4: mov      qword ptr [r11 + 0x18], rsi
+0x14090f2e8: mov      qword ptr [rsp + 0x10], rax
+0x14090f2ed: mov      qword ptr [rax], rcx
+0x14090f2f0: mov      qword ptr [rax + 8], rdx
+0x14090f2f4: mov      qword ptr [rax + 0x10], rbx
+0x14090f2f8: mov      qword ptr [rax + 0x18], rsi
+0x14090f2fc: lea      rax, [rip + 0x2588dd]
+0x14090f303: call     0x14001ae20   ; runtime.newobject
+0x14090f308: lea      rcx, [rip + 0x71]
+0x14090f30f: mov      qword ptr [rax], rcx
+0x14090f312: cmp      dword ptr [rip + 0x134c037], 0
+0x14090f319: jne      0x14090f322   ; main.newOLEDBlackoutHotkeyManager+0xe2
+0x14090f31b: mov      rcx, qword ptr [rsp + 0x10]
+0x14090f320: jmp      0x14090f32f   ; main.newOLEDBlackoutHotkeyManager+0xef
+0x14090f322: call     0x140081040   ; runtime.gcWriteBarrier1
+0x14090f327: mov      rcx, qword ptr [rsp + 0x10]
+0x14090f32c: mov      qword ptr [r11], rcx
+0x14090f32f: mov      qword ptr [rax + 8], rcx
+0x14090f333: call     0x1400516a0   ; runtime.newproc
+0x14090f338: mov      rcx, qword ptr [rsp + 0x10]
+0x14090f33d: mov      rax, qword ptr [rcx + 0x10]
+0x14090f341: xor      ebx, ebx
+0x14090f343: call     0x140012620   ; runtime.chanrecv1
+0x14090f348: lea      rax, [rip + 0x8c6391]
+0x14090f34f: mov      rbx, qword ptr [rsp + 0x10]
+0x14090f354: add      rsp, 0x30
+0x14090f358: pop      rbp
+0x14090f359: ret      
+0x14090f35a: mov      qword ptr [rsp + 8], rax
+0x14090f35f: nop      
+0x14090f360: call     0x14007f140   ; runtime.morestack_noctxt
+0x14090f365: mov      rax, qword ptr [rsp + 8]
+0x14090f36a: jmp      0x14090f240   ; main.newOLEDBlackoutHotkeyManager
+0x14090f36f: int3     
+0x14090f370: int3     
+0x14090f371: int3     
+0x14090f372: int3     
+0x14090f373: int3     
+0x14090f374: int3     
+0x14090f375: int3     
+0x14090f376: int3     
+0x14090f377: int3     
+0x14090f378: int3     
+0x14090f379: int3     
+0x14090f37a: int3     
+0x14090f37b: int3     
+0x14090f37c: int3     
+0x14090f37d: int3     
+0x14090f37e: int3     
+0x14090f37f: int3     

@@ -1,0 +1,125 @@
+0x140911a40: cmp      rsp, qword ptr [r14 + 0x10]
+0x140911a44: jbe      0x140911bbd   ; main.oledBlackoutNativeOverlayWindowProc+0x17d
+0x140911a4a: push     rbp
+0x140911a4b: mov      rbp, rsp
+0x140911a4e: sub      rsp, 0x38
+0x140911a52: mov      qword ptr [rsp + 0x48], rax
+0x140911a57: mov      dword ptr [rsp + 0x50], ebx
+0x140911a5b: mov      qword ptr [rsp + 0x58], rcx
+0x140911a60: mov      qword ptr [rsp + 0x60], rdi
+0x140911a65: mov      qword ptr [rsp + 0x30], rax
+0x140911a6a: lea      rax, [rip + 0x1300f0f]
+0x140911a71: lea      rbx, [rip + 0x8dd048]
+0x140911a78: lea      rcx, [rip + 0x1d8641]
+0x140911a7f: lea      rdi, [rsp + 0x30]
+0x140911a84: call     0x140095d40   ; internal/sync.HashTrieMap[go.shape.interface {},go.shape.interface {}].Load
+0x140911a89: test     cl, cl
+0x140911a8b: je       0x140911b2b   ; main.oledBlackoutNativeOverlayWindowProc+0xeb
+0x140911a91: lea      rdx, [rip + 0x2e6ea8]
+0x140911a98: cmp      rax, rdx
+0x140911a9b: je       0x140911aa2   ; main.oledBlackoutNativeOverlayWindowProc+0x62
+0x140911a9d: mov      ebx, 0
+0x140911aa2: jne      0x140911acb   ; main.oledBlackoutNativeOverlayWindowProc+0x8b
+0x140911aa4: test     rbx, rbx
+0x140911aa7: je       0x140911acb   ; main.oledBlackoutNativeOverlayWindowProc+0x8b
+0x140911aa9: mov      rax, rbx
+0x140911aac: mov      rbx, qword ptr [rsp + 0x48]
+0x140911ab1: mov      ecx, dword ptr [rsp + 0x50]
+0x140911ab5: mov      rdi, qword ptr [rsp + 0x58]
+0x140911aba: mov      rsi, qword ptr [rsp + 0x60]
+0x140911abf: nop      
+0x140911ac0: call     0x140911c00   ; main.oledBlackoutNativeOverlayWindow.handleMessage
+0x140911ac5: add      rsp, 0x38
+0x140911ac9: pop      rbp
+0x140911aca: ret      
+0x140911acb: mov      ecx, dword ptr [rsp + 0x50]
+0x140911acf: mov      ecx, ecx
+0x140911ad1: mov      qword ptr [rsp + 0x28], rcx
+0x140911ad6: lea      rax, [rip + 0x1ec083]
+0x140911add: nop      dword ptr [rax]
+0x140911ae0: call     0x14001ae20   ; runtime.newobject
+0x140911ae5: mov      rcx, qword ptr [rsp + 0x48]
+0x140911aea: mov      qword ptr [rax], rcx
+0x140911aed: mov      rcx, qword ptr [rsp + 0x28]
+0x140911af2: mov      qword ptr [rax + 8], rcx
+0x140911af6: mov      rcx, qword ptr [rsp + 0x58]
+0x140911afb: mov      qword ptr [rax + 0x10], rcx
+0x140911aff: mov      rcx, qword ptr [rsp + 0x60]
+0x140911b04: mov      qword ptr [rax + 0x18], rcx
+0x140911b08: mov      rcx, qword ptr [rip + 0x12b0d19]
+0x140911b0f: mov      rbx, rax
+0x140911b12: mov      edi, 4
+0x140911b17: mov      rax, rcx
+0x140911b1a: mov      rcx, rdi
+0x140911b1d: nop      dword ptr [rax]
+0x140911b20: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140911b25: add      rsp, 0x38
+0x140911b29: pop      rbp
+0x140911b2a: ret      
+0x140911b2b: mov      ecx, dword ptr [rsp + 0x50]
+0x140911b2f: cmp      ecx, 2
+0x140911b32: jne      0x140911b67   ; main.oledBlackoutNativeOverlayWindowProc+0x127
+0x140911b34: nop      
+0x140911b35: lea      rax, [rip + 0x1ebe44]
+0x140911b3c: nop      dword ptr [rax]
+0x140911b40: call     0x14001ae20   ; runtime.newobject
+0x140911b45: mov      rcx, qword ptr [rip + 0x12b0ce4]
+0x140911b4c: mov      rbx, rax
+0x140911b4f: mov      edi, 1
+0x140911b54: mov      rax, rcx
+0x140911b57: mov      rcx, rdi
+0x140911b5a: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140911b5f: xor      eax, eax
+0x140911b61: add      rsp, 0x38
+0x140911b65: pop      rbp
+0x140911b66: ret      
+0x140911b67: mov      ecx, ecx
+0x140911b69: mov      qword ptr [rsp + 0x28], rcx
+0x140911b6e: lea      rax, [rip + 0x1ebfeb]
+0x140911b75: call     0x14001ae20   ; runtime.newobject
+0x140911b7a: mov      rcx, qword ptr [rsp + 0x48]
+0x140911b7f: mov      qword ptr [rax], rcx
+0x140911b82: mov      rcx, qword ptr [rsp + 0x28]
+0x140911b87: mov      qword ptr [rax + 8], rcx
+0x140911b8b: mov      rcx, qword ptr [rsp + 0x58]
+0x140911b90: mov      qword ptr [rax + 0x10], rcx
+0x140911b94: mov      rcx, qword ptr [rsp + 0x60]
+0x140911b99: mov      qword ptr [rax + 0x18], rcx
+0x140911b9d: mov      rcx, qword ptr [rip + 0x12b0c84]
+0x140911ba4: mov      rbx, rax
+0x140911ba7: mov      edi, 4
+0x140911bac: mov      rax, rcx
+0x140911baf: mov      rcx, rdi
+0x140911bb2: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140911bb7: add      rsp, 0x38
+0x140911bbb: pop      rbp
+0x140911bbc: ret      
+0x140911bbd: mov      qword ptr [rsp + 8], rax
+0x140911bc2: mov      dword ptr [rsp + 0x10], ebx
+0x140911bc6: mov      qword ptr [rsp + 0x18], rcx
+0x140911bcb: mov      qword ptr [rsp + 0x20], rdi
+0x140911bd0: call     0x14007f140   ; runtime.morestack_noctxt
+0x140911bd5: mov      rax, qword ptr [rsp + 8]
+0x140911bda: mov      ebx, dword ptr [rsp + 0x10]
+0x140911bde: mov      rcx, qword ptr [rsp + 0x18]
+0x140911be3: mov      rdi, qword ptr [rsp + 0x20]
+0x140911be8: jmp      0x140911a40   ; main.oledBlackoutNativeOverlayWindowProc
+0x140911bed: int3     
+0x140911bee: int3     
+0x140911bef: int3     
+0x140911bf0: int3     
+0x140911bf1: int3     
+0x140911bf2: int3     
+0x140911bf3: int3     
+0x140911bf4: int3     
+0x140911bf5: int3     
+0x140911bf6: int3     
+0x140911bf7: int3     
+0x140911bf8: int3     
+0x140911bf9: int3     
+0x140911bfa: int3     
+0x140911bfb: int3     
+0x140911bfc: int3     
+0x140911bfd: int3     
+0x140911bfe: int3     
+0x140911bff: int3     

@@ -1,0 +1,111 @@
+0x140788dc0: lea      r12, [rsp - 0x50]
+0x140788dc5: cmp      r12, qword ptr [r14 + 0x10]
+0x140788dc9: jbe      0x140788f3c   ; main.BootstrapService.DecodeQRCodesFromImageData+0x17c
+0x140788dcf: push     rbp
+0x140788dd0: mov      rbp, rsp
+0x140788dd3: sub      rsp, 0xc8
+0x140788dda: mov      qword ptr [rsp + 0x138], rbx
+0x140788de2: movups   xmmword ptr [rsp + 0xd8], xmm15
+0x140788deb: lea      rdi, [rsp + 0xe0]
+0x140788df3: lea      rdi, [rdi - 0x30]
+0x140788df7: nop      word ptr [rax + rax]
+0x140788e00: mov      qword ptr [rsp - 0x10], rbp
+0x140788e05: lea      rbp, [rsp - 0x10]
+0x140788e0a: call     0x140081730   ; runtime.duffzero+0x150
+0x140788e0f: mov      rbp, qword ptr [rbp]
+0x140788e13: mov      rax, rbx
+0x140788e16: mov      rbx, rcx
+0x140788e19: call     0x140966400   ; main.decodeDataURLPNG
+0x140788e1e: nop      
+0x140788e20: test     rdi, rdi
+0x140788e23: je       0x140788e5f   ; main.BootstrapService.DecodeQRCodesFromImageData+0x9f
+0x140788e25: movups   xmmword ptr [rsp + 0xd8], xmm15
+0x140788e2e: mov      rax, rdi
+0x140788e31: lea      rdi, [rsp + 0xe0]
+0x140788e39: lea      rdi, [rdi - 0x30]
+0x140788e3d: nop      dword ptr [rax]
+0x140788e40: mov      qword ptr [rsp - 0x10], rbp
+0x140788e45: lea      rbp, [rsp - 0x10]
+0x140788e4a: call     0x140081730   ; runtime.duffzero+0x150
+0x140788e4f: mov      rbp, qword ptr [rbp]
+0x140788e53: mov      rbx, rsi
+0x140788e56: add      rsp, 0xc8
+0x140788e5d: pop      rbp
+0x140788e5e: ret      
+0x140788e5f: movups   xmmword ptr [rsp + 0x70], xmm15
+0x140788e65: lea      rdi, [rsp + 0x78]
+0x140788e6a: lea      rdi, [rdi - 0x30]
+0x140788e6e: nop      word ptr [rax + rax]
+0x140788e77: nop      word ptr [rax + rax]
+0x140788e80: mov      qword ptr [rsp - 0x10], rbp
+0x140788e85: lea      rbp, [rsp - 0x10]
+0x140788e8a: call     0x140081730   ; runtime.duffzero+0x150
+0x140788e8f: mov      rbp, qword ptr [rbp]
+0x140788e93: call     0x140931fe0   ; main.buildQRCodeDecodeResultFromPNG
+0x140788e98: mov      rdx, qword ptr [rsp]
+0x140788e9c: mov      qword ptr [rsp + 0x70], rdx
+0x140788ea1: lea      rdi, [rsp + 0x78]
+0x140788ea6: lea      rsi, [rsp + 8]
+0x140788eab: mov      qword ptr [rsp - 0x10], rbp
+0x140788eb0: lea      rbp, [rsp - 0x10]
+0x140788eb5: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x140788eba: mov      rbp, qword ptr [rbp]
+0x140788ebe: mov      rdx, qword ptr [rsp + 0x70]
+0x140788ec3: mov      qword ptr [rsp + 0xd8], rdx
+0x140788ecb: lea      rdi, [rsp + 0xe0]
+0x140788ed3: lea      rsi, [rsp + 0x78]
+0x140788ed8: nop      dword ptr [rax + rax]
+0x140788ee0: mov      qword ptr [rsp - 0x10], rbp
+0x140788ee5: lea      rbp, [rsp - 0x10]
+0x140788eea: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x140788eef: mov      rbp, qword ptr [rbp]
+0x140788ef3: mov      rdx, qword ptr [rsp + 0x70]
+0x140788ef8: mov      qword ptr [rsp + 0xd8], rdx
+0x140788f00: lea      rdi, [rsp + 0xe0]
+0x140788f08: lea      rsi, [rsp + 0x78]
+0x140788f0d: nop      word ptr [rax + rax]
+0x140788f16: nop      word ptr [rax + rax]
+0x140788f1f: nop      
+0x140788f20: mov      qword ptr [rsp - 0x10], rbp
+0x140788f25: lea      rbp, [rsp - 0x10]
+0x140788f2a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x140788f2f: mov      rbp, qword ptr [rbp]
+0x140788f33: add      rsp, 0xc8
+0x140788f3a: pop      rbp
+0x140788f3b: ret      
+0x140788f3c: mov      qword ptr [rsp + 0x60], rax
+0x140788f41: mov      qword ptr [rsp + 0x68], rbx
+0x140788f46: mov      qword ptr [rsp + 0x70], rcx
+0x140788f4b: call     0x14007f140   ; runtime.morestack_noctxt
+0x140788f50: mov      rax, qword ptr [rsp + 0x60]
+0x140788f55: mov      rbx, qword ptr [rsp + 0x68]
+0x140788f5a: mov      rcx, qword ptr [rsp + 0x70]
+0x140788f5f: nop      
+0x140788f60: jmp      0x140788dc0   ; main.BootstrapService.DecodeQRCodesFromImageData
+0x140788f65: int3     
+0x140788f66: int3     
+0x140788f67: int3     
+0x140788f68: int3     
+0x140788f69: int3     
+0x140788f6a: int3     
+0x140788f6b: int3     
+0x140788f6c: int3     
+0x140788f6d: int3     
+0x140788f6e: int3     
+0x140788f6f: int3     
+0x140788f70: int3     
+0x140788f71: int3     
+0x140788f72: int3     
+0x140788f73: int3     
+0x140788f74: int3     
+0x140788f75: int3     
+0x140788f76: int3     
+0x140788f77: int3     
+0x140788f78: int3     
+0x140788f79: int3     
+0x140788f7a: int3     
+0x140788f7b: int3     
+0x140788f7c: int3     
+0x140788f7d: int3     
+0x140788f7e: int3     
+0x140788f7f: int3     

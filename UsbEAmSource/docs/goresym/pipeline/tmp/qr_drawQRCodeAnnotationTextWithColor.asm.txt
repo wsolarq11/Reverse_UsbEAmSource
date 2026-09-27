@@ -1,0 +1,233 @@
+0x14094f6a0: lea      r12, [rsp - 0xc8]
+0x14094f6a8: cmp      r12, qword ptr [r14 + 0x10]
+0x14094f6ac: jbe      0x14094fae7   ; main.drawQRCodeAnnotationTextWithColor+0x447
+0x14094f6b2: push     rbp
+0x14094f6b3: mov      rbp, rsp
+0x14094f6b6: sub      rsp, 0x140
+0x14094f6bd: movups   xmmword ptr [rsp + 0x120], xmm15
+0x14094f6c6: movups   xmmword ptr [rsp + 0x130], xmm15
+0x14094f6cf: mov      qword ptr [rsp + 0x1e8], rax
+0x14094f6d7: mov      byte ptr [rsp + 0x1f4], r8b
+0x14094f6df: mov      byte ptr [rsp + 0xaa], dil
+0x14094f6e7: mov      byte ptr [rsp + 0xa9], cl
+0x14094f6ee: mov      byte ptr [rsp + 0xa8], bl
+0x14094f6f5: mov      byte ptr [rsp + 0xab], 0
+0x14094f6fd: mov      rax, qword ptr [rsp + 0x1c8]
+0x14094f705: mov      rbx, qword ptr [rsp + 0x1d0]
+0x14094f70d: call     0x1400a2200   ; strings.TrimSpace
+0x14094f712: test     rbx, rbx
+0x14094f715: jne      0x14094f721   ; main.drawQRCodeAnnotationTextWithColor+0x81
+0x14094f717: add      rsp, 0x140
+0x14094f71e: pop      rbp
+0x14094f71f: nop      
+0x14094f720: ret      
+0x14094f721: mov      qword ptr [rsp + 0x110], rax
+0x14094f729: mov      qword ptr [rsp + 0xb0], rbx
+0x14094f731: mov      rdx, qword ptr [rsp + 0x1b0]
+0x14094f739: mov      rcx, qword ptr [rsp + 0x1b8]
+0x14094f741: mov      rdi, qword ptr [rsp + 0x1c0]
+0x14094f749: cmp      rdx, 0xc
+0x14094f74d: mov      eax, 0xc
+0x14094f752: cmovg    rax, rdx
+0x14094f756: mov      ebx, 0x2bc
+0x14094f75b: movzx    esi, byte ptr [rsp + 0x1f4]
+0x14094f763: call     0x1409507a0   ; main.createQRCodeAnnotationFontWithQuality
+0x14094f768: test     rax, rax
+0x14094f76b: jne      0x14094f774   ; main.drawQRCodeAnnotationTextWithColor+0xd4
+0x14094f76d: xor      eax, eax
+0x14094f76f: jmp      0x14094f80b   ; main.drawQRCodeAnnotationTextWithColor+0x16b
+0x14094f774: lea      rcx, [rip + 0x605]
+0x14094f77b: mov      qword ptr [rsp + 0x100], rcx
+0x14094f783: mov      qword ptr [rsp + 0x108], rax
+0x14094f78b: lea      rcx, [rsp + 0x100]
+0x14094f793: mov      qword ptr [rsp + 0x120], rcx
+0x14094f79b: mov      byte ptr [rsp + 0xab], 1
+0x14094f7a3: mov      rbx, rax
+0x14094f7a6: mov      rax, qword ptr [rsp + 0x1e8]
+0x14094f7ae: call     0x14074caa0   ; main.selectAppObject
+0x14094f7b3: test     rbx, rbx
+0x14094f7b6: je       0x14094f7c7   ; main.drawQRCodeAnnotationTextWithColor+0x127
+0x14094f7b8: mov      rcx, qword ptr [rsp + 0x1e8]
+0x14094f7c0: mov      eax, 1
+0x14094f7c5: jmp      0x14094f80b   ; main.drawQRCodeAnnotationTextWithColor+0x16b
+0x14094f7c7: lea      rcx, [rip + 0x512]
+0x14094f7ce: mov      qword ptr [rsp + 0xe8], rcx
+0x14094f7d6: mov      rcx, qword ptr [rsp + 0x1e8]
+0x14094f7de: mov      qword ptr [rsp + 0xf0], rcx
+0x14094f7e6: mov      qword ptr [rsp + 0xf8], rax
+0x14094f7ee: lea      rdx, [rsp + 0xe8]
+0x14094f7f6: mov      qword ptr [rsp + 0x128], rdx
+0x14094f7fe: mov      byte ptr [rsp + 0xab], 3
+0x14094f806: mov      eax, 3
+0x14094f80b: mov      byte ptr [rsp + 0xa7], al
+0x14094f812: nop      
+0x14094f813: lea      rax, [rip + 0x1ae1c6]
+0x14094f81a: call     0x14001ae20   ; runtime.newobject
+0x14094f81f: mov      rcx, qword ptr [rsp + 0x1e8]
+0x14094f827: mov      qword ptr [rax], rcx
+0x14094f82a: mov      qword ptr [rax + 8], 1
+0x14094f832: mov      rcx, qword ptr [rip + 0x1272eb7]
+0x14094f839: mov      rbx, rax
+0x14094f83c: mov      edi, 2
+0x14094f841: mov      rax, rcx
+0x14094f844: mov      rcx, rdi
+0x14094f847: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14094f84c: test     rax, rax
+0x14094f84f: je       0x14094fac5   ; main.drawQRCodeAnnotationTextWithColor+0x425
+0x14094f855: lea      rcx, [rip + 0x3c4]
+0x14094f85c: mov      qword ptr [rsp + 0xd0], rcx
+0x14094f864: mov      rcx, qword ptr [rsp + 0x1e8]
+0x14094f86c: mov      qword ptr [rsp + 0xd8], rcx
+0x14094f874: mov      qword ptr [rsp + 0xe0], rax
+0x14094f87c: movzx    ecx, byte ptr [rsp + 0xa7]
+0x14094f884: or       ecx, 4
+0x14094f887: lea      rdx, [rsp + 0xd0]
+0x14094f88f: mov      qword ptr [rsp + 0x130], rdx
+0x14094f897: mov      byte ptr [rsp + 0xab], cl
+0x14094f89e: movzx    ecx, byte ptr [rsp + 0xa8]
+0x14094f8a6: movzx    ecx, cl
+0x14094f8a9: movzx    edx, byte ptr [rsp + 0xa9]
+0x14094f8b1: movzx    edx, dl
+0x14094f8b4: shl      edx, 8
+0x14094f8b7: or       edx, ecx
+0x14094f8b9: movzx    ecx, byte ptr [rsp + 0xaa]
+0x14094f8c1: movzx    ecx, cl
+0x14094f8c4: shl      ecx, 0x10
+0x14094f8c7: or       ecx, edx
+0x14094f8c9: mov      dword ptr [rsp + 0xac], ecx
+0x14094f8d0: nop      
+0x14094f8d1: nop      
+0x14094f8d2: nop      
+0x14094f8d3: lea      rax, [rip + 0x1ae106]
+0x14094f8da: call     0x14001ae20   ; runtime.newobject
+0x14094f8df: mov      rcx, qword ptr [rsp + 0x1e8]
+0x14094f8e7: mov      qword ptr [rax], rcx
+0x14094f8ea: mov      ecx, dword ptr [rsp + 0xac]
+0x14094f8f1: mov      qword ptr [rax + 8], rcx
+0x14094f8f5: mov      rcx, qword ptr [rip + 0x1272dfc]
+0x14094f8fc: mov      rbx, rax
+0x14094f8ff: mov      edi, 2
+0x14094f904: mov      rax, rcx
+0x14094f907: mov      rcx, rdi
+0x14094f90a: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14094f90f: mov      ecx, 0xffffffff
+0x14094f914: cmp      rax, rcx
+0x14094f917: je       0x14094fab0   ; main.drawQRCodeAnnotationTextWithColor+0x410
+0x14094f91d: lea      rcx, [rip + 0x23c]
+0x14094f924: mov      qword ptr [rsp + 0xb8], rcx
+0x14094f92c: mov      rcx, qword ptr [rsp + 0x1e8]
+0x14094f934: mov      qword ptr [rsp + 0xc0], rcx
+0x14094f93c: mov      dword ptr [rsp + 0xc8], eax
+0x14094f943: movzx    ecx, byte ptr [rsp + 0xa7]
+0x14094f94b: or       ecx, 0xc
+0x14094f94e: mov      byte ptr [rsp + 0xaa], cl
+0x14094f955: lea      rdx, [rsp + 0xb8]
+0x14094f95d: mov      qword ptr [rsp + 0x138], rdx
+0x14094f965: mov      byte ptr [rsp + 0xab], cl
+0x14094f96c: lea      rax, [rip + 0x26698d]
+0x14094f973: call     0x14001ae20   ; runtime.newobject
+0x14094f978: mov      qword ptr [rsp + 0x118], rax
+0x14094f980: mov      rcx, qword ptr [rsp + 0x150]
+0x14094f988: mov      qword ptr [rsp], rcx
+0x14094f98c: lea      rdi, [rsp + 8]
+0x14094f991: lea      rsi, [rsp + 0x158]
+0x14094f999: nop      dword ptr [rax]
+0x14094f9a0: mov      qword ptr [rsp - 0x10], rbp
+0x14094f9a5: lea      rbp, [rsp - 0x10]
+0x14094f9aa: call     0x140081a62   ; runtime.duffcopy+0x302
+0x14094f9af: mov      rbp, qword ptr [rbp]
+0x14094f9b3: mov      rax, qword ptr [rsp + 0x1e8]
+0x14094f9bb: nop      dword ptr [rax + rax]
+0x14094f9c0: call     0x14094fe00   ; main.qrCodeAnnotationTextW32Rect
+0x14094f9c5: mov      rdx, qword ptr [rsp + 0x118]
+0x14094f9cd: mov      dword ptr [rdx], eax
+0x14094f9cf: mov      dword ptr [rdx + 4], ebx
+0x14094f9d2: mov      dword ptr [rdx + 8], ecx
+0x14094f9d5: mov      dword ptr [rdx + 0xc], edi
+0x14094f9d8: mov      rax, qword ptr [rsp + 0x1e8]
+0x14094f9e0: mov      rbx, qword ptr [rsp + 0x110]
+0x14094f9e8: mov      rcx, qword ptr [rsp + 0xb0]
+0x14094f9f0: mov      rdi, rdx
+0x14094f9f3: mov      esi, 0x900
+0x14094f9f8: call     0x1409bf9c0   ; main.drawScreenshotInfoText
+0x14094f9fd: movzx    ecx, byte ptr [rsp + 0xaa]
+0x14094fa05: test     cl, 8
+0x14094fa08: je       0x14094fa30   ; main.drawQRCodeAnnotationTextWithColor+0x390
+0x14094fa0a: and      ecx, 0xfffffff7
+0x14094fa0d: mov      byte ptr [rsp + 0xaa], cl
+0x14094fa14: mov      byte ptr [rsp + 0xab], cl
+0x14094fa1b: mov      rdx, qword ptr [rsp + 0x138]
+0x14094fa23: mov      rax, qword ptr [rdx]
+0x14094fa26: call     rax
+0x14094fa28: movzx    ecx, byte ptr [rsp + 0xaa]
+0x14094fa30: test     cl, 4
+0x14094fa33: je       0x14094fa60   ; main.drawQRCodeAnnotationTextWithColor+0x3c0
+0x14094fa35: and      ecx, 0xfffffffb
+0x14094fa38: mov      byte ptr [rsp + 0xaa], cl
+0x14094fa3f: mov      byte ptr [rsp + 0xab], cl
+0x14094fa46: mov      rdx, qword ptr [rsp + 0x130]
+0x14094fa4e: mov      rax, qword ptr [rdx]
+0x14094fa51: call     rax
+0x14094fa53: movzx    ecx, byte ptr [rsp + 0xaa]
+0x14094fa5b: nop      dword ptr [rax + rax]
+0x14094fa60: test     cl, 2
+0x14094fa63: je       0x14094fa8b   ; main.drawQRCodeAnnotationTextWithColor+0x3eb
+0x14094fa65: and      ecx, 0xfffffffd
+0x14094fa68: mov      byte ptr [rsp + 0xaa], cl
+0x14094fa6f: mov      byte ptr [rsp + 0xab], cl
+0x14094fa76: mov      rdx, qword ptr [rsp + 0x128]
+0x14094fa7e: mov      rax, qword ptr [rdx]
+0x14094fa81: call     rax
+0x14094fa83: movzx    ecx, byte ptr [rsp + 0xaa]
+0x14094fa8b: test     cl, 1
+0x14094fa8e: je       0x14094faa7   ; main.drawQRCodeAnnotationTextWithColor+0x407
+0x14094fa90: and      ecx, 0xfffffffe
+0x14094fa93: mov      byte ptr [rsp + 0xab], cl
+0x14094fa9a: mov      rdx, qword ptr [rsp + 0x120]
+0x14094faa2: mov      rax, qword ptr [rdx]
+0x14094faa5: call     rax
+0x14094faa7: add      rsp, 0x140
+0x14094faae: pop      rbp
+0x14094faaf: ret      
+0x14094fab0: lea      rax, [rip + 0x19a349]
+0x14094fab7: lea      rbx, [rip + 0x87f0b2]
+0x14094fabe: nop      
+0x14094fac0: call     0x1400789c0   ; runtime.gopanic
+0x14094fac5: lea      rax, [rip + 0x19a334]
+0x14094facc: lea      rbx, [rip + 0x87f08d]
+0x14094fad3: call     0x1400789c0   ; runtime.gopanic
+0x14094fad8: nop      
+0x14094fad9: call     0x1400435e0   ; runtime.deferreturn
+0x14094fade: add      rsp, 0x140
+0x14094fae5: pop      rbp
+0x14094fae6: ret      
+0x14094fae7: mov      qword ptr [rsp + 0xa0], rax
+0x14094faef: mov      byte ptr [rsp + 0xa8], bl
+0x14094faf6: mov      byte ptr [rsp + 0xa9], cl
+0x14094fafd: mov      byte ptr [rsp + 0xaa], dil
+0x14094fb05: mov      byte ptr [rsp + 0xab], sil
+0x14094fb0d: mov      byte ptr [rsp + 0xac], r8b
+0x14094fb15: call     0x14007f140   ; runtime.morestack_noctxt
+0x14094fb1a: mov      rax, qword ptr [rsp + 0xa0]
+0x14094fb22: movzx    ebx, byte ptr [rsp + 0xa8]
+0x14094fb2a: movzx    ecx, byte ptr [rsp + 0xa9]
+0x14094fb32: movzx    edi, byte ptr [rsp + 0xaa]
+0x14094fb3a: movzx    esi, byte ptr [rsp + 0xab]
+0x14094fb42: movzx    r8d, byte ptr [rsp + 0xac]
+0x14094fb4b: jmp      0x14094f6a0   ; main.drawQRCodeAnnotationTextWithColor
+0x14094fb50: int3     
+0x14094fb51: int3     
+0x14094fb52: int3     
+0x14094fb53: int3     
+0x14094fb54: int3     
+0x14094fb55: int3     
+0x14094fb56: int3     
+0x14094fb57: int3     
+0x14094fb58: int3     
+0x14094fb59: int3     
+0x14094fb5a: int3     
+0x14094fb5b: int3     
+0x14094fb5c: int3     
+0x14094fb5d: int3     
+0x14094fb5e: int3     
+0x14094fb5f: int3     

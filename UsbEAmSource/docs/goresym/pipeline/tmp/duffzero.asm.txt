@@ -1,0 +1,100 @@
+0x1400815e0: movups   xmmword ptr [rdi], xmm15
+0x1400815e4: movups   xmmword ptr [rdi + 0x10], xmm15
+0x1400815e9: movups   xmmword ptr [rdi + 0x20], xmm15
+0x1400815ee: movups   xmmword ptr [rdi + 0x30], xmm15
+0x1400815f3: lea      rdi, [rdi + 0x40]
+0x1400815f7: movups   xmmword ptr [rdi], xmm15
+0x1400815fb: movups   xmmword ptr [rdi + 0x10], xmm15
+0x140081600: movups   xmmword ptr [rdi + 0x20], xmm15
+0x140081605: movups   xmmword ptr [rdi + 0x30], xmm15
+0x14008160a: lea      rdi, [rdi + 0x40]
+0x14008160e: movups   xmmword ptr [rdi], xmm15
+0x140081612: movups   xmmword ptr [rdi + 0x10], xmm15
+0x140081617: movups   xmmword ptr [rdi + 0x20], xmm15
+0x14008161c: movups   xmmword ptr [rdi + 0x30], xmm15
+0x140081621: lea      rdi, [rdi + 0x40]
+0x140081625: movups   xmmword ptr [rdi], xmm15
+0x140081629: movups   xmmword ptr [rdi + 0x10], xmm15
+0x14008162e: movups   xmmword ptr [rdi + 0x20], xmm15
+0x140081633: movups   xmmword ptr [rdi + 0x30], xmm15
+0x140081638: lea      rdi, [rdi + 0x40]
+0x14008163c: movups   xmmword ptr [rdi], xmm15
+0x140081640: movups   xmmword ptr [rdi + 0x10], xmm15
+0x140081645: movups   xmmword ptr [rdi + 0x20], xmm15
+0x14008164a: movups   xmmword ptr [rdi + 0x30], xmm15
+0x14008164f: lea      rdi, [rdi + 0x40]
+0x140081653: movups   xmmword ptr [rdi], xmm15
+0x140081657: movups   xmmword ptr [rdi + 0x10], xmm15
+0x14008165c: movups   xmmword ptr [rdi + 0x20], xmm15
+0x140081661: movups   xmmword ptr [rdi + 0x30], xmm15
+0x140081666: lea      rdi, [rdi + 0x40]
+0x14008166a: movups   xmmword ptr [rdi], xmm15
+0x14008166e: movups   xmmword ptr [rdi + 0x10], xmm15
+0x140081673: movups   xmmword ptr [rdi + 0x20], xmm15
+0x140081678: movups   xmmword ptr [rdi + 0x30], xmm15
+0x14008167d: lea      rdi, [rdi + 0x40]
+0x140081681: movups   xmmword ptr [rdi], xmm15
+0x140081685: movups   xmmword ptr [rdi + 0x10], xmm15
+0x14008168a: movups   xmmword ptr [rdi + 0x20], xmm15
+0x14008168f: movups   xmmword ptr [rdi + 0x30], xmm15
+0x140081694: lea      rdi, [rdi + 0x40]
+0x140081698: movups   xmmword ptr [rdi], xmm15
+0x14008169c: movups   xmmword ptr [rdi + 0x10], xmm15
+0x1400816a1: movups   xmmword ptr [rdi + 0x20], xmm15
+0x1400816a6: movups   xmmword ptr [rdi + 0x30], xmm15
+0x1400816ab: lea      rdi, [rdi + 0x40]
+0x1400816af: movups   xmmword ptr [rdi], xmm15
+0x1400816b3: movups   xmmword ptr [rdi + 0x10], xmm15
+0x1400816b8: movups   xmmword ptr [rdi + 0x20], xmm15
+0x1400816bd: movups   xmmword ptr [rdi + 0x30], xmm15
+0x1400816c2: lea      rdi, [rdi + 0x40]
+0x1400816c6: movups   xmmword ptr [rdi], xmm15
+0x1400816ca: movups   xmmword ptr [rdi + 0x10], xmm15
+0x1400816cf: movups   xmmword ptr [rdi + 0x20], xmm15
+0x1400816d4: movups   xmmword ptr [rdi + 0x30], xmm15
+0x1400816d9: lea      rdi, [rdi + 0x40]
+0x1400816dd: movups   xmmword ptr [rdi], xmm15
+0x1400816e1: movups   xmmword ptr [rdi + 0x10], xmm15
+0x1400816e6: movups   xmmword ptr [rdi + 0x20], xmm15
+0x1400816eb: movups   xmmword ptr [rdi + 0x30], xmm15
+0x1400816f0: lea      rdi, [rdi + 0x40]
+0x1400816f4: movups   xmmword ptr [rdi], xmm15
+0x1400816f8: movups   xmmword ptr [rdi + 0x10], xmm15
+0x1400816fd: movups   xmmword ptr [rdi + 0x20], xmm15
+0x140081702: movups   xmmword ptr [rdi + 0x30], xmm15
+0x140081707: lea      rdi, [rdi + 0x40]
+0x14008170b: movups   xmmword ptr [rdi], xmm15
+0x14008170f: movups   xmmword ptr [rdi + 0x10], xmm15
+0x140081714: movups   xmmword ptr [rdi + 0x20], xmm15
+0x140081719: movups   xmmword ptr [rdi + 0x30], xmm15
+0x14008171e: lea      rdi, [rdi + 0x40]
+0x140081722: movups   xmmword ptr [rdi], xmm15
+0x140081726: movups   xmmword ptr [rdi + 0x10], xmm15
+0x14008172b: movups   xmmword ptr [rdi + 0x20], xmm15
+0x140081730: movups   xmmword ptr [rdi + 0x30], xmm15
+0x140081735: lea      rdi, [rdi + 0x40]
+0x140081739: movups   xmmword ptr [rdi], xmm15
+0x14008173d: movups   xmmword ptr [rdi + 0x10], xmm15
+0x140081742: movups   xmmword ptr [rdi + 0x20], xmm15
+0x140081747: movups   xmmword ptr [rdi + 0x30], xmm15
+0x14008174c: lea      rdi, [rdi + 0x40]
+0x140081750: ret      
+0x140081751: int3     
+0x140081752: int3     
+0x140081753: int3     
+0x140081754: int3     
+0x140081755: int3     
+0x140081756: int3     
+0x140081757: int3     
+0x140081758: int3     
+0x140081759: int3     
+0x14008175a: int3     
+0x14008175b: int3     
+0x14008175c: int3     
+0x14008175d: int3     
+0x14008175e: int3     
+0x14008175f: int3     
+0x140081760: movups   xmm0, xmmword ptr [rsi]
+0x140081763: add      rsi, 0x10
+0x140081767: movups   xmmword ptr [rdi], xmm0
+0x14008176a: add      rdi, 0x10

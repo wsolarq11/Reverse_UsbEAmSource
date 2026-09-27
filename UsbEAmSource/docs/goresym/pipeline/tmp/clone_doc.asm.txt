@@ -1,0 +1,213 @@
+0x1407c34e0: lea      r12, [rsp - 0xe0]
+0x1407c34e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407c34ec: jbe      0x1407c391c   ; main.cloneDesktopWidgetDocument+0x43c
+0x1407c34f2: push     rbp
+0x1407c34f3: mov      rbp, rsp
+0x1407c34f6: sub      rsp, 0x158
+0x1407c34fd: movups   xmmword ptr [rsp + 0x1d0], xmm15
+0x1407c3506: lea      rdi, [rsp + 0x1d8]
+0x1407c350e: lea      rdi, [rdi - 0x20]
+0x1407c3512: nop      word ptr [rax + rax]
+0x1407c351b: nop      dword ptr [rax + rax]
+0x1407c3520: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3525: lea      rbp, [rsp - 0x10]
+0x1407c352a: call     0x14008172b   ; runtime.duffzero+0x14b
+0x1407c352f: mov      rbp, qword ptr [rbp]
+0x1407c3533: mov      rax, qword ptr [rsp + 0x168]
+0x1407c353b: mov      qword ptr [rsp], rax
+0x1407c353f: lea      rdi, [rsp + 8]
+0x1407c3544: lea      rsi, [rsp + 0x170]
+0x1407c354c: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3551: lea      rbp, [rsp - 0x10]
+0x1407c3556: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c355b: mov      rbp, qword ptr [rbp]
+0x1407c355f: nop      
+0x1407c3560: call     0x1407bfec0   ; main.normalizeDesktopWidgetDocument
+0x1407c3565: mov      rax, qword ptr [rsp + 0x68]
+0x1407c356a: mov      qword ptr [rsp + 0xe8], rax
+0x1407c3572: lea      rdi, [rsp + 0xf0]
+0x1407c357a: lea      rsi, [rsp + 0x70]
+0x1407c357f: nop      
+0x1407c3580: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3585: lea      rbp, [rsp - 0x10]
+0x1407c358a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c358f: mov      rbp, qword ptr [rbp]
+0x1407c3593: lea      rax, [rip + 0x436ea6]
+0x1407c359a: lea      rbx, [rsp + 0xe8]
+0x1407c35a2: call     0x140017240   ; runtime.convT
+0x1407c35a7: mov      rbx, rax
+0x1407c35aa: lea      rax, [rip + 0x436e8f]
+0x1407c35b1: call     0x140589700   ; encoding/json.Marshal
+0x1407c35b6: test     rdi, rdi
+0x1407c35b9: jne      0x1407c381c   ; main.cloneDesktopWidgetDocument+0x33c
+0x1407c35bf: mov      qword ptr [rsp + 0xd8], rcx
+0x1407c35c7: mov      qword ptr [rsp + 0xd0], rbx
+0x1407c35cf: mov      qword ptr [rsp + 0xe0], rax
+0x1407c35d7: lea      rax, [rip + 0x436e62]
+0x1407c35de: nop      
+0x1407c35e0: call     0x14001ae20   ; runtime.newobject
+0x1407c35e5: mov      qword ptr [rsp + 0x150], rax
+0x1407c35ed: mov      rbx, qword ptr [rsp + 0xd0]
+0x1407c35f5: mov      rcx, qword ptr [rsp + 0xd8]
+0x1407c35fd: lea      rdi, [rip + 0x30073c]
+0x1407c3604: mov      rsi, rax
+0x1407c3607: mov      rax, qword ptr [rsp + 0xe0]
+0x1407c360f: call     0x1405835e0   ; encoding/json.Unmarshal
+0x1407c3614: test     rax, rax
+0x1407c3617: je       0x1407c371c   ; main.cloneDesktopWidgetDocument+0x23c
+0x1407c361d: mov      qword ptr [rsp], 1
+0x1407c3625: lea      rdi, [rsp + 8]
+0x1407c362a: lea      rsi, [rip + 0xa1ae3f]
+0x1407c3631: nop      word ptr [rax + rax]
+0x1407c363a: nop      word ptr [rax + rax]
+0x1407c3640: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3645: lea      rbp, [rsp - 0x10]
+0x1407c364a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c364f: mov      rbp, qword ptr [rbp]
+0x1407c3653: call     0x1407bfec0   ; main.normalizeDesktopWidgetDocument
+0x1407c3658: mov      rax, qword ptr [rsp + 0x68]
+0x1407c365d: mov      qword ptr [rsp + 0xe8], rax
+0x1407c3665: lea      rdi, [rsp + 0xf0]
+0x1407c366d: lea      rsi, [rsp + 0x70]
+0x1407c3672: nop      word ptr [rax + rax]
+0x1407c367b: nop      dword ptr [rax + rax]
+0x1407c3680: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3685: lea      rbp, [rsp - 0x10]
+0x1407c368a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c368f: mov      rbp, qword ptr [rbp]
+0x1407c3693: mov      rax, qword ptr [rsp + 0xe8]
+0x1407c369b: mov      qword ptr [rsp + 0x1d0], rax
+0x1407c36a3: lea      rdi, [rsp + 0x1d8]
+0x1407c36ab: lea      rsi, [rsp + 0xf0]
+0x1407c36b3: nop      word ptr [rax + rax]
+0x1407c36bc: nop      dword ptr [rax]
+0x1407c36c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c36c5: lea      rbp, [rsp - 0x10]
+0x1407c36ca: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c36cf: mov      rbp, qword ptr [rbp]
+0x1407c36d3: mov      rax, qword ptr [rsp + 0xe8]
+0x1407c36db: mov      qword ptr [rsp + 0x1d0], rax
+0x1407c36e3: lea      rdi, [rsp + 0x1d8]
+0x1407c36eb: lea      rsi, [rsp + 0xf0]
+0x1407c36f3: nop      word ptr [rax + rax]
+0x1407c36fc: nop      dword ptr [rax]
+0x1407c3700: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3705: lea      rbp, [rsp - 0x10]
+0x1407c370a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c370f: mov      rbp, qword ptr [rbp]
+0x1407c3713: add      rsp, 0x158
+0x1407c371a: pop      rbp
+0x1407c371b: ret      
+0x1407c371c: mov      rsi, qword ptr [rsp + 0x150]
+0x1407c3724: mov      rax, qword ptr [rsi]
+0x1407c3727: mov      qword ptr [rsp], rax
+0x1407c372b: add      rsi, 8
+0x1407c372f: lea      rdi, [rsp + 8]
+0x1407c3734: nop      word ptr [rax + rax]
+0x1407c373d: nop      dword ptr [rax]
+0x1407c3740: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3745: lea      rbp, [rsp - 0x10]
+0x1407c374a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c374f: mov      rbp, qword ptr [rbp]
+0x1407c3753: call     0x1407bfec0   ; main.normalizeDesktopWidgetDocument
+0x1407c3758: mov      rax, qword ptr [rsp + 0x68]
+0x1407c375d: mov      qword ptr [rsp + 0xe8], rax
+0x1407c3765: lea      rdi, [rsp + 0xf0]
+0x1407c376d: lea      rsi, [rsp + 0x70]
+0x1407c3772: nop      word ptr [rax + rax]
+0x1407c377b: nop      dword ptr [rax + rax]
+0x1407c3780: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3785: lea      rbp, [rsp - 0x10]
+0x1407c378a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c378f: mov      rbp, qword ptr [rbp]
+0x1407c3793: mov      rax, qword ptr [rsp + 0xe8]
+0x1407c379b: mov      qword ptr [rsp + 0x1d0], rax
+0x1407c37a3: lea      rdi, [rsp + 0x1d8]
+0x1407c37ab: lea      rsi, [rsp + 0xf0]
+0x1407c37b3: nop      word ptr [rax + rax]
+0x1407c37bc: nop      dword ptr [rax]
+0x1407c37c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c37c5: lea      rbp, [rsp - 0x10]
+0x1407c37ca: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c37cf: mov      rbp, qword ptr [rbp]
+0x1407c37d3: mov      rax, qword ptr [rsp + 0xe8]
+0x1407c37db: mov      qword ptr [rsp + 0x1d0], rax
+0x1407c37e3: lea      rdi, [rsp + 0x1d8]
+0x1407c37eb: lea      rsi, [rsp + 0xf0]
+0x1407c37f3: nop      word ptr [rax + rax]
+0x1407c37fc: nop      dword ptr [rax]
+0x1407c3800: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3805: lea      rbp, [rsp - 0x10]
+0x1407c380a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c380f: mov      rbp, qword ptr [rbp]
+0x1407c3813: add      rsp, 0x158
+0x1407c381a: pop      rbp
+0x1407c381b: ret      
+0x1407c381c: mov      qword ptr [rsp], 1
+0x1407c3824: lea      rdi, [rsp + 8]
+0x1407c3829: lea      rsi, [rip + 0xa1ac40]
+0x1407c3830: nop      word ptr [rax + rax]
+0x1407c3839: nop      dword ptr [rax]
+0x1407c3840: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3845: lea      rbp, [rsp - 0x10]
+0x1407c384a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c384f: mov      rbp, qword ptr [rbp]
+0x1407c3853: call     0x1407bfec0   ; main.normalizeDesktopWidgetDocument
+0x1407c3858: mov      rax, qword ptr [rsp + 0x68]
+0x1407c385d: mov      qword ptr [rsp + 0xe8], rax
+0x1407c3865: lea      rdi, [rsp + 0xf0]
+0x1407c386d: lea      rsi, [rsp + 0x70]
+0x1407c3872: nop      word ptr [rax + rax]
+0x1407c387b: nop      dword ptr [rax + rax]
+0x1407c3880: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3885: lea      rbp, [rsp - 0x10]
+0x1407c388a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c388f: mov      rbp, qword ptr [rbp]
+0x1407c3893: mov      rax, qword ptr [rsp + 0xe8]
+0x1407c389b: mov      qword ptr [rsp + 0x1d0], rax
+0x1407c38a3: lea      rdi, [rsp + 0x1d8]
+0x1407c38ab: lea      rsi, [rsp + 0xf0]
+0x1407c38b3: nop      word ptr [rax + rax]
+0x1407c38bc: nop      dword ptr [rax]
+0x1407c38c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c38c5: lea      rbp, [rsp - 0x10]
+0x1407c38ca: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c38cf: mov      rbp, qword ptr [rbp]
+0x1407c38d3: mov      rax, qword ptr [rsp + 0xe8]
+0x1407c38db: mov      qword ptr [rsp + 0x1d0], rax
+0x1407c38e3: lea      rdi, [rsp + 0x1d8]
+0x1407c38eb: lea      rsi, [rsp + 0xf0]
+0x1407c38f3: nop      word ptr [rax + rax]
+0x1407c38fc: nop      dword ptr [rax]
+0x1407c3900: mov      qword ptr [rsp - 0x10], rbp
+0x1407c3905: lea      rbp, [rsp - 0x10]
+0x1407c390a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c390f: mov      rbp, qword ptr [rbp]
+0x1407c3913: add      rsp, 0x158
+0x1407c391a: pop      rbp
+0x1407c391b: ret      
+0x1407c391c: nop      dword ptr [rax]
+0x1407c3920: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407c3925: jmp      0x1407c34e0   ; main.cloneDesktopWidgetDocument
+0x1407c392a: int3     
+0x1407c392b: int3     
+0x1407c392c: int3     
+0x1407c392d: int3     
+0x1407c392e: int3     
+0x1407c392f: int3     
+0x1407c3930: int3     
+0x1407c3931: int3     
+0x1407c3932: int3     
+0x1407c3933: int3     
+0x1407c3934: int3     
+0x1407c3935: int3     
+0x1407c3936: int3     
+0x1407c3937: int3     
+0x1407c3938: int3     
+0x1407c3939: int3     
+0x1407c393a: int3     
+0x1407c393b: int3     
+0x1407c393c: int3     
+0x1407c393d: int3     
+0x1407c393e: int3     
+0x1407c393f: int3     

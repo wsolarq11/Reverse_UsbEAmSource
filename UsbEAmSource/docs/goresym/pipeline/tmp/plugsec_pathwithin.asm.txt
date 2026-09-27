@@ -1,0 +1,63 @@
+0x140924820: cmp      rsp, qword ptr [r14 + 0x10]
+0x140924824: jbe      0x1409248a1   ; main.isPathWithinPluginRoot+0x81
+0x140924826: push     rbp
+0x140924827: mov      rbp, rsp
+0x14092482a: sub      rsp, 0x30
+0x14092482e: mov      qword ptr [rsp + 0x40], rax
+0x140924833: mov      qword ptr [rsp + 0x50], rcx
+0x140924838: call     0x1401cc000   ; path/filepath.Rel
+0x14092483d: nop      dword ptr [rax]
+0x140924840: test     rcx, rcx
+0x140924843: jne      0x140924869   ; main.isPathWithinPluginRoot+0x49
+0x140924845: cmp      rbx, 2
+0x140924849: jne      0x140924852   ; main.isPathWithinPluginRoot+0x32
+0x14092484b: cmp      word ptr [rax], 0x2e2e
+0x140924850: je       0x140924869   ; main.isPathWithinPluginRoot+0x49
+0x140924852: mov      qword ptr [rsp + 0x20], rbx
+0x140924857: mov      qword ptr [rsp + 0x28], rax
+0x14092485c: nop      dword ptr [rax]
+0x140924860: call     0x140116d20   ; internal/filepathlite.IsAbs
+0x140924865: test     al, al
+0x140924867: je       0x140924871   ; main.isPathWithinPluginRoot+0x51
+0x140924869: xor      eax, eax
+0x14092486b: add      rsp, 0x30
+0x14092486f: pop      rbp
+0x140924870: ret      
+0x140924871: nop      
+0x140924872: mov      rdx, qword ptr [rsp + 0x20]
+0x140924877: cmp      rdx, 3
+0x14092487b: jge      0x140924882   ; main.isPathWithinPluginRoot+0x62
+0x14092487d: xor      eax, eax
+0x14092487f: nop      
+0x140924880: jmp      0x140924898   ; main.isPathWithinPluginRoot+0x78
+0x140924882: mov      rax, qword ptr [rsp + 0x28]
+0x140924887: lea      rbx, [rip + 0x30f2c0]
+0x14092488e: mov      ecx, 3
+0x140924893: call     0x140006280   ; runtime.memequal
+0x140924898: xor      eax, 1
+0x14092489b: add      rsp, 0x30
+0x14092489f: pop      rbp
+0x1409248a0: ret      
+0x1409248a1: mov      qword ptr [rsp + 8], rax
+0x1409248a6: mov      qword ptr [rsp + 0x10], rbx
+0x1409248ab: mov      qword ptr [rsp + 0x18], rcx
+0x1409248b0: mov      qword ptr [rsp + 0x20], rdi
+0x1409248b5: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409248ba: mov      rax, qword ptr [rsp + 8]
+0x1409248bf: mov      rbx, qword ptr [rsp + 0x10]
+0x1409248c4: mov      rcx, qword ptr [rsp + 0x18]
+0x1409248c9: mov      rdi, qword ptr [rsp + 0x20]
+0x1409248ce: jmp      0x140924820   ; main.isPathWithinPluginRoot
+0x1409248d3: int3     
+0x1409248d4: int3     
+0x1409248d5: int3     
+0x1409248d6: int3     
+0x1409248d7: int3     
+0x1409248d8: int3     
+0x1409248d9: int3     
+0x1409248da: int3     
+0x1409248db: int3     
+0x1409248dc: int3     
+0x1409248dd: int3     
+0x1409248de: int3     
+0x1409248df: int3     

@@ -1,0 +1,30 @@
+0x14077dfc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14077dfc4: jbe      0x14077dfeb    ; main.BootstrapService.SetAudioSessionMute+0x2b
+0x14077dfc6: push     rbp
+0x14077dfc7: mov      rbp, rsp
+0x14077dfca: sub      rsp, 0x18
+0x14077dfce: mov      qword ptr [rsp + 0x30], rbx
+0x14077dfd3: mov      rax, rbx
+0x14077dfd6: mov      rbx, rcx
+0x14077dfd9: mov      ecx, edi
+0x14077dfdb: nop      dword ptr [rax + rax]
+0x14077dfe0: call     0x1407527e0    ; main.setAudioSessionMute
+0x14077dfe5: add      rsp, 0x18
+0x14077dfe9: pop      rbp
+0x14077dfea: ret      
+0x14077dfeb: mov      qword ptr [rsp + 8], rax
+0x14077dff0: mov      qword ptr [rsp + 0x10], rbx
+0x14077dff5: mov      qword ptr [rsp + 0x18], rcx
+0x14077dffa: mov      byte ptr [rsp + 0x20], dil
+0x14077dfff: nop      
+0x14077e000: call     0x14007f140    ; runtime.morestack_noctxt
+0x14077e005: mov      rax, qword ptr [rsp + 8]
+0x14077e00a: mov      rbx, qword ptr [rsp + 0x10]
+0x14077e00f: mov      rcx, qword ptr [rsp + 0x18]
+0x14077e014: movzx    edi, byte ptr [rsp + 0x20]
+0x14077e019: jmp      0x14077dfc0    ; main.BootstrapService.SetAudioSessionMute
+0x14077e01b: int3     
+0x14077e01c: int3     
+0x14077e01d: int3     
+0x14077e01e: int3     
+0x14077e01f: int3     

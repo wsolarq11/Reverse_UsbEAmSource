@@ -1,0 +1,56 @@
+0x140861c40: cmp      rsp, qword ptr [r14 + 0x10]
+0x140861c44: jbe      0x140861d0a    ; main.newInputMonitorService+0xca
+0x140861c4a: push     rbp
+0x140861c4b: mov      rbp, rsp
+0x140861c4e: sub      rsp, 0x38
+0x140861c52: lea      rax, [rip + 0x3afdc7]
+0x140861c59: mov      ebx, 0x1000
+0x140861c5e: mov      rcx, rbx
+0x140861c61: call     0x14007ac40    ; runtime.makeslice
+0x140861c66: mov      qword ptr [rsp + 0x28], rax
+0x140861c6b: call     0x140076d40    ; runtime.makemap_small
+0x140861c70: mov      qword ptr [rsp + 0x20], rax
+0x140861c75: call     0x140076d40    ; runtime.makemap_small
+0x140861c7a: mov      qword ptr [rsp + 0x30], rax
+0x140861c7f: lea      rax, [rip + 0x3c0bba]
+0x140861c86: call     0x14001ae20    ; runtime.newobject
+0x140861c8b: mov      byte ptr [rax + 0x10], 1
+0x140861c8f: mov      qword ptr [rax + 0x88], 0x1000
+0x140861c9a: mov      qword ptr [rax + 0x50], 0x1000
+0x140861ca2: mov      qword ptr [rax + 0x58], 0x1000
+0x140861caa: cmp      dword ptr [rip + 0x13f969f], 0
+0x140861cb1: jne      0x140861cc4    ; main.newInputMonitorService+0x84
+0x140861cb3: mov      rcx, qword ptr [rsp + 0x28]
+0x140861cb8: mov      rdx, qword ptr [rsp + 0x20]
+0x140861cbd: mov      rbx, qword ptr [rsp + 0x30]
+0x140861cc2: jmp      0x140861ce3    ; main.newInputMonitorService+0xa3
+0x140861cc4: call     0x140081080    ; runtime.gcWriteBarrier3
+0x140861cc9: mov      rcx, qword ptr [rsp + 0x28]
+0x140861cce: mov      qword ptr [r11], rcx
+0x140861cd1: mov      rdx, qword ptr [rsp + 0x20]
+0x140861cd6: mov      qword ptr [r11 + 8], rdx
+0x140861cda: mov      rbx, qword ptr [rsp + 0x30]
+0x140861cdf: mov      qword ptr [r11 + 0x10], rbx
+0x140861ce3: mov      qword ptr [rsp + 0x18], rax
+0x140861ce8: mov      qword ptr [rax + 0x48], rcx
+0x140861cec: mov      qword ptr [rax + 0x80], rdx
+0x140861cf3: mov      qword ptr [rax + 0xf0], rbx
+0x140861cfa: call     0x140865d20    ; main.inputMonitorInitialize
+0x140861cff: mov      rax, qword ptr [rsp + 0x18]
+0x140861d04: add      rsp, 0x38
+0x140861d08: pop      rbp
+0x140861d09: ret      
+0x140861d0a: call     0x14007f140    ; runtime.morestack_noctxt
+0x140861d0f: jmp      0x140861c40    ; main.newInputMonitorService
+0x140861d14: int3     
+0x140861d15: int3     
+0x140861d16: int3     
+0x140861d17: int3     
+0x140861d18: int3     
+0x140861d19: int3     
+0x140861d1a: int3     
+0x140861d1b: int3     
+0x140861d1c: int3     
+0x140861d1d: int3     
+0x140861d1e: int3     
+0x140861d1f: int3     

@@ -1,0 +1,40 @@
+0x1409b6660: mov      edx, dword ptr [rax + 0xa0]
+0x1409b6666: cmp      rcx, rbx
+0x1409b6669: jae      0x1409b6695   ; main.screenshotCOMQueryWorkerPool.workerExited+0x615
+0x1409b666b: mov      qword ptr [rsp + 0xa8], rdx
+0x1409b6673: mov      edi, 1
+0x1409b6678: lea      rsi, [rip + 0x111201]
+0x1409b667f: nop      
+0x1409b6680: call     0x14007ad20   ; runtime.growslice
+0x1409b6685: mov      rdx, qword ptr [rsp + 0xa8]
+0x1409b668d: mov      r8, qword ptr [rsp + 0x188]
+0x1409b6695: cmp      dword ptr [rip + 0x12a4cb4], 0
+0x1409b669c: je       0x1409b66af   ; main.screenshotCOMQueryWorkerPool.workerExited+0x62f
+0x1409b669e: mov      r9, qword ptr [rax + rbx*8 - 8]
+0x1409b66a3: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409b66a8: mov      qword ptr [r11], rdx
+0x1409b66ab: mov      qword ptr [r11 + 8], r9
+0x1409b66af: mov      qword ptr [rax + rbx*8 - 8], rdx
+0x1409b66b4: jmp      0x1409b66be   ; main.screenshotCOMQueryWorkerPool.workerExited+0x63e
+0x1409b66b6: mov      rbx, rdi
+0x1409b66b9: jmp      0x1409b66be   ; main.screenshotCOMQueryWorkerPool.workerExited+0x63e
+0x1409b66bb: mov      rbx, rdi
+0x1409b66be: mov      rdx, qword ptr [rsp + 0x50]
+0x1409b66c3: lea      r9, [rdx + rbx]
+0x1409b66c7: cmp      dword ptr [rip + 0x12a4c82], 0
+0x1409b66ce: je       0x1409b66df   ; main.screenshotCOMQueryWorkerPool.workerExited+0x65f
+0x1409b66d0: mov      r10, qword ptr [r8 + 0xa0]
+0x1409b66d7: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409b66dc: mov      qword ptr [r11], r10
+0x1409b66df: mov      qword ptr [r8 + 0xa0], 0
+0x1409b66ea: mov      rcx, qword ptr [rsp + 0x58]
+0x1409b66ef: cmp      rcx, r9
+0x1409b66f2: jb       0x1409b66fe   ; main.screenshotCOMQueryWorkerPool.workerExited+0x67e
+0x1409b66f4: mov      rsi, qword ptr [rsp + 0xa0]
+0x1409b66fc: jmp      0x1409b673d   ; main.screenshotCOMQueryWorkerPool.workerExited+0x6bd
+0x1409b66fe: mov      qword ptr [rsp + 0x48], rbx
+0x1409b6703: mov      qword ptr [rsp + 0x98], rax
+0x1409b670b: mov      rax, qword ptr [rsp + 0xa0]
+0x1409b6713: mov      rdi, rbx
+0x1409b6716: lea      rsi, [rip + 0x111163]
+0x1409b671d: mov      rbx, r9

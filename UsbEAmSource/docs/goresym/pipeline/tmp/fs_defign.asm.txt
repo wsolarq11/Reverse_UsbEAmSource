@@ -1,0 +1,30 @@
+0x1407e03c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407e03c4: jbe      0x1407e0436   ; main.defaultFileSearchIgnoredDirectoryRules+0x76
+0x1407e03c6: push     rbp
+0x1407e03c7: mov      rbp, rsp
+0x1407e03ca: sub      rsp, 0x48
+0x1407e03ce: call     0x14012aac0   ; os.tempDir
+0x1407e03d3: call     0x1400a2200   ; strings.TrimSpace
+0x1407e03d8: movups   xmmword ptr [rsp + 0x18], xmm15
+0x1407e03de: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1407e03e4: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1407e03ea: mov      qword ptr [rsp + 0x20], 0xc
+0x1407e03f3: lea      rcx, [rip + 0x46b5ae]
+0x1407e03fa: mov      qword ptr [rsp + 0x18], rcx
+0x1407e03ff: mov      qword ptr [rsp + 0x30], rbx
+0x1407e0404: mov      qword ptr [rsp + 0x28], rax
+0x1407e0409: mov      qword ptr [rsp + 0x40], 0x19
+0x1407e0412: lea      rax, [rip + 0x4866bf]
+0x1407e0419: mov      qword ptr [rsp + 0x38], rax
+0x1407e041e: lea      rax, [rsp + 0x18]
+0x1407e0423: mov      ebx, 3
+0x1407e0428: mov      rcx, rbx
+0x1407e042b: call     0x1407e0440   ; main.normalizeFileSearchIgnoredDirectoryRules
+0x1407e0430: add      rsp, 0x48
+0x1407e0434: pop      rbp
+0x1407e0435: ret      
+0x1407e0436: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407e043b: jmp      0x1407e03c0   ; main.defaultFileSearchIgnoredDirectoryRules
+0x1407e043d: int3     
+0x1407e043e: int3     
+0x1407e043f: int3     

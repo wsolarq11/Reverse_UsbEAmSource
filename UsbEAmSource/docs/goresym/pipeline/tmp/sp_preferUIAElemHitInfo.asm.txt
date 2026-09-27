@@ -1,0 +1,236 @@
+0x1409b2ce0: push     rbp
+0x1409b2ce1: mov      rbp, rsp
+0x1409b2ce4: sub      rsp, 0x50
+0x1409b2ce8: mov      qword ptr [rsp + 0x88], rax
+0x1409b2cf0: mov      qword ptr [rsp + 0x90], rbx
+0x1409b2cf8: mov      qword ptr [rsp + 0x98], rcx
+0x1409b2d00: mov      qword ptr [rsp + 0xa0], rdi
+0x1409b2d08: mov      dword ptr [rsp + 0xa8], esi
+0x1409b2d0f: mov      byte ptr [rsp + 0xac], r8b
+0x1409b2d17: mov      rcx, qword ptr [rsp + 0x60]
+0x1409b2d1c: mov      qword ptr [rsp + 0x28], rcx
+0x1409b2d21: movups   xmm0, xmmword ptr [rsp + 0x68]
+0x1409b2d26: movups   xmmword ptr [rsp + 0x30], xmm0
+0x1409b2d2b: movups   xmm0, xmmword ptr [rsp + 0x78]
+0x1409b2d30: movups   xmmword ptr [rsp + 0x40], xmm0
+0x1409b2d35: cmp      byte ptr [rsp + 0x4c], 0
+0x1409b2d3a: nop      word ptr [rax + rax]
+0x1409b2d40: je       0x1409b305e   ; main.screenshotPreferUIAElementHitInfo+0x37e
+0x1409b2d46: mov      ecx, dword ptr [rsp + 0x48]
+0x1409b2d4a: cmp      ecx, 0xc364
+0x1409b2d50: je       0x1409b305e   ; main.screenshotPreferUIAElementHitInfo+0x37e
+0x1409b2d56: nop      word ptr [rax + rax]
+0x1409b2d5f: nop      
+0x1409b2d60: cmp      ecx, 0xc356
+0x1409b2d66: je       0x1409b305e   ; main.screenshotPreferUIAElementHitInfo+0x37e
+0x1409b2d6c: mov      rcx, qword ptr [rsp + 0x38]
+0x1409b2d71: cmp      qword ptr [rsp + 0x28], rcx
+0x1409b2d76: jge      0x1409b305e   ; main.screenshotPreferUIAElementHitInfo+0x37e
+0x1409b2d7c: mov      rcx, qword ptr [rsp + 0x30]
+0x1409b2d81: mov      rdx, qword ptr [rsp + 0x40]
+0x1409b2d86: cmp      rcx, rdx
+0x1409b2d89: jge      0x1409b305e   ; main.screenshotPreferUIAElementHitInfo+0x37e
+0x1409b2d8f: mov      rcx, qword ptr [rsp + 0x88]
+0x1409b2d97: mov      qword ptr [rsp + 0x28], rcx
+0x1409b2d9c: movups   xmm0, xmmword ptr [rsp + 0x90]
+0x1409b2da4: movups   xmmword ptr [rsp + 0x30], xmm0
+0x1409b2da9: movups   xmm0, xmmword ptr [rsp + 0xa0]
+0x1409b2db1: movups   xmmword ptr [rsp + 0x40], xmm0
+0x1409b2db6: cmp      byte ptr [rsp + 0x4c], 0
+0x1409b2dbb: nop      dword ptr [rax + rax]
+0x1409b2dc0: je       0x1409b3053   ; main.screenshotPreferUIAElementHitInfo+0x373
+0x1409b2dc6: mov      ecx, dword ptr [rsp + 0x48]
+0x1409b2dca: cmp      ecx, 0xc364
+0x1409b2dd0: je       0x1409b3053   ; main.screenshotPreferUIAElementHitInfo+0x373
+0x1409b2dd6: nop      word ptr [rax + rax]
+0x1409b2ddf: nop      
+0x1409b2de0: cmp      ecx, 0xc356
+0x1409b2de6: je       0x1409b3053   ; main.screenshotPreferUIAElementHitInfo+0x373
+0x1409b2dec: mov      rcx, qword ptr [rsp + 0x38]
+0x1409b2df1: cmp      qword ptr [rsp + 0x28], rcx
+0x1409b2df6: jge      0x1409b3053   ; main.screenshotPreferUIAElementHitInfo+0x373
+0x1409b2dfc: mov      rcx, qword ptr [rsp + 0x30]
+0x1409b2e01: mov      rdx, qword ptr [rsp + 0x40]
+0x1409b2e06: cmp      rcx, rdx
+0x1409b2e09: jge      0x1409b3053   ; main.screenshotPreferUIAElementHitInfo+0x373
+0x1409b2e0f: mov      rcx, qword ptr [rsp + 0x88]
+0x1409b2e17: mov      qword ptr [rsp + 0x28], rcx
+0x1409b2e1c: movups   xmm0, xmmword ptr [rsp + 0x90]
+0x1409b2e24: movups   xmmword ptr [rsp + 0x30], xmm0
+0x1409b2e29: movups   xmm0, xmmword ptr [rsp + 0xa0]
+0x1409b2e31: movups   xmmword ptr [rsp + 0x40], xmm0
+0x1409b2e36: mov      rcx, qword ptr [rsp + 0x88]
+0x1409b2e3e: mov      qword ptr [rsp], rcx
+0x1409b2e42: movups   xmm0, xmmword ptr [rsp + 0x90]
+0x1409b2e4a: movups   xmmword ptr [rsp + 8], xmm0
+0x1409b2e4f: movups   xmm0, xmmword ptr [rsp + 0xa0]
+0x1409b2e57: movups   xmmword ptr [rsp + 0x18], xmm0
+0x1409b2e5c: cmp      byte ptr [rsp + 0x24], 0
+0x1409b2e61: je       0x1409b2ebf   ; main.screenshotPreferUIAElementHitInfo+0x1df
+0x1409b2e63: mov      ecx, dword ptr [rsp + 0x20]
+0x1409b2e67: cmp      ecx, 0xc364
+0x1409b2e6d: je       0x1409b2ebf   ; main.screenshotPreferUIAElementHitInfo+0x1df
+0x1409b2e6f: cmp      ecx, 0xc356
+0x1409b2e75: je       0x1409b2ebf   ; main.screenshotPreferUIAElementHitInfo+0x1df
+0x1409b2e77: mov      rcx, qword ptr [rsp]
+0x1409b2e7b: nop      dword ptr [rax + rax]
+0x1409b2e80: cmp      qword ptr [rsp + 0x10], rcx
+0x1409b2e85: jle      0x1409b2ebf   ; main.screenshotPreferUIAElementHitInfo+0x1df
+0x1409b2e87: mov      rcx, qword ptr [rsp + 8]
+0x1409b2e8c: mov      rdx, qword ptr [rsp + 0x18]
+0x1409b2e91: cmp      rcx, rdx
+0x1409b2e94: jge      0x1409b2ebf   ; main.screenshotPreferUIAElementHitInfo+0x1df
+0x1409b2e96: mov      ecx, dword ptr [rsp + 0x48]
+0x1409b2e9a: add      rcx, -0xc358
+0x1409b2ea1: cmp      rcx, 0x19
+0x1409b2ea5: ja       0x1409b2eb8   ; main.screenshotPreferUIAElementHitInfo+0x1d8
+0x1409b2ea7: lea      rax, [rip + 0x82f0d2]
+0x1409b2eae: jmp      qword ptr [rax + rcx*8]
+0x1409b2eb1: mov      eax, 1
+0x1409b2eb6: jmp      0x1409b2ec1   ; main.screenshotPreferUIAElementHitInfo+0x1e1
+0x1409b2eb8: mov      eax, 2
+0x1409b2ebd: jmp      0x1409b2ec1   ; main.screenshotPreferUIAElementHitInfo+0x1e1
+0x1409b2ebf: xor      eax, eax
+0x1409b2ec1: mov      rcx, qword ptr [rsp + 0x60]
+0x1409b2ec6: mov      qword ptr [rsp + 0x28], rcx
+0x1409b2ecb: movups   xmm0, xmmword ptr [rsp + 0x68]
+0x1409b2ed0: movups   xmmword ptr [rsp + 0x30], xmm0
+0x1409b2ed5: movups   xmm0, xmmword ptr [rsp + 0x78]
+0x1409b2eda: movups   xmmword ptr [rsp + 0x40], xmm0
+0x1409b2edf: mov      rcx, qword ptr [rsp + 0x60]
+0x1409b2ee4: mov      qword ptr [rsp], rcx
+0x1409b2ee8: movups   xmm0, xmmword ptr [rsp + 0x68]
+0x1409b2eed: movups   xmmword ptr [rsp + 8], xmm0
+0x1409b2ef2: movups   xmm0, xmmword ptr [rsp + 0x78]
+0x1409b2ef7: movups   xmmword ptr [rsp + 0x18], xmm0
+0x1409b2efc: cmp      byte ptr [rsp + 0x24], 0
+0x1409b2f01: je       0x1409b2f5e   ; main.screenshotPreferUIAElementHitInfo+0x27e
+0x1409b2f03: mov      ecx, dword ptr [rsp + 0x20]
+0x1409b2f07: cmp      ecx, 0xc364
+0x1409b2f0d: je       0x1409b2f5e   ; main.screenshotPreferUIAElementHitInfo+0x27e
+0x1409b2f0f: cmp      ecx, 0xc356
+0x1409b2f15: je       0x1409b2f5e   ; main.screenshotPreferUIAElementHitInfo+0x27e
+0x1409b2f17: mov      rcx, qword ptr [rsp + 0x10]
+0x1409b2f1c: nop      dword ptr [rax]
+0x1409b2f20: cmp      qword ptr [rsp], rcx
+0x1409b2f24: jge      0x1409b2f5e   ; main.screenshotPreferUIAElementHitInfo+0x27e
+0x1409b2f26: mov      rcx, qword ptr [rsp + 8]
+0x1409b2f2b: mov      rdx, qword ptr [rsp + 0x18]
+0x1409b2f30: cmp      rcx, rdx
+0x1409b2f33: jge      0x1409b2f5e   ; main.screenshotPreferUIAElementHitInfo+0x27e
+0x1409b2f35: mov      ecx, dword ptr [rsp + 0x48]
+0x1409b2f39: add      rcx, -0xc358
+0x1409b2f40: cmp      rcx, 0x19
+0x1409b2f44: ja       0x1409b2f57   ; main.screenshotPreferUIAElementHitInfo+0x277
+0x1409b2f46: lea      rdx, [rip + 0x82f113]
+0x1409b2f4d: jmp      qword ptr [rdx + rcx*8]
+0x1409b2f50: mov      ecx, 1
+0x1409b2f55: jmp      0x1409b2f60   ; main.screenshotPreferUIAElementHitInfo+0x280
+0x1409b2f57: mov      ecx, 2
+0x1409b2f5c: jmp      0x1409b2f60   ; main.screenshotPreferUIAElementHitInfo+0x280
+0x1409b2f5e: xor      ecx, ecx
+0x1409b2f60: cmp      rcx, rax
+0x1409b2f63: jne      0x1409b304a   ; main.screenshotPreferUIAElementHitInfo+0x36a
+0x1409b2f69: mov      rcx, qword ptr [rsp + 0x88]
+0x1409b2f71: mov      rdx, qword ptr [rsp + 0x98]
+0x1409b2f79: cmp      rcx, rdx
+0x1409b2f7c: jge      0x1409b2f93   ; main.screenshotPreferUIAElementHitInfo+0x2b3
+0x1409b2f7e: mov      rbx, qword ptr [rsp + 0x90]
+0x1409b2f86: mov      rsi, qword ptr [rsp + 0xa0]
+0x1409b2f8e: cmp      rbx, rsi
+0x1409b2f91: jl       0x1409b2f97   ; main.screenshotPreferUIAElementHitInfo+0x2b7
+0x1409b2f93: xor      esi, esi
+0x1409b2f95: jmp      0x1409b2fa1   ; main.screenshotPreferUIAElementHitInfo+0x2c1
+0x1409b2f97: sub      rdx, rcx
+0x1409b2f9a: sub      rsi, rbx
+0x1409b2f9d: imul     rsi, rdx
+0x1409b2fa1: mov      rcx, qword ptr [rsp + 0x60]
+0x1409b2fa6: mov      rdx, qword ptr [rsp + 0x70]
+0x1409b2fab: cmp      rcx, rdx
+0x1409b2fae: jge      0x1409b2fbf   ; main.screenshotPreferUIAElementHitInfo+0x2df
+0x1409b2fb0: mov      rbx, qword ptr [rsp + 0x68]
+0x1409b2fb5: mov      rdi, qword ptr [rsp + 0x78]
+0x1409b2fba: cmp      rdi, rbx
+0x1409b2fbd: jg       0x1409b2fc3   ; main.screenshotPreferUIAElementHitInfo+0x2e3
+0x1409b2fbf: xor      edi, edi
+0x1409b2fc1: jmp      0x1409b2fcd   ; main.screenshotPreferUIAElementHitInfo+0x2ed
+0x1409b2fc3: sub      rdx, rcx
+0x1409b2fc6: sub      rdi, rbx
+0x1409b2fc9: imul     rdi, rdx
+0x1409b2fcd: test     rdi, rdi
+0x1409b2fd0: jle      0x1409b3042   ; main.screenshotPreferUIAElementHitInfo+0x362
+0x1409b2fd2: test     rsi, rsi
+0x1409b2fd5: jle      0x1409b3037   ; main.screenshotPreferUIAElementHitInfo+0x357
+0x1409b2fd7: cmp      rdi, rsi
+0x1409b2fda: jne      0x1409b302e   ; main.screenshotPreferUIAElementHitInfo+0x34e
+0x1409b2fdc: mov      ecx, dword ptr [rsp + 0xa8]
+0x1409b2fe3: add      rcx, -0xc358
+0x1409b2fea: cmp      rcx, 0x19
+0x1409b2fee: ja       0x1409b3026   ; main.screenshotPreferUIAElementHitInfo+0x346
+0x1409b2ff0: lea      rax, [rip + 0x82f149]
+0x1409b2ff7: jmp      qword ptr [rax + rcx*8]
+0x1409b2ffa: mov      ecx, dword ptr [rsp + 0x80]
+0x1409b3001: add      rcx, -0xc358
+0x1409b3008: cmp      rcx, 0x19
+0x1409b300c: ja       0x1409b301f   ; main.screenshotPreferUIAElementHitInfo+0x33f
+0x1409b300e: lea      rax, [rip + 0x82f20b]
+0x1409b3015: jmp      qword ptr [rax + rcx*8]
+0x1409b3018: mov      eax, 1
+0x1409b301d: jmp      0x1409b3021   ; main.screenshotPreferUIAElementHitInfo+0x341
+0x1409b301f: xor      eax, eax
+0x1409b3021: xor      eax, 1
+0x1409b3024: jmp      0x1409b3028   ; main.screenshotPreferUIAElementHitInfo+0x348
+0x1409b3026: xor      eax, eax
+0x1409b3028: add      rsp, 0x50
+0x1409b302c: pop      rbp
+0x1409b302d: ret      
+0x1409b302e: setl     al
+0x1409b3031: add      rsp, 0x50
+0x1409b3035: pop      rbp
+0x1409b3036: ret      
+0x1409b3037: mov      eax, 1
+0x1409b303c: add      rsp, 0x50
+0x1409b3040: pop      rbp
+0x1409b3041: ret      
+0x1409b3042: xor      eax, eax
+0x1409b3044: add      rsp, 0x50
+0x1409b3048: pop      rbp
+0x1409b3049: ret      
+0x1409b304a: setg     al
+0x1409b304d: add      rsp, 0x50
+0x1409b3051: pop      rbp
+0x1409b3052: ret      
+0x1409b3053: mov      eax, 1
+0x1409b3058: add      rsp, 0x50
+0x1409b305c: pop      rbp
+0x1409b305d: ret      
+0x1409b305e: xor      eax, eax
+0x1409b3060: add      rsp, 0x50
+0x1409b3064: pop      rbp
+0x1409b3065: ret      
+0x1409b3066: int3     
+0x1409b3067: int3     
+0x1409b3068: int3     
+0x1409b3069: int3     
+0x1409b306a: int3     
+0x1409b306b: int3     
+0x1409b306c: int3     
+0x1409b306d: int3     
+0x1409b306e: int3     
+0x1409b306f: int3     
+0x1409b3070: int3     
+0x1409b3071: int3     
+0x1409b3072: int3     
+0x1409b3073: int3     
+0x1409b3074: int3     
+0x1409b3075: int3     
+0x1409b3076: int3     
+0x1409b3077: int3     
+0x1409b3078: int3     
+0x1409b3079: int3     
+0x1409b307a: int3     
+0x1409b307b: int3     
+0x1409b307c: int3     
+0x1409b307d: int3     
+0x1409b307e: int3     
+0x1409b307f: int3     

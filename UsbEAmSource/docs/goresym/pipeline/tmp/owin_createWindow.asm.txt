@@ -1,0 +1,141 @@
+0x1409117a0: lea      r12, [rsp - 0x30]
+0x1409117a5: cmp      r12, qword ptr [r14 + 0x10]
+0x1409117a9: jbe      0x140911a24   ; main.oledBlackoutNativeOverlayWindow.createWindow+0x284
+0x1409117af: push     rbp
+0x1409117b0: mov      rbp, rsp
+0x1409117b3: sub      rsp, 0xa8
+0x1409117ba: mov      qword ptr [rsp + 0xb8], rax
+0x1409117c2: lea      rax, [rip + 0x36c831]
+0x1409117c9: mov      ebx, 0x27
+0x1409117ce: call     0x140194220   ; golang.org/x/sys/windows.UTF16PtrFromString
+0x1409117d3: test     rbx, rbx
+0x1409117d6: je       0x140911821   ; main.oledBlackoutNativeOverlayWindow.createWindow+0x81
+0x1409117d8: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1409117e1: je       0x1409117e7   ; main.oledBlackoutNativeOverlayWindow.createWindow+0x47
+0x1409117e3: mov      rbx, qword ptr [rbx + 8]
+0x1409117e7: mov      qword ptr [rsp + 0x98], rbx
+0x1409117ef: mov      qword ptr [rsp + 0xa0], rcx
+0x1409117f7: lea      rax, [rip + 0x373846]
+0x1409117fe: mov      ebx, 0x2e
+0x140911803: lea      rcx, [rsp + 0x98]
+0x14091180b: mov      edi, 1
+0x140911810: mov      rsi, rdi
+0x140911813: call     0x140133280   ; fmt.Errorf
+0x140911818: add      rsp, 0xa8
+0x14091181f: pop      rbp
+0x140911820: ret      
+0x140911821: mov      qword ptr [rsp + 0x90], rax
+0x140911829: lea      rax, [rip + 0x33c8ee]
+0x140911830: mov      ebx, 0xd
+0x140911835: call     0x140194220   ; golang.org/x/sys/windows.UTF16PtrFromString
+0x14091183a: test     rbx, rbx
+0x14091183d: je       0x140911888   ; main.oledBlackoutNativeOverlayWindow.createWindow+0xe8
+0x14091183f: movups   xmmword ptr [rsp + 0x98], xmm15
+0x140911848: je       0x14091184e   ; main.oledBlackoutNativeOverlayWindow.createWindow+0xae
+0x14091184a: mov      rbx, qword ptr [rbx + 8]
+0x14091184e: mov      qword ptr [rsp + 0x98], rbx
+0x140911856: mov      qword ptr [rsp + 0xa0], rcx
+0x14091185e: lea      rax, [rip + 0x37380d]
+0x140911865: mov      ebx, 0x2e
+0x14091186a: lea      rcx, [rsp + 0x98]
+0x140911872: mov      edi, 1
+0x140911877: mov      rsi, rdi
+0x14091187a: call     0x140133280   ; fmt.Errorf
+0x14091187f: add      rsp, 0xa8
+0x140911886: pop      rbp
+0x140911887: ret      
+0x140911888: mov      qword ptr [rsp + 0x88], rax
+0x140911890: mov      rcx, qword ptr [rsp + 0xb8]
+0x140911898: mov      rdx, qword ptr [rcx + 0x40]
+0x14091189c: mov      qword ptr [rsp + 0x80], rdx
+0x1409118a4: mov      rdx, qword ptr [rcx + 0x48]
+0x1409118a8: mov      qword ptr [rsp + 0x78], rdx
+0x1409118ad: mov      rdx, qword ptr [rcx + 0x30]
+0x1409118b1: mov      qword ptr [rsp + 0x70], rdx
+0x1409118b6: mov      rcx, qword ptr [rcx + 0x38]
+0x1409118ba: mov      qword ptr [rsp + 0x68], rcx
+0x1409118bf: xor      eax, eax
+0x1409118c1: xor      ebx, ebx
+0x1409118c3: call     0x1401da1c0   ; github.com/wailsapp/wails/v3/pkg/w32.GetModuleHandle
+0x1409118c8: mov      qword ptr [rsp], 0
+0x1409118d0: mov      qword ptr [rsp + 8], rax
+0x1409118d5: mov      qword ptr [rsp + 0x10], 0
+0x1409118de: mov      r9, qword ptr [rsp + 0x80]
+0x1409118e6: test     r9, r9
+0x1409118e9: mov      ecx, 1
+0x1409118ee: cmovle   r9, rcx
+0x1409118f2: mov      r10, qword ptr [rsp + 0x78]
+0x1409118f7: test     r10, r10
+0x1409118fa: cmovle   r10, rcx
+0x1409118fe: mov      eax, 0x88
+0x140911903: mov      rbx, qword ptr [rsp + 0x90]
+0x14091190b: mov      rcx, qword ptr [rsp + 0x88]
+0x140911913: mov      edi, 0x80000000
+0x140911918: mov      rsi, qword ptr [rsp + 0x70]
+0x14091191d: mov      r8, qword ptr [rsp + 0x68]
+0x140911922: xor      r11d, r11d
+0x140911925: call     0x1401dfd40   ; github.com/wailsapp/wails/v3/pkg/w32.CreateWindowEx
+0x14091192a: test     rax, rax
+0x14091192d: jne      0x1409119b7   ; main.oledBlackoutNativeOverlayWindow.createWindow+0x217
+0x140911933: call     0x1401972a0   ; golang.org/x/sys/windows.GetLastError
+0x140911938: test     rax, rax
+0x14091193b: je       0x140911986   ; main.oledBlackoutNativeOverlayWindow.createWindow+0x1e6
+0x14091193d: movups   xmmword ptr [rsp + 0x98], xmm15
+0x140911946: je       0x14091194c   ; main.oledBlackoutNativeOverlayWindow.createWindow+0x1ac
+0x140911948: mov      rax, qword ptr [rax + 8]
+0x14091194c: mov      qword ptr [rsp + 0x98], rax
+0x140911954: mov      qword ptr [rsp + 0xa0], rbx
+0x14091195c: lea      rax, [rip + 0x36d91f]
+0x140911963: mov      ebx, 0x28
+0x140911968: lea      rcx, [rsp + 0x98]
+0x140911970: mov      edi, 1
+0x140911975: mov      rsi, rdi
+0x140911978: call     0x140133280   ; fmt.Errorf
+0x14091197d: add      rsp, 0xa8
+0x140911984: pop      rbp
+0x140911985: ret      
+0x140911986: lea      rax, [rip + 0x2429f3]
+0x14091198d: call     0x14001ae20   ; runtime.newobject
+0x140911992: mov      qword ptr [rax + 8], 0x24
+0x14091199a: lea      rcx, [rip + 0x366e5a]
+0x1409119a1: mov      qword ptr [rax], rcx
+0x1409119a4: mov      rbx, rax
+0x1409119a7: lea      rax, [rip + 0x8c1752]
+0x1409119ae: add      rsp, 0xa8
+0x1409119b5: pop      rbp
+0x1409119b6: ret      
+0x1409119b7: mov      qword ptr [rsp + 0x60], rax
+0x1409119bc: mov      rbx, rax
+0x1409119bf: mov      rax, qword ptr [rsp + 0xb8]
+0x1409119c7: call     0x140912c00   ; main.oledBlackoutNativeOverlayWindow.setHandle
+0x1409119cc: mov      rax, qword ptr [rsp + 0x60]
+0x1409119d1: call     0x1400765e0   ; runtime.convT64
+0x1409119d6: lea      rbx, [rip + 0x8dd0e3]
+0x1409119dd: nop      
+0x1409119de: lea      rcx, [rip + 0x1d86db]
+0x1409119e5: mov      rdi, rax
+0x1409119e8: lea      rsi, [rip + 0x2e6f51]
+0x1409119ef: mov      r8, qword ptr [rsp + 0xb8]
+0x1409119f7: lea      rax, [rip + 0x1300f82]
+0x1409119fe: nop      
+0x140911a00: call     0x140094f40   ; internal/sync.HashTrieMap[go.shape.interface {},go.shape.interface {}].Swap
+0x140911a05: mov      rax, qword ptr [rsp + 0xb8]
+0x140911a0d: mov      rbx, qword ptr [rsp + 0x60]
+0x140911a12: call     0x140912380   ; main.oledBlackoutNativeOverlayWindow.applyWindowChrome
+0x140911a17: xor      eax, eax
+0x140911a19: xor      ebx, ebx
+0x140911a1b: add      rsp, 0xa8
+0x140911a22: pop      rbp
+0x140911a23: ret      
+0x140911a24: mov      qword ptr [rsp + 8], rax
+0x140911a29: call     0x14007f140   ; runtime.morestack_noctxt
+0x140911a2e: mov      rax, qword ptr [rsp + 8]
+0x140911a33: jmp      0x1409117a0   ; main.oledBlackoutNativeOverlayWindow.createWindow
+0x140911a38: int3     
+0x140911a39: int3     
+0x140911a3a: int3     
+0x140911a3b: int3     
+0x140911a3c: int3     
+0x140911a3d: int3     
+0x140911a3e: int3     
+0x140911a3f: int3     

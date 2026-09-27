@@ -1,0 +1,98 @@
+0x1408803a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408803a4: jbe      0x1408805b5   ; main.normalizeConsoleItemKind+0x215
+0x1408803aa: push     rbp
+0x1408803ab: mov      rbp, rsp
+0x1408803ae: sub      rsp, 0x18
+0x1408803b2: mov      qword ptr [rsp + 0x30], rbx
+0x1408803b7: mov      qword ptr [rsp + 0x28], rax
+0x1408803bc: nop      dword ptr [rax]
+0x1408803c0: call     0x1400a2200   ; strings.TrimSpace
+0x1408803c5: lea      rcx, [rbx - 7]
+0x1408803c9: cmp      rcx, 0xd
+0x1408803cd: ja       0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x1408803d3: lea      rdx, [rip + 0x95e366]
+0x1408803da: jmp      qword ptr [rdx + rcx*8]
+0x1408803dd: cmp      dword ptr [rax], 0x74636573
+0x1408803e3: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x1408803e9: cmp      word ptr [rax + 4], 0x6f69
+0x1408803ef: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x1408803f5: cmp      byte ptr [rax + 6], 0x6e
+0x1408803f9: je       0x140880592   ; main.normalizeConsoleItemKind+0x1f2
+0x1408803ff: nop      
+0x140880400: jmp      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x140880405: movabs   rcx, 0x70756f7247707061
+0x14088040f: cmp      qword ptr [rax], rcx
+0x140880412: je       0x140880592   ; main.normalizeConsoleItemKind+0x1f2
+0x140880418: jmp      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x14088041d: movabs   rcx, 0x7261436f69647561
+0x140880427: cmp      qword ptr [rax], rcx
+0x14088042a: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x140880430: cmp      byte ptr [rax + 8], 0x64
+0x140880434: je       0x140880592   ; main.normalizeConsoleItemKind+0x1f2
+0x14088043a: jmp      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x14088043f: movabs   rcx, 0x6f5465646f437271
+0x140880449: cmp      qword ptr [rax], rcx
+0x14088044c: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x140880452: cmp      word ptr [rax + 8], 0x6c6f
+0x140880458: je       0x140880592   ; main.normalizeConsoleItemKind+0x1f2
+0x14088045e: nop      
+0x140880460: jmp      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x140880465: movabs   rcx, 0x49676f6c61746163
+0x14088046f: cmp      qword ptr [rax], rcx
+0x140880472: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x140880478: cmp      word ptr [rax + 8], 0x6574
+0x14088047e: nop      
+0x140880480: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x140880486: cmp      byte ptr [rax + 0xa], 0x6d
+0x14088048a: je       0x140880592   ; main.normalizeConsoleItemKind+0x1f2
+0x140880490: jmp      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x140880495: movabs   rcx, 0x57706f746b736564
+0x14088049f: nop      
+0x1408804a0: cmp      qword ptr [rax], rcx
+0x1408804a3: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x1408804a9: cmp      dword ptr [rax + 8], 0x65676469
+0x1408804b0: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x1408804b6: cmp      byte ptr [rax + 0xc], 0x74
+0x1408804ba: nop      word ptr [rax + rax]
+0x1408804c0: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x1408804c6: lea      rax, [rip + 0x3cdbb5]
+0x1408804cd: mov      ebx, 0xd
+0x1408804d2: add      rsp, 0x18
+0x1408804d6: pop      rbp
+0x1408804d7: ret      
+0x1408804d8: movabs   rcx, 0x68736e6565726373
+0x1408804e2: cmp      qword ptr [rax], rcx
+0x1408804e5: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x1408804eb: cmp      dword ptr [rax + 8], 0x6f54746f
+0x1408804f2: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x1408804f8: cmp      word ptr [rax + 0xc], 0x6c6f
+0x1408804fe: nop      
+0x140880500: je       0x140880592   ; main.normalizeConsoleItemKind+0x1f2
+0x140880506: jmp      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x14088050b: movabs   rcx, 0x7365476573756f6d
+0x140880515: cmp      qword ptr [rax], rcx
+0x140880518: jne      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x14088051e: movabs   rcx, 0x6c6f6f5465727574
+0x140880528: cmp      qword ptr [rax + 8], rcx
+0x14088052c: je       0x140880592   ; main.normalizeConsoleItemKind+0x1f2
+0x14088052e: jmp      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x140880530: lea      rbx, [rip + 0x3d6e0a]
+0x140880537: mov      ecx, 0x11
+0x14088053c: nop      dword ptr [rax]
+0x140880540: call     0x140006280   ; runtime.memequal
+0x140880545: test     al, al
+0x140880547: jne      0x140880592   ; main.normalizeConsoleItemKind+0x1f2
+0x140880549: jmp      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x14088054b: lea      rbx, [rip + 0x3d987c]
+0x140880552: mov      ecx, 0x12
+0x140880557: call     0x140006280   ; runtime.memequal
+0x14088055c: nop      dword ptr [rax]
+0x140880560: test     al, al
+0x140880562: jne      0x140880592   ; main.normalizeConsoleItemKind+0x1f2
+0x140880564: jmp      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b
+0x140880566: lea      rbx, [rip + 0x3db69c]
+0x14088056d: mov      ecx, 0x13
+0x140880572: call     0x140006280   ; runtime.memequal
+0x140880577: test     al, al
+0x140880579: jne      0x140880592   ; main.normalizeConsoleItemKind+0x1f2
+0x14088057b: jmp      0x1408805ab   ; main.normalizeConsoleItemKind+0x20b

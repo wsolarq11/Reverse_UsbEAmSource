@@ -1,0 +1,14 @@
+0x140808200: lea      r12, [rsp - 0x2f8]
+0x140808208: cmp      r12, qword ptr [r14 + 0x10]
+0x14080820c: jbe      0x140808789   ; main.VolumeIndex.searchWithPathsContextMetrics+0x589
+0x140808212: push     rbp
+0x140808213: mov      rbp, rsp
+0x140808216: sub      rsp, 0x370
+0x14080821d: movq     qword ptr [rsp + 0x368], xmm15
+0x140808227: mov      qword ptr [rsp + 0x390], rax
+0x14080822f: mov      qword ptr [rsp + 0x3c0], r9
+0x140808237: mov      byte ptr [rsp + 0x3c8], r10b
+0x14080823f: mov      qword ptr [rsp + 0x3b8], r8
+0x140808247: mov      qword ptr [rsp + 0x3b0], rsi
+0x14080824f: mov      qword ptr [rsp + 0x3a8], rdi
+0x140808257: mov      qword ptr [rsp + 0x3a0], rcx

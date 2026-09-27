@@ -1,0 +1,21 @@
+0x1409c6740: lea      r12, [rsp - 0x418]
+0x1409c6748: cmp      r12, qword ptr [r14 + 0x10]
+0x1409c674c: jbe      0x1409c6cd4   ; main.validateTwoFactorStoredConfig+0x594
+0x1409c6752: push     rbp
+0x1409c6753: mov      rbp, rsp
+0x1409c6756: sub      rsp, 0x490
+0x1409c675d: mov      rcx, qword ptr [rsp + 0x4a0]
+0x1409c6765: mov      qword ptr [rsp + 0x388], rcx
+0x1409c676d: movups   xmm0, xmmword ptr [rsp + 0x4a8]
+0x1409c6775: movups   xmmword ptr [rsp + 0x390], xmm0
+0x1409c677d: movups   xmm0, xmmword ptr [rsp + 0x4b8]
+0x1409c6785: movups   xmmword ptr [rsp + 0x3a0], xmm0
+0x1409c678d: movups   xmm0, xmmword ptr [rsp + 0x4c8]
+0x1409c6795: movups   xmmword ptr [rsp + 0x3b0], xmm0
+0x1409c679d: cmp      byte ptr [rsp + 0x3b8], 0
+0x1409c67a5: je       0x1409c67ae   ; main.validateTwoFactorStoredConfig+0x6e
+0x1409c67a7: mov      ecx, 1
+0x1409c67ac: jmp      0x1409c67cb   ; main.validateTwoFactorStoredConfig+0x8b
+0x1409c67ae: mov      rax, qword ptr [rsp + 0x388]
+0x1409c67b6: mov      rbx, qword ptr [rsp + 0x390]
+0x1409c67be: nop      

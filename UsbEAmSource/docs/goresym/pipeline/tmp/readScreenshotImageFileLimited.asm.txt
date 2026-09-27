@@ -1,0 +1,224 @@
+0x140980260: lea      r12, [rsp - 0x40]
+0x140980265: cmp      r12, qword ptr [r14 + 0x10]
+0x140980269: jbe      0x14098065b   ; main.readScreenshotImageFileLimited+0x3fb
+0x14098026f: push     rbp
+0x140980270: mov      rbp, rsp
+0x140980273: sub      rsp, 0xb8
+0x14098027a: mov      qword ptr [rsp + 0xc8], rax
+0x140980282: movq     qword ptr [rsp + 0xb0], xmm15
+0x14098028c: mov      byte ptr [rsp + 0x2f], 0
+0x140980291: mov      qword ptr [rsp + 0x60], 0
+0x14098029a: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1409802a0: movups   xmmword ptr [rsp + 0x50], xmm15
+0x1409802a6: call     0x1400a2200   ; strings.TrimSpace
+0x1409802ab: xor      ecx, ecx
+0x1409802ad: xor      edi, edi
+0x1409802af: call     0x140128960   ; os.OpenFile
+0x1409802b4: test     rbx, rbx
+0x1409802b7: jne      0x1409805f7   ; main.readScreenshotImageFileLimited+0x397
+0x1409802bd: mov      qword ptr [rsp + 0x80], rax
+0x1409802c5: lea      rcx, [rip + 0x3b4]
+0x1409802cc: mov      qword ptr [rsp + 0x90], rcx
+0x1409802d4: mov      qword ptr [rsp + 0x98], rax
+0x1409802dc: lea      rcx, [rsp + 0x90]
+0x1409802e4: mov      qword ptr [rsp + 0xb0], rcx
+0x1409802ec: mov      byte ptr [rsp + 0x2f], 1
+0x1409802f1: call     0x14012da00   ; os.File.Stat
+0x1409802f6: test     rcx, rcx
+0x1409802f9: jne      0x1409805aa   ; main.readScreenshotImageFileLimited+0x34a
+0x1409802ff: mov      qword ptr [rsp + 0x78], rbx
+0x140980304: mov      qword ptr [rsp + 0x30], rax
+0x140980309: mov      rcx, qword ptr [rax + 0x18]
+0x14098030d: mov      rax, rbx
+0x140980310: call     rcx
+0x140980312: test     al, al
+0x140980314: je       0x14098031d   ; main.readScreenshotImageFileLimited+0xbd
+0x140980316: mov      ecx, 1
+0x14098031b: jmp      0x140980353   ; main.readScreenshotImageFileLimited+0xf3
+0x14098031d: mov      rcx, qword ptr [rsp + 0x30]
+0x140980322: mov      rcx, qword ptr [rcx + 0x38]
+0x140980326: mov      rax, qword ptr [rsp + 0x78]
+0x14098032b: call     rcx
+0x14098032d: test     rax, rax
+0x140980330: jg       0x140980339   ; main.readScreenshotImageFileLimited+0xd9
+0x140980332: mov      ecx, 1
+0x140980337: jmp      0x140980353   ; main.readScreenshotImageFileLimited+0xf3
+0x140980339: mov      rcx, qword ptr [rsp + 0x30]
+0x14098033e: mov      rcx, qword ptr [rcx + 0x38]
+0x140980342: mov      rax, qword ptr [rsp + 0x78]
+0x140980347: call     rcx
+0x140980349: cmp      qword ptr [rip + 0xfe51b0], rax
+0x140980350: setl     cl
+0x140980353: test     cl, cl
+0x140980355: jne      0x14098050e   ; main.readScreenshotImageFileLimited+0x2ae
+0x14098035b: mov      rcx, qword ptr [rip + 0xfe519e]
+0x140980362: mov      qword ptr [rsp + 0x48], rcx
+0x140980367: lea      rax, [rip + 0x202572]
+0x14098036e: call     0x14001ae20   ; runtime.newobject
+0x140980373: lea      rcx, [rip + 0x852926]
+0x14098037a: mov      qword ptr [rax], rcx
+0x14098037d: cmp      dword ptr [rip + 0x12dafcc], 0
+0x140980384: jne      0x140980390   ; main.readScreenshotImageFileLimited+0x130
+0x140980386: mov      rcx, qword ptr [rsp + 0x80]
+0x14098038e: jmp      0x1409803a0   ; main.readScreenshotImageFileLimited+0x140
+0x140980390: call     0x140081040   ; runtime.gcWriteBarrier1
+0x140980395: mov      rcx, qword ptr [rsp + 0x80]
+0x14098039d: mov      qword ptr [r11], rcx
+0x1409803a0: mov      qword ptr [rax + 8], rcx
+0x1409803a4: mov      rcx, qword ptr [rsp + 0x48]
+0x1409803a9: inc      rcx
+0x1409803ac: mov      qword ptr [rax + 0x10], rcx
+0x1409803b0: mov      rbx, rax
+0x1409803b3: lea      rax, [rip + 0x852c66]
+0x1409803ba: call     0x140098bc0   ; io.ReadAll
+0x1409803bf: nop      
+0x1409803c0: test     rdi, rdi
+0x1409803c3: jne      0x1409804c1   ; main.readScreenshotImageFileLimited+0x261
+0x1409803c9: mov      qword ptr [rsp + 0x38], rbx
+0x1409803ce: mov      qword ptr [rsp + 0x40], rcx
+0x1409803d3: mov      qword ptr [rsp + 0x88], rax
+0x1409803db: mov      rcx, qword ptr [rsp + 0x30]
+0x1409803e0: mov      rcx, qword ptr [rcx + 0x38]
+0x1409803e4: mov      rax, qword ptr [rsp + 0x78]
+0x1409803e9: call     rcx
+0x1409803eb: mov      rcx, qword ptr [rsp + 0x38]
+0x1409803f0: cmp      rax, rcx
+0x1409803f3: je       0x14098046b   ; main.readScreenshotImageFileLimited+0x20b
+0x1409803f5: lea      rax, [rip + 0x1d3f84]
+0x1409803fc: nop      dword ptr [rax]
+0x140980400: call     0x14001ae20   ; runtime.newobject
+0x140980405: mov      qword ptr [rax + 8], 0x33
+0x14098040d: lea      rcx, [rip + 0x308b9f]
+0x140980414: mov      qword ptr [rax], rcx
+0x140980417: mov      qword ptr [rsp + 0x60], 0
+0x140980420: movups   xmmword ptr [rsp + 0x68], xmm15
+0x140980426: lea      rcx, [rip + 0x852cd3]
+0x14098042d: mov      qword ptr [rsp + 0x50], rcx
+0x140980432: mov      qword ptr [rsp + 0x58], rax
+0x140980437: mov      byte ptr [rsp + 0x2f], 0
+0x14098043c: mov      rdx, qword ptr [rsp + 0xb0]
+0x140980444: mov      rcx, qword ptr [rdx]
+0x140980447: call     rcx
+0x140980449: mov      rdi, qword ptr [rsp + 0x50]
+0x14098044e: mov      rax, qword ptr [rsp + 0x60]
+0x140980453: mov      rbx, qword ptr [rsp + 0x68]
+0x140980458: mov      rsi, qword ptr [rsp + 0x58]
+0x14098045d: mov      rcx, qword ptr [rsp + 0x70]
+0x140980462: add      rsp, 0xb8
+0x140980469: pop      rbp
+0x14098046a: ret      
+0x14098046b: mov      rax, qword ptr [rsp + 0x88]
+0x140980473: mov      qword ptr [rsp + 0x60], rax
+0x140980478: mov      qword ptr [rsp + 0x68], rcx
+0x14098047d: mov      rax, qword ptr [rsp + 0x40]
+0x140980482: mov      qword ptr [rsp + 0x70], rax
+0x140980487: movups   xmmword ptr [rsp + 0x50], xmm15
+0x14098048d: mov      byte ptr [rsp + 0x2f], 0
+0x140980492: mov      rdx, qword ptr [rsp + 0xb0]
+0x14098049a: mov      rax, qword ptr [rdx]
+0x14098049d: call     rax
+0x14098049f: mov      rdi, qword ptr [rsp + 0x50]
+0x1409804a4: mov      rax, qword ptr [rsp + 0x60]
+0x1409804a9: mov      rbx, qword ptr [rsp + 0x68]
+0x1409804ae: mov      rsi, qword ptr [rsp + 0x58]
+0x1409804b3: mov      rcx, qword ptr [rsp + 0x70]
+0x1409804b8: add      rsp, 0xb8
+0x1409804bf: pop      rbp
+0x1409804c0: ret      
+0x1409804c1: mov      qword ptr [rsp + 0x60], 0
+0x1409804ca: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1409804d0: mov      qword ptr [rsp + 0x50], rdi
+0x1409804d5: mov      qword ptr [rsp + 0x58], rsi
+0x1409804da: mov      byte ptr [rsp + 0x2f], 0
+0x1409804df: mov      rdx, qword ptr [rsp + 0xb0]
+0x1409804e7: mov      rax, qword ptr [rdx]
+0x1409804ea: call     rax
+0x1409804ec: mov      rdi, qword ptr [rsp + 0x50]
+0x1409804f1: mov      rax, qword ptr [rsp + 0x60]
+0x1409804f6: mov      rbx, qword ptr [rsp + 0x68]
+0x1409804fb: mov      rsi, qword ptr [rsp + 0x58]
+0x140980500: mov      rcx, qword ptr [rsp + 0x70]
+0x140980505: add      rsp, 0xb8
+0x14098050c: pop      rbp
+0x14098050d: ret      
+0x14098050e: movups   xmmword ptr [rsp + 0xa0], xmm15
+0x140980517: mov      rax, qword ptr [rip + 0xfe4fe2]
+0x14098051e: nop      
+0x140980520: call     0x1400765e0   ; runtime.convT64
+0x140980525: lea      rcx, [rip + 0x169a94]
+0x14098052c: mov      qword ptr [rsp + 0xa0], rcx
+0x140980534: mov      qword ptr [rsp + 0xa8], rax
+0x14098053c: lea      rax, [rip + 0x301cc0]
+0x140980543: mov      ebx, 0x2b
+0x140980548: lea      rcx, [rsp + 0xa0]
+0x140980550: mov      edi, 1
+0x140980555: mov      rsi, rdi
+0x140980558: call     0x140133280   ; fmt.Errorf
+0x14098055d: mov      qword ptr [rsp + 0x60], 0
+0x140980566: movups   xmmword ptr [rsp + 0x68], xmm15
+0x14098056c: mov      qword ptr [rsp + 0x50], rax
+0x140980571: mov      qword ptr [rsp + 0x58], rbx
+0x140980576: mov      byte ptr [rsp + 0x2f], 0
+0x14098057b: mov      rdx, qword ptr [rsp + 0xb0]
+0x140980583: mov      rcx, qword ptr [rdx]
+0x140980586: call     rcx
+0x140980588: mov      rdi, qword ptr [rsp + 0x50]
+0x14098058d: mov      rax, qword ptr [rsp + 0x60]
+0x140980592: mov      rbx, qword ptr [rsp + 0x68]
+0x140980597: mov      rsi, qword ptr [rsp + 0x58]
+0x14098059c: mov      rcx, qword ptr [rsp + 0x70]
+0x1409805a1: add      rsp, 0xb8
+0x1409805a8: pop      rbp
+0x1409805a9: ret      
+0x1409805aa: mov      qword ptr [rsp + 0x60], 0
+0x1409805b3: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1409805b9: mov      qword ptr [rsp + 0x50], rcx
+0x1409805be: mov      qword ptr [rsp + 0x58], rdi
+0x1409805c3: mov      byte ptr [rsp + 0x2f], 0
+0x1409805c8: mov      rdx, qword ptr [rsp + 0xb0]
+0x1409805d0: mov      rax, qword ptr [rdx]
+0x1409805d3: call     rax
+0x1409805d5: mov      rdi, qword ptr [rsp + 0x50]
+0x1409805da: mov      rax, qword ptr [rsp + 0x60]
+0x1409805df: mov      rbx, qword ptr [rsp + 0x68]
+0x1409805e4: mov      rsi, qword ptr [rsp + 0x58]
+0x1409805e9: mov      rcx, qword ptr [rsp + 0x70]
+0x1409805ee: add      rsp, 0xb8
+0x1409805f5: pop      rbp
+0x1409805f6: ret      
+0x1409805f7: mov      qword ptr [rsp + 0x60], 0
+0x140980600: movups   xmmword ptr [rsp + 0x68], xmm15
+0x140980606: mov      qword ptr [rsp + 0x50], rbx
+0x14098060b: mov      qword ptr [rsp + 0x58], rcx
+0x140980610: mov      rax, qword ptr [rsp + 0x60]
+0x140980615: mov      rdx, qword ptr [rsp + 0x68]
+0x14098061a: mov      r8, qword ptr [rsp + 0x70]
+0x14098061f: mov      rdi, rbx
+0x140980622: mov      rsi, rcx
+0x140980625: mov      rbx, rdx
+0x140980628: mov      rcx, r8
+0x14098062b: add      rsp, 0xb8
+0x140980632: pop      rbp
+0x140980633: ret      
+0x140980634: call     0x1400435e0   ; runtime.deferreturn
+0x140980639: mov      rax, qword ptr [rsp + 0x60]
+0x14098063e: mov      rbx, qword ptr [rsp + 0x68]
+0x140980643: mov      rcx, qword ptr [rsp + 0x70]
+0x140980648: mov      rdi, qword ptr [rsp + 0x50]
+0x14098064d: mov      rsi, qword ptr [rsp + 0x58]
+0x140980652: add      rsp, 0xb8
+0x140980659: pop      rbp
+0x14098065a: ret      
+0x14098065b: mov      qword ptr [rsp + 8], rax
+0x140980660: mov      qword ptr [rsp + 0x10], rbx
+0x140980665: call     0x14007f140   ; runtime.morestack_noctxt
+0x14098066a: mov      rax, qword ptr [rsp + 8]
+0x14098066f: mov      rbx, qword ptr [rsp + 0x10]
+0x140980674: jmp      0x140980260   ; main.readScreenshotImageFileLimited
+0x140980679: int3     
+0x14098067a: int3     
+0x14098067b: int3     
+0x14098067c: int3     
+0x14098067d: int3     
+0x14098067e: int3     
+0x14098067f: int3     

@@ -1,0 +1,13 @@
+0x140a05c30: insb     byte ptr [rdi], dx
+0x140a05c31: and      al, 0x28
+0x140a05c33: cmp      qword ptr [r12], r13
+0x140a05c37: jne      0x140a05bd7   ; main.directLauncherNetworkAccess.Get+0x17
+0x140a05c39: mov      qword ptr [r12], rsp
+0x140a05c3d: jmp      0x140a05bd7   ; main.directLauncherNetworkAccess.Get+0x17
+0x140a05c3f: int3     
+0x140a05c40: push     rbp
+0x140a05c41: mov      rbp, rsp
+0x140a05c44: mov      r12, qword ptr [r14 + 0x20]
+0x140a05c48: test     r12, r12
+0x140a05c4b: jne      0x140a05c66   ; main.launcherUpdateUserError.Error+0x26
+0x140a05c4d: test     rax, rax

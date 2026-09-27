@@ -1,0 +1,22 @@
+0x14090fbc0: lea      r12, [rsp - 0xc0]
+0x14090fbc8: cmp      r12, qword ptr [r14 + 0x10]
+0x14090fbcc: jbe      0x1409100f0   ; main.applyOLEDBlackoutHotkeyBindings+0x530
+0x14090fbd2: push     rbp
+0x14090fbd3: mov      rbp, rsp
+0x14090fbd6: sub      rsp, 0x138
+0x14090fbdd: mov      qword ptr [rsp + 0x148], rax
+0x14090fbe5: mov      qword ptr [rsp + 0x160], rdi
+0x14090fbed: mov      qword ptr [rsp + 0x150], rbx
+0x14090fbf5: mov      qword ptr [rsp + 0x158], rcx
+0x14090fbfd: mov      rdx, qword ptr [rax]
+0x14090fc00: mov      rsi, qword ptr [rax + 8]
+0x14090fc04: mov      qword ptr [rsp + 0x58], rsi
+0x14090fc09: xor      r8d, r8d
+0x14090fc0c: jmp      0x14090fc89   ; main.applyOLEDBlackoutHotkeyBindings+0xc9
+0x14090fc0e: mov      qword ptr [rsp + 0x88], r8
+0x14090fc16: mov      qword ptr [rsp + 0x100], rdx
+0x14090fc1e: movups   xmm0, xmmword ptr [rdx]
+0x14090fc21: movups   xmmword ptr [rsp + 0x108], xmm0
+0x14090fc29: movups   xmm0, xmmword ptr [rdx + 0x10]
+0x14090fc2d: movups   xmmword ptr [rsp + 0x118], xmm0
+0x14090fc35: movups   xmm0, xmmword ptr [rdx + 0x20]

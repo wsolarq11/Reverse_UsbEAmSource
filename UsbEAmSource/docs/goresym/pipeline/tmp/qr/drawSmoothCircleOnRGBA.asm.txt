@@ -1,0 +1,242 @@
+0x140959260: lea      r12, [rsp - 0x40]
+0x140959265: cmp      r12, qword ptr [r14 + 0x10]
+0x140959269: jbe      0x140959677   ; main.drawSmoothCircleOnRGBA+0x417
+0x14095926f: push     rbp
+0x140959270: mov      rbp, rsp
+0x140959273: sub      rsp, 0xb8
+0x14095927a: nop      word ptr [rax + rax]
+0x140959280: test     rax, rax
+0x140959283: je       0x14095947c   ; main.drawSmoothCircleOnRGBA+0x21c
+0x140959289: test     rdi, rdi
+0x14095928c: jle      0x14095947c   ; main.drawSmoothCircleOnRGBA+0x21c
+0x140959292: mov      qword ptr [rsp + 0xc8], rax
+0x14095929a: mov      qword ptr [rsp + 0xe0], rdi
+0x1409592a2: mov      byte ptr [rsp + 0x47], r10b
+0x1409592a7: mov      byte ptr [rsp + 0x46], r9b
+0x1409592ac: mov      byte ptr [rsp + 0x45], r8b
+0x1409592b1: mov      byte ptr [rsp + 0x44], sil
+0x1409592b6: mov      qword ptr [rsp + 0xb0], rcx
+0x1409592be: mov      qword ptr [rsp + 0xa8], rbx
+0x1409592c6: xorps    xmm0, xmm0
+0x1409592c9: cvtsi2sd xmm0, rdi
+0x1409592ce: movsd    xmm1, qword ptr [rip + 0x8743ea]
+0x1409592d6: movups   xmm2, xmm0
+0x1409592d9: subsd    xmm0, xmm1
+0x1409592dd: addsd    xmm1, xmm2
+0x1409592e1: movsd    qword ptr [rsp + 0x70], xmm1
+0x1409592e7: nop      
+0x1409592e8: movsd    xmm2, qword ptr [rip + 0x8743e0]
+0x1409592f0: addsd    xmm2, xmm1
+0x1409592f4: movsd    qword ptr [rsp + 0xa0], xmm2
+0x1409592fd: mov      rcx, qword ptr [rax + 0x28]
+0x140959301: mov      qword ptr [rsp + 0x98], rcx
+0x140959309: mov      rcx, qword ptr [rax + 0x30]
+0x14095930d: mov      qword ptr [rsp + 0x90], rcx
+0x140959315: mov      rcx, qword ptr [rax + 0x38]
+0x140959319: mov      qword ptr [rsp + 0x88], rcx
+0x140959321: mov      rax, qword ptr [rax + 0x20]
+0x140959325: mov      qword ptr [rsp + 0x80], rax
+0x14095932d: mov      qword ptr [rsp], 0
+0x140959335: movsd    qword ptr [rsp + 8], xmm0
+0x14095933b: nop      dword ptr [rax + rax]
+0x140959340: call     0x1400a5700   ; math.archMax
+0x140959345: xorps    xmm15, xmm15
+0x140959349: mov      r14, qword ptr [rip + 0x1301c28]
+0x140959350: mov      r14, qword ptr gs:[r14]
+0x140959354: mov      r14, qword ptr [r14]
+0x140959357: movsd    xmm0, qword ptr [rsp + 0x10]
+0x14095935d: movsd    qword ptr [rsp + 0x48], xmm0
+0x140959363: movzx    eax, byte ptr [rip + 0x1301664]
+0x14095936a: test     eax, eax
+0x14095936c: je       0x14095937f   ; main.drawSmoothCircleOnRGBA+0x11f
+0x14095936e: movsd    xmm1, qword ptr [rsp + 0xa0]
+0x140959377: roundsd  xmm1, xmm1, 2
+0x14095937d: jmp      0x140959390   ; main.drawSmoothCircleOnRGBA+0x130
+0x14095937f: movsd    xmm0, qword ptr [rsp + 0xa0]
+0x140959388: call     0x1400a3c20   ; math.Ceil
+0x14095938d: movups   xmm1, xmm0
+0x140959390: cvttsd2si rdx, xmm1
+0x140959395: mov      rax, qword ptr [rsp + 0xa8]
+0x14095939d: mov      r11, rax
+0x1409593a0: sub      r11, rdx
+0x1409593a3: mov      rbx, qword ptr [rsp + 0xb0]
+0x1409593ab: mov      r12, rbx
+0x1409593ae: sub      r12, rdx
+0x1409593b1: lea      rcx, [rax + rdx]
+0x1409593b5: lea      rcx, [rcx + 1]
+0x1409593b9: lea      rdi, [rbx + rdx]
+0x1409593bd: lea      rdi, [rdi + 1]
+0x1409593c1: cmp      rcx, r11
+0x1409593c4: mov      rax, r11
+0x1409593c7: cmovl    rax, rcx
+0x1409593cb: cmovl    rcx, r11
+0x1409593cf: cmp      rdi, r12
+0x1409593d2: mov      rbx, r12
+0x1409593d5: cmovl    rbx, rdi
+0x1409593d9: cmovl    rdi, r12
+0x1409593dd: mov      rsi, qword ptr [rsp + 0x80]
+0x1409593e5: mov      r8, qword ptr [rsp + 0x98]
+0x1409593ed: mov      r9, qword ptr [rsp + 0x90]
+0x1409593f5: mov      r10, qword ptr [rsp + 0x88]
+0x1409593fd: nop      dword ptr [rax]
+0x140959400: call     0x1401a1160   ; image.Rectangle.Intersect
+0x140959405: cmp      rcx, rax
+0x140959408: jle      0x140959473   ; main.drawSmoothCircleOnRGBA+0x213
+0x14095940a: cmp      rdi, rbx
+0x14095940d: jle      0x140959473   ; main.drawSmoothCircleOnRGBA+0x213
+0x14095940f: mov      qword ptr [rsp + 0x98], rax
+0x140959417: mov      qword ptr [rsp + 0x90], rdi
+0x14095941f: mov      qword ptr [rsp + 0x88], rcx
+0x140959427: mov      rdx, qword ptr [rsp + 0xe0]
+0x14095942f: imul     rdx, rdx
+0x140959433: movsd    xmm1, qword ptr [rsp + 0x48]
+0x140959439: mulsd    xmm1, xmm1
+0x14095943d: movsd    qword ptr [rsp + 0x78], xmm1
+0x140959443: movsd    xmm2, qword ptr [rsp + 0x70]
+0x140959449: mulsd    xmm2, xmm2
+0x14095944d: movsd    qword ptr [rsp + 0x68], xmm2
+0x140959453: xorps    xmm0, xmm0
+0x140959456: cvtsi2sd xmm0, rdx
+0x14095945b: movsd    qword ptr [rsp + 0x60], xmm0
+0x140959461: mov      rdx, qword ptr [rsp + 0xa8]
+0x140959469: mov      r10, qword ptr [rsp + 0xb0]
+0x140959471: jmp      0x14095948b   ; main.drawSmoothCircleOnRGBA+0x22b
+0x140959473: add      rsp, 0xb8
+0x14095947a: pop      rbp
+0x14095947b: ret      
+0x14095947c: add      rsp, 0xb8
+0x140959483: pop      rbp
+0x140959484: ret      
+0x140959485: inc      rbx
+0x140959488: mov      rax, rsi
+0x14095948b: cmp      rdi, rbx
+0x14095948e: jle      0x14095949a   ; main.drawSmoothCircleOnRGBA+0x23a
+0x140959490: mov      qword ptr [rsp + 0x50], rbx
+0x140959495: mov      rsi, rax
+0x140959498: jmp      0x1409594a6   ; main.drawSmoothCircleOnRGBA+0x246
+0x14095949a: add      rsp, 0xb8
+0x1409594a1: pop      rbp
+0x1409594a2: ret      
+0x1409594a3: inc      rax
+0x1409594a6: cmp      rcx, rax
+0x1409594a9: jle      0x140959485   ; main.drawSmoothCircleOnRGBA+0x225
+0x1409594ab: mov      qword ptr [rsp + 0x58], rax
+0x1409594b0: mov      r11, rax
+0x1409594b3: sub      r11, rdx
+0x1409594b6: xorps    xmm3, xmm3
+0x1409594b9: cvtsi2sd xmm3, r11
+0x1409594be: mov      r11, rbx
+0x1409594c1: sub      r11, r10
+0x1409594c4: xorps    xmm4, xmm4
+0x1409594c7: cvtsi2sd xmm4, r11
+0x1409594cc: mulsd    xmm3, xmm3
+0x1409594d0: mulsd    xmm4, xmm4
+0x1409594d4: addsd    xmm3, xmm4
+0x1409594d8: ucomisd  xmm1, xmm3
+0x1409594dc: nop      dword ptr [rax]
+0x1409594e0: jae      0x140959605   ; main.drawSmoothCircleOnRGBA+0x3a5
+0x1409594e6: ucomisd  xmm3, xmm2
+0x1409594ea: ja       0x1409594a3   ; main.drawSmoothCircleOnRGBA+0x243
+0x1409594ec: mov      rcx, rdx
+0x1409594ef: mov      rdi, r10
+0x1409594f2: call     0x1409596e0   ; main.qrCodeCirclePixelCoverage
+0x1409594f7: xorps    xmm1, xmm1
+0x1409594fa: ucomisd  xmm1, xmm0
+0x1409594fe: nop      
+0x140959500: jb       0x14095954b   ; main.drawSmoothCircleOnRGBA+0x2eb
+0x140959502: mov      rax, qword ptr [rsp + 0x58]
+0x140959507: mov      rcx, qword ptr [rsp + 0x88]
+0x14095950f: mov      rdx, qword ptr [rsp + 0xa8]
+0x140959517: mov      rbx, qword ptr [rsp + 0x50]
+0x14095951c: mov      rsi, qword ptr [rsp + 0x98]
+0x140959524: mov      rdi, qword ptr [rsp + 0x90]
+0x14095952c: mov      r10, qword ptr [rsp + 0xb0]
+0x140959534: movsd    xmm0, qword ptr [rsp + 0x60]
+0x14095953a: movsd    xmm1, qword ptr [rsp + 0x78]
+0x140959540: movsd    xmm2, qword ptr [rsp + 0x68]
+0x140959546: jmp      0x1409594a3   ; main.drawSmoothCircleOnRGBA+0x243
+0x14095954b: movzx    edx, byte ptr [rsp + 0x47]
+0x140959550: movzx    r10d, dl
+0x140959554: xorps    xmm2, xmm2
+0x140959557: cvtsi2sd xmm2, r10d
+0x14095955c: mulsd    xmm2, xmm0
+0x140959560: movsd    xmm0, qword ptr [rip + 0x874118]
+0x140959568: addsd    xmm2, xmm0
+0x14095956c: cvttsd2si r10, xmm2
+0x140959571: test     r10, r10
+0x140959574: jge      0x140959580   ; main.drawSmoothCircleOnRGBA+0x320
+0x140959576: xor      r10d, r10d
+0x140959579: jmp      0x14095958f   ; main.drawSmoothCircleOnRGBA+0x32f
+0x14095957b: nop      dword ptr [rax + rax]
+0x140959580: cmp      r10, 0xff
+0x140959587: jle      0x14095958f   ; main.drawSmoothCircleOnRGBA+0x32f
+0x140959589: mov      r10d, 0xff
+0x14095958f: mov      rax, qword ptr [rsp + 0xc8]
+0x140959597: mov      rbx, qword ptr [rsp + 0x58]
+0x14095959c: mov      rcx, qword ptr [rsp + 0x50]
+0x1409595a1: movzx    edi, byte ptr [rsp + 0x44]
+0x1409595a6: movzx    esi, byte ptr [rsp + 0x45]
+0x1409595ab: movzx    r8d, byte ptr [rsp + 0x46]
+0x1409595b1: mov      r9, r10
+0x1409595b4: call     0x1409597a0   ; main.blendQRCodeRGBAPixel
+0x1409595b9: mov      rax, qword ptr [rsp + 0x58]
+0x1409595be: mov      rcx, qword ptr [rsp + 0x88]
+0x1409595c6: mov      rdx, qword ptr [rsp + 0xa8]
+0x1409595ce: mov      rbx, qword ptr [rsp + 0x50]
+0x1409595d3: mov      rsi, qword ptr [rsp + 0x98]
+0x1409595db: mov      rdi, qword ptr [rsp + 0x90]
+0x1409595e3: mov      r10, qword ptr [rsp + 0xb0]
+0x1409595eb: movsd    xmm0, qword ptr [rsp + 0x60]
+0x1409595f1: movsd    xmm1, qword ptr [rsp + 0x78]
+0x1409595f7: movsd    xmm2, qword ptr [rsp + 0x68]
+0x1409595fd: nop      dword ptr [rax]
+0x140959600: jmp      0x1409594a3   ; main.drawSmoothCircleOnRGBA+0x243
+0x140959605: mov      rcx, rbx
+0x140959608: movzx    edi, byte ptr [rsp + 0x44]
+0x14095960d: movzx    esi, byte ptr [rsp + 0x45]
+0x140959612: movzx    r8d, byte ptr [rsp + 0x46]
+0x140959618: movzx    r9d, byte ptr [rsp + 0x47]
+0x14095961e: mov      rbx, rax
+0x140959621: mov      rax, qword ptr [rsp + 0xc8]
+0x140959629: call     0x1409597a0   ; main.blendQRCodeRGBAPixel
+0x14095962e: mov      rax, qword ptr [rsp + 0x58]
+0x140959633: mov      rcx, qword ptr [rsp + 0x88]
+0x14095963b: mov      rdx, qword ptr [rsp + 0xa8]
+0x140959643: mov      rbx, qword ptr [rsp + 0x50]
+0x140959648: mov      rsi, qword ptr [rsp + 0x98]
+0x140959650: mov      rdi, qword ptr [rsp + 0x90]
+0x140959658: mov      r10, qword ptr [rsp + 0xb0]
+0x140959660: movsd    xmm0, qword ptr [rsp + 0x60]
+0x140959666: movsd    xmm1, qword ptr [rsp + 0x78]
+0x14095966c: movsd    xmm2, qword ptr [rsp + 0x68]
+0x140959672: jmp      0x1409594a3   ; main.drawSmoothCircleOnRGBA+0x243
+0x140959677: mov      qword ptr [rsp + 8], rax
+0x14095967c: mov      qword ptr [rsp + 0x10], rbx
+0x140959681: mov      qword ptr [rsp + 0x18], rcx
+0x140959686: mov      qword ptr [rsp + 0x20], rdi
+0x14095968b: mov      byte ptr [rsp + 0x28], sil
+0x140959690: mov      byte ptr [rsp + 0x29], r8b
+0x140959695: mov      byte ptr [rsp + 0x2a], r9b
+0x14095969a: mov      byte ptr [rsp + 0x2b], r10b
+0x14095969f: nop      
+0x1409596a0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409596a5: mov      rax, qword ptr [rsp + 8]
+0x1409596aa: mov      rbx, qword ptr [rsp + 0x10]
+0x1409596af: mov      rcx, qword ptr [rsp + 0x18]
+0x1409596b4: mov      rdi, qword ptr [rsp + 0x20]
+0x1409596b9: movzx    esi, byte ptr [rsp + 0x28]
+0x1409596be: movzx    r8d, byte ptr [rsp + 0x29]
+0x1409596c4: movzx    r9d, byte ptr [rsp + 0x2a]
+0x1409596ca: movzx    r10d, byte ptr [rsp + 0x2b]
+0x1409596d0: jmp      0x140959260   ; main.drawSmoothCircleOnRGBA
+0x1409596d5: int3     
+0x1409596d6: int3     
+0x1409596d7: int3     
+0x1409596d8: int3     
+0x1409596d9: int3     
+0x1409596da: int3     
+0x1409596db: int3     
+0x1409596dc: int3     
+0x1409596dd: int3     
+0x1409596de: int3     
+0x1409596df: int3     

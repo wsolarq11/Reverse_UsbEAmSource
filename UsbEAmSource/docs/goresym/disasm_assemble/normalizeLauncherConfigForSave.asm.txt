@@ -1,0 +1,95 @@
+0x140877420: mov      r12, rsp
+0x140877423: sub      r12, 0x1220
+0x14087742a: jb       0x140877599    ; main.normalizeLauncherConfigForSave+0x179
+0x140877430: cmp      r12, qword ptr [r14 + 0x10]
+0x140877434: jbe      0x140877599    ; main.normalizeLauncherConfigForSave+0x179
+0x14087743a: push     rbp
+0x14087743b: mov      rbp, rsp
+0x14087743e: sub      rsp, 0x1298
+0x140877445: mov      qword ptr [rsp + 0x2518], rax
+0x14087744d: mov      qword ptr [rsp + 0x2520], rbx
+0x140877455: movups   xmmword ptr [rsp + 0x1be0], xmm15
+0x14087745e: lea      rdi, [rsp + 0x1be8]
+0x140877466: mov      ecx, 0x126
+0x14087746b: xor      eax, eax
+0x14087746d: rep stosq qword ptr [rdi], rax
+0x140877470: movups   xmmword ptr [rsp + 0x12a8], xmm15
+0x140877479: lea      rax, [rip + 0x392be0]
+0x140877480: call     0x14001ae20    ; runtime.newobject
+0x140877485: mov      qword ptr [rsp + 0x1290], rax
+0x14087748d: mov      rdx, qword ptr [rsp + 0x2520]
+0x140877495: test     rdx, rdx
+0x140877498: jne      0x1408774a4    ; main.normalizeLauncherConfigForSave+0x84
+0x14087749a: xor      r8d, r8d
+0x14087749d: xor      r9d, r9d
+0x1408774a0: xor      edx, edx
+0x1408774a2: jmp      0x1408774b7    ; main.normalizeLauncherConfigForSave+0x97
+0x1408774a4: mov      rdx, qword ptr [rsp + 0x2518]
+0x1408774ac: mov      r8, qword ptr [rdx + 8]
+0x1408774b0: mov      r9, qword ptr [rdx + 0x10]
+0x1408774b4: mov      rdx, qword ptr [rdx]
+0x1408774b7: mov      r10, qword ptr [rsp + 0x12a8]
+0x1408774bf: mov      qword ptr [rsp], r10
+0x1408774c3: lea      rdi, [rsp + 8]
+0x1408774c8: lea      rsi, [rsp + 0x12b0]
+0x1408774d0: mov      ecx, 0x126
+0x1408774d5: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1408774d8: mov      rax, rdx
+0x1408774db: mov      rbx, r8
+0x1408774de: mov      rcx, r9
+0x1408774e1: call     0x140879380    ; main.normalizeLauncherConfigWithOptions
+0x1408774e6: cmp      dword ptr [rip + 0x13e3e63], 0
+0x1408774ed: je       0x140877516    ; main.normalizeLauncherConfigForSave+0xf6
+0x1408774ef: mov      rbx, qword ptr [rsp + 0x1290]
+0x1408774f7: mov      rdx, qword ptr [rbx]
+0x1408774fa: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1408774ff: mov      qword ptr [r11], rdx
+0x140877502: lea      rax, [rip + 0x392b57]
+0x140877509: lea      rcx, [rsp + 0x938]
+0x140877511: call     0x14001b620    ; runtime.wbMove
+0x140877516: mov      rdx, qword ptr [rsp + 0x938]
+0x14087751e: mov      rdi, qword ptr [rsp + 0x1290]
+0x140877526: mov      qword ptr [rdi], rdx
+0x140877529: lea      rdx, [rdi + 8]
+0x14087752d: mov      qword ptr [rsp + 0x1288], rdx
+0x140877535: lea      rsi, [rsp + 0x940]
+0x14087753d: mov      ecx, 0x126
+0x140877542: mov      rax, rdi
+0x140877545: mov      rdi, rdx
+0x140877548: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14087754b: movups   xmmword ptr [rax], xmm15
+0x14087754f: call     0x140879ca0    ; main.populateAppIcons
+0x140877554: mov      rax, qword ptr [rsp + 0x1290]
+0x14087755c: nop      dword ptr [rax]
+0x140877560: call     0x1408775e0    ; main.stripLauncherConfigRuntimeFields
+0x140877565: mov      rdx, qword ptr [rsp + 0x1290]
+0x14087756d: mov      rdx, qword ptr [rdx]
+0x140877570: mov      qword ptr [rsp + 0x1be0], rdx
+0x140877578: lea      rdi, [rsp + 0x1be8]
+0x140877580: mov      rsi, qword ptr [rsp + 0x1288]
+0x140877588: mov      ecx, 0x126
+0x14087758d: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140877590: add      rsp, 0x1298
+0x140877597: pop      rbp
+0x140877598: ret      
+0x140877599: mov      qword ptr [rsp + 0x1278], rax
+0x1408775a1: mov      qword ptr [rsp + 0x1280], rbx
+0x1408775a9: mov      qword ptr [rsp + 0x1288], rcx
+0x1408775b1: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408775b6: mov      rax, qword ptr [rsp + 0x1278]
+0x1408775be: mov      rbx, qword ptr [rsp + 0x1280]
+0x1408775c6: mov      rcx, qword ptr [rsp + 0x1288]
+0x1408775ce: jmp      0x140877420    ; main.normalizeLauncherConfigForSave
+0x1408775d3: int3     
+0x1408775d4: int3     
+0x1408775d5: int3     
+0x1408775d6: int3     
+0x1408775d7: int3     
+0x1408775d8: int3     
+0x1408775d9: int3     
+0x1408775da: int3     
+0x1408775db: int3     
+0x1408775dc: int3     
+0x1408775dd: int3     
+0x1408775de: int3     
+0x1408775df: int3     

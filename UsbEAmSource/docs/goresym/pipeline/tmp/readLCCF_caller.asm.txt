@@ -1,0 +1,43 @@
+0x1407ab4f0: mov      dword ptr [rsp + 0x9b0], 0x12
+0x1407ab4fb: lea      rcx, [rip + 0x4ae7ac]
+0x1407ab502: mov      qword ptr [rsp + 0x9a8], rcx
+0x1407ab50a: lea      rcx, [rsp + 0x998]
+0x1407ab512: xor      eax, eax
+0x1407ab514: jmp      0x1407ab6ce   ; main.readLauncherConfigFileWithDesktopWidgets+0x46e
+0x1407ab519: movups   xmmword ptr [rsp + 0x9d8], xmm15
+0x1407ab522: lea      rdi, [rsp + 0x9e0]
+0x1407ab52a: mov      ecx, 0x126
+0x1407ab52f: xor      eax, eax
+0x1407ab531: rep stosq qword ptr [rdi], rax
+0x1407ab534: mov      rax, qword ptr [rsp + 0x1cf8]
+0x1407ab53c: mov      rbx, qword ptr [rsp + 0x1d00]
+0x1407ab544: mov      rcx, qword ptr [rsp + 0x1d08]
+0x1407ab54c: mov      rdi, qword ptr [rsp + 0x1d10]
+0x1407ab554: call     0x1408788c0   ; main.readLauncherConfigFile
+0x1407ab559: mov      rdx, qword ptr [rsp]
+0x1407ab55d: mov      qword ptr [rsp + 0x9d8], rdx
+0x1407ab565: lea      rdi, [rsp + 0x9e0]
+0x1407ab56d: lea      rsi, [rsp + 8]
+0x1407ab572: mov      ecx, 0x126
+0x1407ab577: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407ab57a: nop      word ptr [rax + rax]
+0x1407ab580: test     rax, rax
+0x1407ab583: jne      0x1407ab659   ; main.readLauncherConfigFileWithDesktopWidgets+0x3f9
+0x1407ab589: movzx    edx, byte ptr [rsp + 0x95f]
+0x1407ab591: test     dl, dl
+0x1407ab593: je       0x1407ab5fa   ; main.readLauncherConfigFileWithDesktopWidgets+0x39a
+0x1407ab595: mov      rdx, qword ptr [rsp + 0x9d8]
+0x1407ab59d: mov      qword ptr [rsp + 0x13c0], rdx
+0x1407ab5a5: lea      rdi, [rsp + 0x13c8]
+0x1407ab5ad: lea      rsi, [rsp + 0x9e0]
+0x1407ab5b5: mov      ecx, 0x126
+0x1407ab5ba: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407ab5bd: mov      rdx, qword ptr [rsp + 0x9d8]
+0x1407ab5c5: mov      qword ptr [rsp + 0x13c0], rdx
+0x1407ab5cd: lea      rdi, [rsp + 0x13c8]
+0x1407ab5d5: lea      rsi, [rsp + 0x9e0]
+0x1407ab5dd: mov      ecx, 0x126
+0x1407ab5e2: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407ab5e5: mov      rax, qword ptr [rsp + 0x13a8]
+0x1407ab5ed: xor      ebx, ebx
+0x1407ab5ef: xor      ecx, ecx

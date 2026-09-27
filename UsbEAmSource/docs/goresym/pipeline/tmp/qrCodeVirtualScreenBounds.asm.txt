@@ -1,0 +1,105 @@
+0x14095a060: cmp      rsp, qword ptr [r14 + 0x10]
+0x14095a064: jbe      0x14095a1ed   ; main.qrCodeVirtualScreenBounds+0x18d
+0x14095a06a: push     rbp
+0x14095a06b: mov      rbp, rsp
+0x14095a06e: sub      rsp, 0x40
+0x14095a072: nop      
+0x14095a073: lea      rax, [rip + 0x1a3906]
+0x14095a07a: call     0x14001ae20   ; runtime.newobject
+0x14095a07f: mov      qword ptr [rax], 0x4c
+0x14095a086: mov      rcx, qword ptr [rip + 0x126889b]
+0x14095a08d: mov      rbx, rax
+0x14095a090: mov      edi, 1
+0x14095a095: mov      rax, rcx
+0x14095a098: mov      rcx, rdi
+0x14095a09b: nop      dword ptr [rax + rax]
+0x14095a0a0: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095a0a5: mov      qword ptr [rsp + 0x30], rax
+0x14095a0aa: nop      
+0x14095a0ab: lea      rax, [rip + 0x1a38ce]
+0x14095a0b2: call     0x14001ae20   ; runtime.newobject
+0x14095a0b7: mov      qword ptr [rax], 0x4d
+0x14095a0be: mov      rcx, qword ptr [rip + 0x1268863]
+0x14095a0c5: mov      rbx, rax
+0x14095a0c8: mov      edi, 1
+0x14095a0cd: mov      rax, rcx
+0x14095a0d0: mov      rcx, rdi
+0x14095a0d3: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095a0d8: mov      qword ptr [rsp + 0x28], rax
+0x14095a0dd: nop      
+0x14095a0de: lea      rax, [rip + 0x1a389b]
+0x14095a0e5: call     0x14001ae20   ; runtime.newobject
+0x14095a0ea: mov      qword ptr [rax], 0x4e
+0x14095a0f1: mov      rcx, qword ptr [rip + 0x1268830]
+0x14095a0f8: mov      rbx, rax
+0x14095a0fb: mov      edi, 1
+0x14095a100: mov      rax, rcx
+0x14095a103: mov      rcx, rdi
+0x14095a106: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095a10b: mov      qword ptr [rsp + 0x20], rax
+0x14095a110: nop      
+0x14095a111: lea      rax, [rip + 0x1a3868]
+0x14095a118: call     0x14001ae20   ; runtime.newobject
+0x14095a11d: mov      qword ptr [rax], 0x4f
+0x14095a124: mov      rcx, qword ptr [rip + 0x12687fd]
+0x14095a12b: mov      rbx, rax
+0x14095a12e: mov      edi, 1
+0x14095a133: mov      rax, rcx
+0x14095a136: mov      rcx, rdi
+0x14095a139: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095a13e: mov      rcx, qword ptr [rsp + 0x20]
+0x14095a143: test     rcx, rcx
+0x14095a146: jle      0x14095a14d   ; main.qrCodeVirtualScreenBounds+0xed
+0x14095a148: test     rax, rax
+0x14095a14b: jg       0x14095a1b1   ; main.qrCodeVirtualScreenBounds+0x151
+0x14095a14d: nop      
+0x14095a14e: lea      rax, [rip + 0x1a382b]
+0x14095a155: call     0x14001ae20   ; runtime.newobject
+0x14095a15a: mov      rcx, qword ptr [rip + 0x12687c7]
+0x14095a161: mov      rbx, rax
+0x14095a164: mov      edi, 1
+0x14095a169: mov      rax, rcx
+0x14095a16c: mov      rcx, rdi
+0x14095a16f: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095a174: mov      qword ptr [rsp + 0x38], rax
+0x14095a179: lea      rax, [rip + 0x1a3800]
+0x14095a180: call     0x14001ae20   ; runtime.newobject
+0x14095a185: mov      qword ptr [rax], 1
+0x14095a18c: mov      rcx, qword ptr [rip + 0x1268795]
+0x14095a193: mov      rbx, rax
+0x14095a196: mov      edi, 1
+0x14095a19b: mov      rax, rcx
+0x14095a19e: mov      rcx, rdi
+0x14095a1a1: call     0x1400e3120   ; syscall.LazyProc.Call
+0x14095a1a6: xor      ecx, ecx
+0x14095a1a8: xor      edx, edx
+0x14095a1aa: mov      rbx, qword ptr [rsp + 0x38]
+0x14095a1af: jmp      0x14095a1c0   ; main.qrCodeVirtualScreenBounds+0x160
+0x14095a1b1: mov      rcx, qword ptr [rsp + 0x30]
+0x14095a1b6: mov      rdx, qword ptr [rsp + 0x28]
+0x14095a1bb: mov      rbx, qword ptr [rsp + 0x20]
+0x14095a1c0: lea      rsi, [rbx + rcx]
+0x14095a1c4: lea      rdi, [rax + rdx]
+0x14095a1c8: cmp      rcx, rsi
+0x14095a1cb: mov      rax, rcx
+0x14095a1ce: cmovg    rax, rsi
+0x14095a1d2: cmovg    rsi, rcx
+0x14095a1d6: cmp      rdx, rdi
+0x14095a1d9: mov      rbx, rdx
+0x14095a1dc: cmovg    rbx, rdi
+0x14095a1e0: cmovg    rdi, rdx
+0x14095a1e4: mov      rcx, rsi
+0x14095a1e7: add      rsp, 0x40
+0x14095a1eb: pop      rbp
+0x14095a1ec: ret      
+0x14095a1ed: call     0x14007f140   ; runtime.morestack_noctxt
+0x14095a1f2: jmp      0x14095a060   ; main.qrCodeVirtualScreenBounds
+0x14095a1f7: int3     
+0x14095a1f8: int3     
+0x14095a1f9: int3     
+0x14095a1fa: int3     
+0x14095a1fb: int3     
+0x14095a1fc: int3     
+0x14095a1fd: int3     
+0x14095a1fe: int3     
+0x14095a1ff: int3     

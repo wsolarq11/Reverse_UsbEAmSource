@@ -1,0 +1,57 @@
+0x1408b7f00: mov      qword ptr [rsp + 8], rax
+0x1408b7f05: ret      
+0x1408b7f06: int3     
+0x1408b7f07: int3     
+0x1408b7f08: int3     
+0x1408b7f09: int3     
+0x1408b7f0a: int3     
+0x1408b7f0b: int3     
+0x1408b7f0c: int3     
+0x1408b7f0d: int3     
+0x1408b7f0e: int3     
+0x1408b7f0f: int3     
+0x1408b7f10: int3     
+0x1408b7f11: int3     
+0x1408b7f12: int3     
+0x1408b7f13: int3     
+0x1408b7f14: int3     
+0x1408b7f15: int3     
+0x1408b7f16: int3     
+0x1408b7f17: int3     
+0x1408b7f18: int3     
+0x1408b7f19: int3     
+0x1408b7f1a: int3     
+0x1408b7f1b: int3     
+0x1408b7f1c: int3     
+0x1408b7f1d: int3     
+0x1408b7f1e: int3     
+0x1408b7f1f: int3     
+0x1408b7f20: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408b7f24: jbe      0x1408b7f7b   ; main.launcherUpdateContextError+0x5b
+0x1408b7f26: push     rbp
+0x1408b7f27: mov      rbp, rsp
+0x1408b7f2a: sub      rsp, 0x10
+0x1408b7f2e: mov      qword ptr [rsp + 0x20], rax
+0x1408b7f33: mov      qword ptr [rsp + 0x28], rbx
+0x1408b7f38: test     rax, rax
+0x1408b7f3b: je       0x1408b7f4b   ; main.launcherUpdateContextError+0x2b
+0x1408b7f3d: mov      rcx, qword ptr [rax + 0x28]
+0x1408b7f41: mov      rax, rbx
+0x1408b7f44: call     rcx
+0x1408b7f46: test     rax, rax
+0x1408b7f49: jne      0x1408b7f55   ; main.launcherUpdateContextError+0x35
+0x1408b7f4b: xor      eax, eax
+0x1408b7f4d: xor      ebx, ebx
+0x1408b7f4f: add      rsp, 0x10
+0x1408b7f53: pop      rbp
+0x1408b7f54: ret      
+0x1408b7f55: lea      rax, [rip + 0x3ad2dc]
+0x1408b7f5c: mov      ebx, 0x18
+0x1408b7f61: call     0x1400a2200   ; strings.TrimSpace
+0x1408b7f66: call     0x140076660   ; runtime.convTstring
+0x1408b7f6b: mov      rbx, rax
+0x1408b7f6e: lea      rax, [rip + 0x91aeeb]
+0x1408b7f75: add      rsp, 0x10
+0x1408b7f79: pop      rbp
+0x1408b7f7a: ret      
+0x1408b7f7b: mov      qword ptr [rsp + 8], rax

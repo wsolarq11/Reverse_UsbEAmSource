@@ -1,0 +1,82 @@
+0x140757a00: cmp      rsp, qword ptr [r14 + 0x10]
+0x140757a04: jbe      0x140757aec   ; main.audioClient.resolveSessionAppName+0xec
+0x140757a0a: push     rbp
+0x140757a0b: mov      rbp, rsp
+0x140757a0e: sub      rsp, 0x38
+0x140757a12: mov      qword ptr [rsp + 0x58], rcx
+0x140757a17: mov      qword ptr [rsp + 0x68], rsi
+0x140757a1c: nop      dword ptr [rax]
+0x140757a20: test     bl, bl
+0x140757a22: jne      0x140757ada   ; main.audioClient.resolveSessionAppName+0xda
+0x140757a28: mov      dword ptr [rsp + 0x78], r9d
+0x140757a2d: mov      qword ptr [rsp + 0x70], r8
+0x140757a32: mov      qword ptr [rsp + 0x68], rsi
+0x140757a37: mov      rbx, rcx
+0x140757a3a: mov      rcx, rdi
+0x140757a3d: nop      dword ptr [rax]
+0x140757a40: call     0x140757b40   ; main.audioClient.resolveProcessDisplayName
+0x140757a45: test     rbx, rbx
+0x140757a48: jne      0x140757ad4   ; main.audioClient.resolveSessionAppName+0xd4
+0x140757a4e: mov      rax, qword ptr [rsp + 0x68]
+0x140757a53: mov      rbx, qword ptr [rsp + 0x70]
+0x140757a58: call     0x1400a2200   ; strings.TrimSpace
+0x140757a5d: nop      dword ptr [rax]
+0x140757a60: test     rbx, rbx
+0x140757a63: jne      0x140757abf   ; main.audioClient.resolveSessionAppName+0xbf
+0x140757a65: mov      eax, dword ptr [rsp + 0x78]
+0x140757a69: test     eax, eax
+0x140757a6b: je       0x140757aad   ; main.audioClient.resolveSessionAppName+0xad
+0x140757a6d: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140757a73: call     0x1400173c0   ; runtime.convT32
+0x140757a78: lea      rcx, [rip + 0x392501]
+0x140757a7f: mov      qword ptr [rsp + 0x28], rcx
+0x140757a84: mov      qword ptr [rsp + 0x30], rax
+0x140757a89: lea      rax, [rip + 0x4dfb30]
+0x140757a90: mov      ebx, 6
+0x140757a95: lea      rcx, [rsp + 0x28]
+0x140757a9a: mov      edi, 1
+0x140757a9f: mov      rsi, rdi
+0x140757aa2: call     0x140136340   ; fmt.Sprintf
+0x140757aa7: add      rsp, 0x38
+0x140757aab: pop      rbp
+0x140757aac: ret      
+0x140757aad: lea      rax, [rip + 0x4ef99e]
+0x140757ab4: mov      ebx, 0xb
+0x140757ab9: add      rsp, 0x38
+0x140757abd: pop      rbp
+0x140757abe: ret      
+0x140757abf: mov      rax, qword ptr [rsp + 0x68]
+0x140757ac4: mov      rbx, qword ptr [rsp + 0x70]
+0x140757ac9: call     0x1400a2200   ; strings.TrimSpace
+0x140757ace: add      rsp, 0x38
+0x140757ad2: pop      rbp
+0x140757ad3: ret      
+0x140757ad4: add      rsp, 0x38
+0x140757ad8: pop      rbp
+0x140757ad9: ret      
+0x140757ada: lea      rax, [rip + 0x4f6490]
+0x140757ae1: mov      ebx, 0xd
+0x140757ae6: add      rsp, 0x38
+0x140757aea: pop      rbp
+0x140757aeb: ret      
+0x140757aec: mov      qword ptr [rsp + 8], rax
+0x140757af1: mov      byte ptr [rsp + 0x10], bl
+0x140757af5: mov      qword ptr [rsp + 0x18], rcx
+0x140757afa: mov      qword ptr [rsp + 0x20], rdi
+0x140757aff: mov      qword ptr [rsp + 0x28], rsi
+0x140757b04: mov      qword ptr [rsp + 0x30], r8
+0x140757b09: mov      dword ptr [rsp + 0x38], r9d
+0x140757b0e: call     0x14007f140   ; runtime.morestack_noctxt
+0x140757b13: mov      rax, qword ptr [rsp + 8]
+0x140757b18: movzx    ebx, byte ptr [rsp + 0x10]
+0x140757b1d: mov      rcx, qword ptr [rsp + 0x18]
+0x140757b22: mov      rdi, qword ptr [rsp + 0x20]
+0x140757b27: mov      rsi, qword ptr [rsp + 0x28]
+0x140757b2c: mov      r8, qword ptr [rsp + 0x30]
+0x140757b31: mov      r9d, dword ptr [rsp + 0x38]
+0x140757b36: jmp      0x140757a00   ; main.audioClient.resolveSessionAppName
+0x140757b3b: int3     
+0x140757b3c: int3     
+0x140757b3d: int3     
+0x140757b3e: int3     
+0x140757b3f: int3     

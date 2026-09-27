@@ -1,0 +1,44 @@
+0x140882ee0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140882ee4: jbe      0x140882f4b   ; main.normalizeBookmarkFavoritePath+0x6b
+0x140882ee6: push     rbp
+0x140882ee7: mov      rbp, rsp
+0x140882eea: sub      rsp, 0x30
+0x140882eee: mov      qword ptr [rsp + 0x40], rax
+0x140882ef3: mov      qword ptr [rsp + 0x50], rcx
+0x140882ef8: mov      qword ptr [rsp + 0x18], rdi
+0x140882efd: mov      qword ptr [rsp + 0x28], rcx
+0x140882f02: call     0x1400a2200   ; strings.TrimSpace
+0x140882f07: test     rbx, rbx
+0x140882f0a: jne      0x140882f1c   ; main.normalizeBookmarkFavoritePath+0x3c
+0x140882f0c: xor      eax, eax
+0x140882f0e: xor      ebx, ebx
+0x140882f10: mov      rcx, rax
+0x140882f13: mov      rdi, rbx
+0x140882f16: add      rsp, 0x30
+0x140882f1a: pop      rbp
+0x140882f1b: ret      
+0x140882f1c: mov      qword ptr [rsp + 0x10], rbx
+0x140882f21: mov      qword ptr [rsp + 0x20], rax
+0x140882f26: mov      rax, qword ptr [rsp + 0x28]
+0x140882f2b: mov      rbx, qword ptr [rsp + 0x18]
+0x140882f30: call     0x140883d00   ; main.normalizeBookmarkFolderPathValue
+0x140882f35: mov      rcx, rax
+0x140882f38: mov      rdi, rbx
+0x140882f3b: mov      rax, qword ptr [rsp + 0x20]
+0x140882f40: mov      rbx, qword ptr [rsp + 0x10]
+0x140882f45: add      rsp, 0x30
+0x140882f49: pop      rbp
+0x140882f4a: ret      
+0x140882f4b: mov      qword ptr [rsp + 8], rax
+0x140882f50: mov      qword ptr [rsp + 0x10], rbx
+0x140882f55: mov      qword ptr [rsp + 0x18], rcx
+0x140882f5a: mov      qword ptr [rsp + 0x20], rdi
+0x140882f5f: nop      
+0x140882f60: call     0x14007f140   ; runtime.morestack_noctxt
+0x140882f65: mov      rax, qword ptr [rsp + 8]
+0x140882f6a: mov      rbx, qword ptr [rsp + 0x10]
+0x140882f6f: mov      rcx, qword ptr [rsp + 0x18]
+0x140882f74: mov      rdi, qword ptr [rsp + 0x20]
+0x140882f79: jmp      0x140882ee0   ; main.normalizeBookmarkFavoritePath
+0x140882f7e: int3     
+0x140882f7f: int3     

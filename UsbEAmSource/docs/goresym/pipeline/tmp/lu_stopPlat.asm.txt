@@ -1,0 +1,40 @@
+0x140861aa0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140861aa4: jbe      0x140861adf   ; main.inputMonitorService.stopPlatformOwned+0x3f
+0x140861aa6: push     rbp
+0x140861aa7: mov      rbp, rsp
+0x140861aaa: sub      rsp, 8
+0x140861aae: mov      qword ptr [rsp + 0x18], rax
+0x140861ab3: call     0x140861b60   ; main.inputMonitorService.advancePlatformGeneration
+0x140861ab8: mov      rax, qword ptr [rsp + 0x18]
+0x140861abd: mov      rdx, qword ptr [rax + 0x108]
+0x140861ac4: test     rdx, rdx
+0x140861ac7: je       0x140861ad4   ; main.inputMonitorService.stopPlatformOwned+0x34
+0x140861ac9: mov      rax, qword ptr [rdx]
+0x140861acc: call     rax
+0x140861ace: add      rsp, 8
+0x140861ad2: pop      rbp
+0x140861ad3: ret      
+0x140861ad4: call     0x140866120   ; main.inputMonitorService.stopPlatformThread
+0x140861ad9: add      rsp, 8
+0x140861add: pop      rbp
+0x140861ade: ret      
+0x140861adf: mov      qword ptr [rsp + 8], rax
+0x140861ae4: call     0x14007f140   ; runtime.morestack_noctxt
+0x140861ae9: mov      rax, qword ptr [rsp + 8]
+0x140861aee: jmp      0x140861aa0   ; main.inputMonitorService.stopPlatformOwned
+0x140861af0: int3     
+0x140861af1: int3     
+0x140861af2: int3     
+0x140861af3: int3     
+0x140861af4: int3     
+0x140861af5: int3     
+0x140861af6: int3     
+0x140861af7: int3     
+0x140861af8: int3     
+0x140861af9: int3     
+0x140861afa: int3     
+0x140861afb: int3     
+0x140861afc: int3     
+0x140861afd: int3     
+0x140861afe: int3     
+0x140861aff: int3     

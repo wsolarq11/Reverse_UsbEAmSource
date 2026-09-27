@@ -1,0 +1,230 @@
+0x140953740: lea      r12, [rsp - 0x50]
+0x140953745: cmp      r12, qword ptr [r14 + 0x10]
+0x140953749: jbe      0x140953b2e   ; main.drawQRCodeAnnotationFinishOverlay+0x3ee
+0x14095374f: push     rbp
+0x140953750: mov      rbp, rsp
+0x140953753: sub      rsp, 0xc8
+0x14095375a: movups   xmmword ptr [rsp + 0xb8], xmm15
+0x140953763: mov      byte ptr [rsp + 0x47], 0
+0x140953768: test     rax, rax
+0x14095376b: je       0x140953785   ; main.drawQRCodeAnnotationFinishOverlay+0x45
+0x14095376d: cmp      rbx, rdi
+0x140953770: jge      0x140953785   ; main.drawQRCodeAnnotationFinishOverlay+0x45
+0x140953772: cmp      rcx, rsi
+0x140953775: jge      0x140953785   ; main.drawQRCodeAnnotationFinishOverlay+0x45
+0x140953777: cmp      r8, r10
+0x14095377a: jge      0x140953785   ; main.drawQRCodeAnnotationFinishOverlay+0x45
+0x14095377c: nop      dword ptr [rax]
+0x140953780: cmp      r9, r11
+0x140953783: jl       0x14095378e   ; main.drawQRCodeAnnotationFinishOverlay+0x4e
+0x140953785: add      rsp, 0xc8
+0x14095378c: pop      rbp
+0x14095378d: ret      
+0x14095378e: mov      qword ptr [rsp + 0xd8], rax
+0x140953796: mov      qword ptr [rsp + 0xb0], r11
+0x14095379e: mov      qword ptr [rsp + 0xa8], r10
+0x1409537a6: mov      qword ptr [rsp + 0xa0], r9
+0x1409537ae: mov      qword ptr [rsp + 0x98], r8
+0x1409537b6: mov      qword ptr [rsp + 0x90], rsi
+0x1409537be: mov      qword ptr [rsp + 0x88], rdi
+0x1409537c6: mov      qword ptr [rsp + 0x80], rcx
+0x1409537ce: mov      qword ptr [rsp + 0x78], rbx
+0x1409537d3: mov      rax, rbx
+0x1409537d6: mov      rbx, rcx
+0x1409537d9: mov      rcx, rdi
+0x1409537dc: mov      rdi, rsi
+0x1409537df: mov      rsi, r8
+0x1409537e2: mov      r8, r9
+0x1409537e5: mov      r9, r10
+0x1409537e8: mov      r10, r11
+0x1409537eb: call     0x1401a1160   ; image.Rectangle.Intersect
+0x1409537f0: cmp      rax, rcx
+0x1409537f3: jge      0x1409537fa   ; main.drawQRCodeAnnotationFinishOverlay+0xba
+0x1409537f5: cmp      rbx, rdi
+0x1409537f8: jl       0x140953803   ; main.drawQRCodeAnnotationFinishOverlay+0xc3
+0x1409537fa: add      rsp, 0xc8
+0x140953801: pop      rbp
+0x140953802: ret      
+0x140953803: mov      rsi, rdi
+0x140953806: mov      r8d, 0xf
+0x14095380c: mov      r9d, 0x17
+0x140953812: mov      r10d, 0x2a
+0x140953818: mov      r11d, 0xffffffff
+0x14095381e: mov      rdi, rcx
+0x140953821: mov      rcx, rbx
+0x140953824: mov      rbx, rax
+0x140953827: mov      rax, qword ptr [rsp + 0xd8]
+0x14095382f: call     0x140952ac0   ; main.fillQRCodeRect
+0x140953834: mov      rcx, qword ptr [rsp + 0x88]
+0x14095383c: mov      rax, qword ptr [rsp + 0x78]
+0x140953841: mov      rdx, rcx
+0x140953844: sub      rdx, rax
+0x140953847: add      rdx, -0x18
+0x14095384b: cmp      rdx, 0xb4
+0x140953852: mov      r12d, 0xb4
+0x140953858: cmovg    r12, rdx
+0x14095385c: cmp      r12, 0x104
+0x140953863: mov      esi, 0x104
+0x140953868: cmovl    rsi, r12
+0x14095386c: mov      rbx, qword ptr [rsp + 0x80]
+0x140953874: mov      rdi, qword ptr [rsp + 0x90]
+0x14095387c: mov      r8d, 0x34
+0x140953882: call     0x140953fe0   ; main.centerRect
+0x140953887: cmp      rax, rcx
+0x14095388a: jge      0x140953aec   ; main.drawQRCodeAnnotationFinishOverlay+0x3ac
+0x140953890: cmp      rbx, rdi
+0x140953893: jge      0x140953aec   ; main.drawQRCodeAnnotationFinishOverlay+0x3ac
+0x140953899: mov      rdx, qword ptr [rsp + 0xa8]
+0x1409538a1: cmp      rax, rdx
+0x1409538a4: jge      0x140953aec   ; main.drawQRCodeAnnotationFinishOverlay+0x3ac
+0x1409538aa: mov      rdx, qword ptr [rsp + 0x98]
+0x1409538b2: cmp      rcx, rdx
+0x1409538b5: jle      0x140953aec   ; main.drawQRCodeAnnotationFinishOverlay+0x3ac
+0x1409538bb: mov      rdx, qword ptr [rsp + 0xb0]
+0x1409538c3: cmp      rbx, rdx
+0x1409538c6: jge      0x140953aec   ; main.drawQRCodeAnnotationFinishOverlay+0x3ac
+0x1409538cc: mov      rdx, qword ptr [rsp + 0xa0]
+0x1409538d4: cmp      rdi, rdx
+0x1409538d7: jle      0x140953aec   ; main.drawQRCodeAnnotationFinishOverlay+0x3ac
+0x1409538dd: mov      qword ptr [rsp + 0xb0], rdi
+0x1409538e5: mov      qword ptr [rsp + 0xa8], rcx
+0x1409538ed: mov      qword ptr [rsp + 0xa0], rbx
+0x1409538f5: mov      qword ptr [rsp + 0x98], rax
+0x1409538fd: mov      rsi, rdi
+0x140953900: mov      r8d, 0x11
+0x140953906: mov      r9d, 0x18
+0x14095390c: mov      r10d, 0x27
+0x140953912: mov      r11d, 0xffffffff
+0x140953918: mov      rdi, rcx
+0x14095391b: mov      rcx, rbx
+0x14095391e: mov      rbx, rax
+0x140953921: mov      rax, qword ptr [rsp + 0xd8]
+0x140953929: call     0x140952ac0   ; main.fillQRCodeRect
+0x14095392e: mov      qword ptr [rsp], 1
+0x140953936: mov      rax, qword ptr [rsp + 0xd8]
+0x14095393e: mov      rbx, qword ptr [rsp + 0x98]
+0x140953946: mov      rcx, qword ptr [rsp + 0xa0]
+0x14095394e: mov      rdi, qword ptr [rsp + 0xa8]
+0x140953956: mov      rsi, qword ptr [rsp + 0xb0]
+0x14095395e: mov      r8d, 0x60
+0x140953964: mov      r9d, 0xffffffa5
+0x14095396a: mov      r10d, 0xfffffffa
+0x140953970: mov      r11d, 0xffffffff
+0x140953976: call     0x140953d20   ; main.drawQRCodeRectFrame
+0x14095397b: nop      
+0x14095397c: lea      rax, [rip + 0x1aa05d]
+0x140953983: call     0x14001ae20   ; runtime.newobject
+0x140953988: mov      rdx, qword ptr [rsp + 0xd8]
+0x140953990: mov      qword ptr [rax], rdx
+0x140953993: mov      qword ptr [rax + 8], 1
+0x14095399b: mov      rdx, qword ptr [rip + 0x126ed4e]
+0x1409539a2: mov      rbx, rax
+0x1409539a5: mov      ecx, 2
+0x1409539aa: mov      rdi, rcx
+0x1409539ad: mov      rax, rdx
+0x1409539b0: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409539b5: test     rax, rax
+0x1409539b8: je       0x140953b08   ; main.drawQRCodeAnnotationFinishOverlay+0x3c8
+0x1409539be: lea      rcx, [rip + 0x29b]
+0x1409539c5: mov      qword ptr [rsp + 0x60], rcx
+0x1409539ca: mov      rcx, qword ptr [rsp + 0xd8]
+0x1409539d2: mov      qword ptr [rsp + 0x68], rcx
+0x1409539d7: mov      qword ptr [rsp + 0x70], rax
+0x1409539dc: lea      rcx, [rsp + 0x60]
+0x1409539e1: mov      qword ptr [rsp + 0xb8], rcx
+0x1409539e9: mov      byte ptr [rsp + 0x47], 1
+0x1409539ee: nop      
+0x1409539ef: lea      rax, [rip + 0x1a9fea]
+0x1409539f6: call     0x14001ae20   ; runtime.newobject
+0x1409539fb: mov      rcx, qword ptr [rsp + 0xd8]
+0x140953a03: mov      qword ptr [rax], rcx
+0x140953a06: mov      qword ptr [rax + 8], 0xfcfaf8
+0x140953a0e: mov      rcx, qword ptr [rip + 0x126ece3]
+0x140953a15: mov      rbx, rax
+0x140953a18: mov      edi, 2
+0x140953a1d: mov      rax, rcx
+0x140953a20: mov      rcx, rdi
+0x140953a23: call     0x1400e3120   ; syscall.LazyProc.Call
+0x140953a28: mov      ecx, 0xffffffff
+0x140953a2d: cmp      rax, rcx
+0x140953a30: je       0x140953af5   ; main.drawQRCodeAnnotationFinishOverlay+0x3b5
+0x140953a36: lea      rdx, [rip + 0x163]
+0x140953a3d: mov      qword ptr [rsp + 0x48], rdx
+0x140953a42: mov      rdx, qword ptr [rsp + 0xd8]
+0x140953a4a: mov      qword ptr [rsp + 0x50], rdx
+0x140953a4f: mov      dword ptr [rsp + 0x58], eax
+0x140953a53: lea      rdx, [rsp + 0x48]
+0x140953a58: mov      qword ptr [rsp + 0xc0], rdx
+0x140953a60: mov      byte ptr [rsp + 0x47], 3
+0x140953a65: mov      rax, qword ptr [rsp + 0x98]
+0x140953a6d: mov      rbx, qword ptr [rsp + 0xa0]
+0x140953a75: mov      rcx, qword ptr [rsp + 0xa8]
+0x140953a7d: mov      rdi, qword ptr [rsp + 0xb0]
+0x140953a85: mov      esi, 0xe
+0x140953a8a: call     0x1401a10e0   ; image.Rectangle.Inset
+0x140953a8f: mov      rsi, rbx
+0x140953a92: mov      r8, rcx
+0x140953a95: mov      r9, rdi
+0x140953a98: mov      r10d, 0x825
+0x140953a9e: lea      rbx, [rip + 0x30be84]
+0x140953aa5: mov      ecx, 0x15
+0x140953aaa: mov      rdi, rax
+0x140953aad: mov      rax, qword ptr [rsp + 0xd8]
+0x140953ab5: call     0x14094d4e0   ; main.drawQRCodeAnnotationSmallText
+0x140953aba: mov      byte ptr [rsp + 0x47], 1
+0x140953abf: mov      rdx, qword ptr [rsp + 0xc0]
+0x140953ac7: mov      r8, qword ptr [rdx]
+0x140953aca: call     r8
+0x140953acd: mov      byte ptr [rsp + 0x47], 0
+0x140953ad2: mov      rdx, qword ptr [rsp + 0xb8]
+0x140953ada: mov      r8, qword ptr [rdx]
+0x140953add: nop      dword ptr [rax]
+0x140953ae0: call     r8
+0x140953ae3: add      rsp, 0xc8
+0x140953aea: pop      rbp
+0x140953aeb: ret      
+0x140953aec: add      rsp, 0xc8
+0x140953af3: pop      rbp
+0x140953af4: ret      
+0x140953af5: lea      rax, [rip + 0x196304]
+0x140953afc: lea      rbx, [rip + 0x87b06d]
+0x140953b03: call     0x1400789c0   ; runtime.gopanic
+0x140953b08: lea      rax, [rip + 0x1962f1]
+0x140953b0f: lea      rbx, [rip + 0x87b04a]
+0x140953b16: call     0x1400789c0   ; runtime.gopanic
+0x140953b1b: nop      
+0x140953b1c: nop      dword ptr [rax]
+0x140953b20: call     0x1400435e0   ; runtime.deferreturn
+0x140953b25: add      rsp, 0xc8
+0x140953b2c: pop      rbp
+0x140953b2d: ret      
+0x140953b2e: mov      qword ptr [rsp + 8], rax
+0x140953b33: mov      qword ptr [rsp + 0x10], rbx
+0x140953b38: mov      qword ptr [rsp + 0x18], rcx
+0x140953b3d: mov      qword ptr [rsp + 0x20], rdi
+0x140953b42: mov      qword ptr [rsp + 0x28], rsi
+0x140953b47: mov      qword ptr [rsp + 0x30], r8
+0x140953b4c: mov      qword ptr [rsp + 0x38], r9
+0x140953b51: mov      qword ptr [rsp + 0x40], r10
+0x140953b56: mov      qword ptr [rsp + 0x48], r11
+0x140953b5b: nop      dword ptr [rax + rax]
+0x140953b60: call     0x14007f140   ; runtime.morestack_noctxt
+0x140953b65: mov      rax, qword ptr [rsp + 8]
+0x140953b6a: mov      rbx, qword ptr [rsp + 0x10]
+0x140953b6f: mov      rcx, qword ptr [rsp + 0x18]
+0x140953b74: mov      rdi, qword ptr [rsp + 0x20]
+0x140953b79: mov      rsi, qword ptr [rsp + 0x28]
+0x140953b7e: mov      r8, qword ptr [rsp + 0x30]
+0x140953b83: mov      r9, qword ptr [rsp + 0x38]
+0x140953b88: mov      r10, qword ptr [rsp + 0x40]
+0x140953b8d: mov      r11, qword ptr [rsp + 0x48]
+0x140953b92: jmp      0x140953740   ; main.drawQRCodeAnnotationFinishOverlay
+0x140953b97: int3     
+0x140953b98: int3     
+0x140953b99: int3     
+0x140953b9a: int3     
+0x140953b9b: int3     
+0x140953b9c: int3     
+0x140953b9d: int3     
+0x140953b9e: int3     
+0x140953b9f: int3     

@@ -1,0 +1,493 @@
+0x140764e40: lea      r12, [rsp - 0x228]
+0x140764e48: cmp      r12, qword ptr [r14 + 0x10]
+0x140764e4c: jbe      0x140765932   ; main.buildBookmarkState+0xaf2
+0x140764e52: push     rbp
+0x140764e53: mov      rbp, rsp
+0x140764e56: sub      rsp, 0x2a0
+0x140764e5d: mov      qword ptr [rsp + 0x2b0], rax
+0x140764e65: movups   xmmword ptr [rsp + 0xd0], xmm15
+0x140764e6e: movups   xmmword ptr [rsp + 0xe0], xmm15
+0x140764e77: movups   xmmword ptr [rsp + 0xf0], xmm15
+0x140764e80: call     0x14088b260   ; main.normalizeBookmarkSources
+0x140764e85: mov      qword ptr [rsp + 0x1d8], rax
+0x140764e8d: mov      qword ptr [rsp + 0x68], rbx
+0x140764e92: lea      rax, [rip + 0x48c0c7]
+0x140764e99: mov      rcx, rbx
+0x140764e9c: xor      ebx, ebx
+0x140764e9e: nop      
+0x140764ea0: call     0x14007ac40   ; runtime.makeslice
+0x140764ea5: mov      rdx, qword ptr [rsp + 0x1d8]
+0x140764ead: xor      ecx, ecx
+0x140764eaf: mov      rbx, qword ptr [rsp + 0x68]
+0x140764eb4: xor      esi, esi
+0x140764eb6: xor      edi, edi
+0x140764eb8: xor      r8d, r8d
+0x140764ebb: lea      r9, [rip + 0x14f5afe]
+0x140764ec2: jmp      0x140764ef0   ; main.buildBookmarkState+0xb0
+0x140764ec4: mov      r10, qword ptr [rsp + 0x258]
+0x140764ecc: add      r10, 0x48
+0x140764ed0: mov      r11, qword ptr [rsp + 0xc8]
+0x140764ed8: inc      r11
+0x140764edb: mov      r8, rdx
+0x140764ede: mov      r9, rdi
+0x140764ee1: mov      rdx, r10
+0x140764ee4: mov      rdi, rsi
+0x140764ee7: mov      rsi, rbx
+0x140764eea: mov      rbx, rcx
+0x140764eed: mov      rcx, r11
+0x140764ef0: mov      qword ptr [rsp + 0x50], rbx
+0x140764ef5: mov      qword ptr [rsp + 0x48], rsi
+0x140764efa: mov      qword ptr [rsp + 0x148], rax
+0x140764f02: mov      qword ptr [rsp + 0x58], rdi
+0x140764f07: mov      qword ptr [rsp + 0x60], r8
+0x140764f0c: mov      qword ptr [rsp + 0x150], r9
+0x140764f14: mov      r10, qword ptr [rsp + 0x68]
+0x140764f19: nop      dword ptr [rax]
+0x140764f20: cmp      r10, rcx
+0x140764f23: jle      0x1407657ea   ; main.buildBookmarkState+0x9aa
+0x140764f29: mov      qword ptr [rsp + 0xc8], rcx
+0x140764f31: mov      qword ptr [rsp + 0x258], rdx
+0x140764f39: mov      rsi, qword ptr [rdx]
+0x140764f3c: mov      qword ptr [rsp + 0x100], rsi
+0x140764f44: movups   xmm0, xmmword ptr [rdx + 8]
+0x140764f48: movups   xmmword ptr [rsp + 0x108], xmm0
+0x140764f50: movups   xmm0, xmmword ptr [rdx + 0x18]
+0x140764f54: movups   xmmword ptr [rsp + 0x118], xmm0
+0x140764f5c: movups   xmm0, xmmword ptr [rdx + 0x28]
+0x140764f60: movups   xmmword ptr [rsp + 0x128], xmm0
+0x140764f68: movups   xmm0, xmmword ptr [rdx + 0x38]
+0x140764f6c: movups   xmmword ptr [rsp + 0x138], xmm0
+0x140764f74: mov      rax, qword ptr [rsp + 0x130]
+0x140764f7c: mov      rbx, qword ptr [rsp + 0x138]
+0x140764f84: mov      rcx, qword ptr [rsp + 0x120]
+0x140764f8c: mov      rdi, qword ptr [rsp + 0x128]
+0x140764f94: call     0x14076a9a0   ; main.describeBookmarkSourceDescriptor
+0x140764f99: mov      qword ptr [rsp + 0x158], rax
+0x140764fa1: mov      qword ptr [rsp + 0x160], rbx
+0x140764fa9: mov      qword ptr [rsp + 0x168], rcx
+0x140764fb1: mov      qword ptr [rsp + 0x170], rdi
+0x140764fb9: mov      qword ptr [rsp + 0x178], rsi
+0x140764fc1: mov      qword ptr [rsp + 0x180], r8
+0x140764fc9: mov      qword ptr [rsp + 0x188], r9
+0x140764fd1: mov      qword ptr [rsp + 0x190], r10
+0x140764fd9: movups   xmm0, xmmword ptr [rsp + 0x158]
+0x140764fe1: movups   xmmword ptr [rsp + 0x1f0], xmm0
+0x140764fe9: movups   xmm0, xmmword ptr [rsp + 0x168]
+0x140764ff1: movups   xmmword ptr [rsp + 0x200], xmm0
+0x140764ff9: movups   xmm0, xmmword ptr [rsp + 0x178]
+0x140765001: movups   xmmword ptr [rsp + 0x210], xmm0
+0x140765009: movups   xmm0, xmmword ptr [rsp + 0x188]
+0x140765011: movups   xmmword ptr [rsp + 0x220], xmm0
+0x140765019: lea      rdi, [rsp + 0x158]
+0x140765021: mov      qword ptr [rsp - 0x10], rbp
+0x140765026: lea      rbp, [rsp - 0x10]
+0x14076502b: call     0x140081722   ; runtime.duffzero+0x142
+0x140765030: mov      rbp, qword ptr [rbp]
+0x140765034: mov      rdx, qword ptr [rsp + 0x100]
+0x14076503c: mov      rsi, qword ptr [rsp + 0x108]
+0x140765044: mov      qword ptr [rsp + 0x158], rdx
+0x14076504c: mov      qword ptr [rsp + 0x160], rsi
+0x140765054: mov      rdx, qword ptr [rsp + 0x110]
+0x14076505c: mov      rsi, qword ptr [rsp + 0x118]
+0x140765064: mov      qword ptr [rsp + 0x168], rdx
+0x14076506c: mov      qword ptr [rsp + 0x170], rsi
+0x140765074: mov      rdx, qword ptr [rsp + 0x200]
+0x14076507c: mov      rsi, qword ptr [rsp + 0x208]
+0x140765084: mov      qword ptr [rsp + 0x178], rdx
+0x14076508c: mov      qword ptr [rsp + 0x180], rsi
+0x140765094: mov      rdx, qword ptr [rsp + 0x210]
+0x14076509c: mov      rsi, qword ptr [rsp + 0x218]
+0x1407650a4: mov      qword ptr [rsp + 0x188], rdx
+0x1407650ac: mov      qword ptr [rsp + 0x190], rsi
+0x1407650b4: mov      rdx, qword ptr [rsp + 0x220]
+0x1407650bc: mov      rsi, qword ptr [rsp + 0x228]
+0x1407650c4: mov      qword ptr [rsp + 0x198], rdx
+0x1407650cc: mov      qword ptr [rsp + 0x1a0], rsi
+0x1407650d4: mov      rdx, qword ptr [rsp + 0x130]
+0x1407650dc: mov      rsi, qword ptr [rsp + 0x138]
+0x1407650e4: mov      qword ptr [rsp + 0x1a8], rdx
+0x1407650ec: mov      qword ptr [rsp + 0x1b0], rsi
+0x1407650f4: movzx    edx, byte ptr [rsp + 0x140]
+0x1407650fc: mov      byte ptr [rsp + 0x1b8], dl
+0x140765103: mov      rax, qword ptr [rsp + 0x130]
+0x14076510b: mov      rbx, qword ptr [rsp + 0x138]
+0x140765113: lea      rcx, [rip + 0x931866]
+0x14076511a: lea      rdi, [rip + 0x931867]
+0x140765121: lea      rsi, [rip + 0x931cc8]
+0x140765128: call     0x14075b180   ; main.classifyAutomaticWindowsPath
+0x14076512d: cmp      rbx, 5
+0x140765131: jne      0x1407656ca   ; main.buildBookmarkState+0x88a
+0x140765137: cmp      dword ptr [rax], 0x61636f6c
+0x14076513d: nop      dword ptr [rax]
+0x140765140: jne      0x1407656ca   ; main.buildBookmarkState+0x88a
+0x140765146: cmp      byte ptr [rax + 4], 0x6c
+0x14076514a: jne      0x1407656ca   ; main.buildBookmarkState+0x88a
+0x140765150: mov      rax, qword ptr [rsp + 0x130]
+0x140765158: mov      rbx, qword ptr [rsp + 0x138]
+0x140765160: call     0x14012d940   ; os.Stat
+0x140765165: test     rcx, rcx
+0x140765168: je       0x140765171   ; main.buildBookmarkState+0x331
+0x14076516a: mov      eax, 1
+0x14076516f: jmp      0x140765194   ; main.buildBookmarkState+0x354
+0x140765171: mov      qword ptr [rsp + 0x1e8], rdi
+0x140765179: mov      qword ptr [rsp + 0x78], rcx
+0x14076517e: mov      rcx, qword ptr [rax + 0x18]
+0x140765182: mov      rax, rbx
+0x140765185: call     rcx
+0x140765187: mov      rcx, qword ptr [rsp + 0x78]
+0x14076518c: mov      rdi, qword ptr [rsp + 0x1e8]
+0x140765194: test     al, al
+0x140765196: je       0x1407652aa   ; main.buildBookmarkState+0x46a
+0x14076519c: mov      byte ptr [rsp + 0x1b9], 0
+0x1407651a4: cmp      byte ptr [rsp + 0x140], 0
+0x1407651ac: je       0x1407651cc   ; main.buildBookmarkState+0x38c
+0x1407651ae: test     rcx, rcx
+0x1407651b1: je       0x1407651cc   ; main.buildBookmarkState+0x38c
+0x1407651b3: mov      rcx, qword ptr [rcx + 0x18]
+0x1407651b7: mov      rax, rdi
+0x1407651ba: call     rcx
+0x1407651bc: mov      qword ptr [rsp + 0x1c8], rax
+0x1407651c4: mov      qword ptr [rsp + 0x1d0], rbx
+0x1407651cc: mov      rbx, qword ptr [rsp + 0x48]
+0x1407651d1: inc      rbx
+0x1407651d4: mov      rcx, qword ptr [rsp + 0x50]
+0x1407651d9: cmp      rcx, rbx
+0x1407651dc: jb       0x1407651e8   ; main.buildBookmarkState+0x3a8
+0x1407651de: mov      rax, qword ptr [rsp + 0x148]
+0x1407651e6: jmp      0x140765205   ; main.buildBookmarkState+0x3c5
+0x1407651e8: mov      rax, qword ptr [rsp + 0x148]
+0x1407651f0: mov      edi, 1
+0x1407651f5: lea      rsi, [rip + 0x48bd64]
+0x1407651fc: nop      dword ptr [rax]
+0x140765200: call     0x14007ad20   ; runtime.growslice
+0x140765205: lea      rdx, [rbx - 1]
+0x140765209: shl      rdx, 7
+0x14076520d: lea      rdi, [rax + rdx]
+0x140765211: cmp      dword ptr [rip + 0x14f6138], 0
+0x140765218: je       0x140765271   ; main.buildBookmarkState+0x431
+0x14076521a: mov      qword ptr [rsp + 0x250], rax
+0x140765222: mov      qword ptr [rsp + 0xc0], rbx
+0x14076522a: mov      qword ptr [rsp + 0xb8], rcx
+0x140765232: mov      qword ptr [rsp + 0x248], rdi
+0x14076523a: lea      rax, [rip + 0x48bd1f]
+0x140765241: mov      rbx, rdi
+0x140765244: lea      rcx, [rsp + 0x158]
+0x14076524c: call     0x14001b620   ; runtime.wbMove
+0x140765251: mov      rax, qword ptr [rsp + 0x250]
+0x140765259: mov      rcx, qword ptr [rsp + 0xb8]
+0x140765261: mov      rbx, qword ptr [rsp + 0xc0]
+0x140765269: mov      rdi, qword ptr [rsp + 0x248]
+0x140765271: lea      rsi, [rsp + 0x158]
+0x140765279: nop      dword ptr [rax]
+0x140765280: mov      qword ptr [rsp - 0x10], rbp
+0x140765285: lea      rbp, [rsp - 0x10]
+0x14076528a: call     0x140081a70   ; runtime.duffcopy+0x310
+0x14076528f: mov      rbp, qword ptr [rbp]
+0x140765293: mov      rdx, qword ptr [rsp + 0x60]
+0x140765298: mov      rsi, qword ptr [rsp + 0x58]
+0x14076529d: mov      rdi, qword ptr [rsp + 0x150]
+0x1407652a5: jmp      0x140764ec4   ; main.buildBookmarkState+0x84
+0x1407652aa: mov      byte ptr [rsp + 0x1b9], 1
+0x1407652b2: cmp      byte ptr [rsp + 0x140], 0
+0x1407652ba: nop      word ptr [rax + rax]
+0x1407652c0: jne      0x1407653aa   ; main.buildBookmarkState+0x56a
+0x1407652c6: mov      rbx, qword ptr [rsp + 0x48]
+0x1407652cb: inc      rbx
+0x1407652ce: mov      rcx, qword ptr [rsp + 0x50]
+0x1407652d3: cmp      rcx, rbx
+0x1407652d6: jb       0x1407652e2   ; main.buildBookmarkState+0x4a2
+0x1407652d8: mov      rax, qword ptr [rsp + 0x148]
+0x1407652e0: jmp      0x1407652fb   ; main.buildBookmarkState+0x4bb
+0x1407652e2: mov      rax, qword ptr [rsp + 0x148]
+0x1407652ea: mov      edi, 1
+0x1407652ef: lea      rsi, [rip + 0x48bc6a]
+0x1407652f6: call     0x14007ad20   ; runtime.growslice
+0x1407652fb: lea      rdx, [rbx - 1]
+0x1407652ff: shl      rdx, 7
+0x140765303: lea      rdi, [rax + rdx]
+0x140765307: cmp      dword ptr [rip + 0x14f6042], 0
+0x14076530e: je       0x140765367   ; main.buildBookmarkState+0x527
+0x140765310: mov      qword ptr [rsp + 0x240], rax
+0x140765318: mov      qword ptr [rsp + 0xb0], rbx
+0x140765320: mov      qword ptr [rsp + 0xa8], rcx
+0x140765328: mov      qword ptr [rsp + 0x248], rdi
+0x140765330: lea      rax, [rip + 0x48bc29]
+0x140765337: mov      rbx, rdi
+0x14076533a: lea      rcx, [rsp + 0x158]
+0x140765342: call     0x14001b620   ; runtime.wbMove
+0x140765347: mov      rax, qword ptr [rsp + 0x240]
+0x14076534f: mov      rcx, qword ptr [rsp + 0xa8]
+0x140765357: mov      rbx, qword ptr [rsp + 0xb0]
+0x14076535f: mov      rdi, qword ptr [rsp + 0x248]
+0x140765367: lea      rsi, [rsp + 0x158]
+0x14076536f: nop      word ptr [rax + rax]
+0x140765378: nop      dword ptr [rax + rax]
+0x140765380: mov      qword ptr [rsp - 0x10], rbp
+0x140765385: lea      rbp, [rsp - 0x10]
+0x14076538a: call     0x140081a70   ; runtime.duffcopy+0x310
+0x14076538f: mov      rbp, qword ptr [rbp]
+0x140765393: mov      rdx, qword ptr [rsp + 0x60]
+0x140765398: mov      rsi, qword ptr [rsp + 0x58]
+0x14076539d: mov      rdi, qword ptr [rsp + 0x150]
+0x1407653a5: jmp      0x140764ec4   ; main.buildBookmarkState+0x84
+0x1407653aa: mov      rax, qword ptr [rsp + 0x100]
+0x1407653b2: mov      rbx, qword ptr [rsp + 0x108]
+0x1407653ba: mov      rcx, qword ptr [rsp + 0x110]
+0x1407653c2: mov      rdi, qword ptr [rsp + 0x118]
+0x1407653ca: mov      rsi, qword ptr [rsp + 0x120]
+0x1407653d2: mov      r8, qword ptr [rsp + 0x128]
+0x1407653da: mov      r9, qword ptr [rsp + 0x130]
+0x1407653e2: mov      r10, qword ptr [rsp + 0x138]
+0x1407653ea: movzx    r11d, byte ptr [rsp + 0x140]
+0x1407653f3: call     0x14076b0e0   ; main.loadBookmarkItems
+0x1407653f8: nop      dword ptr [rax + rax]
+0x140765400: test     rdi, rdi
+0x140765403: jne      0x1407655ce   ; main.buildBookmarkState+0x78e
+0x140765409: mov      qword ptr [rsp + 0x70], rbx
+0x14076540e: mov      qword ptr [rsp + 0x1e0], rax
+0x140765416: mov      qword ptr [rsp + 0x1c0], rbx
+0x14076541e: mov      rdx, qword ptr [rsp + 0x48]
+0x140765423: inc      rdx
+0x140765426: mov      rcx, qword ptr [rsp + 0x50]
+0x14076542b: cmp      rcx, rdx
+0x14076542e: jb       0x14076543a   ; main.buildBookmarkState+0x5fa
+0x140765430: mov      rsi, qword ptr [rsp + 0x148]
+0x140765438: jmp      0x140765469   ; main.buildBookmarkState+0x629
+0x14076543a: mov      rax, qword ptr [rsp + 0x148]
+0x140765442: mov      rbx, rdx
+0x140765445: mov      edi, 1
+0x14076544a: lea      rsi, [rip + 0x48bb0f]
+0x140765451: call     0x14007ad20   ; runtime.growslice
+0x140765456: mov      rdx, rbx
+0x140765459: mov      rsi, rax
+0x14076545c: mov      rax, qword ptr [rsp + 0x1e0]
+0x140765464: mov      rbx, qword ptr [rsp + 0x70]
+0x140765469: mov      qword ptr [rsp + 0x148], rsi
+0x140765471: mov      qword ptr [rsp + 0x48], rdx
+0x140765476: mov      qword ptr [rsp + 0x50], rcx
+0x14076547b: lea      r8, [rdx - 1]
+0x14076547f: shl      r8, 7
+0x140765483: lea      rdi, [rsi + r8]
+0x140765487: mov      r8, qword ptr [rsp + 0x58]
+0x14076548c: lea      r9, [r8 + rbx]
+0x140765490: cmp      dword ptr [rip + 0x14f5eb9], 0
+0x140765497: je       0x1407654f9   ; main.buildBookmarkState+0x6b9
+0x140765499: mov      qword ptr [rsp + 0x248], rdi
+0x1407654a1: mov      qword ptr [rsp + 0xa0], r9
+0x1407654a9: lea      rax, [rip + 0x48bab0]
+0x1407654b0: mov      rbx, rdi
+0x1407654b3: lea      rcx, [rsp + 0x158]
+0x1407654bb: nop      dword ptr [rax + rax]
+0x1407654c0: call     0x14001b620   ; runtime.wbMove
+0x1407654c5: mov      rax, qword ptr [rsp + 0x1e0]
+0x1407654cd: mov      rcx, qword ptr [rsp + 0x50]
+0x1407654d2: mov      rdx, qword ptr [rsp + 0x48]
+0x1407654d7: mov      rbx, qword ptr [rsp + 0x70]
+0x1407654dc: mov      rsi, qword ptr [rsp + 0x148]
+0x1407654e4: mov      rdi, qword ptr [rsp + 0x248]
+0x1407654ec: mov      r8, qword ptr [rsp + 0x58]
+0x1407654f1: mov      r9, qword ptr [rsp + 0xa0]
+0x1407654f9: lea      rsi, [rsp + 0x158]
+0x140765501: mov      qword ptr [rsp - 0x10], rbp
+0x140765506: lea      rbp, [rsp - 0x10]
+0x14076550b: call     0x140081a70   ; runtime.duffcopy+0x310
+0x140765510: mov      rbp, qword ptr [rbp]
+0x140765514: mov      r11, qword ptr [rsp + 0x60]
+0x140765519: cmp      r11, r9
+0x14076551c: jb       0x140765528   ; main.buildBookmarkState+0x6e8
+0x14076551e: mov      rsi, qword ptr [rsp + 0x150]
+0x140765526: jmp      0x140765560   ; main.buildBookmarkState+0x720
+0x140765528: mov      rax, qword ptr [rsp + 0x150]
+0x140765530: mov      rcx, r11
+0x140765533: mov      rdi, rbx
+0x140765536: lea      rsi, [rip + 0x481443]
+0x14076553d: mov      rbx, r9
+0x140765540: call     0x14007ad20   ; runtime.growslice
+0x140765545: mov      r8, qword ptr [rsp + 0x58]
+0x14076554a: mov      r11, rcx
+0x14076554d: mov      r9, rbx
+0x140765550: mov      rsi, rax
+0x140765553: mov      rax, qword ptr [rsp + 0x1e0]
+0x14076555b: mov      rbx, qword ptr [rsp + 0x70]
+0x140765560: mov      qword ptr [rsp + 0x60], r11
+0x140765565: mov      qword ptr [rsp + 0x58], r9
+0x14076556a: mov      qword ptr [rsp + 0x150], rsi
+0x140765572: mov      rdx, r8
+0x140765575: sub      r8, r11
+0x140765578: mov      rcx, r9
+0x14076557b: sub      rcx, rdx
+0x14076557e: shl      rdx, 7
+0x140765582: sar      r8, 0x3f
+0x140765586: and      rdx, r8
+0x140765589: add      rdx, rsi
+0x14076558c: mov      rdi, rax
+0x14076558f: mov      rsi, rbx
+0x140765592: lea      rax, [rip + 0x4813e7]
+0x140765599: mov      rbx, rdx
+0x14076559c: nop      dword ptr [rax]
+0x1407655a0: call     0x140077380   ; runtime.typedslicecopy
+0x1407655a5: mov      rcx, qword ptr [rsp + 0x50]
+0x1407655aa: mov      rbx, qword ptr [rsp + 0x48]
+0x1407655af: mov      rax, qword ptr [rsp + 0x148]
+0x1407655b7: mov      rdx, qword ptr [rsp + 0x60]
+0x1407655bc: mov      rsi, qword ptr [rsp + 0x58]
+0x1407655c1: mov      rdi, qword ptr [rsp + 0x150]
+0x1407655c9: jmp      0x140764ec4   ; main.buildBookmarkState+0x84
+0x1407655ce: mov      rcx, qword ptr [rdi + 0x18]
+0x1407655d2: mov      rax, rsi
+0x1407655d5: call     rcx
+0x1407655d7: mov      qword ptr [rsp + 0x1c8], rax
+0x1407655df: mov      qword ptr [rsp + 0x1d0], rbx
+0x1407655e7: mov      rbx, qword ptr [rsp + 0x48]
+0x1407655ec: inc      rbx
+0x1407655ef: mov      rcx, qword ptr [rsp + 0x50]
+0x1407655f4: cmp      rcx, rbx
+0x1407655f7: jb       0x140765603   ; main.buildBookmarkState+0x7c3
+0x1407655f9: mov      rax, qword ptr [rsp + 0x148]
+0x140765601: jmp      0x14076561c   ; main.buildBookmarkState+0x7dc
+0x140765603: mov      rax, qword ptr [rsp + 0x148]
+0x14076560b: mov      edi, 1
+0x140765610: lea      rsi, [rip + 0x48b949]
+0x140765617: call     0x14007ad20   ; runtime.growslice
+0x14076561c: lea      rdx, [rbx - 1]
+0x140765620: shl      rdx, 7
+0x140765624: lea      rdi, [rax + rdx]
+0x140765628: cmp      dword ptr [rip + 0x14f5d21], 0
+0x14076562f: je       0x140765688   ; main.buildBookmarkState+0x848
+0x140765631: mov      qword ptr [rsp + 0x238], rax
+0x140765639: mov      qword ptr [rsp + 0x98], rbx
+0x140765641: mov      qword ptr [rsp + 0x90], rcx
+0x140765649: mov      qword ptr [rsp + 0x248], rdi
+0x140765651: lea      rax, [rip + 0x48b908]
+0x140765658: mov      rbx, rdi
+0x14076565b: lea      rcx, [rsp + 0x158]
+0x140765663: call     0x14001b620   ; runtime.wbMove
+0x140765668: mov      rax, qword ptr [rsp + 0x238]
+0x140765670: mov      rcx, qword ptr [rsp + 0x90]
+0x140765678: mov      rbx, qword ptr [rsp + 0x98]
+0x140765680: mov      rdi, qword ptr [rsp + 0x248]
+0x140765688: lea      rsi, [rsp + 0x158]
+0x140765690: nop      word ptr [rax + rax]
+0x140765699: nop      dword ptr [rax]
+0x1407656a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407656a5: lea      rbp, [rsp - 0x10]
+0x1407656aa: call     0x140081a70   ; runtime.duffcopy+0x310
+0x1407656af: mov      rbp, qword ptr [rbp]
+0x1407656b3: mov      rdx, qword ptr [rsp + 0x60]
+0x1407656b8: mov      rsi, qword ptr [rsp + 0x58]
+0x1407656bd: mov      rdi, qword ptr [rsp + 0x150]
+0x1407656c5: jmp      0x140764ec4   ; main.buildBookmarkState+0x84
+0x1407656ca: mov      byte ptr [rsp + 0x1b9], 0
+0x1407656d2: cmp      byte ptr [rsp + 0x140], 0
+0x1407656da: je       0x1407656f9   ; main.buildBookmarkState+0x8b9
+0x1407656dc: lea      rdx, [rip + 0x529085]
+0x1407656e3: mov      qword ptr [rsp + 0x1c8], rdx
+0x1407656eb: mov      qword ptr [rsp + 0x1d0], 0x3f
+0x1407656f7: jmp      0x140765700   ; main.buildBookmarkState+0x8c0
+0x1407656f9: lea      rdx, [rip + 0x529068]
+0x140765700: mov      rbx, qword ptr [rsp + 0x48]
+0x140765705: inc      rbx
+0x140765708: mov      rcx, qword ptr [rsp + 0x50]
+0x14076570d: cmp      rcx, rbx
+0x140765710: jb       0x14076571c   ; main.buildBookmarkState+0x8dc
+0x140765712: mov      rax, qword ptr [rsp + 0x148]
+0x14076571a: jmp      0x140765735   ; main.buildBookmarkState+0x8f5
+0x14076571c: mov      rax, qword ptr [rsp + 0x148]
+0x140765724: mov      edi, 1
+0x140765729: lea      rsi, [rip + 0x48b830]
+0x140765730: call     0x14007ad20   ; runtime.growslice
+0x140765735: lea      rdx, [rbx - 1]
+0x140765739: shl      rdx, 7
+0x14076573d: lea      rdi, [rax + rdx]
+0x140765741: cmp      dword ptr [rip + 0x14f5c08], 0
+0x140765748: je       0x1407657a5   ; main.buildBookmarkState+0x965
+0x14076574a: mov      qword ptr [rsp + 0x230], rax
+0x140765752: mov      qword ptr [rsp + 0x88], rbx
+0x14076575a: mov      qword ptr [rsp + 0x80], rcx
+0x140765762: mov      qword ptr [rsp + 0x248], rdi
+0x14076576a: lea      rax, [rip + 0x48b7ef]
+0x140765771: mov      rbx, rdi
+0x140765774: lea      rcx, [rsp + 0x158]
+0x14076577c: nop      dword ptr [rax]
+0x140765780: call     0x14001b620   ; runtime.wbMove
+0x140765785: mov      rax, qword ptr [rsp + 0x230]
+0x14076578d: mov      rcx, qword ptr [rsp + 0x80]
+0x140765795: mov      rbx, qword ptr [rsp + 0x88]
+0x14076579d: mov      rdi, qword ptr [rsp + 0x248]
+0x1407657a5: lea      rsi, [rsp + 0x158]
+0x1407657ad: nop      word ptr [rax + rax]
+0x1407657b6: nop      word ptr [rax + rax]
+0x1407657bf: nop      
+0x1407657c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407657c5: lea      rbp, [rsp - 0x10]
+0x1407657ca: call     0x140081a70   ; runtime.duffcopy+0x310
+0x1407657cf: mov      rbp, qword ptr [rbp]
+0x1407657d3: mov      rdx, qword ptr [rsp + 0x60]
+0x1407657d8: mov      rsi, qword ptr [rsp + 0x58]
+0x1407657dd: mov      rdi, qword ptr [rsp + 0x150]
+0x1407657e5: jmp      0x140764ec4   ; main.buildBookmarkState+0x84
+0x1407657ea: mov      rcx, rbx
+0x1407657ed: mov      rbx, rsi
+0x1407657f0: call     0x140076700   ; runtime.convTslice
+0x1407657f5: mov      qword ptr [rsp + 0x298], 0
+0x140765801: lea      rdx, [rip + 0x2d8]
+0x140765808: mov      qword ptr [rsp + 0x280], rdx
+0x140765810: mov      rdx, qword ptr [rsp + 0x48]
+0x140765815: mov      qword ptr [rsp + 0x290], rdx
+0x14076581d: mov      rdx, qword ptr [rsp + 0x50]
+0x140765822: mov      qword ptr [rsp + 0x298], rdx
+0x14076582a: mov      rdx, qword ptr [rsp + 0x148]
+0x140765832: mov      qword ptr [rsp + 0x288], rdx
+0x14076583a: mov      rbx, rax
+0x14076583d: lea      rcx, [rsp + 0x280]
+0x140765845: lea      rax, [rip + 0x373cb4]
+0x14076584c: call     0x1401af7e0   ; sort.Slice
+0x140765851: mov      rax, qword ptr [rsp + 0x150]
+0x140765859: mov      rbx, qword ptr [rsp + 0x58]
+0x14076585e: mov      rcx, qword ptr [rsp + 0x60]
+0x140765863: call     0x140076700   ; runtime.convTslice
+0x140765868: mov      qword ptr [rsp + 0x278], 0
+0x140765874: lea      rdx, [rip + 0xe5]
+0x14076587b: mov      qword ptr [rsp + 0x260], rdx
+0x140765883: mov      rdx, qword ptr [rsp + 0x58]
+0x140765888: mov      qword ptr [rsp + 0x270], rdx
+0x140765890: mov      rdx, qword ptr [rsp + 0x60]
+0x140765895: mov      qword ptr [rsp + 0x278], rdx
+0x14076589d: mov      rdx, qword ptr [rsp + 0x150]
+0x1407658a5: mov      qword ptr [rsp + 0x268], rdx
+0x1407658ad: mov      rbx, rax
+0x1407658b0: lea      rcx, [rsp + 0x260]
+0x1407658b8: lea      rax, [rip + 0x373c81]
+0x1407658bf: nop      
+0x1407658c0: call     0x1401af7e0   ; sort.Slice
+0x1407658c5: mov      rdx, qword ptr [rsp + 0x148]
+0x1407658cd: mov      qword ptr [rsp + 0xd0], rdx
+0x1407658d5: mov      rdx, qword ptr [rsp + 0x48]
+0x1407658da: mov      qword ptr [rsp + 0xd8], rdx
+0x1407658e2: mov      rcx, qword ptr [rsp + 0x50]
+0x1407658e7: mov      qword ptr [rsp + 0xe0], rcx
+0x1407658ef: mov      rdi, qword ptr [rsp + 0x150]
+0x1407658f7: mov      qword ptr [rsp + 0xe8], rdi
+0x1407658ff: mov      rsi, qword ptr [rsp + 0x58]
+0x140765904: mov      qword ptr [rsp + 0xf0], rsi
+0x14076590c: mov      r8, qword ptr [rsp + 0x60]
+0x140765911: mov      qword ptr [rsp + 0xf8], r8
+0x140765919: mov      rax, qword ptr [rsp + 0xd0]
+0x140765921: mov      rbx, qword ptr [rsp + 0xd8]
+0x140765929: add      rsp, 0x2a0
+0x140765930: pop      rbp
+0x140765931: ret      
+0x140765932: mov      qword ptr [rsp + 8], rax
+0x140765937: mov      qword ptr [rsp + 0x10], rbx
+0x14076593c: mov      qword ptr [rsp + 0x18], rcx
+0x140765941: call     0x14007f140   ; runtime.morestack_noctxt
+0x140765946: mov      rax, qword ptr [rsp + 8]
+0x14076594b: mov      rbx, qword ptr [rsp + 0x10]
+0x140765950: mov      rcx, qword ptr [rsp + 0x18]
+0x140765955: jmp      0x140764e40   ; main.buildBookmarkState
+0x14076595a: int3     
+0x14076595b: int3     
+0x14076595c: int3     
+0x14076595d: int3     
+0x14076595e: int3     
+0x14076595f: int3     

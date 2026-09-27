@@ -1,0 +1,54 @@
+0x14086b0c0: cmp      ebx, 0x112
+0x14086b0c6: jne      0x14086b0e4   ; main.suppressLauncherWindowsAltMenuMessage+0x24
+0x14086b0c8: and      ecx, 0xfff0
+0x14086b0ce: cmp      rcx, 0xf100
+0x14086b0d5: je       0x14086b0dc   ; main.suppressLauncherWindowsAltMenuMessage+0x1c
+0x14086b0d7: xor      eax, eax
+0x14086b0d9: xor      ebx, ebx
+0x14086b0db: ret      
+0x14086b0dc: xor      eax, eax
+0x14086b0de: mov      ebx, 1
+0x14086b0e3: ret      
+0x14086b0e4: xor      eax, eax
+0x14086b0e6: xor      ebx, ebx
+0x14086b0e8: ret      
+0x14086b0e9: int3     
+0x14086b0ea: int3     
+0x14086b0eb: int3     
+0x14086b0ec: int3     
+0x14086b0ed: int3     
+0x14086b0ee: int3     
+0x14086b0ef: int3     
+0x14086b0f0: int3     
+0x14086b0f1: int3     
+0x14086b0f2: int3     
+0x14086b0f3: int3     
+0x14086b0f4: int3     
+0x14086b0f5: int3     
+0x14086b0f6: int3     
+0x14086b0f7: int3     
+0x14086b0f8: int3     
+0x14086b0f9: int3     
+0x14086b0fa: int3     
+0x14086b0fb: int3     
+0x14086b0fc: int3     
+0x14086b0fd: int3     
+0x14086b0fe: int3     
+0x14086b0ff: int3     
+0x14086b100: cmp      rsp, qword ptr [r14 + 0x10]
+0x14086b104: jbe      0x14086b141   ; main.ensureLauncherAppIdentity+0x41
+0x14086b106: push     rbp
+0x14086b107: mov      rbp, rsp
+0x14086b10a: sub      rsp, 0x10
+0x14086b10e: nop      
+0x14086b10f: mov      ecx, dword ptr [rip + 0x13efe7b]
+0x14086b115: test     ecx, ecx
+0x14086b117: jne      0x14086b12c   ; main.ensureLauncherAppIdentity+0x2c
+0x14086b119: lea      rax, [rip + 0x13efe70]
+0x14086b120: lea      rbx, [rip + 0x82b919]
+0x14086b127: call     0x140092520   ; sync.Once.doSlow
+0x14086b12c: mov      rax, qword ptr [rip + 0x13a573d]
+0x14086b133: mov      rbx, qword ptr [rip + 0x13a573e]
+0x14086b13a: add      rsp, 0x10
+0x14086b13e: pop      rbp
+0x14086b13f: nop      

@@ -1,0 +1,128 @@
+0x140782520: lea      r12, [rsp - 0x340]
+0x140782528: cmp      r12, qword ptr [r14 + 0x10]
+0x14078252c: jbe      0x1407827b5    ; main.BootstrapService.SetHotCornerEnabled+0x295
+0x140782532: push     rbp
+0x140782533: mov      rbp, rsp
+0x140782536: sub      rsp, 0x3b8
+0x14078253d: mov      qword ptr [rsp + 0x4d8], rax
+0x140782545: lea      rdi, [rsp + 0x3c8]
+0x14078254d: lea      rdi, [rdi - 0x30]
+0x140782551: nop      word ptr [rax + rax]
+0x14078255a: nop      word ptr [rax + rax]
+0x140782560: mov      qword ptr [rsp - 0x10], rbp
+0x140782565: lea      rbp, [rsp - 0x10]
+0x14078256a: call     0x1400816eb    ; runtime.duffzero+0x10b
+0x14078256f: mov      rbp, qword ptr [rbp]
+0x140782573: lea      rdi, [rsp + 0x2a8]
+0x14078257b: lea      rdi, [rdi - 0x30]
+0x14078257f: nop      
+0x140782580: mov      qword ptr [rsp - 0x10], rbp
+0x140782585: lea      rbp, [rsp - 0x10]
+0x14078258a: call     0x1400816eb    ; runtime.duffzero+0x10b
+0x14078258f: mov      rbp, qword ptr [rbp]
+0x140782593: mov      rax, qword ptr [rax + 0x390]
+0x14078259a: call     0x1408e09e0    ; main.mouseGestureService.SetHotCornerEnabled
+0x14078259f: lea      rdi, [rsp + 0x2a8]
+0x1407825a7: mov      rsi, rsp
+0x1407825aa: mov      qword ptr [rsp - 0x10], rbp
+0x1407825af: lea      rbp, [rsp - 0x10]
+0x1407825b4: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x1407825b9: mov      rbp, qword ptr [rbp]
+0x1407825bd: lea      rdi, [rsp + 0x190]
+0x1407825c5: lea      rsi, [rsp + 0x2a8]
+0x1407825cd: nop      word ptr [rax + rax]
+0x1407825d6: nop      word ptr [rax + rax]
+0x1407825df: nop      
+0x1407825e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407825e5: lea      rbp, [rsp - 0x10]
+0x1407825ea: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x1407825ef: mov      rbp, qword ptr [rbp]
+0x1407825f3: test     rax, rax
+0x1407825f6: jne      0x14078269a    ; main.BootstrapService.SetHotCornerEnabled+0x17a
+0x1407825fc: mov      rdi, rsp
+0x1407825ff: lea      rsi, [rsp + 0x1b0]
+0x140782607: mov      qword ptr [rsp - 0x10], rbp
+0x14078260c: lea      rbp, [rsp - 0x10]
+0x140782611: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x140782616: mov      rbp, qword ptr [rbp]
+0x14078261a: mov      rax, qword ptr [rsp + 0x4d8]
+0x140782622: call     0x1407863a0    ; main.BootstrapService.persistMouseGestureConfig
+0x140782627: test     rax, rax
+0x14078262a: jne      0x14078269a    ; main.BootstrapService.SetHotCornerEnabled+0x17a
+0x14078262c: mov      rcx, qword ptr [rsp + 0x4d8]
+0x140782634: mov      rax, qword ptr [rcx + 0x390]
+0x14078263b: nop      dword ptr [rax + rax]
+0x140782640: call     0x1408e1e40    ; main.mouseGestureService.buildState
+0x140782645: lea      rdi, [rsp + 0x2a8]
+0x14078264d: mov      rsi, rsp
+0x140782650: nop      word ptr [rax + rax]
+0x140782659: nop      dword ptr [rax]
+0x140782660: mov      qword ptr [rsp - 0x10], rbp
+0x140782665: lea      rbp, [rsp - 0x10]
+0x14078266a: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x14078266f: mov      rbp, qword ptr [rbp]
+0x140782673: lea      rdi, [rsp + 0x190]
+0x14078267b: lea      rsi, [rsp + 0x2a8]
+0x140782683: mov      qword ptr [rsp - 0x10], rbp
+0x140782688: lea      rbp, [rsp - 0x10]
+0x14078268d: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140782692: mov      rbp, qword ptr [rbp]
+0x140782696: xor      eax, eax
+0x140782698: xor      ebx, ebx
+0x14078269a: mov      qword ptr [rsp + 0x2a0], rbx
+0x1407826a2: mov      qword ptr [rsp + 0x188], rax
+0x1407826aa: mov      rax, qword ptr [rsp + 0x4d8]
+0x1407826b2: call     0x14079fd20    ; main.BootstrapService.syncCursorWrapHotCornerGuardFromCurrentConfig
+0x1407826b7: lea      rdi, [rsp + 0x2a8]
+0x1407826bf: lea      rsi, [rsp + 0x190]
+0x1407826c7: mov      qword ptr [rsp - 0x10], rbp
+0x1407826cc: lea      rbp, [rsp - 0x10]
+0x1407826d1: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x1407826d6: mov      rbp, qword ptr [rbp]
+0x1407826da: mov      rdi, rsp
+0x1407826dd: lea      rsi, [rsp + 0x2c8]
+0x1407826e5: mov      qword ptr [rsp - 0x10], rbp
+0x1407826ea: lea      rbp, [rsp - 0x10]
+0x1407826ef: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x1407826f4: mov      rbp, qword ptr [rbp]
+0x1407826f8: mov      rax, qword ptr [rsp + 0x4d8]
+0x140782700: call     0x140784000    ; main.BootstrapService.attachMouseGestureConfigIconURLs
+0x140782705: lea      rdi, [rsp + 0x190]
+0x14078270d: lea      rsi, [rsp + 0xc0]
+0x140782715: nop      word ptr [rax + rax]
+0x14078271e: nop      
+0x140782720: mov      qword ptr [rsp - 0x10], rbp
+0x140782725: lea      rbp, [rsp - 0x10]
+0x14078272a: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x14078272f: mov      rbp, qword ptr [rbp]
+0x140782733: lea      rdi, [rsp + 0x2c8]
+0x14078273b: lea      rsi, [rsp + 0x190]
+0x140782743: mov      qword ptr [rsp - 0x10], rbp
+0x140782748: lea      rbp, [rsp - 0x10]
+0x14078274d: call     0x140081a38    ; runtime.duffcopy+0x2d8
+0x140782752: mov      rbp, qword ptr [rbp]
+0x140782756: lea      rdi, [rsp + 0x3c8]
+0x14078275e: lea      rsi, [rsp + 0x2a8]
+0x140782766: mov      qword ptr [rsp - 0x10], rbp
+0x14078276b: lea      rbp, [rsp - 0x10]
+0x140782770: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140782775: mov      rbp, qword ptr [rbp]
+0x140782779: lea      rdi, [rsp + 0x3c8]
+0x140782781: lea      rsi, [rsp + 0x2a8]
+0x140782789: mov      qword ptr [rsp - 0x10], rbp
+0x14078278e: lea      rbp, [rsp - 0x10]
+0x140782793: call     0x1400819f2    ; runtime.duffcopy+0x292
+0x140782798: mov      rbp, qword ptr [rbp]
+0x14078279c: mov      rax, qword ptr [rsp + 0x188]
+0x1407827a4: mov      rbx, qword ptr [rsp + 0x2a0]
+0x1407827ac: add      rsp, 0x3b8
+0x1407827b3: pop      rbp
+0x1407827b4: ret      
+0x1407827b5: mov      qword ptr [rsp + 0x118], rax
+0x1407827bd: mov      byte ptr [rsp + 0x120], bl
+0x1407827c4: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407827c9: mov      rax, qword ptr [rsp + 0x118]
+0x1407827d1: movzx    ebx, byte ptr [rsp + 0x120]
+0x1407827d9: jmp      0x140782520    ; main.BootstrapService.SetHotCornerEnabled
+0x1407827de: int3     
+0x1407827df: int3     

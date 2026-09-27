@@ -1,0 +1,152 @@
+0x1409d1a40: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409d1a44: jbe      0x1409d1d61   ; main.buildTwoFactorEntryStateWithCode+0x321
+0x1409d1a4a: push     rbp
+0x1409d1a4b: mov      rbp, rsp
+0x1409d1a4e: sub      rsp, 0x78
+0x1409d1a52: mov      qword ptr [rsp + 0x230], rcx
+0x1409d1a5a: mov      qword ptr [rsp + 0x228], rbx
+0x1409d1a62: mov      qword ptr [rsp + 0x220], rax
+0x1409d1a6a: movups   xmmword ptr [rsp + 0x158], xmm15
+0x1409d1a73: lea      rdi, [rsp + 0x160]
+0x1409d1a7b: nop      dword ptr [rax + rax]
+0x1409d1a80: mov      qword ptr [rsp - 0x10], rbp
+0x1409d1a85: lea      rbp, [rsp - 0x10]
+0x1409d1a8a: call     0x14008170b   ; runtime.duffzero+0x12b
+0x1409d1a8f: mov      rbp, qword ptr [rbp]
+0x1409d1a93: mov      rax, qword ptr [rsp + 0x98]
+0x1409d1a9b: mov      rbx, qword ptr [rsp + 0xa0]
+0x1409d1aa3: call     0x1409c7ca0   ; main.sanitizeTwoFactorKind
+0x1409d1aa8: mov      qword ptr [rsp + 0x20], rbx
+0x1409d1aad: mov      qword ptr [rsp + 0x50], rax
+0x1409d1ab2: mov      rax, qword ptr [rsp + 0xf8]
+0x1409d1aba: mov      rbx, qword ptr [rsp + 0x100]
+0x1409d1ac2: call     0x1400a2200   ; strings.TrimSpace
+0x1409d1ac7: mov      qword ptr [rsp + 0x60], rax
+0x1409d1acc: mov      qword ptr [rsp + 0x30], rbx
+0x1409d1ad1: mov      rax, qword ptr [rsp + 0x108]
+0x1409d1ad9: mov      rbx, qword ptr [rsp + 0x110]
+0x1409d1ae1: call     0x1400a2200   ; strings.TrimSpace
+0x1409d1ae6: mov      rcx, qword ptr [rsp + 0x230]
+0x1409d1aee: test     rcx, rcx
+0x1409d1af1: mov      edx, 0
+0x1409d1af6: cmovl    rcx, rdx
+0x1409d1afa: mov      qword ptr [rsp + 0x48], rcx
+0x1409d1aff: mov      rdx, qword ptr [rsp + 0x20]
+0x1409d1b04: cmp      rdx, 5
+0x1409d1b08: jne      0x1409d1b4c   ; main.buildTwoFactorEntryStateWithCode+0x10c
+0x1409d1b0a: mov      rsi, qword ptr [rsp + 0x50]
+0x1409d1b0f: cmp      dword ptr [rsi], 0x61657473
+0x1409d1b15: jne      0x1409d1b3a   ; main.buildTwoFactorEntryStateWithCode+0xfa
+0x1409d1b17: cmp      byte ptr [rsi + 4], 0x6d
+0x1409d1b1b: jne      0x1409d1b28   ; main.buildTwoFactorEntryStateWithCode+0xe8
+0x1409d1b1d: xor      eax, eax
+0x1409d1b1f: xor      ebx, ebx
+0x1409d1b21: xor      edi, edi
+0x1409d1b23: xor      r8d, r8d
+0x1409d1b26: jmp      0x1409d1b61   ; main.buildTwoFactorEntryStateWithCode+0x121
+0x1409d1b28: mov      rdi, rbx
+0x1409d1b2b: mov      r8, rax
+0x1409d1b2e: mov      rax, qword ptr [rsp + 0x30]
+0x1409d1b33: mov      rbx, qword ptr [rsp + 0x60]
+0x1409d1b38: jmp      0x1409d1b61   ; main.buildTwoFactorEntryStateWithCode+0x121
+0x1409d1b3a: mov      rdi, rbx
+0x1409d1b3d: mov      r8, rax
+0x1409d1b40: mov      rax, qword ptr [rsp + 0x30]
+0x1409d1b45: mov      rbx, qword ptr [rsp + 0x60]
+0x1409d1b4a: jmp      0x1409d1b61   ; main.buildTwoFactorEntryStateWithCode+0x121
+0x1409d1b4c: mov      rsi, qword ptr [rsp + 0x50]
+0x1409d1b51: mov      rdi, rbx
+0x1409d1b54: mov      r8, rax
+0x1409d1b57: mov      rax, qword ptr [rsp + 0x30]
+0x1409d1b5c: mov      rbx, qword ptr [rsp + 0x60]
+0x1409d1b61: mov      qword ptr [rsp + 0x30], rax
+0x1409d1b66: mov      qword ptr [rsp + 0x60], rbx
+0x1409d1b6b: mov      qword ptr [rsp + 0x58], r8
+0x1409d1b70: mov      qword ptr [rsp + 0x28], rdi
+0x1409d1b75: mov      rcx, qword ptr [rsp + 0xd8]
+0x1409d1b7d: mov      rdi, qword ptr [rsp + 0xe0]
+0x1409d1b85: mov      rax, rsi
+0x1409d1b88: mov      rbx, rdx
+0x1409d1b8b: call     0x1409c7d40   ; main.sanitizeTwoFactorEntryIcon
+0x1409d1b90: mov      qword ptr [rsp + 0x70], rax
+0x1409d1b95: mov      qword ptr [rsp + 0x40], rbx
+0x1409d1b9a: mov      rcx, qword ptr [rsp + 0xe8]
+0x1409d1ba2: mov      rdi, qword ptr [rsp + 0xf0]
+0x1409d1baa: mov      rax, qword ptr [rsp + 0x50]
+0x1409d1baf: mov      rbx, qword ptr [rsp + 0x20]
+0x1409d1bb4: call     0x1409c7e00   ; main.sanitizeTwoFactorEntryIconData
+0x1409d1bb9: mov      qword ptr [rsp + 0x68], rax
+0x1409d1bbe: mov      qword ptr [rsp + 0x38], rbx
+0x1409d1bc3: mov      rax, qword ptr [rsp + 0x220]
+0x1409d1bcb: mov      rbx, qword ptr [rsp + 0x228]
+0x1409d1bd3: call     0x1400a2200   ; strings.TrimSpace
+0x1409d1bd8: movups   xmmword ptr [rsp + 0x158], xmm15
+0x1409d1be1: lea      rdi, [rsp + 0x160]
+0x1409d1be9: mov      qword ptr [rsp - 0x10], rbp
+0x1409d1bee: lea      rbp, [rsp - 0x10]
+0x1409d1bf3: call     0x14008170b   ; runtime.duffzero+0x12b
+0x1409d1bf8: mov      rbp, qword ptr [rbp]
+0x1409d1bfc: mov      rdx, qword ptr [rsp + 0x88]
+0x1409d1c04: mov      rsi, qword ptr [rsp + 0x90]
+0x1409d1c0c: mov      qword ptr [rsp + 0x158], rdx
+0x1409d1c14: mov      qword ptr [rsp + 0x160], rsi
+0x1409d1c1c: mov      rdx, qword ptr [rsp + 0x50]
+0x1409d1c21: mov      qword ptr [rsp + 0x168], rdx
+0x1409d1c29: mov      rdx, qword ptr [rsp + 0x20]
+0x1409d1c2e: mov      qword ptr [rsp + 0x170], rdx
+0x1409d1c36: mov      rdx, qword ptr [rsp + 0xa8]
+0x1409d1c3e: mov      rsi, qword ptr [rsp + 0xb0]
+0x1409d1c46: mov      qword ptr [rsp + 0x178], rdx
+0x1409d1c4e: mov      qword ptr [rsp + 0x180], rsi
+0x1409d1c56: mov      rdx, qword ptr [rsp + 0xb8]
+0x1409d1c5e: mov      rsi, qword ptr [rsp + 0xc0]
+0x1409d1c66: mov      qword ptr [rsp + 0x188], rdx
+0x1409d1c6e: mov      qword ptr [rsp + 0x190], rsi
+0x1409d1c76: mov      rdx, qword ptr [rsp + 0xc8]
+0x1409d1c7e: mov      rsi, qword ptr [rsp + 0xd0]
+0x1409d1c86: mov      qword ptr [rsp + 0x198], rdx
+0x1409d1c8e: mov      qword ptr [rsp + 0x1a0], rsi
+0x1409d1c96: mov      rdx, qword ptr [rsp + 0x70]
+0x1409d1c9b: mov      qword ptr [rsp + 0x1a8], rdx
+0x1409d1ca3: mov      rdx, qword ptr [rsp + 0x40]
+0x1409d1ca8: mov      qword ptr [rsp + 0x1b0], rdx
+0x1409d1cb0: mov      rdx, qword ptr [rsp + 0x68]
+0x1409d1cb5: mov      qword ptr [rsp + 0x1b8], rdx
+0x1409d1cbd: mov      rdx, qword ptr [rsp + 0x38]
+0x1409d1cc2: mov      qword ptr [rsp + 0x1c0], rdx
+0x1409d1cca: mov      rdx, qword ptr [rsp + 0x60]
+0x1409d1ccf: mov      qword ptr [rsp + 0x1c8], rdx
+0x1409d1cd7: mov      rdx, qword ptr [rsp + 0x30]
+0x1409d1cdc: mov      qword ptr [rsp + 0x1d0], rdx
+0x1409d1ce4: mov      rdx, qword ptr [rsp + 0x58]
+0x1409d1ce9: mov      qword ptr [rsp + 0x1d8], rdx
+0x1409d1cf1: mov      rdx, qword ptr [rsp + 0x28]
+0x1409d1cf6: mov      qword ptr [rsp + 0x1e0], rdx
+0x1409d1cfe: mov      rdx, qword ptr [rsp + 0x118]
+0x1409d1d06: mov      rsi, qword ptr [rsp + 0x120]
+0x1409d1d0e: mov      qword ptr [rsp + 0x1e8], rdx
+0x1409d1d16: mov      qword ptr [rsp + 0x1f0], rsi
+0x1409d1d1e: mov      rdx, qword ptr [rsp + 0x128]
+0x1409d1d26: mov      qword ptr [rsp + 0x1f8], rdx
+0x1409d1d2e: mov      rdx, qword ptr [rsp + 0x130]
+0x1409d1d36: mov      qword ptr [rsp + 0x200], rdx
+0x1409d1d3e: mov      qword ptr [rsp + 0x208], rax
+0x1409d1d46: mov      qword ptr [rsp + 0x210], rbx
+0x1409d1d4e: mov      rdx, qword ptr [rsp + 0x48]
+0x1409d1d53: mov      qword ptr [rsp + 0x218], rdx
+0x1409d1d5b: add      rsp, 0x78
+0x1409d1d5f: pop      rbp
+0x1409d1d60: ret      
+0x1409d1d61: mov      qword ptr [rsp + 0x1a0], rax
+0x1409d1d69: mov      qword ptr [rsp + 0x1a8], rbx
+0x1409d1d71: mov      qword ptr [rsp + 0x1b0], rcx
+0x1409d1d79: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d1d7e: mov      rax, qword ptr [rsp + 0x1a0]
+0x1409d1d86: mov      rbx, qword ptr [rsp + 0x1a8]
+0x1409d1d8e: mov      rcx, qword ptr [rsp + 0x1b0]
+0x1409d1d96: jmp      0x1409d1a40   ; main.buildTwoFactorEntryStateWithCode
+0x1409d1d9b: int3     
+0x1409d1d9c: int3     
+0x1409d1d9d: int3     
+0x1409d1d9e: int3     
+0x1409d1d9f: int3     

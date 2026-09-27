@@ -1,0 +1,24 @@
+0x1407b0960: lea      r12, [rsp - 0x60]
+0x1407b0965: cmp      r12, qword ptr [r14 + 0x10]
+0x1407b0969: jbe      0x1407b0e39   ; main.adjustDesktopReminderActiveWindow+0x4d9
+0x1407b096f: push     rbp
+0x1407b0970: mov      rbp, rsp
+0x1407b0973: sub      rsp, 0xd8
+0x1407b097a: mov      qword ptr [rsp + 0x1e0], rcx
+0x1407b0982: mov      qword ptr [rsp + 0x88], rax
+0x1407b098a: mov      qword ptr [rsp + 0xd0], rcx
+0x1407b0992: mov      qword ptr [rsp + 0x80], rbx
+0x1407b099a: mov      rcx, qword ptr [rip + 0x141231f]
+0x1407b09a1: mov      qword ptr [rsp + 0xc8], rcx
+0x1407b09a9: mov      rax, qword ptr [rsp + 0x150]
+0x1407b09b1: mov      rbx, qword ptr [rsp + 0x158]
+0x1407b09b9: call     0x1407b0e80   ; main.parseDesktopReminderMinute
+0x1407b09be: mov      qword ptr [rsp + 0x48], rax
+0x1407b09c3: mov      byte ptr [rsp + 0x46], bl
+0x1407b09c7: mov      rax, qword ptr [rsp + 0x160]
+0x1407b09cf: mov      rbx, qword ptr [rsp + 0x168]
+0x1407b09d7: call     0x1407b0e80   ; main.parseDesktopReminderMinute
+0x1407b09dc: mov      rcx, qword ptr [rsp + 0x88]
+0x1407b09e4: mov      qword ptr [rsp + 0xb0], rcx
+0x1407b09ec: mov      rdx, qword ptr [rsp + 0x80]
+0x1407b09f4: mov      qword ptr [rsp + 0xb8], rdx

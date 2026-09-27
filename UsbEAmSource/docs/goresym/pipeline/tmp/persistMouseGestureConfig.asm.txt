@@ -1,0 +1,81 @@
+0x1407863a0: mov      r12, rsp
+0x1407863a3: sub      r12, 0x1238
+0x1407863aa: jb       0x1407864ff    ; main.BootstrapService.persistMouseGestureConfig+0x15f
+0x1407863b0: cmp      r12, qword ptr [r14 + 0x10]
+0x1407863b4: jbe      0x1407864ff    ; main.BootstrapService.persistMouseGestureConfig+0x15f
+0x1407863ba: push     rbp
+0x1407863bb: mov      rbp, rsp
+0x1407863be: sub      rsp, 0x12b0
+0x1407863c5: mov      qword ptr [rsp + 0x1380], rax
+0x1407863cd: call     0x1407a26a0    ; main.BootstrapService.ensureWorkspaceDirectories
+0x1407863d2: test     rax, rax
+0x1407863d5: jne      0x1407864f6    ; main.BootstrapService.persistMouseGestureConfig+0x156
+0x1407863db: mov      rax, qword ptr [rsp + 0x1380]
+0x1407863e3: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x1407863e8: lea      rdi, [rsp + 0x960]
+0x1407863f0: mov      rsi, rsp
+0x1407863f3: nop      word ptr [rax + rax]
+0x1407863fc: nop      dword ptr [rax]
+0x140786400: mov      qword ptr [rsp - 0x10], rbp
+0x140786405: lea      rbp, [rsp - 0x10]
+0x14078640a: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x14078640f: mov      rbp, qword ptr [rbp]
+0x140786413: mov      rax, qword ptr [rsp + 0x970]
+0x14078641b: mov      rbx, qword ptr [rsp + 0x978]
+0x140786423: call     0x140898ac0    ; main.launcherConfigStoreForPath
+0x140786428: movups   xmmword ptr [rsp + 0x960], xmm15
+0x140786431: lea      rdi, [rsp + 0x968]
+0x140786439: mov      ecx, 0x126
+0x14078643e: mov      rdx, rax
+0x140786441: xor      eax, eax
+0x140786443: rep stosq qword ptr [rdi], rax
+0x140786446: lea      rcx, [rip + 0xd3]
+0x14078644d: mov      qword ptr [rsp + 0x1298], rcx
+0x140786455: mov      rcx, qword ptr [rsp + 0x1380]
+0x14078645d: mov      qword ptr [rsp + 0x12a0], rcx
+0x140786465: lea      rcx, [rsp + 0x12c0]
+0x14078646d: mov      qword ptr [rsp + 0x12a8], rcx
+0x140786475: mov      rax, rdx
+0x140786478: lea      rbx, [rsp + 0x1298]
+0x140786480: xor      ecx, ecx
+0x140786482: xor      edi, edi
+0x140786484: mov      rsi, rdi
+0x140786487: call     0x14089b420    ; main.launcherConfigStore.Update
+0x14078648c: mov      rcx, qword ptr [rsp]
+0x140786490: mov      qword ptr [rsp + 0x960], rcx
+0x140786498: lea      rdi, [rsp + 0x968]
+0x1407864a0: lea      rsi, [rsp + 8]
+0x1407864a5: mov      ecx, 0x126
+0x1407864aa: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407864ad: test     rax, rax
+0x1407864b0: je       0x1407864bb    ; main.BootstrapService.persistMouseGestureConfig+0x11b
+0x1407864b2: add      rsp, 0x12b0
+0x1407864b9: pop      rbp
+0x1407864ba: ret      
+0x1407864bb: mov      rdx, qword ptr [rsp + 0x960]
+0x1407864c3: mov      qword ptr [rsp], rdx
+0x1407864c7: lea      rdi, [rsp + 8]
+0x1407864cc: lea      rsi, [rsp + 0x968]
+0x1407864d4: mov      ecx, 0x126
+0x1407864d9: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407864dc: mov      rax, qword ptr [rsp + 0x1380]
+0x1407864e4: call     0x14079f060    ; main.BootstrapService.syncRuntimeServices
+0x1407864e9: xor      eax, eax
+0x1407864eb: xor      ebx, ebx
+0x1407864ed: add      rsp, 0x12b0
+0x1407864f4: pop      rbp
+0x1407864f5: ret      
+0x1407864f6: add      rsp, 0x12b0
+0x1407864fd: pop      rbp
+0x1407864fe: ret      
+0x1407864ff: mov      qword ptr [rsp + 0xc8], rax
+0x140786507: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078650c: mov      rax, qword ptr [rsp + 0xc8]
+0x140786514: jmp      0x1407863a0    ; main.BootstrapService.persistMouseGestureConfig
+0x140786519: int3     
+0x14078651a: int3     
+0x14078651b: int3     
+0x14078651c: int3     
+0x14078651d: int3     
+0x14078651e: int3     
+0x14078651f: int3     

@@ -1,0 +1,100 @@
+0x140923840: cmp      rsp, qword ptr [r14 + 0x10]
+0x140923844: jbe      0x1409239cb   ; main.resolvePluginBaseHref+0x18b
+0x14092384a: push     rbp
+0x14092384b: mov      rbp, rsp
+0x14092384e: sub      rsp, 0x78
+0x140923852: mov      qword ptr [rsp + 0x208], rbx
+0x14092385a: mov      qword ptr [rsp + 0x200], rax
+0x140923862: mov      rax, qword ptr [rsp + 0x198]
+0x14092386a: mov      rbx, qword ptr [rsp + 0x1a0]
+0x140923872: call     0x1400a2200   ; strings.TrimSpace
+0x140923877: call     0x1401154c0   ; internal/filepathlite.Clean
+0x14092387c: mov      rcx, qword ptr [rsp + 0x200]
+0x140923884: mov      rdi, qword ptr [rsp + 0x208]
+0x14092388c: call     0x1401cc000   ; path/filepath.Rel
+0x140923891: test     rcx, rcx
+0x140923894: jne      0x1409239c1   ; main.resolvePluginBaseHref+0x181
+0x14092389a: nop      
+0x14092389b: nop      dword ptr [rax + rax]
+0x1409238a0: call     0x140116440   ; internal/filepathlite.Dir
+0x1409238a5: cmp      rbx, 1
+0x1409238a9: jne      0x140923914   ; main.resolvePluginBaseHref+0xd4
+0x1409238ab: cmp      byte ptr [rax], 0x2e
+0x1409238ae: je       0x1409238bb   ; main.resolvePluginBaseHref+0x7b
+0x1409238b0: cmp      rbx, 1
+0x1409238b4: jne      0x140923914   ; main.resolvePluginBaseHref+0xd4
+0x1409238b6: cmp      byte ptr [rax], 0x5c
+0x1409238b9: jne      0x140923914   ; main.resolvePluginBaseHref+0xd4
+0x1409238bb: mov      rax, qword ptr [rsp + 0x88]
+0x1409238c3: mov      rbx, qword ptr [rsp + 0x90]
+0x1409238cb: call     0x140923ae0   ; main.urlPathEscape
+0x1409238d0: movups   xmmword ptr [rsp + 0x68], xmm15
+0x1409238d6: call     0x140076660   ; runtime.convTstring
+0x1409238db: lea      rcx, [rip + 0x1c651e]
+0x1409238e2: mov      qword ptr [rsp + 0x68], rcx
+0x1409238e7: mov      qword ptr [rsp + 0x70], rax
+0x1409238ec: lea      rax, [rip + 0x331977]
+0x1409238f3: mov      ebx, 0x10
+0x1409238f8: lea      rcx, [rsp + 0x68]
+0x1409238fd: mov      edi, 1
+0x140923902: mov      rsi, rdi
+0x140923905: call     0x140136340   ; fmt.Sprintf
+0x14092390a: xor      ecx, ecx
+0x14092390c: xor      edi, edi
+0x14092390e: add      rsp, 0x78
+0x140923912: pop      rbp
+0x140923913: ret      
+0x140923914: nop      
+0x140923915: lea      rcx, [rip + 0x8a7324]
+0x14092391c: mov      edi, 1
+0x140923921: lea      rsi, [rip + 0x30fd07]
+0x140923928: mov      r8, rdi
+0x14092392b: mov      r9, 0xffffffffffffffff
+0x140923932: call     0x1400a2340   ; strings.Replace
+0x140923937: mov      qword ptr [rsp + 0x40], rax
+0x14092393c: mov      qword ptr [rsp + 0x38], rbx
+0x140923941: mov      rax, qword ptr [rsp + 0x88]
+0x140923949: mov      rbx, qword ptr [rsp + 0x90]
+0x140923951: call     0x140923ae0   ; main.urlPathEscape
+0x140923956: movups   xmmword ptr [rsp + 0x48], xmm15
+0x14092395c: movups   xmmword ptr [rsp + 0x58], xmm15
+0x140923962: call     0x140076660   ; runtime.convTstring
+0x140923967: lea      rdx, [rip + 0x1c6492]
+0x14092396e: mov      qword ptr [rsp + 0x48], rdx
+0x140923973: mov      qword ptr [rsp + 0x50], rax
+0x140923978: mov      rax, qword ptr [rsp + 0x40]
+0x14092397d: mov      rbx, qword ptr [rsp + 0x38]
+0x140923982: call     0x140076660   ; runtime.convTstring
+0x140923987: lea      rdx, [rip + 0x1c6472]
+0x14092398e: mov      qword ptr [rsp + 0x58], rdx
+0x140923993: mov      qword ptr [rsp + 0x60], rax
+0x140923998: lea      rax, [rip + 0x3382ef]
+0x14092399f: mov      ebx, 0x13
+0x1409239a4: lea      rcx, [rsp + 0x48]
+0x1409239a9: mov      edi, 2
+0x1409239ae: mov      rsi, rdi
+0x1409239b1: call     0x140136340   ; fmt.Sprintf
+0x1409239b6: xor      ecx, ecx
+0x1409239b8: xor      edi, edi
+0x1409239ba: add      rsp, 0x78
+0x1409239be: pop      rbp
+0x1409239bf: nop      
+0x1409239c0: ret      
+0x1409239c1: xor      eax, eax
+0x1409239c3: xor      ebx, ebx
+0x1409239c5: add      rsp, 0x78
+0x1409239c9: pop      rbp
+0x1409239ca: ret      
+0x1409239cb: mov      qword ptr [rsp + 0x180], rax
+0x1409239d3: mov      qword ptr [rsp + 0x188], rbx
+0x1409239db: nop      dword ptr [rax + rax]
+0x1409239e0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409239e5: mov      rax, qword ptr [rsp + 0x180]
+0x1409239ed: mov      rbx, qword ptr [rsp + 0x188]
+0x1409239f5: jmp      0x140923840   ; main.resolvePluginBaseHref
+0x1409239fa: int3     
+0x1409239fb: int3     
+0x1409239fc: int3     
+0x1409239fd: int3     
+0x1409239fe: int3     
+0x1409239ff: int3     

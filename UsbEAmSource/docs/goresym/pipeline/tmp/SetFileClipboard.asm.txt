@@ -1,0 +1,83 @@
+0x1408a9f00: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408a9f04: jbe      0x1408a9fa7   ; main.setFileClipboard+0xa7
+0x1408a9f0a: push     rbp
+0x1408a9f0b: mov      rbp, rsp
+0x1408a9f0e: sub      rsp, 0x38
+0x1408a9f12: mov      qword ptr [rsp + 0x48], rax
+0x1408a9f17: mov      qword ptr [rsp + 0x68], rsi
+0x1408a9f1c: mov      qword ptr [rsp + 0x60], rdi
+0x1408a9f21: call     0x14088c420   ; main.normalizePathList
+0x1408a9f26: test     rbx, rbx
+0x1408a9f29: je       0x1408a9f76   ; main.setFileClipboard+0x76
+0x1408a9f2b: mov      qword ptr [rsp + 0x28], rcx
+0x1408a9f30: mov      qword ptr [rsp + 0x20], rbx
+0x1408a9f35: mov      qword ptr [rsp + 0x30], rax
+0x1408a9f3a: mov      rax, qword ptr [rsp + 0x60]
+0x1408a9f3f: mov      rbx, qword ptr [rsp + 0x68]
+0x1408a9f44: call     0x1408adbe0   ; main.resolveClipboardDropEffect
+0x1408a9f49: test     rbx, rbx
+0x1408a9f4c: je       0x1408a9f5a   ; main.setFileClipboard+0x5a
+0x1408a9f4e: mov      rax, rbx
+0x1408a9f51: mov      rbx, rcx
+0x1408a9f54: add      rsp, 0x38
+0x1408a9f58: pop      rbp
+0x1408a9f59: ret      
+0x1408a9f5a: mov      rbx, qword ptr [rsp + 0x20]
+0x1408a9f5f: mov      rcx, qword ptr [rsp + 0x28]
+0x1408a9f64: mov      edi, eax
+0x1408a9f66: mov      rax, qword ptr [rsp + 0x30]
+0x1408a9f6b: call     0x1408adcc0   ; main.setWindowsFileClipboard
+0x1408a9f70: add      rsp, 0x38
+0x1408a9f74: pop      rbp
+0x1408a9f75: ret      
+0x1408a9f76: lea      rax, [rip + 0x2aa403]
+0x1408a9f7d: nop      dword ptr [rax]
+0x1408a9f80: call     0x14001ae20   ; runtime.newobject
+0x1408a9f85: mov      qword ptr [rax + 8], 0x18
+0x1408a9f8d: lea      rcx, [rip + 0x3baf14]
+0x1408a9f94: mov      qword ptr [rax], rcx
+0x1408a9f97: mov      rbx, rax
+0x1408a9f9a: lea      rax, [rip + 0x92915f]
+0x1408a9fa1: add      rsp, 0x38
+0x1408a9fa5: pop      rbp
+0x1408a9fa6: ret      
+0x1408a9fa7: mov      qword ptr [rsp + 8], rax
+0x1408a9fac: mov      qword ptr [rsp + 0x10], rbx
+0x1408a9fb1: mov      qword ptr [rsp + 0x18], rcx
+0x1408a9fb6: mov      qword ptr [rsp + 0x20], rdi
+0x1408a9fbb: mov      qword ptr [rsp + 0x28], rsi
+0x1408a9fc0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408a9fc5: mov      rax, qword ptr [rsp + 8]
+0x1408a9fca: mov      rbx, qword ptr [rsp + 0x10]
+0x1408a9fcf: mov      rcx, qword ptr [rsp + 0x18]
+0x1408a9fd4: mov      rdi, qword ptr [rsp + 0x20]
+0x1408a9fd9: mov      rsi, qword ptr [rsp + 0x28]
+0x1408a9fde: nop      
+0x1408a9fe0: jmp      0x1408a9f00   ; main.setFileClipboard
+0x1408a9fe5: int3     
+0x1408a9fe6: int3     
+0x1408a9fe7: int3     
+0x1408a9fe8: int3     
+0x1408a9fe9: int3     
+0x1408a9fea: int3     
+0x1408a9feb: int3     
+0x1408a9fec: int3     
+0x1408a9fed: int3     
+0x1408a9fee: int3     
+0x1408a9fef: int3     
+0x1408a9ff0: int3     
+0x1408a9ff1: int3     
+0x1408a9ff2: int3     
+0x1408a9ff3: int3     
+0x1408a9ff4: int3     
+0x1408a9ff5: int3     
+0x1408a9ff6: int3     
+0x1408a9ff7: int3     
+0x1408a9ff8: int3     
+0x1408a9ff9: int3     
+0x1408a9ffa: int3     
+0x1408a9ffb: int3     
+0x1408a9ffc: int3     
+0x1408a9ffd: int3     
+0x1408a9ffe: int3     
+0x1408a9fff: int3     

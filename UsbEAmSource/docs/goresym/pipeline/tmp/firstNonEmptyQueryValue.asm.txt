@@ -1,0 +1,74 @@
+0x1409d83e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409d83e4: jbe      0x1409d847c   ; main.firstNonEmptyQueryValue+0x9c
+0x1409d83ea: push     rbp
+0x1409d83eb: mov      rbp, rsp
+0x1409d83ee: sub      rsp, 0x30
+0x1409d83f2: mov      qword ptr [rsp + 0x48], rbx
+0x1409d83f7: mov      qword ptr [rsp + 0x40], rax
+0x1409d83fc: mov      qword ptr [rsp + 0x50], rcx
+0x1409d8401: xor      edx, edx
+0x1409d8403: jmp      0x1409d8420   ; main.firstNonEmptyQueryValue+0x40
+0x1409d8405: mov      rbx, qword ptr [rsp + 0x28]
+0x1409d840a: add      rbx, 0x10
+0x1409d840e: mov      rdx, qword ptr [rsp + 0x20]
+0x1409d8413: inc      rdx
+0x1409d8416: mov      rax, qword ptr [rsp + 0x40]
+0x1409d841b: mov      rcx, qword ptr [rsp + 0x50]
+0x1409d8420: cmp      rcx, rdx
+0x1409d8423: jle      0x1409d8472   ; main.firstNonEmptyQueryValue+0x92
+0x1409d8425: mov      qword ptr [rsp + 0x20], rdx
+0x1409d842a: mov      qword ptr [rsp + 0x28], rbx
+0x1409d842f: mov      rcx, qword ptr [rbx]
+0x1409d8432: mov      rdi, qword ptr [rbx + 8]
+0x1409d8436: mov      rbx, rax
+0x1409d8439: lea      rax, [rip + 0x1f50e0]
+0x1409d8440: call     0x14000d920   ; runtime.mapaccess1_faststr
+0x1409d8445: cmp      qword ptr [rax + 8], 0
+0x1409d844a: jne      0x1409d8452   ; main.firstNonEmptyQueryValue+0x72
+0x1409d844c: xor      edx, edx
+0x1409d844e: xor      ecx, ecx
+0x1409d8450: jmp      0x1409d845c   ; main.firstNonEmptyQueryValue+0x7c
+0x1409d8452: mov      rcx, qword ptr [rax]
+0x1409d8455: mov      rdx, qword ptr [rcx + 8]
+0x1409d8459: mov      rcx, qword ptr [rcx]
+0x1409d845c: mov      rax, rcx
+0x1409d845f: mov      rbx, rdx
+0x1409d8462: call     0x1400a2200   ; strings.TrimSpace
+0x1409d8467: test     rbx, rbx
+0x1409d846a: je       0x1409d8405   ; main.firstNonEmptyQueryValue+0x25
+0x1409d846c: add      rsp, 0x30
+0x1409d8470: pop      rbp
+0x1409d8471: ret      
+0x1409d8472: xor      eax, eax
+0x1409d8474: xor      ebx, ebx
+0x1409d8476: add      rsp, 0x30
+0x1409d847a: pop      rbp
+0x1409d847b: ret      
+0x1409d847c: mov      qword ptr [rsp + 8], rax
+0x1409d8481: mov      qword ptr [rsp + 0x10], rbx
+0x1409d8486: mov      qword ptr [rsp + 0x18], rcx
+0x1409d848b: mov      qword ptr [rsp + 0x20], rdi
+0x1409d8490: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d8495: mov      rax, qword ptr [rsp + 8]
+0x1409d849a: mov      rbx, qword ptr [rsp + 0x10]
+0x1409d849f: mov      rcx, qword ptr [rsp + 0x18]
+0x1409d84a4: mov      rdi, qword ptr [rsp + 0x20]
+0x1409d84a9: jmp      0x1409d83e0   ; main.firstNonEmptyQueryValue
+0x1409d84ae: int3     
+0x1409d84af: int3     
+0x1409d84b0: int3     
+0x1409d84b1: int3     
+0x1409d84b2: int3     
+0x1409d84b3: int3     
+0x1409d84b4: int3     
+0x1409d84b5: int3     
+0x1409d84b6: int3     
+0x1409d84b7: int3     
+0x1409d84b8: int3     
+0x1409d84b9: int3     
+0x1409d84ba: int3     
+0x1409d84bb: int3     
+0x1409d84bc: int3     
+0x1409d84bd: int3     
+0x1409d84be: int3     
+0x1409d84bf: int3     

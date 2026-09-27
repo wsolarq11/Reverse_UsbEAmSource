@@ -1,0 +1,71 @@
+0x1408b2540: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408b2544: jbe      0x1408b25c8   ; main.launcherStartupTaskWorkingDirectory+0x88
+0x1408b254a: push     rbp
+0x1408b254b: mov      rbp, rsp
+0x1408b254e: sub      rsp, 0x20
+0x1408b2552: mov      qword ptr [rsp + 0x30], rax
+0x1408b2557: nop      
+0x1408b2558: call     0x140116440   ; internal/filepathlite.Dir
+0x1408b255d: mov      qword ptr [rsp + 0x18], rax
+0x1408b2562: mov      qword ptr [rsp + 0x10], rbx
+0x1408b2567: call     0x1400a2200   ; strings.TrimSpace
+0x1408b256c: test     rbx, rbx
+0x1408b256f: je       0x1408b2586   ; main.launcherStartupTaskWorkingDirectory+0x46
+0x1408b2571: mov      rdx, qword ptr [rsp + 0x10]
+0x1408b2576: cmp      rdx, 1
+0x1408b257a: jne      0x1408b25af   ; main.launcherStartupTaskWorkingDirectory+0x6f
+0x1408b257c: mov      rsi, qword ptr [rsp + 0x18]
+0x1408b2581: cmp      byte ptr [rsi], 0x2e
+0x1408b2584: jne      0x1408b25a7   ; main.launcherStartupTaskWorkingDirectory+0x67
+0x1408b2586: cmp      qword ptr [rip + 0x135ec1a], 0
+0x1408b258e: jbe      0x1408b25bd   ; main.launcherStartupTaskWorkingDirectory+0x7d
+0x1408b2590: mov      rcx, qword ptr [rip + 0x135ec09]
+0x1408b2597: mov      rax, qword ptr [rcx]
+0x1408b259a: mov      rbx, qword ptr [rcx + 8]
+0x1408b259e: nop      
+0x1408b25a0: call     0x140116440   ; internal/filepathlite.Dir
+0x1408b25a5: jmp      0x1408b25b7   ; main.launcherStartupTaskWorkingDirectory+0x77
+0x1408b25a7: mov      rbx, rdx
+0x1408b25aa: mov      rax, rsi
+0x1408b25ad: jmp      0x1408b25b7   ; main.launcherStartupTaskWorkingDirectory+0x77
+0x1408b25af: mov      rbx, rdx
+0x1408b25b2: mov      rax, qword ptr [rsp + 0x18]
+0x1408b25b7: add      rsp, 0x20
+0x1408b25bb: pop      rbp
+0x1408b25bc: ret      
+0x1408b25bd: xor      eax, eax
+0x1408b25bf: mov      rcx, rax
+0x1408b25c2: call     0x140081400   ; runtime.panicIndex
+0x1408b25c7: nop      
+0x1408b25c8: mov      qword ptr [rsp + 8], rax
+0x1408b25cd: mov      qword ptr [rsp + 0x10], rbx
+0x1408b25d2: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408b25d7: mov      rax, qword ptr [rsp + 8]
+0x1408b25dc: mov      rbx, qword ptr [rsp + 0x10]
+0x1408b25e1: jmp      0x1408b2540   ; main.launcherStartupTaskWorkingDirectory
+0x1408b25e6: int3     
+0x1408b25e7: int3     
+0x1408b25e8: int3     
+0x1408b25e9: int3     
+0x1408b25ea: int3     
+0x1408b25eb: int3     
+0x1408b25ec: int3     
+0x1408b25ed: int3     
+0x1408b25ee: int3     
+0x1408b25ef: int3     
+0x1408b25f0: int3     
+0x1408b25f1: int3     
+0x1408b25f2: int3     
+0x1408b25f3: int3     
+0x1408b25f4: int3     
+0x1408b25f5: int3     
+0x1408b25f6: int3     
+0x1408b25f7: int3     
+0x1408b25f8: int3     
+0x1408b25f9: int3     
+0x1408b25fa: int3     
+0x1408b25fb: int3     
+0x1408b25fc: int3     
+0x1408b25fd: int3     
+0x1408b25fe: int3     
+0x1408b25ff: int3     

@@ -1,0 +1,163 @@
+0x140955500: lea      r12, [rsp - 0x10]
+0x140955505: cmp      r12, qword ptr [r14 + 0x10]
+0x140955509: jbe      0x140955725   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0x225
+0x14095550f: push     rbp
+0x140955510: mov      rbp, rsp
+0x140955513: sub      rsp, 0x88
+0x14095551a: nop      word ptr [rax + rax]
+0x140955520: test     rbx, rbx
+0x140955523: je       0x1409555dd   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0xdd
+0x140955529: mov      qword ptr [rsp + 0x130], rax
+0x140955531: mov      qword ptr [rsp + 0x138], rbx
+0x140955539: mov      qword ptr [rsp + 0x80], rdi
+0x140955541: mov      qword ptr [rsp + 0x78], rcx
+0x140955546: mov      rax, qword ptr [rsp + 0xb0]
+0x14095554e: mov      rbx, qword ptr [rsp + 0xb8]
+0x140955556: mov      rdx, qword ptr [rsp + 0xc0]
+0x14095555e: mov      r11, qword ptr [rsp + 0xc8]
+0x140955566: cmp      rdx, rax
+0x140955569: mov      rcx, rax
+0x14095556c: cmovl    rax, rdx
+0x140955570: cmovg    rcx, rdx
+0x140955574: cmp      r11, rbx
+0x140955577: mov      rdi, rbx
+0x14095557a: cmovl    rbx, r11
+0x14095557e: cmovg    rdi, r11
+0x140955582: call     0x1401a1160   ; image.Rectangle.Intersect
+0x140955587: mov      rdx, qword ptr [rsp + 0x138]
+0x14095558f: mov      r8, qword ptr [rdx + 0x28]
+0x140955593: mov      r9, qword ptr [rdx + 0x30]
+0x140955597: mov      r10, qword ptr [rdx + 0x38]
+0x14095559b: mov      rsi, qword ptr [rdx + 0x20]
+0x14095559f: nop      
+0x1409555a0: call     0x1401a1160   ; image.Rectangle.Intersect
+0x1409555a5: mov      qword ptr [rsp + 0x70], rax
+0x1409555aa: mov      qword ptr [rsp + 0x68], rcx
+0x1409555af: mov      qword ptr [rsp + 0x60], rdi
+0x1409555b4: mov      rdx, qword ptr [rsp + 0xf0]
+0x1409555bc: lea      rdx, [rdx + rdx*2]
+0x1409555c0: cmp      rdx, 6
+0x1409555c4: mov      r11d, 6
+0x1409555ca: cmovg    r11, rdx
+0x1409555ce: mov      qword ptr [rsp + 0x50], r11
+0x1409555d3: mov      rdx, qword ptr [rsp + 0x138]
+0x1409555db: jmp      0x1409555ec   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0xec
+0x1409555dd: add      rsp, 0x88
+0x1409555e4: pop      rbp
+0x1409555e5: ret      
+0x1409555e6: add      rbx, r11
+0x1409555e9: mov      rax, rsi
+0x1409555ec: cmp      rdi, rbx
+0x1409555ef: jle      0x1409555fe   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0xfe
+0x1409555f1: mov      qword ptr [rsp + 0x40], rbx
+0x1409555f6: mov      rsi, rax
+0x1409555f9: jmp      0x1409556cd   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0x1cd
+0x1409555fe: add      rsp, 0x88
+0x140955605: pop      rbp
+0x140955606: ret      
+0x140955607: mov      rax, rdx
+0x14095560a: mov      rbx, r8
+0x14095560d: mov      rcx, r9
+0x140955610: call     0x1401a1720   ; image.RGBA.RGBAAt
+0x140955615: mov      rdx, qword ptr [rsp + 0x48]
+0x14095561a: mov      rsi, qword ptr [rsp + 0x78]
+0x14095561f: mov      r8, rdx
+0x140955622: sub      rdx, rsi
+0x140955625: mov      r9, qword ptr [rsp + 0x40]
+0x14095562a: mov      r10, qword ptr [rsp + 0x80]
+0x140955632: mov      r11, r9
+0x140955635: sub      r9, r10
+0x140955638: mov      r12, qword ptr [rsp + 0x50]
+0x14095563d: add      r8, r12
+0x140955640: mov      qword ptr [rsp + 0x58], r8
+0x140955645: add      r11, r12
+0x140955648: mov      r12, qword ptr [rsp + 0x68]
+0x14095564d: cmp      r12, r8
+0x140955650: cmovl    r8, r12
+0x140955654: sub      r8, rsi
+0x140955657: mov      rsi, qword ptr [rsp + 0x60]
+0x14095565c: cmp      rsi, r11
+0x14095565f: cmovl    r11, rsi
+0x140955663: sub      r11, r10
+0x140955666: cmp      r8, rdx
+0x140955669: mov      rsi, rdx
+0x14095566c: cmovl    rdx, r8
+0x140955670: cmovl    r8, rsi
+0x140955674: cmp      r11, r9
+0x140955677: mov      rsi, r9
+0x14095567a: cmovl    r9, r11
+0x14095567e: cmovl    r11, rsi
+0x140955682: mov      rsi, r11
+0x140955685: mov      r10d, ecx
+0x140955688: mov      r11d, edi
+0x14095568b: mov      rcx, r9
+0x14095568e: mov      rdi, r8
+0x140955691: mov      r8d, eax
+0x140955694: mov      r9d, ebx
+0x140955697: mov      rax, qword ptr [rsp + 0x130]
+0x14095569f: mov      rbx, rdx
+0x1409556a2: call     0x1409599c0   ; main.fillRGBA
+0x1409556a7: mov      rcx, qword ptr [rsp + 0x68]
+0x1409556ac: mov      rdx, qword ptr [rsp + 0x138]
+0x1409556b4: mov      rbx, qword ptr [rsp + 0x40]
+0x1409556b9: mov      rsi, qword ptr [rsp + 0x70]
+0x1409556be: mov      rdi, qword ptr [rsp + 0x60]
+0x1409556c3: mov      r11, qword ptr [rsp + 0x50]
+0x1409556c8: mov      rax, qword ptr [rsp + 0x58]
+0x1409556cd: cmp      rcx, rax
+0x1409556d0: jle      0x1409555e6   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0xe6
+0x1409556d6: mov      r8, qword ptr [rdx + 0x20]
+0x1409556da: cmp      rax, r8
+0x1409556dd: jl       0x1409556ee   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0x1ee
+0x1409556df: mov      r8, qword ptr [rdx + 0x30]
+0x1409556e3: dec      r8
+0x1409556e6: cmp      rax, r8
+0x1409556e9: jg       0x1409556ee   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0x1ee
+0x1409556eb: mov      r8, rax
+0x1409556ee: mov      qword ptr [rsp + 0x48], rax
+0x1409556f3: mov      r9, qword ptr [rdx + 0x28]
+0x1409556f7: nop      word ptr [rax + rax]
+0x140955700: cmp      rbx, r9
+0x140955703: jl       0x140955607   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0x107
+0x140955709: mov      r9, qword ptr [rdx + 0x38]
+0x14095570d: dec      r9
+0x140955710: cmp      rbx, r9
+0x140955713: jg       0x140955607   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0x107
+0x140955719: mov      r9, rbx
+0x14095571c: nop      dword ptr [rax]
+0x140955720: jmp      0x140955607   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset+0x107
+0x140955725: mov      qword ptr [rsp + 0xa0], rax
+0x14095572d: mov      qword ptr [rsp + 0xa8], rbx
+0x140955735: mov      qword ptr [rsp + 0xb0], rcx
+0x14095573d: mov      qword ptr [rsp + 0xb8], rdi
+0x140955745: mov      qword ptr [rsp + 0xc0], rsi
+0x14095574d: mov      qword ptr [rsp + 0xc8], r8
+0x140955755: mov      qword ptr [rsp + 0xd0], r9
+0x14095575d: mov      qword ptr [rsp + 0xd8], r10
+0x140955765: call     0x14007f140   ; runtime.morestack_noctxt
+0x14095576a: mov      rax, qword ptr [rsp + 0xa0]
+0x140955772: mov      rbx, qword ptr [rsp + 0xa8]
+0x14095577a: mov      rcx, qword ptr [rsp + 0xb0]
+0x140955782: mov      rdi, qword ptr [rsp + 0xb8]
+0x14095578a: mov      rsi, qword ptr [rsp + 0xc0]
+0x140955792: mov      r8, qword ptr [rsp + 0xc8]
+0x14095579a: mov      r9, qword ptr [rsp + 0xd0]
+0x1409557a2: mov      r10, qword ptr [rsp + 0xd8]
+0x1409557aa: jmp      0x140955500   ; main.drawQRCodeAnnotationMosaicOnImageWithOffset
+0x1409557af: int3     
+0x1409557b0: int3     
+0x1409557b1: int3     
+0x1409557b2: int3     
+0x1409557b3: int3     
+0x1409557b4: int3     
+0x1409557b5: int3     
+0x1409557b6: int3     
+0x1409557b7: int3     
+0x1409557b8: int3     
+0x1409557b9: int3     
+0x1409557ba: int3     
+0x1409557bb: int3     
+0x1409557bc: int3     
+0x1409557bd: int3     
+0x1409557be: int3     
+0x1409557bf: int3     

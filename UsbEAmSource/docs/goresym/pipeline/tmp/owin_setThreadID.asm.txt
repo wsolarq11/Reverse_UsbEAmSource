@@ -1,0 +1,53 @@
+0x140912dc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140912dc4: jbe      0x140912e36   ; main.oledBlackoutNativeOverlayWindow.setThreadID+0x76
+0x140912dc6: push     rbp
+0x140912dc7: mov      rbp, rsp
+0x140912dca: sub      rsp, 0x20
+0x140912dce: nop      
+0x140912dcf: lea      rcx, [rax + 0x18]
+0x140912dd3: mov      rdx, rax
+0x140912dd6: xor      eax, eax
+0x140912dd8: mov      esi, 1
+0x140912ddd: lock cmpxchg dword ptr [rdx + 0x18], esi
+0x140912de2: sete     sil
+0x140912de6: test     sil, sil
+0x140912de9: jne      0x140912e14   ; main.oledBlackoutNativeOverlayWindow.setThreadID+0x54
+0x140912deb: mov      qword ptr [rsp + 0x18], rdx
+0x140912df0: mov      qword ptr [rsp + 0x38], rbx
+0x140912df5: mov      qword ptr [rsp + 0x10], rcx
+0x140912dfa: mov      rax, rcx
+0x140912dfd: nop      dword ptr [rax]
+0x140912e00: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x140912e05: mov      rcx, qword ptr [rsp + 0x10]
+0x140912e0a: mov      rdx, qword ptr [rsp + 0x18]
+0x140912e0f: mov      rbx, qword ptr [rsp + 0x38]
+0x140912e14: mov      qword ptr [rdx + 0x28], rbx
+0x140912e18: nop      
+0x140912e19: nop      
+0x140912e1a: mov      ebx, 0xffffffff
+0x140912e1f: lock xadd dword ptr [rdx + 0x18], ebx
+0x140912e24: dec      ebx
+0x140912e26: je       0x140912e30   ; main.oledBlackoutNativeOverlayWindow.setThreadID+0x70
+0x140912e28: mov      rax, rcx
+0x140912e2b: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x140912e30: add      rsp, 0x20
+0x140912e34: pop      rbp
+0x140912e35: ret      
+0x140912e36: mov      qword ptr [rsp + 8], rax
+0x140912e3b: mov      qword ptr [rsp + 0x10], rbx
+0x140912e40: call     0x14007f140   ; runtime.morestack_noctxt
+0x140912e45: mov      rax, qword ptr [rsp + 8]
+0x140912e4a: mov      rbx, qword ptr [rsp + 0x10]
+0x140912e4f: jmp      0x140912dc0   ; main.oledBlackoutNativeOverlayWindow.setThreadID
+0x140912e54: int3     
+0x140912e55: int3     
+0x140912e56: int3     
+0x140912e57: int3     
+0x140912e58: int3     
+0x140912e59: int3     
+0x140912e5a: int3     
+0x140912e5b: int3     
+0x140912e5c: int3     
+0x140912e5d: int3     
+0x140912e5e: int3     
+0x140912e5f: int3     

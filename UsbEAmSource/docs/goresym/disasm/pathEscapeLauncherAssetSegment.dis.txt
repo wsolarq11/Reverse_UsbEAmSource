@@ -1,0 +1,102 @@
+0x140874200: lea      r12, [rsp - 0x60]
+0x140874205: cmp      r12, qword ptr [r14 + 0x10]
+0x140874209: jbe      0x1408743ce   ; main.pathEscapeLauncherAssetSegment+0x1ce
+0x14087420f: push     rbp
+0x140874210: mov      rbp, rsp
+0x140874213: sub      rsp, 0xd8
+0x14087421a: mov      qword ptr [rsp + 0xf0], rbx
+0x140874222: mov      qword ptr [rsp + 0xe8], rax
+0x14087422a: lea      rdi, [rsp + 0x30]
+0x14087422f: lea      rdi, [rdi - 0x20]
+0x140874233: nop      word ptr [rax + rax]
+0x14087423c: nop      dword ptr [rax]
+0x140874240: mov      qword ptr [rsp - 0x10], rbp
+0x140874245: lea      rbp, [rsp - 0x10]
+0x14087424a: call     0x140081714
+0x14087424f: mov      rbp, qword ptr [rbp]
+0x140874253: mov      qword ptr [rsp + 0x38], 1
+0x14087425c: lea      rdx, [rip + 0x956365]
+0x140874263: mov      qword ptr [rsp + 0x30], rdx
+0x140874268: mov      qword ptr [rsp + 0x48], 1
+0x140874271: lea      rdx, [rip + 0x3bf3b6]
+0x140874278: mov      qword ptr [rsp + 0x40], rdx
+0x14087427d: mov      qword ptr [rsp + 0x58], 1
+0x140874286: lea      r8, [rip + 0x9561c3]
+0x14087428d: mov      qword ptr [rsp + 0x50], r8
+0x140874292: mov      qword ptr [rsp + 0x68], 1
+0x14087429b: mov      qword ptr [rsp + 0x60], rdx
+0x1408742a0: mov      qword ptr [rsp + 0x78], 1
+0x1408742a9: lea      r8, [rip + 0x9569e0]
+0x1408742b0: mov      qword ptr [rsp + 0x70], r8
+0x1408742b5: mov      qword ptr [rsp + 0x88], 1
+0x1408742c1: mov      qword ptr [rsp + 0x80], rdx
+0x1408742c9: mov      qword ptr [rsp + 0x98], 1
+0x1408742d5: lea      r8, [rip + 0x956404]
+0x1408742dc: mov      qword ptr [rsp + 0x90], r8
+0x1408742e4: mov      qword ptr [rsp + 0xa8], 1
+0x1408742f0: mov      qword ptr [rsp + 0xa0], rdx
+0x1408742f8: mov      qword ptr [rsp + 0xb8], 1
+0x140874304: lea      r8, [rip + 0x95614d]
+0x14087430b: mov      qword ptr [rsp + 0xb0], r8
+0x140874313: mov      qword ptr [rsp + 0xc8], 1
+0x14087431f: mov      qword ptr [rsp + 0xc0], rdx
+0x140874327: xor      eax, eax
+0x140874329: mov      ebx, 0xa
+0x14087432e: xor      ecx, ecx
+0x140874330: mov      rdi, rbx
+0x140874333: lea      rsi, [rip + 0x275ac6]
+0x14087433a: call     0x14007ad20
+0x14087433f: mov      qword ptr [rsp + 0xd0], rax
+0x140874347: mov      qword ptr [rsp + 0x28], rcx
+0x14087434c: mov      rbx, rax
+0x14087434f: mov      ecx, 0xa
+0x140874354: lea      rdi, [rsp + 0x30]
+0x140874359: mov      rsi, rcx
+0x14087435c: lea      rax, [rip + 0x275a9d]
+0x140874363: call     0x140077380
+0x140874368: lea      rax, [rip + 0x328031]
+0x14087436f: call     0x14001ae20
+0x140874374: mov      qword ptr [rax + 0x28], 0xa
+0x14087437c: mov      rdx, qword ptr [rsp + 0x28]
+0x140874381: mov      qword ptr [rax + 0x30], rdx
+0x140874385: cmp      dword ptr [rip + 0x13e6fc4], 0
+0x14087438c: jne      0x140874398   ; main.pathEscapeLauncherAssetSegment+0x198
+0x14087438e: mov      rdx, qword ptr [rsp + 0xd0]
+0x140874396: jmp      0x1408743a8   ; main.pathEscapeLauncherAssetSegment+0x1a8
+0x140874398: call     0x140081040
+0x14087439d: mov      rdx, qword ptr [rsp + 0xd0]
+0x1408743a5: mov      qword ptr [r11], rdx
+0x1408743a8: mov      qword ptr [rax + 0x20], rdx
+0x1408743ac: mov      rbx, qword ptr [rsp + 0xe8]
+0x1408743b4: mov      rcx, qword ptr [rsp + 0xf0]
+0x1408743bc: nop      dword ptr [rax]
+0x1408743c0: call     0x14009c2e0
+0x1408743c5: add      rsp, 0xd8
+0x1408743cc: pop      rbp
+0x1408743cd: ret      
+0x1408743ce: mov      qword ptr [rsp + 8], rax
+0x1408743d3: mov      qword ptr [rsp + 0x10], rbx
+0x1408743d8: call     0x14007f140
+0x1408743dd: mov      rax, qword ptr [rsp + 8]
+0x1408743e2: mov      rbx, qword ptr [rsp + 0x10]
+0x1408743e7: jmp      0x140874200   ; main.pathEscapeLauncherAssetSegment
+0x1408743ec: int3     
+0x1408743ed: int3     
+0x1408743ee: int3     
+0x1408743ef: int3     
+0x1408743f0: int3     
+0x1408743f1: int3     
+0x1408743f2: int3     
+0x1408743f3: int3     
+0x1408743f4: int3     
+0x1408743f5: int3     
+0x1408743f6: int3     
+0x1408743f7: int3     
+0x1408743f8: int3     
+0x1408743f9: int3     
+0x1408743fa: int3     
+0x1408743fb: int3     
+0x1408743fc: int3     
+0x1408743fd: int3     
+0x1408743fe: int3     
+0x1408743ff: int3     

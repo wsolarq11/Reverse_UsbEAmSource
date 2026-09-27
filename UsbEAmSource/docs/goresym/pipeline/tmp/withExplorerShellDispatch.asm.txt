@@ -1,0 +1,146 @@
+0x1408ab0e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ab0e4: jbe      0x1408ab22a   ; main.withExplorerShellDispatch+0x14a
+0x1408ab0ea: push     rbp
+0x1408ab0eb: mov      rbp, rsp
+0x1408ab0ee: sub      rsp, 0x60
+0x1408ab0f2: movups   xmmword ptr [rsp + 0x50], xmm15
+0x1408ab0f8: mov      qword ptr [rsp + 0x70], rax
+0x1408ab0fd: mov      byte ptr [rsp + 0x27], 0
+0x1408ab102: movups   xmmword ptr [rsp + 0x30], xmm15
+0x1408ab108: call     0x140052560   ; runtime.LockOSThread
+0x1408ab10d: lea      rax, [rip + 0x7ebcfc]
+0x1408ab114: mov      qword ptr [rsp + 0x50], rax
+0x1408ab119: mov      byte ptr [rsp + 0x27], 1
+0x1408ab11e: lea      rax, [rip + 0x2528bb]
+0x1408ab125: call     0x14001ae20   ; runtime.newobject
+0x1408ab12a: mov      qword ptr [rax + 8], 6
+0x1408ab132: mov      rcx, qword ptr [rip + 0x1316907]
+0x1408ab139: mov      rbx, rax
+0x1408ab13c: mov      edi, 2
+0x1408ab141: mov      rax, rcx
+0x1408ab144: mov      rcx, rdi
+0x1408ab147: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1408ab14c: test     rax, rax
+0x1408ab14f: je       0x1408ab157   ; main.withExplorerShellDispatch+0x77
+0x1408ab151: cmp      rax, 1
+0x1408ab155: jne      0x1408ab1bc   ; main.withExplorerShellDispatch+0xdc
+0x1408ab157: mov      rcx, qword ptr [rip + 0x13168ea]
+0x1408ab15e: lea      rdx, [rip + 0xdb]
+0x1408ab165: mov      qword ptr [rsp + 0x40], rdx
+0x1408ab16a: mov      qword ptr [rsp + 0x48], rcx
+0x1408ab16f: lea      rcx, [rsp + 0x40]
+0x1408ab174: mov      qword ptr [rsp + 0x58], rcx
+0x1408ab179: mov      byte ptr [rsp + 0x27], 3
+0x1408ab17e: mov      rax, qword ptr [rsp + 0x70]
+0x1408ab183: call     0x1408ab2a0   ; main.withDesktopExplorerShellDispatch
+0x1408ab188: mov      qword ptr [rsp + 0x30], rax
+0x1408ab18d: mov      qword ptr [rsp + 0x38], rbx
+0x1408ab192: mov      byte ptr [rsp + 0x27], 1
+0x1408ab197: mov      rdx, qword ptr [rsp + 0x58]
+0x1408ab19c: mov      rcx, qword ptr [rdx]
+0x1408ab19f: nop      
+0x1408ab1a0: call     rcx
+0x1408ab1a2: mov      byte ptr [rsp + 0x27], 0
+0x1408ab1a7: call     0x1400525e0   ; runtime.UnlockOSThread
+0x1408ab1ac: mov      rax, qword ptr [rsp + 0x30]
+0x1408ab1b1: mov      rbx, qword ptr [rsp + 0x38]
+0x1408ab1b6: add      rsp, 0x60
+0x1408ab1ba: pop      rbp
+0x1408ab1bb: ret      
+0x1408ab1bc: mov      qword ptr [rsp + 0x28], rax
+0x1408ab1c1: lea      rax, [rip + 0x2f7958]
+0x1408ab1c8: call     0x14001ae20   ; runtime.newobject
+0x1408ab1cd: mov      rcx, qword ptr [rsp + 0x28]
+0x1408ab1d2: mov      qword ptr [rax], rcx
+0x1408ab1d5: mov      ebx, 0x1f
+0x1408ab1da: lea      rcx, [rip + 0x927c9f]
+0x1408ab1e1: mov      rdi, rax
+0x1408ab1e4: lea      rax, [rip + 0x3c5cc7]
+0x1408ab1eb: call     0x1408af3a0   ; main.wrapWinError
+0x1408ab1f0: mov      qword ptr [rsp + 0x30], rax
+0x1408ab1f5: mov      qword ptr [rsp + 0x38], rbx
+0x1408ab1fa: mov      byte ptr [rsp + 0x27], 0
+0x1408ab1ff: nop      
+0x1408ab200: call     0x1400525e0   ; runtime.UnlockOSThread
+0x1408ab205: mov      rax, qword ptr [rsp + 0x30]
+0x1408ab20a: mov      rbx, qword ptr [rsp + 0x38]
+0x1408ab20f: add      rsp, 0x60
+0x1408ab213: pop      rbp
+0x1408ab214: ret      
+0x1408ab215: call     0x1400435e0   ; runtime.deferreturn
+0x1408ab21a: mov      rax, qword ptr [rsp + 0x30]
+0x1408ab21f: mov      rbx, qword ptr [rsp + 0x38]
+0x1408ab224: add      rsp, 0x60
+0x1408ab228: pop      rbp
+0x1408ab229: ret      
+0x1408ab22a: mov      qword ptr [rsp + 8], rax
+0x1408ab22f: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408ab234: mov      rax, qword ptr [rsp + 8]
+0x1408ab239: jmp      0x1408ab0e0   ; main.withExplorerShellDispatch
+0x1408ab23e: int3     
+0x1408ab23f: int3     
+0x1408ab240: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ab244: jbe      0x1408ab26d   ; main.withExplorerShellDispatch.deferwrap1+0x2d
+0x1408ab246: push     rbp
+0x1408ab247: mov      rbp, rsp
+0x1408ab24a: sub      rsp, 0x20
+0x1408ab24e: mov      r12, qword ptr [r14 + 0x20]
+0x1408ab252: test     r12, r12
+0x1408ab255: jne      0x1408ab274   ; main.withExplorerShellDispatch.deferwrap1+0x34
+0x1408ab257: mov      rax, qword ptr [rdx + 8]
+0x1408ab25b: xor      ebx, ebx
+0x1408ab25d: xor      ecx, ecx
+0x1408ab25f: mov      rdi, rcx
+0x1408ab262: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1408ab267: add      rsp, 0x20
+0x1408ab26b: pop      rbp
+0x1408ab26c: ret      
+0x1408ab26d: call     0x14007f0a0   ; runtime.morestack
+0x1408ab272: jmp      0x1408ab240   ; main.withExplorerShellDispatch.deferwrap1
+0x1408ab274: lea      r13, [rsp + 0x30]
+0x1408ab279: cmp      qword ptr [r12], r13
+0x1408ab27d: jne      0x1408ab257   ; main.withExplorerShellDispatch.deferwrap1+0x17
+0x1408ab27f: mov      qword ptr [r12], rsp
+0x1408ab283: jmp      0x1408ab257   ; main.withExplorerShellDispatch.deferwrap1+0x17
+0x1408ab285: int3     
+0x1408ab286: int3     
+0x1408ab287: int3     
+0x1408ab288: int3     
+0x1408ab289: int3     
+0x1408ab28a: int3     
+0x1408ab28b: int3     
+0x1408ab28c: int3     
+0x1408ab28d: int3     
+0x1408ab28e: int3     
+0x1408ab28f: int3     
+0x1408ab290: int3     
+0x1408ab291: int3     
+0x1408ab292: int3     
+0x1408ab293: int3     
+0x1408ab294: int3     
+0x1408ab295: int3     
+0x1408ab296: int3     
+0x1408ab297: int3     
+0x1408ab298: int3     
+0x1408ab299: int3     
+0x1408ab29a: int3     
+0x1408ab29b: int3     
+0x1408ab29c: int3     
+0x1408ab29d: int3     
+0x1408ab29e: int3     
+0x1408ab29f: int3     
+0x1408ab2a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ab2a4: jbe      0x1408ab33b   ; main.withDesktopExplorerShellDispatch+0x9b
+0x1408ab2aa: push     rbp
+0x1408ab2ab: mov      rbp, rsp
+0x1408ab2ae: sub      rsp, 0x28
+0x1408ab2b2: movq     qword ptr [rsp + 0x20], xmm15
+0x1408ab2b9: mov      qword ptr [rsp + 0x38], rax
+0x1408ab2be: mov      byte ptr [rsp + 0xf], 0
+0x1408ab2c3: movups   xmmword ptr [rsp + 0x10], xmm15
+0x1408ab2c9: call     0x1408ab360   ; main.getDesktopExplorerShellDispatch
+0x1408ab2ce: test     rcx, rcx
+0x1408ab2d1: je       0x1408ab2e9   ; main.withDesktopExplorerShellDispatch+0x49
+0x1408ab2d3: mov      qword ptr [rsp + 0x10], rcx
+0x1408ab2d8: mov      qword ptr [rsp + 0x18], rdi
+0x1408ab2dd: mov      rax, rcx

@@ -1,0 +1,77 @@
+0x140950900: cmp      rsp, qword ptr [r14 + 0x10]
+0x140950904: jbe      0x1409509f8   ; main.createQRCodeAnnotationNumberFont+0xf8
+0x14095090a: push     rbp
+0x14095090b: mov      rbp, rsp
+0x14095090e: sub      rsp, 0x68
+0x140950912: mov      dword ptr [rsp + 0x78], eax
+0x140950916: mov      byte ptr [rsp + 0x7c], bl
+0x14095091a: movups   xmmword ptr [rsp + 0x20], xmm15
+0x140950920: movups   xmmword ptr [rsp + 0x30], xmm15
+0x140950926: movups   xmmword ptr [rsp + 0x40], xmm15
+0x14095092c: movups   xmmword ptr [rsp + 0x50], xmm15
+0x140950932: lea      rax, [rip + 0x3091c5]
+0x140950939: mov      ebx, 0x12
+0x14095093e: nop      
+0x140950940: call     0x1401941c0   ; golang.org/x/sys/windows.StringToUTF16
+0x140950945: cmp      rbx, 0x20
+0x140950949: mov      ecx, 0x20
+0x14095094e: cmovl    rcx, rbx
+0x140950952: lea      rdx, [rsp + 0x20]
+0x140950957: cmp      rax, rdx
+0x14095095a: je       0x14095096a   ; main.createQRCodeAnnotationNumberFont+0x6a
+0x14095095c: add      rcx, rcx
+0x14095095f: mov      rbx, rax
+0x140950962: mov      rax, rdx
+0x140950965: call     0x140081e00   ; runtime.memmove
+0x14095096a: lea      rax, [rip + 0x2b2e2f]
+0x140950971: call     0x14001ae20   ; runtime.newobject
+0x140950976: mov      ecx, dword ptr [rsp + 0x78]
+0x14095097a: neg      ecx
+0x14095097c: mov      dword ptr [rax], ecx
+0x14095097e: mov      dword ptr [rax + 0x10], 0x2bc
+0x140950985: mov      byte ptr [rax + 0x17], 1
+0x140950989: mov      word ptr [rax + 0x18], 0
+0x14095098f: movzx    ecx, byte ptr [rsp + 0x7c]
+0x140950994: mov      byte ptr [rax + 0x1a], cl
+0x140950997: mov      byte ptr [rax + 0x1b], 0
+0x14095099b: movups   xmm0, xmmword ptr [rsp + 0x20]
+0x1409509a0: movups   xmmword ptr [rax + 0x1c], xmm0
+0x1409509a4: movups   xmm0, xmmword ptr [rsp + 0x30]
+0x1409509a9: movups   xmmword ptr [rax + 0x2c], xmm0
+0x1409509ad: movups   xmm0, xmmword ptr [rsp + 0x40]
+0x1409509b2: movups   xmmword ptr [rax + 0x3c], xmm0
+0x1409509b6: movups   xmm0, xmmword ptr [rsp + 0x50]
+0x1409509bb: movups   xmmword ptr [rax + 0x4c], xmm0
+0x1409509bf: mov      qword ptr [rsp + 0x60], rax
+0x1409509c4: lea      rax, [rip + 0x1acfb5]
+0x1409509cb: call     0x14001ae20   ; runtime.newobject
+0x1409509d0: mov      rcx, qword ptr [rsp + 0x60]
+0x1409509d5: mov      qword ptr [rax], rcx
+0x1409509d8: mov      rcx, qword ptr [rip + 0x1271cb1]
+0x1409509df: mov      rbx, rax
+0x1409509e2: mov      edi, 1
+0x1409509e7: mov      rax, rcx
+0x1409509ea: mov      rcx, rdi
+0x1409509ed: call     0x1400e3120   ; syscall.LazyProc.Call
+0x1409509f2: add      rsp, 0x68
+0x1409509f6: pop      rbp
+0x1409509f7: ret      
+0x1409509f8: mov      dword ptr [rsp + 8], eax
+0x1409509fc: mov      byte ptr [rsp + 0xc], bl
+0x140950a00: call     0x14007f140   ; runtime.morestack_noctxt
+0x140950a05: mov      eax, dword ptr [rsp + 8]
+0x140950a09: movzx    ebx, byte ptr [rsp + 0xc]
+0x140950a0e: jmp      0x140950900   ; main.createQRCodeAnnotationNumberFont
+0x140950a13: int3     
+0x140950a14: int3     
+0x140950a15: int3     
+0x140950a16: int3     
+0x140950a17: int3     
+0x140950a18: int3     
+0x140950a19: int3     
+0x140950a1a: int3     
+0x140950a1b: int3     
+0x140950a1c: int3     
+0x140950a1d: int3     
+0x140950a1e: int3     
+0x140950a1f: int3     

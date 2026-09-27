@@ -1,0 +1,80 @@
+0x140947100: cmp      rsp, qword ptr [r14 + 0x10]
+0x140947104: jbe      0x1409471cc   ; main.normalizedQRCodeAnnotationFontFamily+0xcc
+0x14094710a: push     rbp
+0x14094710b: mov      rbp, rsp
+0x14094710e: sub      rsp, 0x58
+0x140947112: mov      qword ptr [rsp + 0x68], rax
+0x140947117: call     0x1400a2200   ; strings.TrimSpace
+0x14094711c: mov      qword ptr [rsp + 0x40], rax
+0x140947121: mov      qword ptr [rsp + 0x20], rbx
+0x140947126: mov      rcx, qword ptr [rip + 0x127f7f3]
+0x14094712d: mov      rdx, qword ptr [rip + 0x127f7f4]
+0x140947134: mov      qword ptr [rsp + 0x38], rdx
+0x140947139: xor      esi, esi
+0x14094713b: jmp      0x140947160   ; main.normalizedQRCodeAnnotationFontFamily+0x60
+0x14094713d: mov      rcx, qword ptr [rsp + 0x50]
+0x140947142: add      rcx, 0x10
+0x140947146: mov      rsi, qword ptr [rsp + 0x30]
+0x14094714b: inc      rsi
+0x14094714e: mov      rax, qword ptr [rsp + 0x40]
+0x140947153: mov      rdx, qword ptr [rsp + 0x38]
+0x140947158: mov      rbx, qword ptr [rsp + 0x20]
+0x14094715d: nop      dword ptr [rax]
+0x140947160: cmp      rsi, rdx
+0x140947163: jge      0x14094719c   ; main.normalizedQRCodeAnnotationFontFamily+0x9c
+0x140947165: mov      qword ptr [rsp + 0x30], rsi
+0x14094716a: mov      qword ptr [rsp + 0x50], rcx
+0x14094716f: mov      rdx, qword ptr [rcx]
+0x140947172: mov      qword ptr [rsp + 0x48], rdx
+0x140947177: mov      rdi, qword ptr [rcx + 8]
+0x14094717b: mov      qword ptr [rsp + 0x28], rdi
+0x140947180: mov      rcx, rdx
+0x140947183: call     0x1400a2c40   ; strings.EqualFold
+0x140947188: test     al, al
+0x14094718a: je       0x14094713d   ; main.normalizedQRCodeAnnotationFontFamily+0x3d
+0x14094718c: mov      rax, qword ptr [rsp + 0x48]
+0x140947191: mov      rbx, qword ptr [rsp + 0x28]
+0x140947196: add      rsp, 0x58
+0x14094719a: pop      rbp
+0x14094719b: ret      
+0x14094719c: cmp      qword ptr [rip + 0x127f784], 0
+0x1409471a4: jne      0x1409471b8   ; main.normalizedQRCodeAnnotationFontFamily+0xb8
+0x1409471a6: lea      rax, [rip + 0x312951]
+0x1409471ad: mov      ebx, 0x12
+0x1409471b2: add      rsp, 0x58
+0x1409471b6: pop      rbp
+0x1409471b7: ret      
+0x1409471b8: mov      rcx, qword ptr [rip + 0x127f761]
+0x1409471bf: mov      rax, qword ptr [rcx]
+0x1409471c2: mov      rbx, qword ptr [rcx + 8]
+0x1409471c6: add      rsp, 0x58
+0x1409471ca: pop      rbp
+0x1409471cb: ret      
+0x1409471cc: mov      qword ptr [rsp + 8], rax
+0x1409471d1: mov      qword ptr [rsp + 0x10], rbx
+0x1409471d6: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409471db: mov      rax, qword ptr [rsp + 8]
+0x1409471e0: mov      rbx, qword ptr [rsp + 0x10]
+0x1409471e5: jmp      0x140947100   ; main.normalizedQRCodeAnnotationFontFamily
+0x1409471ea: int3     
+0x1409471eb: int3     
+0x1409471ec: int3     
+0x1409471ed: int3     
+0x1409471ee: int3     
+0x1409471ef: int3     
+0x1409471f0: int3     
+0x1409471f1: int3     
+0x1409471f2: int3     
+0x1409471f3: int3     
+0x1409471f4: int3     
+0x1409471f5: int3     
+0x1409471f6: int3     
+0x1409471f7: int3     
+0x1409471f8: int3     
+0x1409471f9: int3     
+0x1409471fa: int3     
+0x1409471fb: int3     
+0x1409471fc: int3     
+0x1409471fd: int3     
+0x1409471fe: int3     
+0x1409471ff: int3     

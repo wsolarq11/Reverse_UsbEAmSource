@@ -1,0 +1,395 @@
+0x14075f5e0: lea      r12, [rsp - 0x78]
+0x14075f5e5: cmp      r12, qword ptr [r14 + 0x10]
+0x14075f5e9: jbe      0x14075fc9c    ; main.openBookmarkFaviconDB+0x6bc
+0x14075f5ef: push     rbp
+0x14075f5f0: mov      rbp, rsp
+0x14075f5f3: sub      rsp, 0xf0
+0x14075f5fa: mov      qword ptr [rsp + 0x100], rax
+0x14075f602: call     0x1400a2200    ; strings.TrimSpace
+0x14075f607: test     rbx, rbx
+0x14075f60a: je       0x14075f66f    ; main.openBookmarkFaviconDB+0x8f
+0x14075f60c: mov      qword ptr [rsp + 0x38], rbx
+0x14075f611: mov      qword ptr [rsp + 0x78], rax
+0x14075f616: lea      rcx, [rip + 0x937363]
+0x14075f61d: lea      rdi, [rip + 0x937364]
+0x14075f624: lea      rsi, [rip + 0x9377c5]
+0x14075f62b: call     0x14075b180    ; main.classifyAutomaticWindowsPath
+0x14075f630: cmp      rbx, 5
+0x14075f634: jne      0x14075f646    ; main.openBookmarkFaviconDB+0x66
+0x14075f636: cmp      dword ptr [rax], 0x61636f6c
+0x14075f63c: jne      0x14075f646    ; main.openBookmarkFaviconDB+0x66
+0x14075f63e: cmp      byte ptr [rax + 4], 0x6c
+0x14075f642: jne      0x14075f646    ; main.openBookmarkFaviconDB+0x66
+0x14075f644: jmp      0x14075f698    ; main.openBookmarkFaviconDB+0xb8
+0x14075f646: lea      rax, [rip + 0x524798]
+0x14075f64d: mov      ebx, 0x2d
+0x14075f652: xor      ecx, ecx
+0x14075f654: xor      edi, edi
+0x14075f656: mov      rsi, rdi
+0x14075f659: call     0x140133280    ; fmt.Errorf
+0x14075f65e: mov      rcx, rbx
+0x14075f661: mov      rbx, rax
+0x14075f664: xor      eax, eax
+0x14075f666: add      rsp, 0xf0
+0x14075f66d: pop      rbp
+0x14075f66e: ret      
+0x14075f66f: lea      rax, [rip + 0x50a4ca]
+0x14075f676: mov      ebx, 0x1b
+0x14075f67b: xor      ecx, ecx
+0x14075f67d: xor      edi, edi
+0x14075f67f: mov      rsi, rdi
+0x14075f682: call     0x140133280    ; fmt.Errorf
+0x14075f687: mov      rcx, rbx
+0x14075f68a: mov      rbx, rax
+0x14075f68d: xor      eax, eax
+0x14075f68f: add      rsp, 0xf0
+0x14075f696: pop      rbp
+0x14075f697: ret      
+0x14075f698: mov      rax, qword ptr [rsp + 0x78]
+0x14075f69d: mov      rbx, qword ptr [rsp + 0x38]
+0x14075f6a2: call     0x14012d940    ; os.Stat
+0x14075f6a7: test     rcx, rcx
+0x14075f6aa: jne      0x14075fc8b    ; main.openBookmarkFaviconDB+0x6ab
+0x14075f6b0: mov      qword ptr [rsp + 0x80], rbx
+0x14075f6b8: mov      qword ptr [rsp + 0x40], rax
+0x14075f6bd: nop      
+0x14075f6be: nop      
+0x14075f6bf: xor      eax, eax
+0x14075f6c1: lea      rdx, [rip + 0x14fb460]
+0x14075f6c8: mov      esi, 1
+0x14075f6cd: lock cmpxchg dword ptr [rdx], esi
+0x14075f6d1: sete     r8b
+0x14075f6d5: test     r8b, r8b
+0x14075f6d8: jne      0x14075f6e6    ; main.openBookmarkFaviconDB+0x106
+0x14075f6da: lea      rax, [rip + 0x14fb447]
+0x14075f6e1: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14075f6e6: mov      rdx, qword ptr [rip + 0x14fb443]
+0x14075f6ed: mov      qword ptr [rsp + 0x48], rdx
+0x14075f6f2: mov      rdx, qword ptr [rsp + 0x78]
+0x14075f6f7: mov      qword ptr [rsp + 0xe0], rdx
+0x14075f6ff: mov      rdx, qword ptr [rsp + 0x38]
+0x14075f704: mov      qword ptr [rsp + 0xe8], rdx
+0x14075f70c: lea      rax, [rip + 0x14b30ed]
+0x14075f713: lea      rbx, [rip + 0xa8f3a6]
+0x14075f71a: lea      rcx, [rip + 0x38a6df]
+0x14075f721: lea      rdi, [rsp + 0xe0]
+0x14075f729: call     0x140095d40    ; internal/sync.HashTrieMap[go.shape.interface {},go.shape.interface {}].Load
+0x14075f72e: test     cl, cl
+0x14075f730: je       0x14075f890    ; main.openBookmarkFaviconDB+0x2b0
+0x14075f736: lea      rdx, [rip + 0x367b03]
+0x14075f73d: nop      dword ptr [rax]
+0x14075f740: cmp      rax, rdx
+0x14075f743: jne      0x14075f74a    ; main.openBookmarkFaviconDB+0x16a
+0x14075f745: mov      rcx, rbx
+0x14075f748: jmp      0x14075f752    ; main.openBookmarkFaviconDB+0x172
+0x14075f74a: mov      rcx, rbx
+0x14075f74d: mov      ebx, 0
+0x14075f752: mov      qword ptr [rsp + 0x90], rbx
+0x14075f75a: nop      word ptr [rax + rax]
+0x14075f760: jne      0x14075f832    ; main.openBookmarkFaviconDB+0x252
+0x14075f766: test     rbx, rbx
+0x14075f769: je       0x14075f82e    ; main.openBookmarkFaviconDB+0x24e
+0x14075f76f: cmp      qword ptr [rbx], 0
+0x14075f773: jne      0x14075f77c    ; main.openBookmarkFaviconDB+0x19c
+0x14075f775: xor      esi, esi
+0x14075f777: jmp      0x14075f834    ; main.openBookmarkFaviconDB+0x254
+0x14075f77c: mov      qword ptr [rsp + 0xb8], rcx
+0x14075f784: mov      qword ptr [rsp + 0x30], rax
+0x14075f789: mov      rcx, qword ptr [rsp + 0x40]
+0x14075f78e: mov      rcx, qword ptr [rcx + 0x38]
+0x14075f792: mov      rax, qword ptr [rsp + 0x80]
+0x14075f79a: call     rcx
+0x14075f79c: mov      rcx, qword ptr [rsp + 0x90]
+0x14075f7a4: cmp      qword ptr [rcx + 0x28], rax
+0x14075f7a8: je       0x14075f7ca    ; main.openBookmarkFaviconDB+0x1ea
+0x14075f7aa: mov      rax, qword ptr [rsp + 0x30]
+0x14075f7af: mov      rcx, qword ptr [rsp + 0xb8]
+0x14075f7b7: lea      rdx, [rip + 0x367a82]
+0x14075f7be: mov      rbx, qword ptr [rsp + 0x90]
+0x14075f7c6: xor      esi, esi
+0x14075f7c8: jmp      0x14075f834    ; main.openBookmarkFaviconDB+0x254
+0x14075f7ca: mov      rcx, qword ptr [rsp + 0x40]
+0x14075f7cf: mov      rcx, qword ptr [rcx + 0x20]
+0x14075f7d3: mov      rax, qword ptr [rsp + 0x80]
+0x14075f7db: call     rcx
+0x14075f7dd: mov      rdx, qword ptr [rsp + 0x90]
+0x14075f7e5: mov      rsi, qword ptr [rdx + 0x10]
+0x14075f7e9: mov      rdi, qword ptr [rdx + 0x18]
+0x14075f7ed: mov      rdx, qword ptr [rdx + 0x20]
+0x14075f7f1: mov      r8, rcx
+0x14075f7f4: mov      rcx, rdx
+0x14075f7f7: mov      rdx, rax
+0x14075f7fa: mov      rax, rsi
+0x14075f7fd: mov      r9, rbx
+0x14075f800: mov      rbx, rdi
+0x14075f803: mov      rdi, rdx
+0x14075f806: mov      rsi, r9
+0x14075f809: call     0x1400fa1c0    ; time.Time.Equal
+0x14075f80e: mov      rcx, qword ptr [rsp + 0xb8]
+0x14075f816: lea      rdx, [rip + 0x367a23]
+0x14075f81d: mov      rbx, qword ptr [rsp + 0x90]
+0x14075f825: mov      esi, eax
+0x14075f827: mov      rax, qword ptr [rsp + 0x30]
+0x14075f82c: jmp      0x14075f834    ; main.openBookmarkFaviconDB+0x254
+0x14075f82e: xor      esi, esi
+0x14075f830: jmp      0x14075f834    ; main.openBookmarkFaviconDB+0x254
+0x14075f832: xor      esi, esi
+0x14075f834: test     sil, sil
+0x14075f837: jne      0x14075fb1c    ; main.openBookmarkFaviconDB+0x53c
+0x14075f83d: nop      dword ptr [rax]
+0x14075f840: cmp      rax, rdx
+0x14075f843: je       0x14075f847    ; main.openBookmarkFaviconDB+0x267
+0x14075f845: xor      ecx, ecx
+0x14075f847: mov      qword ptr [rsp + 0x70], rcx
+0x14075f84c: mov      rdx, qword ptr [rsp + 0x78]
+0x14075f851: mov      qword ptr [rsp + 0xd0], rdx
+0x14075f859: mov      rdx, qword ptr [rsp + 0x38]
+0x14075f85e: mov      qword ptr [rsp + 0xd8], rdx
+0x14075f866: lea      rbx, [rip + 0xa8f253]
+0x14075f86d: nop      
+0x14075f86e: lea      rax, [rip + 0x14b2f8b]
+0x14075f875: lea      rcx, [rip + 0x38a584]
+0x14075f87c: lea      rdi, [rsp + 0xd0]
+0x14075f884: call     0x140094880    ; internal/sync.HashTrieMap[go.shape.interface {},go.shape.interface {}].LoadAndDelete
+0x14075f889: mov      rax, qword ptr [rsp + 0x70]
+0x14075f88e: jmp      0x14075f892    ; main.openBookmarkFaviconDB+0x2b2
+0x14075f890: xor      eax, eax
+0x14075f892: nop      
+0x14075f893: mov      ebx, 0xffffffff
+0x14075f898: lea      rcx, [rip + 0x14fb289]
+0x14075f89f: lock xadd dword ptr [rcx], ebx
+0x14075f8a3: dec      ebx
+0x14075f8a5: je       0x14075f8bd    ; main.openBookmarkFaviconDB+0x2dd
+0x14075f8a7: mov      qword ptr [rsp + 0x70], rax
+0x14075f8ac: lea      rax, [rip + 0x14fb275]
+0x14075f8b3: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14075f8b8: mov      rax, qword ptr [rsp + 0x70]
+0x14075f8bd: nop      dword ptr [rax]
+0x14075f8c0: call     0x140760180    ; main.closeBookmarkFaviconDBCacheEntry
+0x14075f8c5: mov      rax, qword ptr [rsp + 0x78]
+0x14075f8ca: mov      rbx, qword ptr [rsp + 0x38]
+0x14075f8cf: call     0x140760260    ; main.shouldSnapshotBookmarkFaviconDB
+0x14075f8d4: test     al, al
+0x14075f8d6: jne      0x14075f8eb    ; main.openBookmarkFaviconDB+0x30b
+0x14075f8d8: mov      rbx, qword ptr [rsp + 0x38]
+0x14075f8dd: mov      rax, qword ptr [rsp + 0x78]
+0x14075f8e2: lea      rcx, [rip + 0x937317]
+0x14075f8e9: jmp      0x14075f909    ; main.openBookmarkFaviconDB+0x329
+0x14075f8eb: mov      rax, qword ptr [rsp + 0x78]
+0x14075f8f0: mov      rbx, qword ptr [rsp + 0x38]
+0x14075f8f5: call     0x14076fb40    ; main.snapshotSQLiteDatabase
+0x14075f8fa: nop      word ptr [rax + rax]
+0x14075f900: test     rdi, rdi
+0x14075f903: jne      0x14075fc7a    ; main.openBookmarkFaviconDB+0x69a
+0x14075f909: mov      qword ptr [rsp + 0xa8], rcx
+0x14075f911: call     0x1407705e0    ; main.sqliteReadonlyURI
+0x14075f916: mov      rcx, rax
+0x14075f919: mov      rdi, rbx
+0x14075f91c: lea      rax, [rip + 0x4d7c31]
+0x14075f923: mov      ebx, 6
+0x14075f928: call     0x1401f3de0    ; database/sql.Open
+0x14075f92d: test     rbx, rbx
+0x14075f930: jne      0x14075fc47    ; main.openBookmarkFaviconDB+0x667
+0x14075f936: mov      qword ptr [rsp + 0x98], rax
+0x14075f93e: mov      ebx, 1
+0x14075f943: call     0x1401f4a20    ; database/sql.DB.SetMaxOpenConns
+0x14075f948: mov      rax, qword ptr [rsp + 0x98]
+0x14075f950: mov      ebx, 1
+0x14075f955: call     0x1401f4880    ; database/sql.DB.SetMaxIdleConns
+0x14075f95a: mov      rcx, qword ptr [rsp + 0x40]
+0x14075f95f: mov      rcx, qword ptr [rcx + 0x20]
+0x14075f963: mov      rax, qword ptr [rsp + 0x80]
+0x14075f96b: call     rcx
+0x14075f96d: mov      qword ptr [rsp + 0x68], rax
+0x14075f972: mov      qword ptr [rsp + 0xb0], rcx
+0x14075f97a: mov      qword ptr [rsp + 0x60], rbx
+0x14075f97f: mov      rcx, qword ptr [rsp + 0x40]
+0x14075f984: mov      rcx, qword ptr [rcx + 0x38]
+0x14075f988: mov      rax, qword ptr [rsp + 0x80]
+0x14075f990: call     rcx
+0x14075f992: mov      qword ptr [rsp + 0x58], rax
+0x14075f997: lea      rax, [rip + 0x4747a2]
+0x14075f99e: nop      
+0x14075f9a0: call     0x14001ae20    ; runtime.newobject
+0x14075f9a5: cmp      dword ptr [rip + 0x14fb9a4], 0
+0x14075f9ac: jne      0x14075f9c8    ; main.openBookmarkFaviconDB+0x3e8
+0x14075f9ae: mov      rdx, qword ptr [rsp + 0x98]
+0x14075f9b6: mov      rsi, qword ptr [rsp + 0xa8]
+0x14075f9be: mov      r8, qword ptr [rsp + 0xb0]
+0x14075f9c6: jmp      0x14075f9f0    ; main.openBookmarkFaviconDB+0x410
+0x14075f9c8: call     0x140081080    ; runtime.gcWriteBarrier3
+0x14075f9cd: mov      rdx, qword ptr [rsp + 0x98]
+0x14075f9d5: mov      qword ptr [r11], rdx
+0x14075f9d8: mov      rsi, qword ptr [rsp + 0xa8]
+0x14075f9e0: mov      qword ptr [r11 + 8], rsi
+0x14075f9e4: mov      r8, qword ptr [rsp + 0xb0]
+0x14075f9ec: mov      qword ptr [r11 + 0x10], r8
+0x14075f9f0: mov      qword ptr [rsp + 0xa0], rax
+0x14075f9f8: mov      qword ptr [rax], rdx
+0x14075f9fb: mov      qword ptr [rax + 8], rsi
+0x14075f9ff: mov      rdx, qword ptr [rsp + 0x68]
+0x14075fa04: mov      qword ptr [rax + 0x10], rdx
+0x14075fa08: mov      rdx, qword ptr [rsp + 0x60]
+0x14075fa0d: mov      qword ptr [rax + 0x18], rdx
+0x14075fa11: mov      qword ptr [rax + 0x20], r8
+0x14075fa15: mov      rdx, qword ptr [rsp + 0x58]
+0x14075fa1a: mov      qword ptr [rax + 0x28], rdx
+0x14075fa1e: nop      
+0x14075fa1f: nop      
+0x14075fa20: mov      rcx, rax
+0x14075fa23: xor      eax, eax
+0x14075fa25: lea      rdx, [rip + 0x14fb0fc]
+0x14075fa2c: mov      esi, 1
+0x14075fa31: lock cmpxchg dword ptr [rdx], esi
+0x14075fa35: sete     r8b
+0x14075fa39: test     r8b, r8b
+0x14075fa3c: jne      0x14075fa5e    ; main.openBookmarkFaviconDB+0x47e
+0x14075fa3e: lea      rax, [rip + 0x14fb0e3]
+0x14075fa45: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14075fa4a: mov      rcx, qword ptr [rsp + 0xa0]
+0x14075fa52: lea      rdx, [rip + 0x14fb0cf]
+0x14075fa59: mov      esi, 1
+0x14075fa5e: mov      r8, qword ptr [rsp + 0x48]
+0x14075fa63: cmp      qword ptr [rip + 0x14fb0c6], r8
+0x14075fa6a: je       0x14075fa9c    ; main.openBookmarkFaviconDB+0x4bc
+0x14075fa6c: nop      
+0x14075fa6d: nop      
+0x14075fa6e: mov      ebx, 0xffffffff
+0x14075fa73: lock xadd dword ptr [rdx], ebx
+0x14075fa77: dec      ebx
+0x14075fa79: je       0x14075fa8f    ; main.openBookmarkFaviconDB+0x4af
+0x14075fa7b: lea      rax, [rip + 0x14fb0a6]
+0x14075fa82: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14075fa87: mov      rcx, qword ptr [rsp + 0xa0]
+0x14075fa8f: mov      rax, rcx
+0x14075fa92: call     0x140760180    ; main.closeBookmarkFaviconDBCacheEntry
+0x14075fa97: jmp      0x14075f698    ; main.openBookmarkFaviconDB+0xb8
+0x14075fa9c: mov      rdx, qword ptr [rsp + 0x78]
+0x14075faa1: mov      qword ptr [rsp + 0xc0], rdx
+0x14075faa9: mov      rdx, qword ptr [rsp + 0x38]
+0x14075faae: mov      qword ptr [rsp + 0xc8], rdx
+0x14075fab6: lea      rax, [rip + 0x14b2d43]
+0x14075fabd: lea      rbx, [rip + 0xa8effc]
+0x14075fac4: lea      rcx, [rip + 0x38a335]
+0x14075facb: lea      rdi, [rsp + 0xc0]
+0x14075fad3: call     0x140095d40    ; internal/sync.HashTrieMap[go.shape.interface {},go.shape.interface {}].Load
+0x14075fad8: nop      dword ptr [rax + rax]
+0x14075fae0: test     cl, cl
+0x14075fae2: je       0x14075fb90    ; main.openBookmarkFaviconDB+0x5b0
+0x14075fae8: nop      
+0x14075fae9: nop      
+0x14075faea: mov      ebx, 0xffffffff
+0x14075faef: lea      rcx, [rip + 0x14fb032]
+0x14075faf6: lock xadd dword ptr [rcx], ebx
+0x14075fafa: dec      ebx
+0x14075fafc: je       0x14075fb0a    ; main.openBookmarkFaviconDB+0x52a
+0x14075fafe: lea      rax, [rip + 0x14fb023]
+0x14075fb05: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14075fb0a: mov      rax, qword ptr [rsp + 0xa0]
+0x14075fb12: call     0x140760180    ; main.closeBookmarkFaviconDBCacheEntry
+0x14075fb17: jmp      0x14075f698    ; main.openBookmarkFaviconDB+0xb8
+0x14075fb1c: test     byte ptr [rbx], al
+0x14075fb1e: lea      rax, [rbx + 0x30]
+0x14075fb22: mov      ebx, 1
+0x14075fb27: call     0x140093820    ; sync.WaitGroup.Add
+0x14075fb2c: nop      
+0x14075fb2d: nop      
+0x14075fb2e: mov      ebx, 0xffffffff
+0x14075fb33: lea      rcx, [rip + 0x14fafee]
+0x14075fb3a: lock xadd dword ptr [rcx], ebx
+0x14075fb3e: nop      
+0x14075fb40: dec      ebx
+0x14075fb42: je       0x14075fb50    ; main.openBookmarkFaviconDB+0x570
+0x14075fb44: lea      rax, [rip + 0x14fafdd]
+0x14075fb4b: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14075fb50: lea      rax, [rip + 0x43c489]
+0x14075fb57: call     0x14001ae20    ; runtime.newobject
+0x14075fb5c: cmp      dword ptr [rip + 0x14fb7ed], 0
+0x14075fb63: jne      0x14075fb6f    ; main.openBookmarkFaviconDB+0x58f
+0x14075fb65: mov      rdx, qword ptr [rsp + 0x90]
+0x14075fb6d: jmp      0x14075fb7f    ; main.openBookmarkFaviconDB+0x59f
+0x14075fb6f: call     0x140081040    ; runtime.gcWriteBarrier1
+0x14075fb74: mov      rdx, qword ptr [rsp + 0x90]
+0x14075fb7c: mov      qword ptr [r11], rdx
+0x14075fb7f: mov      qword ptr [rax + 0x18], rdx
+0x14075fb83: xor      ebx, ebx
+0x14075fb85: xor      ecx, ecx
+0x14075fb87: add      rsp, 0xf0
+0x14075fb8e: pop      rbp
+0x14075fb8f: ret      
+0x14075fb90: mov      rax, qword ptr [rsp + 0xa0]
+0x14075fb98: add      rax, 0x30
+0x14075fb9c: mov      ebx, 1
+0x14075fba1: call     0x140093820    ; sync.WaitGroup.Add
+0x14075fba6: mov      rax, qword ptr [rsp + 0x78]
+0x14075fbab: mov      rbx, qword ptr [rsp + 0x38]
+0x14075fbb0: call     0x140076660    ; runtime.convTstring
+0x14075fbb5: lea      rbx, [rip + 0xa8ef04]
+0x14075fbbc: nop      
+0x14075fbbd: lea      rcx, [rip + 0x38a23c]
+0x14075fbc4: mov      rdi, rax
+0x14075fbc7: lea      rsi, [rip + 0x367672]
+0x14075fbce: mov      r8, qword ptr [rsp + 0xa0]
+0x14075fbd6: lea      rax, [rip + 0x14b2c23]
+0x14075fbdd: nop      dword ptr [rax]
+0x14075fbe0: call     0x140094f40    ; internal/sync.HashTrieMap[go.shape.interface {},go.shape.interface {}].Swap
+0x14075fbe5: nop      
+0x14075fbe6: nop      
+0x14075fbe7: mov      ebx, 0xffffffff
+0x14075fbec: lea      rcx, [rip + 0x14faf35]
+0x14075fbf3: lock xadd dword ptr [rcx], ebx
+0x14075fbf7: dec      ebx
+0x14075fbf9: je       0x14075fc07    ; main.openBookmarkFaviconDB+0x627
+0x14075fbfb: lea      rax, [rip + 0x14faf26]
+0x14075fc02: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14075fc07: lea      rax, [rip + 0x43c3d2]
+0x14075fc0e: call     0x14001ae20    ; runtime.newobject
+0x14075fc13: cmp      dword ptr [rip + 0x14fb736], 0
+0x14075fc1a: jne      0x14075fc26    ; main.openBookmarkFaviconDB+0x646
+0x14075fc1c: mov      rdx, qword ptr [rsp + 0xa0]
+0x14075fc24: jmp      0x14075fc36    ; main.openBookmarkFaviconDB+0x656
+0x14075fc26: call     0x140081040    ; runtime.gcWriteBarrier1
+0x14075fc2b: mov      rdx, qword ptr [rsp + 0xa0]
+0x14075fc33: mov      qword ptr [r11], rdx
+0x14075fc36: mov      qword ptr [rax + 0x18], rdx
+0x14075fc3a: xor      ebx, ebx
+0x14075fc3c: xor      ecx, ecx
+0x14075fc3e: add      rsp, 0xf0
+0x14075fc45: pop      rbp
+0x14075fc46: ret      
+0x14075fc47: mov      qword ptr [rsp + 0x88], rcx
+0x14075fc4f: mov      qword ptr [rsp + 0x50], rbx
+0x14075fc54: mov      rdx, qword ptr [rsp + 0xa8]
+0x14075fc5c: mov      rax, qword ptr [rdx]
+0x14075fc5f: nop      
+0x14075fc60: call     rax
+0x14075fc62: xor      eax, eax
+0x14075fc64: mov      rbx, qword ptr [rsp + 0x50]
+0x14075fc69: mov      rcx, qword ptr [rsp + 0x88]
+0x14075fc71: add      rsp, 0xf0
+0x14075fc78: pop      rbp
+0x14075fc79: ret      
+0x14075fc7a: xor      eax, eax
+0x14075fc7c: mov      rbx, rdi
+0x14075fc7f: mov      rcx, rsi
+0x14075fc82: add      rsp, 0xf0
+0x14075fc89: pop      rbp
+0x14075fc8a: ret      
+0x14075fc8b: xor      eax, eax
+0x14075fc8d: mov      rbx, rcx
+0x14075fc90: mov      rcx, rdi
+0x14075fc93: add      rsp, 0xf0
+0x14075fc9a: pop      rbp
+0x14075fc9b: ret      
+0x14075fc9c: mov      qword ptr [rsp + 8], rax
+0x14075fca1: mov      qword ptr [rsp + 0x10], rbx
+0x14075fca6: call     0x14007f140    ; runtime.morestack_noctxt
+0x14075fcab: mov      rax, qword ptr [rsp + 8]
+0x14075fcb0: mov      rbx, qword ptr [rsp + 0x10]
+0x14075fcb5: jmp      0x14075f5e0    ; main.openBookmarkFaviconDB
+0x14075fcba: int3     
+0x14075fcbb: int3     
+0x14075fcbc: int3     
+0x14075fcbd: int3     
+0x14075fcbe: int3     
+0x14075fcbf: int3     

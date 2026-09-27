@@ -1,0 +1,50 @@
+0x1407d0e14: lea      rcx, [rsp + 0x210]
+0x1407d0e1c: mov      edi, 2
+0x1407d0e21: mov      rsi, rdi
+0x1407d0e24: call     0x140133280   ; fmt.Errorf
+0x1407d0e29: add      rsp, 0x230
+0x1407d0e30: pop      rbp
+0x1407d0e31: ret      
+0x1407d0e32: mov      qword ptr [rsp + 0x198], rbx
+0x1407d0e3a: mov      qword ptr [rsp + 0x188], rax
+0x1407d0e42: mov      rcx, qword ptr [rax + 0x18]
+0x1407d0e46: mov      rax, rbx
+0x1407d0e49: call     rcx
+0x1407d0e4b: test     al, al
+0x1407d0e4d: je       0x1407d0f68   ; main.fileLocatorService.walkRoot+0x248
+0x1407d0e53: nop      
+0x1407d0e54: mov      rax, qword ptr [rsp + 0x398]
+0x1407d0e5c: mov      rbx, qword ptr [rsp + 0x3a0]
+0x1407d0e64: call     0x1401154c0   ; internal/filepathlite.Clean
+0x1407d0e69: movups   xmmword ptr [rsp + 0x1a8], xmm15
+0x1407d0e72: lea      rdi, [rsp + 0x1b0]
+0x1407d0e7a: lea      rdi, [rdi - 0x20]
+0x1407d0e7e: nop      
+0x1407d0e80: mov      qword ptr [rsp - 0x10], rbp
+0x1407d0e85: lea      rbp, [rsp - 0x10]
+0x1407d0e8a: call     0x14008172b   ; runtime.duffzero+0x14b
+0x1407d0e8f: mov      rbp, qword ptr [rbp]
+0x1407d0e93: lea      rcx, [rip + 0x226]
+0x1407d0e9a: mov      qword ptr [rsp + 0x1a8], rcx
+0x1407d0ea2: mov      rcx, qword ptr [rsp + 0x378]
+0x1407d0eaa: mov      qword ptr [rsp + 0x1b0], rcx
+0x1407d0eb2: mov      rcx, qword ptr [rsp + 0x380]
+0x1407d0eba: mov      qword ptr [rsp + 0x1b8], rcx
+0x1407d0ec2: mov      rcx, qword ptr [rsp + 0x388]
+0x1407d0eca: mov      qword ptr [rsp + 0x1c0], rcx
+0x1407d0ed2: mov      rcx, qword ptr [rsp + 0x390]
+0x1407d0eda: mov      qword ptr [rsp + 0x1c8], rcx
+0x1407d0ee2: mov      rcx, qword ptr [rsp + 0x360]
+0x1407d0eea: mov      qword ptr [rsp + 0x1d0], rcx
+0x1407d0ef2: mov      rcx, qword ptr [rsp + 0x368]
+0x1407d0efa: mov      qword ptr [rsp + 0x1d8], rcx
+0x1407d0f02: mov      rcx, qword ptr [rsp + 0x370]
+0x1407d0f0a: mov      qword ptr [rsp + 0x1e0], rcx
+0x1407d0f12: mov      rcx, qword ptr [rsp + 0x3a8]
+0x1407d0f1a: mov      qword ptr [rsp + 0x1e8], rcx
+0x1407d0f22: lea      rcx, [rsp + 0x240]
+0x1407d0f2a: mov      qword ptr [rsp + 0x1f0], rcx
+0x1407d0f32: mov      qword ptr [rsp + 0x200], rbx
+0x1407d0f3a: mov      qword ptr [rsp + 0x1f8], rax
+0x1407d0f42: mov      rcx, qword ptr [rsp + 0x3b0]
+0x1407d0f4a: mov      qword ptr [rsp + 0x208], rcx

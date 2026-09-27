@@ -1,0 +1,61 @@
+0x1407f8640: mov      qword ptr [rsp + 0x18], rcx
+0x1407f8645: nop      
+0x1407f8646: bt       rax, 0x3f
+0x1407f864b: jae      0x1407f8664   ; main.timeToUnixNano+0x24
+0x1407f864d: lea      rcx, [rax + rax]
+0x1407f8651: shr      rcx, 0x1f
+0x1407f8655: movabs   rdx, 0xdd7b17f80
+0x1407f865f: add      rcx, rdx
+0x1407f8662: jmp      0x1407f8671   ; main.timeToUnixNano+0x31
+0x1407f8664: movabs   rdx, 0xdd7b17f80
+0x1407f866e: mov      rcx, rbx
+0x1407f8671: test     rcx, rcx
+0x1407f8674: jne      0x1407f868e   ; main.timeToUnixNano+0x4e
+0x1407f8676: mov      rcx, rax
+0x1407f8679: and      eax, 0x3fffffff
+0x1407f867e: nop      
+0x1407f8680: test     eax, eax
+0x1407f8682: je       0x1407f868b   ; main.timeToUnixNano+0x4b
+0x1407f8684: bt       rcx, 0x3f
+0x1407f8689: jmp      0x1407f8696   ; main.timeToUnixNano+0x56
+0x1407f868b: xor      eax, eax
+0x1407f868d: ret      
+0x1407f868e: bt       rax, 0x3f
+0x1407f8693: mov      rcx, rax
+0x1407f8696: nop      
+0x1407f8697: jae      0x1407f86a5   ; main.timeToUnixNano+0x65
+0x1407f8699: lea      rsi, [rcx + rcx]
+0x1407f869d: shr      rsi, 0x1f
+0x1407f86a1: lea      rbx, [rdx + rsi]
+0x1407f86a5: imul     rdx, rbx, 0x3b9aca00
+0x1407f86ac: and      ecx, 0x3fffffff
+0x1407f86b2: movsxd   rcx, ecx
+0x1407f86b5: add      rcx, rdx
+0x1407f86b8: movabs   rdx, 0xa1b203eb3d1a0000
+0x1407f86c2: lea      rax, [rdx + rcx]
+0x1407f86c6: ret      
+0x1407f86c7: int3     
+0x1407f86c8: int3     
+0x1407f86c9: int3     
+0x1407f86ca: int3     
+0x1407f86cb: int3     
+0x1407f86cc: int3     
+0x1407f86cd: int3     
+0x1407f86ce: int3     
+0x1407f86cf: int3     
+0x1407f86d0: int3     
+0x1407f86d1: int3     
+0x1407f86d2: int3     
+0x1407f86d3: int3     
+0x1407f86d4: int3     
+0x1407f86d5: int3     
+0x1407f86d6: int3     
+0x1407f86d7: int3     
+0x1407f86d8: int3     
+0x1407f86d9: int3     
+0x1407f86da: int3     
+0x1407f86db: int3     
+0x1407f86dc: int3     
+0x1407f86dd: int3     
+0x1407f86de: int3     
+0x1407f86df: int3     

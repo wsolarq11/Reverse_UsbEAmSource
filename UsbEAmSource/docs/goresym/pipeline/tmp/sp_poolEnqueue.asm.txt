@@ -1,0 +1,300 @@
+0x1409b44a0: lea      r12, [rsp - 0x78]
+0x1409b44a5: cmp      r12, qword ptr [r14 + 0x10]
+0x1409b44a9: jbe      0x1409b48f9   ; main.screenshotCOMQueryWorkerPool.enqueue+0x459
+0x1409b44af: push     rbp
+0x1409b44b0: mov      rbp, rsp
+0x1409b44b3: sub      rsp, 0xf0
+0x1409b44ba: mov      qword ptr [rsp + 0x120], r8
+0x1409b44c2: mov      qword ptr [rsp + 0x128], r9
+0x1409b44ca: mov      qword ptr [rsp + 0x100], rax
+0x1409b44d2: mov      byte ptr [rsp + 0x118], sil
+0x1409b44da: mov      qword ptr [rsp + 0x60], rdi
+0x1409b44df: mov      dword ptr [rsp + 0x44], ecx
+0x1409b44e3: mov      dword ptr [rsp + 0x40], ebx
+0x1409b44e7: test     r8, r8
+0x1409b44ea: jne      0x1409b454b   ; main.screenshotCOMQueryWorkerPool.enqueue+0xab
+0x1409b44ec: movups   xmmword ptr [rsp + 0xe0], xmm15
+0x1409b44f5: mov      rcx, qword ptr [rax + 8]
+0x1409b44f9: mov      rbx, qword ptr [rax + 0x10]
+0x1409b44fd: mov      rax, rcx
+0x1409b4500: call     0x140076660   ; runtime.convTstring
+0x1409b4505: lea      rcx, [rip + 0x1358f4]
+0x1409b450c: mov      qword ptr [rsp + 0xe0], rcx
+0x1409b4514: mov      qword ptr [rsp + 0xe8], rax
+0x1409b451c: lea      rax, [rip + 0x2bce0a]
+0x1409b4523: mov      ebx, 0x1f
+0x1409b4528: lea      rcx, [rsp + 0xe0]
+0x1409b4530: mov      edi, 1
+0x1409b4535: mov      rsi, rdi
+0x1409b4538: call     0x140133280   ; fmt.Errorf
+0x1409b453d: mov      r9, rbx
+0x1409b4540: mov      r8, rax
+0x1409b4543: mov      rax, qword ptr [rsp + 0x100]
+0x1409b454b: mov      qword ptr [rsp + 0x58], r8
+0x1409b4550: mov      qword ptr [rsp + 0x88], r9
+0x1409b4558: mov      rdx, qword ptr [rax + 0x58]
+0x1409b455c: mov      rax, qword ptr [rdx]
+0x1409b455f: nop      
+0x1409b4560: call     rax
+0x1409b4562: nop      
+0x1409b4563: nop      
+0x1409b4564: mov      rdx, rax
+0x1409b4567: xor      eax, eax
+0x1409b4569: mov      rsi, qword ptr [rsp + 0x100]
+0x1409b4571: mov      edi, 1
+0x1409b4576: lock cmpxchg dword ptr [rsi], edi
+0x1409b457a: sete     al
+0x1409b457d: nop      dword ptr [rax]
+0x1409b4580: test     al, al
+0x1409b4582: jne      0x1409b45b8   ; main.screenshotCOMQueryWorkerPool.enqueue+0x118
+0x1409b4584: mov      qword ptr [rsp + 0x50], rdx
+0x1409b4589: mov      qword ptr [rsp + 0x48], rbx
+0x1409b458e: mov      qword ptr [rsp + 0x80], rcx
+0x1409b4596: mov      rax, rsi
+0x1409b4599: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1409b459e: mov      rcx, qword ptr [rsp + 0x80]
+0x1409b45a6: mov      rdx, qword ptr [rsp + 0x50]
+0x1409b45ab: mov      rbx, qword ptr [rsp + 0x48]
+0x1409b45b0: mov      rsi, qword ptr [rsp + 0x100]
+0x1409b45b8: cmp      byte ptr [rsi + 0xc8], 0
+0x1409b45bf: nop      
+0x1409b45c0: je       0x1409b45c9   ; main.screenshotCOMQueryWorkerPool.enqueue+0x129
+0x1409b45c2: mov      eax, 1
+0x1409b45c7: jmp      0x1409b45f1   ; main.screenshotCOMQueryWorkerPool.enqueue+0x151
+0x1409b45c9: mov      rdi, qword ptr [rsi + 0xb0]
+0x1409b45d0: mov      r9, qword ptr [rsi + 0xb8]
+0x1409b45d7: mov      r8, qword ptr [rsi + 0xc0]
+0x1409b45de: mov      rax, rdx
+0x1409b45e1: mov      rsi, r9
+0x1409b45e4: call     0x1400fa040   ; time.Time.Before
+0x1409b45e9: mov      rsi, qword ptr [rsp + 0x100]
+0x1409b45f1: test     al, al
+0x1409b45f3: je       0x1409b4624   ; main.screenshotCOMQueryWorkerPool.enqueue+0x184
+0x1409b45f5: nop      
+0x1409b45f6: nop      
+0x1409b45f7: mov      ebx, 0xffffffff
+0x1409b45fc: lock xadd dword ptr [rsi], ebx
+0x1409b4600: dec      ebx
+0x1409b4602: je       0x1409b460c   ; main.screenshotCOMQueryWorkerPool.enqueue+0x16c
+0x1409b4604: mov      rax, rsi
+0x1409b4607: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x1409b460c: xor      eax, eax
+0x1409b460e: mov      rbx, qword ptr [rsp + 0x58]
+0x1409b4613: mov      rcx, qword ptr [rsp + 0x88]
+0x1409b461b: add      rsp, 0xf0
+0x1409b4622: pop      rbp
+0x1409b4623: ret      
+0x1409b4624: cmp      qword ptr [rsi + 0x78], 0
+0x1409b4629: jne      0x1409b4685   ; main.screenshotCOMQueryWorkerPool.enqueue+0x1e5
+0x1409b462b: mov      rdx, qword ptr [rsi + 0x80]
+0x1409b4632: test     rdx, rdx
+0x1409b4635: je       0x1409b463c   ; main.screenshotCOMQueryWorkerPool.enqueue+0x19c
+0x1409b4637: mov      rdx, qword ptr [rdx]
+0x1409b463a: jmp      0x1409b4640   ; main.screenshotCOMQueryWorkerPool.enqueue+0x1a0
+0x1409b463c: xor      edx, edx
+0x1409b463e: nop      
+0x1409b4640: cmp      qword ptr [rsi + 0x18], rdx
+0x1409b4644: jg       0x1409b4675   ; main.screenshotCOMQueryWorkerPool.enqueue+0x1d5
+0x1409b4646: nop      
+0x1409b4647: nop      
+0x1409b4648: mov      ebx, 0xffffffff
+0x1409b464d: lock xadd dword ptr [rsi], ebx
+0x1409b4651: dec      ebx
+0x1409b4653: je       0x1409b465d   ; main.screenshotCOMQueryWorkerPool.enqueue+0x1bd
+0x1409b4655: mov      rax, rsi
+0x1409b4658: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x1409b465d: xor      eax, eax
+0x1409b465f: mov      rbx, qword ptr [rsp + 0x58]
+0x1409b4664: mov      rcx, qword ptr [rsp + 0x88]
+0x1409b466c: add      rsp, 0xf0
+0x1409b4673: pop      rbp
+0x1409b4674: ret      
+0x1409b4675: mov      rax, rsi
+0x1409b4678: call     0x1409b4960   ; main.screenshotCOMQueryWorkerPool.startWorkerLocked
+0x1409b467d: mov      rsi, qword ptr [rsp + 0x100]
+0x1409b4685: inc      qword ptr [rsi + 0x68]
+0x1409b4689: lea      rax, [rip + 0x139630]
+0x1409b4690: mov      ebx, 2
+0x1409b4695: call     0x1400114c0   ; runtime.makechan
+0x1409b469a: mov      qword ptr [rsp + 0x78], rax
+0x1409b469f: lea      rax, [rip + 0x22aa9a]
+0x1409b46a6: call     0x14001ae20   ; runtime.newobject
+0x1409b46ab: mov      rcx, qword ptr [rsp + 0x100]
+0x1409b46b3: mov      rdx, qword ptr [rcx + 0x68]
+0x1409b46b7: mov      qword ptr [rax], rdx
+0x1409b46ba: movzx    edx, byte ptr [rsp + 0x118]
+0x1409b46c2: mov      byte ptr [rax + 8], dl
+0x1409b46c5: mov      esi, dword ptr [rsp + 0x40]
+0x1409b46c9: mov      dword ptr [rax + 0x10], esi
+0x1409b46cc: mov      esi, dword ptr [rsp + 0x44]
+0x1409b46d0: mov      dword ptr [rax + 0x14], esi
+0x1409b46d3: mov      rsi, qword ptr [rsp + 0x60]
+0x1409b46d8: mov      qword ptr [rax + 0x18], rsi
+0x1409b46dc: mov      rbx, qword ptr [rsp + 0x58]
+0x1409b46e1: mov      qword ptr [rax + 0x20], rbx
+0x1409b46e5: cmp      dword ptr [rip + 0x12a6c64], 0
+0x1409b46ec: jne      0x1409b4700   ; main.screenshotCOMQueryWorkerPool.enqueue+0x260
+0x1409b46ee: mov      r8, qword ptr [rsp + 0x88]
+0x1409b46f6: mov      r9, qword ptr [rsp + 0x78]
+0x1409b46fb: jmp      0x1409b4719   ; main.screenshotCOMQueryWorkerPool.enqueue+0x279
+0x1409b46fd: nop      dword ptr [rax]
+0x1409b4700: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409b4705: mov      r8, qword ptr [rsp + 0x88]
+0x1409b470d: mov      qword ptr [r11], r8
+0x1409b4710: mov      r9, qword ptr [rsp + 0x78]
+0x1409b4715: mov      qword ptr [r11 + 8], r9
+0x1409b4719: mov      qword ptr [rsp + 0x68], rax
+0x1409b471e: mov      qword ptr [rax + 0x28], r8
+0x1409b4722: mov      byte ptr [rax + 0x30], 0
+0x1409b4726: mov      qword ptr [rax + 0x40], r9
+0x1409b472a: test     dl, dl
+0x1409b472c: jne      0x1409b476e   ; main.screenshotCOMQueryWorkerPool.enqueue+0x2ce
+0x1409b472e: mov      rdx, qword ptr [rcx + 0xa0]
+0x1409b4735: test     rdx, rdx
+0x1409b4738: je       0x1409b4746   ; main.screenshotCOMQueryWorkerPool.enqueue+0x2a6
+0x1409b473a: cmp      byte ptr [rdx + 0x30], 0
+0x1409b473e: nop      
+0x1409b4740: jne      0x1409b4746   ; main.screenshotCOMQueryWorkerPool.enqueue+0x2a6
+0x1409b4742: mov      byte ptr [rdx + 0x30], 3
+0x1409b4746: cmp      dword ptr [rip + 0x12a6c03], 0
+0x1409b474d: je       0x1409b4762   ; main.screenshotCOMQueryWorkerPool.enqueue+0x2c2
+0x1409b474f: mov      rsi, qword ptr [rcx + 0xa0]
+0x1409b4756: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409b475b: mov      qword ptr [r11], rax
+0x1409b475e: mov      qword ptr [r11 + 8], rsi
+0x1409b4762: mov      qword ptr [rcx + 0xa0], rax
+0x1409b4769: jmp      0x1409b4846   ; main.screenshotCOMQueryWorkerPool.enqueue+0x3a6
+0x1409b476e: mov      rdx, qword ptr [rcx + 0x90]
+0x1409b4775: cmp      qword ptr [rcx + 0x20], rdx
+0x1409b4779: jg       0x1409b47af   ; main.screenshotCOMQueryWorkerPool.enqueue+0x30f
+0x1409b477b: nop      
+0x1409b477c: nop      
+0x1409b477d: mov      edx, 0xffffffff
+0x1409b4782: lock xadd dword ptr [rcx], edx
+0x1409b4786: dec      edx
+0x1409b4788: je       0x1409b47a1   ; main.screenshotCOMQueryWorkerPool.enqueue+0x301
+0x1409b478a: mov      rax, rcx
+0x1409b478d: mov      ebx, edx
+0x1409b478f: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x1409b4794: mov      rbx, qword ptr [rsp + 0x58]
+0x1409b4799: mov      r8, qword ptr [rsp + 0x88]
+0x1409b47a1: xor      eax, eax
+0x1409b47a3: mov      rcx, r8
+0x1409b47a6: add      rsp, 0xf0
+0x1409b47ad: pop      rbp
+0x1409b47ae: ret      
+0x1409b47af: mov      r8, qword ptr [rcx + 0x98]
+0x1409b47b6: lea      rbx, [rdx + 1]
+0x1409b47ba: mov      rdx, qword ptr [rcx + 0x88]
+0x1409b47c1: cmp      r8, rbx
+0x1409b47c4: jae      0x1409b481e   ; main.screenshotCOMQueryWorkerPool.enqueue+0x37e
+0x1409b47c6: mov      rax, rdx
+0x1409b47c9: mov      rcx, r8
+0x1409b47cc: mov      edi, 1
+0x1409b47d1: lea      rsi, [rip + 0x1130a8]
+0x1409b47d8: call     0x14007ad20   ; runtime.growslice
+0x1409b47dd: mov      rdx, qword ptr [rsp + 0x100]
+0x1409b47e5: mov      qword ptr [rdx + 0x98], rcx
+0x1409b47ec: cmp      dword ptr [rip + 0x12a6b5d], 0
+0x1409b47f3: je       0x1409b480c   ; main.screenshotCOMQueryWorkerPool.enqueue+0x36c
+0x1409b47f5: mov      rcx, qword ptr [rdx + 0x88]
+0x1409b47fc: nop      dword ptr [rax]
+0x1409b4800: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409b4805: mov      qword ptr [r11], rax
+0x1409b4808: mov      qword ptr [r11 + 8], rcx
+0x1409b480c: mov      qword ptr [rdx + 0x88], rax
+0x1409b4813: mov      rcx, rdx
+0x1409b4816: mov      rdx, rax
+0x1409b4819: mov      rax, qword ptr [rsp + 0x68]
+0x1409b481e: mov      qword ptr [rcx + 0x90], rbx
+0x1409b4825: cmp      dword ptr [rip + 0x12a6b24], 0
+0x1409b482c: je       0x1409b483f   ; main.screenshotCOMQueryWorkerPool.enqueue+0x39f
+0x1409b482e: mov      rsi, qword ptr [rdx + rbx*8 - 8]
+0x1409b4833: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409b4838: mov      qword ptr [r11], rax
+0x1409b483b: mov      qword ptr [r11 + 8], rsi
+0x1409b483f: mov      qword ptr [rdx + rbx*8 - 8], rax
+0x1409b4844: xor      edx, edx
+0x1409b4846: mov      qword ptr [rsp + 0x70], rdx
+0x1409b484b: mov      rax, qword ptr [rcx + 0x60]
+0x1409b484f: nop      
+0x1409b4850: lea      rbx, [rsp + 0x40]
+0x1409b4855: call     0x140013020   ; runtime.selectnbsend
+0x1409b485a: nop      
+0x1409b485b: nop      
+0x1409b485c: mov      ebx, 0xffffffff
+0x1409b4861: mov      rax, qword ptr [rsp + 0x100]
+0x1409b4869: lock xadd dword ptr [rax], ebx
+0x1409b486d: dec      ebx
+0x1409b486f: je       0x1409b4876   ; main.screenshotCOMQueryWorkerPool.enqueue+0x3d6
+0x1409b4871: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x1409b4876: mov      rdx, qword ptr [rsp + 0x70]
+0x1409b487b: nop      dword ptr [rax + rax]
+0x1409b4880: test     rdx, rdx
+0x1409b4883: je       0x1409b48e7   ; main.screenshotCOMQueryWorkerPool.enqueue+0x447
+0x1409b4885: lea      rdi, [rsp + 0x90]
+0x1409b488d: lea      rdi, [rdi - 0x30]
+0x1409b4891: nop      word ptr [rax + rax]
+0x1409b489a: nop      word ptr [rax + rax]
+0x1409b48a0: mov      qword ptr [rsp - 0x10], rbp
+0x1409b48a5: lea      rbp, [rsp - 0x10]
+0x1409b48aa: call     0x140081730   ; runtime.duffzero+0x150
+0x1409b48af: mov      rbp, qword ptr [rbp]
+0x1409b48b3: mov      rcx, qword ptr [rdx]
+0x1409b48b6: mov      qword ptr [rsp + 0x90], rcx
+0x1409b48be: mov      rcx, qword ptr [rdx + 0x20]
+0x1409b48c2: mov      rsi, qword ptr [rdx + 0x28]
+0x1409b48c6: mov      qword ptr [rsp + 0xd0], rcx
+0x1409b48ce: mov      qword ptr [rsp + 0xd8], rsi
+0x1409b48d6: mov      rax, qword ptr [rdx + 0x40]
+0x1409b48da: lea      rbx, [rsp + 0x90]
+0x1409b48e2: call     0x1400116e0   ; runtime.chansend1
+0x1409b48e7: mov      rax, qword ptr [rsp + 0x68]
+0x1409b48ec: xor      ebx, ebx
+0x1409b48ee: xor      ecx, ecx
+0x1409b48f0: add      rsp, 0xf0
+0x1409b48f7: pop      rbp
+0x1409b48f8: ret      
+0x1409b48f9: mov      qword ptr [rsp + 8], rax
+0x1409b48fe: mov      dword ptr [rsp + 0x10], ebx
+0x1409b4902: mov      dword ptr [rsp + 0x14], ecx
+0x1409b4906: mov      qword ptr [rsp + 0x18], rdi
+0x1409b490b: mov      byte ptr [rsp + 0x20], sil
+0x1409b4910: mov      qword ptr [rsp + 0x28], r8
+0x1409b4915: mov      qword ptr [rsp + 0x30], r9
+0x1409b491a: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409b491f: mov      rax, qword ptr [rsp + 8]
+0x1409b4924: mov      ebx, dword ptr [rsp + 0x10]
+0x1409b4928: mov      ecx, dword ptr [rsp + 0x14]
+0x1409b492c: mov      rdi, qword ptr [rsp + 0x18]
+0x1409b4931: movzx    esi, byte ptr [rsp + 0x20]
+0x1409b4936: mov      r8, qword ptr [rsp + 0x28]
+0x1409b493b: mov      r9, qword ptr [rsp + 0x30]
+0x1409b4940: jmp      0x1409b44a0   ; main.screenshotCOMQueryWorkerPool.enqueue
+0x1409b4945: int3     
+0x1409b4946: int3     
+0x1409b4947: int3     
+0x1409b4948: int3     
+0x1409b4949: int3     
+0x1409b494a: int3     
+0x1409b494b: int3     
+0x1409b494c: int3     
+0x1409b494d: int3     
+0x1409b494e: int3     
+0x1409b494f: int3     
+0x1409b4950: int3     
+0x1409b4951: int3     
+0x1409b4952: int3     
+0x1409b4953: int3     
+0x1409b4954: int3     
+0x1409b4955: int3     
+0x1409b4956: int3     
+0x1409b4957: int3     
+0x1409b4958: int3     
+0x1409b4959: int3     
+0x1409b495a: int3     
+0x1409b495b: int3     
+0x1409b495c: int3     
+0x1409b495d: int3     
+0x1409b495e: int3     
+0x1409b495f: int3     

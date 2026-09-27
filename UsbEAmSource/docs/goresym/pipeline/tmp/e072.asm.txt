@@ -1,0 +1,5 @@
+0x1408ae060: add      byte ptr [rax - 0x75], cl
+0x1408ae063: pushfq   
+0x1408ae064: and      al, 0
+0x1408ae066: add      dword ptr [rax], eax
+0x1408ae068: add      byte ptr [rax - 0x7f], cl

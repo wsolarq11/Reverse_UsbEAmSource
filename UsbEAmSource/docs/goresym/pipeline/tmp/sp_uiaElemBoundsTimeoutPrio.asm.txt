@@ -1,0 +1,81 @@
+0x1409b1000: lea      r12, [rsp - 0x40]
+0x1409b1005: cmp      r12, qword ptr [r14 + 0x10]
+0x1409b1009: jbe      0x1409b10fb   ; main.screenshotUIAElementBoundsAtPointWithQueryTimeoutAndPriority+0xfb
+0x1409b100f: push     rbp
+0x1409b1010: mov      rbp, rsp
+0x1409b1013: sub      rsp, 0xb8
+0x1409b101a: mov      r9, qword ptr [rip + 0x1212d8f]
+0x1409b1021: mov      rdx, qword ptr [rip + 0x1212d98]
+0x1409b1028: mov      r10, qword ptr [rip + 0x1212d89]
+0x1409b102f: mov      r11, qword ptr [rip + 0x1212d92]
+0x1409b1036: mov      r12, qword ptr [rip + 0x125e6e3]
+0x1409b103d: mov      qword ptr [rsp], rdx
+0x1409b1041: mov      qword ptr [rsp + 8], r11
+0x1409b1046: test     rcx, rcx
+0x1409b1049: mov      edx, 0x7270e00
+0x1409b104e: cmovle   rcx, rdx
+0x1409b1052: mov      esi, edi
+0x1409b1054: mov      r8, rcx
+0x1409b1057: mov      ecx, ebx
+0x1409b1059: xor      edi, edi
+0x1409b105b: mov      ebx, eax
+0x1409b105d: mov      rax, r12
+0x1409b1060: call     0x1409b3820   ; main.screenshotCOMQueryWorkerPool.Query
+0x1409b1065: mov      qword ptr [rsp + 0x80], rax
+0x1409b106d: mov      qword ptr [rsp + 0x88], rbx
+0x1409b1075: mov      qword ptr [rsp + 0x90], rcx
+0x1409b107d: mov      qword ptr [rsp + 0x98], rdi
+0x1409b1085: mov      dword ptr [rsp + 0xa0], esi
+0x1409b108c: mov      qword ptr [rsp + 0xa8], r8
+0x1409b1094: mov      qword ptr [rsp + 0xb0], r9
+0x1409b109c: mov      rdx, qword ptr [rsp + 0x80]
+0x1409b10a4: mov      qword ptr [rsp + 0x48], rdx
+0x1409b10a9: movups   xmm0, xmmword ptr [rsp + 0x88]
+0x1409b10b1: movups   xmmword ptr [rsp + 0x50], xmm0
+0x1409b10b6: movups   xmm0, xmmword ptr [rsp + 0x98]
+0x1409b10be: movups   xmmword ptr [rsp + 0x60], xmm0
+0x1409b10c3: movups   xmm0, xmmword ptr [rsp + 0xa8]
+0x1409b10cb: movups   xmmword ptr [rsp + 0x70], xmm0
+0x1409b10d0: mov      rax, qword ptr [rsp + 0x48]
+0x1409b10d5: mov      rbx, qword ptr [rsp + 0x50]
+0x1409b10da: mov      rcx, qword ptr [rsp + 0x58]
+0x1409b10df: mov      rdi, qword ptr [rsp + 0x60]
+0x1409b10e4: mov      esi, dword ptr [rsp + 0x68]
+0x1409b10e8: mov      r8, qword ptr [rsp + 0x70]
+0x1409b10ed: mov      r9, qword ptr [rsp + 0x78]
+0x1409b10f2: add      rsp, 0xb8
+0x1409b10f9: pop      rbp
+0x1409b10fa: ret      
+0x1409b10fb: mov      dword ptr [rsp + 8], eax
+0x1409b10ff: mov      dword ptr [rsp + 0xc], ebx
+0x1409b1103: mov      qword ptr [rsp + 0x10], rcx
+0x1409b1108: mov      byte ptr [rsp + 0x18], dil
+0x1409b110d: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409b1112: mov      eax, dword ptr [rsp + 8]
+0x1409b1116: mov      ebx, dword ptr [rsp + 0xc]
+0x1409b111a: mov      rcx, qword ptr [rsp + 0x10]
+0x1409b111f: movzx    edi, byte ptr [rsp + 0x18]
+0x1409b1124: jmp      0x1409b1000   ; main.screenshotUIAElementBoundsAtPointWithQueryTimeoutAndPriority
+0x1409b1129: int3     
+0x1409b112a: int3     
+0x1409b112b: int3     
+0x1409b112c: int3     
+0x1409b112d: int3     
+0x1409b112e: int3     
+0x1409b112f: int3     
+0x1409b1130: int3     
+0x1409b1131: int3     
+0x1409b1132: int3     
+0x1409b1133: int3     
+0x1409b1134: int3     
+0x1409b1135: int3     
+0x1409b1136: int3     
+0x1409b1137: int3     
+0x1409b1138: int3     
+0x1409b1139: int3     
+0x1409b113a: int3     
+0x1409b113b: int3     
+0x1409b113c: int3     
+0x1409b113d: int3     
+0x1409b113e: int3     
+0x1409b113f: int3     

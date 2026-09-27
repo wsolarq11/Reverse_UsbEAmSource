@@ -1,0 +1,147 @@
+0x14078c960: mov      r12, rsp
+0x14078c963: sub      r12, 0x1b60
+0x14078c96a: jb       0x14078cbb7    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x257
+0x14078c970: cmp      r12, qword ptr [r14 + 0x10]
+0x14078c974: jbe      0x14078cbb7    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x257
+0x14078c97a: push     rbp
+0x14078c97b: mov      rbp, rsp
+0x14078c97e: sub      rsp, 0x1bd8
+0x14078c985: test     rax, rax
+0x14078c988: je       0x14078cba9    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x249
+0x14078c98e: mov      qword ptr [rsp + 0x1be8], rax
+0x14078c996: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x14078c99b: lea      rdi, [rsp + 0x968]
+0x14078c9a3: mov      rsi, rsp
+0x14078c9a6: mov      qword ptr [rsp - 0x10], rbp
+0x14078c9ab: lea      rbp, [rsp - 0x10]
+0x14078c9b0: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x14078c9b5: mov      rbp, qword ptr [rbp]
+0x14078c9b9: cmp      qword ptr [rsp + 0x980], 0
+0x14078c9c2: je       0x14078cb03    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x1a3
+0x14078c9c8: movups   xmmword ptr [rsp + 0x12a0], xmm15
+0x14078c9d1: lea      rdi, [rsp + 0x12a8]
+0x14078c9d9: mov      ecx, 0x126
+0x14078c9de: xor      eax, eax
+0x14078c9e0: rep stosq qword ptr [rdi], rax
+0x14078c9e3: mov      rax, qword ptr [rsp + 0x978]
+0x14078c9eb: mov      rbx, qword ptr [rsp + 0x980]
+0x14078c9f3: call     0x1408760e0    ; main.loadLauncherConfigIfExists
+0x14078c9f8: mov      rdx, qword ptr [rsp]
+0x14078c9fc: mov      qword ptr [rsp + 0x12a0], rdx
+0x14078ca04: lea      rdi, [rsp + 0x12a8]
+0x14078ca0c: lea      rsi, [rsp + 8]
+0x14078ca11: mov      ecx, 0x126
+0x14078ca16: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14078ca19: mov      rdx, qword ptr [rsp + 0x12a0]
+0x14078ca21: mov      qword ptr [rsp + 0x968], rdx
+0x14078ca29: lea      rdi, [rsp + 0x970]
+0x14078ca31: lea      rsi, [rsp + 0x12a8]
+0x14078ca39: mov      ecx, 0x126
+0x14078ca3e: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14078ca41: test     rbx, rbx
+0x14078ca44: jne      0x14078cb03    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x1a3
+0x14078ca4a: test     al, al
+0x14078ca4c: je       0x14078cb03    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x1a3
+0x14078ca52: mov      rcx, qword ptr [rsp + 0xbe8]
+0x14078ca5a: test     rcx, rcx
+0x14078ca5d: jg       0x14078ca66    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x106
+0x14078ca5f: mov      ecx, 4
+0x14078ca64: jmp      0x14078ca71    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x111
+0x14078ca66: cmp      rcx, 0x12
+0x14078ca6a: jle      0x14078ca71    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x111
+0x14078ca6c: mov      ecx, 0x12
+0x14078ca71: mov      qword ptr [rsp + 0x950], rcx
+0x14078ca79: nop      
+0x14078ca7a: mov      rdx, qword ptr [rsp + 0x1be8]
+0x14078ca82: lea      rsi, [rdx + 0x540]
+0x14078ca89: xor      eax, eax
+0x14078ca8b: mov      edi, 1
+0x14078ca90: lock cmpxchg dword ptr [rdx + 0x540], edi
+0x14078ca98: sete     dil
+0x14078ca9c: nop      dword ptr [rax]
+0x14078caa0: test     dil, dil
+0x14078caa3: jne      0x14078cacd    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x16d
+0x14078caa5: mov      qword ptr [rsp + 0x960], rsi
+0x14078caad: mov      rax, rsi
+0x14078cab0: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14078cab5: mov      rcx, qword ptr [rsp + 0x950]
+0x14078cabd: mov      rdx, qword ptr [rsp + 0x1be8]
+0x14078cac5: mov      rsi, qword ptr [rsp + 0x960]
+0x14078cacd: mov      qword ptr [rdx + 0x298], rcx
+0x14078cad4: nop      
+0x14078cad5: nop      
+0x14078cad6: mov      ebx, 0xffffffff
+0x14078cadb: lock xadd dword ptr [rdx + 0x540], ebx
+0x14078cae3: dec      ebx
+0x14078cae5: je       0x14078caf7    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x197
+0x14078cae7: mov      rax, rsi
+0x14078caea: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14078caef: mov      rcx, qword ptr [rsp + 0x950]
+0x14078caf7: mov      rax, rcx
+0x14078cafa: add      rsp, 0x1bd8
+0x14078cb01: pop      rbp
+0x14078cb02: ret      
+0x14078cb03: nop      
+0x14078cb04: mov      rcx, qword ptr [rsp + 0x1be8]
+0x14078cb0c: lea      rdx, [rcx + 0x540]
+0x14078cb13: xor      eax, eax
+0x14078cb15: mov      esi, 1
+0x14078cb1a: lock cmpxchg dword ptr [rcx + 0x540], esi
+0x14078cb22: sete     sil
+0x14078cb26: test     sil, sil
+0x14078cb29: jne      0x14078cb4b    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x1eb
+0x14078cb2b: mov      qword ptr [rsp + 0x958], rdx
+0x14078cb33: mov      rax, rdx
+0x14078cb36: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14078cb3b: mov      rcx, qword ptr [rsp + 0x1be8]
+0x14078cb43: mov      rdx, qword ptr [rsp + 0x958]
+0x14078cb4b: mov      rax, qword ptr [rcx + 0x298]
+0x14078cb52: nop      
+0x14078cb53: nop      
+0x14078cb54: mov      ebx, 0xffffffff
+0x14078cb59: lock xadd dword ptr [rcx + 0x540], ebx
+0x14078cb61: dec      ebx
+0x14078cb63: je       0x14078cb80    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x220
+0x14078cb65: mov      qword ptr [rsp + 0x948], rax
+0x14078cb6d: mov      rax, rdx
+0x14078cb70: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14078cb75: mov      rax, qword ptr [rsp + 0x948]
+0x14078cb7d: nop      dword ptr [rax]
+0x14078cb80: test     rax, rax
+0x14078cb83: jle      0x14078cb9b    ; main.BootstrapService.screenshotAnnotationLineWidthSetting+0x23b
+0x14078cb85: cmp      rax, 0x12
+0x14078cb89: mov      ecx, 0x12
+0x14078cb8e: cmovg    rax, rcx
+0x14078cb92: add      rsp, 0x1bd8
+0x14078cb99: pop      rbp
+0x14078cb9a: ret      
+0x14078cb9b: mov      eax, 4
+0x14078cba0: add      rsp, 0x1bd8
+0x14078cba7: pop      rbp
+0x14078cba8: ret      
+0x14078cba9: mov      eax, 4
+0x14078cbae: add      rsp, 0x1bd8
+0x14078cbb5: pop      rbp
+0x14078cbb6: ret      
+0x14078cbb7: mov      qword ptr [rsp + 8], rax
+0x14078cbbc: nop      dword ptr [rax]
+0x14078cbc0: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078cbc5: mov      rax, qword ptr [rsp + 8]
+0x14078cbca: jmp      0x14078c960    ; main.BootstrapService.screenshotAnnotationLineWidthSetting
+0x14078cbcf: int3     
+0x14078cbd0: int3     
+0x14078cbd1: int3     
+0x14078cbd2: int3     
+0x14078cbd3: int3     
+0x14078cbd4: int3     
+0x14078cbd5: int3     
+0x14078cbd6: int3     
+0x14078cbd7: int3     
+0x14078cbd8: int3     
+0x14078cbd9: int3     
+0x14078cbda: int3     
+0x14078cbdb: int3     
+0x14078cbdc: int3     
+0x14078cbdd: int3     
+0x14078cbde: int3     
+0x14078cbdf: int3     

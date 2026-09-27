@@ -1,0 +1,88 @@
+0x1408cb340: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408cb344: jbe      0x1408cb405    ; main.launcherUpdatePathHasReparsePoint+0xc5
+0x1408cb34a: push     rbp
+0x1408cb34b: mov      rbp, rsp
+0x1408cb34e: sub      rsp, 0x30
+0x1408cb352: mov      qword ptr [rsp + 0x40], rax
+0x1408cb357: call     0x1400a2200    ; strings.TrimSpace
+0x1408cb35c: nop      dword ptr [rax]
+0x1408cb360: call     0x140194220    ; golang.org/x/sys/windows.UTF16PtrFromString
+0x1408cb365: test     rbx, rbx
+0x1408cb368: jne      0x1408cb3fd    ; main.launcherUpdatePathHasReparsePoint+0xbd
+0x1408cb36e: call     0x140196f60    ; golang.org/x/sys/windows.GetFileAttributes
+0x1408cb373: test     rbx, rbx
+0x1408cb376: je       0x1408cb3ec    ; main.launcherUpdatePathHasReparsePoint+0xac
+0x1408cb378: mov      qword ptr [rsp + 0x20], rbx
+0x1408cb37d: mov      qword ptr [rsp + 0x28], rcx
+0x1408cb382: mov      rax, rbx
+0x1408cb385: mov      rbx, rcx
+0x1408cb388: lea      rcx, [rip + 0x907951]
+0x1408cb38f: lea      rdi, [rip + 0x8ff02a]
+0x1408cb396: call     0x1400904a0    ; errors.Is
+0x1408cb39b: test     al, al
+0x1408cb39d: jne      0x1408cb3c4    ; main.launcherUpdatePathHasReparsePoint+0x84
+0x1408cb39f: mov      rax, qword ptr [rsp + 0x20]
+0x1408cb3a4: mov      rbx, qword ptr [rsp + 0x28]
+0x1408cb3a9: lea      rcx, [rip + 0x907930]
+0x1408cb3b0: lea      rdi, [rip + 0x8ff029]
+0x1408cb3b7: call     0x1400904a0    ; errors.Is
+0x1408cb3bc: nop      dword ptr [rax]
+0x1408cb3c0: test     al, al
+0x1408cb3c2: je       0x1408cb3da    ; main.launcherUpdatePathHasReparsePoint+0x9a
+0x1408cb3c4: mov      rbx, qword ptr [rip + 0x13455c5]
+0x1408cb3cb: mov      rcx, qword ptr [rip + 0x13455c6]
+0x1408cb3d2: xor      eax, eax
+0x1408cb3d4: add      rsp, 0x30
+0x1408cb3d8: pop      rbp
+0x1408cb3d9: ret      
+0x1408cb3da: xor      eax, eax
+0x1408cb3dc: mov      rbx, qword ptr [rsp + 0x20]
+0x1408cb3e1: mov      rcx, qword ptr [rsp + 0x28]
+0x1408cb3e6: add      rsp, 0x30
+0x1408cb3ea: pop      rbp
+0x1408cb3eb: ret      
+0x1408cb3ec: bt       eax, 0xa
+0x1408cb3f0: setb     al
+0x1408cb3f3: xor      ebx, ebx
+0x1408cb3f5: xor      ecx, ecx
+0x1408cb3f7: add      rsp, 0x30
+0x1408cb3fb: pop      rbp
+0x1408cb3fc: ret      
+0x1408cb3fd: xor      eax, eax
+0x1408cb3ff: add      rsp, 0x30
+0x1408cb403: pop      rbp
+0x1408cb404: ret      
+0x1408cb405: mov      qword ptr [rsp + 8], rax
+0x1408cb40a: mov      qword ptr [rsp + 0x10], rbx
+0x1408cb40f: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408cb414: mov      rax, qword ptr [rsp + 8]
+0x1408cb419: mov      rbx, qword ptr [rsp + 0x10]
+0x1408cb41e: nop      
+0x1408cb420: jmp      0x1408cb340    ; main.launcherUpdatePathHasReparsePoint
+0x1408cb425: int3     
+0x1408cb426: int3     
+0x1408cb427: int3     
+0x1408cb428: int3     
+0x1408cb429: int3     
+0x1408cb42a: int3     
+0x1408cb42b: int3     
+0x1408cb42c: int3     
+0x1408cb42d: int3     
+0x1408cb42e: int3     
+0x1408cb42f: int3     
+0x1408cb430: int3     
+0x1408cb431: int3     
+0x1408cb432: int3     
+0x1408cb433: int3     
+0x1408cb434: int3     
+0x1408cb435: int3     
+0x1408cb436: int3     
+0x1408cb437: int3     
+0x1408cb438: int3     
+0x1408cb439: int3     
+0x1408cb43a: int3     
+0x1408cb43b: int3     
+0x1408cb43c: int3     
+0x1408cb43d: int3     
+0x1408cb43e: int3     
+0x1408cb43f: int3     

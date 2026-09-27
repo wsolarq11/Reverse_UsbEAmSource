@@ -1,0 +1,127 @@
+0x1408ac980: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ac984: jbe      0x1408acb23   ; main.openShellProcessForUnelevatedLaunch+0x1a3
+0x1408ac98a: push     rbp
+0x1408ac98b: mov      rbp, rsp
+0x1408ac98e: sub      rsp, 0x40
+0x1408ac992: call     0x1401999a0   ; golang.org/x/sys/windows.GetShellWindow
+0x1408ac997: nop      word ptr [rax + rax]
+0x1408ac9a0: test     rax, rax
+0x1408ac9a3: je       0x1408acaf3   ; main.openShellProcessForUnelevatedLaunch+0x173
+0x1408ac9a9: mov      dword ptr [rsp + 0x24], 0
+0x1408ac9b1: lea      rbx, [rsp + 0x24]
+0x1408ac9b6: call     0x140199a00   ; golang.org/x/sys/windows.GetWindowThreadProcessId
+0x1408ac9bb: nop      dword ptr [rax + rax]
+0x1408ac9c0: test     rbx, rbx
+0x1408ac9c3: jne      0x1408acacc   ; main.openShellProcessForUnelevatedLaunch+0x14c
+0x1408ac9c9: mov      ecx, dword ptr [rsp + 0x24]
+0x1408ac9cd: test     ecx, ecx
+0x1408ac9cf: je       0x1408aca9c   ; main.openShellProcessForUnelevatedLaunch+0x11c
+0x1408ac9d5: mov      eax, 0x1080
+0x1408ac9da: xor      ebx, ebx
+0x1408ac9dc: nop      dword ptr [rax]
+0x1408ac9e0: call     0x140198900   ; golang.org/x/sys/windows.OpenProcess
+0x1408ac9e5: test     rbx, rbx
+0x1408ac9e8: jne      0x1408aca77   ; main.openShellProcessForUnelevatedLaunch+0xf7
+0x1408ac9ee: mov      qword ptr [rsp + 0x28], rax
+0x1408ac9f3: call     0x1408acb40   ; main.isProcessHandleElevated
+0x1408ac9f8: test     rbx, rbx
+0x1408ac9fb: jne      0x1408aca4d   ; main.openShellProcessForUnelevatedLaunch+0xcd
+0x1408ac9fd: nop      dword ptr [rax]
+0x1408aca00: test     al, al
+0x1408aca02: je       0x1408aca3e   ; main.openShellProcessForUnelevatedLaunch+0xbe
+0x1408aca04: mov      rax, qword ptr [rsp + 0x28]
+0x1408aca09: call     0x140195860   ; golang.org/x/sys/windows.CloseHandle
+0x1408aca0e: lea      rax, [rip + 0x2a796b]
+0x1408aca15: call     0x14001ae20   ; runtime.newobject
+0x1408aca1a: mov      qword ptr [rax + 8], 0x5c
+0x1408aca22: lea      rcx, [rip + 0x3e720a]
+0x1408aca29: mov      qword ptr [rax], rcx
+0x1408aca2c: lea      rbx, [rip + 0x9266cd]
+0x1408aca33: mov      rcx, rax
+0x1408aca36: xor      eax, eax
+0x1408aca38: add      rsp, 0x40
+0x1408aca3c: pop      rbp
+0x1408aca3d: ret      
+0x1408aca3e: mov      rax, qword ptr [rsp + 0x28]
+0x1408aca43: xor      ebx, ebx
+0x1408aca45: xor      ecx, ecx
+0x1408aca47: add      rsp, 0x40
+0x1408aca4b: pop      rbp
+0x1408aca4c: ret      
+0x1408aca4d: mov      qword ptr [rsp + 0x38], rcx
+0x1408aca52: mov      qword ptr [rsp + 0x30], rbx
+0x1408aca57: mov      rax, qword ptr [rsp + 0x28]
+0x1408aca5c: nop      dword ptr [rax]
+0x1408aca60: call     0x140195860   ; golang.org/x/sys/windows.CloseHandle
+0x1408aca65: xor      eax, eax
+0x1408aca67: mov      rbx, qword ptr [rsp + 0x30]
+0x1408aca6c: mov      rcx, qword ptr [rsp + 0x38]
+0x1408aca71: add      rsp, 0x40
+0x1408aca75: pop      rbp
+0x1408aca76: ret      
+0x1408aca77: lea      rax, [rip + 0x3c267b]
+0x1408aca7e: mov      rdi, rcx
+0x1408aca81: mov      rcx, rbx
+0x1408aca84: mov      ebx, 0x1e
+0x1408aca89: call     0x1408af3a0   ; main.wrapWinError
+0x1408aca8e: mov      rcx, rbx
+0x1408aca91: mov      rbx, rax
+0x1408aca94: xor      eax, eax
+0x1408aca96: add      rsp, 0x40
+0x1408aca9a: pop      rbp
+0x1408aca9b: ret      
+0x1408aca9c: lea      rax, [rip + 0x2a78dd]
+0x1408acaa3: call     0x14001ae20   ; runtime.newobject
+0x1408acaa8: mov      qword ptr [rax + 8], 0x1b
+0x1408acab0: lea      rcx, [rip + 0x3bd4dc]
+0x1408acab7: mov      qword ptr [rax], rcx
+0x1408acaba: lea      rbx, [rip + 0x92663f]
+0x1408acac1: mov      rcx, rax
+0x1408acac4: xor      eax, eax
+0x1408acac6: add      rsp, 0x40
+0x1408acaca: pop      rbp
+0x1408acacb: ret      
+0x1408acacc: lea      rax, [rip + 0x3c2608]
+0x1408acad3: mov      rdi, rcx
+0x1408acad6: mov      rcx, rbx
+0x1408acad9: mov      ebx, 0x1e
+0x1408acade: nop      
+0x1408acae0: call     0x1408af3a0   ; main.wrapWinError
+0x1408acae5: mov      rcx, rbx
+0x1408acae8: mov      rbx, rax
+0x1408acaeb: xor      eax, eax
+0x1408acaed: add      rsp, 0x40
+0x1408acaf1: pop      rbp
+0x1408acaf2: ret      
+0x1408acaf3: lea      rax, [rip + 0x2a7886]
+0x1408acafa: call     0x14001ae20   ; runtime.newobject
+0x1408acaff: mov      qword ptr [rax + 8], 0x1b
+0x1408acb07: lea      rcx, [rip + 0x3bd485]
+0x1408acb0e: mov      qword ptr [rax], rcx
+0x1408acb11: lea      rbx, [rip + 0x9265e8]
+0x1408acb18: mov      rcx, rax
+0x1408acb1b: xor      eax, eax
+0x1408acb1d: add      rsp, 0x40
+0x1408acb21: pop      rbp
+0x1408acb22: ret      
+0x1408acb23: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408acb28: jmp      0x1408ac980   ; main.openShellProcessForUnelevatedLaunch
+0x1408acb2d: int3     
+0x1408acb2e: int3     
+0x1408acb2f: int3     
+0x1408acb30: int3     
+0x1408acb31: int3     
+0x1408acb32: int3     
+0x1408acb33: int3     
+0x1408acb34: int3     
+0x1408acb35: int3     
+0x1408acb36: int3     
+0x1408acb37: int3     
+0x1408acb38: int3     
+0x1408acb39: int3     
+0x1408acb3a: int3     
+0x1408acb3b: int3     
+0x1408acb3c: int3     
+0x1408acb3d: int3     
+0x1408acb3e: int3     
+0x1408acb3f: int3     

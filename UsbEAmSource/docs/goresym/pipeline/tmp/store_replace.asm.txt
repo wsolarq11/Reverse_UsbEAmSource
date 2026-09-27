@@ -1,0 +1,621 @@
+0x1407c17a0: lea      r12, [rsp - 0x188]
+0x1407c17a8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407c17ac: jbe      0x1407c1e47   ; main.launcherWidgetStore.ReplaceWithRollback+0x6a7
+0x1407c17b2: push     rbp
+0x1407c17b3: mov      rbp, rsp
+0x1407c17b6: sub      rsp, 0x200
+0x1407c17bd: movq     qword ptr [rsp + 0x1f8], xmm15
+0x1407c17c7: mov      byte ptr [rsp + 0xd7], 0
+0x1407c17cf: mov      qword ptr [rsp + 0xe8], 0
+0x1407c17db: movups   xmmword ptr [rsp + 0xd8], xmm15
+0x1407c17e4: test     rax, rax
+0x1407c17e7: je       0x1407c1dbe   ; main.launcherWidgetStore.ReplaceWithRollback+0x61e
+0x1407c17ed: mov      qword ptr [rsp + 0x278], rax
+0x1407c17f5: nop      
+0x1407c17f6: mov      rcx, rax
+0x1407c17f9: xor      eax, eax
+0x1407c17fb: mov      edx, 1
+0x1407c1800: lock cmpxchg dword ptr [rcx + 0x10], edx
+0x1407c1805: sete     dl
+0x1407c1808: test     dl, dl
+0x1407c180a: jne      0x1407c181d   ; main.launcherWidgetStore.ReplaceWithRollback+0x7d
+0x1407c180c: lea      rax, [rcx + 0x10]
+0x1407c1810: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1407c1815: mov      rcx, qword ptr [rsp + 0x278]
+0x1407c181d: lea      rdx, [rip + 0xbbc]
+0x1407c1824: mov      qword ptr [rsp + 0x180], rdx
+0x1407c182c: lea      rdx, [rcx + 0x10]
+0x1407c1830: mov      qword ptr [rsp + 0x188], rdx
+0x1407c1838: lea      rdx, [rsp + 0x180]
+0x1407c1840: mov      qword ptr [rsp + 0x1f8], rdx
+0x1407c1848: mov      byte ptr [rsp + 0xd7], 1
+0x1407c1850: movups   xmmword ptr [rsp + 0x190], xmm15
+0x1407c1859: lea      rdi, [rsp + 0x198]
+0x1407c1861: lea      rdi, [rdi - 0x20]
+0x1407c1865: mov      qword ptr [rsp - 0x10], rbp
+0x1407c186a: lea      rbp, [rsp - 0x10]
+0x1407c186f: call     0x14008172b   ; runtime.duffzero+0x14b
+0x1407c1874: mov      rbp, qword ptr [rbp]
+0x1407c1878: mov      rax, rcx
+0x1407c187b: nop      dword ptr [rax + rax]
+0x1407c1880: call     0x1407c2440   ; main.launcherWidgetStore.loadUnlocked
+0x1407c1885: mov      rcx, qword ptr [rsp]
+0x1407c1889: mov      qword ptr [rsp + 0x190], rcx
+0x1407c1891: lea      rdi, [rsp + 0x198]
+0x1407c1899: lea      rsi, [rsp + 8]
+0x1407c189e: nop      
+0x1407c18a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c18a5: lea      rbp, [rsp - 0x10]
+0x1407c18aa: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c18af: mov      rbp, qword ptr [rbp]
+0x1407c18b3: mov      rcx, qword ptr [rsp + 0x190]
+0x1407c18bb: mov      qword ptr [rsp + 0x110], rcx
+0x1407c18c3: lea      rdi, [rsp + 0x118]
+0x1407c18cb: lea      rsi, [rsp + 0x198]
+0x1407c18d3: nop      word ptr [rax + rax]
+0x1407c18dc: nop      dword ptr [rax]
+0x1407c18e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c18e5: lea      rbp, [rsp - 0x10]
+0x1407c18ea: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c18ef: mov      rbp, qword ptr [rbp]
+0x1407c18f3: test     rbx, rbx
+0x1407c18f6: je       0x1407c1935   ; main.launcherWidgetStore.ReplaceWithRollback+0x195
+0x1407c18f8: movups   xmmword ptr [rsp + 0x110], xmm15
+0x1407c1901: lea      rdi, [rsp + 0x118]
+0x1407c1909: lea      rdi, [rdi - 0x20]
+0x1407c190d: nop      word ptr [rax + rax]
+0x1407c1916: nop      word ptr [rax + rax]
+0x1407c191f: nop      
+0x1407c1920: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1925: lea      rbp, [rsp - 0x10]
+0x1407c192a: call     0x14008172b   ; runtime.duffzero+0x14b
+0x1407c192f: mov      rbp, qword ptr [rbp]
+0x1407c1933: xor      eax, eax
+0x1407c1935: mov      byte ptr [rsp + 0xd6], al
+0x1407c193c: mov      rax, qword ptr [rsp + 0x210]
+0x1407c1944: mov      qword ptr [rsp], rax
+0x1407c1948: lea      rdi, [rsp + 8]
+0x1407c194d: lea      rsi, [rsp + 0x218]
+0x1407c1955: nop      word ptr [rax + rax]
+0x1407c195e: nop      
+0x1407c1960: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1965: lea      rbp, [rsp - 0x10]
+0x1407c196a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c196f: mov      rbp, qword ptr [rbp]
+0x1407c1973: call     0x1407bfec0   ; main.normalizeDesktopWidgetDocument
+0x1407c1978: mov      rax, qword ptr [rsp + 0x68]
+0x1407c197d: mov      qword ptr [rsp + 0x210], rax
+0x1407c1985: lea      rdi, [rsp + 0x218]
+0x1407c198d: lea      rsi, [rsp + 0x70]
+0x1407c1992: nop      word ptr [rax + rax]
+0x1407c199b: nop      dword ptr [rax + rax]
+0x1407c19a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c19a5: lea      rbp, [rsp - 0x10]
+0x1407c19aa: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c19af: mov      rbp, qword ptr [rbp]
+0x1407c19b3: call     0x140104fc0   ; time.Now
+0x1407c19b8: mov      qword ptr [rsp + 0xf8], rax
+0x1407c19c0: mov      qword ptr [rsp + 0x100], rbx
+0x1407c19c8: mov      qword ptr [rsp + 0x108], rcx
+0x1407c19d0: nop      
+0x1407c19d1: nop      
+0x1407c19d2: bt       rax, 0x3f
+0x1407c19d7: jae      0x1407c1a05   ; main.launcherWidgetStore.ReplaceWithRollback+0x265
+0x1407c19d9: mov      rdx, rax
+0x1407c19dc: and      eax, 0x3fffffff
+0x1407c19e1: add      rdx, rdx
+0x1407c19e4: shr      rdx, 0x1f
+0x1407c19e8: movabs   r8, 0xdd7b17f80
+0x1407c19f2: add      rdx, r8
+0x1407c19f5: mov      qword ptr [rsp + 0x100], rdx
+0x1407c19fd: mov      qword ptr [rsp + 0xf8], rax
+0x1407c1a05: mov      qword ptr [rsp + 0x108], 0
+0x1407c1a11: mov      rax, qword ptr [rsp + 0xf8]
+0x1407c1a19: mov      rbx, qword ptr [rsp + 0x100]
+0x1407c1a21: xor      ecx, ecx
+0x1407c1a23: lea      rdi, [rip + 0x4b5663]
+0x1407c1a2a: mov      esi, 0x23
+0x1407c1a2f: call     0x1400f2cc0   ; time.Time.Format
+0x1407c1a34: mov      qword ptr [rsp + 0x220], rax
+0x1407c1a3c: mov      qword ptr [rsp + 0x228], rbx
+0x1407c1a44: mov      rdx, qword ptr [rsp + 0x210]
+0x1407c1a4c: mov      qword ptr [rsp], rdx
+0x1407c1a50: lea      rdi, [rsp + 8]
+0x1407c1a55: lea      rsi, [rsp + 0x218]
+0x1407c1a5d: nop      dword ptr [rax]
+0x1407c1a60: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1a65: lea      rbp, [rsp - 0x10]
+0x1407c1a6a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c1a6f: mov      rbp, qword ptr [rbp]
+0x1407c1a73: call     0x1407c3940   ; main.validateDesktopWidgetDocument
+0x1407c1a78: nop      dword ptr [rax + rax]
+0x1407c1a80: test     rax, rax
+0x1407c1a83: jne      0x1407c1d6c   ; main.launcherWidgetStore.ReplaceWithRollback+0x5cc
+0x1407c1a89: mov      rcx, qword ptr [rsp + 0x278]
+0x1407c1a91: mov      r8, qword ptr [rcx + 0x98]
+0x1407c1a98: test     r8, r8
+0x1407c1a9b: jne      0x1407c1aa4   ; main.launcherWidgetStore.ReplaceWithRollback+0x304
+0x1407c1a9d: lea      r8, [rip + 0x8d532c]
+0x1407c1aa4: mov      qword ptr [rsp + 0xf0], r8
+0x1407c1aac: mov      r9, qword ptr [rsp + 0x210]
+0x1407c1ab4: mov      r10, qword ptr [r8]
+0x1407c1ab7: mov      rbx, qword ptr [rcx + 8]
+0x1407c1abb: mov      rax, qword ptr [rcx]
+0x1407c1abe: mov      qword ptr [rsp], r9
+0x1407c1ac2: lea      rdi, [rsp + 8]
+0x1407c1ac7: lea      rsi, [rsp + 0x218]
+0x1407c1acf: nop      word ptr [rax + rax]
+0x1407c1ad8: nop      dword ptr [rax + rax]
+0x1407c1ae0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1ae5: lea      rbp, [rsp - 0x10]
+0x1407c1aea: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c1aef: mov      rbp, qword ptr [rbp]
+0x1407c1af3: mov      rdx, r8
+0x1407c1af6: call     r10
+0x1407c1af9: nop      dword ptr [rax]
+0x1407c1b00: test     rax, rax
+0x1407c1b03: jne      0x1407c1d1a   ; main.launcherWidgetStore.ReplaceWithRollback+0x57a
+0x1407c1b09: mov      rax, qword ptr [rsp + 0x210]
+0x1407c1b11: nop      
+0x1407c1b12: mov      qword ptr [rsp], rax
+0x1407c1b16: lea      rdi, [rsp + 8]
+0x1407c1b1b: lea      rsi, [rsp + 0x218]
+0x1407c1b23: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1b28: lea      rbp, [rsp - 0x10]
+0x1407c1b2d: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c1b32: mov      rbp, qword ptr [rbp]
+0x1407c1b36: call     0x1407c34e0   ; main.cloneDesktopWidgetDocument
+0x1407c1b3b: mov      rax, qword ptr [rsp + 0x68]
+0x1407c1b40: mov      qword ptr [rsp + 0x190], rax
+0x1407c1b48: lea      rdi, [rsp + 0x198]
+0x1407c1b50: lea      rsi, [rsp + 0x70]
+0x1407c1b55: nop      word ptr [rax + rax]
+0x1407c1b5e: nop      
+0x1407c1b60: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1b65: lea      rbp, [rsp - 0x10]
+0x1407c1b6a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c1b6f: mov      rbp, qword ptr [rbp]
+0x1407c1b73: cmp      dword ptr [rip + 0x14997d6], 0
+0x1407c1b7a: je       0x1407c1bae   ; main.launcherWidgetStore.ReplaceWithRollback+0x40e
+0x1407c1b7c: mov      rbx, qword ptr [rsp + 0x278]
+0x1407c1b84: lea      rdx, [rbx + 0x20]
+0x1407c1b88: mov      rsi, qword ptr [rbx + 0x90]
+0x1407c1b8f: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407c1b94: mov      qword ptr [r11], rsi
+0x1407c1b97: lea      rax, [rip + 0x4388a2]
+0x1407c1b9e: mov      rbx, rdx
+0x1407c1ba1: lea      rcx, [rsp + 0x190]
+0x1407c1ba9: call     0x14001b620   ; runtime.wbMove
+0x1407c1bae: mov      rcx, qword ptr [rsp + 0x190]
+0x1407c1bb6: mov      rdi, qword ptr [rsp + 0x278]
+0x1407c1bbe: mov      qword ptr [rdi + 0x20], rcx
+0x1407c1bc2: lea      rcx, [rdi + 0x28]
+0x1407c1bc6: lea      rsi, [rsp + 0x198]
+0x1407c1bce: mov      rax, rdi
+0x1407c1bd1: mov      rdi, rcx
+0x1407c1bd4: nop      word ptr [rax + rax]
+0x1407c1bdd: nop      dword ptr [rax]
+0x1407c1be0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1be5: lea      rbp, [rsp - 0x10]
+0x1407c1bea: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c1bef: mov      rbp, qword ptr [rbp]
+0x1407c1bf3: mov      byte ptr [rax + 0x19], 1
+0x1407c1bf7: movups   xmmword ptr [rax + 0x88], xmm15
+0x1407c1bff: mov      byte ptr [rax + 0x18], 1
+0x1407c1c03: lea      rax, [rip + 0x3fdcf6]
+0x1407c1c0a: call     0x14001ae20   ; runtime.newobject
+0x1407c1c0f: lea      rcx, [rip + 0x24a]
+0x1407c1c16: mov      qword ptr [rax], rcx
+0x1407c1c19: cmp      dword ptr [rip + 0x1499730], 0
+0x1407c1c20: jne      0x1407c1c2c   ; main.launcherWidgetStore.ReplaceWithRollback+0x48c
+0x1407c1c22: mov      r8, qword ptr [rsp + 0x278]
+0x1407c1c2a: jmp      0x1407c1c3c   ; main.launcherWidgetStore.ReplaceWithRollback+0x49c
+0x1407c1c2c: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407c1c31: mov      r8, qword ptr [rsp + 0x278]
+0x1407c1c39: mov      qword ptr [r11], r8
+0x1407c1c3c: mov      qword ptr [rax + 8], r8
+0x1407c1c40: movzx    r8d, byte ptr [rsp + 0xd6]
+0x1407c1c49: mov      byte ptr [rax + 0x10], r8b
+0x1407c1c4d: cmp      dword ptr [rip + 0x14996fc], 0
+0x1407c1c54: je       0x1407c1c90   ; main.launcherWidgetStore.ReplaceWithRollback+0x4f0
+0x1407c1c56: mov      qword ptr [rsp + 0x178], rax
+0x1407c1c5e: nop      
+0x1407c1c60: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407c1c65: mov      rdx, qword ptr [rsp + 0xf0]
+0x1407c1c6d: mov      qword ptr [r11], rdx
+0x1407c1c70: lea      rbx, [rax + 0x20]
+0x1407c1c74: lea      rax, [rip + 0x4387c5]
+0x1407c1c7b: lea      rcx, [rsp + 0x110]
+0x1407c1c83: call     0x14001b620   ; runtime.wbMove
+0x1407c1c88: mov      rax, qword ptr [rsp + 0x178]
+0x1407c1c90: mov      rcx, qword ptr [rsp + 0xf0]
+0x1407c1c98: mov      qword ptr [rax + 0x18], rcx
+0x1407c1c9c: mov      rcx, qword ptr [rsp + 0x110]
+0x1407c1ca4: mov      qword ptr [rax + 0x20], rcx
+0x1407c1ca8: lea      rdi, [rax + 0x28]
+0x1407c1cac: lea      rsi, [rsp + 0x118]
+0x1407c1cb4: nop      word ptr [rax + rax]
+0x1407c1cbd: nop      dword ptr [rax]
+0x1407c1cc0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1cc5: lea      rbp, [rsp - 0x10]
+0x1407c1cca: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c1ccf: mov      rbp, qword ptr [rbp]
+0x1407c1cd3: mov      qword ptr [rsp + 0xe8], rax
+0x1407c1cdb: movups   xmmword ptr [rsp + 0xd8], xmm15
+0x1407c1ce4: mov      byte ptr [rsp + 0xd7], 0
+0x1407c1cec: mov      rdx, qword ptr [rsp + 0x1f8]
+0x1407c1cf4: mov      rax, qword ptr [rdx]
+0x1407c1cf7: call     rax
+0x1407c1cf9: mov      rbx, qword ptr [rsp + 0xd8]
+0x1407c1d01: mov      rax, qword ptr [rsp + 0xe8]
+0x1407c1d09: mov      rcx, qword ptr [rsp + 0xe0]
+0x1407c1d11: add      rsp, 0x200
+0x1407c1d18: pop      rbp
+0x1407c1d19: ret      
+0x1407c1d1a: mov      qword ptr [rsp + 0xe8], 0
+0x1407c1d26: mov      qword ptr [rsp + 0xd8], rax
+0x1407c1d2e: mov      qword ptr [rsp + 0xe0], rbx
+0x1407c1d36: mov      byte ptr [rsp + 0xd7], 0
+0x1407c1d3e: mov      rdx, qword ptr [rsp + 0x1f8]
+0x1407c1d46: mov      rax, qword ptr [rdx]
+0x1407c1d49: call     rax
+0x1407c1d4b: mov      rbx, qword ptr [rsp + 0xd8]
+0x1407c1d53: mov      rax, qword ptr [rsp + 0xe8]
+0x1407c1d5b: mov      rcx, qword ptr [rsp + 0xe0]
+0x1407c1d63: add      rsp, 0x200
+0x1407c1d6a: pop      rbp
+0x1407c1d6b: ret      
+0x1407c1d6c: mov      qword ptr [rsp + 0xe8], 0
+0x1407c1d78: mov      qword ptr [rsp + 0xd8], rax
+0x1407c1d80: mov      qword ptr [rsp + 0xe0], rbx
+0x1407c1d88: mov      byte ptr [rsp + 0xd7], 0
+0x1407c1d90: mov      rdx, qword ptr [rsp + 0x1f8]
+0x1407c1d98: mov      rax, qword ptr [rdx]
+0x1407c1d9b: call     rax
+0x1407c1d9d: mov      rbx, qword ptr [rsp + 0xd8]
+0x1407c1da5: mov      rax, qword ptr [rsp + 0xe8]
+0x1407c1dad: mov      rcx, qword ptr [rsp + 0xe0]
+0x1407c1db5: add      rsp, 0x200
+0x1407c1dbc: pop      rbp
+0x1407c1dbd: ret      
+0x1407c1dbe: lea      rax, [rip + 0x3925bb]
+0x1407c1dc5: call     0x14001ae20   ; runtime.newobject
+0x1407c1dca: mov      qword ptr [rax + 8], 0x1b
+0x1407c1dd2: lea      rcx, [rip + 0x4a7efc]
+0x1407c1dd9: mov      qword ptr [rax], rcx
+0x1407c1ddc: mov      qword ptr [rsp + 0xe8], 0
+0x1407c1de8: lea      rcx, [rip + 0xa11311]
+0x1407c1def: mov      qword ptr [rsp + 0xd8], rcx
+0x1407c1df7: mov      qword ptr [rsp + 0xe0], rax
+0x1407c1dff: mov      rbx, qword ptr [rsp + 0xd8]
+0x1407c1e07: mov      rcx, qword ptr [rsp + 0xe8]
+0x1407c1e0f: mov      rdx, rax
+0x1407c1e12: mov      rax, rcx
+0x1407c1e15: mov      rcx, rdx
+0x1407c1e18: add      rsp, 0x200
+0x1407c1e1f: pop      rbp
+0x1407c1e20: ret      
+0x1407c1e21: call     0x1400435e0   ; runtime.deferreturn
+0x1407c1e26: mov      rax, qword ptr [rsp + 0xe8]
+0x1407c1e2e: mov      rbx, qword ptr [rsp + 0xd8]
+0x1407c1e36: mov      rcx, qword ptr [rsp + 0xe0]
+0x1407c1e3e: add      rsp, 0x200
+0x1407c1e45: pop      rbp
+0x1407c1e46: ret      
+0x1407c1e47: mov      qword ptr [rsp + 0x70], rax
+0x1407c1e4c: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407c1e51: mov      rax, qword ptr [rsp + 0x70]
+0x1407c1e56: jmp      0x1407c17a0   ; main.launcherWidgetStore.ReplaceWithRollback
+0x1407c1e5b: int3     
+0x1407c1e5c: int3     
+0x1407c1e5d: int3     
+0x1407c1e5e: int3     
+0x1407c1e5f: int3     
+0x1407c1e60: lea      r12, [rsp - 0x188]
+0x1407c1e68: cmp      r12, qword ptr [r14 + 0x10]
+0x1407c1e6c: jbe      0x1407c235e   ; main.launcherWidgetStore).ReplaceWithRollback.func1+0x4fe
+0x1407c1e72: push     rbp
+0x1407c1e73: mov      rbp, rsp
+0x1407c1e76: sub      rsp, 0x200
+0x1407c1e7d: movq     qword ptr [rsp + 0x1f8], xmm15
+0x1407c1e87: mov      qword ptr [rsp + 0x178], rdx
+0x1407c1e8f: mov      byte ptr [rsp + 0xd7], 0
+0x1407c1e97: mov      rcx, qword ptr [rdx + 8]
+0x1407c1e9b: mov      qword ptr [rsp + 0x160], rcx
+0x1407c1ea3: mov      r8, qword ptr [rdx + 0x18]
+0x1407c1ea7: movzx    r9d, byte ptr [rdx + 0x10]
+0x1407c1eac: movups   xmmword ptr [rsp + 0x148], xmm15
+0x1407c1eb5: nop      
+0x1407c1eb6: xor      eax, eax
+0x1407c1eb8: mov      r10d, 1
+0x1407c1ebe: lock cmpxchg dword ptr [rcx + 0x10], r10d
+0x1407c1ec4: sete     r10b
+0x1407c1ec8: test     r10b, r10b
+0x1407c1ecb: jne      0x1407c1f07   ; main.launcherWidgetStore).ReplaceWithRollback.func1+0xa7
+0x1407c1ecd: mov      qword ptr [rsp + 0x158], r8
+0x1407c1ed5: mov      byte ptr [rsp + 0xd6], r9b
+0x1407c1edd: lea      rax, [rcx + 0x10]
+0x1407c1ee1: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1407c1ee6: mov      rcx, qword ptr [rsp + 0x160]
+0x1407c1eee: mov      rdx, qword ptr [rsp + 0x178]
+0x1407c1ef6: mov      r8, qword ptr [rsp + 0x158]
+0x1407c1efe: movzx    r9d, byte ptr [rsp + 0xd6]
+0x1407c1f07: lea      r10, [rip + 0x472]
+0x1407c1f0e: mov      qword ptr [rsp + 0x180], r10
+0x1407c1f16: lea      r10, [rcx + 0x10]
+0x1407c1f1a: mov      qword ptr [rsp + 0x188], r10
+0x1407c1f22: lea      r10, [rsp + 0x180]
+0x1407c1f2a: mov      qword ptr [rsp + 0x1f8], r10
+0x1407c1f32: mov      byte ptr [rsp + 0xd7], 1
+0x1407c1f3a: nop      word ptr [rax + rax]
+0x1407c1f40: test     r9b, r9b
+0x1407c1f43: je       0x1407c213b   ; main.launcherWidgetStore).ReplaceWithRollback.func1+0x2db
+0x1407c1f49: mov      r9, qword ptr [rdx + 0x20]
+0x1407c1f4d: lea      rsi, [rdx + 0x28]
+0x1407c1f51: mov      qword ptr [rsp + 0x170], rsi
+0x1407c1f59: mov      r10, qword ptr [r8]
+0x1407c1f5c: mov      rax, qword ptr [rcx]
+0x1407c1f5f: mov      rbx, qword ptr [rcx + 8]
+0x1407c1f63: mov      qword ptr [rsp], r9
+0x1407c1f67: lea      rdi, [rsp + 8]
+0x1407c1f6c: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1f71: lea      rbp, [rsp - 0x10]
+0x1407c1f76: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c1f7b: mov      rbp, qword ptr [rbp]
+0x1407c1f7f: mov      rdx, r8
+0x1407c1f82: call     r10
+0x1407c1f85: test     rax, rax
+0x1407c1f88: jne      0x1407c20fb   ; main.launcherWidgetStore).ReplaceWithRollback.func1+0x29b
+0x1407c1f8e: mov      rax, qword ptr [rsp + 0x178]
+0x1407c1f96: mov      rax, qword ptr [rax + 0x20]
+0x1407c1f9a: mov      qword ptr [rsp + 0x190], rax
+0x1407c1fa2: lea      rdi, [rsp + 0x198]
+0x1407c1faa: mov      rsi, qword ptr [rsp + 0x170]
+0x1407c1fb2: nop      word ptr [rax + rax]
+0x1407c1fbb: nop      dword ptr [rax + rax]
+0x1407c1fc0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1fc5: lea      rbp, [rsp - 0x10]
+0x1407c1fca: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c1fcf: mov      rbp, qword ptr [rbp]
+0x1407c1fd3: mov      rax, qword ptr [rsp + 0x190]
+0x1407c1fdb: mov      qword ptr [rsp], rax
+0x1407c1fdf: lea      rdi, [rsp + 8]
+0x1407c1fe4: lea      rsi, [rsp + 0x198]
+0x1407c1fec: mov      qword ptr [rsp - 0x10], rbp
+0x1407c1ff1: lea      rbp, [rsp - 0x10]
+0x1407c1ff6: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c1ffb: mov      rbp, qword ptr [rbp]
+0x1407c1fff: nop      
+0x1407c2000: call     0x1407c34e0   ; main.cloneDesktopWidgetDocument
+0x1407c2005: mov      rax, qword ptr [rsp + 0x68]
+0x1407c200a: mov      qword ptr [rsp + 0x190], rax
+0x1407c2012: lea      rdi, [rsp + 0x198]
+0x1407c201a: lea      rsi, [rsp + 0x70]
+0x1407c201f: nop      
+0x1407c2020: mov      qword ptr [rsp - 0x10], rbp
+0x1407c2025: lea      rbp, [rsp - 0x10]
+0x1407c202a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c202f: mov      rbp, qword ptr [rbp]
+0x1407c2033: cmp      dword ptr [rip + 0x1499316], 0
+0x1407c203a: je       0x1407c206e   ; main.launcherWidgetStore).ReplaceWithRollback.func1+0x20e
+0x1407c203c: mov      rbx, qword ptr [rsp + 0x160]
+0x1407c2044: lea      rdx, [rbx + 0x20]
+0x1407c2048: mov      rsi, qword ptr [rbx + 0x90]
+0x1407c204f: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407c2054: mov      qword ptr [r11], rsi
+0x1407c2057: lea      rax, [rip + 0x4383e2]
+0x1407c205e: mov      rbx, rdx
+0x1407c2061: lea      rcx, [rsp + 0x190]
+0x1407c2069: call     0x14001b620   ; runtime.wbMove
+0x1407c206e: mov      rax, qword ptr [rsp + 0x190]
+0x1407c2076: mov      rdi, qword ptr [rsp + 0x160]
+0x1407c207e: mov      qword ptr [rdi + 0x20], rax
+0x1407c2082: lea      rax, [rdi + 0x28]
+0x1407c2086: lea      rsi, [rsp + 0x198]
+0x1407c208e: mov      rcx, rdi
+0x1407c2091: mov      rdi, rax
+0x1407c2094: nop      word ptr [rax + rax]
+0x1407c209d: nop      dword ptr [rax]
+0x1407c20a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c20a5: lea      rbp, [rsp - 0x10]
+0x1407c20aa: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c20af: mov      rbp, qword ptr [rbp]
+0x1407c20b3: mov      byte ptr [rcx + 0x19], 1
+0x1407c20b7: movups   xmmword ptr [rcx + 0x88], xmm15
+0x1407c20bf: mov      byte ptr [rcx + 0x18], 1
+0x1407c20c3: movups   xmmword ptr [rsp + 0x148], xmm15
+0x1407c20cc: mov      byte ptr [rsp + 0xd7], 0
+0x1407c20d4: mov      rdx, qword ptr [rsp + 0x1f8]
+0x1407c20dc: mov      rax, qword ptr [rdx]
+0x1407c20df: nop      
+0x1407c20e0: call     rax
+0x1407c20e2: mov      rax, qword ptr [rsp + 0x148]
+0x1407c20ea: mov      rbx, qword ptr [rsp + 0x150]
+0x1407c20f2: add      rsp, 0x200
+0x1407c20f9: pop      rbp
+0x1407c20fa: ret      
+0x1407c20fb: mov      qword ptr [rsp + 0x148], rax
+0x1407c2103: mov      qword ptr [rsp + 0x150], rbx
+0x1407c210b: mov      byte ptr [rsp + 0xd7], 0
+0x1407c2113: mov      rdx, qword ptr [rsp + 0x1f8]
+0x1407c211b: mov      rax, qword ptr [rdx]
+0x1407c211e: nop      
+0x1407c2120: call     rax
+0x1407c2122: mov      rax, qword ptr [rsp + 0x148]
+0x1407c212a: mov      rbx, qword ptr [rsp + 0x150]
+0x1407c2132: add      rsp, 0x200
+0x1407c2139: pop      rbp
+0x1407c213a: ret      
+0x1407c213b: mov      rax, qword ptr [rcx]
+0x1407c213e: mov      rbx, qword ptr [rcx + 8]
+0x1407c2142: call     0x14012a5c0   ; os.Remove
+0x1407c2147: test     rax, rax
+0x1407c214a: jne      0x1407c2150   ; main.launcherWidgetStore).ReplaceWithRollback.func1+0x2f0
+0x1407c214c: xor      ecx, ecx
+0x1407c214e: jmp      0x1407c2188   ; main.launcherWidgetStore).ReplaceWithRollback.func1+0x328
+0x1407c2150: mov      qword ptr [rsp + 0x168], rbx
+0x1407c2158: mov      qword ptr [rsp + 0xd8], rax
+0x1407c2160: mov      rcx, qword ptr [rip + 0x144e829]
+0x1407c2167: mov      rdi, qword ptr [rip + 0x144e82a]
+0x1407c216e: call     0x1400904a0   ; errors.Is
+0x1407c2173: xor      eax, 1
+0x1407c2176: mov      rbx, qword ptr [rsp + 0x168]
+0x1407c217e: mov      ecx, eax
+0x1407c2180: mov      rax, qword ptr [rsp + 0xd8]
+0x1407c2188: test     cl, cl
+0x1407c218a: jne      0x1407c22fb   ; main.launcherWidgetStore).ReplaceWithRollback.func1+0x49b
+0x1407c2190: mov      qword ptr [rsp], 1
+0x1407c2198: lea      rdi, [rsp + 8]
+0x1407c219d: lea      rsi, [rip + 0xa1c2cc]
+0x1407c21a4: mov      qword ptr [rsp - 0x10], rbp
+0x1407c21a9: lea      rbp, [rsp - 0x10]
+0x1407c21ae: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c21b3: mov      rbp, qword ptr [rbp]
+0x1407c21b7: call     0x1407bfec0   ; main.normalizeDesktopWidgetDocument
+0x1407c21bc: mov      rax, qword ptr [rsp + 0x68]
+0x1407c21c1: mov      qword ptr [rsp + 0x190], rax
+0x1407c21c9: lea      rdi, [rsp + 0x198]
+0x1407c21d1: lea      rsi, [rsp + 0x70]
+0x1407c21d6: nop      word ptr [rax + rax]
+0x1407c21df: nop      
+0x1407c21e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c21e5: lea      rbp, [rsp - 0x10]
+0x1407c21ea: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c21ef: mov      rbp, qword ptr [rbp]
+0x1407c21f3: mov      rax, qword ptr [rsp + 0x190]
+0x1407c21fb: mov      qword ptr [rsp + 0xe0], rax
+0x1407c2203: lea      rdi, [rsp + 0xe8]
+0x1407c220b: lea      rsi, [rsp + 0x198]
+0x1407c2213: nop      word ptr [rax + rax]
+0x1407c221c: nop      dword ptr [rax]
+0x1407c2220: mov      qword ptr [rsp - 0x10], rbp
+0x1407c2225: lea      rbp, [rsp - 0x10]
+0x1407c222a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c222f: mov      rbp, qword ptr [rbp]
+0x1407c2233: cmp      dword ptr [rip + 0x1499116], 0
+0x1407c223a: je       0x1407c226e   ; main.launcherWidgetStore).ReplaceWithRollback.func1+0x40e
+0x1407c223c: mov      rbx, qword ptr [rsp + 0x160]
+0x1407c2244: lea      rdx, [rbx + 0x20]
+0x1407c2248: mov      rsi, qword ptr [rbx + 0x90]
+0x1407c224f: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407c2254: mov      qword ptr [r11], rsi
+0x1407c2257: lea      rax, [rip + 0x4381e2]
+0x1407c225e: mov      rbx, rdx
+0x1407c2261: lea      rcx, [rsp + 0xe0]
+0x1407c2269: call     0x14001b620   ; runtime.wbMove
+0x1407c226e: mov      rax, qword ptr [rsp + 0xe0]
+0x1407c2276: mov      rdi, qword ptr [rsp + 0x160]
+0x1407c227e: mov      qword ptr [rdi + 0x20], rax
+0x1407c2282: lea      rax, [rdi + 0x28]
+0x1407c2286: lea      rsi, [rsp + 0xe8]
+0x1407c228e: mov      rcx, rdi
+0x1407c2291: mov      rdi, rax
+0x1407c2294: nop      word ptr [rax + rax]
+0x1407c229d: nop      dword ptr [rax]
+0x1407c22a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407c22a5: lea      rbp, [rsp - 0x10]
+0x1407c22aa: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x1407c22af: mov      rbp, qword ptr [rbp]
+0x1407c22b3: mov      byte ptr [rcx + 0x19], 0
+0x1407c22b7: movups   xmmword ptr [rcx + 0x88], xmm15
+0x1407c22bf: mov      byte ptr [rcx + 0x18], 1
+0x1407c22c3: movups   xmmword ptr [rsp + 0x148], xmm15
+0x1407c22cc: mov      byte ptr [rsp + 0xd7], 0
+0x1407c22d4: mov      rdx, qword ptr [rsp + 0x1f8]
+0x1407c22dc: mov      rax, qword ptr [rdx]
+0x1407c22df: nop      
+0x1407c22e0: call     rax
+0x1407c22e2: mov      rax, qword ptr [rsp + 0x148]
+0x1407c22ea: mov      rbx, qword ptr [rsp + 0x150]
+0x1407c22f2: add      rsp, 0x200
+0x1407c22f9: pop      rbp
+0x1407c22fa: ret      
+0x1407c22fb: mov      qword ptr [rsp + 0x148], rax
+0x1407c2303: mov      qword ptr [rsp + 0x150], rbx
+0x1407c230b: mov      byte ptr [rsp + 0xd7], 0
+0x1407c2313: mov      rdx, qword ptr [rsp + 0x1f8]
+0x1407c231b: mov      rax, qword ptr [rdx]
+0x1407c231e: nop      
+0x1407c2320: call     rax
+0x1407c2322: mov      rax, qword ptr [rsp + 0x148]
+0x1407c232a: mov      rbx, qword ptr [rsp + 0x150]
+0x1407c2332: add      rsp, 0x200
+0x1407c2339: pop      rbp
+0x1407c233a: ret      
+0x1407c233b: nop      dword ptr [rax + rax]
+0x1407c2340: call     0x1400435e0   ; runtime.deferreturn
+0x1407c2345: mov      rax, qword ptr [rsp + 0x148]
+0x1407c234d: mov      rbx, qword ptr [rsp + 0x150]
+0x1407c2355: add      rsp, 0x200
+0x1407c235c: pop      rbp
+0x1407c235d: ret      
+0x1407c235e: nop      
+0x1407c2360: call     0x14007f0a0   ; runtime.morestack
+0x1407c2365: jmp      0x1407c1e60   ; main.launcherWidgetStore).ReplaceWithRollback.func1
+0x1407c236a: int3     
+0x1407c236b: int3     
+0x1407c236c: int3     
+0x1407c236d: int3     
+0x1407c236e: int3     
+0x1407c236f: int3     
+0x1407c2370: int3     
+0x1407c2371: int3     
+0x1407c2372: int3     
+0x1407c2373: int3     
+0x1407c2374: int3     
+0x1407c2375: int3     
+0x1407c2376: int3     
+0x1407c2377: int3     
+0x1407c2378: int3     
+0x1407c2379: int3     
+0x1407c237a: int3     
+0x1407c237b: int3     
+0x1407c237c: int3     
+0x1407c237d: int3     
+0x1407c237e: int3     
+0x1407c237f: int3     
+0x1407c2380: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407c2384: jbe      0x1407c23b4   ; main.launcherWidgetStore).ReplaceWithRollback.func1.deferwrap1+0x34
+0x1407c2386: push     rbp
+0x1407c2387: mov      rbp, rsp
+0x1407c238a: sub      rsp, 0x10
+0x1407c238e: mov      r12, qword ptr [r14 + 0x20]
+0x1407c2392: test     r12, r12
+0x1407c2395: jne      0x1407c23bb   ; main.launcherWidgetStore).ReplaceWithRollback.func1.deferwrap1+0x3b
+0x1407c2397: mov      rax, qword ptr [rdx + 8]
+0x1407c239b: nop      
+0x1407c239c: mov      ebx, 0xffffffff
+0x1407c23a1: lock xadd dword ptr [rax], ebx
+0x1407c23a5: dec      ebx
+0x1407c23a7: je       0x1407c23ae   ; main.launcherWidgetStore).ReplaceWithRollback.func1.deferwrap1+0x2e
+0x1407c23a9: call     0x140091c20   ; internal/sync.Mutex.unlockSlow
+0x1407c23ae: add      rsp, 0x10
+0x1407c23b2: pop      rbp
+0x1407c23b3: ret      
+0x1407c23b4: call     0x14007f0a0   ; runtime.morestack
+0x1407c23b9: jmp      0x1407c2380   ; main.launcherWidgetStore).ReplaceWithRollback.func1.deferwrap1
+0x1407c23bb: lea      r13, [rsp + 0x20]
+0x1407c23c0: cmp      qword ptr [r12], r13
+0x1407c23c4: jne      0x1407c2397   ; main.launcherWidgetStore).ReplaceWithRollback.func1.deferwrap1+0x17
+0x1407c23c6: mov      qword ptr [r12], rsp
+0x1407c23ca: jmp      0x1407c2397   ; main.launcherWidgetStore).ReplaceWithRollback.func1.deferwrap1+0x17
+0x1407c23cc: int3     
+0x1407c23cd: int3     
+0x1407c23ce: int3     
+0x1407c23cf: int3     
+0x1407c23d0: int3     
+0x1407c23d1: int3     
+0x1407c23d2: int3     
+0x1407c23d3: int3     
+0x1407c23d4: int3     
+0x1407c23d5: int3     
+0x1407c23d6: int3     
+0x1407c23d7: int3     
+0x1407c23d8: int3     
+0x1407c23d9: int3     
+0x1407c23da: int3     
+0x1407c23db: int3     
+0x1407c23dc: int3     
+0x1407c23dd: int3     
+0x1407c23de: int3     
+0x1407c23df: int3     

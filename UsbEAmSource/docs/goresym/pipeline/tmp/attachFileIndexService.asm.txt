@@ -1,0 +1,107 @@
+0x1407739e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407739e4: jbe      0x140773b01    ; main.BootstrapService.attachFileIndexService+0x121
+0x1407739ea: push     rbp
+0x1407739eb: mov      rbp, rsp
+0x1407739ee: sub      rsp, 0x30
+0x1407739f2: mov      qword ptr [rsp + 0x48], rbx
+0x1407739f7: mov      qword ptr [rsp + 0x50], rcx
+0x1407739fc: nop      dword ptr [rax]
+0x140773a00: test     rax, rax
+0x140773a03: je       0x140773afb    ; main.BootstrapService.attachFileIndexService+0x11b
+0x140773a09: mov      qword ptr [rsp + 0x50], rcx
+0x140773a0e: mov      qword ptr [rsp + 0x48], rbx
+0x140773a13: nop      
+0x140773a14: lea      rdx, [rax + 0x540]
+0x140773a1b: mov      rsi, rax
+0x140773a1e: xor      eax, eax
+0x140773a20: mov      edi, 1
+0x140773a25: lock cmpxchg dword ptr [rsi + 0x540], edi
+0x140773a2d: sete     dil
+0x140773a31: test     dil, dil
+0x140773a34: jne      0x140773a5c    ; main.BootstrapService.attachFileIndexService+0x7c
+0x140773a36: mov      qword ptr [rsp + 0x28], rsi
+0x140773a3b: mov      qword ptr [rsp + 0x20], rdx
+0x140773a40: mov      rax, rdx
+0x140773a43: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x140773a48: mov      rcx, qword ptr [rsp + 0x50]
+0x140773a4d: mov      rdx, qword ptr [rsp + 0x20]
+0x140773a52: mov      rbx, qword ptr [rsp + 0x48]
+0x140773a57: mov      rsi, qword ptr [rsp + 0x28]
+0x140773a5c: mov      qword ptr [rsi + 0x428], rbx
+0x140773a63: cmp      dword ptr [rip + 0x14e78e6], 0
+0x140773a6a: je       0x140773a7f    ; main.BootstrapService.attachFileIndexService+0x9f
+0x140773a6c: mov      rdi, qword ptr [rsi + 0x430]
+0x140773a73: call     0x140081060    ; runtime.gcWriteBarrier2
+0x140773a78: mov      qword ptr [r11], rcx
+0x140773a7b: mov      qword ptr [r11 + 8], rdi
+0x140773a7f: mov      qword ptr [rsi + 0x430], rcx
+0x140773a86: test     rbx, rbx
+0x140773a89: je       0x140773aa6    ; main.BootstrapService.attachFileIndexService+0xc6
+0x140773a8b: cmp      byte ptr [rsi + 0x508], 0
+0x140773a92: je       0x140773aa2    ; main.BootstrapService.attachFileIndexService+0xc2
+0x140773a94: mov      byte ptr [rsi + 0x508], 0
+0x140773a9b: mov      eax, 1
+0x140773aa0: jmp      0x140773aa8    ; main.BootstrapService.attachFileIndexService+0xc8
+0x140773aa2: xor      eax, eax
+0x140773aa4: jmp      0x140773aa8    ; main.BootstrapService.attachFileIndexService+0xc8
+0x140773aa6: xor      eax, eax
+0x140773aa8: nop      
+0x140773aa9: nop      
+0x140773aaa: mov      edi, 0xffffffff
+0x140773aaf: lock xadd dword ptr [rsi + 0x540], edi
+0x140773ab7: dec      edi
+0x140773ab9: je       0x140773ad8    ; main.BootstrapService.attachFileIndexService+0xf8
+0x140773abb: mov      byte ptr [rsp + 0x1f], al
+0x140773abf: mov      rax, rdx
+0x140773ac2: mov      ebx, edi
+0x140773ac4: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x140773ac9: movzx    eax, byte ptr [rsp + 0x1f]
+0x140773ace: mov      rcx, qword ptr [rsp + 0x50]
+0x140773ad3: mov      rbx, qword ptr [rsp + 0x48]
+0x140773ad8: test     al, al
+0x140773ada: je       0x140773af5    ; main.BootstrapService.attachFileIndexService+0x115
+0x140773adc: nop      dword ptr [rax]
+0x140773ae0: test     rbx, rbx
+0x140773ae3: je       0x140773af5    ; main.BootstrapService.attachFileIndexService+0x115
+0x140773ae5: mov      rdx, qword ptr [rbx + 0x18]
+0x140773ae9: mov      rax, rcx
+0x140773aec: xor      ebx, ebx
+0x140773aee: mov      ecx, 1
+0x140773af3: call     rdx
+0x140773af5: add      rsp, 0x30
+0x140773af9: pop      rbp
+0x140773afa: ret      
+0x140773afb: add      rsp, 0x30
+0x140773aff: pop      rbp
+0x140773b00: ret      
+0x140773b01: mov      qword ptr [rsp + 8], rax
+0x140773b06: mov      qword ptr [rsp + 0x10], rbx
+0x140773b0b: mov      qword ptr [rsp + 0x18], rcx
+0x140773b10: call     0x14007f140    ; runtime.morestack_noctxt
+0x140773b15: mov      rax, qword ptr [rsp + 8]
+0x140773b1a: mov      rbx, qword ptr [rsp + 0x10]
+0x140773b1f: mov      rcx, qword ptr [rsp + 0x18]
+0x140773b24: jmp      0x1407739e0    ; main.BootstrapService.attachFileIndexService
+0x140773b29: int3     
+0x140773b2a: int3     
+0x140773b2b: int3     
+0x140773b2c: int3     
+0x140773b2d: int3     
+0x140773b2e: int3     
+0x140773b2f: int3     
+0x140773b30: int3     
+0x140773b31: int3     
+0x140773b32: int3     
+0x140773b33: int3     
+0x140773b34: int3     
+0x140773b35: int3     
+0x140773b36: int3     
+0x140773b37: int3     
+0x140773b38: int3     
+0x140773b39: int3     
+0x140773b3a: int3     
+0x140773b3b: int3     
+0x140773b3c: int3     
+0x140773b3d: int3     
+0x140773b3e: int3     
+0x140773b3f: int3     

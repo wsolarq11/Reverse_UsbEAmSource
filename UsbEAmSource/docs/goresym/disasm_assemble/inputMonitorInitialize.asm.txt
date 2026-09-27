@@ -1,0 +1,60 @@
+0x140865d20: cmp      rsp, qword ptr [r14 + 0x10]
+0x140865d24: jbe      0x140865d9a    ; main.inputMonitorInitialize+0x7a
+0x140865d26: push     rbp
+0x140865d27: mov      rbp, rsp
+0x140865d2a: sub      rsp, 0x20
+0x140865d2e: test     rax, rax
+0x140865d31: je       0x140865d94    ; main.inputMonitorInitialize+0x74
+0x140865d33: nop      
+0x140865d34: lea      rcx, [rax + 8]
+0x140865d38: mov      rdx, rax
+0x140865d3b: xor      eax, eax
+0x140865d3d: mov      esi, 1
+0x140865d42: lock cmpxchg dword ptr [rdx + 8], esi
+0x140865d47: sete     sil
+0x140865d4b: test     sil, sil
+0x140865d4e: jne      0x140865d6f    ; main.inputMonitorInitialize+0x4f
+0x140865d50: mov      qword ptr [rsp + 0x18], rdx
+0x140865d55: mov      qword ptr [rsp + 0x10], rcx
+0x140865d5a: mov      rax, rcx
+0x140865d5d: nop      dword ptr [rax]
+0x140865d60: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x140865d65: mov      rcx, qword ptr [rsp + 0x10]
+0x140865d6a: mov      rdx, qword ptr [rsp + 0x18]
+0x140865d6f: mov      byte ptr [rdx + 0xd8], 1
+0x140865d76: nop      
+0x140865d77: nop      
+0x140865d78: mov      ebx, 0xffffffff
+0x140865d7d: lock xadd dword ptr [rdx + 8], ebx
+0x140865d82: dec      ebx
+0x140865d84: je       0x140865d8e    ; main.inputMonitorInitialize+0x6e
+0x140865d86: mov      rax, rcx
+0x140865d89: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x140865d8e: add      rsp, 0x20
+0x140865d92: pop      rbp
+0x140865d93: ret      
+0x140865d94: add      rsp, 0x20
+0x140865d98: pop      rbp
+0x140865d99: ret      
+0x140865d9a: mov      qword ptr [rsp + 8], rax
+0x140865d9f: nop      
+0x140865da0: call     0x14007f140    ; runtime.morestack_noctxt
+0x140865da5: mov      rax, qword ptr [rsp + 8]
+0x140865daa: jmp      0x140865d20    ; main.inputMonitorInitialize
+0x140865daf: int3     
+0x140865db0: int3     
+0x140865db1: int3     
+0x140865db2: int3     
+0x140865db3: int3     
+0x140865db4: int3     
+0x140865db5: int3     
+0x140865db6: int3     
+0x140865db7: int3     
+0x140865db8: int3     
+0x140865db9: int3     
+0x140865dba: int3     
+0x140865dbb: int3     
+0x140865dbc: int3     
+0x140865dbd: int3     
+0x140865dbe: int3     
+0x140865dbf: int3     

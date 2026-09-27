@@ -1,0 +1,134 @@
+0x14091ad00: lea      r12, [rsp - 0x80]
+0x14091ad05: cmp      r12, qword ptr [r14 + 0x10]
+0x14091ad09: jbe      0x14091b203   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x503
+0x14091ad0f: push     rbp
+0x14091ad10: mov      rbp, rsp
+0x14091ad13: sub      rsp, 0xf8
+0x14091ad1a: mov      qword ptr [rsp + 0x110], rbx
+0x14091ad22: test     rax, rax
+0x14091ad25: je       0x14091ad43   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x43
+0x14091ad27: mov      qword ptr [rsp + 0x108], rax
+0x14091ad2f: mov      qword ptr [rsp + 0x128], rsi
+0x14091ad37: mov      qword ptr [rsp + 0x118], rcx
+0x14091ad3f: xor      edx, edx
+0x14091ad41: jmp      0x14091ad80   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x80
+0x14091ad43: xor      eax, eax
+0x14091ad45: add      rsp, 0xf8
+0x14091ad4c: pop      rbp
+0x14091ad4d: ret      
+0x14091ad4e: mov      rbx, qword ptr [rsp + 0xa0]
+0x14091ad56: add      rbx, 0x40
+0x14091ad5a: mov      rdx, qword ptr [rsp + 0x48]
+0x14091ad5f: inc      rdx
+0x14091ad62: mov      rax, qword ptr [rsp + 0x108]
+0x14091ad6a: mov      rcx, qword ptr [rsp + 0x118]
+0x14091ad72: mov      rsi, qword ptr [rsp + 0x128]
+0x14091ad7a: nop      word ptr [rax + rax]
+0x14091ad80: cmp      rcx, rdx
+0x14091ad83: jle      0x14091b1f8   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x4f8
+0x14091ad89: mov      qword ptr [rsp + 0x48], rdx
+0x14091ad8e: mov      qword ptr [rsp + 0xa0], rbx
+0x14091ad96: movups   xmm0, xmmword ptr [rbx]
+0x14091ad99: movups   xmmword ptr [rsp + 0x60], xmm0
+0x14091ad9e: movups   xmm0, xmmword ptr [rbx + 0x10]
+0x14091ada2: movups   xmmword ptr [rsp + 0x70], xmm0
+0x14091ada7: movups   xmm0, xmmword ptr [rbx + 0x20]
+0x14091adab: movups   xmmword ptr [rsp + 0x80], xmm0
+0x14091adb3: movups   xmm0, xmmword ptr [rbx + 0x30]
+0x14091adb7: movups   xmmword ptr [rsp + 0x90], xmm0
+0x14091adbf: mov      rax, qword ptr [rsp + 0x70]
+0x14091adc4: mov      rbx, qword ptr [rsp + 0x78]
+0x14091adc9: call     0x1400a2200   ; strings.TrimSpace
+0x14091adce: call     0x1400a1500   ; strings.ToLower
+0x14091add3: mov      qword ptr [rsp + 0x40], rbx
+0x14091add8: mov      qword ptr [rsp + 0x58], rax
+0x14091addd: nop      dword ptr [rax]
+0x14091ade0: test     rbx, rbx
+0x14091ade3: jne      0x14091adef   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0xef
+0x14091ade5: mov      ecx, 1
+0x14091adea: jmp      0x14091b02d   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x32d
+0x14091adef: call     0x1408fddc0   ; main.normalizeOLEDBlackoutMediaPauseExclusionProcessName
+0x14091adf4: cmp      rbx, 0xa
+0x14091adf8: jg       0x14091aeb5   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x1b5
+0x14091adfe: nop      
+0x14091ae00: cmp      rbx, 9
+0x14091ae04: jne      0x14091ae45   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x145
+0x14091ae06: movabs   rdx, 0x78652e6576617262
+0x14091ae10: cmp      qword ptr [rax], rdx
+0x14091ae13: jne      0x14091ae1f   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x11f
+0x14091ae15: cmp      byte ptr [rax + 8], 0x65
+0x14091ae19: je       0x14091b001   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x301
+0x14091ae1f: movabs   rsi, 0x78652e617265706f
+0x14091ae29: cmp      qword ptr [rax], rsi
+0x14091ae2c: jne      0x14091b01c   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x31c
+0x14091ae32: cmp      byte ptr [rax + 8], 0x65
+0x14091ae36: je       0x14091b001   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x301
+0x14091ae3c: nop      dword ptr [rax]
+0x14091ae40: jmp      0x14091b01c   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x31c
+0x14091ae45: cmp      rbx, 0xa
+0x14091ae49: jne      0x14091afca   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x2ca
+0x14091ae4f: movabs   rdx, 0x652e656d6f726863
+0x14091ae59: cmp      qword ptr [rax], rdx
+0x14091ae5c: jne      0x14091ae75   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x175
+0x14091ae5e: cmp      word ptr [rax + 8], 0x6578
+0x14091ae64: jne      0x14091ae75   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x175
+0x14091ae66: movabs   rdx, 0x78652e6576617262
+0x14091ae70: jmp      0x14091b001   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x301
+0x14091ae75: movabs   rsi, 0x652e65676465736d
+0x14091ae7f: nop      
+0x14091ae80: cmp      qword ptr [rax], rsi
+0x14091ae83: jne      0x14091ae9c   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x19c
+0x14091ae85: cmp      word ptr [rax + 8], 0x6578
+0x14091ae8b: jne      0x14091ae9c   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x19c
+0x14091ae8d: movabs   rdx, 0x78652e6576617262
+0x14091ae97: jmp      0x14091b001   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x301
+0x14091ae9c: movabs   rdx, 0x78652e6576617262
+0x14091aea6: movabs   rsi, 0x78652e617265706f
+0x14091aeb0: jmp      0x14091b01c   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x31c
+0x14091aeb5: cmp      rbx, 0xb
+0x14091aeb9: jne      0x14091af60   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x260
+0x14091aebf: movabs   rdx, 0x2e726573776f7262
+0x14091aec9: cmp      qword ptr [rax], rdx
+0x14091aecc: jne      0x14091aeeb   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x1eb
+0x14091aece: cmp      word ptr [rax + 8], 0x7865
+0x14091aed4: jne      0x14091aeeb   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x1eb
+0x14091aed6: cmp      byte ptr [rax + 0xa], 0x65
+0x14091aeda: jne      0x14091aeeb   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x1eb
+0x14091aedc: movabs   rdx, 0x78652e6576617262
+0x14091aee6: jmp      0x14091b001   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x301
+0x14091aeeb: movabs   rsi, 0x2e786f6665726966
+0x14091aef5: cmp      qword ptr [rax], rsi
+0x14091aef8: jne      0x14091af17   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x217
+0x14091aefa: cmp      word ptr [rax + 8], 0x7865
+0x14091af00: jne      0x14091af17   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x217
+0x14091af02: cmp      byte ptr [rax + 0xa], 0x65
+0x14091af06: jne      0x14091af17   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x217
+0x14091af08: movabs   rdx, 0x78652e6576617262
+0x14091af12: jmp      0x14091b001   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x301
+0x14091af17: movabs   r8, 0x2e69646c61766976
+0x14091af21: cmp      qword ptr [rax], r8
+0x14091af24: jne      0x14091af45   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x245
+0x14091af26: cmp      word ptr [rax + 8], 0x7865
+0x14091af2c: jne      0x14091af45   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x245
+0x14091af2e: cmp      byte ptr [rax + 0xa], 0x65
+0x14091af32: jne      0x14091af45   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x245
+0x14091af34: movabs   rdx, 0x78652e6576617262
+0x14091af3e: nop      
+0x14091af40: jmp      0x14091b001   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x301
+0x14091af45: movabs   rdx, 0x78652e6576617262
+0x14091af4f: movabs   rsi, 0x78652e617265706f
+0x14091af59: jmp      0x14091b01c   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x31c
+0x14091af5e: nop      
+0x14091af60: cmp      rbx, 0xc
+0x14091af64: jne      0x14091afc4   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x2c4
+0x14091af66: movabs   rdx, 0x6d75696d6f726863
+0x14091af70: cmp      qword ptr [rax], rdx
+0x14091af73: jne      0x14091af8a   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x28a
+0x14091af75: cmp      dword ptr [rax + 8], 0x6578652e
+0x14091af7c: jne      0x14091af8a   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x28a
+0x14091af7e: movabs   rdx, 0x78652e6576617262
+0x14091af88: jmp      0x14091b001   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x301
+0x14091af8a: movabs   rsi, 0x78675f617265706f
+0x14091af94: cmp      qword ptr [rax], rsi
+0x14091af97: jne      0x14091afae   ; main.oledBlackoutBrowserMediaContinuityMatchesCandidates+0x2ae
+0x14091af99: cmp      dword ptr [rax + 8], 0x6578652e

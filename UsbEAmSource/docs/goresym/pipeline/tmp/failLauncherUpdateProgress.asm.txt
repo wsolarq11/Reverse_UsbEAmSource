@@ -1,0 +1,89 @@
+0x1408b70c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408b70c4: jbe      0x1408b71cd    ; main.BootstrapService.failLauncherUpdateProgress+0x10d
+0x1408b70ca: push     rbp
+0x1408b70cb: mov      rbp, rsp
+0x1408b70ce: sub      rsp, 0x50
+0x1408b70d2: mov      qword ptr [rsp + 0x60], rax
+0x1408b70d7: mov      qword ptr [rsp + 0x70], rcx
+0x1408b70dc: mov      qword ptr [rsp + 0x68], rbx
+0x1408b70e1: test     rbx, rbx
+0x1408b70e4: jne      0x1408b70ec    ; main.BootstrapService.failLauncherUpdateProgress+0x2c
+0x1408b70e6: xor      edx, edx
+0x1408b70e8: xor      esi, esi
+0x1408b70ea: jmp      0x1408b710a    ; main.BootstrapService.failLauncherUpdateProgress+0x4a
+0x1408b70ec: mov      rdx, qword ptr [rbx + 0x18]
+0x1408b70f0: mov      rax, rcx
+0x1408b70f3: call     rdx
+0x1408b70f5: mov      rcx, qword ptr [rsp + 0x70]
+0x1408b70fa: mov      rdx, rbx
+0x1408b70fd: mov      rsi, rax
+0x1408b7100: mov      rax, qword ptr [rsp + 0x60]
+0x1408b7105: mov      rbx, qword ptr [rsp + 0x68]
+0x1408b710a: mov      qword ptr [rsp + 0x48], rsi
+0x1408b710f: mov      qword ptr [rsp + 0x40], rdx
+0x1408b7114: cmp      rdx, 0x18
+0x1408b7118: jne      0x1408b7143    ; main.BootstrapService.failLauncherUpdateProgress+0x83
+0x1408b711a: mov      rax, rsi
+0x1408b711d: lea      rbx, [rip + 0x3ae114]
+0x1408b7124: mov      ecx, 0x18
+0x1408b7129: call     0x140006280    ; runtime.memequal
+0x1408b712e: test     al, al
+0x1408b7130: je       0x1408b7139    ; main.BootstrapService.failLauncherUpdateProgress+0x79
+0x1408b7132: mov      eax, 1
+0x1408b7137: jmp      0x1408b7160    ; main.BootstrapService.failLauncherUpdateProgress+0xa0
+0x1408b7139: mov      rcx, qword ptr [rsp + 0x70]
+0x1408b713e: mov      rbx, qword ptr [rsp + 0x68]
+0x1408b7143: mov      rax, rbx
+0x1408b7146: mov      rbx, rcx
+0x1408b7149: lea      rcx, [rip + 0x91bd10]
+0x1408b7150: lea      rdi, [rip + 0x9179d9]
+0x1408b7157: call     0x1400904a0    ; errors.Is
+0x1408b715c: nop      dword ptr [rax]
+0x1408b7160: test     al, al
+0x1408b7162: je       0x1408b719a    ; main.BootstrapService.failLauncherUpdateProgress+0xda
+0x1408b7164: nop      
+0x1408b7165: mov      rax, qword ptr [rsp + 0x60]
+0x1408b716a: test     rax, rax
+0x1408b716d: je       0x1408b7194    ; main.BootstrapService.failLauncherUpdateProgress+0xd4
+0x1408b716f: xor      ebx, ebx
+0x1408b7171: lea      rcx, [rip + 0x38866f]
+0x1408b7178: mov      edi, 9
+0x1408b717d: xor      esi, esi
+0x1408b717f: mov      r8, rsi
+0x1408b7182: lea      r9, [rip + 0x3ae0af]
+0x1408b7189: mov      r10d, 0x18
+0x1408b718f: call     0x1408b6e00    ; main.BootstrapService.setLauncherUpdateProgressState
+0x1408b7194: add      rsp, 0x50
+0x1408b7198: pop      rbp
+0x1408b7199: ret      
+0x1408b719a: nop      
+0x1408b719b: mov      rax, qword ptr [rsp + 0x60]
+0x1408b71a0: test     rax, rax
+0x1408b71a3: je       0x1408b71c7    ; main.BootstrapService.failLauncherUpdateProgress+0x107
+0x1408b71a5: xor      ebx, ebx
+0x1408b71a7: lea      rcx, [rip + 0x37ea74]
+0x1408b71ae: mov      edi, 5
+0x1408b71b3: xor      esi, esi
+0x1408b71b5: mov      r8, rsi
+0x1408b71b8: mov      r9, qword ptr [rsp + 0x48]
+0x1408b71bd: mov      r10, qword ptr [rsp + 0x40]
+0x1408b71c2: call     0x1408b6e00    ; main.BootstrapService.setLauncherUpdateProgressState
+0x1408b71c7: add      rsp, 0x50
+0x1408b71cb: pop      rbp
+0x1408b71cc: ret      
+0x1408b71cd: mov      qword ptr [rsp + 8], rax
+0x1408b71d2: mov      qword ptr [rsp + 0x10], rbx
+0x1408b71d7: mov      qword ptr [rsp + 0x18], rcx
+0x1408b71dc: nop      dword ptr [rax]
+0x1408b71e0: call     0x14007f140    ; runtime.morestack_noctxt
+0x1408b71e5: mov      rax, qword ptr [rsp + 8]
+0x1408b71ea: mov      rbx, qword ptr [rsp + 0x10]
+0x1408b71ef: mov      rcx, qword ptr [rsp + 0x18]
+0x1408b71f4: jmp      0x1408b70c0    ; main.BootstrapService.failLauncherUpdateProgress
+0x1408b71f9: int3     
+0x1408b71fa: int3     
+0x1408b71fb: int3     
+0x1408b71fc: int3     
+0x1408b71fd: int3     
+0x1408b71fe: int3     
+0x1408b71ff: int3     

@@ -1,0 +1,111 @@
+0x140973e00: cmp      rsp, qword ptr [r14 + 0x10]
+0x140973e04: jbe      0x140973f64   ; main.adjustScreenshotCursorVisibility+0x164
+0x140973e0a: push     rbp
+0x140973e0b: mov      rbp, rsp
+0x140973e0e: sub      rsp, 0x58
+0x140973e12: mov      byte ptr [rsp + 0x68], al
+0x140973e16: movzx    edx, al
+0x140973e19: mov      qword ptr [rsp + 0x28], rdx
+0x140973e1e: xor      ecx, ecx
+0x140973e20: jmp      0x140973e31   ; main.adjustScreenshotCursorVisibility+0x31
+0x140973e22: mov      rcx, qword ptr [rsp + 0x38]
+0x140973e27: inc      rcx
+0x140973e2a: mov      eax, edx
+0x140973e2c: mov      rdx, qword ptr [rsp + 0x28]
+0x140973e31: cmp      rcx, 0x40
+0x140973e35: jge      0x140973f36   ; main.adjustScreenshotCursorVisibility+0x136
+0x140973e3b: mov      qword ptr [rsp + 0x38], rcx
+0x140973e40: lea      rax, [rip + 0x189b39]
+0x140973e47: call     0x14001ae20   ; runtime.newobject
+0x140973e4c: mov      rcx, qword ptr [rsp + 0x28]
+0x140973e51: mov      qword ptr [rax], rcx
+0x140973e54: mov      rcx, qword ptr [rip + 0x124de05]
+0x140973e5b: mov      rbx, rax
+0x140973e5e: mov      edi, 1
+0x140973e63: mov      rax, rcx
+0x140973e66: mov      rcx, rdi
+0x140973e69: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x140973e6e: movzx    edx, byte ptr [rsp + 0x68]
+0x140973e73: test     dl, dl
+0x140973e75: je       0x140973e80   ; main.adjustScreenshotCursorVisibility+0x80
+0x140973e77: test     eax, eax
+0x140973e79: jge      0x140973eeb   ; main.adjustScreenshotCursorVisibility+0xeb
+0x140973e7b: test     dl, dl
+0x140973e7d: jne      0x140973e88   ; main.adjustScreenshotCursorVisibility+0x88
+0x140973e7f: nop      
+0x140973e80: test     eax, eax
+0x140973e82: jl       0x140973f2f   ; main.adjustScreenshotCursorVisibility+0x12f
+0x140973e88: test     rcx, rcx
+0x140973e8b: je       0x140973ed8   ; main.adjustScreenshotCursorVisibility+0xd8
+0x140973e8d: lea      rax, [rip + 0x85ee4c]
+0x140973e94: cmp      rcx, rax
+0x140973e97: je       0x140973ea2   ; main.adjustScreenshotCursorVisibility+0xa2
+0x140973e99: mov      ebx, 1
+0x140973e9e: nop      
+0x140973ea0: jmp      0x140973ee1   ; main.adjustScreenshotCursorVisibility+0xe1
+0x140973ea2: mov      qword ptr [rsp + 0x40], rdi
+0x140973ea7: mov      qword ptr [rsp + 0x30], rcx
+0x140973eac: lea      rbx, [rip + 0x85966d]
+0x140973eb3: mov      rcx, rdi
+0x140973eb6: call     0x140010840   ; runtime.ifaceeq
+0x140973ebb: xor      eax, 1
+0x140973ebe: mov      rcx, qword ptr [rsp + 0x30]
+0x140973ec3: movzx    edx, byte ptr [rsp + 0x68]
+0x140973ec8: mov      rdi, qword ptr [rsp + 0x40]
+0x140973ecd: mov      ebx, eax
+0x140973ecf: lea      rax, [rip + 0x85ee0a]
+0x140973ed6: jmp      0x140973ee1   ; main.adjustScreenshotCursorVisibility+0xe1
+0x140973ed8: lea      rax, [rip + 0x85ee01]
+0x140973edf: xor      ebx, ebx
+0x140973ee1: test     bl, bl
+0x140973ee3: je       0x140973e22   ; main.adjustScreenshotCursorVisibility+0x22
+0x140973ee9: jmp      0x140973ef2   ; main.adjustScreenshotCursorVisibility+0xf2
+0x140973eeb: mov      eax, 1
+0x140973ef0: jmp      0x140973f38   ; main.adjustScreenshotCursorVisibility+0x138
+0x140973ef2: movups   xmmword ptr [rsp + 0x48], xmm15
+0x140973ef8: test     rcx, rcx
+0x140973efb: je       0x140973f01   ; main.adjustScreenshotCursorVisibility+0x101
+0x140973efd: mov      rcx, qword ptr [rcx + 8]
+0x140973f01: mov      qword ptr [rsp + 0x48], rcx
+0x140973f06: mov      qword ptr [rsp + 0x50], rdi
+0x140973f0b: lea      rax, [rip + 0x30e270]
+0x140973f12: mov      ebx, 0x2b
+0x140973f17: lea      rcx, [rsp + 0x48]
+0x140973f1c: mov      edi, 1
+0x140973f21: mov      rsi, rdi
+0x140973f24: call     0x140133280   ; fmt.Errorf
+0x140973f29: add      rsp, 0x58
+0x140973f2d: pop      rbp
+0x140973f2e: ret      
+0x140973f2f: mov      eax, 1
+0x140973f34: jmp      0x140973f38   ; main.adjustScreenshotCursorVisibility+0x138
+0x140973f36: xor      eax, eax
+0x140973f38: test     al, al
+0x140973f3a: je       0x140973f46   ; main.adjustScreenshotCursorVisibility+0x146
+0x140973f3c: xor      eax, eax
+0x140973f3e: xor      ebx, ebx
+0x140973f40: add      rsp, 0x58
+0x140973f44: pop      rbp
+0x140973f45: ret      
+0x140973f46: lea      rax, [rip + 0x30a2cf]
+0x140973f4d: mov      ebx, 0x27
+0x140973f52: xor      ecx, ecx
+0x140973f54: xor      edi, edi
+0x140973f56: mov      rsi, rdi
+0x140973f59: call     0x140133280   ; fmt.Errorf
+0x140973f5e: add      rsp, 0x58
+0x140973f62: pop      rbp
+0x140973f63: ret      
+0x140973f64: mov      byte ptr [rsp + 8], al
+0x140973f68: call     0x14007f140   ; runtime.morestack_noctxt
+0x140973f6d: movzx    eax, byte ptr [rsp + 8]
+0x140973f72: jmp      0x140973e00   ; main.adjustScreenshotCursorVisibility
+0x140973f77: int3     
+0x140973f78: int3     
+0x140973f79: int3     
+0x140973f7a: int3     
+0x140973f7b: int3     
+0x140973f7c: int3     
+0x140973f7d: int3     
+0x140973f7e: int3     
+0x140973f7f: int3     

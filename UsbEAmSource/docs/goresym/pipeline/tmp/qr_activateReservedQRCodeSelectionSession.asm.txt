@@ -1,0 +1,77 @@
+0x1409376e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409376e4: jbe      0x1409377e2   ; main.activateReservedQRCodeSelectionSession+0x102
+0x1409376ea: push     rbp
+0x1409376eb: mov      rbp, rsp
+0x1409376ee: sub      rsp, 0x30
+0x1409376f2: movq     qword ptr [rsp + 0x28], xmm15
+0x1409376f9: mov      byte ptr [rsp + 0xf], 0
+0x1409376fe: mov      byte ptr [rsp + 0xe], 0
+0x140937703: nop      
+0x140937704: nop      
+0x140937705: mov      rcx, rax
+0x140937708: xor      eax, eax
+0x14093770a: lea      rbx, [rip + 0x12d984f]
+0x140937711: mov      esi, 1
+0x140937716: lock cmpxchg dword ptr [rbx], esi
+0x14093771a: sete     bl
+0x14093771d: nop      dword ptr [rax]
+0x140937720: test     bl, bl
+0x140937722: jne      0x14093773a   ; main.activateReservedQRCodeSelectionSession+0x5a
+0x140937724: mov      qword ptr [rsp + 0x20], rcx
+0x140937729: lea      rax, [rip + 0x12d9830]
+0x140937730: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x140937735: mov      rcx, qword ptr [rsp + 0x20]
+0x14093773a: lea      rax, [rip + 0xbf]
+0x140937741: mov      qword ptr [rsp + 0x10], rax
+0x140937746: lea      rax, [rip + 0x12d9813]
+0x14093774d: mov      qword ptr [rsp + 0x18], rax
+0x140937752: lea      rdx, [rsp + 0x10]
+0x140937757: mov      qword ptr [rsp + 0x28], rdx
+0x14093775c: mov      byte ptr [rsp + 0xf], 1
+0x140937761: cmp      byte ptr [rip + 0x12d9800], 0
+0x140937768: je       0x1409377b6   ; main.activateReservedQRCodeSelectionSession+0xd6
+0x14093776a: cmp      qword ptr [rip + 0x12d97fe], 0
+0x140937772: jne      0x1409377b6   ; main.activateReservedQRCodeSelectionSession+0xd6
+0x140937774: cmp      dword ptr [rip + 0x1323bd5], 0
+0x14093777b: je       0x140937790   ; main.activateReservedQRCodeSelectionSession+0xb0
+0x14093777d: mov      rax, qword ptr [rip + 0x12d97ec]
+0x140937784: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140937789: mov      qword ptr [r11], rcx
+0x14093778c: mov      qword ptr [r11 + 8], rax
+0x140937790: mov      qword ptr [rip + 0x12d97d9], rcx
+0x140937797: mov      byte ptr [rsp + 0xe], 1
+0x14093779c: mov      byte ptr [rsp + 0xf], 0
+0x1409377a1: mov      rdx, qword ptr [rsp + 0x28]
+0x1409377a6: mov      rax, qword ptr [rdx]
+0x1409377a9: call     rax
+0x1409377ab: movzx    eax, byte ptr [rsp + 0xe]
+0x1409377b0: add      rsp, 0x30
+0x1409377b4: pop      rbp
+0x1409377b5: ret      
+0x1409377b6: mov      byte ptr [rsp + 0xe], 0
+0x1409377bb: mov      byte ptr [rsp + 0xf], 0
+0x1409377c0: mov      rax, qword ptr [rsp + 0x10]
+0x1409377c5: call     rax
+0x1409377c7: movzx    eax, byte ptr [rsp + 0xe]
+0x1409377cc: add      rsp, 0x30
+0x1409377d0: pop      rbp
+0x1409377d1: ret      
+0x1409377d2: call     0x1400435e0   ; runtime.deferreturn
+0x1409377d7: movzx    eax, byte ptr [rsp + 0xe]
+0x1409377dc: add      rsp, 0x30
+0x1409377e0: pop      rbp
+0x1409377e1: ret      
+0x1409377e2: mov      qword ptr [rsp + 8], rax
+0x1409377e7: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409377ec: mov      rax, qword ptr [rsp + 8]
+0x1409377f1: jmp      0x1409376e0   ; main.activateReservedQRCodeSelectionSession
+0x1409377f6: int3     
+0x1409377f7: int3     
+0x1409377f8: int3     
+0x1409377f9: int3     
+0x1409377fa: int3     
+0x1409377fb: int3     
+0x1409377fc: int3     
+0x1409377fd: int3     
+0x1409377fe: int3     
+0x1409377ff: int3     

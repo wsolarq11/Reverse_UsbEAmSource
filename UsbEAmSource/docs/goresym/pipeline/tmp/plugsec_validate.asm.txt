@@ -1,0 +1,165 @@
+0x140923be0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140923be4: jbe      0x140923e53   ; main.validatePluginID+0x273
+0x140923bea: push     rbp
+0x140923beb: mov      rbp, rsp
+0x140923bee: sub      rsp, 0x50
+0x140923bf2: mov      qword ptr [rsp + 0x60], rax
+0x140923bf7: call     0x1406daf00   ; changeme/internal/pluginid.Validate
+0x140923bfc: nop      dword ptr [rax]
+0x140923c00: test     rax, rax
+0x140923c03: je       0x140923e49   ; main.validatePluginID+0x269
+0x140923c09: mov      qword ptr [rsp + 0x30], rbx
+0x140923c0e: mov      qword ptr [rsp + 0x28], rax
+0x140923c13: lea      rax, [rip + 0x204786]
+0x140923c1a: call     0x14001ae20   ; runtime.newobject
+0x140923c1f: mov      qword ptr [rsp + 0x48], rax
+0x140923c24: mov      rbx, qword ptr [rsp + 0x30]
+0x140923c29: lea      rcx, [rip + 0x1b60d0]
+0x140923c30: mov      rdi, rax
+0x140923c33: mov      rax, qword ptr [rsp + 0x28]
+0x140923c38: call     0x140090840   ; errors.As
+0x140923c3d: nop      dword ptr [rax]
+0x140923c40: test     al, al
+0x140923c42: je       0x140923e39   ; main.validatePluginID+0x259
+0x140923c48: mov      rdx, qword ptr [rsp + 0x48]
+0x140923c4d: mov      r8, qword ptr [rdx]
+0x140923c50: movzx    r8d, byte ptr [r8]
+0x140923c54: cmp      r8b, 3
+0x140923c58: ja       0x140923d11   ; main.validatePluginID+0x131
+0x140923c5e: nop      
+0x140923c60: cmp      r8b, 1
+0x140923c64: je       0x140923ce3   ; main.validatePluginID+0x103
+0x140923c66: cmp      r8b, 2
+0x140923c6a: je       0x140923ca7   ; main.validatePluginID+0xc7
+0x140923c6c: cmp      r8b, 3
+0x140923c70: jne      0x140923d90   ; main.validatePluginID+0x1b0
+0x140923c76: lea      rax, [rip + 0x230703]
+0x140923c7d: nop      dword ptr [rax]
+0x140923c80: call     0x14001ae20   ; runtime.newobject
+0x140923c85: mov      qword ptr [rax + 8], 0x25
+0x140923c8d: lea      rcx, [rip + 0x35626e]
+0x140923c94: mov      qword ptr [rax], rcx
+0x140923c97: mov      rbx, rax
+0x140923c9a: lea      rax, [rip + 0x8af45f]
+0x140923ca1: add      rsp, 0x50
+0x140923ca5: pop      rbp
+0x140923ca6: ret      
+0x140923ca7: lea      rdx, [rip + 0x1c6392]
+0x140923cae: mov      qword ptr [rsp + 0x38], rdx
+0x140923cb3: lea      rdx, [rip + 0x8a6e2e]
+0x140923cba: mov      qword ptr [rsp + 0x40], rdx
+0x140923cbf: lea      rax, [rip + 0x35b5e4]
+0x140923cc6: mov      ebx, 0x28
+0x140923ccb: lea      rcx, [rsp + 0x38]
+0x140923cd0: mov      edi, 1
+0x140923cd5: mov      rsi, rdi
+0x140923cd8: call     0x140133280   ; fmt.Errorf
+0x140923cdd: add      rsp, 0x50
+0x140923ce1: pop      rbp
+0x140923ce2: ret      
+0x140923ce3: lea      rax, [rip + 0x230696]
+0x140923cea: call     0x14001ae20   ; runtime.newobject
+0x140923cef: mov      qword ptr [rax + 8], 0x18
+0x140923cf7: lea      rcx, [rip + 0x34114a]
+0x140923cfe: mov      qword ptr [rax], rcx
+0x140923d01: mov      rbx, rax
+0x140923d04: lea      rax, [rip + 0x8af3f5]
+0x140923d0b: add      rsp, 0x50
+0x140923d0f: pop      rbp
+0x140923d10: ret      
+0x140923d11: cmp      r8b, 5
+0x140923d15: ja       0x140923d80   ; main.validatePluginID+0x1a0
+0x140923d17: cmp      r8b, 4
+0x140923d1b: jne      0x140923d4b   ; main.validatePluginID+0x16b
+0x140923d1d: lea      rax, [rip + 0x23065c]
+0x140923d24: call     0x14001ae20   ; runtime.newobject
+0x140923d29: mov      qword ptr [rax + 8], 0x24
+0x140923d31: lea      rcx, [rip + 0x354b53]
+0x140923d38: mov      qword ptr [rax], rcx
+0x140923d3b: mov      rbx, rax
+0x140923d3e: lea      rax, [rip + 0x8af3bb]
+0x140923d45: add      rsp, 0x50
+0x140923d49: pop      rbp
+0x140923d4a: ret      
+0x140923d4b: lea      rax, [rip + 0x23062e]
+0x140923d52: call     0x14001ae20   ; runtime.newobject
+0x140923d57: mov      qword ptr [rax + 8], 0x2a
+0x140923d5f: lea      rcx, [rip + 0x35d2fc]
+0x140923d66: mov      qword ptr [rax], rcx
+0x140923d69: mov      rbx, rax
+0x140923d6c: lea      rax, [rip + 0x8af38d]
+0x140923d73: add      rsp, 0x50
+0x140923d77: pop      rbp
+0x140923d78: ret      
+0x140923d79: nop      dword ptr [rax]
+0x140923d80: cmp      r8b, 6
+0x140923d84: je       0x140923e0b   ; main.validatePluginID+0x22b
+0x140923d8a: cmp      r8b, 9
+0x140923d8e: je       0x140923dbe   ; main.validatePluginID+0x1de
+0x140923d90: lea      rax, [rip + 0x2305e9]
+0x140923d97: call     0x14001ae20   ; runtime.newobject
+0x140923d9c: mov      qword ptr [rax + 8], 0x72
+0x140923da4: lea      rcx, [rip + 0x37104a]
+0x140923dab: mov      qword ptr [rax], rcx
+0x140923dae: mov      rbx, rax
+0x140923db1: lea      rax, [rip + 0x8af348]
+0x140923db8: add      rsp, 0x50
+0x140923dbc: pop      rbp
+0x140923dbd: ret      
+0x140923dbe: movups   xmmword ptr [rsp + 0x38], xmm15
+0x140923dc4: mov      rcx, qword ptr [rdx]
+0x140923dc7: mov      rax, qword ptr [rcx + 8]
+0x140923dcb: mov      rbx, qword ptr [rcx + 0x10]
+0x140923dcf: call     0x140076660   ; runtime.convTstring
+0x140923dd4: lea      rcx, [rip + 0x1c6025]
+0x140923ddb: mov      qword ptr [rsp + 0x38], rcx
+0x140923de0: mov      qword ptr [rsp + 0x40], rax
+0x140923de5: lea      rax, [rip + 0x362f17]
+0x140923dec: mov      ebx, 0x30
+0x140923df1: lea      rcx, [rsp + 0x38]
+0x140923df6: mov      edi, 1
+0x140923dfb: mov      rsi, rdi
+0x140923dfe: nop      
+0x140923e00: call     0x140133280   ; fmt.Errorf
+0x140923e05: add      rsp, 0x50
+0x140923e09: pop      rbp
+0x140923e0a: ret      
+0x140923e0b: lea      rax, [rip + 0x23056e]
+0x140923e12: call     0x14001ae20   ; runtime.newobject
+0x140923e17: mov      qword ptr [rax + 8], 0x27
+0x140923e1f: lea      rcx, [rip + 0x35a249]
+0x140923e26: mov      qword ptr [rax], rcx
+0x140923e29: mov      rbx, rax
+0x140923e2c: lea      rax, [rip + 0x8af2cd]
+0x140923e33: add      rsp, 0x50
+0x140923e37: pop      rbp
+0x140923e38: ret      
+0x140923e39: mov      rax, qword ptr [rsp + 0x28]
+0x140923e3e: mov      rbx, qword ptr [rsp + 0x30]
+0x140923e43: add      rsp, 0x50
+0x140923e47: pop      rbp
+0x140923e48: ret      
+0x140923e49: xor      eax, eax
+0x140923e4b: xor      ebx, ebx
+0x140923e4d: add      rsp, 0x50
+0x140923e51: pop      rbp
+0x140923e52: ret      
+0x140923e53: mov      qword ptr [rsp + 8], rax
+0x140923e58: mov      qword ptr [rsp + 0x10], rbx
+0x140923e5d: nop      dword ptr [rax]
+0x140923e60: call     0x14007f140   ; runtime.morestack_noctxt
+0x140923e65: mov      rax, qword ptr [rsp + 8]
+0x140923e6a: mov      rbx, qword ptr [rsp + 0x10]
+0x140923e6f: jmp      0x140923be0   ; main.validatePluginID
+0x140923e74: int3     
+0x140923e75: int3     
+0x140923e76: int3     
+0x140923e77: int3     
+0x140923e78: int3     
+0x140923e79: int3     
+0x140923e7a: int3     
+0x140923e7b: int3     
+0x140923e7c: int3     
+0x140923e7d: int3     
+0x140923e7e: int3     
+0x140923e7f: int3     

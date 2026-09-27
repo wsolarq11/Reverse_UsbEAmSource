@@ -1,0 +1,123 @@
+0x1407d3a40: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407d3a44: jbe      0x1407d3bdf   ; main.splitFileLocatorFilterRuleType+0x19f
+0x1407d3a4a: push     rbp
+0x1407d3a4b: mov      rbp, rsp
+0x1407d3a4e: sub      rsp, 0x20
+0x1407d3a52: mov      qword ptr [rsp + 0x30], rax
+0x1407d3a57: call     0x1400a2200   ; strings.TrimSpace
+0x1407d3a5c: nop      dword ptr [rax]
+0x1407d3a60: cmp      rbx, 2
+0x1407d3a64: jl       0x1407d3a6c   ; main.splitFileLocatorFilterRuleType+0x2c
+0x1407d3a66: cmp      byte ptr [rax + 1], 0x3a
+0x1407d3a6a: je       0x1407d3a7e   ; main.splitFileLocatorFilterRuleType+0x3e
+0x1407d3a6c: mov      rcx, rax
+0x1407d3a6f: mov      rdi, rbx
+0x1407d3a72: xor      esi, esi
+0x1407d3a74: xor      eax, eax
+0x1407d3a76: xor      ebx, ebx
+0x1407d3a78: add      rsp, 0x20
+0x1407d3a7c: pop      rbp
+0x1407d3a7d: ret      
+0x1407d3a7e: mov      qword ptr [rsp + 0x10], rbx
+0x1407d3a83: mov      qword ptr [rsp + 0x18], rax
+0x1407d3a88: mov      ebx, 1
+0x1407d3a8d: call     0x1400a1500   ; strings.ToLower
+0x1407d3a92: cmp      rbx, 1
+0x1407d3a96: jne      0x1407d3bc9   ; main.splitFileLocatorFilterRuleType+0x189
+0x1407d3a9c: movzx    edx, byte ptr [rax]
+0x1407d3a9f: nop      
+0x1407d3aa0: cmp      dl, 0x67
+0x1407d3aa3: jg       0x1407d3b39   ; main.splitFileLocatorFilterRuleType+0xf9
+0x1407d3aa9: cmp      byte ptr [rax], 0x62
+0x1407d3aac: je       0x1407d3af8   ; main.splitFileLocatorFilterRuleType+0xb8
+0x1407d3aae: cmp      dl, 0x67
+0x1407d3ab1: jne      0x1407d3bc9   ; main.splitFileLocatorFilterRuleType+0x189
+0x1407d3ab7: mov      rbx, qword ptr [rsp + 0x10]
+0x1407d3abc: add      rbx, -2
+0x1407d3ac0: mov      rcx, rbx
+0x1407d3ac3: neg      rcx
+0x1407d3ac6: sar      rcx, 0x3f
+0x1407d3aca: and      ecx, 2
+0x1407d3acd: mov      rdx, qword ptr [rsp + 0x18]
+0x1407d3ad2: lea      rax, [rdx + rcx]
+0x1407d3ad6: call     0x1400a2200   ; strings.TrimSpace
+0x1407d3adb: mov      rcx, rax
+0x1407d3ade: mov      rdi, rbx
+0x1407d3ae1: mov      esi, 1
+0x1407d3ae6: lea      rax, [rip + 0x460d11]
+0x1407d3aed: mov      ebx, 4
+0x1407d3af2: add      rsp, 0x20
+0x1407d3af6: pop      rbp
+0x1407d3af7: ret      
+0x1407d3af8: mov      rbx, qword ptr [rsp + 0x10]
+0x1407d3afd: add      rbx, -2
+0x1407d3b01: mov      rcx, rbx
+0x1407d3b04: neg      rcx
+0x1407d3b07: sar      rcx, 0x3f
+0x1407d3b0b: and      ecx, 2
+0x1407d3b0e: mov      rdx, qword ptr [rsp + 0x18]
+0x1407d3b13: lea      rax, [rdx + rcx]
+0x1407d3b17: call     0x1400a2200   ; strings.TrimSpace
+0x1407d3b1c: mov      rcx, rax
+0x1407d3b1f: mov      rdi, rbx
+0x1407d3b22: mov      esi, 1
+0x1407d3b27: lea      rax, [rip + 0x465873]
+0x1407d3b2e: mov      ebx, 7
+0x1407d3b33: add      rsp, 0x20
+0x1407d3b37: pop      rbp
+0x1407d3b38: ret      
+0x1407d3b39: cmp      byte ptr [rax], 0x70
+0x1407d3b3c: je       0x1407d3b88   ; main.splitFileLocatorFilterRuleType+0x148
+0x1407d3b3e: cmp      byte ptr [rax], 0x72
+0x1407d3b41: jne      0x1407d3bc9   ; main.splitFileLocatorFilterRuleType+0x189
+0x1407d3b47: mov      rbx, qword ptr [rsp + 0x10]
+0x1407d3b4c: add      rbx, -2
+0x1407d3b50: mov      rcx, rbx
+0x1407d3b53: neg      rcx
+0x1407d3b56: sar      rcx, 0x3f
+0x1407d3b5a: and      ecx, 2
+0x1407d3b5d: mov      rdx, qword ptr [rsp + 0x18]
+0x1407d3b62: lea      rax, [rdx + rcx]
+0x1407d3b66: call     0x1400a2200   ; strings.TrimSpace
+0x1407d3b6b: mov      rcx, rax
+0x1407d3b6e: mov      rdi, rbx
+0x1407d3b71: mov      esi, 1
+0x1407d3b76: lea      rax, [rip + 0x4620d7]
+0x1407d3b7d: mov      ebx, 5
+0x1407d3b82: add      rsp, 0x20
+0x1407d3b86: pop      rbp
+0x1407d3b87: ret      
+0x1407d3b88: mov      rbx, qword ptr [rsp + 0x10]
+0x1407d3b8d: add      rbx, -2
+0x1407d3b91: mov      rcx, rbx
+0x1407d3b94: neg      rcx
+0x1407d3b97: sar      rcx, 0x3f
+0x1407d3b9b: and      ecx, 2
+0x1407d3b9e: mov      rdx, qword ptr [rsp + 0x18]
+0x1407d3ba3: lea      rax, [rdx + rcx]
+0x1407d3ba7: call     0x1400a2200   ; strings.TrimSpace
+0x1407d3bac: mov      rcx, rax
+0x1407d3baf: mov      rdi, rbx
+0x1407d3bb2: mov      esi, 1
+0x1407d3bb7: lea      rax, [rip + 0x462091]
+0x1407d3bbe: mov      ebx, 5
+0x1407d3bc3: add      rsp, 0x20
+0x1407d3bc7: pop      rbp
+0x1407d3bc8: ret      
+0x1407d3bc9: xor      eax, eax
+0x1407d3bcb: xor      ebx, ebx
+0x1407d3bcd: mov      rcx, qword ptr [rsp + 0x18]
+0x1407d3bd2: mov      rdi, qword ptr [rsp + 0x10]
+0x1407d3bd7: xor      esi, esi
+0x1407d3bd9: add      rsp, 0x20
+0x1407d3bdd: pop      rbp
+0x1407d3bde: ret      
+0x1407d3bdf: mov      qword ptr [rsp + 8], rax
+0x1407d3be4: mov      qword ptr [rsp + 0x10], rbx
+0x1407d3be9: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407d3bee: mov      rax, qword ptr [rsp + 8]
+0x1407d3bf3: mov      rbx, qword ptr [rsp + 0x10]
+0x1407d3bf8: jmp      0x1407d3a40   ; main.splitFileLocatorFilterRuleType
+0x1407d3bfd: int3     
+0x1407d3bfe: int3     
+0x1407d3bff: int3     

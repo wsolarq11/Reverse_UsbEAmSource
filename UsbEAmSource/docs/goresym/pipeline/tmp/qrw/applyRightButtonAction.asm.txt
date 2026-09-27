@@ -1,0 +1,64 @@
+0x1409391c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409391c4: jbe      0x14093924c
+0x1409391ca: push     rbp
+0x1409391cb: mov      rbp, rsp
+0x1409391ce: sub      rsp, 0x10
+0x1409391d2: cmp      byte ptr [rax + 0x269], 0
+0x1409391d9: je       0x140939241
+0x1409391db: cmp      byte ptr [rax + 0x2d8], 0
+0x1409391e2: jne      0x140939202
+0x1409391e4: cmp      qword ptr [rax + 0x2b0], 0
+0x1409391ec: jne      0x140939202
+0x1409391ee: cmp      qword ptr [rax + 0x2e0], 0
+0x1409391f6: jne      0x140939202
+0x1409391f8: cmp      qword ptr [rax + 0x2e8], 0
+0x140939200: je       0x140939241
+0x140939202: mov      qword ptr [rsp + 0x20], rax
+0x140939207: call     0x140947840
+0x14093920c: mov      rax, qword ptr [rsp + 0x20]
+0x140939211: call     0x140940c00
+0x140939216: mov      rcx, qword ptr [rsp + 0x20]
+0x14093921b: mov      rax, qword ptr [rcx + 0x420]
+0x140939222: nop      
+0x140939223: test     rax, rax
+0x140939226: je       0x140939239
+0x140939228: mov      rbx, qword ptr [rcx + 0x438]
+0x14093922f: test     rbx, rbx
+0x140939232: je       0x140939239
+0x140939234: call     0x1409a8300
+0x140939239: xor      eax, eax
+0x14093923b: add      rsp, 0x10
+0x14093923f: pop      rbp
+0x140939240: ret      
+0x140939241: call     0x140939720
+0x140939246: add      rsp, 0x10
+0x14093924a: pop      rbp
+0x14093924b: ret      
+0x14093924c: mov      qword ptr [rsp + 8], rax
+0x140939251: mov      qword ptr [rsp + 0x10], rbx
+0x140939256: call     0x14007f140
+0x14093925b: mov      rax, qword ptr [rsp + 8]
+0x140939260: mov      rbx, qword ptr [rsp + 0x10]
+0x140939265: jmp      0x1409391c0
+0x14093926a: int3     
+0x14093926b: int3     
+0x14093926c: int3     
+0x14093926d: int3     
+0x14093926e: int3     
+0x14093926f: int3     
+0x140939270: int3     
+0x140939271: int3     
+0x140939272: int3     
+0x140939273: int3     
+0x140939274: int3     
+0x140939275: int3     
+0x140939276: int3     
+0x140939277: int3     
+0x140939278: int3     
+0x140939279: int3     
+0x14093927a: int3     
+0x14093927b: int3     
+0x14093927c: int3     
+0x14093927d: int3     
+0x14093927e: int3     
+0x14093927f: int3     

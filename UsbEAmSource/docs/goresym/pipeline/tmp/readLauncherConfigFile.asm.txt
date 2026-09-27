@@ -1,0 +1,118 @@
+0x1408788c0: mov      r12, rsp
+0x1408788c3: sub      r12, 0x2540
+0x1408788ca: jb       0x140878f97   ; main.readLauncherConfigFile+0x6d7
+0x1408788d0: cmp      r12, qword ptr [r14 + 0x10]
+0x1408788d4: jbe      0x140878f97   ; main.readLauncherConfigFile+0x6d7
+0x1408788da: push     rbp
+0x1408788db: mov      rbp, rsp
+0x1408788de: sub      rsp, 0x25b8
+0x1408788e5: mov      qword ptr [rsp + 0x2f00], rax
+0x1408788ed: mov      qword ptr [rsp + 0x2f18], rdi
+0x1408788f5: mov      qword ptr [rsp + 0x2f10], rcx
+0x1408788fd: movups   xmmword ptr [rsp + 0x25c8], xmm15
+0x140878906: lea      rdi, [rsp + 0x25d0]
+0x14087890e: mov      ecx, 0x126
+0x140878913: mov      rdx, rax
+0x140878916: xor      eax, eax
+0x140878918: rep stosq qword ptr [rdi], rax
+0x14087891b: mov      rax, rdx
+0x14087891e: nop      
+0x140878920: call     0x1400a2200   ; strings.TrimSpace
+0x140878925: test     rbx, rbx
+0x140878928: je       0x140878da4   ; main.readLauncherConfigFile+0x4e4
+0x14087892e: call     0x140897c20   ; main.readLauncherConfigBytes
+0x140878933: test     rdi, rdi
+0x140878936: jne      0x140878d77   ; main.readLauncherConfigFile+0x4b7
+0x14087893c: mov      qword ptr [rsp + 0x12a0], rcx
+0x140878944: mov      qword ptr [rsp + 0x1298], rbx
+0x14087894c: mov      qword ptr [rsp + 0x1bf8], rax
+0x140878954: call     0x140898120   ; main.validateLauncherConfigJSONStructure
+0x140878959: test     rax, rax
+0x14087895c: je       0x1408789d1   ; main.readLauncherConfigFile+0x111
+0x14087895e: mov      qword ptr [rsp + 0x1bf0], rbx
+0x140878966: mov      qword ptr [rsp + 0x1290], rax
+0x14087896e: mov      rax, qword ptr [rsp + 0x2f10]
+0x140878976: mov      rbx, qword ptr [rsp + 0x2f18]
+0x14087897e: nop      
+0x140878980: call     0x1400a2200   ; strings.TrimSpace
+0x140878985: movups   xmmword ptr [rsp + 0x1c20], xmm15
+0x14087898e: movups   xmmword ptr [rsp + 0x1c30], xmm15
+0x140878997: mov      qword ptr [rsp + 0x1c28], rbx
+0x14087899f: mov      qword ptr [rsp + 0x1c20], rax
+0x1408789a7: mov      qword ptr [rsp + 0x1c38], 0x12
+0x1408789b3: lea      rcx, [rip + 0x3e12f4]
+0x1408789ba: mov      qword ptr [rsp + 0x1c30], rcx
+0x1408789c2: lea      rcx, [rsp + 0x1c20]
+0x1408789ca: xor      eax, eax
+0x1408789cc: jmp      0x140878ec0   ; main.readLauncherConfigFile+0x600
+0x1408789d1: mov      rax, qword ptr [rsp + 0x1bf8]
+0x1408789d9: mov      rbx, qword ptr [rsp + 0x1298]
+0x1408789e1: mov      rcx, qword ptr [rsp + 0x12a0]
+0x1408789e9: call     0x140879000   ; main.launcherConfigDocumentIsIconLibrary
+0x1408789ee: test     al, al
+0x1408789f0: je       0x140878a53   ; main.readLauncherConfigFile+0x193
+0x1408789f2: mov      rax, qword ptr [rsp + 0x2f10]
+0x1408789fa: mov      rbx, qword ptr [rsp + 0x2f18]
+0x140878a02: call     0x1400a2200   ; strings.TrimSpace
+0x140878a07: movups   xmmword ptr [rsp + 0x1c00], xmm15
+0x140878a10: movups   xmmword ptr [rsp + 0x1c10], xmm15
+0x140878a19: mov      qword ptr [rsp + 0x1c08], rbx
+0x140878a21: mov      qword ptr [rsp + 0x1c00], rax
+0x140878a29: mov      qword ptr [rsp + 0x1c18], 0x12
+0x140878a35: lea      rcx, [rip + 0x3e1272]
+0x140878a3c: mov      qword ptr [rsp + 0x1c10], rcx
+0x140878a44: lea      rcx, [rsp + 0x1c00]
+0x140878a4c: xor      eax, eax
+0x140878a4e: jmp      0x140878e0a   ; main.readLauncherConfigFile+0x54a
+0x140878a53: lea      rax, [rip + 0x391606]
+0x140878a5a: call     0x14001ae20   ; runtime.newobject
+0x140878a5f: mov      qword ptr [rsp + 0x25b0], rax
+0x140878a67: mov      rbx, qword ptr [rsp + 0x1298]
+0x140878a6f: mov      rcx, qword ptr [rsp + 0x12a0]
+0x140878a77: lea      rdi, [rip + 0x2499c2]
+0x140878a7e: mov      rsi, rax
+0x140878a81: mov      rax, qword ptr [rsp + 0x1bf8]
+0x140878a89: call     0x1405835e0   ; encoding/json.Unmarshal
+0x140878a8e: test     rax, rax
+0x140878a91: je       0x140878b7a   ; main.readLauncherConfigFile+0x2ba
+0x140878a97: mov      qword ptr [rsp + 0x1288], rax
+0x140878a9f: mov      qword ptr [rsp + 0x1be8], rbx
+0x140878aa7: mov      rax, qword ptr [rsp + 0x2f10]
+0x140878aaf: mov      rbx, qword ptr [rsp + 0x2f18]
+0x140878ab7: call     0x1400a2200   ; strings.TrimSpace
+0x140878abc: movups   xmmword ptr [rsp + 0x2588], xmm15
+0x140878ac5: movups   xmmword ptr [rsp + 0x2598], xmm15
+0x140878ace: test     rbx, rbx
+0x140878ad1: mov      ecx, 0x12
+0x140878ad6: cmove    rbx, rcx
+0x140878ada: lea      rcx, [rip + 0x3e11cd]
+0x140878ae1: cmove    rax, rcx
+0x140878ae5: call     0x140076660   ; runtime.convTstring
+0x140878aea: lea      rcx, [rip + 0x27130f]
+0x140878af1: mov      qword ptr [rsp + 0x2588], rcx
+0x140878af9: mov      qword ptr [rsp + 0x2590], rax
+0x140878b01: mov      rcx, qword ptr [rsp + 0x1288]
+0x140878b09: test     rcx, rcx
+0x140878b0c: je       0x140878b14   ; main.readLauncherConfigFile+0x254
+0x140878b0e: mov      rax, qword ptr [rcx + 8]
+0x140878b12: jmp      0x140878b17   ; main.readLauncherConfigFile+0x257
+0x140878b14: mov      rax, rcx
+0x140878b17: mov      qword ptr [rsp + 0x2598], rax
+0x140878b1f: mov      rdx, qword ptr [rsp + 0x1be8]
+0x140878b27: mov      qword ptr [rsp + 0x25a0], rdx
+0x140878b2f: lea      rax, [rip + 0x3bead2]
+0x140878b36: mov      ebx, 6
+0x140878b3b: lea      rcx, [rsp + 0x2588]
+0x140878b43: mov      edi, 2
+0x140878b48: mov      rsi, rdi
+0x140878b4b: call     0x140133280   ; fmt.Errorf
+0x140878b50: movups   xmmword ptr [rsp + 0x25c8], xmm15
+0x140878b59: lea      rdi, [rsp + 0x25d0]
+0x140878b61: mov      ecx, 0x126
+0x140878b66: mov      rdx, rax
+0x140878b69: xor      eax, eax
+0x140878b6b: rep stosq qword ptr [rdi], rax
+0x140878b6e: mov      rax, rdx
+0x140878b71: add      rsp, 0x25b8
+0x140878b78: pop      rbp
+0x140878b79: ret      

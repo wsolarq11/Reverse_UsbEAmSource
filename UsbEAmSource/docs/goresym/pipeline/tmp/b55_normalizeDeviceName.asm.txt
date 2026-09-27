@@ -1,0 +1,19 @@
+0x140975f80: cmp      rsp, qword ptr [r14 + 0x10]
+0x140975f84: jbe      0x140975fa3   ; main.normalizeScreenshotDisplayConfigDeviceName+0x23
+0x140975f86: push     rbp
+0x140975f87: mov      rbp, rsp
+0x140975f8a: sub      rsp, 0x10
+0x140975f8e: mov      qword ptr [rsp + 0x20], rax
+0x140975f93: call     0x1400a2200   ; strings.TrimSpace
+0x140975f98: call     0x1400a10a0   ; strings.ToUpper
+0x140975f9d: add      rsp, 0x10
+0x140975fa1: pop      rbp
+0x140975fa2: ret      
+0x140975fa3: mov      qword ptr [rsp + 8], rax
+0x140975fa8: mov      qword ptr [rsp + 0x10], rbx
+0x140975fad: call     0x14007f140   ; runtime.morestack_noctxt
+0x140975fb2: mov      rax, qword ptr [rsp + 8]
+0x140975fb7: mov      rbx, qword ptr [rsp + 0x10]
+0x140975fbc: jmp      0x140975f80   ; main.normalizeScreenshotDisplayConfigDeviceName
+0x140975fbe: int3     
+0x140975fbf: int3     

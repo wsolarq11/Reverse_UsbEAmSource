@@ -1,0 +1,53 @@
+0x14079fac0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14079fac4: jbe      0x14079fb41    ; main.BootstrapService.clearPendingFileSearchResidentWarm+0x81
+0x14079fac6: push     rbp
+0x14079fac7: mov      rbp, rsp
+0x14079faca: sub      rsp, 0x20
+0x14079face: test     rax, rax
+0x14079fad1: je       0x14079fb3a    ; main.BootstrapService.clearPendingFileSearchResidentWarm+0x7a
+0x14079fad3: nop      
+0x14079fad4: lea      rcx, [rax + 0x540]
+0x14079fadb: mov      rdx, rax
+0x14079fade: xor      eax, eax
+0x14079fae0: mov      esi, 1
+0x14079fae5: lock cmpxchg dword ptr [rdx + 0x540], esi
+0x14079faed: sete     sil
+0x14079faf1: test     sil, sil
+0x14079faf4: jne      0x14079fb12    ; main.BootstrapService.clearPendingFileSearchResidentWarm+0x52
+0x14079faf6: mov      qword ptr [rsp + 0x18], rdx
+0x14079fafb: mov      qword ptr [rsp + 0x10], rcx
+0x14079fb00: mov      rax, rcx
+0x14079fb03: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14079fb08: mov      rcx, qword ptr [rsp + 0x10]
+0x14079fb0d: mov      rdx, qword ptr [rsp + 0x18]
+0x14079fb12: mov      byte ptr [rdx + 0x508], 0
+0x14079fb19: nop      
+0x14079fb1a: nop      
+0x14079fb1b: mov      ebx, 0xffffffff
+0x14079fb20: lock xadd dword ptr [rdx + 0x540], ebx
+0x14079fb28: dec      ebx
+0x14079fb2a: je       0x14079fb34    ; main.BootstrapService.clearPendingFileSearchResidentWarm+0x74
+0x14079fb2c: mov      rax, rcx
+0x14079fb2f: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14079fb34: add      rsp, 0x20
+0x14079fb38: pop      rbp
+0x14079fb39: ret      
+0x14079fb3a: add      rsp, 0x20
+0x14079fb3e: pop      rbp
+0x14079fb3f: nop      
+0x14079fb40: ret      
+0x14079fb41: mov      qword ptr [rsp + 8], rax
+0x14079fb46: call     0x14007f140    ; runtime.morestack_noctxt
+0x14079fb4b: mov      rax, qword ptr [rsp + 8]
+0x14079fb50: jmp      0x14079fac0    ; main.BootstrapService.clearPendingFileSearchResidentWarm
+0x14079fb55: int3     
+0x14079fb56: int3     
+0x14079fb57: int3     
+0x14079fb58: int3     
+0x14079fb59: int3     
+0x14079fb5a: int3     
+0x14079fb5b: int3     
+0x14079fb5c: int3     
+0x14079fb5d: int3     
+0x14079fb5e: int3     
+0x14079fb5f: int3     

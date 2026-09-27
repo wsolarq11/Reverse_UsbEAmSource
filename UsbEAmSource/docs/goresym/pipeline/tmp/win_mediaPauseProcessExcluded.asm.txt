@@ -1,0 +1,163 @@
+0x14091c720: lea      r12, [rsp - 0x38]
+0x14091c725: cmp      r12, qword ptr [r14 + 0x10]
+0x14091c729: jbe      0x14091c945   ; main.oledBlackoutMediaPauseProcessExcluded+0x225
+0x14091c72f: push     rbp
+0x14091c730: mov      rbp, rsp
+0x14091c733: sub      rsp, 0xb0
+0x14091c73a: mov      qword ptr [rsp + 0xc8], rbx
+0x14091c742: mov      qword ptr [rsp + 0xd8], rdi
+0x14091c74a: test     rsi, rsi
+0x14091c74d: je       0x14091c7e8   ; main.oledBlackoutMediaPauseProcessExcluded+0xc8
+0x14091c753: mov      dword ptr [rsp + 0xc0], eax
+0x14091c75a: mov      qword ptr [rsp + 0xe0], rsi
+0x14091c762: mov      qword ptr [rsp + 0xd0], rcx
+0x14091c76a: mov      qword ptr [rsp + 0xc8], rbx
+0x14091c772: mov      qword ptr [rsp + 0xd8], rdi
+0x14091c77a: mov      rax, rbx
+0x14091c77d: mov      rbx, rcx
+0x14091c780: call     0x1408fdd60   ; main.normalizeOLEDBlackoutMediaPauseExclusionPath
+0x14091c785: call     0x1400a1500   ; strings.ToLower
+0x14091c78a: mov      qword ptr [rsp + 0x38], rax
+0x14091c78f: mov      qword ptr [rsp + 0x20], rbx
+0x14091c794: mov      rax, qword ptr [rsp + 0xc8]
+0x14091c79c: mov      rbx, qword ptr [rsp + 0xd0]
+0x14091c7a4: call     0x1408fddc0   ; main.normalizeOLEDBlackoutMediaPauseExclusionProcessName
+0x14091c7a9: test     rbx, rbx
+0x14091c7ac: jne      0x14091c7ca   ; main.oledBlackoutMediaPauseProcessExcluded+0xaa
+0x14091c7ae: mov      ecx, dword ptr [rsp + 0xc0]
+0x14091c7b5: test     ecx, ecx
+0x14091c7b7: je       0x14091c7ca   ; main.oledBlackoutMediaPauseProcessExcluded+0xaa
+0x14091c7b9: mov      eax, ecx
+0x14091c7bb: nop      dword ptr [rax + rax]
+0x14091c7c0: call     0x140758d20   ; main.resolveAudioSessionProcessPath
+0x14091c7c5: call     0x1408fddc0   ; main.normalizeOLEDBlackoutMediaPauseExclusionProcessName
+0x14091c7ca: mov      qword ptr [rsp + 0x18], rbx
+0x14091c7cf: mov      qword ptr [rsp + 0x30], rax
+0x14091c7d4: mov      rcx, qword ptr [rsp + 0xd8]
+0x14091c7dc: mov      rdx, qword ptr [rsp + 0xe0]
+0x14091c7e4: xor      esi, esi
+0x14091c7e6: jmp      0x14091c800   ; main.oledBlackoutMediaPauseProcessExcluded+0xe0
+0x14091c7e8: xor      eax, eax
+0x14091c7ea: add      rsp, 0xb0
+0x14091c7f1: pop      rbp
+0x14091c7f2: ret      
+0x14091c7f3: add      rcx, 0x68
+0x14091c7f7: lea      rsi, [r9 + 1]
+0x14091c7fb: nop      dword ptr [rax + rax]
+0x14091c800: cmp      rdx, rsi
+0x14091c803: jle      0x14091c93a   ; main.oledBlackoutMediaPauseProcessExcluded+0x21a
+0x14091c809: mov      r8, qword ptr [rcx]
+0x14091c80c: mov      qword ptr [rsp + 0x40], r8
+0x14091c811: lea      r8, [rcx + 8]
+0x14091c815: lea      rdi, [rsp + 0x48]
+0x14091c81a: mov      r9, rsi
+0x14091c81d: mov      rsi, r8
+0x14091c820: mov      qword ptr [rsp - 0x10], rbp
+0x14091c825: lea      rbp, [rsp - 0x10]
+0x14091c82a: call     0x140081a8c   ; runtime.duffcopy+0x32c
+0x14091c82f: mov      rbp, qword ptr [rbp]
+0x14091c833: cmp      byte ptr [rsp + 0x40], 0
+0x14091c838: je       0x14091c7f3   ; main.oledBlackoutMediaPauseProcessExcluded+0xd3
+0x14091c83a: mov      qword ptr [rsp + 0x28], r9
+0x14091c83f: mov      qword ptr [rsp + 0xa8], rcx
+0x14091c847: mov      rax, qword ptr [rsp + 0x58]
+0x14091c84c: mov      rbx, qword ptr [rsp + 0x60]
+0x14091c851: call     0x1408fdd60   ; main.normalizeOLEDBlackoutMediaPauseExclusionPath
+0x14091c856: call     0x1400a1500   ; strings.ToLower
+0x14091c85b: nop      dword ptr [rax + rax]
+0x14091c860: test     rbx, rbx
+0x14091c863: je       0x14091c8b6   ; main.oledBlackoutMediaPauseProcessExcluded+0x196
+0x14091c865: mov      rdx, qword ptr [rsp + 0x20]
+0x14091c86a: test     rdx, rdx
+0x14091c86d: je       0x14091c892   ; main.oledBlackoutMediaPauseProcessExcluded+0x172
+0x14091c86f: cmp      rbx, rdx
+0x14091c872: je       0x14091c878   ; main.oledBlackoutMediaPauseProcessExcluded+0x158
+0x14091c874: xor      eax, eax
+0x14091c876: jmp      0x14091c88a   ; main.oledBlackoutMediaPauseProcessExcluded+0x16a
+0x14091c878: mov      rcx, rbx
+0x14091c87b: mov      rbx, qword ptr [rsp + 0x38]
+0x14091c880: call     0x140006280   ; runtime.memequal
+0x14091c885: mov      rdx, qword ptr [rsp + 0x20]
+0x14091c88a: test     al, al
+0x14091c88c: jne      0x14091c91e   ; main.oledBlackoutMediaPauseProcessExcluded+0x1fe
+0x14091c892: mov      rax, qword ptr [rsp + 0x30]
+0x14091c897: mov      rcx, qword ptr [rsp + 0xa8]
+0x14091c89f: mov      rdx, qword ptr [rsp + 0xe0]
+0x14091c8a7: mov      rbx, qword ptr [rsp + 0x18]
+0x14091c8ac: mov      r9, qword ptr [rsp + 0x28]
+0x14091c8b1: jmp      0x14091c7f3   ; main.oledBlackoutMediaPauseProcessExcluded+0xd3
+0x14091c8b6: mov      rax, qword ptr [rsp + 0x48]
+0x14091c8bb: mov      rbx, qword ptr [rsp + 0x50]
+0x14091c8c0: call     0x1408fddc0   ; main.normalizeOLEDBlackoutMediaPauseExclusionProcessName
+0x14091c8c5: test     rbx, rbx
+0x14091c8c8: je       0x14091c8f5   ; main.oledBlackoutMediaPauseProcessExcluded+0x1d5
+0x14091c8ca: mov      rdx, qword ptr [rsp + 0x18]
+0x14091c8cf: test     rdx, rdx
+0x14091c8d2: je       0x14091c8fa   ; main.oledBlackoutMediaPauseProcessExcluded+0x1da
+0x14091c8d4: cmp      rbx, rdx
+0x14091c8d7: je       0x14091c8dd   ; main.oledBlackoutMediaPauseProcessExcluded+0x1bd
+0x14091c8d9: xor      eax, eax
+0x14091c8db: jmp      0x14091c8ef   ; main.oledBlackoutMediaPauseProcessExcluded+0x1cf
+0x14091c8dd: mov      rcx, rbx
+0x14091c8e0: mov      rbx, qword ptr [rsp + 0x30]
+0x14091c8e5: call     0x140006280   ; runtime.memequal
+0x14091c8ea: mov      rdx, qword ptr [rsp + 0x18]
+0x14091c8ef: test     al, al
+0x14091c8f1: je       0x14091c8fa   ; main.oledBlackoutMediaPauseProcessExcluded+0x1da
+0x14091c8f3: jmp      0x14091c92c   ; main.oledBlackoutMediaPauseProcessExcluded+0x20c
+0x14091c8f5: mov      rdx, qword ptr [rsp + 0x18]
+0x14091c8fa: mov      rax, qword ptr [rsp + 0x30]
+0x14091c8ff: mov      rcx, qword ptr [rsp + 0xa8]
+0x14091c907: mov      rdx, qword ptr [rsp + 0xe0]
+0x14091c90f: mov      rbx, qword ptr [rsp + 0x18]
+0x14091c914: mov      r9, qword ptr [rsp + 0x28]
+0x14091c919: jmp      0x14091c7f3   ; main.oledBlackoutMediaPauseProcessExcluded+0xd3
+0x14091c91e: mov      eax, 1
+0x14091c923: add      rsp, 0xb0
+0x14091c92a: pop      rbp
+0x14091c92b: ret      
+0x14091c92c: mov      eax, 1
+0x14091c931: add      rsp, 0xb0
+0x14091c938: pop      rbp
+0x14091c939: ret      
+0x14091c93a: xor      eax, eax
+0x14091c93c: add      rsp, 0xb0
+0x14091c943: pop      rbp
+0x14091c944: ret      
+0x14091c945: mov      dword ptr [rsp + 8], eax
+0x14091c949: mov      qword ptr [rsp + 0x10], rbx
+0x14091c94e: mov      qword ptr [rsp + 0x18], rcx
+0x14091c953: mov      qword ptr [rsp + 0x20], rdi
+0x14091c958: mov      qword ptr [rsp + 0x28], rsi
+0x14091c95d: mov      qword ptr [rsp + 0x30], r8
+0x14091c962: call     0x14007f140   ; runtime.morestack_noctxt
+0x14091c967: mov      eax, dword ptr [rsp + 8]
+0x14091c96b: mov      rbx, qword ptr [rsp + 0x10]
+0x14091c970: mov      rcx, qword ptr [rsp + 0x18]
+0x14091c975: mov      rdi, qword ptr [rsp + 0x20]
+0x14091c97a: mov      rsi, qword ptr [rsp + 0x28]
+0x14091c97f: mov      r8, qword ptr [rsp + 0x30]
+0x14091c984: jmp      0x14091c720   ; main.oledBlackoutMediaPauseProcessExcluded
+0x14091c989: int3     
+0x14091c98a: int3     
+0x14091c98b: int3     
+0x14091c98c: int3     
+0x14091c98d: int3     
+0x14091c98e: int3     
+0x14091c98f: int3     
+0x14091c990: int3     
+0x14091c991: int3     
+0x14091c992: int3     
+0x14091c993: int3     
+0x14091c994: int3     
+0x14091c995: int3     
+0x14091c996: int3     
+0x14091c997: int3     
+0x14091c998: int3     
+0x14091c999: int3     
+0x14091c99a: int3     
+0x14091c99b: int3     
+0x14091c99c: int3     
+0x14091c99d: int3     
+0x14091c99e: int3     
+0x14091c99f: int3     

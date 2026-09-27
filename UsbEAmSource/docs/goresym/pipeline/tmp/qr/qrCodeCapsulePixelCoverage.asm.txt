@@ -1,0 +1,95 @@
+0x140958da0: mulsd    xmm5, xmm5
+0x140958da4: xor      ecx, ecx
+0x140958da6: xor      edx, edx
+0x140958da8: jmp      0x140958dad   ; main.qrCodeCapsulePixelCoverage+0xd
+0x140958daa: inc      rcx
+0x140958dad: cmp      rcx, 4
+0x140958db1: jge      0x140958dec   ; main.qrCodeCapsulePixelCoverage+0x4c
+0x140958db3: xorps    xmm6, xmm6
+0x140958db6: cvtsi2sd xmm6, rbx
+0x140958dbb: xorps    xmm7, xmm7
+0x140958dbe: cvtsi2sd xmm7, rcx
+0x140958dc3: movsd    xmm8, qword ptr [rip + 0x8748b4]
+0x140958dcc: addsd    xmm7, xmm8
+0x140958dd1: movsd    xmm9, qword ptr [rip + 0x87488e]
+0x140958dda: mulsd    xmm7, xmm9
+0x140958ddf: addsd    xmm6, xmm7
+0x140958de3: subsd    xmm6, xmm8
+0x140958de8: xor      esi, esi
+0x140958dea: jmp      0x140958e44   ; main.qrCodeCapsulePixelCoverage+0xa4
+0x140958dec: xorps    xmm0, xmm0
+0x140958def: cvtsi2sd xmm0, rdx
+0x140958df4: movsd    xmm1, qword ptr [rip + 0x87482c]
+0x140958dfc: mulsd    xmm0, xmm1
+0x140958e00: ret      
+0x140958e01: lea      rdi, [rdx + 1]
+0x140958e05: movups   xmm13, xmm6
+0x140958e09: mulsd    xmm6, xmm2
+0x140958e0d: addsd    xmm6, xmm0
+0x140958e11: mulsd    xmm13, xmm3
+0x140958e16: addsd    xmm13, xmm1
+0x140958e1b: subsd    xmm11, xmm6
+0x140958e20: movups   xmm6, xmm12
+0x140958e24: subsd    xmm12, xmm13
+0x140958e29: mulsd    xmm11, xmm11
+0x140958e2e: mulsd    xmm12, xmm12
+0x140958e33: addsd    xmm12, xmm11
+0x140958e38: inc      rsi
+0x140958e3b: ucomisd  xmm5, xmm12
+0x140958e40: cmovae   rdx, rdi
+0x140958e44: cmp      rsi, 4
+0x140958e48: jge      0x140958daa   ; main.qrCodeCapsulePixelCoverage+0xa
+0x140958e4e: xorps    xmm7, xmm7
+0x140958e51: cvtsi2sd xmm7, rax
+0x140958e56: xorps    xmm10, xmm10
+0x140958e5a: cvtsi2sd xmm10, rsi
+0x140958e5f: addsd    xmm10, xmm8
+0x140958e64: mulsd    xmm10, xmm9
+0x140958e69: addsd    xmm7, xmm10
+0x140958e6e: subsd    xmm7, xmm8
+0x140958e73: xorps    xmm10, xmm10
+0x140958e77: ucomisd  xmm4, xmm10
+0x140958e7c: jbe      0x140958ed4   ; main.qrCodeCapsulePixelCoverage+0x134
+0x140958e7e: movups   xmm11, xmm7
+0x140958e82: subsd    xmm7, xmm0
+0x140958e86: mulsd    xmm7, xmm2
+0x140958e8a: movups   xmm12, xmm6
+0x140958e8e: subsd    xmm6, xmm1
+0x140958e92: mulsd    xmm6, xmm3
+0x140958e96: addsd    xmm6, xmm7
+0x140958e9a: divsd    xmm6, xmm4
+0x140958e9e: ucomisd  xmm10, xmm6
+0x140958ea3: jbe      0x140958eb5   ; main.qrCodeCapsulePixelCoverage+0x115
+0x140958ea5: movsd    xmm7, qword ptr [rip + 0x874823]
+0x140958ead: xorps    xmm6, xmm6
+0x140958eb0: jmp      0x140958e01   ; main.qrCodeCapsulePixelCoverage+0x61
+0x140958eb5: movsd    xmm7, qword ptr [rip + 0x874813]
+0x140958ebd: ucomisd  xmm6, xmm7
+0x140958ec1: jbe      0x140958e01   ; main.qrCodeCapsulePixelCoverage+0x61
+0x140958ec7: movsd    xmm6, qword ptr [rip + 0x874801]
+0x140958ecf: jmp      0x140958e01   ; main.qrCodeCapsulePixelCoverage+0x61
+0x140958ed4: movups   xmm11, xmm7
+0x140958ed8: movups   xmm12, xmm6
+0x140958edc: xorps    xmm6, xmm6
+0x140958edf: movsd    xmm7, qword ptr [rip + 0x8747e9]
+0x140958ee7: jmp      0x140958e01   ; main.qrCodeCapsulePixelCoverage+0x61
+0x140958eec: int3     
+0x140958eed: int3     
+0x140958eee: int3     
+0x140958eef: int3     
+0x140958ef0: int3     
+0x140958ef1: int3     
+0x140958ef2: int3     
+0x140958ef3: int3     
+0x140958ef4: int3     
+0x140958ef5: int3     
+0x140958ef6: int3     
+0x140958ef7: int3     
+0x140958ef8: int3     
+0x140958ef9: int3     
+0x140958efa: int3     
+0x140958efb: int3     
+0x140958efc: int3     
+0x140958efd: int3     
+0x140958efe: int3     
+0x140958eff: int3     

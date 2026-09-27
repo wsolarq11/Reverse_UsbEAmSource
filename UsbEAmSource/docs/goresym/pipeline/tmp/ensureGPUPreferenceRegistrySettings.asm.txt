@@ -1,0 +1,117 @@
+0x14085ac40: cmp      rsp, qword ptr [r14 + 0x10]
+0x14085ac44: jbe      0x14085ad9a   ; main.ensureGPUPreferenceRegistrySettings+0x15a
+0x14085ac4a: push     rbp
+0x14085ac4b: mov      rbp, rsp
+0x14085ac4e: sub      rsp, 0x60
+0x14085ac52: mov      qword ptr [rsp + 0x70], rax
+0x14085ac57: call     0x14085a700   ; main.normalizeGPUPreferenceRegistrySettings
+0x14085ac5c: mov      qword ptr [rsp + 0x48], rax
+0x14085ac61: mov      qword ptr [rsp + 0x28], rbx
+0x14085ac66: mov      qword ptr [rsp + 0x30], rcx
+0x14085ac6b: mov      rdx, rax
+0x14085ac6e: xor      esi, esi
+0x14085ac70: jmp      0x14085ac92   ; main.ensureGPUPreferenceRegistrySettings+0x52
+0x14085ac72: mov      rax, qword ptr [rsp + 0x58]
+0x14085ac77: add      rax, 0x20
+0x14085ac7b: mov      rsi, qword ptr [rsp + 0x40]
+0x14085ac80: inc      rsi
+0x14085ac83: mov      rcx, qword ptr [rsp + 0x30]
+0x14085ac88: mov      rdx, qword ptr [rsp + 0x48]
+0x14085ac8d: mov      rbx, qword ptr [rsp + 0x28]
+0x14085ac92: cmp      rbx, rsi
+0x14085ac95: jle      0x14085acd9   ; main.ensureGPUPreferenceRegistrySettings+0x99
+0x14085ac97: mov      qword ptr [rsp + 0x40], rsi
+0x14085ac9c: mov      qword ptr [rsp + 0x58], rax
+0x14085aca1: mov      rdx, qword ptr [rax]
+0x14085aca4: mov      rbx, qword ptr [rax + 8]
+0x14085aca8: mov      rax, rdx
+0x14085acab: lea      rcx, [rip + 0x3f339c]
+0x14085acb2: mov      edi, 0xd
+0x14085acb7: call     0x1400a2c40   ; strings.EqualFold
+0x14085acbc: nop      dword ptr [rax]
+0x14085acc0: test     al, al
+0x14085acc2: je       0x14085ac72   ; main.ensureGPUPreferenceRegistrySettings+0x32
+0x14085acc4: mov      rax, qword ptr [rsp + 0x48]
+0x14085acc9: mov      rbx, qword ptr [rsp + 0x28]
+0x14085acce: mov      rcx, qword ptr [rsp + 0x30]
+0x14085acd3: add      rsp, 0x60
+0x14085acd7: pop      rbp
+0x14085acd8: ret      
+0x14085acd9: lea      rcx, [rbx + 1]
+0x14085acdd: mov      qword ptr [rsp + 0x40], rcx
+0x14085ace2: lea      rax, [rip + 0x2a3357]
+0x14085ace9: call     0x14001ae20   ; runtime.newobject
+0x14085acee: mov      qword ptr [rax + 8], 0xd
+0x14085acf6: lea      rcx, [rip + 0x3f3351]
+0x14085acfd: mov      qword ptr [rax], rcx
+0x14085ad00: mov      qword ptr [rax + 0x18], 1
+0x14085ad08: lea      rcx, [rip + 0x96f6b9]
+0x14085ad0f: mov      qword ptr [rax + 0x10], rcx
+0x14085ad13: mov      rbx, qword ptr [rsp + 0x40]
+0x14085ad18: cmp      rbx, 1
+0x14085ad1c: ja       0x14085ad2a   ; main.ensureGPUPreferenceRegistrySettings+0xea
+0x14085ad1e: mov      ecx, 1
+0x14085ad23: mov      ebx, 1
+0x14085ad28: jmp      0x14085ad45   ; main.ensureGPUPreferenceRegistrySettings+0x105
+0x14085ad2a: mov      ecx, 1
+0x14085ad2f: mov      rdi, qword ptr [rsp + 0x28]
+0x14085ad34: lea      rsi, [rip + 0x323285]
+0x14085ad3b: nop      dword ptr [rax + rax]
+0x14085ad40: call     0x14007ad20   ; runtime.growslice
+0x14085ad45: mov      qword ptr [rsp + 0x40], rcx
+0x14085ad4a: mov      qword ptr [rsp + 0x38], rbx
+0x14085ad4f: mov      qword ptr [rsp + 0x50], rax
+0x14085ad54: lea      rdx, [rbx - 1]
+0x14085ad58: lea      r8, [rcx - 1]
+0x14085ad5c: neg      r8
+0x14085ad5f: sar      r8, 0x3f
+0x14085ad63: and      r8d, 0x20
+0x14085ad67: lea      rbx, [rax + r8]
+0x14085ad6b: lea      rax, [rip + 0x32324e]
+0x14085ad72: mov      rcx, rdx
+0x14085ad75: mov      rdi, qword ptr [rsp + 0x48]
+0x14085ad7a: mov      rsi, qword ptr [rsp + 0x28]
+0x14085ad7f: nop      
+0x14085ad80: call     0x140077380   ; runtime.typedslicecopy
+0x14085ad85: mov      rax, qword ptr [rsp + 0x50]
+0x14085ad8a: mov      rbx, qword ptr [rsp + 0x38]
+0x14085ad8f: mov      rcx, qword ptr [rsp + 0x40]
+0x14085ad94: add      rsp, 0x60
+0x14085ad98: pop      rbp
+0x14085ad99: ret      
+0x14085ad9a: mov      qword ptr [rsp + 8], rax
+0x14085ad9f: mov      qword ptr [rsp + 0x10], rbx
+0x14085ada4: mov      qword ptr [rsp + 0x18], rcx
+0x14085ada9: call     0x14007f140   ; runtime.morestack_noctxt
+0x14085adae: mov      rax, qword ptr [rsp + 8]
+0x14085adb3: mov      rbx, qword ptr [rsp + 0x10]
+0x14085adb8: mov      rcx, qword ptr [rsp + 0x18]
+0x14085adbd: nop      dword ptr [rax]
+0x14085adc0: jmp      0x14085ac40   ; main.ensureGPUPreferenceRegistrySettings
+0x14085adc5: int3     
+0x14085adc6: int3     
+0x14085adc7: int3     
+0x14085adc8: int3     
+0x14085adc9: int3     
+0x14085adca: int3     
+0x14085adcb: int3     
+0x14085adcc: int3     
+0x14085adcd: int3     
+0x14085adce: int3     
+0x14085adcf: int3     
+0x14085add0: int3     
+0x14085add1: int3     
+0x14085add2: int3     
+0x14085add3: int3     
+0x14085add4: int3     
+0x14085add5: int3     
+0x14085add6: int3     
+0x14085add7: int3     
+0x14085add8: int3     
+0x14085add9: int3     
+0x14085adda: int3     
+0x14085addb: int3     
+0x14085addc: int3     
+0x14085addd: int3     
+0x14085adde: int3     
+0x14085addf: int3     

@@ -1,0 +1,47 @@
+0x14096f100: cmp      rsp, qword ptr [r14 + 0x10]
+0x14096f104: jbe      0x14096f15e   ; main.drawScreenshotCaptureCursorOnRGBA+0x5e
+0x14096f106: push     rbp
+0x14096f107: mov      rbp, rsp
+0x14096f10a: sub      rsp, 0x48
+0x14096f10e: cmp      byte ptr [rsp + 0x58], 0
+0x14096f113: je       0x14096f156   ; main.drawScreenshotCaptureCursorOnRGBA+0x56
+0x14096f115: cmp      byte ptr [rsp + 0x78], 0
+0x14096f11a: je       0x14096f14b   ; main.drawScreenshotCaptureCursorOnRGBA+0x4b
+0x14096f11c: mov      rdx, qword ptr [rsp + 0x60]
+0x14096f121: mov      r8, qword ptr [rsp + 0x68]
+0x14096f126: mov      r9, qword ptr [rsp + 0x70]
+0x14096f12b: mov      qword ptr [rsp], rdx
+0x14096f12f: mov      qword ptr [rsp + 8], r8
+0x14096f134: mov      qword ptr [rsp + 0x10], r9
+0x14096f139: mov      byte ptr [rsp + 0x18], 1
+0x14096f13e: nop      
+0x14096f140: call     0x140974560   ; main.drawScreenshotCursorSnapshotOnRGBA
+0x14096f145: add      rsp, 0x48
+0x14096f149: pop      rbp
+0x14096f14a: ret      
+0x14096f14b: call     0x1409744a0   ; main.drawScreenshotCursorOnRGBA
+0x14096f150: add      rsp, 0x48
+0x14096f154: pop      rbp
+0x14096f155: ret      
+0x14096f156: xor      eax, eax
+0x14096f158: add      rsp, 0x48
+0x14096f15c: pop      rbp
+0x14096f15d: ret      
+0x14096f15e: mov      qword ptr [rsp + 0x38], rax
+0x14096f163: mov      qword ptr [rsp + 0x40], rbx
+0x14096f168: mov      qword ptr [rsp + 0x48], rcx
+0x14096f16d: mov      qword ptr [rsp + 0x50], rdi
+0x14096f172: mov      qword ptr [rsp + 0x58], rsi
+0x14096f177: call     0x14007f140   ; runtime.morestack_noctxt
+0x14096f17c: mov      rax, qword ptr [rsp + 0x38]
+0x14096f181: mov      rbx, qword ptr [rsp + 0x40]
+0x14096f186: mov      rcx, qword ptr [rsp + 0x48]
+0x14096f18b: mov      rdi, qword ptr [rsp + 0x50]
+0x14096f190: mov      rsi, qword ptr [rsp + 0x58]
+0x14096f195: jmp      0x14096f100   ; main.drawScreenshotCaptureCursorOnRGBA
+0x14096f19a: int3     
+0x14096f19b: int3     
+0x14096f19c: int3     
+0x14096f19d: int3     
+0x14096f19e: int3     
+0x14096f19f: int3     

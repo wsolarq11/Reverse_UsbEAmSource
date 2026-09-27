@@ -1,0 +1,126 @@
+0x14086ca40: cmp      rsp, qword ptr [r14 + 0x10]
+0x14086ca44: jbe      0x14086caec   ; main.currentLauncherExecutablePath+0xac
+0x14086ca4a: push     rbp
+0x14086ca4b: mov      rbp, rsp
+0x14086ca4e: sub      rsp, 0x38
+0x14086ca52: call     0x140127960   ; os.Executable
+0x14086ca57: test     rcx, rcx
+0x14086ca5a: je       0x14086caa1   ; main.currentLauncherExecutablePath+0x61
+0x14086ca5c: movups   xmmword ptr [rsp + 0x28], xmm15
+0x14086ca62: je       0x14086ca68   ; main.currentLauncherExecutablePath+0x28
+0x14086ca64: mov      rcx, qword ptr [rcx + 8]
+0x14086ca68: mov      qword ptr [rsp + 0x28], rcx
+0x14086ca6d: mov      qword ptr [rsp + 0x30], rdi
+0x14086ca72: lea      rax, [rip + 0x408dc4]
+0x14086ca79: mov      ebx, 0x22
+0x14086ca7e: lea      rcx, [rsp + 0x28]
+0x14086ca83: mov      edi, 1
+0x14086ca88: mov      rsi, rdi
+0x14086ca8b: call     0x140133280   ; fmt.Errorf
+0x14086ca90: mov      rcx, rax
+0x14086ca93: mov      rdi, rbx
+0x14086ca96: xor      eax, eax
+0x14086ca98: xor      ebx, ebx
+0x14086ca9a: add      rsp, 0x38
+0x14086ca9e: pop      rbp
+0x14086ca9f: nop      
+0x14086caa0: ret      
+0x14086caa1: call     0x1400a2200   ; strings.TrimSpace
+0x14086caa6: call     0x1401154c0   ; internal/filepathlite.Clean
+0x14086caab: test     rbx, rbx
+0x14086caae: jne      0x14086cae2   ; main.currentLauncherExecutablePath+0xa2
+0x14086cab0: lea      rax, [rip + 0x2e78c9]
+0x14086cab7: call     0x14001ae20   ; runtime.newobject
+0x14086cabc: mov      qword ptr [rax + 8], 0x18
+0x14086cac4: lea      rcx, [rip + 0x3f849d]
+0x14086cacb: mov      qword ptr [rax], rcx
+0x14086cace: xor      ebx, ebx
+0x14086cad0: lea      rcx, [rip + 0x966629]
+0x14086cad7: mov      rdi, rax
+0x14086cada: xor      eax, eax
+0x14086cadc: add      rsp, 0x38
+0x14086cae0: pop      rbp
+0x14086cae1: ret      
+0x14086cae2: xor      ecx, ecx
+0x14086cae4: xor      edi, edi
+0x14086cae6: add      rsp, 0x38
+0x14086caea: pop      rbp
+0x14086caeb: ret      
+0x14086caec: call     0x14007f140   ; runtime.morestack_noctxt
+0x14086caf1: jmp      0x14086ca40   ; main.currentLauncherExecutablePath
+0x14086caf6: int3     
+0x14086caf7: int3     
+0x14086caf8: int3     
+0x14086caf9: int3     
+0x14086cafa: int3     
+0x14086cafb: int3     
+0x14086cafc: int3     
+0x14086cafd: int3     
+0x14086cafe: int3     
+0x14086caff: int3     
+0x14086cb00: lea      r12, [rsp - 0x20]
+0x14086cb05: cmp      r12, qword ptr [r14 + 0x10]
+0x14086cb09: jbe      0x14086cc88   ; main.resolveLauncherStartMenuShortcutPath+0x188
+0x14086cb0f: push     rbp
+0x14086cb10: mov      rbp, rsp
+0x14086cb13: sub      rsp, 0x98
+0x14086cb1a: lea      rax, [rip + 0x3cc7ed]
+0x14086cb21: mov      ebx, 7
+0x14086cb26: call     0x140125a00   ; os.Getenv
+0x14086cb2b: call     0x1400a2200   ; strings.TrimSpace
+0x14086cb30: test     rbx, rbx
+0x14086cb33: jne      0x14086cb97   ; main.resolveLauncherStartMenuShortcutPath+0x97
+0x14086cb35: call     0x140128dc0   ; os.UserConfigDir
+0x14086cb3a: test     rcx, rcx
+0x14086cb3d: je       0x14086cb92   ; main.resolveLauncherStartMenuShortcutPath+0x92
+0x14086cb3f: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14086cb48: je       0x14086cb4e   ; main.resolveLauncherStartMenuShortcutPath+0x4e
+0x14086cb4a: mov      rcx, qword ptr [rcx + 8]
+0x14086cb4e: mov      qword ptr [rsp + 0x88], rcx
+0x14086cb56: mov      qword ptr [rsp + 0x90], rdi
+0x14086cb5e: lea      rax, [rip + 0x408cfa]
+0x14086cb65: mov      ebx, 0x22
+0x14086cb6a: lea      rcx, [rsp + 0x88]
+0x14086cb72: mov      edi, 1
+0x14086cb77: mov      rsi, rdi
+0x14086cb7a: call     0x140133280   ; fmt.Errorf
+0x14086cb7f: mov      rcx, rax
+0x14086cb82: mov      rdi, rbx
+0x14086cb85: xor      eax, eax
+0x14086cb87: xor      ebx, ebx
+0x14086cb89: add      rsp, 0x98
+0x14086cb90: pop      rbp
+0x14086cb91: ret      
+0x14086cb92: call     0x1400a2200   ; strings.TrimSpace
+0x14086cb97: test     rbx, rbx
+0x14086cb9a: jne      0x14086cbd1   ; main.resolveLauncherStartMenuShortcutPath+0xd1
+0x14086cb9c: lea      rax, [rip + 0x2e77dd]
+0x14086cba3: call     0x14001ae20   ; runtime.newobject
+0x14086cba8: mov      qword ptr [rax + 8], 0x1b
+0x14086cbb0: lea      rcx, [rip + 0x3fd247]
+0x14086cbb7: mov      qword ptr [rax], rcx
+0x14086cbba: xor      ebx, ebx
+0x14086cbbc: lea      rcx, [rip + 0x96653d]
+0x14086cbc3: mov      rdi, rax
+0x14086cbc6: xor      eax, eax
+0x14086cbc8: add      rsp, 0x98
+0x14086cbcf: pop      rbp
+0x14086cbd0: ret      
+0x14086cbd1: lea      rdi, [rsp + 0x28]
+0x14086cbd6: lea      rdi, [rdi - 0x20]
+0x14086cbda: nop      word ptr [rax + rax]
+0x14086cbe0: mov      qword ptr [rsp - 0x10], rbp
+0x14086cbe5: lea      rbp, [rsp - 0x10]
+0x14086cbea: call     0x14008172b   ; runtime.duffzero+0x14b
+0x14086cbef: mov      rbp, qword ptr [rbp]
+0x14086cbf3: mov      qword ptr [rsp + 0x30], rbx
+0x14086cbf8: mov      qword ptr [rsp + 0x28], rax
+0x14086cbfd: mov      qword ptr [rsp + 0x40], 9
+0x14086cc06: lea      rdx, [rip + 0x3d2a0f]
+0x14086cc0d: mov      qword ptr [rsp + 0x38], rdx
+0x14086cc12: mov      qword ptr [rsp + 0x50], 7
+0x14086cc1b: lea      rdx, [rip + 0x3cc7f6]
+0x14086cc22: mov      qword ptr [rsp + 0x48], rdx
+0x14086cc27: mov      qword ptr [rsp + 0x60], 0xa
+0x14086cc30: lea      rdx, [rip + 0x3d7530]
+0x14086cc37: mov      qword ptr [rsp + 0x58], rdx

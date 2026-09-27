@@ -1,0 +1,110 @@
+0x14089ca40: mov      r12, rsp
+0x14089ca43: sub      r12, 0x1218
+0x14089ca4a: jb       0x14089cbd2    ; main.launcherConfigStore.deletePreparedLocked+0x192
+0x14089ca50: cmp      r12, qword ptr [r14 + 0x10]
+0x14089ca54: jbe      0x14089cbd2    ; main.launcherConfigStore.deletePreparedLocked+0x192
+0x14089ca5a: push     rbp
+0x14089ca5b: mov      rbp, rsp
+0x14089ca5e: sub      rsp, 0x1290
+0x14089ca65: mov      qword ptr [rsp + 0x12a0], rax
+0x14089ca6d: mov      qword ptr [rsp + 0x12a8], rbx
+0x14089ca75: movups   xmmword ptr [rsp + 0x958], xmm15
+0x14089ca7e: lea      rdi, [rsp + 0x960]
+0x14089ca86: mov      ecx, 0x126
+0x14089ca8b: mov      rdx, rax
+0x14089ca8e: xor      eax, eax
+0x14089ca90: rep stosq qword ptr [rdi], rax
+0x14089ca93: mov      rax, rdx
+0x14089ca96: call     0x140898d40    ; main.launcherConfigStore.loadUnlocked
+0x14089ca9b: mov      rdx, qword ptr [rsp]
+0x14089ca9f: mov      qword ptr [rsp + 0x958], rdx
+0x14089caa7: lea      rdi, [rsp + 0x960]
+0x14089caaf: lea      rsi, [rsp + 8]
+0x14089cab4: mov      rdx, rcx
+0x14089cab7: mov      ecx, 0x126
+0x14089cabc: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14089cabf: nop      
+0x14089cac0: test     rbx, rbx
+0x14089cac3: jne      0x14089cbc3    ; main.launcherConfigStore.deletePreparedLocked+0x183
+0x14089cac9: mov      rdx, qword ptr [rsp + 0x12a8]
+0x14089cad1: test     rdx, rdx
+0x14089cad4: je       0x14089cb15    ; main.launcherConfigStore.deletePreparedLocked+0xd5
+0x14089cad6: mov      byte ptr [rsp + 0x947], al
+0x14089cadd: mov      rbx, qword ptr [rsp + 0x958]
+0x14089cae5: mov      r8, qword ptr [rdx]
+0x14089cae8: mov      qword ptr [rsp], rbx
+0x14089caec: lea      rdi, [rsp + 8]
+0x14089caf1: lea      rsi, [rsp + 0x960]
+0x14089caf9: mov      ecx, 0x126
+0x14089cafe: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14089cb01: call     r8
+0x14089cb04: test     rax, rax
+0x14089cb07: jne      0x14089cbba    ; main.launcherConfigStore.deletePreparedLocked+0x17a
+0x14089cb0d: movzx    eax, byte ptr [rsp + 0x947]
+0x14089cb15: test     al, al
+0x14089cb17: je       0x14089cb96    ; main.launcherConfigStore.deletePreparedLocked+0x156
+0x14089cb19: mov      rcx, qword ptr [rsp + 0x12a0]
+0x14089cb21: mov      rax, qword ptr [rcx]
+0x14089cb24: mov      rbx, qword ptr [rcx + 8]
+0x14089cb28: call     0x14012a5c0    ; os.Remove
+0x14089cb2d: test     rax, rax
+0x14089cb30: je       0x14089cb59    ; main.launcherConfigStore.deletePreparedLocked+0x119
+0x14089cb32: mov      qword ptr [rsp + 0x950], rbx
+0x14089cb3a: mov      qword ptr [rsp + 0x948], rax
+0x14089cb42: mov      rcx, qword ptr [rip + 0x1373e47]
+0x14089cb49: mov      rdi, qword ptr [rip + 0x1373e48]
+0x14089cb50: call     0x1400904a0    ; errors.Is
+0x14089cb55: test     al, al
+0x14089cb57: je       0x14089cb7d    ; main.launcherConfigStore.deletePreparedLocked+0x13d
+0x14089cb59: nop      
+0x14089cb5a: mov      rcx, qword ptr [rsp + 0x12a0]
+0x14089cb62: movups   xmmword ptr [rcx + 0x19], xmm15
+0x14089cb67: movups   xmmword ptr [rcx + 0x29], xmm15
+0x14089cb6c: mov      byte ptr [rcx + 0x39], 0
+0x14089cb70: xor      eax, eax
+0x14089cb72: xor      ebx, ebx
+0x14089cb74: add      rsp, 0x1290
+0x14089cb7b: pop      rbp
+0x14089cb7c: ret      
+0x14089cb7d: mov      rax, qword ptr [rsp + 0x948]
+0x14089cb85: mov      rbx, qword ptr [rsp + 0x950]
+0x14089cb8d: add      rsp, 0x1290
+0x14089cb94: pop      rbp
+0x14089cb95: ret      
+0x14089cb96: nop      
+0x14089cb97: mov      rcx, qword ptr [rsp + 0x12a0]
+0x14089cb9f: movups   xmmword ptr [rcx + 0x19], xmm15
+0x14089cba4: movups   xmmword ptr [rcx + 0x29], xmm15
+0x14089cba9: mov      byte ptr [rcx + 0x39], 0
+0x14089cbad: xor      eax, eax
+0x14089cbaf: xor      ebx, ebx
+0x14089cbb1: add      rsp, 0x1290
+0x14089cbb8: pop      rbp
+0x14089cbb9: ret      
+0x14089cbba: add      rsp, 0x1290
+0x14089cbc1: pop      rbp
+0x14089cbc2: ret      
+0x14089cbc3: mov      rax, rbx
+0x14089cbc6: mov      rbx, rdx
+0x14089cbc9: add      rsp, 0x1290
+0x14089cbd0: pop      rbp
+0x14089cbd1: ret      
+0x14089cbd2: mov      qword ptr [rsp + 8], rax
+0x14089cbd7: mov      qword ptr [rsp + 0x10], rbx
+0x14089cbdc: nop      dword ptr [rax]
+0x14089cbe0: call     0x14007f140    ; runtime.morestack_noctxt
+0x14089cbe5: mov      rax, qword ptr [rsp + 8]
+0x14089cbea: mov      rbx, qword ptr [rsp + 0x10]
+0x14089cbef: jmp      0x14089ca40    ; main.launcherConfigStore.deletePreparedLocked
+0x14089cbf4: int3     
+0x14089cbf5: int3     
+0x14089cbf6: int3     
+0x14089cbf7: int3     
+0x14089cbf8: int3     
+0x14089cbf9: int3     
+0x14089cbfa: int3     
+0x14089cbfb: int3     
+0x14089cbfc: int3     
+0x14089cbfd: int3     
+0x14089cbfe: int3     
+0x14089cbff: int3     

@@ -1,0 +1,58 @@
+0x140750900: cmp      rsp, qword ptr [r14 + 0x10]
+0x140750904: jbe      0x14075099c    ; main.removeArchiveExtractionRoot+0x9c
+0x14075090a: push     rbp
+0x14075090b: mov      rbp, rsp
+0x14075090e: sub      rsp, 0x10
+0x140750912: mov      qword ptr [rsp + 0x28], rbx
+0x140750917: mov      qword ptr [rsp + 0x20], rax
+0x14075091c: nop      dword ptr [rax]
+0x140750920: call     0x14012d9a0    ; os.Lstat
+0x140750925: test     rcx, rcx
+0x140750928: jne      0x140750996    ; main.removeArchiveExtractionRoot+0x96
+0x14075092a: mov      rcx, qword ptr [rax + 0x28]
+0x14075092e: mov      rax, rbx
+0x140750931: call     rcx
+0x140750933: bt       eax, 0x1b
+0x140750937: jb       0x140750981    ; main.removeArchiveExtractionRoot+0x81
+0x140750939: mov      rax, qword ptr [rsp + 0x20]
+0x14075093e: mov      rbx, qword ptr [rsp + 0x28]
+0x140750943: call     0x1408cb340    ; main.launcherUpdatePathHasReparsePoint
+0x140750948: test     rbx, rbx
+0x14075094b: jne      0x140750951    ; main.removeArchiveExtractionRoot+0x51
+0x14075094d: test     al, al
+0x14075094f: jne      0x14075096b    ; main.removeArchiveExtractionRoot+0x6b
+0x140750951: mov      rax, qword ptr [rsp + 0x20]
+0x140750956: mov      rbx, qword ptr [rsp + 0x28]
+0x14075095b: nop      dword ptr [rax + rax]
+0x140750960: call     0x1407509c0    ; main.removeArchiveTreeNoFollow
+0x140750965: add      rsp, 0x10
+0x140750969: pop      rbp
+0x14075096a: ret      
+0x14075096b: mov      rax, qword ptr [rsp + 0x20]
+0x140750970: mov      rbx, qword ptr [rsp + 0x28]
+0x140750975: call     0x14012a5c0    ; os.Remove
+0x14075097a: add      rsp, 0x10
+0x14075097e: pop      rbp
+0x14075097f: nop      
+0x140750980: ret      
+0x140750981: mov      rax, qword ptr [rsp + 0x20]
+0x140750986: mov      rbx, qword ptr [rsp + 0x28]
+0x14075098b: call     0x14012a5c0    ; os.Remove
+0x140750990: add      rsp, 0x10
+0x140750994: pop      rbp
+0x140750995: ret      
+0x140750996: add      rsp, 0x10
+0x14075099a: pop      rbp
+0x14075099b: ret      
+0x14075099c: mov      qword ptr [rsp + 8], rax
+0x1407509a1: mov      qword ptr [rsp + 0x10], rbx
+0x1407509a6: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407509ab: mov      rax, qword ptr [rsp + 8]
+0x1407509b0: mov      rbx, qword ptr [rsp + 0x10]
+0x1407509b5: jmp      0x140750900    ; main.removeArchiveExtractionRoot
+0x1407509ba: int3     
+0x1407509bb: int3     
+0x1407509bc: int3     
+0x1407509bd: int3     
+0x1407509be: int3     
+0x1407509bf: int3     

@@ -1,0 +1,57 @@
+0x1409527e0: mov      qword ptr [rsp + 8], rax
+0x1409527e5: test     rbx, rbx
+0x1409527e8: je       0x140952810   ; main.qrCodeAnnotationPointsBounds+0x30
+0x1409527ea: lea      rdx, [rcx - 1]
+0x1409527ee: neg      rdx
+0x1409527f1: sar      rdx, 0x3f
+0x1409527f5: and      edx, 0x10
+0x1409527f8: add      rdx, rax
+0x1409527fb: mov      rsi, qword ptr [rax]
+0x1409527fe: mov      r8, qword ptr [rax + 8]
+0x140952802: lea      r9, [rbx - 1]
+0x140952806: xor      eax, eax
+0x140952808: mov      rcx, r8
+0x14095280b: mov      rbx, rsi
+0x14095280e: jmp      0x140952849   ; main.qrCodeAnnotationPointsBounds+0x69
+0x140952810: xor      eax, eax
+0x140952812: mov      rbx, rax
+0x140952815: mov      rcx, rax
+0x140952818: mov      rdi, rax
+0x14095281b: ret      
+0x14095281c: mov      r10, rdx
+0x14095281f: mov      r11, qword ptr [r10]
+0x140952822: mov      r10, qword ptr [r10 + 8]
+0x140952826: add      rdx, 0x10
+0x14095282a: inc      rax
+0x14095282d: cmp      rbx, r11
+0x140952830: cmovg    rbx, r11
+0x140952834: cmp      r8, r10
+0x140952837: cmovg    r8, r10
+0x14095283b: cmp      rsi, r11
+0x14095283e: cmovl    rsi, r11
+0x140952842: cmp      rcx, r10
+0x140952845: cmovl    rcx, r10
+0x140952849: cmp      rax, r9
+0x14095284c: jl       0x14095281c   ; main.qrCodeAnnotationPointsBounds+0x3c
+0x14095284e: lea      rdx, [rsi + 1]
+0x140952852: lea      rdi, [rcx + 1]
+0x140952856: cmp      rbx, rdx
+0x140952859: mov      rax, rbx
+0x14095285c: cmovg    rax, rdx
+0x140952860: cmovg    rdx, rbx
+0x140952864: cmp      r8, rdi
+0x140952867: mov      rbx, r8
+0x14095286a: cmovg    rbx, rdi
+0x14095286e: cmovg    rdi, r8
+0x140952872: mov      rcx, rdx
+0x140952875: ret      
+0x140952876: int3     
+0x140952877: int3     
+0x140952878: int3     
+0x140952879: int3     
+0x14095287a: int3     
+0x14095287b: int3     
+0x14095287c: int3     
+0x14095287d: int3     
+0x14095287e: int3     
+0x14095287f: int3     

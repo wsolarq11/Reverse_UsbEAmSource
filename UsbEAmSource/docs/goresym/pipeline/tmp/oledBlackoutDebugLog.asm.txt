@@ -1,0 +1,134 @@
+0x14090eb80: lea      r12, [rsp - 0x28]
+0x14090eb85: cmp      r12, qword ptr [r14 + 0x10]
+0x14090eb89: jbe      0x14090edbe   ; main.oledBlackoutDebugLog+0x23e
+0x14090eb8f: push     rbp
+0x14090eb90: mov      rbp, rsp
+0x14090eb93: sub      rsp, 0xa0
+0x14090eb9a: movq     qword ptr [rsp + 0x98], xmm15
+0x14090eba4: mov      qword ptr [rsp + 0xc8], rdi
+0x14090ebac: mov      qword ptr [rsp + 0xc0], rcx
+0x14090ebb4: mov      qword ptr [rsp + 0xd0], rsi
+0x14090ebbc: mov      qword ptr [rsp + 0xb8], rbx
+0x14090ebc4: mov      qword ptr [rsp + 0xb0], rax
+0x14090ebcc: mov      byte ptr [rsp + 0x2b], 0
+0x14090ebd1: call     0x14090ee60   ; main.ensureOLEDBlackoutDebugLogger
+0x14090ebd6: cmp      byte ptr [rip + 0x130486f], 0
+0x14090ebdd: nop      dword ptr [rax]
+0x14090ebe0: je       0x14090ed96   ; main.oledBlackoutDebugLog+0x216
+0x14090ebe6: cmp      qword ptr [rip + 0x1304872], 0
+0x14090ebee: je       0x14090ed96   ; main.oledBlackoutDebugLog+0x216
+0x14090ebf4: mov      rax, qword ptr [rsp + 0xb0]
+0x14090ebfc: mov      rbx, qword ptr [rsp + 0xb8]
+0x14090ec04: mov      rcx, qword ptr [rsp + 0xc0]
+0x14090ec0c: mov      rdi, qword ptr [rsp + 0xc8]
+0x14090ec14: mov      rsi, qword ptr [rsp + 0xd0]
+0x14090ec1c: nop      dword ptr [rax]
+0x14090ec20: call     0x140136340   ; fmt.Sprintf
+0x14090ec25: mov      qword ptr [rsp + 0x48], rax
+0x14090ec2a: mov      qword ptr [rsp + 0x30], rbx
+0x14090ec2f: call     0x140104fc0   ; time.Now
+0x14090ec34: lea      rdi, [rip + 0x354294]
+0x14090ec3b: mov      esi, 0x17
+0x14090ec40: call     0x1400f2cc0   ; time.Time.Format
+0x14090ec45: mov      qword ptr [rsp + 0x50], rax
+0x14090ec4a: mov      qword ptr [rsp + 0x40], rbx
+0x14090ec4f: nop      
+0x14090ec50: call     0x1400ebe80   ; syscall.getCurrentProcessId
+0x14090ec55: mov      dword ptr [rsp + 0x2c], eax
+0x14090ec59: movups   xmmword ptr [rsp + 0x68], xmm15
+0x14090ec5f: movups   xmmword ptr [rsp + 0x78], xmm15
+0x14090ec65: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14090ec6e: mov      rax, qword ptr [rsp + 0x50]
+0x14090ec73: mov      rbx, qword ptr [rsp + 0x40]
+0x14090ec78: call     0x140076660   ; runtime.convTstring
+0x14090ec7d: lea      rdx, [rip + 0x1db17c]
+0x14090ec84: mov      qword ptr [rsp + 0x68], rdx
+0x14090ec89: mov      qword ptr [rsp + 0x70], rax
+0x14090ec8e: mov      edx, dword ptr [rsp + 0x2c]
+0x14090ec92: mov      eax, edx
+0x14090ec94: call     0x1400765e0   ; runtime.convT64
+0x14090ec99: lea      rdx, [rip + 0x1db3a0]
+0x14090eca0: mov      qword ptr [rsp + 0x78], rdx
+0x14090eca5: mov      qword ptr [rsp + 0x80], rax
+0x14090ecad: mov      rax, qword ptr [rsp + 0x48]
+0x14090ecb2: mov      rbx, qword ptr [rsp + 0x30]
+0x14090ecb7: call     0x140076660   ; runtime.convTstring
+0x14090ecbc: lea      rdx, [rip + 0x1db13d]
+0x14090ecc3: mov      qword ptr [rsp + 0x88], rdx
+0x14090eccb: mov      qword ptr [rsp + 0x90], rax
+0x14090ecd3: lea      rax, [rip + 0x338828]
+0x14090ecda: mov      ebx, 0xb
+0x14090ecdf: lea      rcx, [rsp + 0x68]
+0x14090ece4: mov      edi, 3
+0x14090ece9: mov      rsi, rdi
+0x14090ecec: call     0x140136340   ; fmt.Sprintf
+0x14090ecf1: nop      
+0x14090ecf2: nop      
+0x14090ecf3: mov      rcx, rax
+0x14090ecf6: xor      eax, eax
+0x14090ecf8: lea      rdx, [rip + 0x1304779]
+0x14090ecff: mov      r8d, 1
+0x14090ed05: lock cmpxchg dword ptr [rdx], r8d
+0x14090ed0a: sete     dl
+0x14090ed0d: test     dl, dl
+0x14090ed0f: jne      0x14090ed31   ; main.oledBlackoutDebugLog+0x1b1
+0x14090ed11: mov      qword ptr [rsp + 0x50], rcx
+0x14090ed16: mov      qword ptr [rsp + 0x38], rbx
+0x14090ed1b: lea      rax, [rip + 0x1304756]
+0x14090ed22: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x14090ed27: mov      rcx, qword ptr [rsp + 0x50]
+0x14090ed2c: mov      rbx, qword ptr [rsp + 0x38]
+0x14090ed31: lea      rdx, [rip + 0xc8]
+0x14090ed38: mov      qword ptr [rsp + 0x58], rdx
+0x14090ed3d: lea      rdx, [rip + 0x1304734]
+0x14090ed44: mov      qword ptr [rsp + 0x60], rdx
+0x14090ed49: lea      rdx, [rsp + 0x58]
+0x14090ed4e: mov      qword ptr [rsp + 0x98], rdx
+0x14090ed56: mov      byte ptr [rsp + 0x2b], 1
+0x14090ed5b: mov      rdx, rcx
+0x14090ed5e: neg      rcx
+0x14090ed61: cmp      rbx, rcx
+0x14090ed64: ja       0x14090eda0   ; main.oledBlackoutDebugLog+0x220
+0x14090ed66: mov      rax, qword ptr [rip + 0x13046f3]
+0x14090ed6d: mov      rcx, rbx
+0x14090ed70: mov      rdi, rcx
+0x14090ed73: mov      rbx, rdx
+0x14090ed76: call     0x140127fc0   ; os.File.Write
+0x14090ed7b: mov      byte ptr [rsp + 0x2b], 0
+0x14090ed80: mov      rdx, qword ptr [rsp + 0x98]
+0x14090ed88: mov      rsi, qword ptr [rdx]
+0x14090ed8b: call     rsi
+0x14090ed8d: add      rsp, 0xa0
+0x14090ed94: pop      rbp
+0x14090ed95: ret      
+0x14090ed96: add      rsp, 0xa0
+0x14090ed9d: pop      rbp
+0x14090ed9e: ret      
+0x14090ed9f: nop      
+0x14090eda0: test     rdx, rdx
+0x14090eda3: je       0x14090edaa   ; main.oledBlackoutDebugLog+0x22a
+0x14090eda5: call     0x140073200   ; runtime.panicunsafeslicelen
+0x14090edaa: call     0x1400732a0   ; runtime.panicunsafeslicenilptr
+0x14090edaf: nop      
+0x14090edb0: call     0x1400435e0   ; runtime.deferreturn
+0x14090edb5: add      rsp, 0xa0
+0x14090edbc: pop      rbp
+0x14090edbd: ret      
+0x14090edbe: mov      qword ptr [rsp + 8], rax
+0x14090edc3: mov      qword ptr [rsp + 0x10], rbx
+0x14090edc8: mov      qword ptr [rsp + 0x18], rcx
+0x14090edcd: mov      qword ptr [rsp + 0x20], rdi
+0x14090edd2: mov      qword ptr [rsp + 0x28], rsi
+0x14090edd7: call     0x14007f140   ; runtime.morestack_noctxt
+0x14090eddc: mov      rax, qword ptr [rsp + 8]
+0x14090ede1: mov      rbx, qword ptr [rsp + 0x10]
+0x14090ede6: mov      rcx, qword ptr [rsp + 0x18]
+0x14090edeb: mov      rdi, qword ptr [rsp + 0x20]
+0x14090edf0: mov      rsi, qword ptr [rsp + 0x28]
+0x14090edf5: jmp      0x14090eb80   ; main.oledBlackoutDebugLog
+0x14090edfa: int3     
+0x14090edfb: int3     
+0x14090edfc: int3     
+0x14090edfd: int3     
+0x14090edfe: int3     
+0x14090edff: int3     

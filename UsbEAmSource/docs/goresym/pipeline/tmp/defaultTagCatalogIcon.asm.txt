@@ -1,0 +1,156 @@
+0x14087c020: cmp      rsp, qword ptr [r14 + 0x10]
+0x14087c024: jbe      0x14087c277    ; main.defaultTagCatalogIcon+0x257
+0x14087c02a: push     rbp
+0x14087c02b: mov      rbp, rsp
+0x14087c02e: sub      rsp, 0x10
+0x14087c032: mov      qword ptr [rsp + 0x20], rax
+0x14087c037: call     0x1400a2200    ; strings.TrimSpace
+0x14087c03c: nop      dword ptr [rax]
+0x14087c040: call     0x1400a1500    ; strings.ToLower
+0x14087c045: cmp      rbx, 5
+0x14087c049: jg       0x14087c0f3    ; main.defaultTagCatalogIcon+0xd3
+0x14087c04f: cmp      rbx, 3
+0x14087c053: jne      0x14087c075    ; main.defaultTagCatalogIcon+0x55
+0x14087c055: cmp      word ptr [rax], 0x6564
+0x14087c05a: nop      word ptr [rax + rax]
+0x14087c060: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c066: cmp      byte ptr [rax + 2], 0x76
+0x14087c06a: je       0x14087c253    ; main.defaultTagCatalogIcon+0x233
+0x14087c070: jmp      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c075: cmp      rbx, 4
+0x14087c079: jne      0x14087c0c0    ; main.defaultTagCatalogIcon+0xa0
+0x14087c07b: cmp      byte ptr [rax], 0x67
+0x14087c07e: nop      
+0x14087c080: jg       0x14087c09f    ; main.defaultTagCatalogIcon+0x7f
+0x14087c082: cmp      dword ptr [rax], 0x73636f64
+0x14087c088: je       0x14087c21d    ; main.defaultTagCatalogIcon+0x1fd
+0x14087c08e: cmp      dword ptr [rax], 0x656d6167
+0x14087c094: je       0x14087c1a8    ; main.defaultTagCatalogIcon+0x188
+0x14087c09a: jmp      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c09f: cmp      dword ptr [rax], 0x6c6f6f74
+0x14087c0a5: je       0x14087c134    ; main.defaultTagCatalogIcon+0x114
+0x14087c0ab: cmp      dword ptr [rax], 0x6b726f77
+0x14087c0b1: je       0x14087c1ca    ; main.defaultTagCatalogIcon+0x1aa
+0x14087c0b7: jmp      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c0bc: nop      dword ptr [rax]
+0x14087c0c0: cmp      rbx, 5
+0x14087c0c4: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c0ca: cmp      dword ptr [rax], 0x656d6167
+0x14087c0d0: jne      0x14087c0dc    ; main.defaultTagCatalogIcon+0xbc
+0x14087c0d2: cmp      byte ptr [rax + 4], 0x73
+0x14087c0d6: je       0x14087c1a8    ; main.defaultTagCatalogIcon+0x188
+0x14087c0dc: cmp      dword ptr [rax], 0x6c6f6f74
+0x14087c0e2: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c0e8: cmp      byte ptr [rax + 4], 0x73
+0x14087c0ec: je       0x14087c134    ; main.defaultTagCatalogIcon+0x114
+0x14087c0ee: jmp      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c0f3: cmp      rbx, 6
+0x14087c0f7: jne      0x14087c202    ; main.defaultTagCatalogIcon+0x1e2
+0x14087c0fd: cmp      byte ptr [rax + 1], 0xb7
+0x14087c101: jg       0x14087c177    ; main.defaultTagCatalogIcon+0x157
+0x14087c103: cmp      byte ptr [rax], 0xe5
+0x14087c106: jg       0x14087c146    ; main.defaultTagCatalogIcon+0x126
+0x14087c108: cmp      dword ptr [rax], 0xe59e8ae5
+0x14087c10e: jne      0x14087c11c    ; main.defaultTagCatalogIcon+0xfc
+0x14087c110: cmp      word ptr [rax + 4], 0xac85
+0x14087c116: je       0x14087c1ca    ; main.defaultTagCatalogIcon+0x1aa
+0x14087c11c: cmp      dword ptr [rax], 0xe5a5b7e5
+0x14087c122: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c128: cmp      word ptr [rax + 4], 0xb785
+0x14087c12e: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c134: lea      rax, [rip + 0x3bb413]
+0x14087c13b: mov      ebx, 6
+0x14087c140: add      rsp, 0x10
+0x14087c144: pop      rbp
+0x14087c145: ret      
+0x14087c146: cmp      dword ptr [rax], 0xe68796e6
+0x14087c14c: jne      0x14087c15a    ; main.defaultTagCatalogIcon+0x13a
+0x14087c14e: cmp      word ptr [rax + 4], 0xa3a1
+0x14087c154: je       0x14087c21d    ; main.defaultTagCatalogIcon+0x1fd
+0x14087c15a: cmp      dword ptr [rax], 0xe4bea4e7
+0x14087c160: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c166: cmp      word ptr [rax + 4], 0xa4ba
+0x14087c16c: je       0x14087c1f0    ; main.defaultTagCatalogIcon+0x1d0
+0x14087c172: jmp      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c177: cmp      byte ptr [rax], 0xe6
+0x14087c17a: jg       0x14087c1ba    ; main.defaultTagCatalogIcon+0x19a
+0x14087c17c: cmp      dword ptr [rax], 0xe580bce5
+0x14087c182: jne      0x14087c190    ; main.defaultTagCatalogIcon+0x170
+0x14087c184: cmp      word ptr [rax + 4], 0x918f
+0x14087c18a: je       0x14087c253    ; main.defaultTagCatalogIcon+0x233
+0x14087c190: cmp      dword ptr [rax], 0xe6b8b8e6
+0x14087c196: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c19c: cmp      word ptr [rax + 4], 0x8f88
+0x14087c1a2: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c1a8: lea      rax, [rip + 0x3bd0c5]
+0x14087c1af: mov      ebx, 7
+0x14087c1b4: add      rsp, 0x10
+0x14087c1b8: pop      rbp
+0x14087c1b9: ret      
+0x14087c1ba: cmp      dword ptr [rax], 0x6966666f
+0x14087c1c0: jne      0x14087c1dc    ; main.defaultTagCatalogIcon+0x1bc
+0x14087c1c2: cmp      word ptr [rax + 4], 0x6563
+0x14087c1c8: jne      0x14087c1dc    ; main.defaultTagCatalogIcon+0x1bc
+0x14087c1ca: lea      rax, [rip + 0x3c341e]
+0x14087c1d1: mov      ebx, 9
+0x14087c1d6: add      rsp, 0x10
+0x14087c1da: pop      rbp
+0x14087c1db: ret      
+0x14087c1dc: cmp      dword ptr [rax], 0x69636f73
+0x14087c1e2: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c1e8: cmp      word ptr [rax + 4], 0x6c61
+0x14087c1ee: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c1f0: lea      rax, [rip + 0x3b9963]
+0x14087c1f7: mov      ebx, 5
+0x14087c1fc: add      rsp, 0x10
+0x14087c200: pop      rbp
+0x14087c201: ret      
+0x14087c202: cmp      rbx, 9
+0x14087c206: jne      0x14087c22f    ; main.defaultTagCatalogIcon+0x20f
+0x14087c208: movabs   rcx, 0x746e656d75636f64
+0x14087c212: cmp      qword ptr [rax], rcx
+0x14087c215: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c217: cmp      byte ptr [rax + 8], 0x73
+0x14087c21b: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c21d: lea      rax, [rip + 0x3b84ba]
+0x14087c224: mov      ebx, 4
+0x14087c229: add      rsp, 0x10
+0x14087c22d: pop      rbp
+0x14087c22e: ret      
+0x14087c22f: cmp      rbx, 0xb
+0x14087c233: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c235: movabs   rcx, 0x6d706f6c65766564
+0x14087c23f: nop      
+0x14087c240: cmp      qword ptr [rax], rcx
+0x14087c243: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c245: cmp      word ptr [rax + 8], 0x6e65
+0x14087c24b: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c24d: cmp      byte ptr [rax + 0xa], 0x74
+0x14087c251: jne      0x14087c265    ; main.defaultTagCatalogIcon+0x245
+0x14087c253: lea      rax, [rip + 0x3b8480]
+0x14087c25a: mov      ebx, 4
+0x14087c25f: add      rsp, 0x10
+0x14087c263: pop      rbp
+0x14087c264: ret      
+0x14087c265: lea      rax, [rip + 0x3bfe80]
+0x14087c26c: mov      ebx, 8
+0x14087c271: add      rsp, 0x10
+0x14087c275: pop      rbp
+0x14087c276: ret      
+0x14087c277: mov      qword ptr [rsp + 8], rax
+0x14087c27c: mov      qword ptr [rsp + 0x10], rbx
+0x14087c281: call     0x14007f140    ; runtime.morestack_noctxt
+0x14087c286: mov      rax, qword ptr [rsp + 8]
+0x14087c28b: mov      rbx, qword ptr [rsp + 0x10]
+0x14087c290: jmp      0x14087c020    ; main.defaultTagCatalogIcon
+0x14087c295: int3     
+0x14087c296: int3     
+0x14087c297: int3     
+0x14087c298: int3     
+0x14087c299: int3     
+0x14087c29a: int3     
+0x14087c29b: int3     
+0x14087c29c: int3     
+0x14087c29d: int3     
+0x14087c29e: int3     
+0x14087c29f: int3     

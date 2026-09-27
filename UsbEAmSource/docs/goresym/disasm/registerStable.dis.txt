@@ -1,0 +1,404 @@
+0x14086fd20: lea      r12, [rsp - 0x240]
+0x14086fd28: cmp      r12, qword ptr [r14 + 0x10]
+0x14086fd2c: jbe      0x14087061e   ; main.launcherAssetService.registerStable+0x8fe
+0x14086fd32: push     rbp
+0x14086fd33: mov      rbp, rsp
+0x14086fd36: sub      rsp, 0x2b8
+0x14086fd3d: movq     qword ptr [rsp + 0x2b0], xmm15
+0x14086fd47: mov      qword ptr [rsp + 0x378], rax
+0x14086fd4f: mov      qword ptr [rsp + 0x380], rbx
+0x14086fd57: mov      byte ptr [rsp + 0xbf], 0
+0x14086fd5f: movups   xmmword ptr [rsp + 0xf0], xmm15
+0x14086fd68: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x14086fd71: movups   xmmword ptr [rsp + 0x108], xmm15
+0x14086fd7a: movups   xmmword ptr [rsp + 0x118], xmm15
+0x14086fd83: movups   xmmword ptr [rsp + 0xe0], xmm15
+0x14086fd8c: nop      
+0x14086fd8d: nop      
+0x14086fd8e: mov      rcx, rax
+0x14086fd91: xor      eax, eax
+0x14086fd93: mov      edx, 1
+0x14086fd98: lock cmpxchg dword ptr [rcx], edx
+0x14086fd9c: sete     dl
+0x14086fd9f: nop      
+0x14086fda0: test     dl, dl
+0x14086fda2: jne      0x14086fdb4   ; main.launcherAssetService.registerStable+0x94
+0x14086fda4: mov      rax, rcx
+0x14086fda7: call     0x140091940
+0x14086fdac: mov      rcx, qword ptr [rsp + 0x378]
+0x14086fdb4: lea      rdx, [rip + 0x8a5]
+0x14086fdbb: mov      qword ptr [rsp + 0x1f0], rdx
+0x14086fdc3: mov      qword ptr [rsp + 0x1f8], rcx
+0x14086fdcb: lea      rdx, [rsp + 0x1f0]
+0x14086fdd3: mov      qword ptr [rsp + 0x2b0], rdx
+0x14086fddb: mov      byte ptr [rsp + 0xbf], 1
+0x14086fde3: mov      rax, rcx
+0x14086fde6: call     0x1408720a0   ; main.launcherAssetService.currentTime
+0x14086fdeb: mov      qword ptr [rsp + 0xd8], rax
+0x14086fdf3: mov      qword ptr [rsp + 0xd0], rbx
+0x14086fdfb: mov      qword ptr [rsp + 0x1e8], rcx
+0x14086fe03: mov      rdi, rcx
+0x14086fe06: mov      rcx, rbx
+0x14086fe09: mov      rbx, rax
+0x14086fe0c: mov      rax, qword ptr [rsp + 0x378]
+0x14086fe14: call     0x1408720e0   ; main.launcherAssetService.pruneExpiredLocked
+0x14086fe19: mov      rbx, qword ptr [rsp + 0x2d0]
+0x14086fe21: cmp      rbx, 0x20
+0x14086fe25: jne      0x14086fe46   ; main.launcherAssetService.registerStable+0x126
+0x14086fe27: mov      qword ptr [rsp + 0xc0], rbx
+0x14086fe2f: mov      rax, qword ptr [rsp + 0x2c8]
+0x14086fe37: mov      qword ptr [rsp + 0x128], rax
+0x14086fe3f: xor      ecx, ecx
+0x14086fe41: jmp      0x140870576   ; main.launcherAssetService.registerStable+0x856
+0x14086fe46: xor      eax, eax
+0x14086fe48: test     al, al
+0x14086fe4a: je       0x1408704b3   ; main.launcherAssetService.registerStable+0x793
+0x14086fe50: lea      rdi, [rsp + 0x200]
+0x14086fe58: lea      rdi, [rdi - 0x10]
+0x14086fe5c: nop      dword ptr [rax]
+0x14086fe60: mov      qword ptr [rsp - 0x10], rbp
+0x14086fe65: lea      rbp, [rsp - 0x10]
+0x14086fe6a: call     0x14008170f
+0x14086fe6f: mov      rbp, qword ptr [rbp]
+0x14086fe73: mov      rdx, qword ptr [rsp + 0x378]
+0x14086fe7b: mov      rbx, qword ptr [rdx + 8]
+0x14086fe7f: lea      rax, [rip + 0x2d931a]
+0x14086fe86: lea      rcx, [rsp + 0x2c8]
+0x14086fe8e: call     0x14000e720
+0x14086fe93: lea      rdi, [rsp + 0x200]
+0x14086fe9b: mov      rsi, rax
+0x14086fe9e: nop      
+0x14086fea0: mov      qword ptr [rsp - 0x10], rbp
+0x14086fea5: lea      rbp, [rsp - 0x10]
+0x14086feaa: call     0x140081a46
+0x14086feaf: mov      rbp, qword ptr [rbp]
+0x14086feb3: lea      rdi, [rsp + 0x130]
+0x14086febb: lea      rsi, [rsp + 0x200]
+0x14086fec3: mov      qword ptr [rsp - 0x10], rbp
+0x14086fec8: lea      rbp, [rsp - 0x10]
+0x14086fecd: call     0x140081a46
+0x14086fed2: mov      rbp, qword ptr [rbp]
+0x14086fed6: mov      rdx, qword ptr [rsp + 0x380]
+0x14086fede: test     rdx, rdx
+0x14086fee1: movabs   rsi, 0x8bb2c97000
+0x14086feeb: cmove    rdx, rsi
+0x14086feef: mov      qword ptr [rsp + 0xc8], rdx
+0x14086fef7: test     bl, bl
+0x14086fef9: je       0x1408701fc   ; main.launcherAssetService.registerStable+0x4dc
+0x14086feff: mov      rcx, qword ptr [rsp + 0x148]
+0x14086ff07: cmp      qword ptr [rsp + 0x2e0], rcx
+0x14086ff0f: jne      0x14087013d   ; main.launcherAssetService.registerStable+0x41d
+0x14086ff15: mov      rax, qword ptr [rsp + 0x140]
+0x14086ff1d: mov      rbx, qword ptr [rsp + 0x2d8]
+0x14086ff25: call     0x140006280
+0x14086ff2a: test     al, al
+0x14086ff2c: je       0x14087013d   ; main.launcherAssetService.registerStable+0x41d
+0x14086ff32: mov      rax, qword ptr [rsp + 0xd8]
+0x14086ff3a: mov      qword ptr [rsp + 0x198], rax
+0x14086ff42: mov      rbx, qword ptr [rsp + 0xd0]
+0x14086ff4a: mov      qword ptr [rsp + 0x1a0], rbx
+0x14086ff52: mov      rcx, qword ptr [rsp + 0x1e8]
+0x14086ff5a: mov      qword ptr [rsp + 0x1a8], rcx
+0x14086ff62: mov      qword ptr [rsp + 0x1b0], rax
+0x14086ff6a: mov      qword ptr [rsp + 0x1b8], rbx
+0x14086ff72: mov      qword ptr [rsp + 0x1c0], rcx
+0x14086ff7a: mov      rdi, qword ptr [rsp + 0xc8]
+0x14086ff82: test     rdi, rdi
+0x14086ff85: jge      0x14086ff8f   ; main.launcherAssetService.registerStable+0x26f
+0x14086ff87: xor      ebx, ebx
+0x14086ff89: xor      eax, eax
+0x14086ff8b: xor      ecx, ecx
+0x14086ff8d: jmp      0x14086ff94   ; main.launcherAssetService.registerStable+0x274
+0x14086ff8f: call     0x1400fb8c0
+0x14086ff94: mov      qword ptr [rsp + 0x1c8], rax
+0x14086ff9c: mov      qword ptr [rsp + 0x1d0], rbx
+0x14086ffa4: mov      qword ptr [rsp + 0x1d8], rcx
+0x14086ffac: mov      rdx, qword ptr [rsp + 0x378]
+0x14086ffb4: mov      rbx, qword ptr [rdx + 8]
+0x14086ffb8: lea      rax, [rip + 0x2d91e1]
+0x14086ffbf: lea      rcx, [rsp + 0x2c8]
+0x14086ffc7: call     0x14000e9e0
+0x14086ffcc: test     byte ptr [rax], al
+0x14086ffce: cmp      dword ptr [rip + 0x13eb37b], 0
+0x14086ffd5: je       0x14086fffe   ; main.launcherAssetService.registerStable+0x2de
+0x14086ffd7: mov      qword ptr [rsp + 0x1e0], rax
+0x14086ffdf: mov      rbx, rax
+0x14086ffe2: lea      rcx, [rsp + 0x130]
+0x14086ffea: lea      rax, [rip + 0x380caf]
+0x14086fff1: call     0x14001b620
+0x14086fff6: mov      rax, qword ptr [rsp + 0x1e0]
+0x14086fffe: mov      rdi, rax
+0x140870001: lea      rsi, [rsp + 0x130]
+0x140870009: mov      qword ptr [rsp - 0x10], rbp
+0x14087000e: lea      rbp, [rsp - 0x10]
+0x140870013: call     0x140081a46
+0x140870018: mov      rbp, qword ptr [rbp]
+0x14087001c: mov      rax, qword ptr [rsp + 0x140]
+0x140870024: mov      rbx, qword ptr [rsp + 0x148]
+0x14087002c: mov      rcx, qword ptr [rsp + 0x130]
+0x140870034: mov      rdi, qword ptr [rsp + 0x138]
+0x14087003c: mov      rsi, qword ptr [rsp + 0x150]
+0x140870044: call     0x140873b00   ; main.buildLauncherAssetURL
+0x140870049: movups   xmmword ptr [rsp + 0xf0], xmm15
+0x140870052: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x14087005b: movups   xmmword ptr [rsp + 0x108], xmm15
+0x140870064: movups   xmmword ptr [rsp + 0x118], xmm15
+0x14087006d: mov      rdx, qword ptr [rsp + 0x130]
+0x140870075: mov      r8, qword ptr [rsp + 0x138]
+0x14087007d: mov      qword ptr [rsp + 0xf0], rdx
+0x140870085: mov      qword ptr [rsp + 0xf8], r8
+0x14087008d: mov      qword ptr [rsp + 0x100], rax
+0x140870095: mov      qword ptr [rsp + 0x108], rbx
+0x14087009d: mov      rdx, qword ptr [rsp + 0x150]
+0x1408700a5: mov      qword ptr [rsp + 0x110], rdx
+0x1408700ad: mov      rdx, qword ptr [rsp + 0x158]
+0x1408700b5: mov      r8, qword ptr [rsp + 0x160]
+0x1408700bd: mov      qword ptr [rsp + 0x118], rdx
+0x1408700c5: mov      qword ptr [rsp + 0x120], r8
+0x1408700cd: movups   xmmword ptr [rsp + 0xe0], xmm15
+0x1408700d6: mov      byte ptr [rsp + 0xbf], 0
+0x1408700de: mov      rdx, qword ptr [rsp + 0x2b0]
+0x1408700e6: mov      r8, qword ptr [rdx]
+0x1408700e9: call     r8
+0x1408700ec: mov      r10, qword ptr [rsp + 0xe0]
+0x1408700f4: mov      r11, qword ptr [rsp + 0xe8]
+0x1408700fc: mov      rax, qword ptr [rsp + 0xf0]
+0x140870104: mov      rbx, qword ptr [rsp + 0xf8]
+0x14087010c: mov      rcx, qword ptr [rsp + 0x100]
+0x140870114: mov      rdi, qword ptr [rsp + 0x108]
+0x14087011c: mov      rsi, qword ptr [rsp + 0x110]
+0x140870124: mov      r8, qword ptr [rsp + 0x118]
+0x14087012c: mov      r9, qword ptr [rsp + 0x120]
+0x140870134: add      rsp, 0x2b8
+0x14087013b: pop      rbp
+0x14087013c: ret      
+0x14087013d: lea      rax, [rip + 0x2e423c]
+0x140870144: call     0x14001ae20
+0x140870149: mov      qword ptr [rax + 8], 0x18
+0x140870151: lea      rcx, [rip + 0x3f4ea0]
+0x140870158: mov      qword ptr [rax], rcx
+0x14087015b: movups   xmmword ptr [rsp + 0xf0], xmm15
+0x140870164: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x14087016d: movups   xmmword ptr [rsp + 0x108], xmm15
+0x140870176: movups   xmmword ptr [rsp + 0x118], xmm15
+0x14087017f: lea      rcx, [rip + 0x962f7a]
+0x140870186: mov      qword ptr [rsp + 0xe0], rcx
+0x14087018e: mov      qword ptr [rsp + 0xe8], rax
+0x140870196: mov      byte ptr [rsp + 0xbf], 0
+0x14087019e: mov      rdx, qword ptr [rsp + 0x2b0]
+0x1408701a6: mov      rcx, qword ptr [rdx]
+0x1408701a9: call     rcx
+0x1408701ab: mov      r10, qword ptr [rsp + 0xe0]
+0x1408701b3: mov      r11, qword ptr [rsp + 0xe8]
+0x1408701bb: mov      rax, qword ptr [rsp + 0xf0]
+0x1408701c3: mov      rbx, qword ptr [rsp + 0xf8]
+0x1408701cb: mov      rcx, qword ptr [rsp + 0x100]
+0x1408701d3: mov      rdi, qword ptr [rsp + 0x108]
+0x1408701db: mov      rsi, qword ptr [rsp + 0x110]
+0x1408701e3: mov      r8, qword ptr [rsp + 0x118]
+0x1408701eb: mov      r9, qword ptr [rsp + 0x120]
+0x1408701f3: add      rsp, 0x2b8
+0x1408701fa: pop      rbp
+0x1408701fb: ret      
+0x1408701fc: mov      rbx, qword ptr [rsp + 0x2d8]
+0x140870204: mov      rcx, qword ptr [rsp + 0x2e0]
+0x14087020c: mov      rdi, qword ptr [rsp + 0x328]
+0x140870214: mov      rax, qword ptr [rsp + 0x378]
+0x14087021c: nop      dword ptr [rax]
+0x140870220: call     0x140872540   ; main.launcherAssetService.ensureCapacityLocked
+0x140870225: test     rax, rax
+0x140870228: jne      0x140870418   ; main.launcherAssetService.registerStable+0x6f8
+0x14087022e: mov      rax, qword ptr [rsp + 0x378]
+0x140870236: mov      rdx, qword ptr [rax + 0x20]
+0x14087023a: inc      rdx
+0x14087023d: mov      qword ptr [rax + 0x20], rdx
+0x140870241: mov      qword ptr [rsp + 0x2e8], rdx
+0x140870249: mov      rdx, qword ptr [rsp + 0xd8]
+0x140870251: mov      qword ptr [rsp + 0x330], rdx
+0x140870259: mov      rbx, qword ptr [rsp + 0xd0]
+0x140870261: mov      qword ptr [rsp + 0x338], rbx
+0x140870269: mov      rcx, qword ptr [rsp + 0x1e8]
+0x140870271: mov      qword ptr [rsp + 0x340], rcx
+0x140870279: mov      qword ptr [rsp + 0x348], rdx
+0x140870281: mov      qword ptr [rsp + 0x350], rbx
+0x140870289: mov      qword ptr [rsp + 0x358], rcx
+0x140870291: mov      rdi, qword ptr [rsp + 0xc8]
+0x140870299: test     rdi, rdi
+0x14087029c: jge      0x1408702a6   ; main.launcherAssetService.registerStable+0x586
+0x14087029e: xor      ebx, ebx
+0x1408702a0: xor      ecx, ecx
+0x1408702a2: xor      edx, edx
+0x1408702a4: jmp      0x1408702bc   ; main.launcherAssetService.registerStable+0x59c
+0x1408702a6: mov      rax, rdx
+0x1408702a9: call     0x1400fb8c0
+0x1408702ae: mov      rdx, rcx
+0x1408702b1: mov      rcx, rax
+0x1408702b4: mov      rax, qword ptr [rsp + 0x378]
+0x1408702bc: mov      qword ptr [rsp + 0x360], rcx
+0x1408702c4: mov      qword ptr [rsp + 0x368], rbx
+0x1408702cc: mov      qword ptr [rsp + 0x370], rdx
+0x1408702d4: mov      rdi, rsp
+0x1408702d7: lea      rsi, [rsp + 0x2c8]
+0x1408702df: nop      
+0x1408702e0: mov      qword ptr [rsp - 0x10], rbp
+0x1408702e5: lea      rbp, [rsp - 0x10]
+0x1408702ea: call     0x140081a46
+0x1408702ef: mov      rbp, qword ptr [rbp]
+0x1408702f3: call     0x1408728c0   ; main.launcherAssetService.addEntryLocked
+0x1408702f8: mov      rax, qword ptr [rsp + 0x2d8]
+0x140870300: mov      rbx, qword ptr [rsp + 0x2e0]
+0x140870308: mov      rcx, qword ptr [rsp + 0x2c8]
+0x140870310: mov      rdi, qword ptr [rsp + 0x2d0]
+0x140870318: mov      rsi, qword ptr [rsp + 0x2e8]
+0x140870320: call     0x140873b00   ; main.buildLauncherAssetURL
+0x140870325: movups   xmmword ptr [rsp + 0xf0], xmm15
+0x14087032e: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x140870337: movups   xmmword ptr [rsp + 0x108], xmm15
+0x140870340: movups   xmmword ptr [rsp + 0x118], xmm15
+0x140870349: mov      rcx, qword ptr [rsp + 0x2c8]
+0x140870351: mov      rdx, qword ptr [rsp + 0x2d0]
+0x140870359: mov      qword ptr [rsp + 0xf0], rcx
+0x140870361: mov      qword ptr [rsp + 0xf8], rdx
+0x140870369: mov      qword ptr [rsp + 0x100], rax
+0x140870371: mov      qword ptr [rsp + 0x108], rbx
+0x140870379: mov      rcx, qword ptr [rsp + 0x2e8]
+0x140870381: mov      qword ptr [rsp + 0x110], rcx
+0x140870389: mov      rcx, qword ptr [rsp + 0x2f0]
+0x140870391: mov      rdx, qword ptr [rsp + 0x2f8]
+0x140870399: mov      qword ptr [rsp + 0x118], rcx
+0x1408703a1: mov      qword ptr [rsp + 0x120], rdx
+0x1408703a9: movups   xmmword ptr [rsp + 0xe0], xmm15
+0x1408703b2: mov      byte ptr [rsp + 0xbf], 0
+0x1408703ba: mov      rdx, qword ptr [rsp + 0x2b0]
+0x1408703c2: mov      rcx, qword ptr [rdx]
+0x1408703c5: call     rcx
+0x1408703c7: mov      r11, qword ptr [rsp + 0xe8]
+0x1408703cf: mov      r10, qword ptr [rsp + 0xe0]
+0x1408703d7: mov      rax, qword ptr [rsp + 0xf0]
+0x1408703df: mov      rbx, qword ptr [rsp + 0xf8]
+0x1408703e7: mov      rcx, qword ptr [rsp + 0x100]
+0x1408703ef: mov      rdi, qword ptr [rsp + 0x108]
+0x1408703f7: mov      rsi, qword ptr [rsp + 0x110]
+0x1408703ff: mov      r8, qword ptr [rsp + 0x118]
+0x140870407: mov      r9, qword ptr [rsp + 0x120]
+0x14087040f: add      rsp, 0x2b8
+0x140870416: pop      rbp
+0x140870417: ret      
+0x140870418: movups   xmmword ptr [rsp + 0xf0], xmm15
+0x140870421: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x14087042a: movups   xmmword ptr [rsp + 0x108], xmm15
+0x140870433: movups   xmmword ptr [rsp + 0x118], xmm15
+0x14087043c: mov      qword ptr [rsp + 0xe0], rax
+0x140870444: mov      qword ptr [rsp + 0xe8], rbx
+0x14087044c: mov      byte ptr [rsp + 0xbf], 0
+0x140870454: mov      rdx, qword ptr [rsp + 0x2b0]
+0x14087045c: mov      rax, qword ptr [rdx]
+0x14087045f: nop      
+0x140870460: call     rax
+0x140870462: mov      r10, qword ptr [rsp + 0xe0]
+0x14087046a: mov      r11, qword ptr [rsp + 0xe8]
+0x140870472: mov      rax, qword ptr [rsp + 0xf0]
+0x14087047a: mov      rbx, qword ptr [rsp + 0xf8]
+0x140870482: mov      rcx, qword ptr [rsp + 0x100]
+0x14087048a: mov      rdi, qword ptr [rsp + 0x108]
+0x140870492: mov      rsi, qword ptr [rsp + 0x110]
+0x14087049a: mov      r8, qword ptr [rsp + 0x118]
+0x1408704a2: mov      r9, qword ptr [rsp + 0x120]
+0x1408704aa: add      rsp, 0x2b8
+0x1408704b1: pop      rbp
+0x1408704b2: ret      
+0x1408704b3: lea      rax, [rip + 0x2e3ec6]
+0x1408704ba: call     0x14001ae20
+0x1408704bf: mov      qword ptr [rax + 8], 0x12
+0x1408704c7: lea      rcx, [rip + 0x3e9894]
+0x1408704ce: mov      qword ptr [rax], rcx
+0x1408704d1: movups   xmmword ptr [rsp + 0xf0], xmm15
+0x1408704da: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x1408704e3: movups   xmmword ptr [rsp + 0x108], xmm15
+0x1408704ec: movups   xmmword ptr [rsp + 0x118], xmm15
+0x1408704f5: lea      rcx, [rip + 0x962c04]
+0x1408704fc: mov      qword ptr [rsp + 0xe0], rcx
+0x140870504: mov      qword ptr [rsp + 0xe8], rax
+0x14087050c: mov      byte ptr [rsp + 0xbf], 0
+0x140870514: mov      rdx, qword ptr [rsp + 0x2b0]
+0x14087051c: mov      rcx, qword ptr [rdx]
+0x14087051f: nop      
+0x140870520: call     rcx
+0x140870522: mov      r10, qword ptr [rsp + 0xe0]
+0x14087052a: mov      r11, qword ptr [rsp + 0xe8]
+0x140870532: mov      rax, qword ptr [rsp + 0xf0]
+0x14087053a: mov      rbx, qword ptr [rsp + 0xf8]
+0x140870542: mov      rcx, qword ptr [rsp + 0x100]
+0x14087054a: mov      rdi, qword ptr [rsp + 0x108]
+0x140870552: mov      rsi, qword ptr [rsp + 0x110]
+0x14087055a: mov      r8, qword ptr [rsp + 0x118]
+0x140870562: mov      r9, qword ptr [rsp + 0x120]
+0x14087056a: add      rsp, 0x2b8
+0x140870571: pop      rbp
+0x140870572: ret      
+0x140870573: mov      rcx, rsi
+0x140870576: cmp      rcx, 0x20
+0x14087057a: jge      0x1408705be   ; main.launcherAssetService.registerStable+0x89e
+0x14087057c: movzx    edx, byte ptr [rax + rcx]
+0x140870580: cmp      edx, 0x7f
+0x140870583: jg       0x14087058b   ; main.launcherAssetService.registerStable+0x86b
+0x140870585: lea      rsi, [rcx + 1]
+0x140870589: jmp      0x1408705a5   ; main.launcherAssetService.registerStable+0x885
+0x14087058b: call     0x1400733c0
+0x140870590: mov      edx, eax
+0x140870592: mov      rsi, rbx
+0x140870595: mov      rax, qword ptr [rsp + 0x128]
+0x14087059d: mov      rbx, qword ptr [rsp + 0xc0]
+0x1408705a5: lea      r8d, [rdx - 0x30]
+0x1408705a9: cmp      r8d, 9
+0x1408705ad: jbe      0x140870573   ; main.launcherAssetService.registerStable+0x853
+0x1408705af: add      edx, -0x61
+0x1408705b2: cmp      edx, 5
+0x1408705b5: jbe      0x140870573   ; main.launcherAssetService.registerStable+0x853
+0x1408705b7: xor      eax, eax
+0x1408705b9: jmp      0x14086fe48   ; main.launcherAssetService.registerStable+0x128
+0x1408705be: mov      eax, 1
+0x1408705c3: jmp      0x14086fe48   ; main.launcherAssetService.registerStable+0x128
+0x1408705c8: call     0x1400435e0
+0x1408705cd: mov      rax, qword ptr [rsp + 0xf0]
+0x1408705d5: mov      rbx, qword ptr [rsp + 0xf8]
+0x1408705dd: mov      rcx, qword ptr [rsp + 0x100]
+0x1408705e5: mov      rdi, qword ptr [rsp + 0x108]
+0x1408705ed: mov      rsi, qword ptr [rsp + 0x110]
+0x1408705f5: mov      r8, qword ptr [rsp + 0x118]
+0x1408705fd: mov      r9, qword ptr [rsp + 0x120]
+0x140870605: mov      r10, qword ptr [rsp + 0xe0]
+0x14087060d: mov      r11, qword ptr [rsp + 0xe8]
+0x140870615: add      rsp, 0x2b8
+0x14087061c: pop      rbp
+0x14087061d: ret      
+0x14087061e: mov      qword ptr [rsp + 0xb8], rax
+0x140870626: mov      qword ptr [rsp + 0xc0], rbx
+0x14087062e: call     0x14007f140
+0x140870633: mov      rax, qword ptr [rsp + 0xb8]
+0x14087063b: mov      rbx, qword ptr [rsp + 0xc0]
+0x140870643: jmp      0x14086fd20   ; main.launcherAssetService.registerStable
+0x140870648: int3     
+0x140870649: int3     
+0x14087064a: int3     
+0x14087064b: int3     
+0x14087064c: int3     
+0x14087064d: int3     
+0x14087064e: int3     
+0x14087064f: int3     
+0x140870650: int3     
+0x140870651: int3     
+0x140870652: int3     
+0x140870653: int3     
+0x140870654: int3     
+0x140870655: int3     
+0x140870656: int3     
+0x140870657: int3     
+0x140870658: int3     
+0x140870659: int3     
+0x14087065a: int3     
+0x14087065b: int3     
+0x14087065c: int3     
+0x14087065d: int3     
+0x14087065e: int3     
+0x14087065f: int3     

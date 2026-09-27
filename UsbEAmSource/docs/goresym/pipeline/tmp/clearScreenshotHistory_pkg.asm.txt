@@ -1,0 +1,70 @@
+0x1409696a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409696a4: jbe      0x1409697b7   ; main.clearScreenshotHistory+0x117
+0x1409696aa: push     rbp
+0x1409696ab: mov      rbp, rsp
+0x1409696ae: sub      rsp, 0x60
+0x1409696b2: mov      qword ptr [rsp + 0x78], rbx
+0x1409696b7: mov      qword ptr [rsp + 0x70], rax
+0x1409696bc: lea      rcx, [rsp + 0x38]
+0x1409696c1: xor      edi, edi
+0x1409696c3: mov      rsi, rdi
+0x1409696c6: call     0x1409695c0   ; main.saveScreenshotHistory
+0x1409696cb: test     rax, rax
+0x1409696ce: jne      0x1409697b1   ; main.clearScreenshotHistory+0x111
+0x1409696d4: mov      rax, qword ptr [rsp + 0x70]
+0x1409696d9: mov      rbx, qword ptr [rsp + 0x78]
+0x1409696de: nop      
+0x1409696e0: call     0x1400a2200   ; strings.TrimSpace
+0x1409696e5: mov      ecx, 0x1ed
+0x1409696ea: call     0x14012bbe0   ; os.MkdirAll
+0x1409696ef: test     rax, rax
+0x1409696f2: jne      0x1409697ab   ; main.clearScreenshotHistory+0x10b
+0x1409696f8: mov      rax, qword ptr [rsp + 0x70]
+0x1409696fd: mov      rbx, qword ptr [rsp + 0x78]
+0x140969702: call     0x1409687e0   ; main.screenshotHistoryClearMarkerPath
+0x140969707: mov      qword ptr [rsp + 0x58], rax
+0x14096970c: mov      qword ptr [rsp + 0x30], rbx
+0x140969711: call     0x140104fc0   ; time.Now
+0x140969716: mov      qword ptr [rsp + 0x40], rax
+0x14096971b: mov      qword ptr [rsp + 0x48], rbx
+0x140969720: mov      qword ptr [rsp + 0x50], rcx
+0x140969725: nop      
+0x140969726: nop      
+0x140969727: bt       rax, 0x3f
+0x14096972c: jae      0x140969754   ; main.clearScreenshotHistory+0xb4
+0x14096972e: mov      rdx, rax
+0x140969731: and      eax, 0x3fffffff
+0x140969736: add      rdx, rdx
+0x140969739: shr      rdx, 0x1f
+0x14096973d: movabs   r8, 0xdd7b17f80
+0x140969747: add      rdx, r8
+0x14096974a: mov      qword ptr [rsp + 0x48], rdx
+0x14096974f: mov      qword ptr [rsp + 0x40], rax
+0x140969754: mov      qword ptr [rsp + 0x50], 0
+0x14096975d: mov      rax, qword ptr [rsp + 0x40]
+0x140969762: mov      rbx, qword ptr [rsp + 0x48]
+0x140969767: xor      ecx, ecx
+0x140969769: lea      rdi, [rip + 0x30d91d]
+0x140969770: mov      esi, 0x23
+0x140969775: call     0x1400f2cc0   ; time.Time.Format
+0x14096977a: mov      rcx, rbx
+0x14096977d: mov      rbx, rax
+0x140969780: xor      eax, eax
+0x140969782: call     0x140060580   ; runtime.stringtoslicebyte
+0x140969787: mov      rdi, rbx
+0x14096978a: mov      rsi, rcx
+0x14096978d: mov      r8d, 0x1a4
+0x140969793: mov      rbx, qword ptr [rsp + 0x30]
+0x140969798: mov      rcx, rax
+0x14096979b: mov      rax, qword ptr [rsp + 0x58]
+0x1409697a0: call     0x1401295e0   ; os.WriteFile
+0x1409697a5: add      rsp, 0x60
+0x1409697a9: pop      rbp
+0x1409697aa: ret      
+0x1409697ab: add      rsp, 0x60
+0x1409697af: pop      rbp
+0x1409697b0: ret      
+0x1409697b1: add      rsp, 0x60
+0x1409697b5: pop      rbp
+0x1409697b6: ret      
+0x1409697b7: mov      qword ptr [rsp + 8], rax

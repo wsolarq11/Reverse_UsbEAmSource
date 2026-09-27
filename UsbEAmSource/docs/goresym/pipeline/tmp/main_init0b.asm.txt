@@ -1,0 +1,103 @@
+0x1408f9b60: lea      r12, [rsp - 0x90]
+0x1408f9b68: cmp      r12, qword ptr [r14 + 0x10]
+0x1408f9b6c: jbe      0x1408f9d3c   ; main.init.0+0x1dc
+0x1408f9b72: push     rbp
+0x1408f9b73: mov      rbp, rsp
+0x1408f9b76: sub      rsp, 0x108
+0x1408f9b7d: lea      rdx, [rip + 0x23367c]
+0x1408f9b84: mov      qword ptr [rsp + 0x78], rdx
+0x1408f9b89: lea      r10, [rip + 0x79cfd0]
+0x1408f9b90: mov      qword ptr [rsp + 0x80], r10
+0x1408f9b98: mov      qword ptr [rsp + 0x88], rdx
+0x1408f9ba0: lea      rdx, [rip + 0x79cfc1]
+0x1408f9ba7: mov      qword ptr [rsp + 0x90], rdx
+0x1408f9baf: lea      rdx, [rip + 0x2203ca]
+0x1408f9bb6: mov      qword ptr [rsp + 0x98], rdx
+0x1408f9bbe: lea      rdx, [rip + 0x79cfab]
+0x1408f9bc5: mov      qword ptr [rsp + 0xa0], rdx
+0x1408f9bcd: lea      rdx, [rip + 0x2335cc]
+0x1408f9bd4: mov      qword ptr [rsp + 0xa8], rdx
+0x1408f9bdc: lea      rdx, [rip + 0x79cf75]
+0x1408f9be3: mov      qword ptr [rsp + 0xb0], rdx
+0x1408f9beb: lea      rdx, [rip + 0x23b94e]
+0x1408f9bf2: mov      qword ptr [rsp + 0xb8], rdx
+0x1408f9bfa: lea      rdx, [rip + 0x79cf77]
+0x1408f9c01: mov      qword ptr [rsp + 0xc0], rdx
+0x1408f9c09: lea      rdx, [rip + 0x233650]
+0x1408f9c10: mov      qword ptr [rsp + 0xc8], rdx
+0x1408f9c18: lea      rdx, [rip + 0x79cf11]
+0x1408f9c1f: mov      qword ptr [rsp + 0xd0], rdx
+0x1408f9c27: lea      rdx, [rip + 0x2499f2]
+0x1408f9c2e: mov      qword ptr [rsp + 0xd8], rdx
+0x1408f9c36: lea      rdx, [rip + 0x79cedb]
+0x1408f9c3d: mov      qword ptr [rsp + 0xe0], rdx
+0x1408f9c45: lea      rdx, [rip + 0x220394]
+0x1408f9c4c: mov      qword ptr [rsp + 0xe8], rdx
+0x1408f9c54: lea      rdx, [rip + 0x79cec5]
+0x1408f9c5b: mov      qword ptr [rsp + 0xf0], rdx
+0x1408f9c63: lea      rdx, [rip + 0x2202b6]
+0x1408f9c6a: mov      qword ptr [rsp + 0xf8], rdx
+0x1408f9c72: lea      rdx, [rip + 0x79ceaf]
+0x1408f9c79: mov      qword ptr [rsp + 0x100], rdx
+0x1408f9c81: mov      rax, qword ptr [rip + 0x8d3c18]
+0x1408f9c88: nop      
+0x1408f9c89: lea      rbx, [rip + 0x38170c]
+0x1408f9c90: mov      ecx, 0x26
+0x1408f9c95: xor      edi, edi
+0x1408f9c97: lea      rsi, [rsp + 0x78]
+0x1408f9c9c: mov      r8d, 9
+0x1408f9ca2: mov      r9, r8
+0x1408f9ca5: call     0x1409fabc0   ; github.com/wailsapp/go-webview2/pkg/combridge.registerVTableInternal[go.shape.interface {},go.shape.c831de4c6a1c51b564a4c32146af1379f610da4148106d3c3595f2870383819a]
+0x1408f9caa: lea      rdx, [rip + 0x23b8ef]
+0x1408f9cb1: mov      qword ptr [rsp + 0x38], rdx
+0x1408f9cb6: lea      rdx, [rip + 0x79ce83]
+0x1408f9cbd: mov      qword ptr [rsp + 0x40], rdx
+0x1408f9cc2: lea      rdx, [rip + 0x220317]
+0x1408f9cc9: mov      qword ptr [rsp + 0x48], rdx
+0x1408f9cce: lea      rdx, [rip + 0x79ce7b]
+0x1408f9cd5: mov      qword ptr [rsp + 0x50], rdx
+0x1408f9cda: lea      rdx, [rip + 0x1fe0bf]
+0x1408f9ce1: mov      qword ptr [rsp + 0x58], rdx
+0x1408f9ce6: lea      rdx, [rip + 0x79ce5b]
+0x1408f9ced: mov      qword ptr [rsp + 0x60], rdx
+0x1408f9cf2: lea      rdx, [rip + 0x2201c7]
+0x1408f9cf9: mov      qword ptr [rsp + 0x68], rdx
+0x1408f9cfe: lea      rdx, [rip + 0x79ce33]
+0x1408f9d05: mov      qword ptr [rsp + 0x70], rdx
+0x1408f9d0a: mov      rax, qword ptr [rip + 0x8d3b97]
+0x1408f9d11: nop      
+0x1408f9d12: lea      rbx, [rip + 0x3816a9]
+0x1408f9d19: mov      ecx, 0x26
+0x1408f9d1e: xor      edi, edi
+0x1408f9d20: lea      rsi, [rsp + 0x38]
+0x1408f9d25: mov      r8d, 4
+0x1408f9d2b: mov      r9, r8
+0x1408f9d2e: call     0x1409fa3c0   ; github.com/wailsapp/go-webview2/pkg/combridge.registerVTableInternal[go.shape.interface {},go.shape.interface { Clone(**github.com/wailsapp/wails/v3/pkg/w32.IEnumFORMATETC) uintptr; Next(uint32, *github.com/wailsapp/wails/v3/pkg/w32.FORMATETC, *uint32) uintptr; Reset() uintptr; Skip(uint32) uintptr }]
+0x1408f9d33: add      rsp, 0x108
+0x1408f9d3a: pop      rbp
+0x1408f9d3b: ret      
+0x1408f9d3c: nop      dword ptr [rax]
+0x1408f9d40: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408f9d45: jmp      0x1408f9b60   ; main.init.0
+0x1408f9d4a: int3     
+0x1408f9d4b: int3     
+0x1408f9d4c: int3     
+0x1408f9d4d: int3     
+0x1408f9d4e: int3     
+0x1408f9d4f: int3     
+0x1408f9d50: int3     
+0x1408f9d51: int3     
+0x1408f9d52: int3     
+0x1408f9d53: int3     
+0x1408f9d54: int3     
+0x1408f9d55: int3     
+0x1408f9d56: int3     
+0x1408f9d57: int3     
+0x1408f9d58: int3     
+0x1408f9d59: int3     
+0x1408f9d5a: int3     
+0x1408f9d5b: int3     
+0x1408f9d5c: int3     
+0x1408f9d5d: int3     
+0x1408f9d5e: int3     
+0x1408f9d5f: int3     

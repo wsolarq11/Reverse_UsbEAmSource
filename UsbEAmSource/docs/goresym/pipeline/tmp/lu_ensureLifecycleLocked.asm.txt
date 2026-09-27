@@ -1,0 +1,78 @@
+0x1408ff220: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ff224: jbe      0x1408ff318   ; main.oledBlackoutService.ensureLifecycleLocked+0xf8
+0x1408ff22a: push     rbp
+0x1408ff22b: mov      rbp, rsp
+0x1408ff22e: sub      rsp, 0x10
+0x1408ff232: mov      qword ptr [rsp + 0x20], rax
+0x1408ff237: cmp      qword ptr [rax + 0xb0], 0
+0x1408ff23f: nop      
+0x1408ff240: jne      0x1408ff284   ; main.oledBlackoutService.ensureLifecycleLocked+0x64
+0x1408ff242: lea      rax, [rip + 0x1edbb7]
+0x1408ff249: xor      ebx, ebx
+0x1408ff24b: call     0x1400114c0   ; runtime.makechan
+0x1408ff250: cmp      dword ptr [rip + 0x135c0f9], 0
+0x1408ff257: jne      0x1408ff262   ; main.oledBlackoutService.ensureLifecycleLocked+0x42
+0x1408ff259: mov      rcx, qword ptr [rsp + 0x20]
+0x1408ff25e: nop      
+0x1408ff260: jmp      0x1408ff27a   ; main.oledBlackoutService.ensureLifecycleLocked+0x5a
+0x1408ff262: mov      rcx, qword ptr [rsp + 0x20]
+0x1408ff267: mov      rdx, qword ptr [rcx + 0xb0]
+0x1408ff26e: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1408ff273: mov      qword ptr [r11], rax
+0x1408ff276: mov      qword ptr [r11 + 8], rdx
+0x1408ff27a: mov      qword ptr [rcx + 0xb0], rax
+0x1408ff281: mov      rax, rcx
+0x1408ff284: cmp      qword ptr [rax + 0xa8], 0
+0x1408ff28c: jne      0x1408ff299   ; main.oledBlackoutService.ensureLifecycleLocked+0x79
+0x1408ff28e: mov      qword ptr [rax + 0xa8], 1
+0x1408ff299: cmp      qword ptr [rax + 0x90], 0
+0x1408ff2a1: jne      0x1408ff312   ; main.oledBlackoutService.ensureLifecycleLocked+0xf2
+0x1408ff2a3: lea      rax, [rip + 0x8d93b6]
+0x1408ff2aa: lea      rbx, [rip + 0x135b70f]
+0x1408ff2b1: call     0x140156ba0   ; context.WithCancel
+0x1408ff2b6: mov      rdx, qword ptr [rsp + 0x20]
+0x1408ff2bb: mov      qword ptr [rdx + 0x90], rax
+0x1408ff2c2: cmp      dword ptr [rip + 0x135c087], 0
+0x1408ff2c9: je       0x1408ff2ed   ; main.oledBlackoutService.ensureLifecycleLocked+0xcd
+0x1408ff2cb: mov      rax, qword ptr [rdx + 0x98]
+0x1408ff2d2: mov      rsi, qword ptr [rdx + 0xa0]
+0x1408ff2d9: call     0x1400810a0   ; runtime.gcWriteBarrier4
+0x1408ff2de: mov      qword ptr [r11], rbx
+0x1408ff2e1: mov      qword ptr [r11 + 8], rax
+0x1408ff2e5: mov      qword ptr [r11 + 0x10], rcx
+0x1408ff2e9: mov      qword ptr [r11 + 0x18], rsi
+0x1408ff2ed: mov      qword ptr [rdx + 0x98], rbx
+0x1408ff2f4: mov      qword ptr [rdx + 0xa0], rcx
+0x1408ff2fb: cmp      byte ptr [rdx + 0x88], 0
+0x1408ff302: je       0x1408ff30c   ; main.oledBlackoutService.ensureLifecycleLocked+0xec
+0x1408ff304: mov      rax, qword ptr [rcx]
+0x1408ff307: mov      rdx, rcx
+0x1408ff30a: call     rax
+0x1408ff30c: add      rsp, 0x10
+0x1408ff310: pop      rbp
+0x1408ff311: ret      
+0x1408ff312: add      rsp, 0x10
+0x1408ff316: pop      rbp
+0x1408ff317: ret      
+0x1408ff318: mov      qword ptr [rsp + 8], rax
+0x1408ff31d: nop      dword ptr [rax]
+0x1408ff320: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408ff325: mov      rax, qword ptr [rsp + 8]
+0x1408ff32a: jmp      0x1408ff220   ; main.oledBlackoutService.ensureLifecycleLocked
+0x1408ff32f: int3     
+0x1408ff330: int3     
+0x1408ff331: int3     
+0x1408ff332: int3     
+0x1408ff333: int3     
+0x1408ff334: int3     
+0x1408ff335: int3     
+0x1408ff336: int3     
+0x1408ff337: int3     
+0x1408ff338: int3     
+0x1408ff339: int3     
+0x1408ff33a: int3     
+0x1408ff33b: int3     
+0x1408ff33c: int3     
+0x1408ff33d: int3     
+0x1408ff33e: int3     
+0x1408ff33f: int3     

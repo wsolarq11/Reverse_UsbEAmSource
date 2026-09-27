@@ -1,0 +1,77 @@
+0x1407a79e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a79e4: jbe      0x1407a7af9   ; main.playDesktopReminderSystemSound+0x119
+0x1407a79ea: push     rbp
+0x1407a79eb: mov      rbp, rsp
+0x1407a79ee: sub      rsp, 0x48
+0x1407a79f2: mov      rdx, qword ptr [rip + 0x141eda7]
+0x1407a79f9: mov      rsi, qword ptr [rip + 0x141eda8]
+0x1407a7a00: mov      qword ptr [rsp + 0x30], rsi
+0x1407a7a05: xor      eax, eax
+0x1407a7a07: jmp      0x1407a7a20   ; main.playDesktopReminderSystemSound+0x40
+0x1407a7a09: mov      rdx, qword ptr [rsp + 0x40]
+0x1407a7a0e: add      rdx, 0x10
+0x1407a7a12: mov      rax, qword ptr [rsp + 0x28]
+0x1407a7a17: inc      rax
+0x1407a7a1a: mov      rsi, qword ptr [rsp + 0x30]
+0x1407a7a1f: nop      
+0x1407a7a20: cmp      rax, rsi
+0x1407a7a23: jge      0x1407a7a54   ; main.playDesktopReminderSystemSound+0x74
+0x1407a7a25: mov      qword ptr [rsp + 0x28], rax
+0x1407a7a2a: mov      qword ptr [rsp + 0x40], rdx
+0x1407a7a2f: mov      rax, qword ptr [rdx]
+0x1407a7a32: mov      rbx, qword ptr [rdx + 8]
+0x1407a7a36: mov      ecx, 0x210002
+0x1407a7a3b: nop      dword ptr [rax + rax]
+0x1407a7a40: call     0x1407a7b20   ; main.playDesktopReminderSound
+0x1407a7a45: test     rax, rax
+0x1407a7a48: jne      0x1407a7a09   ; main.playDesktopReminderSystemSound+0x29
+0x1407a7a4a: xor      eax, eax
+0x1407a7a4c: xor      ebx, ebx
+0x1407a7a4e: add      rsp, 0x48
+0x1407a7a52: pop      rbp
+0x1407a7a53: ret      
+0x1407a7a54: lea      rax, [rip + 0x355f25]
+0x1407a7a5b: nop      dword ptr [rax + rax]
+0x1407a7a60: call     0x14001ae20   ; runtime.newobject
+0x1407a7a65: mov      rcx, qword ptr [rip + 0x1419eb4]
+0x1407a7a6c: mov      rbx, rax
+0x1407a7a6f: mov      edi, 1
+0x1407a7a74: mov      rax, rcx
+0x1407a7a77: mov      rcx, rdi
+0x1407a7a7a: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1407a7a7f: nop      
+0x1407a7a80: test     rax, rax
+0x1407a7a83: jne      0x1407a7aef   ; main.playDesktopReminderSystemSound+0x10f
+0x1407a7a85: test     rcx, rcx
+0x1407a7a88: je       0x1407a7ab1   ; main.playDesktopReminderSystemSound+0xd1
+0x1407a7a8a: mov      qword ptr [rsp + 0x38], rdi
+0x1407a7a8f: mov      qword ptr [rsp + 0x20], rcx
+0x1407a7a94: mov      rax, rcx
+0x1407a7a97: mov      rbx, rdi
+0x1407a7a9a: lea      rcx, [rip + 0xa2b23f]
+0x1407a7aa1: lea      rdi, [rip + 0xa25a78]
+0x1407a7aa8: call     0x1400904a0   ; errors.Is
+0x1407a7aad: test     al, al
+0x1407a7aaf: je       0x1407a7adf   ; main.playDesktopReminderSystemSound+0xff
+0x1407a7ab1: lea      rax, [rip + 0x3ac8c8]
+0x1407a7ab8: call     0x14001ae20   ; runtime.newobject
+0x1407a7abd: mov      qword ptr [rax + 8], 0x23
+0x1407a7ac5: lea      rcx, [rip + 0x4cf62a]
+0x1407a7acc: mov      qword ptr [rax], rcx
+0x1407a7acf: mov      rbx, rax
+0x1407a7ad2: lea      rax, [rip + 0xa2b627]
+0x1407a7ad9: add      rsp, 0x48
+0x1407a7add: pop      rbp
+0x1407a7ade: ret      
+0x1407a7adf: mov      rax, qword ptr [rsp + 0x20]
+0x1407a7ae4: mov      rbx, qword ptr [rsp + 0x38]
+0x1407a7ae9: add      rsp, 0x48
+0x1407a7aed: pop      rbp
+0x1407a7aee: ret      
+0x1407a7aef: xor      eax, eax
+0x1407a7af1: xor      ebx, ebx
+0x1407a7af3: add      rsp, 0x48
+0x1407a7af7: pop      rbp
+0x1407a7af8: ret      
+0x1407a7af9: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a7afe: nop      

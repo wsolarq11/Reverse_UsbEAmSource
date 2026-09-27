@@ -1,0 +1,141 @@
+0x14085a0e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14085a0e4: jbe      0x14085a33b   ; main.normalizeGPUPreferenceMode+0x25b
+0x14085a0ea: push     rbp
+0x14085a0eb: mov      rbp, rsp
+0x14085a0ee: sub      rsp, 0x18
+0x14085a0f2: mov      qword ptr [rsp + 0x28], rax
+0x14085a0f7: call     0x1400a2200   ; strings.TrimSpace
+0x14085a0fc: nop      dword ptr [rax]
+0x14085a100: call     0x1400a1500   ; strings.ToLower
+0x14085a105: cmp      rbx, 0x12
+0x14085a109: ja       0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a10f: lea      rcx, [rip + 0x98682a]
+0x14085a116: jmp      qword ptr [rcx + rbx*8]
+0x14085a119: cmp      byte ptr [rax], 0x30
+0x14085a11c: nop      dword ptr [rax]
+0x14085a120: je       0x14085a317   ; main.normalizeGPUPreferenceMode+0x237
+0x14085a126: cmp      byte ptr [rax], 0x31
+0x14085a129: je       0x14085a235   ; main.normalizeGPUPreferenceMode+0x155
+0x14085a12f: cmp      byte ptr [rax], 0x32
+0x14085a132: je       0x14085a2cd   ; main.normalizeGPUPreferenceMode+0x1ed
+0x14085a138: jmp      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a13d: cmp      dword ptr [rax], 0x74737973
+0x14085a143: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a149: cmp      word ptr [rax + 4], 0x6d65
+0x14085a14f: je       0x14085a317   ; main.normalizeGPUPreferenceMode+0x237
+0x14085a155: jmp      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a15a: cmp      dword ptr [rax], 0x61666564
+0x14085a160: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a166: cmp      word ptr [rax + 4], 0x6c75
+0x14085a16c: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a172: cmp      byte ptr [rax + 6], 0x74
+0x14085a176: je       0x14085a317   ; main.normalizeGPUPreferenceMode+0x237
+0x14085a17c: nop      dword ptr [rax]
+0x14085a180: jmp      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a185: movabs   rcx, 0x7661737265776f70
+0x14085a18f: cmp      qword ptr [rax], rcx
+0x14085a192: jne      0x14085a1a6   ; main.normalizeGPUPreferenceMode+0xc6
+0x14085a194: cmp      word ptr [rax + 8], 0x6e69
+0x14085a19a: jne      0x14085a1a6   ; main.normalizeGPUPreferenceMode+0xc6
+0x14085a19c: cmp      byte ptr [rax + 0xa], 0x67
+0x14085a1a0: je       0x14085a235   ; main.normalizeGPUPreferenceMode+0x155
+0x14085a1a6: movabs   rcx, 0x6669636570736e75
+0x14085a1b0: cmp      qword ptr [rax], rcx
+0x14085a1b3: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a1b9: cmp      word ptr [rax + 8], 0x6569
+0x14085a1bf: nop      
+0x14085a1c0: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a1c6: cmp      byte ptr [rax + 0xa], 0x64
+0x14085a1ca: je       0x14085a317   ; main.normalizeGPUPreferenceMode+0x237
+0x14085a1d0: jmp      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a1d5: movabs   rcx, 0x706d756d696e696d
+0x14085a1df: nop      
+0x14085a1e0: cmp      qword ptr [rax], rcx
+0x14085a1e3: jne      0x14085a1ee   ; main.normalizeGPUPreferenceMode+0x10e
+0x14085a1e5: cmp      dword ptr [rax + 8], 0x7265776f
+0x14085a1ec: je       0x14085a235   ; main.normalizeGPUPreferenceMode+0x155
+0x14085a1ee: movabs   rcx, 0x61732d7265776f70
+0x14085a1f8: nop      dword ptr [rax + rax]
+0x14085a200: cmp      qword ptr [rax], rcx
+0x14085a203: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a209: cmp      dword ptr [rax + 8], 0x676e6976
+0x14085a210: je       0x14085a235   ; main.normalizeGPUPreferenceMode+0x155
+0x14085a212: jmp      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a217: movabs   rcx, 0x2d6d756d696e696d
+0x14085a221: cmp      qword ptr [rax], rcx
+0x14085a224: jne      0x14085a247   ; main.normalizeGPUPreferenceMode+0x167
+0x14085a226: cmp      dword ptr [rax + 8], 0x65776f70
+0x14085a22d: jne      0x14085a247   ; main.normalizeGPUPreferenceMode+0x167
+0x14085a22f: cmp      byte ptr [rax + 0xc], 0x72
+0x14085a233: jne      0x14085a247   ; main.normalizeGPUPreferenceMode+0x167
+0x14085a235: lea      rax, [rip + 0x3ed2b0]
+0x14085a23c: mov      ebx, 0xb
+0x14085a241: add      rsp, 0x18
+0x14085a245: pop      rbp
+0x14085a246: ret      
+0x14085a247: movabs   rcx, 0x65646d6574737973
+0x14085a251: cmp      qword ptr [rax], rcx
+0x14085a254: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a25a: cmp      dword ptr [rax + 8], 0x6c756166
+0x14085a261: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a267: cmp      byte ptr [rax + 0xc], 0x74
+0x14085a26b: je       0x14085a317   ; main.normalizeGPUPreferenceMode+0x237
+0x14085a271: jmp      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a276: movabs   rcx, 0x6672657068676968
+0x14085a280: cmp      qword ptr [rax], rcx
+0x14085a283: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a289: cmp      dword ptr [rax + 8], 0x616d726f
+0x14085a290: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a296: cmp      word ptr [rax + 0xc], 0x636e
+0x14085a29c: nop      dword ptr [rax]
+0x14085a2a0: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a2a6: cmp      byte ptr [rax + 0xe], 0x65
+0x14085a2aa: je       0x14085a2cd   ; main.normalizeGPUPreferenceMode+0x1ed
+0x14085a2ac: jmp      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a2ae: movabs   rcx, 0x7265702d68676968
+0x14085a2b8: cmp      qword ptr [rax], rcx
+0x14085a2bb: jne      0x14085a2df   ; main.normalizeGPUPreferenceMode+0x1ff
+0x14085a2bd: movabs   rcx, 0x65636e616d726f66
+0x14085a2c7: cmp      qword ptr [rax + 8], rcx
+0x14085a2cb: jne      0x14085a2df   ; main.normalizeGPUPreferenceMode+0x1ff
+0x14085a2cd: lea      rax, [rip + 0x3f8a36]
+0x14085a2d4: mov      ebx, 0xf
+0x14085a2d9: add      rsp, 0x18
+0x14085a2dd: pop      rbp
+0x14085a2de: ret      
+0x14085a2df: movabs   rcx, 0x6f646e697774656c
+0x14085a2e9: cmp      qword ptr [rax], rcx
+0x14085a2ec: jne      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a2ee: movabs   rcx, 0x6564696365647377
+0x14085a2f8: cmp      qword ptr [rax + 8], rcx
+0x14085a2fc: je       0x14085a317   ; main.normalizeGPUPreferenceMode+0x237
+0x14085a2fe: nop      
+0x14085a300: jmp      0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a302: lea      rbx, [rip + 0x3ffa35]
+0x14085a309: mov      ecx, 0x12
+0x14085a30e: call     0x140006280   ; runtime.memequal
+0x14085a313: test     al, al
+0x14085a315: je       0x14085a329   ; main.normalizeGPUPreferenceMode+0x249
+0x14085a317: lea      rax, [rip + 0x3f3d3d]
+0x14085a31e: mov      ebx, 0xd
+0x14085a323: add      rsp, 0x18
+0x14085a327: pop      rbp
+0x14085a328: ret      
+0x14085a329: lea      rax, [rip + 0x3df0be]
+0x14085a330: mov      ebx, 7
+0x14085a335: add      rsp, 0x18
+0x14085a339: pop      rbp
+0x14085a33a: ret      
+0x14085a33b: mov      qword ptr [rsp + 8], rax
+0x14085a340: mov      qword ptr [rsp + 0x10], rbx
+0x14085a345: call     0x14007f140   ; runtime.morestack_noctxt
+0x14085a34a: mov      rax, qword ptr [rsp + 8]
+0x14085a34f: mov      rbx, qword ptr [rsp + 0x10]
+0x14085a354: jmp      0x14085a0e0   ; main.normalizeGPUPreferenceMode
+0x14085a359: int3     
+0x14085a35a: int3     
+0x14085a35b: int3     
+0x14085a35c: int3     
+0x14085a35d: int3     
+0x14085a35e: int3     
+0x14085a35f: int3     

@@ -1,0 +1,23 @@
+0x140880d60: mov      eax, dword ptr [rsp + 0x158]
+0x140880d67: mov      qword ptr [rsp + 0x58], rax
+0x140880d6c: lea      rdi, [rsp + 0x60]
+0x140880d71: lea      rsi, [rsp + 0x160]
+0x140880d79: nop      dword ptr [rax]
+0x140880d80: mov      qword ptr [rsp - 0x10], rbp
+0x140880d85: lea      rbp, [rsp - 0x10]
+0x140880d8a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x140880d8f: mov      rbp, qword ptr [rbp]
+0x140880d93: call     0x140881940   ; main.mergeStartMenuLaunchLog
+0x140880d98: mov      rax, qword ptr [rsp + 0xb0]
+0x140880da0: mov      qword ptr [rsp + 0x2d0], rax
+0x140880da8: lea      rdi, [rsp + 0x2d8]
+0x140880db0: lea      rsi, [rsp + 0xb8]
+0x140880db8: nop      dword ptr [rax + rax]
+0x140880dc0: mov      qword ptr [rsp - 0x10], rbp
+0x140880dc5: lea      rbp, [rsp - 0x10]
+0x140880dca: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x140880dcf: mov      rbp, qword ptr [rbp]
+0x140880dd3: mov      rcx, qword ptr [rsp + 0x140]
+0x140880ddb: mov      rax, qword ptr [rsp + 0x110]
+0x140880de3: cmp      rax, rcx
+0x140880de6: jae      0x140881085   ; main.normalizeStartMenuLaunchLogs+0x645

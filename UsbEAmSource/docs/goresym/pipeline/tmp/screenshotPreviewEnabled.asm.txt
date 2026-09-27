@@ -1,0 +1,127 @@
+0x140795700: mov      r12, rsp
+0x140795703: sub      r12, 0x1b70
+0x14079570a: jb       0x1407958ef    ; main.BootstrapService.screenshotPreviewEnabled+0x1ef
+0x140795710: cmp      r12, qword ptr [r14 + 0x10]
+0x140795714: jbe      0x1407958ef    ; main.BootstrapService.screenshotPreviewEnabled+0x1ef
+0x14079571a: push     rbp
+0x14079571b: mov      rbp, rsp
+0x14079571e: sub      rsp, 0x1be8
+0x140795725: test     rax, rax
+0x140795728: je       0x1407958e1    ; main.BootstrapService.screenshotPreviewEnabled+0x1e1
+0x14079572e: mov      qword ptr [rsp + 0x1bf8], rax
+0x140795736: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x14079573b: lea      rdi, [rsp + 0x960]
+0x140795743: mov      rsi, rsp
+0x140795746: mov      qword ptr [rsp - 0x10], rbp
+0x14079574b: lea      rbp, [rsp - 0x10]
+0x140795750: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x140795755: mov      rbp, qword ptr [rbp]
+0x140795759: mov      rax, qword ptr [rsp + 0x1bf8]
+0x140795761: lea      rbx, [rip + 0x4a047e]
+0x140795768: mov      ecx, 5
+0x14079576d: call     0x140775660    ; main.BootstrapService.launcherConfigOptions
+0x140795772: movups   xmmword ptr [rsp + 0x1298], xmm15
+0x14079577b: lea      rdi, [rsp + 0x12a0]
+0x140795783: mov      rdx, rcx
+0x140795786: mov      ecx, 0x126
+0x14079578b: mov      rsi, rax
+0x14079578e: xor      eax, eax
+0x140795790: rep stosq qword ptr [rdi], rax
+0x140795793: mov      qword ptr [rsp + 0x1be0], 0
+0x14079579f: mov      qword ptr [rsp + 0x1bd8], rbx
+0x1407957a7: mov      qword ptr [rsp + 0x1be0], rdx
+0x1407957af: mov      qword ptr [rsp + 0x1bd0], rsi
+0x1407957b7: mov      rax, qword ptr [rsp + 0x970]
+0x1407957bf: mov      rbx, qword ptr [rsp + 0x978]
+0x1407957c7: lea      rcx, [rsp + 0x1bd0]
+0x1407957cf: mov      edi, 1
+0x1407957d4: mov      rsi, rdi
+0x1407957d7: call     0x140875e00    ; main.loadLauncherConfigOrDefaultIfMissing
+0x1407957dc: mov      rcx, qword ptr [rsp]
+0x1407957e0: mov      qword ptr [rsp + 0x1298], rcx
+0x1407957e8: lea      rdi, [rsp + 0x12a0]
+0x1407957f0: lea      rsi, [rsp + 8]
+0x1407957f5: mov      ecx, 0x126
+0x1407957fa: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407957fd: mov      rcx, qword ptr [rsp + 0x1298]
+0x140795805: mov      qword ptr [rsp + 0x960], rcx
+0x14079580d: lea      rdi, [rsp + 0x968]
+0x140795815: lea      rsi, [rsp + 0x12a0]
+0x14079581d: mov      ecx, 0x126
+0x140795822: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140795825: test     rbx, rbx
+0x140795828: jne      0x1407958d2    ; main.BootstrapService.screenshotPreviewEnabled+0x1d2
+0x14079582e: mov      rdx, qword ptr [rsp + 0x9d0]
+0x140795836: mov      qword ptr [rsp], rdx
+0x14079583a: lea      rdi, [rsp + 8]
+0x14079583f: lea      rsi, [rsp + 0x9d8]
+0x140795847: mov      ecx, 0x88
+0x14079584c: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14079584f: xor      eax, eax
+0x140795851: xor      ebx, ebx
+0x140795853: mov      rcx, rbx
+0x140795856: call     0x14087cb00    ; main.normalizePreferencesWithOptions
+0x14079585b: mov      rdx, qword ptr [rsp + 0x448]
+0x140795863: mov      qword ptr [rsp + 0x1298], rdx
+0x14079586b: lea      rdi, [rsp + 0x12a0]
+0x140795873: lea      rsi, [rsp + 0x450]
+0x14079587b: mov      ecx, 0x88
+0x140795880: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140795883: mov      rdx, qword ptr [rsp + 0x1298]
+0x14079588b: mov      qword ptr [rsp + 0x960], rdx
+0x140795893: lea      rdi, [rsp + 0x968]
+0x14079589b: lea      rsi, [rsp + 0x12a0]
+0x1407958a3: mov      ecx, 0x88
+0x1407958a8: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x1407958ab: mov      rdx, qword ptr [rsp + 0xb48]
+0x1407958b3: test     rdx, rdx
+0x1407958b6: je       0x1407958c4    ; main.BootstrapService.screenshotPreviewEnabled+0x1c4
+0x1407958b8: movzx    eax, byte ptr [rdx]
+0x1407958bb: add      rsp, 0x1be8
+0x1407958c2: pop      rbp
+0x1407958c3: ret      
+0x1407958c4: mov      eax, 1
+0x1407958c9: add      rsp, 0x1be8
+0x1407958d0: pop      rbp
+0x1407958d1: ret      
+0x1407958d2: mov      eax, 1
+0x1407958d7: add      rsp, 0x1be8
+0x1407958de: pop      rbp
+0x1407958df: nop      
+0x1407958e0: ret      
+0x1407958e1: mov      eax, 1
+0x1407958e6: add      rsp, 0x1be8
+0x1407958ed: pop      rbp
+0x1407958ee: ret      
+0x1407958ef: mov      qword ptr [rsp + 8], rax
+0x1407958f4: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407958f9: mov      rax, qword ptr [rsp + 8]
+0x1407958fe: nop      
+0x140795900: jmp      0x140795700    ; main.BootstrapService.screenshotPreviewEnabled
+0x140795905: int3     
+0x140795906: int3     
+0x140795907: int3     
+0x140795908: int3     
+0x140795909: int3     
+0x14079590a: int3     
+0x14079590b: int3     
+0x14079590c: int3     
+0x14079590d: int3     
+0x14079590e: int3     
+0x14079590f: int3     
+0x140795910: int3     
+0x140795911: int3     
+0x140795912: int3     
+0x140795913: int3     
+0x140795914: int3     
+0x140795915: int3     
+0x140795916: int3     
+0x140795917: int3     
+0x140795918: int3     
+0x140795919: int3     
+0x14079591a: int3     
+0x14079591b: int3     
+0x14079591c: int3     
+0x14079591d: int3     
+0x14079591e: int3     
+0x14079591f: int3     

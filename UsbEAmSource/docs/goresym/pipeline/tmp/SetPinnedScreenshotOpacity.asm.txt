@@ -1,0 +1,145 @@
+0x14078f640: lea      r12, [rsp - 0xd8]
+0x14078f648: cmp      r12, qword ptr [r14 + 0x10]
+0x14078f64c: jbe      0x14078f8de    ; main.BootstrapService.SetPinnedScreenshotOpacity+0x29e
+0x14078f652: push     rbp
+0x14078f653: mov      rbp, rsp
+0x14078f656: sub      rsp, 0x150
+0x14078f65d: movq     qword ptr [rsp + 0x148], xmm15
+0x14078f667: mov      qword ptr [rsp + 0x1e8], rax
+0x14078f66f: movsd    qword ptr [rsp + 0x200], xmm0
+0x14078f678: mov      qword ptr [rsp + 0x1f8], rcx
+0x14078f680: mov      qword ptr [rsp + 0x1f0], rbx
+0x14078f688: mov      byte ptr [rsp + 0xaf], 0
+0x14078f690: movups   xmmword ptr [rsp + 0x160], xmm15
+0x14078f699: lea      rdi, [rsp + 0x168]
+0x14078f6a1: mov      qword ptr [rsp - 0x10], rbp
+0x14078f6a6: lea      rbp, [rsp - 0x10]
+0x14078f6ab: call     0x140081722    ; runtime.duffzero+0x142
+0x14078f6b0: mov      rbp, qword ptr [rbp]
+0x14078f6b4: movups   xmmword ptr [rsp + 0xb0], xmm15
+0x14078f6bd: nop      dword ptr [rax]
+0x14078f6c0: call     0x1409ef7c0    ; main.BootstrapService.beginWorkspaceDataOperation
+0x14078f6c5: test     rbx, rbx
+0x14078f6c8: jne      0x14078f878    ; main.BootstrapService.SetPinnedScreenshotOpacity+0x238
+0x14078f6ce: mov      qword ptr [rsp + 0x148], rax
+0x14078f6d6: mov      byte ptr [rsp + 0xaf], 1
+0x14078f6de: mov      rdx, qword ptr [rsp + 0x1e8]
+0x14078f6e6: mov      rax, qword ptr [rdx + 0x400]
+0x14078f6ed: test     rax, rax
+0x14078f6f0: je       0x14078f7f1    ; main.BootstrapService.SetPinnedScreenshotOpacity+0x1b1
+0x14078f6f6: movups   xmmword ptr [rsp + 0xc0], xmm15
+0x14078f6ff: lea      rdi, [rsp + 0xc8]
+0x14078f707: mov      qword ptr [rsp - 0x10], rbp
+0x14078f70c: lea      rbp, [rsp - 0x10]
+0x14078f711: call     0x140081722    ; runtime.duffzero+0x142
+0x14078f716: mov      rbp, qword ptr [rbp]
+0x14078f71a: mov      rbx, qword ptr [rsp + 0x1f0]
+0x14078f722: mov      rcx, qword ptr [rsp + 0x1f8]
+0x14078f72a: movsd    xmm0, qword ptr [rsp + 0x200]
+0x14078f733: call     0x140984380    ; main.screenshotPinWindowService.SetOpacity
+0x14078f738: mov      rdx, qword ptr [rsp]
+0x14078f73c: mov      qword ptr [rsp + 0xc0], rdx
+0x14078f744: lea      rdi, [rsp + 0xc8]
+0x14078f74c: lea      rsi, [rsp + 8]
+0x14078f751: nop      word ptr [rax + rax]
+0x14078f75a: nop      word ptr [rax + rax]
+0x14078f760: mov      qword ptr [rsp - 0x10], rbp
+0x14078f765: lea      rbp, [rsp - 0x10]
+0x14078f76a: call     0x140081a70    ; runtime.duffcopy+0x310
+0x14078f76f: mov      rbp, qword ptr [rbp]
+0x14078f773: mov      rdx, qword ptr [rsp + 0xc0]
+0x14078f77b: mov      qword ptr [rsp + 0x160], rdx
+0x14078f783: lea      rdi, [rsp + 0x168]
+0x14078f78b: lea      rsi, [rsp + 0xc8]
+0x14078f793: nop      word ptr [rax + rax]
+0x14078f79c: nop      dword ptr [rax]
+0x14078f7a0: mov      qword ptr [rsp - 0x10], rbp
+0x14078f7a5: lea      rbp, [rsp - 0x10]
+0x14078f7aa: call     0x140081a70    ; runtime.duffcopy+0x310
+0x14078f7af: mov      rbp, qword ptr [rbp]
+0x14078f7b3: mov      qword ptr [rsp + 0xb0], rax
+0x14078f7bb: mov      qword ptr [rsp + 0xb8], rbx
+0x14078f7c3: mov      byte ptr [rsp + 0xaf], 0
+0x14078f7cb: mov      rdx, qword ptr [rsp + 0x148]
+0x14078f7d3: mov      rsi, qword ptr [rdx]
+0x14078f7d6: call     rsi
+0x14078f7d8: mov      rax, qword ptr [rsp + 0xb0]
+0x14078f7e0: mov      rbx, qword ptr [rsp + 0xb8]
+0x14078f7e8: add      rsp, 0x150
+0x14078f7ef: pop      rbp
+0x14078f7f0: ret      
+0x14078f7f1: lea      rax, [rip + 0x3c4b88]
+0x14078f7f8: call     0x14001ae20    ; runtime.newobject
+0x14078f7fd: mov      qword ptr [rax + 8], 0x15
+0x14078f805: lea      rcx, [rip + 0x4cfdff]
+0x14078f80c: mov      qword ptr [rax], rcx
+0x14078f80f: movups   xmmword ptr [rsp + 0x160], xmm15
+0x14078f818: lea      rdi, [rsp + 0x168]
+0x14078f820: mov      qword ptr [rsp - 0x10], rbp
+0x14078f825: lea      rbp, [rsp - 0x10]
+0x14078f82a: call     0x140081722    ; runtime.duffzero+0x142
+0x14078f82f: mov      rbp, qword ptr [rbp]
+0x14078f833: lea      rcx, [rip + 0xa438c6]
+0x14078f83a: mov      qword ptr [rsp + 0xb0], rcx
+0x14078f842: mov      qword ptr [rsp + 0xb8], rax
+0x14078f84a: mov      byte ptr [rsp + 0xaf], 0
+0x14078f852: mov      rdx, qword ptr [rsp + 0x148]
+0x14078f85a: mov      rcx, qword ptr [rdx]
+0x14078f85d: call     rcx
+0x14078f85f: mov      rax, qword ptr [rsp + 0xb0]
+0x14078f867: mov      rbx, qword ptr [rsp + 0xb8]
+0x14078f86f: add      rsp, 0x150
+0x14078f876: pop      rbp
+0x14078f877: ret      
+0x14078f878: movups   xmmword ptr [rsp + 0x160], xmm15
+0x14078f881: lea      rdi, [rsp + 0x168]
+0x14078f889: mov      qword ptr [rsp - 0x10], rbp
+0x14078f88e: lea      rbp, [rsp - 0x10]
+0x14078f893: call     0x140081722    ; runtime.duffzero+0x142
+0x14078f898: mov      rbp, qword ptr [rbp]
+0x14078f89c: mov      qword ptr [rsp + 0xb0], rbx
+0x14078f8a4: mov      qword ptr [rsp + 0xb8], rcx
+0x14078f8ac: mov      rax, rbx
+0x14078f8af: mov      rbx, rcx
+0x14078f8b2: add      rsp, 0x150
+0x14078f8b9: pop      rbp
+0x14078f8ba: ret      
+0x14078f8bb: nop      dword ptr [rax + rax]
+0x14078f8c0: call     0x1400435e0    ; runtime.deferreturn
+0x14078f8c5: mov      rax, qword ptr [rsp + 0xb0]
+0x14078f8cd: mov      rbx, qword ptr [rsp + 0xb8]
+0x14078f8d5: add      rsp, 0x150
+0x14078f8dc: pop      rbp
+0x14078f8dd: ret      
+0x14078f8de: mov      qword ptr [rsp + 0x90], rax
+0x14078f8e6: mov      qword ptr [rsp + 0x98], rbx
+0x14078f8ee: mov      qword ptr [rsp + 0xa0], rcx
+0x14078f8f6: movsd    qword ptr [rsp + 0xa8], xmm0
+0x14078f8ff: nop      
+0x14078f900: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078f905: mov      rax, qword ptr [rsp + 0x90]
+0x14078f90d: mov      rbx, qword ptr [rsp + 0x98]
+0x14078f915: mov      rcx, qword ptr [rsp + 0xa0]
+0x14078f91d: movsd    xmm0, qword ptr [rsp + 0xa8]
+0x14078f926: jmp      0x14078f640    ; main.BootstrapService.SetPinnedScreenshotOpacity
+0x14078f92b: int3     
+0x14078f92c: int3     
+0x14078f92d: int3     
+0x14078f92e: int3     
+0x14078f92f: int3     
+0x14078f930: int3     
+0x14078f931: int3     
+0x14078f932: int3     
+0x14078f933: int3     
+0x14078f934: int3     
+0x14078f935: int3     
+0x14078f936: int3     
+0x14078f937: int3     
+0x14078f938: int3     
+0x14078f939: int3     
+0x14078f93a: int3     
+0x14078f93b: int3     
+0x14078f93c: int3     
+0x14078f93d: int3     
+0x14078f93e: int3     
+0x14078f93f: int3     

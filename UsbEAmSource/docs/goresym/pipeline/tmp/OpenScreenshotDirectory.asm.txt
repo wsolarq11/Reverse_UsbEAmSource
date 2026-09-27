@@ -1,0 +1,95 @@
+0x14078d460: lea      r12, [rsp - 0x100]
+0x14078d468: cmp      r12, qword ptr [r14 + 0x10]
+0x14078d46c: jbe      0x14078d5f8    ; main.BootstrapService.OpenScreenshotDirectory+0x198
+0x14078d472: push     rbp
+0x14078d473: mov      rbp, rsp
+0x14078d476: sub      rsp, 0x178
+0x14078d47d: movq     qword ptr [rsp + 0x170], xmm15
+0x14078d487: mov      qword ptr [rsp + 0x188], rax
+0x14078d48f: mov      byte ptr [rsp + 0xaf], 0
+0x14078d497: movups   xmmword ptr [rsp + 0xc0], xmm15
+0x14078d4a0: call     0x1409ef7c0    ; main.BootstrapService.beginWorkspaceDataOperation
+0x14078d4a5: test     rbx, rbx
+0x14078d4a8: jne      0x14078d5bb    ; main.BootstrapService.OpenScreenshotDirectory+0x15b
+0x14078d4ae: mov      qword ptr [rsp + 0x170], rax
+0x14078d4b6: mov      byte ptr [rsp + 0xaf], 1
+0x14078d4be: mov      rax, qword ptr [rsp + 0x188]
+0x14078d4c6: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x14078d4cb: lea      rdi, [rsp + 0xd0]
+0x14078d4d3: mov      rsi, rsp
+0x14078d4d6: nop      word ptr [rax + rax]
+0x14078d4df: nop      
+0x14078d4e0: mov      qword ptr [rsp - 0x10], rbp
+0x14078d4e5: lea      rbp, [rsp - 0x10]
+0x14078d4ea: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x14078d4ef: mov      rbp, qword ptr [rbp]
+0x14078d4f3: mov      rax, qword ptr [rsp + 0x140]
+0x14078d4fb: mov      rbx, qword ptr [rsp + 0x148]
+0x14078d503: call     0x1400a2200    ; strings.TrimSpace
+0x14078d508: mov      qword ptr [rsp + 0xb8], rax
+0x14078d510: mov      qword ptr [rsp + 0xb0], rbx
+0x14078d518: mov      ecx, 0x1ed
+0x14078d51d: nop      dword ptr [rax]
+0x14078d520: call     0x14012bbe0    ; os.MkdirAll
+0x14078d525: test     rax, rax
+0x14078d528: je       0x14078d568    ; main.BootstrapService.OpenScreenshotDirectory+0x108
+0x14078d52a: mov      qword ptr [rsp + 0xc0], rax
+0x14078d532: mov      qword ptr [rsp + 0xc8], rbx
+0x14078d53a: mov      byte ptr [rsp + 0xaf], 0
+0x14078d542: mov      rdx, qword ptr [rsp + 0x170]
+0x14078d54a: mov      rax, qword ptr [rdx]
+0x14078d54d: call     rax
+0x14078d54f: mov      rax, qword ptr [rsp + 0xc0]
+0x14078d557: mov      rbx, qword ptr [rsp + 0xc8]
+0x14078d55f: add      rsp, 0x178
+0x14078d566: pop      rbp
+0x14078d567: ret      
+0x14078d568: mov      rax, qword ptr [rsp + 0xb8]
+0x14078d570: mov      rbx, qword ptr [rsp + 0xb0]
+0x14078d578: call     0x1408a88a0    ; main.openPathDirectory
+0x14078d57d: mov      qword ptr [rsp + 0xc0], rax
+0x14078d585: mov      qword ptr [rsp + 0xc8], rbx
+0x14078d58d: mov      byte ptr [rsp + 0xaf], 0
+0x14078d595: mov      rdx, qword ptr [rsp + 0x170]
+0x14078d59d: mov      rcx, qword ptr [rdx]
+0x14078d5a0: call     rcx
+0x14078d5a2: mov      rax, qword ptr [rsp + 0xc0]
+0x14078d5aa: mov      rbx, qword ptr [rsp + 0xc8]
+0x14078d5b2: add      rsp, 0x178
+0x14078d5b9: pop      rbp
+0x14078d5ba: ret      
+0x14078d5bb: mov      qword ptr [rsp + 0xc0], rbx
+0x14078d5c3: mov      qword ptr [rsp + 0xc8], rcx
+0x14078d5cb: mov      rax, rbx
+0x14078d5ce: mov      rbx, rcx
+0x14078d5d1: add      rsp, 0x178
+0x14078d5d8: pop      rbp
+0x14078d5d9: ret      
+0x14078d5da: call     0x1400435e0    ; runtime.deferreturn
+0x14078d5df: mov      rax, qword ptr [rsp + 0xc0]
+0x14078d5e7: mov      rbx, qword ptr [rsp + 0xc8]
+0x14078d5ef: add      rsp, 0x178
+0x14078d5f6: pop      rbp
+0x14078d5f7: ret      
+0x14078d5f8: mov      qword ptr [rsp + 8], rax
+0x14078d5fd: nop      dword ptr [rax]
+0x14078d600: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078d605: mov      rax, qword ptr [rsp + 8]
+0x14078d60a: jmp      0x14078d460    ; main.BootstrapService.OpenScreenshotDirectory
+0x14078d60f: int3     
+0x14078d610: int3     
+0x14078d611: int3     
+0x14078d612: int3     
+0x14078d613: int3     
+0x14078d614: int3     
+0x14078d615: int3     
+0x14078d616: int3     
+0x14078d617: int3     
+0x14078d618: int3     
+0x14078d619: int3     
+0x14078d61a: int3     
+0x14078d61b: int3     
+0x14078d61c: int3     
+0x14078d61d: int3     
+0x14078d61e: int3     
+0x14078d61f: int3     

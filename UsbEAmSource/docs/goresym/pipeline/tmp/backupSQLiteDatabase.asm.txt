@@ -1,0 +1,265 @@
+0x14076fec0: lea      r12, [rsp - 0x20]
+0x14076fec5: cmp      r12, qword ptr [r14 + 0x10]
+0x14076fec9: jbe      0x140770170   ; main.backupSQLiteDatabase+0x2b0
+0x14076fecf: push     rbp
+0x14076fed0: mov      rbp, rsp
+0x14076fed3: sub      rsp, 0x98
+0x14076feda: mov      qword ptr [rsp + 0xa8], rax
+0x14076fee2: movups   xmmword ptr [rsp + 0x88], xmm15
+0x14076feeb: mov      qword ptr [rsp + 0xc0], rdi
+0x14076fef3: mov      qword ptr [rsp + 0xb8], rcx
+0x14076fefb: mov      byte ptr [rsp + 0x2f], 0
+0x14076ff00: movups   xmmword ptr [rsp + 0x30], xmm15
+0x14076ff06: call     0x1407705e0   ; main.sqliteReadonlyURI
+0x14076ff0b: test     rbx, rbx
+0x14076ff0e: je       0x14077012b   ; main.backupSQLiteDatabase+0x26b
+0x14076ff14: mov      rcx, rax
+0x14076ff17: mov      rdi, rbx
+0x14076ff1a: lea      rax, [rip + 0x4c7633]
+0x14076ff21: mov      ebx, 6
+0x14076ff26: call     0x1401f3de0   ; database/sql.Open
+0x14076ff2b: test     rbx, rbx
+0x14076ff2e: je       0x14076ff7a   ; main.backupSQLiteDatabase+0xba
+0x14076ff30: movups   xmmword ptr [rsp + 0x78], xmm15
+0x14076ff36: je       0x14076ff3c   ; main.backupSQLiteDatabase+0x7c
+0x14076ff38: mov      rbx, qword ptr [rbx + 8]
+0x14076ff3c: mov      qword ptr [rsp + 0x78], rbx
+0x14076ff41: mov      qword ptr [rsp + 0x80], rcx
+0x14076ff49: lea      rax, [rip + 0x4f4df0]
+0x14076ff50: mov      ebx, 0x18
+0x14076ff55: lea      rcx, [rsp + 0x78]
+0x14076ff5a: mov      edi, 1
+0x14076ff5f: mov      rsi, rdi
+0x14076ff62: call     0x140133280   ; fmt.Errorf
+0x14076ff67: mov      qword ptr [rsp + 0x30], rax
+0x14076ff6c: mov      qword ptr [rsp + 0x38], rbx
+0x14076ff71: add      rsp, 0x98
+0x14076ff78: pop      rbp
+0x14076ff79: ret      
+0x14076ff7a: lea      rdx, [rip + 0x5ff]
+0x14076ff81: mov      qword ptr [rsp + 0x50], rdx
+0x14076ff86: mov      qword ptr [rsp + 0x58], rax
+0x14076ff8b: lea      rdx, [rsp + 0x50]
+0x14076ff90: mov      qword ptr [rsp + 0x88], rdx
+0x14076ff98: mov      byte ptr [rsp + 0x2f], 1
+0x14076ff9d: lea      rbx, [rip + 0xa686bc]
+0x14076ffa4: lea      rcx, [rip + 0x14eaa15]
+0x14076ffab: call     0x1401fa3c0   ; database/sql.DB.Conn
+0x14076ffb0: test     rbx, rbx
+0x14076ffb3: je       0x14077001c   ; main.backupSQLiteDatabase+0x15c
+0x14076ffb5: movups   xmmword ptr [rsp + 0x78], xmm15
+0x14076ffbb: je       0x14076ffc1   ; main.backupSQLiteDatabase+0x101
+0x14076ffbd: mov      rbx, qword ptr [rbx + 8]
+0x14076ffc1: mov      qword ptr [rsp + 0x78], rbx
+0x14076ffc6: mov      qword ptr [rsp + 0x80], rcx
+0x14076ffce: lea      rax, [rip + 0x4f6a3b]
+0x14076ffd5: mov      ebx, 0x19
+0x14076ffda: lea      rcx, [rsp + 0x78]
+0x14076ffdf: mov      edi, 1
+0x14076ffe4: mov      rsi, rdi
+0x14076ffe7: call     0x140133280   ; fmt.Errorf
+0x14076ffec: mov      qword ptr [rsp + 0x30], rax
+0x14076fff1: mov      qword ptr [rsp + 0x38], rbx
+0x14076fff6: mov      byte ptr [rsp + 0x2f], 0
+0x14076fffb: mov      rdx, qword ptr [rsp + 0x88]
+0x140770003: mov      r8, qword ptr [rdx]
+0x140770006: call     r8
+0x140770009: mov      rax, qword ptr [rsp + 0x30]
+0x14077000e: mov      rbx, qword ptr [rsp + 0x38]
+0x140770013: add      rsp, 0x98
+0x14077001a: pop      rbp
+0x14077001b: ret      
+0x14077001c: lea      rcx, [rip + 0x4fd]
+0x140770023: mov      qword ptr [rsp + 0x40], rcx
+0x140770028: mov      qword ptr [rsp + 0x48], rax
+0x14077002d: lea      rcx, [rsp + 0x40]
+0x140770032: mov      qword ptr [rsp + 0x90], rcx
+0x14077003a: mov      byte ptr [rsp + 0x2f], 3
+0x14077003f: lea      rcx, [rip + 0x17a]
+0x140770046: mov      qword ptr [rsp + 0x60], rcx
+0x14077004b: mov      rcx, qword ptr [rsp + 0xc0]
+0x140770053: mov      qword ptr [rsp + 0x70], rcx
+0x140770058: mov      rcx, qword ptr [rsp + 0xb8]
+0x140770060: mov      qword ptr [rsp + 0x68], rcx
+0x140770065: lea      rbx, [rsp + 0x60]
+0x14077006a: call     0x1401fab80   ; database/sql.Conn.Raw
+0x14077006f: test     rax, rax
+0x140770072: je       0x1407700ee   ; main.backupSQLiteDatabase+0x22e
+0x140770074: movups   xmmword ptr [rsp + 0x78], xmm15
+0x14077007a: je       0x140770080   ; main.backupSQLiteDatabase+0x1c0
+0x14077007c: mov      rax, qword ptr [rax + 8]
+0x140770080: mov      qword ptr [rsp + 0x78], rax
+0x140770085: mov      qword ptr [rsp + 0x80], rbx
+0x14077008d: lea      rax, [rip + 0x4f81a3]
+0x140770094: mov      ebx, 0x1a
+0x140770099: lea      rcx, [rsp + 0x78]
+0x14077009e: mov      edi, 1
+0x1407700a3: mov      rsi, rdi
+0x1407700a6: call     0x140133280   ; fmt.Errorf
+0x1407700ab: mov      qword ptr [rsp + 0x30], rax
+0x1407700b0: mov      qword ptr [rsp + 0x38], rbx
+0x1407700b5: mov      byte ptr [rsp + 0x2f], 1
+0x1407700ba: mov      rdx, qword ptr [rsp + 0x90]
+0x1407700c2: mov      r8, qword ptr [rdx]
+0x1407700c5: call     r8
+0x1407700c8: mov      byte ptr [rsp + 0x2f], 0
+0x1407700cd: mov      rdx, qword ptr [rsp + 0x88]
+0x1407700d5: mov      r8, qword ptr [rdx]
+0x1407700d8: call     r8
+0x1407700db: mov      rax, qword ptr [rsp + 0x30]
+0x1407700e0: mov      rbx, qword ptr [rsp + 0x38]
+0x1407700e5: add      rsp, 0x98
+0x1407700ec: pop      rbp
+0x1407700ed: ret      
+0x1407700ee: movups   xmmword ptr [rsp + 0x30], xmm15
+0x1407700f4: mov      byte ptr [rsp + 0x2f], 1
+0x1407700f9: mov      rdx, qword ptr [rsp + 0x90]
+0x140770101: mov      rax, qword ptr [rdx]
+0x140770104: call     rax
+0x140770106: mov      byte ptr [rsp + 0x2f], 0
+0x14077010b: mov      rdx, qword ptr [rsp + 0x88]
+0x140770113: mov      rax, qword ptr [rdx]
+0x140770116: call     rax
+0x140770118: mov      rax, qword ptr [rsp + 0x30]
+0x14077011d: mov      rbx, qword ptr [rsp + 0x38]
+0x140770122: add      rsp, 0x98
+0x140770129: pop      rbp
+0x14077012a: ret      
+0x14077012b: lea      rax, [rip + 0x4f9a5f]
+0x140770132: mov      ebx, 0x1b
+0x140770137: xor      ecx, ecx
+0x140770139: xor      edi, edi
+0x14077013b: mov      rsi, rdi
+0x14077013e: nop      
+0x140770140: call     0x140133280   ; fmt.Errorf
+0x140770145: mov      qword ptr [rsp + 0x30], rax
+0x14077014a: mov      qword ptr [rsp + 0x38], rbx
+0x14077014f: add      rsp, 0x98
+0x140770156: pop      rbp
+0x140770157: ret      
+0x140770158: call     0x1400435e0   ; runtime.deferreturn
+0x14077015d: mov      rax, qword ptr [rsp + 0x30]
+0x140770162: mov      rbx, qword ptr [rsp + 0x38]
+0x140770167: add      rsp, 0x98
+0x14077016e: pop      rbp
+0x14077016f: ret      
+0x140770170: mov      qword ptr [rsp + 8], rax
+0x140770175: mov      qword ptr [rsp + 0x10], rbx
+0x14077017a: mov      qword ptr [rsp + 0x18], rcx
+0x14077017f: mov      qword ptr [rsp + 0x20], rdi
+0x140770184: call     0x14007f140   ; runtime.morestack_noctxt
+0x140770189: mov      rax, qword ptr [rsp + 8]
+0x14077018e: mov      rbx, qword ptr [rsp + 0x10]
+0x140770193: mov      rcx, qword ptr [rsp + 0x18]
+0x140770198: mov      rdi, qword ptr [rsp + 0x20]
+0x14077019d: nop      dword ptr [rax]
+0x1407701a0: jmp      0x14076fec0   ; main.backupSQLiteDatabase
+0x1407701a5: int3     
+0x1407701a6: int3     
+0x1407701a7: int3     
+0x1407701a8: int3     
+0x1407701a9: int3     
+0x1407701aa: int3     
+0x1407701ab: int3     
+0x1407701ac: int3     
+0x1407701ad: int3     
+0x1407701ae: int3     
+0x1407701af: int3     
+0x1407701b0: int3     
+0x1407701b1: int3     
+0x1407701b2: int3     
+0x1407701b3: int3     
+0x1407701b4: int3     
+0x1407701b5: int3     
+0x1407701b6: int3     
+0x1407701b7: int3     
+0x1407701b8: int3     
+0x1407701b9: int3     
+0x1407701ba: int3     
+0x1407701bb: int3     
+0x1407701bc: int3     
+0x1407701bd: int3     
+0x1407701be: int3     
+0x1407701bf: int3     
+0x1407701c0: lea      r12, [rsp - 0x10]
+0x1407701c5: cmp      r12, qword ptr [r14 + 0x10]
+0x1407701c9: jbe      0x1407704af   ; main.backupSQLiteDatabase.func1+0x2ef
+0x1407701cf: push     rbp
+0x1407701d0: mov      rbp, rsp
+0x1407701d3: sub      rsp, 0x88
+0x1407701da: mov      qword ptr [rsp + 0x98], rax
+0x1407701e2: mov      qword ptr [rsp + 0xa0], rbx
+0x1407701ea: movq     qword ptr [rsp + 0x80], xmm15
+0x1407701f4: mov      byte ptr [rsp + 0x2f], 0
+0x1407701f9: mov      r8, qword ptr [rdx + 8]
+0x1407701fd: mov      qword ptr [rsp + 0x58], r8
+0x140770202: mov      rcx, qword ptr [rdx + 0x10]
+0x140770206: mov      qword ptr [rsp + 0x38], rcx
+0x14077020b: movups   xmmword ptr [rsp + 0x40], xmm15
+0x140770211: test     rax, rax
+0x140770214: je       0x140770229   ; main.backupSQLiteDatabase.func1+0x69
+0x140770216: mov      rdx, qword ptr [rip + 0x14567c3]
+0x14077021d: mov      r9, qword ptr [rdx]
+0x140770220: mov      r10d, dword ptr [rax + 0x10]
+0x140770224: jmp      0x140770442   ; main.backupSQLiteDatabase.func1+0x282
+0x140770229: test     rax, rax
+0x14077022c: je       0x140770296   ; main.backupSQLiteDatabase.func1+0xd6
+0x14077022e: mov      rdx, qword ptr [rax + 0x18]
+0x140770232: mov      rax, rbx
+0x140770235: mov      rbx, r8
+0x140770238: call     rdx
+0x14077023a: test     rbx, rbx
+0x14077023d: jne      0x14077027d   ; main.backupSQLiteDatabase.func1+0xbd
+0x14077023f: mov      qword ptr [rsp + 0x60], rax
+0x140770244: mov      byte ptr [rsp + 0x2e], 0
+0x140770249: lea      rcx, [rip + 0x290]
+0x140770250: mov      qword ptr [rsp + 0x68], rcx
+0x140770255: lea      rcx, [rsp + 0x2e]
+0x14077025a: mov      qword ptr [rsp + 0x70], rcx
+0x14077025f: mov      qword ptr [rsp + 0x78], rax
+0x140770264: lea      rcx, [rsp + 0x68]
+0x140770269: mov      qword ptr [rsp + 0x80], rcx
+0x140770271: mov      byte ptr [rsp + 0x2f], 1
+0x140770276: mov      ecx, 1
+0x14077027b: jmp      0x1407702cb   ; main.backupSQLiteDatabase.func1+0x10b
+0x14077027d: mov      qword ptr [rsp + 0x40], rbx
+0x140770282: mov      qword ptr [rsp + 0x48], rcx
+0x140770287: mov      rax, rbx
+0x14077028a: mov      rbx, rcx
+0x14077028d: add      rsp, 0x88
+0x140770294: pop      rbp
+0x140770295: ret      
+0x140770296: lea      rax, [rip + 0x512cac]
+0x14077029d: mov      ebx, 0x2c
+0x1407702a2: xor      ecx, ecx
+0x1407702a4: xor      edi, edi
+0x1407702a6: mov      rsi, rdi
+0x1407702a9: call     0x140133280   ; fmt.Errorf
+0x1407702ae: mov      qword ptr [rsp + 0x40], rax
+0x1407702b3: mov      qword ptr [rsp + 0x48], rbx
+0x1407702b8: add      rsp, 0x88
+0x1407702bf: pop      rbp
+0x1407702c0: ret      
+0x1407702c1: mov      rax, qword ptr [rsp + 0x60]
+0x1407702c6: movzx    ecx, byte ptr [rsp + 0x2d]
+0x1407702cb: test     cl, cl
+0x1407702cd: je       0x140770409   ; main.backupSQLiteDatabase.func1+0x249
+0x1407702d3: mov      ebx, 0x100
+0x1407702d8: call     0x14056e560   ; modernc.org/sqlite.Backup.Step
+0x1407702dd: nop      dword ptr [rax]
+0x1407702e0: test     rbx, rbx
+0x1407702e3: jne      0x1407703da   ; main.backupSQLiteDatabase.func1+0x21a
+0x1407702e9: mov      byte ptr [rsp + 0x2d], al
+0x1407702ed: mov      rax, qword ptr [rsp + 0x58]
+0x1407702f2: mov      rbx, qword ptr [rsp + 0x38]
+0x1407702f7: call     0x14012d940   ; os.Stat
+0x1407702fc: mov      qword ptr [rsp + 0x30], rcx
+0x140770301: mov      qword ptr [rsp + 0x50], rdi
+0x140770306: test     rcx, rcx
+0x140770309: je       0x14077030f   ; main.backupSQLiteDatabase.func1+0x14f
+0x14077030b: xor      eax, eax
+0x14077030d: jmp      0x14077032d   ; main.backupSQLiteDatabase.func1+0x16d
+0x14077030f: mov      rcx, qword ptr [rax + 0x38]
+0x140770313: mov      rax, rbx
+0x140770316: call     rcx
+0x140770318: cmp      rax, 0x40000000

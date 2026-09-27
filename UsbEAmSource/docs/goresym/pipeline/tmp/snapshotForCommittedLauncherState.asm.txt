@@ -1,0 +1,106 @@
+0x140774920: lea      r12, [rsp - 0x270]
+0x140774928: cmp      r12, qword ptr [r14 + 0x10]
+0x14077492c: jbe      0x140774b22    ; main.BootstrapService.snapshotForCommittedLauncherState+0x202
+0x140774932: push     rbp
+0x140774933: mov      rbp, rsp
+0x140774936: sub      rsp, 0x2e8
+0x14077493d: mov      qword ptr [rsp + 0x3c8], rax
+0x140774945: lea      rdi, [rsp + 0x2f8]
+0x14077494d: lea      rdi, [rdi - 0x30]
+0x140774951: nop      word ptr [rax + rax]
+0x14077495a: nop      word ptr [rax + rax]
+0x140774960: mov      qword ptr [rsp - 0x10], rbp
+0x140774965: lea      rbp, [rsp - 0x10]
+0x14077496a: call     0x140081702    ; runtime.duffzero+0x122
+0x14077496f: mov      rbp, qword ptr [rbp]
+0x140774973: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x140774978: lea      rdi, [rsp + 0x178]
+0x140774980: mov      rsi, rsp
+0x140774983: mov      qword ptr [rsp - 0x10], rbp
+0x140774988: lea      rbp, [rsp - 0x10]
+0x14077498d: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x140774992: mov      rbp, qword ptr [rbp]
+0x140774996: lea      rdi, [rsp + 0x218]
+0x14077499e: lea      rdi, [rdi - 0x30]
+0x1407749a2: mov      qword ptr [rsp - 0x10], rbp
+0x1407749a7: lea      rbp, [rsp - 0x10]
+0x1407749ac: call     0x140081702    ; runtime.duffzero+0x122
+0x1407749b1: mov      rbp, qword ptr [rbp]
+0x1407749b5: mov      rdi, rsp
+0x1407749b8: lea      rsi, [rsp + 0x178]
+0x1407749c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407749c5: lea      rbp, [rsp - 0x10]
+0x1407749ca: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x1407749cf: mov      rbp, qword ptr [rbp]
+0x1407749d3: mov      rax, qword ptr [rsp + 0x3c8]
+0x1407749db: nop      dword ptr [rax + rax]
+0x1407749e0: call     0x1407746c0    ; main.BootstrapService.cachedBootstrapSnapshotForWorkspace
+0x1407749e5: lea      rdi, [rsp + 0x218]
+0x1407749ed: lea      rsi, [rsp + 0xa0]
+0x1407749f5: nop      word ptr [rax + rax]
+0x1407749fe: nop      
+0x140774a00: mov      qword ptr [rsp - 0x10], rbp
+0x140774a05: lea      rbp, [rsp - 0x10]
+0x140774a0a: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x140774a0f: mov      rbp, qword ptr [rbp]
+0x140774a13: test     al, al
+0x140774a15: je       0x140774a6a    ; main.BootstrapService.snapshotForCommittedLauncherState+0x14a
+0x140774a17: lea      rdi, [rsp + 0x2f8]
+0x140774a1f: lea      rsi, [rsp + 0x218]
+0x140774a27: mov      qword ptr [rsp - 0x10], rbp
+0x140774a2c: lea      rbp, [rsp - 0x10]
+0x140774a31: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x140774a36: mov      rbp, qword ptr [rbp]
+0x140774a3a: lea      rdi, [rsp + 0x2f8]
+0x140774a42: lea      rsi, [rsp + 0x218]
+0x140774a4a: mov      qword ptr [rsp - 0x10], rbp
+0x140774a4f: lea      rbp, [rsp - 0x10]
+0x140774a54: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x140774a59: mov      rbp, qword ptr [rbp]
+0x140774a5d: xor      eax, eax
+0x140774a5f: xor      ebx, ebx
+0x140774a61: add      rsp, 0x2e8
+0x140774a68: pop      rbp
+0x140774a69: ret      
+0x140774a6a: lea      rdi, [rsp + 0x218]
+0x140774a72: lea      rdi, [rdi - 0x30]
+0x140774a76: nop      word ptr [rax + rax]
+0x140774a7f: nop      
+0x140774a80: mov      qword ptr [rsp - 0x10], rbp
+0x140774a85: lea      rbp, [rsp - 0x10]
+0x140774a8a: call     0x140081702    ; runtime.duffzero+0x122
+0x140774a8f: mov      rbp, qword ptr [rbp]
+0x140774a93: mov      rax, qword ptr [rsp + 0x3c8]
+0x140774a9b: nop      dword ptr [rax + rax]
+0x140774aa0: call     0x1407741a0    ; main.BootstrapService.GetSnapshot
+0x140774aa5: lea      rdi, [rsp + 0x218]
+0x140774aad: mov      rsi, rsp
+0x140774ab0: nop      word ptr [rax + rax]
+0x140774ab9: nop      dword ptr [rax]
+0x140774ac0: mov      qword ptr [rsp - 0x10], rbp
+0x140774ac5: lea      rbp, [rsp - 0x10]
+0x140774aca: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x140774acf: mov      rbp, qword ptr [rbp]
+0x140774ad3: lea      rdi, [rsp + 0x2f8]
+0x140774adb: lea      rsi, [rsp + 0x218]
+0x140774ae3: mov      qword ptr [rsp - 0x10], rbp
+0x140774ae8: lea      rbp, [rsp - 0x10]
+0x140774aed: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x140774af2: mov      rbp, qword ptr [rbp]
+0x140774af6: lea      rdi, [rsp + 0x2f8]
+0x140774afe: lea      rsi, [rsp + 0x218]
+0x140774b06: mov      qword ptr [rsp - 0x10], rbp
+0x140774b0b: lea      rbp, [rsp - 0x10]
+0x140774b10: call     0x140081a2a    ; runtime.duffcopy+0x2ca
+0x140774b15: mov      rbp, qword ptr [rbp]
+0x140774b19: add      rsp, 0x2e8
+0x140774b20: pop      rbp
+0x140774b21: ret      
+0x140774b22: mov      qword ptr [rsp + 0xd8], rax
+0x140774b2a: call     0x14007f140    ; runtime.morestack_noctxt
+0x140774b2f: mov      rax, qword ptr [rsp + 0xd8]
+0x140774b37: jmp      0x140774920    ; main.BootstrapService.snapshotForCommittedLauncherState
+0x140774b3c: int3     
+0x140774b3d: int3     
+0x140774b3e: int3     
+0x140774b3f: int3     

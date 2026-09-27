@@ -1,0 +1,41 @@
+0x14094cac0: cmp      rsp, qword ptr [r14 + 0x10]
+0x14094cac4: jbe      0x14094cb01
+0x14094cac6: push     rbp
+0x14094cac7: mov      rbp, rsp
+0x14094caca: sub      rsp, 8
+0x14094cace: mov      rdx, qword ptr [rax + 0x20]
+0x14094cad2: mov      rsi, qword ptr [rdx + 0x20]
+0x14094cad6: mov      rcx, qword ptr [rdx + 0x30]
+0x14094cada: cmp      rcx, rsi
+0x14094cadd: jle      0x14094caec
+0x14094cadf: mov      rbx, qword ptr [rdx + 0x28]
+0x14094cae3: mov      rdi, qword ptr [rdx + 0x38]
+0x14094cae7: cmp      rbx, rdi
+0x14094caea: jl       0x14094caf7
+0x14094caec: call     0x14093afa0
+0x14094caf1: add      rsp, 8
+0x14094caf5: pop      rbp
+0x14094caf6: ret      
+0x14094caf7: mov      rax, rsi
+0x14094cafa: add      rsp, 8
+0x14094cafe: pop      rbp
+0x14094caff: nop      
+0x14094cb00: ret      
+0x14094cb01: mov      qword ptr [rsp + 8], rax
+0x14094cb06: call     0x14007f140
+0x14094cb0b: mov      rax, qword ptr [rsp + 8]
+0x14094cb10: jmp      0x14094cac0
+0x14094cb12: int3     
+0x14094cb13: int3     
+0x14094cb14: int3     
+0x14094cb15: int3     
+0x14094cb16: int3     
+0x14094cb17: int3     
+0x14094cb18: int3     
+0x14094cb19: int3     
+0x14094cb1a: int3     
+0x14094cb1b: int3     
+0x14094cb1c: int3     
+0x14094cb1d: int3     
+0x14094cb1e: int3     
+0x14094cb1f: int3     

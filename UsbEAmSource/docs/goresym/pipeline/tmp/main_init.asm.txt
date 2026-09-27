@@ -1,0 +1,1455 @@
+0x140745f60: cmp      rsp, qword ptr [r14 + 0x10]
+0x140745f64: jbe      0x140747c02   ; main.init+0x1ca2
+0x140745f6a: push     rbp
+0x140745f6b: mov      rbp, rsp
+0x140745f6e: sub      rsp, 0x30
+0x140745f72: mov      rcx, qword ptr [rip + 0x147b887]
+0x140745f79: cmp      dword ptr [rip + 0x15153d0], 0
+0x140745f80: je       0x140745f95   ; main.init+0x35
+0x140745f82: mov      rdx, qword ptr [rip + 0x148930f]
+0x140745f89: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140745f8e: mov      qword ptr [r11], rcx
+0x140745f91: mov      qword ptr [r11 + 8], rdx
+0x140745f95: mov      qword ptr [rip + 0x14892fc], rcx
+0x140745f9c: mov      rcx, qword ptr [rip + 0x147b85d]
+0x140745fa3: cmp      dword ptr [rip + 0x15153a6], 0
+0x140745faa: je       0x140745fbf   ; main.init+0x5f
+0x140745fac: mov      rdx, qword ptr [rip + 0x1489325]
+0x140745fb3: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140745fb8: mov      qword ptr [r11], rcx
+0x140745fbb: mov      qword ptr [r11 + 8], rdx
+0x140745fbf: mov      qword ptr [rip + 0x1489312], rcx
+0x140745fc6: mov      rcx, qword ptr [rip + 0x147b833]
+0x140745fcd: cmp      dword ptr [rip + 0x151537c], 0
+0x140745fd4: je       0x140745fec   ; main.init+0x8c
+0x140745fd6: mov      rdx, qword ptr [rip + 0x148933b]
+0x140745fdd: nop      dword ptr [rax]
+0x140745fe0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140745fe5: mov      qword ptr [r11], rcx
+0x140745fe8: mov      qword ptr [r11 + 8], rdx
+0x140745fec: mov      qword ptr [rip + 0x1489325], rcx
+0x140745ff3: mov      rcx, qword ptr [rip + 0x147b826]
+0x140745ffa: cmp      dword ptr [rip + 0x151534f], 0
+0x140746001: je       0x140746016   ; main.init+0xb6
+0x140746003: mov      rdx, qword ptr [rip + 0x148944e]
+0x14074600a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074600f: mov      qword ptr [r11], rcx
+0x140746012: mov      qword ptr [r11 + 8], rdx
+0x140746016: mov      qword ptr [rip + 0x148943b], rcx
+0x14074601d: mov      rcx, qword ptr [rip + 0x147b7fc]
+0x140746024: cmp      dword ptr [rip + 0x1515325], 0
+0x14074602b: je       0x140746040   ; main.init+0xe0
+0x14074602d: mov      rdx, qword ptr [rip + 0x1489464]
+0x140746034: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746039: mov      qword ptr [r11], rcx
+0x14074603c: mov      qword ptr [r11 + 8], rdx
+0x140746040: mov      qword ptr [rip + 0x1489451], rcx
+0x140746047: mov      rcx, qword ptr [rip + 0x147b7d2]
+0x14074604e: cmp      dword ptr [rip + 0x15152fb], 0
+0x140746055: je       0x14074606c   ; main.init+0x10c
+0x140746057: mov      rdx, qword ptr [rip + 0x148947a]
+0x14074605e: nop      
+0x140746060: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746065: mov      qword ptr [r11], rcx
+0x140746068: mov      qword ptr [r11 + 8], rdx
+0x14074606c: mov      qword ptr [rip + 0x1489465], rcx
+0x140746073: mov      rcx, qword ptr [rip + 0x147b7ae]
+0x14074607a: cmp      dword ptr [rip + 0x15152cf], 0
+0x140746081: je       0x140746096   ; main.init+0x136
+0x140746083: mov      rdx, qword ptr [rip + 0x148948e]
+0x14074608a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074608f: mov      qword ptr [r11], rcx
+0x140746092: mov      qword ptr [r11 + 8], rdx
+0x140746096: mov      qword ptr [rip + 0x148947b], rcx
+0x14074609d: mov      rcx, qword ptr [rip + 0x147b78c]
+0x1407460a4: cmp      dword ptr [rip + 0x15152a5], 0
+0x1407460ab: je       0x1407460c0   ; main.init+0x160
+0x1407460ad: mov      rdx, qword ptr [rip + 0x14894a4]
+0x1407460b4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407460b9: mov      qword ptr [r11], rcx
+0x1407460bc: mov      qword ptr [r11 + 8], rdx
+0x1407460c0: mov      qword ptr [rip + 0x1489491], rcx
+0x1407460c7: mov      rcx, qword ptr [rip + 0x147b762]
+0x1407460ce: cmp      dword ptr [rip + 0x151527b], 0
+0x1407460d5: je       0x1407460ec   ; main.init+0x18c
+0x1407460d7: mov      rdx, qword ptr [rip + 0x14894ba]
+0x1407460de: nop      
+0x1407460e0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407460e5: mov      qword ptr [r11], rcx
+0x1407460e8: mov      qword ptr [r11 + 8], rdx
+0x1407460ec: mov      qword ptr [rip + 0x14894a5], rcx
+0x1407460f3: mov      rcx, qword ptr [rip + 0x147b736]
+0x1407460fa: cmp      dword ptr [rip + 0x151524f], 0
+0x140746101: je       0x140746116   ; main.init+0x1b6
+0x140746103: mov      rdx, qword ptr [rip + 0x14894ce]
+0x14074610a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074610f: mov      qword ptr [r11], rcx
+0x140746112: mov      qword ptr [r11 + 8], rdx
+0x140746116: mov      qword ptr [rip + 0x14894bb], rcx
+0x14074611d: mov      rcx, qword ptr [rip + 0x147b70c]
+0x140746124: cmp      dword ptr [rip + 0x1515225], 0
+0x14074612b: je       0x140746140   ; main.init+0x1e0
+0x14074612d: mov      rdx, qword ptr [rip + 0x14894e4]
+0x140746134: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746139: mov      qword ptr [r11], rcx
+0x14074613c: mov      qword ptr [r11 + 8], rdx
+0x140746140: mov      qword ptr [rip + 0x14894d1], rcx
+0x140746147: mov      rcx, qword ptr [rip + 0x147b6e2]
+0x14074614e: cmp      dword ptr [rip + 0x15151fb], 0
+0x140746155: je       0x14074616c   ; main.init+0x20c
+0x140746157: mov      rdx, qword ptr [rip + 0x14894fa]
+0x14074615e: nop      
+0x140746160: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746165: mov      qword ptr [r11], rcx
+0x140746168: mov      qword ptr [r11 + 8], rdx
+0x14074616c: mov      qword ptr [rip + 0x14894e5], rcx
+0x140746173: mov      rcx, qword ptr [rip + 0x147b6be]
+0x14074617a: cmp      dword ptr [rip + 0x15151cf], 0
+0x140746181: je       0x140746196   ; main.init+0x236
+0x140746183: mov      rdx, qword ptr [rip + 0x148950e]
+0x14074618a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074618f: mov      qword ptr [r11], rcx
+0x140746192: mov      qword ptr [r11 + 8], rdx
+0x140746196: mov      qword ptr [rip + 0x14894fb], rcx
+0x14074619d: mov      rcx, qword ptr [rip + 0x147b694]
+0x1407461a4: cmp      dword ptr [rip + 0x15151a5], 0
+0x1407461ab: je       0x1407461c0   ; main.init+0x260
+0x1407461ad: mov      rdx, qword ptr [rip + 0x1489524]
+0x1407461b4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407461b9: mov      qword ptr [r11], rcx
+0x1407461bc: mov      qword ptr [r11 + 8], rdx
+0x1407461c0: mov      qword ptr [rip + 0x1489511], rcx
+0x1407461c7: mov      rcx, qword ptr [rip + 0x147b66a]
+0x1407461ce: cmp      dword ptr [rip + 0x151517b], 0
+0x1407461d5: je       0x1407461ec   ; main.init+0x28c
+0x1407461d7: mov      rdx, qword ptr [rip + 0x148953a]
+0x1407461de: nop      
+0x1407461e0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407461e5: mov      qword ptr [r11], rcx
+0x1407461e8: mov      qword ptr [r11 + 8], rdx
+0x1407461ec: mov      qword ptr [rip + 0x1489525], rcx
+0x1407461f3: mov      rcx, qword ptr [rip + 0x147b6a6]
+0x1407461fa: cmp      dword ptr [rip + 0x151514f], 0
+0x140746201: je       0x140746216   ; main.init+0x2b6
+0x140746203: mov      rdx, qword ptr [rip + 0x14895ce]
+0x14074620a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074620f: mov      qword ptr [r11], rcx
+0x140746212: mov      qword ptr [r11 + 8], rdx
+0x140746216: mov      qword ptr [rip + 0x14895bb], rcx
+0x14074621d: mov      rcx, qword ptr [rip + 0x147b67c]
+0x140746224: cmp      dword ptr [rip + 0x1515125], 0
+0x14074622b: je       0x140746240   ; main.init+0x2e0
+0x14074622d: mov      rdx, qword ptr [rip + 0x14895e4]
+0x140746234: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746239: mov      qword ptr [r11], rcx
+0x14074623c: mov      qword ptr [r11 + 8], rdx
+0x140746240: mov      qword ptr [rip + 0x14895d1], rcx
+0x140746247: mov      rcx, qword ptr [rip + 0x147b652]
+0x14074624e: cmp      dword ptr [rip + 0x15150fb], 0
+0x140746255: je       0x14074626c   ; main.init+0x30c
+0x140746257: mov      rdx, qword ptr [rip + 0x14895fa]
+0x14074625e: nop      
+0x140746260: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746265: mov      qword ptr [r11], rcx
+0x140746268: mov      qword ptr [r11 + 8], rdx
+0x14074626c: mov      qword ptr [rip + 0x14895e5], rcx
+0x140746273: mov      rcx, qword ptr [rip + 0x147b626]
+0x14074627a: cmp      dword ptr [rip + 0x15150cf], 0
+0x140746281: je       0x140746296   ; main.init+0x336
+0x140746283: mov      rdx, qword ptr [rip + 0x148960e]
+0x14074628a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074628f: mov      qword ptr [r11], rcx
+0x140746292: mov      qword ptr [r11 + 8], rdx
+0x140746296: mov      qword ptr [rip + 0x14895fb], rcx
+0x14074629d: mov      rcx, qword ptr [rip + 0x147b5fc]
+0x1407462a4: cmp      dword ptr [rip + 0x15150a5], 0
+0x1407462ab: je       0x1407462c0   ; main.init+0x360
+0x1407462ad: mov      rdx, qword ptr [rip + 0x1489624]
+0x1407462b4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407462b9: mov      qword ptr [r11], rcx
+0x1407462bc: mov      qword ptr [r11 + 8], rdx
+0x1407462c0: mov      qword ptr [rip + 0x1489611], rcx
+0x1407462c7: mov      rcx, qword ptr [rip + 0x147b5da]
+0x1407462ce: cmp      dword ptr [rip + 0x151507b], 0
+0x1407462d5: je       0x1407462ec   ; main.init+0x38c
+0x1407462d7: mov      rdx, qword ptr [rip + 0x148963a]
+0x1407462de: nop      
+0x1407462e0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407462e5: mov      qword ptr [r11], rcx
+0x1407462e8: mov      qword ptr [r11 + 8], rdx
+0x1407462ec: mov      qword ptr [rip + 0x1489625], rcx
+0x1407462f3: mov      rcx, qword ptr [rip + 0x147b5ae]
+0x1407462fa: cmp      dword ptr [rip + 0x151504f], 0
+0x140746301: je       0x140746316   ; main.init+0x3b6
+0x140746303: mov      rdx, qword ptr [rip + 0x148964e]
+0x14074630a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074630f: mov      qword ptr [r11], rcx
+0x140746312: mov      qword ptr [r11 + 8], rdx
+0x140746316: mov      qword ptr [rip + 0x148963b], rcx
+0x14074631d: mov      rcx, qword ptr [rip + 0x147b584]
+0x140746324: cmp      dword ptr [rip + 0x1515025], 0
+0x14074632b: je       0x140746340   ; main.init+0x3e0
+0x14074632d: mov      rdx, qword ptr [rip + 0x1489664]
+0x140746334: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746339: mov      qword ptr [r11], rcx
+0x14074633c: mov      qword ptr [r11 + 8], rdx
+0x140746340: mov      qword ptr [rip + 0x1489651], rcx
+0x140746347: mov      rcx, qword ptr [rip + 0x147b55a]
+0x14074634e: cmp      dword ptr [rip + 0x1514ffb], 0
+0x140746355: je       0x14074636c   ; main.init+0x40c
+0x140746357: mov      rdx, qword ptr [rip + 0x148967a]
+0x14074635e: nop      
+0x140746360: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746365: mov      qword ptr [r11], rcx
+0x140746368: mov      qword ptr [r11 + 8], rdx
+0x14074636c: mov      qword ptr [rip + 0x1489665], rcx
+0x140746373: mov      rcx, qword ptr [rip + 0x147b52e]
+0x14074637a: cmp      dword ptr [rip + 0x1514fcf], 0
+0x140746381: je       0x140746396   ; main.init+0x436
+0x140746383: mov      rdx, qword ptr [rip + 0x148968e]
+0x14074638a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074638f: mov      qword ptr [r11], rcx
+0x140746392: mov      qword ptr [r11 + 8], rdx
+0x140746396: mov      qword ptr [rip + 0x148967b], rcx
+0x14074639d: mov      rcx, qword ptr [rip + 0x147b504]
+0x1407463a4: cmp      dword ptr [rip + 0x1514fa5], 0
+0x1407463ab: je       0x1407463c0   ; main.init+0x460
+0x1407463ad: mov      rdx, qword ptr [rip + 0x14896a4]
+0x1407463b4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407463b9: mov      qword ptr [r11], rcx
+0x1407463bc: mov      qword ptr [r11 + 8], rdx
+0x1407463c0: mov      qword ptr [rip + 0x1489691], rcx
+0x1407463c7: lea      rax, [rip + 0x4580d2]
+0x1407463ce: call     0x14001ae20   ; runtime.newobject
+0x1407463d3: mov      qword ptr [rsp + 0x20], rax
+0x1407463d8: mov      qword ptr [rax + 0x18], 0xc
+0x1407463e0: lea      rcx, [rip + 0x505411]
+0x1407463e7: mov      qword ptr [rax + 0x10], rcx
+0x1407463eb: lea      rax, [rip + 0x46fcce]
+0x1407463f2: call     0x14001ae20   ; runtime.newobject
+0x1407463f7: cmp      dword ptr [rip + 0x1514f52], 0
+0x1407463fe: nop      
+0x140746400: jne      0x140746409   ; main.init+0x4a9
+0x140746402: mov      rdx, qword ptr [rsp + 0x20]
+0x140746407: jmp      0x140746425   ; main.init+0x4c5
+0x140746409: mov      rcx, qword ptr [rip + 0x14c92d0]
+0x140746410: call     0x140081080   ; runtime.gcWriteBarrier3
+0x140746415: mov      rdx, qword ptr [rsp + 0x20]
+0x14074641a: mov      qword ptr [r11], rdx
+0x14074641d: mov      qword ptr [r11 + 8], rax
+0x140746421: mov      qword ptr [r11 + 0x10], rcx
+0x140746425: mov      qword ptr [rax + 0x18], rdx
+0x140746429: mov      qword ptr [rax + 0x10], 0xd
+0x140746431: lea      rcx, [rip + 0x507b05]
+0x140746438: mov      qword ptr [rax + 8], rcx
+0x14074643c: mov      qword ptr [rip + 0x14c929d], rax
+0x140746443: lea      rax, [rip + 0x3a69b6]
+0x14074644a: mov      ebx, 8
+0x14074644f: call     0x1400114c0   ; runtime.makechan
+0x140746454: cmp      dword ptr [rip + 0x1514ef5], 0
+0x14074645b: je       0x140746470   ; main.init+0x510
+0x14074645d: mov      rcx, qword ptr [rip + 0x14c9284]
+0x140746464: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746469: mov      qword ptr [r11], rax
+0x14074646c: mov      qword ptr [r11 + 8], rcx
+0x140746470: mov      qword ptr [rip + 0x14c9271], rax
+0x140746477: mov      rax, qword ptr [rip + 0x147b48a]
+0x14074647e: cmp      dword ptr [rip + 0x1514ecb], 0
+0x140746485: je       0x14074649a   ; main.init+0x53a
+0x140746487: mov      rcx, qword ptr [rip + 0x148964a]
+0x14074648e: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746493: mov      qword ptr [r11], rax
+0x140746496: mov      qword ptr [r11 + 8], rcx
+0x14074649a: mov      qword ptr [rip + 0x1489637], rax
+0x1407464a1: mov      rax, qword ptr [rip + 0x147b470]
+0x1407464a8: cmp      dword ptr [rip + 0x1514ea1], 0
+0x1407464af: je       0x1407464c4   ; main.init+0x564
+0x1407464b1: mov      rcx, qword ptr [rip + 0x14896a0]
+0x1407464b8: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407464bd: mov      qword ptr [r11], rax
+0x1407464c0: mov      qword ptr [r11 + 8], rcx
+0x1407464c4: mov      qword ptr [rip + 0x148968d], rax
+0x1407464cb: call     0x140076d40   ; runtime.makemap_small
+0x1407464d0: mov      qword ptr [rsp + 0x28], rax
+0x1407464d5: mov      rbx, rax
+0x1407464d8: lea      rcx, [rip + 0x4ef69e]
+0x1407464df: mov      edi, 5
+0x1407464e4: lea      rax, [rip + 0x4025b5]
+0x1407464eb: call     0x14000de60   ; runtime.mapassign_faststr
+0x1407464f0: test     byte ptr [rax], al
+0x1407464f2: lea      rax, [rip + 0x4025a7]
+0x1407464f9: mov      rbx, qword ptr [rsp + 0x28]
+0x1407464fe: lea      rcx, [rip + 0x4f5b77]
+0x140746505: mov      edi, 8
+0x14074650a: call     0x14000de60   ; runtime.mapassign_faststr
+0x14074650f: test     byte ptr [rax], al
+0x140746511: lea      rax, [rip + 0x402588]
+0x140746518: mov      rbx, qword ptr [rsp + 0x28]
+0x14074651d: lea      rcx, [rip + 0x4ef65e]
+0x140746524: mov      edi, 5
+0x140746529: call     0x14000de60   ; runtime.mapassign_faststr
+0x14074652e: test     byte ptr [rax], al
+0x140746530: lea      rax, [rip + 0x402569]
+0x140746537: mov      rbx, qword ptr [rsp + 0x28]
+0x14074653c: lea      rcx, [rip + 0x4ef608]
+0x140746543: mov      edi, 5
+0x140746548: call     0x14000de60   ; runtime.mapassign_faststr
+0x14074654d: test     byte ptr [rax], al
+0x14074654f: lea      rax, [rip + 0x40254a]
+0x140746556: mov      rbx, qword ptr [rsp + 0x28]
+0x14074655b: lea      rcx, [rip + 0x4f2d20]
+0x140746562: mov      edi, 7
+0x140746567: call     0x14000de60   ; runtime.mapassign_faststr
+0x14074656c: test     byte ptr [rax], al
+0x14074656e: lea      rax, [rip + 0x40252b]
+0x140746575: mov      rbx, qword ptr [rsp + 0x28]
+0x14074657a: lea      rcx, [rip + 0x4fda7e]
+0x140746581: mov      edi, 0xa
+0x140746586: call     0x14000de60   ; runtime.mapassign_faststr
+0x14074658b: test     byte ptr [rax], al
+0x14074658d: cmp      dword ptr [rip + 0x1514dbc], 0
+0x140746594: jne      0x14074659d   ; main.init+0x63d
+0x140746596: mov      rcx, qword ptr [rsp + 0x28]
+0x14074659b: jmp      0x1407465b5   ; main.init+0x655
+0x14074659d: mov      rax, qword ptr [rip + 0x14c9154]
+0x1407465a4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407465a9: mov      rcx, qword ptr [rsp + 0x28]
+0x1407465ae: mov      qword ptr [r11], rcx
+0x1407465b1: mov      qword ptr [r11 + 8], rax
+0x1407465b5: mov      qword ptr [rip + 0x14c913c], rcx
+0x1407465bc: mov      rax, qword ptr [rip + 0x147b375]
+0x1407465c3: cmp      dword ptr [rip + 0x1514d86], 0
+0x1407465ca: je       0x1407465df   ; main.init+0x67f
+0x1407465cc: mov      rcx, qword ptr [rip + 0x1489605]
+0x1407465d3: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407465d8: mov      qword ptr [r11], rax
+0x1407465db: mov      qword ptr [r11 + 8], rcx
+0x1407465df: mov      qword ptr [rip + 0x14895f2], rax
+0x1407465e6: mov      rax, qword ptr [rip + 0x147b34b]
+0x1407465ed: cmp      dword ptr [rip + 0x1514d5c], 0
+0x1407465f4: je       0x14074660c   ; main.init+0x6ac
+0x1407465f6: mov      rcx, qword ptr [rip + 0x148965b]
+0x1407465fd: nop      dword ptr [rax]
+0x140746600: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746605: mov      qword ptr [r11], rax
+0x140746608: mov      qword ptr [r11 + 8], rcx
+0x14074660c: mov      qword ptr [rip + 0x1489645], rax
+0x140746613: mov      rax, qword ptr [rip + 0x147b326]
+0x14074661a: cmp      dword ptr [rip + 0x1514d2f], 0
+0x140746621: je       0x140746636   ; main.init+0x6d6
+0x140746623: mov      rcx, qword ptr [rip + 0x148966e]
+0x14074662a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074662f: mov      qword ptr [r11], rax
+0x140746632: mov      qword ptr [r11 + 8], rcx
+0x140746636: mov      qword ptr [rip + 0x148965b], rax
+0x14074663d: mov      rax, qword ptr [rip + 0x147b314]
+0x140746644: cmp      dword ptr [rip + 0x1514d05], 0
+0x14074664b: je       0x140746660   ; main.init+0x700
+0x14074664d: mov      rcx, qword ptr [rip + 0x14896c4]
+0x140746654: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746659: mov      qword ptr [r11], rax
+0x14074665c: mov      qword ptr [r11 + 8], rcx
+0x140746660: mov      qword ptr [rip + 0x14896b1], rax
+0x140746667: mov      rax, qword ptr [rip + 0x147b2ea]
+0x14074666e: cmp      dword ptr [rip + 0x1514cdb], 0
+0x140746675: je       0x14074668c   ; main.init+0x72c
+0x140746677: mov      rcx, qword ptr [rip + 0x14896da]
+0x14074667e: nop      
+0x140746680: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746685: mov      qword ptr [r11], rax
+0x140746688: mov      qword ptr [r11 + 8], rcx
+0x14074668c: mov      qword ptr [rip + 0x14896c5], rax
+0x140746693: mov      rax, qword ptr [rip + 0x147b2be]
+0x14074669a: cmp      dword ptr [rip + 0x1514caf], 0
+0x1407466a1: je       0x1407466b6   ; main.init+0x756
+0x1407466a3: mov      rcx, qword ptr [rip + 0x14896ee]
+0x1407466aa: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407466af: mov      qword ptr [r11], rax
+0x1407466b2: mov      qword ptr [r11 + 8], rcx
+0x1407466b6: mov      qword ptr [rip + 0x14896db], rax
+0x1407466bd: mov      rax, qword ptr [rip + 0x147b294]
+0x1407466c4: cmp      dword ptr [rip + 0x1514c85], 0
+0x1407466cb: je       0x1407466e0   ; main.init+0x780
+0x1407466cd: mov      rcx, qword ptr [rip + 0x1489704]
+0x1407466d4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407466d9: mov      qword ptr [r11], rax
+0x1407466dc: mov      qword ptr [r11 + 8], rcx
+0x1407466e0: mov      qword ptr [rip + 0x14896f1], rax
+0x1407466e7: mov      rax, qword ptr [rip + 0x147b26a]
+0x1407466ee: cmp      dword ptr [rip + 0x1514c5b], 0
+0x1407466f5: je       0x14074670c   ; main.init+0x7ac
+0x1407466f7: mov      rcx, qword ptr [rip + 0x148971a]
+0x1407466fe: nop      
+0x140746700: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746705: mov      qword ptr [r11], rax
+0x140746708: mov      qword ptr [r11 + 8], rcx
+0x14074670c: mov      qword ptr [rip + 0x1489705], rax
+0x140746713: mov      rax, qword ptr [rip + 0x147b266]
+0x14074671a: cmp      dword ptr [rip + 0x1514c2f], 0
+0x140746721: je       0x140746736   ; main.init+0x7d6
+0x140746723: mov      rcx, qword ptr [rip + 0x148976e]
+0x14074672a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074672f: mov      qword ptr [r11], rax
+0x140746732: mov      qword ptr [r11 + 8], rcx
+0x140746736: mov      qword ptr [rip + 0x148975b], rax
+0x14074673d: nop      dword ptr [rax]
+0x140746740: call     0x140747e40   ; main.map.init.0
+0x140746745: call     0x140747f40   ; main.map.init.1
+0x14074674a: mov      rax, qword ptr [rip + 0x147b23f]
+0x140746751: cmp      dword ptr [rip + 0x1514bf8], 0
+0x140746758: je       0x14074676d   ; main.init+0x80d
+0x14074675a: mov      rcx, qword ptr [rip + 0x14897f7]
+0x140746761: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746766: mov      qword ptr [r11], rax
+0x140746769: mov      qword ptr [r11 + 8], rcx
+0x14074676d: mov      qword ptr [rip + 0x14897e4], rax
+0x140746774: mov      rax, qword ptr [rip + 0x147b215]
+0x14074677b: cmp      dword ptr [rip + 0x1514bce], 0
+0x140746782: je       0x140746797   ; main.init+0x837
+0x140746784: mov      rcx, qword ptr [rip + 0x148980d]
+0x14074678b: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746790: mov      qword ptr [r11], rax
+0x140746793: mov      qword ptr [r11 + 8], rcx
+0x140746797: mov      qword ptr [rip + 0x14897fa], rax
+0x14074679e: mov      rax, qword ptr [rip + 0x147b1f3]
+0x1407467a5: cmp      dword ptr [rip + 0x1514ba4], 0
+0x1407467ac: je       0x1407467c1   ; main.init+0x861
+0x1407467ae: mov      rcx, qword ptr [rip + 0x1489823]
+0x1407467b5: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407467ba: mov      qword ptr [r11], rax
+0x1407467bd: mov      qword ptr [r11 + 8], rcx
+0x1407467c1: mov      qword ptr [rip + 0x1489810], rax
+0x1407467c8: mov      rax, qword ptr [rip + 0x147b1c9]
+0x1407467cf: cmp      dword ptr [rip + 0x1514b7a], 0
+0x1407467d6: je       0x1407467ec   ; main.init+0x88c
+0x1407467d8: mov      rcx, qword ptr [rip + 0x1489839]
+0x1407467df: nop      
+0x1407467e0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407467e5: mov      qword ptr [r11], rax
+0x1407467e8: mov      qword ptr [r11 + 8], rcx
+0x1407467ec: mov      qword ptr [rip + 0x1489825], rax
+0x1407467f3: mov      rax, qword ptr [rip + 0x147b19e]
+0x1407467fa: cmp      dword ptr [rip + 0x1514b4f], 0
+0x140746801: je       0x140746816   ; main.init+0x8b6
+0x140746803: mov      rcx, qword ptr [rip + 0x148984e]
+0x14074680a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074680f: mov      qword ptr [r11], rax
+0x140746812: mov      qword ptr [r11 + 8], rcx
+0x140746816: mov      qword ptr [rip + 0x148983b], rax
+0x14074681d: mov      rax, qword ptr [rip + 0x147b1a4]
+0x140746824: cmp      dword ptr [rip + 0x1514b25], 0
+0x14074682b: je       0x140746840   ; main.init+0x8e0
+0x14074682d: mov      rcx, qword ptr [rip + 0x14898a4]
+0x140746834: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746839: mov      qword ptr [r11], rax
+0x14074683c: mov      qword ptr [r11 + 8], rcx
+0x140746840: mov      qword ptr [rip + 0x1489891], rax
+0x140746847: mov      rax, qword ptr [rip + 0x147b17a]
+0x14074684e: cmp      dword ptr [rip + 0x1514afb], 0
+0x140746855: je       0x14074686c   ; main.init+0x90c
+0x140746857: mov      rcx, qword ptr [rip + 0x14898ba]
+0x14074685e: nop      
+0x140746860: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746865: mov      qword ptr [r11], rax
+0x140746868: mov      qword ptr [r11 + 8], rcx
+0x14074686c: mov      qword ptr [rip + 0x14898a5], rax
+0x140746873: mov      rax, qword ptr [rip + 0x147b14e]
+0x14074687a: cmp      dword ptr [rip + 0x1514acf], 0
+0x140746881: je       0x140746896   ; main.init+0x936
+0x140746883: mov      rcx, qword ptr [rip + 0x14898ce]
+0x14074688a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074688f: mov      qword ptr [r11], rax
+0x140746892: mov      qword ptr [r11 + 8], rcx
+0x140746896: mov      qword ptr [rip + 0x14898bb], rax
+0x14074689d: mov      rax, qword ptr [rip + 0x147b124]
+0x1407468a4: cmp      dword ptr [rip + 0x1514aa5], 0
+0x1407468ab: je       0x1407468c0   ; main.init+0x960
+0x1407468ad: mov      rcx, qword ptr [rip + 0x14898e4]
+0x1407468b4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407468b9: mov      qword ptr [r11], rax
+0x1407468bc: mov      qword ptr [r11 + 8], rcx
+0x1407468c0: mov      qword ptr [rip + 0x14898d1], rax
+0x1407468c7: mov      rax, qword ptr [rip + 0x147b0fa]
+0x1407468ce: cmp      dword ptr [rip + 0x1514a7b], 0
+0x1407468d5: je       0x1407468ec   ; main.init+0x98c
+0x1407468d7: mov      rcx, qword ptr [rip + 0x14898fa]
+0x1407468de: nop      
+0x1407468e0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407468e5: mov      qword ptr [r11], rax
+0x1407468e8: mov      qword ptr [r11 + 8], rcx
+0x1407468ec: mov      qword ptr [rip + 0x14898e5], rax
+0x1407468f3: mov      rax, qword ptr [rip + 0x147b0ce]
+0x1407468fa: cmp      dword ptr [rip + 0x1514a4f], 0
+0x140746901: je       0x140746916   ; main.init+0x9b6
+0x140746903: mov      rcx, qword ptr [rip + 0x148990e]
+0x14074690a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074690f: mov      qword ptr [r11], rax
+0x140746912: mov      qword ptr [r11 + 8], rcx
+0x140746916: mov      qword ptr [rip + 0x14898fb], rax
+0x14074691d: mov      rax, qword ptr [rip + 0x147b0a4]
+0x140746924: cmp      dword ptr [rip + 0x1514a25], 0
+0x14074692b: je       0x140746940   ; main.init+0x9e0
+0x14074692d: mov      rcx, qword ptr [rip + 0x1489924]
+0x140746934: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746939: mov      qword ptr [r11], rax
+0x14074693c: mov      qword ptr [r11 + 8], rcx
+0x140746940: mov      qword ptr [rip + 0x1489911], rax
+0x140746947: mov      rax, qword ptr [rip + 0x147b0ba]
+0x14074694e: cmp      dword ptr [rip + 0x15149fb], 0
+0x140746955: je       0x14074696c   ; main.init+0xa0c
+0x140746957: mov      rcx, qword ptr [rip + 0x148993a]
+0x14074695e: nop      
+0x140746960: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746965: mov      qword ptr [r11], rax
+0x140746968: mov      qword ptr [r11 + 8], rcx
+0x14074696c: mov      qword ptr [rip + 0x1489925], rax
+0x140746973: mov      rax, qword ptr [rip + 0x147b08e]
+0x14074697a: cmp      dword ptr [rip + 0x15149cf], 0
+0x140746981: je       0x140746996   ; main.init+0xa36
+0x140746983: mov      rcx, qword ptr [rip + 0x148994e]
+0x14074698a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074698f: mov      qword ptr [r11], rax
+0x140746992: mov      qword ptr [r11 + 8], rcx
+0x140746996: mov      qword ptr [rip + 0x148993b], rax
+0x14074699d: mov      rax, qword ptr [rip + 0x147b06c]
+0x1407469a4: cmp      dword ptr [rip + 0x15149a5], 0
+0x1407469ab: je       0x1407469c0   ; main.init+0xa60
+0x1407469ad: mov      rcx, qword ptr [rip + 0x1489964]
+0x1407469b4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407469b9: mov      qword ptr [r11], rax
+0x1407469bc: mov      qword ptr [r11 + 8], rcx
+0x1407469c0: mov      qword ptr [rip + 0x1489951], rax
+0x1407469c7: mov      rax, qword ptr [rip + 0x147b042]
+0x1407469ce: cmp      dword ptr [rip + 0x151497b], 0
+0x1407469d5: je       0x1407469ec   ; main.init+0xa8c
+0x1407469d7: mov      rcx, qword ptr [rip + 0x148997a]
+0x1407469de: nop      
+0x1407469e0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407469e5: mov      qword ptr [r11], rax
+0x1407469e8: mov      qword ptr [r11 + 8], rcx
+0x1407469ec: mov      qword ptr [rip + 0x1489965], rax
+0x1407469f3: mov      rax, qword ptr [rip + 0x147b01e]
+0x1407469fa: cmp      dword ptr [rip + 0x151494f], 0
+0x140746a01: je       0x140746a16   ; main.init+0xab6
+0x140746a03: mov      rcx, qword ptr [rip + 0x148998e]
+0x140746a0a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746a0f: mov      qword ptr [r11], rax
+0x140746a12: mov      qword ptr [r11 + 8], rcx
+0x140746a16: mov      qword ptr [rip + 0x148997b], rax
+0x140746a1d: mov      rax, qword ptr [rip + 0x147affc]
+0x140746a24: cmp      dword ptr [rip + 0x1514925], 0
+0x140746a2b: je       0x140746a40   ; main.init+0xae0
+0x140746a2d: mov      rcx, qword ptr [rip + 0x14899a4]
+0x140746a34: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746a39: mov      qword ptr [r11], rax
+0x140746a3c: mov      qword ptr [r11 + 8], rcx
+0x140746a40: mov      qword ptr [rip + 0x1489991], rax
+0x140746a47: mov      rax, qword ptr [rip + 0x147afd2]
+0x140746a4e: cmp      dword ptr [rip + 0x15148fb], 0
+0x140746a55: je       0x140746a6c   ; main.init+0xb0c
+0x140746a57: mov      rcx, qword ptr [rip + 0x14899ba]
+0x140746a5e: nop      
+0x140746a60: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746a65: mov      qword ptr [r11], rax
+0x140746a68: mov      qword ptr [r11 + 8], rcx
+0x140746a6c: mov      qword ptr [rip + 0x14899a5], rax
+0x140746a73: mov      rax, qword ptr [rip + 0x147afa6]
+0x140746a7a: cmp      dword ptr [rip + 0x15148cf], 0
+0x140746a81: je       0x140746a96   ; main.init+0xb36
+0x140746a83: mov      rcx, qword ptr [rip + 0x14899ce]
+0x140746a8a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746a8f: mov      qword ptr [r11], rax
+0x140746a92: mov      qword ptr [r11 + 8], rcx
+0x140746a96: mov      qword ptr [rip + 0x14899bb], rax
+0x140746a9d: mov      rax, qword ptr [rip + 0x147af7c]
+0x140746aa4: cmp      dword ptr [rip + 0x15148a5], 0
+0x140746aab: je       0x140746ac0   ; main.init+0xb60
+0x140746aad: mov      rcx, qword ptr [rip + 0x14899e4]
+0x140746ab4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746ab9: mov      qword ptr [r11], rax
+0x140746abc: mov      qword ptr [r11 + 8], rcx
+0x140746ac0: mov      qword ptr [rip + 0x14899d1], rax
+0x140746ac7: mov      rax, qword ptr [rip + 0x147af52]
+0x140746ace: cmp      dword ptr [rip + 0x151487b], 0
+0x140746ad5: je       0x140746aec   ; main.init+0xb8c
+0x140746ad7: mov      rcx, qword ptr [rip + 0x14899fa]
+0x140746ade: nop      
+0x140746ae0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746ae5: mov      qword ptr [r11], rax
+0x140746ae8: mov      qword ptr [r11 + 8], rcx
+0x140746aec: mov      qword ptr [rip + 0x14899e5], rax
+0x140746af3: mov      rax, qword ptr [rip + 0x147af2e]
+0x140746afa: cmp      dword ptr [rip + 0x151484f], 0
+0x140746b01: je       0x140746b16   ; main.init+0xbb6
+0x140746b03: mov      rcx, qword ptr [rip + 0x1489a0e]
+0x140746b0a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746b0f: mov      qword ptr [r11], rax
+0x140746b12: mov      qword ptr [r11 + 8], rcx
+0x140746b16: mov      qword ptr [rip + 0x14899fb], rax
+0x140746b1d: mov      rax, qword ptr [rip + 0x147af04]
+0x140746b24: cmp      dword ptr [rip + 0x1514825], 0
+0x140746b2b: je       0x140746b40   ; main.init+0xbe0
+0x140746b2d: mov      rcx, qword ptr [rip + 0x1489a24]
+0x140746b34: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746b39: mov      qword ptr [r11], rax
+0x140746b3c: mov      qword ptr [r11 + 8], rcx
+0x140746b40: mov      qword ptr [rip + 0x1489a11], rax
+0x140746b47: mov      rax, qword ptr [rip + 0x147aeda]
+0x140746b4e: cmp      dword ptr [rip + 0x15147fb], 0
+0x140746b55: je       0x140746b6c   ; main.init+0xc0c
+0x140746b57: mov      rcx, qword ptr [rip + 0x1489a3a]
+0x140746b5e: nop      
+0x140746b60: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746b65: mov      qword ptr [r11], rax
+0x140746b68: mov      qword ptr [r11 + 8], rcx
+0x140746b6c: mov      qword ptr [rip + 0x1489a25], rax
+0x140746b73: mov      rax, qword ptr [rip + 0x147aeae]
+0x140746b7a: cmp      dword ptr [rip + 0x15147cf], 0
+0x140746b81: je       0x140746b96   ; main.init+0xc36
+0x140746b83: mov      rcx, qword ptr [rip + 0x1489a4e]
+0x140746b8a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746b8f: mov      qword ptr [r11], rax
+0x140746b92: mov      qword ptr [r11 + 8], rcx
+0x140746b96: mov      qword ptr [rip + 0x1489a3b], rax
+0x140746b9d: mov      rax, qword ptr [rip + 0x147af04]
+0x140746ba4: cmp      dword ptr [rip + 0x15147a5], 0
+0x140746bab: je       0x140746bc0   ; main.init+0xc60
+0x140746bad: mov      rcx, qword ptr [rip + 0x1489aa4]
+0x140746bb4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746bb9: mov      qword ptr [r11], rax
+0x140746bbc: mov      qword ptr [r11 + 8], rcx
+0x140746bc0: mov      qword ptr [rip + 0x1489a91], rax
+0x140746bc7: mov      rax, qword ptr [rip + 0x147aeea]
+0x140746bce: cmp      dword ptr [rip + 0x151477b], 0
+0x140746bd5: je       0x140746bec   ; main.init+0xc8c
+0x140746bd7: mov      rcx, qword ptr [rip + 0x1489afa]
+0x140746bde: nop      
+0x140746be0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746be5: mov      qword ptr [r11], rax
+0x140746be8: mov      qword ptr [r11 + 8], rcx
+0x140746bec: mov      qword ptr [rip + 0x1489ae5], rax
+0x140746bf3: mov      rax, qword ptr [rip + 0x147aebe]
+0x140746bfa: cmp      dword ptr [rip + 0x151474f], 0
+0x140746c01: je       0x140746c16   ; main.init+0xcb6
+0x140746c03: mov      rcx, qword ptr [rip + 0x1489b0e]
+0x140746c0a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746c0f: mov      qword ptr [r11], rax
+0x140746c12: mov      qword ptr [r11 + 8], rcx
+0x140746c16: mov      qword ptr [rip + 0x1489afb], rax
+0x140746c1d: mov      rax, qword ptr [rip + 0x147ae94]
+0x140746c24: cmp      dword ptr [rip + 0x1514725], 0
+0x140746c2b: je       0x140746c40   ; main.init+0xce0
+0x140746c2d: mov      rcx, qword ptr [rip + 0x1489b24]
+0x140746c34: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746c39: mov      qword ptr [r11], rax
+0x140746c3c: mov      qword ptr [r11 + 8], rcx
+0x140746c40: mov      qword ptr [rip + 0x1489b11], rax
+0x140746c47: mov      rax, qword ptr [rip + 0x147ae6a]
+0x140746c4e: cmp      dword ptr [rip + 0x15146fb], 0
+0x140746c55: je       0x140746c6c   ; main.init+0xd0c
+0x140746c57: mov      rcx, qword ptr [rip + 0x1489b3a]
+0x140746c5e: nop      
+0x140746c60: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746c65: mov      qword ptr [r11], rax
+0x140746c68: mov      qword ptr [r11 + 8], rcx
+0x140746c6c: mov      qword ptr [rip + 0x1489b25], rax
+0x140746c73: mov      rax, qword ptr [rip + 0x147ae3e]
+0x140746c7a: cmp      dword ptr [rip + 0x15146cf], 0
+0x140746c81: je       0x140746c96   ; main.init+0xd36
+0x140746c83: mov      rcx, qword ptr [rip + 0x1489b4e]
+0x140746c8a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746c8f: mov      qword ptr [r11], rax
+0x140746c92: mov      qword ptr [r11 + 8], rcx
+0x140746c96: mov      qword ptr [rip + 0x1489b3b], rax
+0x140746c9d: mov      rax, qword ptr [rip + 0x147ae14]
+0x140746ca4: cmp      dword ptr [rip + 0x15146a5], 0
+0x140746cab: je       0x140746cc0   ; main.init+0xd60
+0x140746cad: mov      rcx, qword ptr [rip + 0x1489b64]
+0x140746cb4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746cb9: mov      qword ptr [r11], rax
+0x140746cbc: mov      qword ptr [r11 + 8], rcx
+0x140746cc0: mov      qword ptr [rip + 0x1489b51], rax
+0x140746cc7: mov      rax, qword ptr [rip + 0x147adea]
+0x140746cce: cmp      dword ptr [rip + 0x151467b], 0
+0x140746cd5: je       0x140746cec   ; main.init+0xd8c
+0x140746cd7: mov      rcx, qword ptr [rip + 0x1489b7a]
+0x140746cde: nop      
+0x140746ce0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746ce5: mov      qword ptr [r11], rax
+0x140746ce8: mov      qword ptr [r11 + 8], rcx
+0x140746cec: mov      qword ptr [rip + 0x1489b65], rax
+0x140746cf3: mov      rax, qword ptr [rip + 0x147adbe]
+0x140746cfa: cmp      dword ptr [rip + 0x151464f], 0
+0x140746d01: je       0x140746d16   ; main.init+0xdb6
+0x140746d03: mov      rcx, qword ptr [rip + 0x1489b8e]
+0x140746d0a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746d0f: mov      qword ptr [r11], rax
+0x140746d12: mov      qword ptr [r11 + 8], rcx
+0x140746d16: mov      qword ptr [rip + 0x1489b7b], rax
+0x140746d1d: mov      rax, qword ptr [rip + 0x147addc]
+0x140746d24: cmp      dword ptr [rip + 0x1514625], 0
+0x140746d2b: je       0x140746d40   ; main.init+0xde0
+0x140746d2d: mov      rcx, qword ptr [rip + 0x1489c24]
+0x140746d34: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746d39: mov      qword ptr [r11], rax
+0x140746d3c: mov      qword ptr [r11 + 8], rcx
+0x140746d40: mov      qword ptr [rip + 0x1489c11], rax
+0x140746d47: mov      rax, qword ptr [rip + 0x147adba]
+0x140746d4e: cmp      dword ptr [rip + 0x15145fb], 0
+0x140746d55: je       0x140746d6c   ; main.init+0xe0c
+0x140746d57: mov      rcx, qword ptr [rip + 0x1489c3a]
+0x140746d5e: nop      
+0x140746d60: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746d65: mov      qword ptr [r11], rax
+0x140746d68: mov      qword ptr [r11 + 8], rcx
+0x140746d6c: mov      qword ptr [rip + 0x1489c25], rax
+0x140746d73: mov      rax, qword ptr [rip + 0x147adf6]
+0x140746d7a: cmp      dword ptr [rip + 0x15145cf], 0
+0x140746d81: je       0x140746d96   ; main.init+0xe36
+0x140746d83: mov      rcx, qword ptr [rip + 0x1489d0e]
+0x140746d8a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746d8f: mov      qword ptr [r11], rax
+0x140746d92: mov      qword ptr [r11 + 8], rcx
+0x140746d96: mov      qword ptr [rip + 0x1489cfb], rax
+0x140746d9d: mov      rax, qword ptr [rip + 0x147adcc]
+0x140746da4: cmp      dword ptr [rip + 0x15145a5], 0
+0x140746dab: je       0x140746dc0   ; main.init+0xe60
+0x140746dad: mov      rcx, qword ptr [rip + 0x1489d24]
+0x140746db4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746db9: mov      qword ptr [r11], rax
+0x140746dbc: mov      qword ptr [r11 + 8], rcx
+0x140746dc0: mov      qword ptr [rip + 0x1489d11], rax
+0x140746dc7: mov      rax, qword ptr [rip + 0x147adaa]
+0x140746dce: cmp      dword ptr [rip + 0x151457b], 0
+0x140746dd5: je       0x140746dec   ; main.init+0xe8c
+0x140746dd7: mov      rcx, qword ptr [rip + 0x1489d3a]
+0x140746dde: nop      
+0x140746de0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746de5: mov      qword ptr [r11], rax
+0x140746de8: mov      qword ptr [r11 + 8], rcx
+0x140746dec: mov      qword ptr [rip + 0x1489d25], rax
+0x140746df3: mov      rax, qword ptr [rip + 0x147ad7e]
+0x140746dfa: cmp      dword ptr [rip + 0x151454f], 0
+0x140746e01: je       0x140746e16   ; main.init+0xeb6
+0x140746e03: mov      rcx, qword ptr [rip + 0x1489d4e]
+0x140746e0a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746e0f: mov      qword ptr [r11], rax
+0x140746e12: mov      qword ptr [r11 + 8], rcx
+0x140746e16: mov      qword ptr [rip + 0x1489d3b], rax
+0x140746e1d: mov      rax, qword ptr [rip + 0x147ad4c]
+0x140746e24: cmp      dword ptr [rip + 0x1514525], 0
+0x140746e2b: je       0x140746e40   ; main.init+0xee0
+0x140746e2d: mov      rcx, qword ptr [rip + 0x1489d64]
+0x140746e34: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746e39: mov      qword ptr [r11], rax
+0x140746e3c: mov      qword ptr [r11 + 8], rcx
+0x140746e40: mov      qword ptr [rip + 0x1489d51], rax
+0x140746e47: mov      rax, qword ptr [rip + 0x147ad22]
+0x140746e4e: cmp      dword ptr [rip + 0x15144fb], 0
+0x140746e55: je       0x140746e6c   ; main.init+0xf0c
+0x140746e57: mov      rcx, qword ptr [rip + 0x1489d7a]
+0x140746e5e: nop      
+0x140746e60: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746e65: mov      qword ptr [r11], rax
+0x140746e68: mov      qword ptr [r11 + 8], rcx
+0x140746e6c: mov      qword ptr [rip + 0x1489d65], rax
+0x140746e73: mov      rax, qword ptr [rip + 0x147acf6]
+0x140746e7a: cmp      dword ptr [rip + 0x15144cf], 0
+0x140746e81: je       0x140746e96   ; main.init+0xf36
+0x140746e83: mov      rcx, qword ptr [rip + 0x1489d8e]
+0x140746e8a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746e8f: mov      qword ptr [r11], rax
+0x140746e92: mov      qword ptr [r11 + 8], rcx
+0x140746e96: mov      qword ptr [rip + 0x1489d7b], rax
+0x140746e9d: mov      rax, qword ptr [rip + 0x147accc]
+0x140746ea4: cmp      dword ptr [rip + 0x15144a5], 0
+0x140746eab: je       0x140746ec0   ; main.init+0xf60
+0x140746ead: mov      rcx, qword ptr [rip + 0x1489da4]
+0x140746eb4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746eb9: mov      qword ptr [r11], rax
+0x140746ebc: mov      qword ptr [r11 + 8], rcx
+0x140746ec0: mov      qword ptr [rip + 0x1489d91], rax
+0x140746ec7: mov      rax, qword ptr [rip + 0x147aca2]
+0x140746ece: cmp      dword ptr [rip + 0x151447b], 0
+0x140746ed5: je       0x140746eec   ; main.init+0xf8c
+0x140746ed7: mov      rcx, qword ptr [rip + 0x1489dba]
+0x140746ede: nop      
+0x140746ee0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746ee5: mov      qword ptr [r11], rax
+0x140746ee8: mov      qword ptr [r11 + 8], rcx
+0x140746eec: mov      qword ptr [rip + 0x1489da5], rax
+0x140746ef3: mov      rax, qword ptr [rip + 0x147ac76]
+0x140746efa: cmp      dword ptr [rip + 0x151444f], 0
+0x140746f01: je       0x140746f16   ; main.init+0xfb6
+0x140746f03: mov      rcx, qword ptr [rip + 0x1489dce]
+0x140746f0a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746f0f: mov      qword ptr [r11], rax
+0x140746f12: mov      qword ptr [r11 + 8], rcx
+0x140746f16: mov      qword ptr [rip + 0x1489dbb], rax
+0x140746f1d: mov      rax, qword ptr [rip + 0x147ac4c]
+0x140746f24: cmp      dword ptr [rip + 0x1514425], 0
+0x140746f2b: je       0x140746f40   ; main.init+0xfe0
+0x140746f2d: mov      rcx, qword ptr [rip + 0x1489de4]
+0x140746f34: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746f39: mov      qword ptr [r11], rax
+0x140746f3c: mov      qword ptr [r11 + 8], rcx
+0x140746f40: mov      qword ptr [rip + 0x1489dd1], rax
+0x140746f47: mov      rax, qword ptr [rip + 0x147ac22]
+0x140746f4e: cmp      dword ptr [rip + 0x15143fb], 0
+0x140746f55: je       0x140746f6c   ; main.init+0x100c
+0x140746f57: mov      rcx, qword ptr [rip + 0x1489dfa]
+0x140746f5e: nop      
+0x140746f60: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746f65: mov      qword ptr [r11], rax
+0x140746f68: mov      qword ptr [r11 + 8], rcx
+0x140746f6c: mov      qword ptr [rip + 0x1489de5], rax
+0x140746f73: mov      rax, qword ptr [rip + 0x147abf6]
+0x140746f7a: cmp      dword ptr [rip + 0x15143cf], 0
+0x140746f81: je       0x140746f96   ; main.init+0x1036
+0x140746f83: mov      rcx, qword ptr [rip + 0x1489e0e]
+0x140746f8a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746f8f: mov      qword ptr [r11], rax
+0x140746f92: mov      qword ptr [r11 + 8], rcx
+0x140746f96: mov      qword ptr [rip + 0x1489dfb], rax
+0x140746f9d: mov      rax, qword ptr [rip + 0x147abcc]
+0x140746fa4: cmp      dword ptr [rip + 0x15143a5], 0
+0x140746fab: je       0x140746fc0   ; main.init+0x1060
+0x140746fad: mov      rcx, qword ptr [rip + 0x1489e24]
+0x140746fb4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746fb9: mov      qword ptr [r11], rax
+0x140746fbc: mov      qword ptr [r11 + 8], rcx
+0x140746fc0: mov      qword ptr [rip + 0x1489e11], rax
+0x140746fc7: mov      rax, qword ptr [rip + 0x147abb2]
+0x140746fce: cmp      dword ptr [rip + 0x151437b], 0
+0x140746fd5: je       0x140746fec   ; main.init+0x108c
+0x140746fd7: mov      rcx, qword ptr [rip + 0x1489e3a]
+0x140746fde: nop      
+0x140746fe0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140746fe5: mov      qword ptr [r11], rax
+0x140746fe8: mov      qword ptr [r11 + 8], rcx
+0x140746fec: mov      qword ptr [rip + 0x1489e25], rax
+0x140746ff3: mov      rax, qword ptr [rip + 0x147ab86]
+0x140746ffa: cmp      dword ptr [rip + 0x151434f], 0
+0x140747001: je       0x140747016   ; main.init+0x10b6
+0x140747003: mov      rcx, qword ptr [rip + 0x1489e4e]
+0x14074700a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074700f: mov      qword ptr [r11], rax
+0x140747012: mov      qword ptr [r11 + 8], rcx
+0x140747016: mov      qword ptr [rip + 0x1489e3b], rax
+0x14074701d: mov      rax, qword ptr [rip + 0x147ab5c]
+0x140747024: cmp      dword ptr [rip + 0x1514325], 0
+0x14074702b: je       0x140747040   ; main.init+0x10e0
+0x14074702d: mov      rcx, qword ptr [rip + 0x1489e64]
+0x140747034: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747039: mov      qword ptr [r11], rax
+0x14074703c: mov      qword ptr [r11 + 8], rcx
+0x140747040: mov      qword ptr [rip + 0x1489e51], rax
+0x140747047: mov      rax, qword ptr [rip + 0x147ab32]
+0x14074704e: cmp      dword ptr [rip + 0x15142fb], 0
+0x140747055: je       0x14074706c   ; main.init+0x110c
+0x140747057: mov      rcx, qword ptr [rip + 0x1489e7a]
+0x14074705e: nop      
+0x140747060: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747065: mov      qword ptr [r11], rax
+0x140747068: mov      qword ptr [r11 + 8], rcx
+0x14074706c: mov      qword ptr [rip + 0x1489e65], rax
+0x140747073: mov      rax, qword ptr [rip + 0x147ab06]
+0x14074707a: cmp      dword ptr [rip + 0x15142cf], 0
+0x140747081: je       0x140747096   ; main.init+0x1136
+0x140747083: mov      rcx, qword ptr [rip + 0x1489e8e]
+0x14074708a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074708f: mov      qword ptr [r11], rax
+0x140747092: mov      qword ptr [r11 + 8], rcx
+0x140747096: mov      qword ptr [rip + 0x1489e7b], rax
+0x14074709d: mov      rax, qword ptr [rip + 0x147aadc]
+0x1407470a4: cmp      dword ptr [rip + 0x15142a5], 0
+0x1407470ab: je       0x1407470c0   ; main.init+0x1160
+0x1407470ad: mov      rcx, qword ptr [rip + 0x1489ea4]
+0x1407470b4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407470b9: mov      qword ptr [r11], rax
+0x1407470bc: mov      qword ptr [r11 + 8], rcx
+0x1407470c0: mov      qword ptr [rip + 0x1489e91], rax
+0x1407470c7: mov      rax, qword ptr [rip + 0x147ab5a]
+0x1407470ce: cmp      dword ptr [rip + 0x151427b], 0
+0x1407470d5: je       0x1407470ec   ; main.init+0x118c
+0x1407470d7: mov      rcx, qword ptr [rip + 0x1489efa]
+0x1407470de: nop      
+0x1407470e0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407470e5: mov      qword ptr [r11], rax
+0x1407470e8: mov      qword ptr [r11 + 8], rcx
+0x1407470ec: mov      qword ptr [rip + 0x1489ee5], rax
+0x1407470f3: mov      rax, qword ptr [rip + 0x147ab2e]
+0x1407470fa: cmp      dword ptr [rip + 0x151424f], 0
+0x140747101: je       0x140747116   ; main.init+0x11b6
+0x140747103: mov      rcx, qword ptr [rip + 0x1489f0e]
+0x14074710a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074710f: mov      qword ptr [r11], rax
+0x140747112: mov      qword ptr [r11 + 8], rcx
+0x140747116: mov      qword ptr [rip + 0x1489efb], rax
+0x14074711d: mov      rax, qword ptr [rip + 0x147ab04]
+0x140747124: cmp      dword ptr [rip + 0x1514225], 0
+0x14074712b: je       0x140747140   ; main.init+0x11e0
+0x14074712d: mov      rcx, qword ptr [rip + 0x1489f24]
+0x140747134: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747139: mov      qword ptr [r11], rax
+0x14074713c: mov      qword ptr [r11 + 8], rcx
+0x140747140: mov      qword ptr [rip + 0x1489f11], rax
+0x140747147: mov      rax, qword ptr [rip + 0x147aada]
+0x14074714e: cmp      dword ptr [rip + 0x15141fb], 0
+0x140747155: je       0x14074716c   ; main.init+0x120c
+0x140747157: mov      rcx, qword ptr [rip + 0x1489f3a]
+0x14074715e: nop      
+0x140747160: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747165: mov      qword ptr [r11], rax
+0x140747168: mov      qword ptr [r11 + 8], rcx
+0x14074716c: mov      qword ptr [rip + 0x1489f25], rax
+0x140747173: call     0x140076d40   ; runtime.makemap_small
+0x140747178: cmp      dword ptr [rip + 0x15141d1], 0
+0x14074717f: nop      
+0x140747180: je       0x140747195   ; main.init+0x1235
+0x140747182: mov      rcx, qword ptr [rip + 0x14c8587]
+0x140747189: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074718e: mov      qword ptr [r11], rax
+0x140747191: mov      qword ptr [r11 + 8], rcx
+0x140747195: mov      qword ptr [rip + 0x14c8574], rax
+0x14074719c: lea      rax, [rip + 0x3a5c5d]
+0x1407471a3: mov      ebx, 6
+0x1407471a8: call     0x1400114c0   ; runtime.makechan
+0x1407471ad: cmp      dword ptr [rip + 0x151419c], 0
+0x1407471b4: je       0x1407471cc   ; main.init+0x126c
+0x1407471b6: mov      rcx, qword ptr [rip + 0x14c855b]
+0x1407471bd: nop      dword ptr [rax]
+0x1407471c0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407471c5: mov      qword ptr [r11], rax
+0x1407471c8: mov      qword ptr [r11 + 8], rcx
+0x1407471cc: mov      qword ptr [rip + 0x14c8545], rax
+0x1407471d3: mov      rax, qword ptr [rip + 0x147a77e]
+0x1407471da: cmp      dword ptr [rip + 0x151416f], 0
+0x1407471e1: je       0x1407471f6   ; main.init+0x1296
+0x1407471e3: mov      rcx, qword ptr [rip + 0x1489eee]
+0x1407471ea: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407471ef: mov      qword ptr [r11], rax
+0x1407471f2: mov      qword ptr [r11 + 8], rcx
+0x1407471f6: mov      qword ptr [rip + 0x1489edb], rax
+0x1407471fd: mov      rax, qword ptr [rip + 0x147a754]
+0x140747204: cmp      dword ptr [rip + 0x1514145], 0
+0x14074720b: je       0x140747220   ; main.init+0x12c0
+0x14074720d: mov      rcx, qword ptr [rip + 0x1489f04]
+0x140747214: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747219: mov      qword ptr [r11], rax
+0x14074721c: mov      qword ptr [r11 + 8], rcx
+0x140747220: mov      qword ptr [rip + 0x1489ef1], rax
+0x140747227: mov      rax, qword ptr [rip + 0x147a72a]
+0x14074722e: cmp      dword ptr [rip + 0x151411b], 0
+0x140747235: je       0x14074724c   ; main.init+0x12ec
+0x140747237: mov      rcx, qword ptr [rip + 0x1489f1a]
+0x14074723e: nop      
+0x140747240: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747245: mov      qword ptr [r11], rax
+0x140747248: mov      qword ptr [r11 + 8], rcx
+0x14074724c: mov      qword ptr [rip + 0x1489f05], rax
+0x140747253: mov      rax, qword ptr [rip + 0x147aa0e]
+0x14074725a: cmp      dword ptr [rip + 0x15140ef], 0
+0x140747261: je       0x140747276   ; main.init+0x1316
+0x140747263: mov      rcx, qword ptr [rip + 0x1489f6e]
+0x14074726a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074726f: mov      qword ptr [r11], rax
+0x140747272: mov      qword ptr [r11 + 8], rcx
+0x140747276: mov      qword ptr [rip + 0x1489f5b], rax
+0x14074727d: mov      rax, qword ptr [rip + 0x147a9e4]
+0x140747284: cmp      dword ptr [rip + 0x15140c5], 0
+0x14074728b: je       0x1407472a0   ; main.init+0x1340
+0x14074728d: mov      rcx, qword ptr [rip + 0x1489f84]
+0x140747294: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747299: mov      qword ptr [r11], rax
+0x14074729c: mov      qword ptr [r11 + 8], rcx
+0x1407472a0: mov      qword ptr [rip + 0x1489f71], rax
+0x1407472a7: mov      rax, qword ptr [rip + 0x147a9ba]
+0x1407472ae: cmp      dword ptr [rip + 0x151409b], 0
+0x1407472b5: je       0x1407472cc   ; main.init+0x136c
+0x1407472b7: mov      rcx, qword ptr [rip + 0x1489f9a]
+0x1407472be: nop      
+0x1407472c0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407472c5: mov      qword ptr [r11], rax
+0x1407472c8: mov      qword ptr [r11 + 8], rcx
+0x1407472cc: mov      qword ptr [rip + 0x1489f85], rax
+0x1407472d3: mov      rax, qword ptr [rip + 0x147a9ae]
+0x1407472da: cmp      dword ptr [rip + 0x151406f], 0
+0x1407472e1: je       0x1407472f6   ; main.init+0x1396
+0x1407472e3: mov      rcx, qword ptr [rip + 0x1489fee]
+0x1407472ea: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407472ef: mov      qword ptr [r11], rax
+0x1407472f2: mov      qword ptr [r11 + 8], rcx
+0x1407472f6: mov      qword ptr [rip + 0x1489fdb], rax
+0x1407472fd: nop      dword ptr [rax]
+0x140747300: call     0x140076d40   ; runtime.makemap_small
+0x140747305: cmp      dword ptr [rip + 0x1514044], 0
+0x14074730c: je       0x140747321   ; main.init+0x13c1
+0x14074730e: mov      rdx, qword ptr [rip + 0x14c9c93]
+0x140747315: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074731a: mov      qword ptr [r11], rax
+0x14074731d: mov      qword ptr [r11 + 8], rdx
+0x140747321: mov      qword ptr [rip + 0x14c9c80], rax
+0x140747328: mov      qword ptr [rip + 0x15141d5], 0x20000000
+0x140747333: mov      rdx, qword ptr [rip + 0x147a96e]
+0x14074733a: cmp      dword ptr [rip + 0x151400f], 0
+0x140747341: je       0x140747356   ; main.init+0x13f6
+0x140747343: mov      rsi, qword ptr [rip + 0x1489fce]
+0x14074734a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074734f: mov      qword ptr [r11], rdx
+0x140747352: mov      qword ptr [r11 + 8], rsi
+0x140747356: mov      qword ptr [rip + 0x1489fbb], rdx
+0x14074735d: mov      rdx, qword ptr [rip + 0x147a95c]
+0x140747364: cmp      dword ptr [rip + 0x1513fe5], 0
+0x14074736b: je       0x140747380   ; main.init+0x1420
+0x14074736d: mov      rsi, qword ptr [rip + 0x1489fe4]
+0x140747374: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747379: mov      qword ptr [r11], rdx
+0x14074737c: mov      qword ptr [r11 + 8], rsi
+0x140747380: mov      qword ptr [rip + 0x1489fd1], rdx
+0x140747387: mov      rdx, qword ptr [rip + 0x147a5ca]
+0x14074738e: cmp      dword ptr [rip + 0x1513fbb], 0
+0x140747395: je       0x1407473ac   ; main.init+0x144c
+0x140747397: mov      rsi, qword ptr [rip + 0x1489ffa]
+0x14074739e: nop      
+0x1407473a0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407473a5: mov      qword ptr [r11], rdx
+0x1407473a8: mov      qword ptr [r11 + 8], rsi
+0x1407473ac: mov      qword ptr [rip + 0x1489fe5], rdx
+0x1407473b3: mov      rdx, qword ptr [rip + 0x147a59e]
+0x1407473ba: cmp      dword ptr [rip + 0x1513f8f], 0
+0x1407473c1: je       0x1407473d6   ; main.init+0x1476
+0x1407473c3: mov      rsi, qword ptr [rip + 0x148a00e]
+0x1407473ca: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407473cf: mov      qword ptr [r11], rdx
+0x1407473d2: mov      qword ptr [r11 + 8], rsi
+0x1407473d6: mov      qword ptr [rip + 0x1489ffb], rdx
+0x1407473dd: mov      rdx, qword ptr [rip + 0x147a574]
+0x1407473e4: cmp      dword ptr [rip + 0x1513f65], 0
+0x1407473eb: je       0x140747400   ; main.init+0x14a0
+0x1407473ed: mov      rsi, qword ptr [rip + 0x148a024]
+0x1407473f4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407473f9: mov      qword ptr [r11], rdx
+0x1407473fc: mov      qword ptr [r11 + 8], rsi
+0x140747400: mov      qword ptr [rip + 0x148a011], rdx
+0x140747407: mov      rdx, qword ptr [rip + 0x147a54a]
+0x14074740e: cmp      dword ptr [rip + 0x1513f3b], 0
+0x140747415: je       0x14074742c   ; main.init+0x14cc
+0x140747417: mov      rsi, qword ptr [rip + 0x148a03a]
+0x14074741e: nop      
+0x140747420: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747425: mov      qword ptr [r11], rdx
+0x140747428: mov      qword ptr [r11 + 8], rsi
+0x14074742c: mov      qword ptr [rip + 0x148a025], rdx
+0x140747433: mov      rdx, qword ptr [rip + 0x147a8b6]
+0x14074743a: cmp      dword ptr [rip + 0x1513f0f], 0
+0x140747441: je       0x140747456   ; main.init+0x14f6
+0x140747443: mov      rsi, qword ptr [rip + 0x148a10e]
+0x14074744a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074744f: mov      qword ptr [r11], rdx
+0x140747452: mov      qword ptr [r11 + 8], rsi
+0x140747456: mov      qword ptr [rip + 0x148a0fb], rdx
+0x14074745d: mov      rdx, qword ptr [rip + 0x147a88c]
+0x140747464: cmp      dword ptr [rip + 0x1513ee5], 0
+0x14074746b: je       0x140747480   ; main.init+0x1520
+0x14074746d: mov      rsi, qword ptr [rip + 0x148a124]
+0x140747474: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747479: mov      qword ptr [r11], rdx
+0x14074747c: mov      qword ptr [r11 + 8], rsi
+0x140747480: mov      qword ptr [rip + 0x148a111], rdx
+0x140747487: mov      rdx, qword ptr [rip + 0x147a862]
+0x14074748e: cmp      dword ptr [rip + 0x1513ebb], 0
+0x140747495: je       0x1407474ac   ; main.init+0x154c
+0x140747497: mov      rsi, qword ptr [rip + 0x148a13a]
+0x14074749e: nop      
+0x1407474a0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407474a5: mov      qword ptr [r11], rdx
+0x1407474a8: mov      qword ptr [r11 + 8], rsi
+0x1407474ac: mov      qword ptr [rip + 0x148a125], rdx
+0x1407474b3: mov      rdx, qword ptr [rip + 0x147a83e]
+0x1407474ba: cmp      dword ptr [rip + 0x1513e8f], 0
+0x1407474c1: je       0x1407474d6   ; main.init+0x1576
+0x1407474c3: mov      rsi, qword ptr [rip + 0x148a14e]
+0x1407474ca: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407474cf: mov      qword ptr [r11], rdx
+0x1407474d2: mov      qword ptr [r11 + 8], rsi
+0x1407474d6: mov      qword ptr [rip + 0x148a13b], rdx
+0x1407474dd: mov      rdx, qword ptr [rip + 0x147a814]
+0x1407474e4: cmp      dword ptr [rip + 0x1513e65], 0
+0x1407474eb: je       0x140747500   ; main.init+0x15a0
+0x1407474ed: mov      rsi, qword ptr [rip + 0x148a164]
+0x1407474f4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407474f9: mov      qword ptr [r11], rdx
+0x1407474fc: mov      qword ptr [r11 + 8], rsi
+0x140747500: mov      qword ptr [rip + 0x148a151], rdx
+0x140747507: mov      rdx, qword ptr [rip + 0x147a7ea]
+0x14074750e: cmp      dword ptr [rip + 0x1513e3b], 0
+0x140747515: je       0x14074752c   ; main.init+0x15cc
+0x140747517: mov      rsi, qword ptr [rip + 0x148a17a]
+0x14074751e: nop      
+0x140747520: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747525: mov      qword ptr [r11], rdx
+0x140747528: mov      qword ptr [r11 + 8], rsi
+0x14074752c: mov      qword ptr [rip + 0x148a165], rdx
+0x140747533: mov      rdx, qword ptr [rip + 0x147a7c6]
+0x14074753a: cmp      dword ptr [rip + 0x1513e0f], 0
+0x140747541: je       0x140747556   ; main.init+0x15f6
+0x140747543: mov      rsi, qword ptr [rip + 0x148a18e]
+0x14074754a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074754f: mov      qword ptr [r11], rdx
+0x140747552: mov      qword ptr [r11 + 8], rsi
+0x140747556: mov      qword ptr [rip + 0x148a17b], rdx
+0x14074755d: mov      rdx, qword ptr [rip + 0x147a3f4]
+0x140747564: cmp      dword ptr [rip + 0x1513de5], 0
+0x14074756b: je       0x140747580   ; main.init+0x1620
+0x14074756d: mov      rsi, qword ptr [rip + 0x148a1a4]
+0x140747574: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747579: mov      qword ptr [r11], rdx
+0x14074757c: mov      qword ptr [r11 + 8], rsi
+0x140747580: mov      qword ptr [rip + 0x148a191], rdx
+0x140747587: lea      rax, [rip + 0x4ec5ae]
+0x14074758e: mov      ebx, 3
+0x140747593: lea      rcx, [rip + 0x94f516]
+0x14074759a: call     0x1409b33c0   ; main.newScreenshotCOMQueryWorkerPool
+0x14074759f: cmp      dword ptr [rip + 0x1513daa], 0
+0x1407475a6: je       0x1407475bb   ; main.init+0x165b
+0x1407475a8: mov      rdx, qword ptr [rip + 0x14c8171]
+0x1407475af: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407475b4: mov      qword ptr [r11], rax
+0x1407475b7: mov      qword ptr [r11 + 8], rdx
+0x1407475bb: mov      qword ptr [rip + 0x14c815e], rax
+0x1407475c2: lea      rax, [rip + 0x4ed199]
+0x1407475c9: mov      ebx, 4
+0x1407475ce: lea      rcx, [rip + 0x94f4e3]
+0x1407475d5: call     0x1409b33c0   ; main.newScreenshotCOMQueryWorkerPool
+0x1407475da: cmp      dword ptr [rip + 0x1513d6f], 0
+0x1407475e1: je       0x1407475f6   ; main.init+0x1696
+0x1407475e3: mov      rcx, qword ptr [rip + 0x14c813e]
+0x1407475ea: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407475ef: mov      qword ptr [r11], rax
+0x1407475f2: mov      qword ptr [r11 + 8], rcx
+0x1407475f6: mov      qword ptr [rip + 0x14c812b], rax
+0x1407475fd: mov      rcx, qword ptr [rip + 0x147a744]
+0x140747604: cmp      dword ptr [rip + 0x1513d45], 0
+0x14074760b: je       0x140747620   ; main.init+0x16c0
+0x14074760d: mov      rdx, qword ptr [rip + 0x148a184]
+0x140747614: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747619: mov      qword ptr [r11], rcx
+0x14074761c: mov      qword ptr [r11 + 8], rdx
+0x140747620: mov      qword ptr [rip + 0x148a171], rcx
+0x140747627: mov      rcx, qword ptr [rip + 0x147a32a]
+0x14074762e: cmp      dword ptr [rip + 0x1513d1b], 0
+0x140747635: je       0x14074764c   ; main.init+0x16ec
+0x140747637: mov      rdx, qword ptr [rip + 0x148a19a]
+0x14074763e: nop      
+0x140747640: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747645: mov      qword ptr [r11], rcx
+0x140747648: mov      qword ptr [r11 + 8], rdx
+0x14074764c: mov      qword ptr [rip + 0x148a185], rcx
+0x140747653: mov      rcx, qword ptr [rip + 0x147a2fe]
+0x14074765a: cmp      dword ptr [rip + 0x1513cef], 0
+0x140747661: je       0x140747676   ; main.init+0x1716
+0x140747663: mov      rdx, qword ptr [rip + 0x148a1ae]
+0x14074766a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074766f: mov      qword ptr [r11], rcx
+0x140747672: mov      qword ptr [r11 + 8], rdx
+0x140747676: mov      qword ptr [rip + 0x148a19b], rcx
+0x14074767d: mov      rcx, qword ptr [rip + 0x147a2d4]
+0x140747684: cmp      dword ptr [rip + 0x1513cc5], 0
+0x14074768b: je       0x1407476a0   ; main.init+0x1740
+0x14074768d: mov      rdx, qword ptr [rip + 0x148a1c4]
+0x140747694: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747699: mov      qword ptr [r11], rcx
+0x14074769c: mov      qword ptr [r11 + 8], rdx
+0x1407476a0: mov      qword ptr [rip + 0x148a1b1], rcx
+0x1407476a7: mov      rcx, qword ptr [rip + 0x147a2aa]
+0x1407476ae: cmp      dword ptr [rip + 0x1513c9b], 0
+0x1407476b5: je       0x1407476cc   ; main.init+0x176c
+0x1407476b7: mov      rdx, qword ptr [rip + 0x148a1da]
+0x1407476be: nop      
+0x1407476c0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407476c5: mov      qword ptr [r11], rcx
+0x1407476c8: mov      qword ptr [r11 + 8], rdx
+0x1407476cc: mov      qword ptr [rip + 0x148a1c5], rcx
+0x1407476d3: mov      rcx, qword ptr [rip + 0x147a27e]
+0x1407476da: cmp      dword ptr [rip + 0x1513c6f], 0
+0x1407476e1: je       0x1407476f6   ; main.init+0x1796
+0x1407476e3: mov      rdx, qword ptr [rip + 0x148a1ee]
+0x1407476ea: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407476ef: mov      qword ptr [r11], rcx
+0x1407476f2: mov      qword ptr [r11 + 8], rdx
+0x1407476f6: mov      qword ptr [rip + 0x148a1db], rcx
+0x1407476fd: mov      rcx, qword ptr [rip + 0x147a254]
+0x140747704: cmp      dword ptr [rip + 0x1513c45], 0
+0x14074770b: je       0x140747720   ; main.init+0x17c0
+0x14074770d: mov      rdx, qword ptr [rip + 0x148a204]
+0x140747714: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747719: mov      qword ptr [r11], rcx
+0x14074771c: mov      qword ptr [r11 + 8], rdx
+0x140747720: mov      qword ptr [rip + 0x148a1f1], rcx
+0x140747727: mov      rcx, qword ptr [rip + 0x147a22a]
+0x14074772e: cmp      dword ptr [rip + 0x1513c1b], 0
+0x140747735: je       0x14074774c   ; main.init+0x17ec
+0x140747737: mov      rdx, qword ptr [rip + 0x148a21a]
+0x14074773e: nop      
+0x140747740: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747745: mov      qword ptr [r11], rcx
+0x140747748: mov      qword ptr [r11 + 8], rdx
+0x14074774c: mov      qword ptr [rip + 0x148a205], rcx
+0x140747753: mov      rcx, qword ptr [rip + 0x147a1fe]
+0x14074775a: cmp      dword ptr [rip + 0x1513bef], 0
+0x140747761: je       0x140747776   ; main.init+0x1816
+0x140747763: mov      rdx, qword ptr [rip + 0x148a22e]
+0x14074776a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074776f: mov      qword ptr [r11], rcx
+0x140747772: mov      qword ptr [r11 + 8], rdx
+0x140747776: mov      qword ptr [rip + 0x148a21b], rcx
+0x14074777d: lea      rax, [rip + 0x4693dc]
+0x140747784: call     0x14001ae20   ; runtime.newobject
+0x140747789: mov      rsi, qword ptr [rip + 0x14c89d0]
+0x140747790: mov      rcx, qword ptr [rsi]
+0x140747793: mov      qword ptr [rax], rcx
+0x140747796: add      rsi, 4
+0x14074779a: lea      rdi, [rax + 4]
+0x14074779e: nop      
+0x1407477a0: mov      qword ptr [rsp - 0x10], rbp
+0x1407477a5: lea      rbp, [rsp - 0x10]
+0x1407477aa: call     0x1400819e4   ; runtime.duffcopy+0x284
+0x1407477af: mov      rbp, qword ptr [rbp]
+0x1407477b3: mov      dword ptr [rax + 0x120], 0xffffffff
+0x1407477bd: cmp      dword ptr [rip + 0x1513b8c], 0
+0x1407477c4: je       0x1407477d9   ; main.init+0x1879
+0x1407477c6: mov      rdx, qword ptr [rip + 0x14c7f63]
+0x1407477cd: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407477d2: mov      qword ptr [r11], rax
+0x1407477d5: mov      qword ptr [r11 + 8], rdx
+0x1407477d9: mov      qword ptr [rip + 0x14c7f50], rax
+0x1407477e0: mov      rdx, qword ptr [rip + 0x147a5b1]
+0x1407477e7: cmp      dword ptr [rip + 0x1513b62], 0
+0x1407477ee: je       0x140747803   ; main.init+0x18a3
+0x1407477f0: mov      rsi, qword ptr [rip + 0x148a261]
+0x1407477f7: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407477fc: mov      qword ptr [r11], rdx
+0x1407477ff: mov      qword ptr [r11 + 8], rsi
+0x140747803: mov      qword ptr [rip + 0x148a24e], rdx
+0x14074780a: mov      rdx, qword ptr [rip + 0x147a58f]
+0x140747811: cmp      dword ptr [rip + 0x1513b38], 0
+0x140747818: je       0x14074782d   ; main.init+0x18cd
+0x14074781a: mov      rsi, qword ptr [rip + 0x148a277]
+0x140747821: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747826: mov      qword ptr [r11], rdx
+0x140747829: mov      qword ptr [r11 + 8], rsi
+0x14074782d: mov      qword ptr [rip + 0x148a264], rdx
+0x140747834: mov      rdx, qword ptr [rip + 0x147a565]
+0x14074783b: cmp      dword ptr [rip + 0x1513b0e], 0
+0x140747842: je       0x140747857   ; main.init+0x18f7
+0x140747844: mov      rsi, qword ptr [rip + 0x148a28d]
+0x14074784b: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747850: mov      qword ptr [r11], rdx
+0x140747853: mov      qword ptr [r11 + 8], rsi
+0x140747857: mov      qword ptr [rip + 0x148a27a], rdx
+0x14074785e: mov      rdx, qword ptr [rip + 0x147a53b]
+0x140747865: cmp      dword ptr [rip + 0x1513ae4], 0
+0x14074786c: je       0x140747881   ; main.init+0x1921
+0x14074786e: mov      rsi, qword ptr [rip + 0x148a2a3]
+0x140747875: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074787a: mov      qword ptr [r11], rdx
+0x14074787d: mov      qword ptr [r11 + 8], rsi
+0x140747881: mov      qword ptr [rip + 0x148a290], rdx
+0x140747888: mov      rdx, qword ptr [rip + 0x147a511]
+0x14074788f: cmp      dword ptr [rip + 0x1513aba], 0
+0x140747896: je       0x1407478ac   ; main.init+0x194c
+0x140747898: mov      rsi, qword ptr [rip + 0x148a2b9]
+0x14074789f: nop      
+0x1407478a0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407478a5: mov      qword ptr [r11], rdx
+0x1407478a8: mov      qword ptr [r11 + 8], rsi
+0x1407478ac: mov      qword ptr [rip + 0x148a2a5], rdx
+0x1407478b3: mov      rdx, qword ptr [rip + 0x147a4e6]
+0x1407478ba: cmp      dword ptr [rip + 0x1513a8f], 0
+0x1407478c1: je       0x1407478d6   ; main.init+0x1976
+0x1407478c3: mov      rsi, qword ptr [rip + 0x148a2ce]
+0x1407478ca: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407478cf: mov      qword ptr [r11], rdx
+0x1407478d2: mov      qword ptr [r11 + 8], rsi
+0x1407478d6: mov      qword ptr [rip + 0x148a2bb], rdx
+0x1407478dd: mov      rdx, qword ptr [rip + 0x147a4bc]
+0x1407478e4: cmp      dword ptr [rip + 0x1513a65], 0
+0x1407478eb: je       0x140747900   ; main.init+0x19a0
+0x1407478ed: mov      rsi, qword ptr [rip + 0x148a2e4]
+0x1407478f4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407478f9: mov      qword ptr [r11], rdx
+0x1407478fc: mov      qword ptr [r11 + 8], rsi
+0x140747900: mov      qword ptr [rip + 0x148a2d1], rdx
+0x140747907: mov      rdx, qword ptr [rip + 0x147a492]
+0x14074790e: cmp      dword ptr [rip + 0x1513a3b], 0
+0x140747915: je       0x14074792c   ; main.init+0x19cc
+0x140747917: mov      rsi, qword ptr [rip + 0x148a2fa]
+0x14074791e: nop      
+0x140747920: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747925: mov      qword ptr [r11], rdx
+0x140747928: mov      qword ptr [r11 + 8], rsi
+0x14074792c: mov      qword ptr [rip + 0x148a2e5], rdx
+0x140747933: mov      rdx, qword ptr [rip + 0x147a466]
+0x14074793a: cmp      dword ptr [rip + 0x1513a0f], 0
+0x140747941: je       0x140747956   ; main.init+0x19f6
+0x140747943: mov      rsi, qword ptr [rip + 0x148a30e]
+0x14074794a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x14074794f: mov      qword ptr [r11], rdx
+0x140747952: mov      qword ptr [r11 + 8], rsi
+0x140747956: mov      qword ptr [rip + 0x148a2fb], rdx
+0x14074795d: mov      rdx, qword ptr [rip + 0x147a43c]
+0x140747964: cmp      dword ptr [rip + 0x15139e5], 0
+0x14074796b: je       0x140747980   ; main.init+0x1a20
+0x14074796d: mov      rsi, qword ptr [rip + 0x148a324]
+0x140747974: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747979: mov      qword ptr [r11], rdx
+0x14074797c: mov      qword ptr [r11 + 8], rsi
+0x140747980: mov      qword ptr [rip + 0x148a311], rdx
+0x140747987: mov      rdx, qword ptr [rip + 0x147a412]
+0x14074798e: cmp      dword ptr [rip + 0x15139bb], 0
+0x140747995: je       0x1407479ac   ; main.init+0x1a4c
+0x140747997: mov      rsi, qword ptr [rip + 0x148a33a]
+0x14074799e: nop      
+0x1407479a0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407479a5: mov      qword ptr [r11], rdx
+0x1407479a8: mov      qword ptr [r11 + 8], rsi
+0x1407479ac: mov      qword ptr [rip + 0x148a325], rdx
+0x1407479b3: mov      rdx, qword ptr [rip + 0x147a3e6]
+0x1407479ba: cmp      dword ptr [rip + 0x151398f], 0
+0x1407479c1: je       0x1407479d6   ; main.init+0x1a76
+0x1407479c3: mov      rsi, qword ptr [rip + 0x148a34e]
+0x1407479ca: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407479cf: mov      qword ptr [r11], rdx
+0x1407479d2: mov      qword ptr [r11 + 8], rsi
+0x1407479d6: mov      qword ptr [rip + 0x148a33b], rdx
+0x1407479dd: mov      rdx, qword ptr [rip + 0x147a3bc]
+0x1407479e4: cmp      dword ptr [rip + 0x1513965], 0
+0x1407479eb: je       0x140747a00   ; main.init+0x1aa0
+0x1407479ed: mov      rsi, qword ptr [rip + 0x148a364]
+0x1407479f4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407479f9: mov      qword ptr [r11], rdx
+0x1407479fc: mov      qword ptr [r11 + 8], rsi
+0x140747a00: mov      qword ptr [rip + 0x148a351], rdx
+0x140747a07: mov      rdx, qword ptr [rip + 0x147a392]
+0x140747a0e: cmp      dword ptr [rip + 0x151393b], 0
+0x140747a15: je       0x140747a2c   ; main.init+0x1acc
+0x140747a17: mov      rsi, qword ptr [rip + 0x148a37a]
+0x140747a1e: nop      
+0x140747a20: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747a25: mov      qword ptr [r11], rdx
+0x140747a28: mov      qword ptr [r11 + 8], rsi
+0x140747a2c: mov      qword ptr [rip + 0x148a365], rdx
+0x140747a33: mov      rdx, qword ptr [rip + 0x147a366]
+0x140747a3a: cmp      dword ptr [rip + 0x151390f], 0
+0x140747a41: je       0x140747a56   ; main.init+0x1af6
+0x140747a43: mov      rsi, qword ptr [rip + 0x148a38e]
+0x140747a4a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747a4f: mov      qword ptr [r11], rdx
+0x140747a52: mov      qword ptr [r11 + 8], rsi
+0x140747a56: mov      qword ptr [rip + 0x148a37b], rdx
+0x140747a5d: mov      rdx, qword ptr [rip + 0x147a33c]
+0x140747a64: cmp      dword ptr [rip + 0x15138e5], 0
+0x140747a6b: je       0x140747a80   ; main.init+0x1b20
+0x140747a6d: mov      rsi, qword ptr [rip + 0x148a3a4]
+0x140747a74: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747a79: mov      qword ptr [r11], rdx
+0x140747a7c: mov      qword ptr [r11 + 8], rsi
+0x140747a80: mov      qword ptr [rip + 0x148a391], rdx
+0x140747a87: mov      rdx, qword ptr [rip + 0x147a312]
+0x140747a8e: cmp      dword ptr [rip + 0x15138bb], 0
+0x140747a95: je       0x140747aac   ; main.init+0x1b4c
+0x140747a97: mov      rsi, qword ptr [rip + 0x148a3ba]
+0x140747a9e: nop      
+0x140747aa0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747aa5: mov      qword ptr [r11], rdx
+0x140747aa8: mov      qword ptr [r11 + 8], rsi
+0x140747aac: mov      qword ptr [rip + 0x148a3a5], rdx
+0x140747ab3: mov      rdx, qword ptr [rip + 0x147a2e6]
+0x140747aba: cmp      dword ptr [rip + 0x151388f], 0
+0x140747ac1: je       0x140747ad6   ; main.init+0x1b76
+0x140747ac3: mov      rsi, qword ptr [rip + 0x148a3ce]
+0x140747aca: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747acf: mov      qword ptr [r11], rdx
+0x140747ad2: mov      qword ptr [r11 + 8], rsi
+0x140747ad6: mov      qword ptr [rip + 0x148a3bb], rdx
+0x140747add: mov      rdx, qword ptr [rip + 0x147a2bc]
+0x140747ae4: cmp      dword ptr [rip + 0x1513865], 0
+0x140747aeb: je       0x140747b00   ; main.init+0x1ba0
+0x140747aed: mov      rsi, qword ptr [rip + 0x148a3e4]
+0x140747af4: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747af9: mov      qword ptr [r11], rdx
+0x140747afc: mov      qword ptr [r11 + 8], rsi
+0x140747b00: mov      qword ptr [rip + 0x148a3d1], rdx
+0x140747b07: mov      rdx, qword ptr [rip + 0x147a292]
+0x140747b0e: cmp      dword ptr [rip + 0x151383b], 0
+0x140747b15: je       0x140747b2c   ; main.init+0x1bcc
+0x140747b17: mov      rsi, qword ptr [rip + 0x148a3fa]
+0x140747b1e: nop      
+0x140747b20: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747b25: mov      qword ptr [r11], rdx
+0x140747b28: mov      qword ptr [r11 + 8], rsi
+0x140747b2c: mov      qword ptr [rip + 0x148a3e5], rdx
+0x140747b33: mov      rdx, qword ptr [rip + 0x147a266]
+0x140747b3a: cmp      dword ptr [rip + 0x151380f], 0
+0x140747b41: je       0x140747b56   ; main.init+0x1bf6
+0x140747b43: mov      rsi, qword ptr [rip + 0x148a40e]
+0x140747b4a: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747b4f: mov      qword ptr [r11], rdx
+0x140747b52: mov      qword ptr [r11 + 8], rsi
+0x140747b56: mov      qword ptr [rip + 0x148a3fb], rdx
+0x140747b5d: mov      rdx, qword ptr [rip + 0x147a23c]
+0x140747b64: cmp      dword ptr [rip + 0x15137e5], 0
+0x140747b6b: je       0x140747b80   ; main.init+0x1c20
+0x140747b6d: mov      rsi, qword ptr [rip + 0x148a424]
+0x140747b74: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747b79: mov      qword ptr [r11], rdx
+0x140747b7c: mov      qword ptr [r11 + 8], rsi
+0x140747b80: mov      qword ptr [rip + 0x148a411], rdx
+0x140747b87: mov      rdx, qword ptr [rip + 0x147a212]
+0x140747b8e: cmp      dword ptr [rip + 0x15137bb], 0
+0x140747b95: je       0x140747bac   ; main.init+0x1c4c
+0x140747b97: mov      rsi, qword ptr [rip + 0x148a43a]
+0x140747b9e: nop      
+0x140747ba0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747ba5: mov      qword ptr [r11], rdx
+0x140747ba8: mov      qword ptr [r11 + 8], rsi
+0x140747bac: mov      qword ptr [rip + 0x148a425], rdx
+0x140747bb3: mov      rdx, qword ptr [rip + 0x147a1e6]
+0x140747bba: cmp      dword ptr [rip + 0x151378f], 0
+0x140747bc1: je       0x140747bd6   ; main.init+0x1c76
+0x140747bc3: mov      rsi, qword ptr [rip + 0x148a44e]
+0x140747bca: call     0x140081060   ; runtime.gcWriteBarrier2
+0x140747bcf: mov      qword ptr [r11], rdx
+0x140747bd2: mov      qword ptr [r11 + 8], rsi
+0x140747bd6: mov      qword ptr [rip + 0x148a43b], rdx
+0x140747bdd: lea      rax, [rip + 0x3eda1c]
+0x140747be4: lea      rbx, [rip + 0x94f1dd]
+0x140747beb: mov      ecx, 1
+0x140747bf0: call     0x14007c660   ; syscall.compileCallback
+0x140747bf5: mov      qword ptr [rip + 0x1512f64], rax
+0x140747bfc: add      rsp, 0x30
+0x140747c00: pop      rbp
+0x140747c01: ret      
+0x140747c02: call     0x14007f140   ; runtime.morestack_noctxt
+0x140747c07: jmp      0x140745f60   ; main.init
+0x140747c0c: int3     
+0x140747c0d: int3     
+0x140747c0e: int3     
+0x140747c0f: int3     
+0x140747c10: int3     
+0x140747c11: int3     
+0x140747c12: int3     
+0x140747c13: int3     
+0x140747c14: int3     
+0x140747c15: int3     
+0x140747c16: int3     
+0x140747c17: int3     
+0x140747c18: int3     
+0x140747c19: int3     
+0x140747c1a: int3     
+0x140747c1b: int3     
+0x140747c1c: int3     
+0x140747c1d: int3     
+0x140747c1e: int3     
+0x140747c1f: int3     

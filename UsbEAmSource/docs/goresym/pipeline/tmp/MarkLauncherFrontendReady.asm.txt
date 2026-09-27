@@ -1,0 +1,124 @@
+0x1407891a0: lea      r12, [rsp - 0x20]
+0x1407891a5: cmp      r12, qword ptr [r14 + 0x10]
+0x1407891a9: jbe      0x140789398    ; main.BootstrapService.MarkLauncherFrontendReady+0x1f8
+0x1407891af: push     rbp
+0x1407891b0: mov      rbp, rsp
+0x1407891b3: sub      rsp, 0x98
+0x1407891ba: movq     qword ptr [rsp + 0x90], xmm15
+0x1407891c4: mov      byte ptr [rsp + 0xf], 0
+0x1407891c9: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x1407891d2: lea      rdi, [rsp + 0xb0]
+0x1407891da: lea      rdi, [rdi - 0x30]
+0x1407891de: nop      
+0x1407891e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407891e5: lea      rbp, [rsp - 0x10]
+0x1407891ea: call     0x140081730    ; runtime.duffzero+0x150
+0x1407891ef: mov      rbp, qword ptr [rbp]
+0x1407891f3: movups   xmmword ptr [rsp + 0x10], xmm15
+0x1407891f9: nop      
+0x1407891fa: mov      rcx, rax
+0x1407891fd: xor      eax, eax
+0x1407891ff: mov      ebx, 1
+0x140789204: lock cmpxchg dword ptr [rcx + 0x540], ebx
+0x14078920c: sete     bl
+0x14078920f: test     bl, bl
+0x140789211: jne      0x14078922a    ; main.BootstrapService.MarkLauncherFrontendReady+0x8a
+0x140789213: mov      qword ptr [rsp + 0x78], rcx
+0x140789218: lea      rax, [rcx + 0x540]
+0x14078921f: nop      
+0x140789220: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x140789225: mov      rcx, qword ptr [rsp + 0x78]
+0x14078922a: lea      rax, [rip + 0x18f]
+0x140789231: mov      qword ptr [rsp + 0x80], rax
+0x140789239: lea      rax, [rcx + 0x540]
+0x140789240: mov      qword ptr [rsp + 0x88], rax
+0x140789248: lea      rax, [rsp + 0x80]
+0x140789250: mov      qword ptr [rsp + 0x90], rax
+0x140789258: mov      byte ptr [rsp + 0xf], 1
+0x14078925d: mov      byte ptr [rcx + 0x44d], 1
+0x140789264: mov      rsi, qword ptr [rcx + 0x4f8]
+0x14078926b: test     rsi, rsi
+0x14078926e: je       0x14078931e    ; main.BootstrapService.MarkLauncherFrontendReady+0x17e
+0x140789274: mov      rax, qword ptr [rsi]
+0x140789277: mov      qword ptr [rsp + 0x20], rax
+0x14078927c: add      rsi, 8
+0x140789280: lea      rdi, [rsp + 0x28]
+0x140789285: mov      qword ptr [rsp - 0x10], rbp
+0x14078928a: lea      rbp, [rsp - 0x10]
+0x14078928f: call     0x140081a9a    ; runtime.duffcopy+0x33a
+0x140789294: mov      rbp, qword ptr [rbp]
+0x140789298: cmp      dword ptr [rip + 0x14d20b1], 0
+0x14078929f: nop      
+0x1407892a0: je       0x1407892b1    ; main.BootstrapService.MarkLauncherFrontendReady+0x111
+0x1407892a2: mov      rax, qword ptr [rcx + 0x4f8]
+0x1407892a9: call     0x140081040    ; runtime.gcWriteBarrier1
+0x1407892ae: mov      qword ptr [r11], rax
+0x1407892b1: mov      qword ptr [rcx + 0x4f8], 0
+0x1407892bc: mov      rax, qword ptr [rsp + 0x20]
+0x1407892c1: mov      qword ptr [rsp + 0xa8], rax
+0x1407892c9: lea      rdi, [rsp + 0xb0]
+0x1407892d1: lea      rsi, [rsp + 0x28]
+0x1407892d6: nop      word ptr [rax + rax]
+0x1407892df: nop      
+0x1407892e0: mov      qword ptr [rsp - 0x10], rbp
+0x1407892e5: lea      rbp, [rsp - 0x10]
+0x1407892ea: call     0x140081a9a    ; runtime.duffcopy+0x33a
+0x1407892ef: mov      rbp, qword ptr [rbp]
+0x1407892f3: movups   xmmword ptr [rsp + 0x10], xmm15
+0x1407892f9: mov      byte ptr [rsp + 0xf], 0
+0x1407892fe: mov      rdx, qword ptr [rsp + 0x90]
+0x140789306: mov      rax, qword ptr [rdx]
+0x140789309: call     rax
+0x14078930b: mov      rax, qword ptr [rsp + 0x10]
+0x140789310: mov      rbx, qword ptr [rsp + 0x18]
+0x140789315: add      rsp, 0x98
+0x14078931c: pop      rbp
+0x14078931d: ret      
+0x14078931e: movups   xmmword ptr [rsp + 0xa8], xmm15
+0x140789327: lea      rdi, [rsp + 0xb0]
+0x14078932f: lea      rdi, [rdi - 0x30]
+0x140789333: nop      word ptr [rax + rax]
+0x14078933c: nop      dword ptr [rax]
+0x140789340: mov      qword ptr [rsp - 0x10], rbp
+0x140789345: lea      rbp, [rsp - 0x10]
+0x14078934a: call     0x140081730    ; runtime.duffzero+0x150
+0x14078934f: mov      rbp, qword ptr [rbp]
+0x140789353: movups   xmmword ptr [rsp + 0x10], xmm15
+0x140789359: mov      byte ptr [rsp + 0xf], 0
+0x14078935e: mov      rdx, qword ptr [rsp + 0x90]
+0x140789366: mov      rax, qword ptr [rdx]
+0x140789369: call     rax
+0x14078936b: mov      rax, qword ptr [rsp + 0x10]
+0x140789370: mov      rbx, qword ptr [rsp + 0x18]
+0x140789375: add      rsp, 0x98
+0x14078937c: pop      rbp
+0x14078937d: ret      
+0x14078937e: nop      
+0x140789380: call     0x1400435e0    ; runtime.deferreturn
+0x140789385: mov      rax, qword ptr [rsp + 0x10]
+0x14078938a: mov      rbx, qword ptr [rsp + 0x18]
+0x14078938f: add      rsp, 0x98
+0x140789396: pop      rbp
+0x140789397: ret      
+0x140789398: mov      qword ptr [rsp + 0x60], rax
+0x14078939d: nop      dword ptr [rax]
+0x1407893a0: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407893a5: mov      rax, qword ptr [rsp + 0x60]
+0x1407893aa: jmp      0x1407891a0    ; main.BootstrapService.MarkLauncherFrontendReady
+0x1407893af: int3     
+0x1407893b0: int3     
+0x1407893b1: int3     
+0x1407893b2: int3     
+0x1407893b3: int3     
+0x1407893b4: int3     
+0x1407893b5: int3     
+0x1407893b6: int3     
+0x1407893b7: int3     
+0x1407893b8: int3     
+0x1407893b9: int3     
+0x1407893ba: int3     
+0x1407893bb: int3     
+0x1407893bc: int3     
+0x1407893bd: int3     
+0x1407893be: int3     
+0x1407893bf: int3     

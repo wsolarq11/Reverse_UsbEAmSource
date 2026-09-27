@@ -1,0 +1,40 @@
+0x140957320: cmp      rsp, qword ptr [r14 + 0x10]
+0x140957324: jbe      0x14095738c   ; main.cloneRGBAImage+0x6c
+0x140957326: push     rbp
+0x140957327: mov      rbp, rsp
+0x14095732a: sub      rsp, 0x28
+0x14095732e: test     rax, rax
+0x140957331: je       0x140957384   ; main.cloneRGBAImage+0x64
+0x140957333: mov      qword ptr [rsp + 0x38], rax
+0x140957338: mov      rbx, qword ptr [rax + 0x28]
+0x14095733c: mov      rcx, qword ptr [rax + 0x30]
+0x140957340: mov      rdi, qword ptr [rax + 0x38]
+0x140957344: mov      rax, qword ptr [rax + 0x20]
+0x140957348: call     0x1401a1ce0   ; image.NewRGBA
+0x14095734d: mov      rdx, qword ptr [rax]
+0x140957350: mov      rcx, qword ptr [rax + 8]
+0x140957354: mov      rsi, qword ptr [rsp + 0x38]
+0x140957359: mov      rbx, qword ptr [rsi]
+0x14095735c: mov      rsi, qword ptr [rsi + 8]
+0x140957360: cmp      rsi, rcx
+0x140957363: cmovl    rcx, rsi
+0x140957367: cmp      rdx, rbx
+0x14095736a: je       0x14095737e   ; main.cloneRGBAImage+0x5e
+0x14095736c: mov      qword ptr [rsp + 0x20], rax
+0x140957371: mov      rax, rdx
+0x140957374: call     0x140081e00   ; runtime.memmove
+0x140957379: mov      rax, qword ptr [rsp + 0x20]
+0x14095737e: add      rsp, 0x28
+0x140957382: pop      rbp
+0x140957383: ret      
+0x140957384: xor      eax, eax
+0x140957386: add      rsp, 0x28
+0x14095738a: pop      rbp
+0x14095738b: ret      
+0x14095738c: mov      qword ptr [rsp + 8], rax
+0x140957391: call     0x14007f140   ; runtime.morestack_noctxt
+0x140957396: mov      rax, qword ptr [rsp + 8]
+0x14095739b: jmp      0x140957320   ; main.cloneRGBAImage
+0x14095739d: int3     
+0x14095739e: int3     
+0x14095739f: int3     

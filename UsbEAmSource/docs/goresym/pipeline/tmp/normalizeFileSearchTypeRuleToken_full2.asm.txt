@@ -1,0 +1,228 @@
+0x140815be0: cmp      rsp, qword ptr [r14 + 0x10]
+0x140815be4: jbe      0x140815e9f   ; main.normalizeFileSearchTypeRuleToken+0x2bf
+0x140815bea: push     rbp
+0x140815beb: mov      rbp, rsp
+0x140815bee: sub      rsp, 0x58
+0x140815bf2: mov      qword ptr [rsp + 0x68], rax
+0x140815bf7: call     0x1400a2200   ; strings.TrimSpace
+0x140815bfc: nop      dword ptr [rax]
+0x140815c00: test     rbx, rbx
+0x140815c03: je       0x140815c15   ; main.normalizeFileSearchTypeRuleToken+0x35
+0x140815c05: mov      qword ptr [rsp + 0x20], rbx
+0x140815c0a: mov      qword ptr [rsp + 0x48], rax
+0x140815c0f: xor      ecx, ecx
+0x140815c11: xor      edx, edx
+0x140815c13: jmp      0x140815c27   ; main.normalizeFileSearchTypeRuleToken+0x47
+0x140815c15: xor      eax, eax
+0x140815c17: xor      ebx, ebx
+0x140815c19: xor      ecx, ecx
+0x140815c1b: add      rsp, 0x58
+0x140815c1f: pop      rbp
+0x140815c20: ret      
+0x140815c21: inc      rdx
+0x140815c24: mov      rcx, rsi
+0x140815c27: cmp      rbx, rcx
+0x140815c2a: jle      0x140815c59   ; main.normalizeFileSearchTypeRuleToken+0x79
+0x140815c2c: movzx    esi, byte ptr [rax + rcx]
+0x140815c30: cmp      esi, 0x7f
+0x140815c33: jg       0x140815c3b   ; main.normalizeFileSearchTypeRuleToken+0x5b
+0x140815c35: lea      rsi, [rcx + 1]
+0x140815c39: jmp      0x140815c21   ; main.normalizeFileSearchTypeRuleToken+0x41
+0x140815c3b: mov      qword ptr [rsp + 0x28], rdx
+0x140815c40: call     0x1400733c0   ; runtime.decoderune
+0x140815c45: mov      rax, qword ptr [rsp + 0x48]
+0x140815c4a: mov      rdx, qword ptr [rsp + 0x28]
+0x140815c4f: mov      rsi, rbx
+0x140815c52: mov      rbx, qword ptr [rsp + 0x20]
+0x140815c57: jmp      0x140815c21   ; main.normalizeFileSearchTypeRuleToken+0x41
+0x140815c59: cmp      rdx, 0x40
+0x140815c5d: jg       0x140815c15   ; main.normalizeFileSearchTypeRuleToken+0x35
+0x140815c5f: xor      ecx, ecx
+0x140815c61: jmp      0x140815c66   ; main.normalizeFileSearchTypeRuleToken+0x86
+0x140815c63: mov      rcx, rsi
+0x140815c66: cmp      rbx, rcx
+0x140815c69: jle      0x140815cd2   ; main.normalizeFileSearchTypeRuleToken+0xf2
+0x140815c6b: movzx    edx, byte ptr [rax + rcx]
+0x140815c6f: cmp      edx, 0x7f
+0x140815c72: jg       0x140815c7a   ; main.normalizeFileSearchTypeRuleToken+0x9a
+0x140815c74: lea      rsi, [rcx + 1]
+0x140815c78: jmp      0x140815c8e   ; main.normalizeFileSearchTypeRuleToken+0xae
+0x140815c7a: call     0x1400733c0   ; runtime.decoderune
+0x140815c7f: mov      edx, eax
+0x140815c81: mov      rsi, rbx
+0x140815c84: mov      rax, qword ptr [rsp + 0x48]
+0x140815c89: mov      rbx, qword ptr [rsp + 0x20]
+0x140815c8e: cmp      edx, 0x2f
+0x140815c91: je       0x140815cc6   ; main.normalizeFileSearchTypeRuleToken+0xe6
+0x140815c93: cmp      edx, 0x5c
+0x140815c96: je       0x140815cc6   ; main.normalizeFileSearchTypeRuleToken+0xe6
+0x140815c98: cmp      edx, 0x3a
+0x140815c9b: je       0x140815cc6   ; main.normalizeFileSearchTypeRuleToken+0xe6
+0x140815c9d: nop      dword ptr [rax]
+0x140815ca0: cmp      edx, 0xff
+0x140815ca6: ja       0x140815cbd   ; main.normalizeFileSearchTypeRuleToken+0xdd
+0x140815ca8: movzx    edx, dl
+0x140815cab: lea      rdi, [rip + 0x11568ae]
+0x140815cb2: movzx    edx, byte ptr [rdi + rdx]
+0x140815cb6: test     dl, 1
+0x140815cb9: je       0x140815c63   ; main.normalizeFileSearchTypeRuleToken+0x83
+0x140815cbb: jmp      0x140815cc6   ; main.normalizeFileSearchTypeRuleToken+0xe6
+0x140815cbd: lea      rdi, [rip + 0x115689c]
+0x140815cc4: jmp      0x140815c63   ; main.normalizeFileSearchTypeRuleToken+0x83
+0x140815cc6: xor      eax, eax
+0x140815cc8: xor      ebx, ebx
+0x140815cca: xor      ecx, ecx
+0x140815ccc: add      rsp, 0x58
+0x140815cd0: pop      rbp
+0x140815cd1: ret      
+0x140815cd2: call     0x1400a1500   ; strings.ToLower
+0x140815cd7: cmp      rbx, 2
+0x140815cdb: jl       0x140815ce7   ; main.normalizeFileSearchTypeRuleToken+0x107
+0x140815cdd: cmp      word ptr [rax], 0x2e2a
+0x140815ce2: sete     dl
+0x140815ce5: jmp      0x140815ce9   ; main.normalizeFileSearchTypeRuleToken+0x109
+0x140815ce7: xor      edx, edx
+0x140815ce9: mov      qword ptr [rsp + 0x50], rax
+0x140815cee: mov      qword ptr [rsp + 0x30], rbx
+0x140815cf3: test     dl, dl
+0x140815cf5: je       0x140815db7   ; main.normalizeFileSearchTypeRuleToken+0x1d7
+0x140815cfb: nop      dword ptr [rax + rax]
+0x140815d00: cmp      rbx, 2
+0x140815d04: jb       0x140815e91   ; main.normalizeFileSearchTypeRuleToken+0x2b1
+0x140815d0a: lea      rdx, [rbx - 2]
+0x140815d0e: mov      rsi, rdx
+0x140815d11: neg      rdx
+0x140815d14: sar      rdx, 0x3f
+0x140815d18: and      edx, 2
+0x140815d1b: add      rdx, rax
+0x140815d1e: nop      
+0x140815d20: cmp      rbx, 2
+0x140815d24: je       0x140815dab   ; main.normalizeFileSearchTypeRuleToken+0x1cb
+0x140815d2a: mov      qword ptr [rsp + 0x38], rsi
+0x140815d2f: mov      qword ptr [rsp + 0x40], rdx
+0x140815d34: nop      
+0x140815d35: mov      rax, rdx
+0x140815d38: mov      rbx, rsi
+0x140815d3b: lea      rcx, [rip + 0x41dfa4]
+0x140815d42: mov      edi, 3
+0x140815d47: call     0x14009f4c0   ; strings.IndexAny
+0x140815d4c: test     rax, rax
+0x140815d4f: jl       0x140815d8a   ; main.normalizeFileSearchTypeRuleToken+0x1aa
+0x140815d51: mov      rax, qword ptr [rsp + 0x50]
+0x140815d56: mov      rbx, qword ptr [rsp + 0x30]
+0x140815d5b: nop      dword ptr [rax + rax]
+0x140815d60: call     0x140815fe0   ; main.isValidFileSearchTypeGlob
+0x140815d65: test     al, al
+0x140815d67: je       0x140815d7e   ; main.normalizeFileSearchTypeRuleToken+0x19e
+0x140815d69: mov      rax, qword ptr [rsp + 0x50]
+0x140815d6e: mov      rbx, qword ptr [rsp + 0x30]
+0x140815d73: mov      ecx, 1
+0x140815d78: add      rsp, 0x58
+0x140815d7c: pop      rbp
+0x140815d7d: ret      
+0x140815d7e: xor      eax, eax
+0x140815d80: xor      ebx, ebx
+0x140815d82: xor      ecx, ecx
+0x140815d84: add      rsp, 0x58
+0x140815d88: pop      rbp
+0x140815d89: ret      
+0x140815d8a: mov      rax, qword ptr [rsp + 0x40]
+0x140815d8f: mov      rbx, qword ptr [rsp + 0x38]
+0x140815d94: call     0x140815ec0   ; main.isValidNormalizedExtensionToken
+0x140815d99: mov      rbx, qword ptr [rsp + 0x38]
+0x140815d9e: mov      ecx, eax
+0x140815da0: mov      rax, qword ptr [rsp + 0x40]
+0x140815da5: add      rsp, 0x58
+0x140815da9: pop      rbp
+0x140815daa: ret      
+0x140815dab: xor      eax, eax
+0x140815dad: xor      ebx, ebx
+0x140815daf: xor      ecx, ecx
+0x140815db1: add      rsp, 0x58
+0x140815db5: pop      rbp
+0x140815db6: ret      
+0x140815db7: nop      
+0x140815db8: lea      rcx, [rip + 0x41df27]
+0x140815dbf: mov      edi, 3
+0x140815dc4: call     0x14009f4c0   ; strings.IndexAny
+0x140815dc9: test     rax, rax
+0x140815dcc: jge      0x140815dda   ; main.normalizeFileSearchTypeRuleToken+0x1fa
+0x140815dce: mov      rax, qword ptr [rsp + 0x50]
+0x140815dd3: mov      rbx, qword ptr [rsp + 0x30]
+0x140815dd8: jmp      0x140815e21   ; main.normalizeFileSearchTypeRuleToken+0x241
+0x140815dda: mov      rax, qword ptr [rsp + 0x50]
+0x140815ddf: mov      rbx, qword ptr [rsp + 0x30]
+0x140815de4: call     0x140815fe0   ; main.isValidFileSearchTypeGlob
+0x140815de9: test     al, al
+0x140815deb: je       0x140815e02   ; main.normalizeFileSearchTypeRuleToken+0x222
+0x140815ded: mov      rax, qword ptr [rsp + 0x50]
+0x140815df2: mov      rbx, qword ptr [rsp + 0x30]
+0x140815df7: mov      ecx, 1
+0x140815dfc: add      rsp, 0x58
+0x140815e00: pop      rbp
+0x140815e01: ret      
+0x140815e02: xor      eax, eax
+0x140815e04: xor      ebx, ebx
+0x140815e06: xor      ecx, ecx
+0x140815e08: add      rsp, 0x58
+0x140815e0c: pop      rbp
+0x140815e0d: ret      
+0x140815e0e: dec      rbx
+0x140815e11: mov      rdx, rbx
+0x140815e14: neg      rdx
+0x140815e17: sar      rdx, 0x3f
+0x140815e1b: and      edx, 1
+0x140815e1e: add      rax, rdx
+0x140815e21: test     rbx, rbx
+0x140815e24: je       0x140815e2e   ; main.normalizeFileSearchTypeRuleToken+0x24e
+0x140815e26: cmp      byte ptr [rax], 0x2e
+0x140815e29: sete     dl
+0x140815e2c: jmp      0x140815e30   ; main.normalizeFileSearchTypeRuleToken+0x250
+0x140815e2e: xor      edx, edx
+0x140815e30: test     dl, dl
+0x140815e32: je       0x140815e40   ; main.normalizeFileSearchTypeRuleToken+0x260
+0x140815e34: cmp      rbx, 1
+0x140815e38: jae      0x140815e0e   ; main.normalizeFileSearchTypeRuleToken+0x22e
+0x140815e3a: jmp      0x140815e85   ; main.normalizeFileSearchTypeRuleToken+0x2a5
+0x140815e3c: nop      dword ptr [rax]
+0x140815e40: test     rbx, rbx
+0x140815e43: je       0x140815e79   ; main.normalizeFileSearchTypeRuleToken+0x299
+0x140815e45: mov      qword ptr [rsp + 0x50], rax
+0x140815e4a: mov      qword ptr [rsp + 0x30], rbx
+0x140815e4f: call     0x140815ec0   ; main.isValidNormalizedExtensionToken
+0x140815e54: test     al, al
+0x140815e56: je       0x140815e6d   ; main.normalizeFileSearchTypeRuleToken+0x28d
+0x140815e58: mov      rax, qword ptr [rsp + 0x50]
+0x140815e5d: mov      rbx, qword ptr [rsp + 0x30]
+0x140815e62: mov      ecx, 1
+0x140815e67: add      rsp, 0x58
+0x140815e6b: pop      rbp
+0x140815e6c: ret      
+0x140815e6d: xor      eax, eax
+0x140815e6f: xor      ebx, ebx
+0x140815e71: xor      ecx, ecx
+0x140815e73: add      rsp, 0x58
+0x140815e77: pop      rbp
+0x140815e78: ret      
+0x140815e79: xor      eax, eax
+0x140815e7b: xor      ebx, ebx
+0x140815e7d: xor      ecx, ecx
+0x140815e7f: add      rsp, 0x58
+0x140815e83: pop      rbp
+0x140815e84: ret      
+0x140815e85: mov      eax, 1
+0x140815e8a: xor      ecx, ecx
+0x140815e8c: call     0x1400814c0   ; runtime.panicSliceB
+0x140815e91: mov      eax, 2
+0x140815e96: mov      rcx, rbx
+0x140815e99: call     0x1400814c0   ; runtime.panicSliceB
+0x140815e9e: nop      
+0x140815e9f: mov      qword ptr [rsp + 8], rax
+0x140815ea4: mov      qword ptr [rsp + 0x10], rbx
+0x140815ea9: call     0x14007f140   ; runtime.morestack_noctxt
+0x140815eae: mov      rax, qword ptr [rsp + 8]
+0x140815eb3: mov      rbx, qword ptr [rsp + 0x10]
+0x140815eb8: jmp      0x140815be0   ; main.normalizeFileSearchTypeRuleToken
+0x140815ebd: int3     
+0x140815ebe: int3     
+0x140815ebf: int3     

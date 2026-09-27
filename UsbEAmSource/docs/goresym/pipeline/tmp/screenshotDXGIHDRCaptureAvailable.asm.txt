@@ -1,0 +1,78 @@
+0x140971160: cmp      rsp, qword ptr [r14 + 0x10]
+0x140971164: jbe      0x140971219   ; main.screenshotDXGIHDRCaptureAvailable+0xb9
+0x14097116a: push     rbp
+0x14097116b: mov      rbp, rsp
+0x14097116e: sub      rsp, 0x38
+0x140971172: mov      rax, qword ptr [rip + 0x125080f]
+0x140971179: call     0x1401933c0   ; golang.org/x/sys/windows.LazyProc.Find
+0x14097117e: nop      
+0x140971180: test     rax, rax
+0x140971183: je       0x1409711c1   ; main.screenshotDXGIHDRCaptureAvailable+0x61
+0x140971185: movups   xmmword ptr [rsp + 0x28], xmm15
+0x14097118b: je       0x140971191   ; main.screenshotDXGIHDRCaptureAvailable+0x31
+0x14097118d: mov      rax, qword ptr [rax + 8]
+0x140971191: mov      qword ptr [rsp + 0x28], rax
+0x140971196: mov      qword ptr [rsp + 0x30], rbx
+0x14097119b: lea      rax, [rip + 0x2f437e]
+0x1409711a2: mov      ebx, 0x18
+0x1409711a7: lea      rcx, [rsp + 0x28]
+0x1409711ac: mov      edi, 1
+0x1409711b1: mov      rsi, rdi
+0x1409711b4: call     0x140971440   ; main.screenshotHDRCaptureDebugLog
+0x1409711b9: xor      eax, eax
+0x1409711bb: add      rsp, 0x38
+0x1409711bf: pop      rbp
+0x1409711c0: ret      
+0x1409711c1: mov      rax, qword ptr [rip + 0x1250ac8]
+0x1409711c8: call     0x1401933c0   ; golang.org/x/sys/windows.LazyProc.Find
+0x1409711cd: test     rax, rax
+0x1409711d0: je       0x14097120e   ; main.screenshotDXGIHDRCaptureAvailable+0xae
+0x1409711d2: movups   xmmword ptr [rsp + 0x28], xmm15
+0x1409711d8: je       0x1409711de   ; main.screenshotDXGIHDRCaptureAvailable+0x7e
+0x1409711da: mov      rax, qword ptr [rax + 8]
+0x1409711de: mov      qword ptr [rsp + 0x28], rax
+0x1409711e3: mov      qword ptr [rsp + 0x30], rbx
+0x1409711e8: lea      rax, [rip + 0x308df1]
+0x1409711ef: mov      ebx, 0x25
+0x1409711f4: lea      rcx, [rsp + 0x28]
+0x1409711f9: mov      edi, 1
+0x1409711fe: mov      rsi, rdi
+0x140971201: call     0x140971440   ; main.screenshotHDRCaptureDebugLog
+0x140971206: xor      eax, eax
+0x140971208: add      rsp, 0x38
+0x14097120c: pop      rbp
+0x14097120d: ret      
+0x14097120e: mov      eax, 1
+0x140971213: add      rsp, 0x38
+0x140971217: pop      rbp
+0x140971218: ret      
+0x140971219: call     0x14007f140   ; runtime.morestack_noctxt
+0x14097121e: nop      
+0x140971220: jmp      0x140971160   ; main.screenshotDXGIHDRCaptureAvailable
+0x140971225: int3     
+0x140971226: int3     
+0x140971227: int3     
+0x140971228: int3     
+0x140971229: int3     
+0x14097122a: int3     
+0x14097122b: int3     
+0x14097122c: int3     
+0x14097122d: int3     
+0x14097122e: int3     
+0x14097122f: int3     
+0x140971230: int3     
+0x140971231: int3     
+0x140971232: int3     
+0x140971233: int3     
+0x140971234: int3     
+0x140971235: int3     
+0x140971236: int3     
+0x140971237: int3     
+0x140971238: int3     
+0x140971239: int3     
+0x14097123a: int3     
+0x14097123b: int3     
+0x14097123c: int3     
+0x14097123d: int3     
+0x14097123e: int3     
+0x14097123f: int3     

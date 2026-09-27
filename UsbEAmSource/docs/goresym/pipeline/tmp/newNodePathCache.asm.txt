@@ -1,0 +1,108 @@
+0x1407e13e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407e13e4: jbe      0x1407e153e   ; main.newNodePathCache+0x15e
+0x1407e13ea: push     rbp
+0x1407e13eb: mov      rbp, rsp
+0x1407e13ee: sub      rsp, 0x28
+0x1407e13f2: test     rax, rax
+0x1407e13f5: jle      0x1407e152c   ; main.newNodePathCache+0x14c
+0x1407e13fb: mov      qword ptr [rsp + 0x38], rax
+0x1407e1400: lea      rax, [rip + 0x1431039]
+0x1407e1407: call     0x1400927a0   ; sync.Pool.Get
+0x1407e140c: lea      rcx, [rip + 0x3706ed]
+0x1407e1413: cmp      rax, rcx
+0x1407e1416: je       0x1407e1420   ; main.newNodePathCache+0x40
+0x1407e1418: mov      ebx, 0
+0x1407e141d: nop      dword ptr [rax]
+0x1407e1420: jne      0x1407e14d4   ; main.newNodePathCache+0xf4
+0x1407e1426: test     rbx, rbx
+0x1407e1429: je       0x1407e14d4   ; main.newNodePathCache+0xf4
+0x1407e142f: mov      qword ptr [rsp + 0x18], rbx
+0x1407e1434: mov      rdx, qword ptr [rbx + 8]
+0x1407e1438: nop      
+0x1407e1439: test     rdx, rdx
+0x1407e143c: je       0x1407e1452   ; main.newNodePathCache+0x72
+0x1407e143e: mov      rax, qword ptr [rbx]
+0x1407e1441: shl      rdx, 4
+0x1407e1445: mov      rbx, rdx
+0x1407e1448: call     0x140077660   ; runtime.memclrHasPointers
+0x1407e144d: mov      rbx, qword ptr [rsp + 0x18]
+0x1407e1452: mov      rcx, qword ptr [rsp + 0x38]
+0x1407e1457: cmp      qword ptr [rbx + 0x10], rcx
+0x1407e145b: jl       0x1407e1463   ; main.newNodePathCache+0x83
+0x1407e145d: mov      qword ptr [rbx + 8], rcx
+0x1407e1461: jmp      0x1407e14a2   ; main.newNodePathCache+0xc2
+0x1407e1463: lea      rax, [rip + 0x308996]
+0x1407e146a: mov      rbx, rcx
+0x1407e146d: call     0x14007ac40   ; runtime.makeslice
+0x1407e1472: mov      rdx, qword ptr [rsp + 0x38]
+0x1407e1477: mov      rsi, qword ptr [rsp + 0x18]
+0x1407e147c: mov      qword ptr [rsi + 8], rdx
+0x1407e1480: mov      qword ptr [rsi + 0x10], rdx
+0x1407e1484: cmp      dword ptr [rip + 0x1479ec5], 0
+0x1407e148b: je       0x1407e149c   ; main.newNodePathCache+0xbc
+0x1407e148d: mov      rcx, qword ptr [rsi]
+0x1407e1490: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1407e1495: mov      qword ptr [r11], rax
+0x1407e1498: mov      qword ptr [r11 + 8], rcx
+0x1407e149c: mov      qword ptr [rsi], rax
+0x1407e149f: mov      rbx, rsi
+0x1407e14a2: mov      rcx, qword ptr [rbx + 0x18]
+0x1407e14a6: test     rcx, rcx
+0x1407e14a9: je       0x1407e14b0   ; main.newNodePathCache+0xd0
+0x1407e14ab: mov      rdx, qword ptr [rcx]
+0x1407e14ae: jmp      0x1407e14b2   ; main.newNodePathCache+0xd2
+0x1407e14b0: xor      edx, edx
+0x1407e14b2: test     rdx, rdx
+0x1407e14b5: jle      0x1407e14cb   ; main.newNodePathCache+0xeb
+0x1407e14b7: lea      rax, [rip + 0x367362]
+0x1407e14be: mov      rbx, rcx
+0x1407e14c1: call     0x14001b5c0   ; runtime.mapclear
+0x1407e14c6: mov      rbx, qword ptr [rsp + 0x18]
+0x1407e14cb: mov      rax, rbx
+0x1407e14ce: add      rsp, 0x28
+0x1407e14d2: pop      rbp
+0x1407e14d3: ret      
+0x1407e14d4: lea      rax, [rip + 0x308925]
+0x1407e14db: mov      rbx, qword ptr [rsp + 0x38]
+0x1407e14e0: mov      rcx, rbx
+0x1407e14e3: call     0x14007ac40   ; runtime.makeslice
+0x1407e14e8: mov      qword ptr [rsp + 0x20], rax
+0x1407e14ed: lea      rax, [rip + 0x39bd0c]
+0x1407e14f4: call     0x14001ae20   ; runtime.newobject
+0x1407e14f9: mov      rdx, qword ptr [rsp + 0x38]
+0x1407e14fe: mov      qword ptr [rax + 8], rdx
+0x1407e1502: mov      qword ptr [rax + 0x10], rdx
+0x1407e1506: cmp      dword ptr [rip + 0x1479e43], 0
+0x1407e150d: jne      0x1407e1516   ; main.newNodePathCache+0x136
+0x1407e150f: mov      rcx, qword ptr [rsp + 0x20]
+0x1407e1514: jmp      0x1407e1523   ; main.newNodePathCache+0x143
+0x1407e1516: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1407e151b: mov      rcx, qword ptr [rsp + 0x20]
+0x1407e1520: mov      qword ptr [r11], rcx
+0x1407e1523: mov      qword ptr [rax], rcx
+0x1407e1526: add      rsp, 0x28
+0x1407e152a: pop      rbp
+0x1407e152b: ret      
+0x1407e152c: lea      rax, [rip + 0x39bccd]
+0x1407e1533: call     0x14001ae20   ; runtime.newobject
+0x1407e1538: add      rsp, 0x28
+0x1407e153c: pop      rbp
+0x1407e153d: ret      
+0x1407e153e: mov      qword ptr [rsp + 8], rax
+0x1407e1543: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407e1548: mov      rax, qword ptr [rsp + 8]
+0x1407e154d: jmp      0x1407e13e0   ; main.newNodePathCache
+0x1407e1552: int3     
+0x1407e1553: int3     
+0x1407e1554: int3     
+0x1407e1555: int3     
+0x1407e1556: int3     
+0x1407e1557: int3     
+0x1407e1558: int3     
+0x1407e1559: int3     
+0x1407e155a: int3     
+0x1407e155b: int3     
+0x1407e155c: int3     
+0x1407e155d: int3     
+0x1407e155e: int3     
+0x1407e155f: int3     

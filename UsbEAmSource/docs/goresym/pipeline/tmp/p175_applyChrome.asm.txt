@@ -1,0 +1,48 @@
+0x140914580: cmp      rsp, qword ptr [r14 + 0x10]
+0x140914584: jbe      0x1409145f8   ; main.oledBlackoutApplyWindowChrome+0x78
+0x140914586: push     rbp
+0x140914587: mov      rbp, rsp
+0x14091458a: sub      rsp, 0x10
+0x14091458e: mov      qword ptr [rsp + 0x20], rax
+0x140914593: mov      qword ptr [rsp + 0x28], rbx
+0x140914598: test     rax, rax
+0x14091459b: je       0x1409145f2   ; main.oledBlackoutApplyWindowChrome+0x72
+0x14091459d: mov      qword ptr [rsp + 0x28], rbx
+0x1409145a2: mov      qword ptr [rsp + 0x20], rax
+0x1409145a7: lea      rax, [rip + 0x253c32]
+0x1409145ae: call     0x14001ae20   ; runtime.newobject
+0x1409145b3: lea      rcx, [rip + 0x66]
+0x1409145ba: mov      qword ptr [rax], rcx
+0x1409145bd: mov      rcx, qword ptr [rsp + 0x20]
+0x1409145c2: mov      qword ptr [rax + 8], rcx
+0x1409145c6: cmp      dword ptr [rip + 0x1346d83], 0
+0x1409145cd: jne      0x1409145d6   ; main.oledBlackoutApplyWindowChrome+0x56
+0x1409145cf: mov      rcx, qword ptr [rsp + 0x28]
+0x1409145d4: jmp      0x1409145e3   ; main.oledBlackoutApplyWindowChrome+0x63
+0x1409145d6: call     0x140081040   ; runtime.gcWriteBarrier1
+0x1409145db: mov      rcx, qword ptr [rsp + 0x28]
+0x1409145e0: mov      qword ptr [r11], rcx
+0x1409145e3: mov      qword ptr [rax + 0x10], rcx
+0x1409145e7: call     0x140618140   ; github.com/wailsapp/wails/v3/pkg/application.InvokeSync
+0x1409145ec: add      rsp, 0x10
+0x1409145f0: pop      rbp
+0x1409145f1: ret      
+0x1409145f2: add      rsp, 0x10
+0x1409145f6: pop      rbp
+0x1409145f7: ret      
+0x1409145f8: mov      qword ptr [rsp + 8], rax
+0x1409145fd: mov      qword ptr [rsp + 0x10], rbx
+0x140914602: call     0x14007f140   ; runtime.morestack_noctxt
+0x140914607: mov      rax, qword ptr [rsp + 8]
+0x14091460c: mov      rbx, qword ptr [rsp + 0x10]
+0x140914611: jmp      0x140914580   ; main.oledBlackoutApplyWindowChrome
+0x140914616: int3     
+0x140914617: int3     
+0x140914618: int3     
+0x140914619: int3     
+0x14091461a: int3     
+0x14091461b: int3     
+0x14091461c: int3     
+0x14091461d: int3     
+0x14091461e: int3     
+0x14091461f: int3     

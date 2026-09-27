@@ -1,0 +1,163 @@
+0x14095af40: lea      r12, [rsp - 0x58]
+0x14095af45: cmp      r12, qword ptr [r14 + 0x10]
+0x14095af49: jbe      0x14095b241   ; main.buildQRCodeSelectionDirtyRectsWithSizeLabels+0x301
+0x14095af4f: push     rbp
+0x14095af50: mov      rbp, rsp
+0x14095af53: sub      rsp, 0xd0
+0x14095af5a: mov      qword ptr [rsp + 0xb8], rbx
+0x14095af62: mov      qword ptr [rsp + 0xb0], rax
+0x14095af6a: mov      qword ptr [rsp + 0xa8], rcx
+0x14095af72: mov      qword ptr [rsp + 0xa0], rsi
+0x14095af7a: mov      qword ptr [rsp + 0x98], r8
+0x14095af82: mov      qword ptr [rsp + 0x90], rdi
+0x14095af8a: mov      qword ptr [rsp + 0x88], r9
+0x14095af92: mov      qword ptr [rsp + 0x80], r10
+0x14095af9a: mov      rdx, qword ptr [rsp + 0xe0]
+0x14095afa2: mov      qword ptr [rsp], rdx
+0x14095afa6: mov      rdx, qword ptr [rsp + 0xe8]
+0x14095afae: mov      qword ptr [rsp + 8], rdx
+0x14095afb3: mov      rdx, qword ptr [rsp + 0xf0]
+0x14095afbb: mov      qword ptr [rsp + 0x10], rdx
+0x14095afc0: mov      rdx, qword ptr [rsp + 0xf8]
+0x14095afc8: mov      qword ptr [rsp + 0x18], rdx
+0x14095afcd: call     0x14095aaa0   ; main.buildQRCodeSelectionDirtyRects
+0x14095afd2: mov      rdx, qword ptr [rsp + 0xa8]
+0x14095afda: mov      r11, qword ptr [rsp + 0xb0]
+0x14095afe2: cmp      rdx, r11
+0x14095afe5: jle      0x14095b0f2   ; main.buildQRCodeSelectionDirtyRectsWithSizeLabels+0x1b2
+0x14095afeb: mov      rdi, qword ptr [rsp + 0x90]
+0x14095aff3: mov      r12, qword ptr [rsp + 0xb8]
+0x14095affb: nop      dword ptr [rax + rax]
+0x14095b000: cmp      rdi, r12
+0x14095b003: jle      0x14095b0f2   ; main.buildQRCodeSelectionDirtyRectsWithSizeLabels+0x1b2
+0x14095b009: mov      qword ptr [rsp + 0x68], rcx
+0x14095b00e: mov      qword ptr [rsp + 0x60], rbx
+0x14095b013: mov      qword ptr [rsp + 0xc0], rax
+0x14095b01b: mov      rax, r11
+0x14095b01e: mov      rbx, r12
+0x14095b021: mov      rcx, rdx
+0x14095b024: mov      rsi, qword ptr [rsp + 0xe0]
+0x14095b02c: mov      r8, qword ptr [rsp + 0xe8]
+0x14095b034: mov      r9, qword ptr [rsp + 0xf0]
+0x14095b03c: mov      r10, qword ptr [rsp + 0xf8]
+0x14095b044: call     0x14095b380   ; main.qrCodeSelectionSizeLabelRect
+0x14095b049: mov      rdx, qword ptr [rsp + 0x60]
+0x14095b04e: inc      rdx
+0x14095b051: mov      r11, qword ptr [rsp + 0x68]
+0x14095b056: cmp      r11, rdx
+0x14095b059: jb       0x14095b065   ; main.buildQRCodeSelectionDirtyRectsWithSizeLabels+0x125
+0x14095b05b: mov      rsi, qword ptr [rsp + 0xc0]
+0x14095b063: jmp      0x14095b0ce   ; main.buildQRCodeSelectionDirtyRectsWithSizeLabels+0x18e
+0x14095b065: mov      qword ptr [rsp + 0xb8], rdi
+0x14095b06d: mov      qword ptr [rsp + 0xb0], rcx
+0x14095b075: mov      qword ptr [rsp + 0xa8], rbx
+0x14095b07d: mov      qword ptr [rsp + 0x90], rax
+0x14095b085: mov      rax, qword ptr [rsp + 0xc0]
+0x14095b08d: mov      rbx, rdx
+0x14095b090: mov      rcx, r11
+0x14095b093: mov      edi, 1
+0x14095b098: lea      rsi, [rip + 0x2a8381]
+0x14095b09f: nop      
+0x14095b0a0: call     0x14007ad20   ; runtime.growslice
+0x14095b0a5: mov      rdi, qword ptr [rsp + 0xb8]
+0x14095b0ad: mov      rsi, rax
+0x14095b0b0: mov      rdx, rbx
+0x14095b0b3: mov      r11, rcx
+0x14095b0b6: mov      rax, qword ptr [rsp + 0x90]
+0x14095b0be: mov      rcx, qword ptr [rsp + 0xb0]
+0x14095b0c6: mov      rbx, qword ptr [rsp + 0xa8]
+0x14095b0ce: lea      r12, [rdx - 1]
+0x14095b0d2: shl      r12, 5
+0x14095b0d6: mov      qword ptr [rsi + r12], rax
+0x14095b0da: mov      qword ptr [rsi + r12 + 8], rbx
+0x14095b0df: mov      qword ptr [rsi + r12 + 0x10], rcx
+0x14095b0e4: mov      qword ptr [rsi + r12 + 0x18], rdi
+0x14095b0e9: mov      rcx, r11
+0x14095b0ec: mov      rax, rsi
+0x14095b0ef: mov      rbx, rdx
+0x14095b0f2: mov      rdx, qword ptr [rsp + 0x88]
+0x14095b0fa: mov      r11, qword ptr [rsp + 0xa0]
+0x14095b102: cmp      rdx, r11
+0x14095b105: jle      0x14095b212   ; main.buildQRCodeSelectionDirtyRectsWithSizeLabels+0x2d2
+0x14095b10b: mov      rdi, qword ptr [rsp + 0x80]
+0x14095b113: mov      r12, qword ptr [rsp + 0x98]
+0x14095b11b: nop      dword ptr [rax + rax]
+0x14095b120: cmp      rdi, r12
+0x14095b123: jle      0x14095b212   ; main.buildQRCodeSelectionDirtyRectsWithSizeLabels+0x2d2
+0x14095b129: mov      qword ptr [rsp + 0xc8], rax
+0x14095b131: mov      qword ptr [rsp + 0x78], rbx
+0x14095b136: mov      qword ptr [rsp + 0x70], rcx
+0x14095b13b: mov      rax, r11
+0x14095b13e: mov      rbx, r12
+0x14095b141: mov      rcx, rdx
+0x14095b144: mov      rsi, qword ptr [rsp + 0xe0]
+0x14095b14c: mov      r8, qword ptr [rsp + 0xe8]
+0x14095b154: mov      r9, qword ptr [rsp + 0xf0]
+0x14095b15c: mov      r10, qword ptr [rsp + 0xf8]
+0x14095b164: call     0x14095b380   ; main.qrCodeSelectionSizeLabelRect
+0x14095b169: mov      rdx, qword ptr [rsp + 0x78]
+0x14095b16e: inc      rdx
+0x14095b171: mov      r11, qword ptr [rsp + 0x70]
+0x14095b176: cmp      r11, rdx
+0x14095b179: jb       0x14095b185   ; main.buildQRCodeSelectionDirtyRectsWithSizeLabels+0x245
+0x14095b17b: mov      rsi, qword ptr [rsp + 0xc8]
+0x14095b183: jmp      0x14095b1ee   ; main.buildQRCodeSelectionDirtyRectsWithSizeLabels+0x2ae
+0x14095b185: mov      qword ptr [rsp + 0xb8], rdi
+0x14095b18d: mov      qword ptr [rsp + 0xb0], rcx
+0x14095b195: mov      qword ptr [rsp + 0xa8], rbx
+0x14095b19d: mov      qword ptr [rsp + 0xa0], rax
+0x14095b1a5: mov      rax, qword ptr [rsp + 0xc8]
+0x14095b1ad: mov      rbx, rdx
+0x14095b1b0: mov      rcx, r11
+0x14095b1b3: mov      edi, 1
+0x14095b1b8: lea      rsi, [rip + 0x2a8261]
+0x14095b1bf: nop      
+0x14095b1c0: call     0x14007ad20   ; runtime.growslice
+0x14095b1c5: mov      rdi, qword ptr [rsp + 0xb8]
+0x14095b1cd: mov      rsi, rax
+0x14095b1d0: mov      rdx, rbx
+0x14095b1d3: mov      r11, rcx
+0x14095b1d6: mov      rax, qword ptr [rsp + 0xa0]
+0x14095b1de: mov      rcx, qword ptr [rsp + 0xb0]
+0x14095b1e6: mov      rbx, qword ptr [rsp + 0xa8]
+0x14095b1ee: lea      r10, [rdx - 1]
+0x14095b1f2: shl      r10, 5
+0x14095b1f6: mov      qword ptr [rsi + r10], rax
+0x14095b1fa: mov      qword ptr [rsi + r10 + 8], rbx
+0x14095b1ff: mov      qword ptr [rsi + r10 + 0x10], rcx
+0x14095b204: mov      qword ptr [rsi + r10 + 0x18], rdi
+0x14095b209: mov      rbx, rdx
+0x14095b20c: mov      rcx, r11
+0x14095b20f: mov      rax, rsi
+0x14095b212: mov      rdi, qword ptr [rsp + 0xe0]
+0x14095b21a: mov      rsi, qword ptr [rsp + 0xe8]
+0x14095b222: mov      r8, qword ptr [rsp + 0xf0]
+0x14095b22a: mov      r9, qword ptr [rsp + 0xf8]
+0x14095b232: call     0x14095d700   ; main.filterQRCodeSelectionRectangles
+0x14095b237: add      rsp, 0xd0
+0x14095b23e: pop      rbp
+0x14095b23f: nop      
+0x14095b240: ret      
+0x14095b241: mov      qword ptr [rsp + 0x28], rax
+0x14095b246: mov      qword ptr [rsp + 0x30], rbx
+0x14095b24b: mov      qword ptr [rsp + 0x38], rcx
+0x14095b250: mov      qword ptr [rsp + 0x40], rdi
+0x14095b255: mov      qword ptr [rsp + 0x48], rsi
+0x14095b25a: mov      qword ptr [rsp + 0x50], r8
+0x14095b25f: mov      qword ptr [rsp + 0x58], r9
+0x14095b264: mov      qword ptr [rsp + 0x60], r10
+0x14095b269: call     0x14007f140   ; runtime.morestack_noctxt
+0x14095b26e: mov      rax, qword ptr [rsp + 0x28]
+0x14095b273: mov      rbx, qword ptr [rsp + 0x30]
+0x14095b278: mov      rcx, qword ptr [rsp + 0x38]
+0x14095b27d: mov      rdi, qword ptr [rsp + 0x40]
+0x14095b282: mov      rsi, qword ptr [rsp + 0x48]
+0x14095b287: mov      r8, qword ptr [rsp + 0x50]
+0x14095b28c: mov      r9, qword ptr [rsp + 0x58]
+0x14095b291: mov      r10, qword ptr [rsp + 0x60]
+0x14095b296: jmp      0x14095af40   ; main.buildQRCodeSelectionDirtyRectsWithSizeLabels
+0x14095b29b: int3     
+0x14095b29c: int3     
+0x14095b29d: int3     
+0x14095b29e: int3     
+0x14095b29f: int3     

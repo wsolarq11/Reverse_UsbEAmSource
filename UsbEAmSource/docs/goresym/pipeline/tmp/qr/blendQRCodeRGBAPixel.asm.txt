@@ -1,0 +1,147 @@
+0x1409597a0: push     rbp
+0x1409597a1: mov      rbp, rsp
+0x1409597a4: sub      rsp, 0x10
+0x1409597a8: test     rax, rax
+0x1409597ab: je       0x14095997f   ; main.blendQRCodeRGBAPixel+0x1df
+0x1409597b1: test     r9b, r9b
+0x1409597b4: je       0x14095997f   ; main.blendQRCodeRGBAPixel+0x1df
+0x1409597ba: mov      r10, qword ptr [rax + 0x20]
+0x1409597be: nop      
+0x1409597c0: cmp      rbx, r10
+0x1409597c3: jl       0x14095997f   ; main.blendQRCodeRGBAPixel+0x1df
+0x1409597c9: mov      r11, qword ptr [rax + 0x30]
+0x1409597cd: cmp      rbx, r11
+0x1409597d0: jge      0x14095997f   ; main.blendQRCodeRGBAPixel+0x1df
+0x1409597d6: mov      r11, qword ptr [rax + 0x28]
+0x1409597da: nop      word ptr [rax + rax]
+0x1409597e0: cmp      rcx, r11
+0x1409597e3: jl       0x14095997f   ; main.blendQRCodeRGBAPixel+0x1df
+0x1409597e9: mov      r12, qword ptr [rax + 0x38]
+0x1409597ed: cmp      rcx, r12
+0x1409597f0: jge      0x14095997f   ; main.blendQRCodeRGBAPixel+0x1df
+0x1409597f6: sub      rcx, r11
+0x1409597f9: mov      r11, qword ptr [rax + 0x18]
+0x1409597fd: imul     r11, rcx
+0x140959801: sub      rbx, r10
+0x140959804: nop      
+0x140959805: lea      r10, [r11 + rbx*4]
+0x140959809: cmp      r9b, 0xff
+0x14095980d: jne      0x14095985b   ; main.blendQRCodeRGBAPixel+0xbb
+0x14095980f: mov      rdx, qword ptr [rax + 0x10]
+0x140959813: lea      rcx, [r11 + rbx*4]
+0x140959817: lea      rcx, [rcx + 4]
+0x14095981b: nop      dword ptr [rax + rax]
+0x140959820: cmp      rdx, rcx
+0x140959823: jb       0x1409599ad   ; main.blendQRCodeRGBAPixel+0x20d
+0x140959829: cmp      r10, rcx
+0x14095982c: ja       0x1409599a5   ; main.blendQRCodeRGBAPixel+0x205
+0x140959832: mov      rax, qword ptr [rax]
+0x140959835: mov      rcx, r10
+0x140959838: sub      r10, rdx
+0x14095983b: sar      r10, 0x3f
+0x14095983f: and      rcx, r10
+0x140959842: mov      byte ptr [rax + rcx], dil
+0x140959846: mov      byte ptr [rax + rcx + 1], sil
+0x14095984b: mov      byte ptr [rax + rcx + 2], r8b
+0x140959850: mov      byte ptr [rax + rcx + 3], 0xff
+0x140959855: add      rsp, 0x10
+0x140959859: pop      rbp
+0x14095985a: ret      
+0x14095985b: movzx    edx, r9b
+0x14095985f: movzx    edi, dil
+0x140959863: mov      rcx, qword ptr [rax + 8]
+0x140959867: imul     rdi, rdx
+0x14095986b: cmp      rcx, r10
+0x14095986e: jbe      0x14095999d   ; main.blendQRCodeRGBAPixel+0x1fd
+0x140959874: lea      r9, [rdx - 0xff]
+0x14095987b: neg      r9
+0x14095987e: mov      r12, qword ptr [rax]
+0x140959881: movzx    r13d, byte ptr [r12 + r10]
+0x140959886: imul     r13, r9
+0x14095988a: lea      r15, [r13 + rdi]
+0x14095988f: lea      rdi, [r13 + rdi]
+0x140959894: lea      rdi, [rdi + 0x7f]
+0x140959898: mov      rcx, rax
+0x14095989b: movabs   rax, 0x8080808080808081
+0x1409598a5: mov      r13, rdx
+0x1409598a8: imul     rdi
+0x1409598ab: lea      rdx, [rdx + r15]
+0x1409598af: lea      rdx, [rdx + 0x7f]
+0x1409598b3: sar      rdx, 7
+0x1409598b7: mov      byte ptr [r12 + r10], dl
+0x1409598bb: lea      rax, [r11 + rbx*4]
+0x1409598bf: lea      rax, [rax + 1]
+0x1409598c3: movzx    edx, sil
+0x1409598c7: mov      rsi, qword ptr [rcx + 8]
+0x1409598cb: imul     rdx, r13
+0x1409598cf: cmp      rsi, rax
+0x1409598d2: jbe      0x140959995   ; main.blendQRCodeRGBAPixel+0x1f5
+0x1409598d8: mov      rsi, qword ptr [rcx]
+0x1409598db: movzx    edi, byte ptr [r10 + rsi + 1]
+0x1409598e1: imul     rdi, r9
+0x1409598e5: lea      r12, [rdi + rdx]
+0x1409598e9: lea      rdx, [rdi + rdx]
+0x1409598ed: lea      rdx, [rdx + 0x7f]
+0x1409598f1: movabs   rax, 0x8080808080808081
+0x1409598fb: imul     rdx
+0x1409598fe: lea      rdx, [rdx + r12]
+0x140959902: lea      rdx, [rdx + 0x7f]
+0x140959906: sar      rdx, 7
+0x14095990a: mov      byte ptr [r10 + rsi + 1], dl
+0x14095990f: movzx    edx, r8b
+0x140959913: mov      rsi, qword ptr [rcx + 8]
+0x140959917: lea      rax, [r11 + rbx*4]
+0x14095991b: lea      rax, [rax + 2]
+0x14095991f: imul     rdx, r13
+0x140959923: cmp      rsi, rax
+0x140959926: jbe      0x14095998d   ; main.blendQRCodeRGBAPixel+0x1ed
+0x140959928: mov      rsi, qword ptr [rcx]
+0x14095992b: movzx    edi, byte ptr [r10 + rsi + 2]
+0x140959931: imul     rdi, r9
+0x140959935: lea      r8, [rdi + rdx]
+0x140959939: lea      rdx, [rdi + rdx]
+0x14095993d: lea      rdx, [rdx + 0x7f]
+0x140959941: movabs   rax, 0x8080808080808081
+0x14095994b: imul     rdx
+0x14095994e: lea      rdx, [rdx + r8]
+0x140959952: lea      rdx, [rdx + 0x7f]
+0x140959956: sar      rdx, 7
+0x14095995a: mov      byte ptr [r10 + rsi + 2], dl
+0x14095995f: mov      rdx, qword ptr [rcx + 8]
+0x140959963: lea      rax, [r11 + rbx*4]
+0x140959967: lea      rax, [rax + 3]
+0x14095996b: cmp      rdx, rax
+0x14095996e: jbe      0x140959985   ; main.blendQRCodeRGBAPixel+0x1e5
+0x140959970: mov      rax, qword ptr [rcx]
+0x140959973: mov      byte ptr [r10 + rax + 3], 0xff
+0x140959979: add      rsp, 0x10
+0x14095997d: pop      rbp
+0x14095997e: ret      
+0x14095997f: add      rsp, 0x10
+0x140959983: pop      rbp
+0x140959984: ret      
+0x140959985: mov      rcx, rdx
+0x140959988: call     0x140081400   ; runtime.panicIndex
+0x14095998d: mov      rcx, rsi
+0x140959990: call     0x140081400   ; runtime.panicIndex
+0x140959995: mov      rcx, rsi
+0x140959998: call     0x140081400   ; runtime.panicIndex
+0x14095999d: mov      rax, r10
+0x1409599a0: call     0x140081400   ; runtime.panicIndex
+0x1409599a5: mov      rax, r10
+0x1409599a8: call     0x1400814c0   ; runtime.panicSliceB
+0x1409599ad: call     0x140081480   ; runtime.panicSliceAcap
+0x1409599b2: nop      
+0x1409599b3: int3     
+0x1409599b4: int3     
+0x1409599b5: int3     
+0x1409599b6: int3     
+0x1409599b7: int3     
+0x1409599b8: int3     
+0x1409599b9: int3     
+0x1409599ba: int3     
+0x1409599bb: int3     
+0x1409599bc: int3     
+0x1409599bd: int3     
+0x1409599be: int3     
+0x1409599bf: int3     

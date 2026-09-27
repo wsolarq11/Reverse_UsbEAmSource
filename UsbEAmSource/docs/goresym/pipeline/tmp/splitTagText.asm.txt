@@ -1,0 +1,97 @@
+0x140775880: lea      r12, [rsp - 0x10]
+0x140775885: cmp      r12, qword ptr [r14 + 0x10]
+0x140775889: jbe      0x1407759d8    ; main.splitTagText+0x158
+0x14077588f: push     rbp
+0x140775890: mov      rbp, rsp
+0x140775893: sub      rsp, 0x88
+0x14077589a: mov      qword ptr [rsp + 0x98], rax
+0x1407758a2: lea      rcx, [rip + 0x9214c7]
+0x1407758a9: call     0x14009fde0    ; strings.FieldsFunc
+0x1407758ae: mov      qword ptr [rsp + 0x70], rax
+0x1407758b3: mov      qword ptr [rsp + 0x48], rbx
+0x1407758b8: lea      rax, [rip + 0x374541]
+0x1407758bf: mov      rcx, rbx
+0x1407758c2: xor      ebx, ebx
+0x1407758c4: call     0x14007ac40    ; runtime.makeslice
+0x1407758c9: mov      rdx, qword ptr [rsp + 0x70]
+0x1407758ce: xor      ecx, ecx
+0x1407758d0: mov      rbx, qword ptr [rsp + 0x48]
+0x1407758d5: xor      esi, esi
+0x1407758d7: jmp      0x1407758fc    ; main.splitTagText+0x7c
+0x1407758d9: mov      rdi, qword ptr [rsp + 0x80]
+0x1407758e1: add      rdi, 0x10
+0x1407758e5: mov      r8, qword ptr [rsp + 0x60]
+0x1407758ea: inc      r8
+0x1407758ed: mov      rbx, rcx
+0x1407758f0: mov      rax, rsi
+0x1407758f3: mov      rsi, rdx
+0x1407758f6: mov      rcx, r8
+0x1407758f9: mov      rdx, rdi
+0x1407758fc: mov      rdi, qword ptr [rsp + 0x48]
+0x140775901: cmp      rdi, rcx
+0x140775904: jle      0x1407759c9    ; main.splitTagText+0x149
+0x14077590a: mov      qword ptr [rsp + 0x58], rbx
+0x14077590f: mov      qword ptr [rsp + 0x50], rsi
+0x140775914: mov      qword ptr [rsp + 0x60], rcx
+0x140775919: mov      qword ptr [rsp + 0x78], rax
+0x14077591e: mov      qword ptr [rsp + 0x80], rdx
+0x140775926: mov      rax, qword ptr [rdx]
+0x140775929: mov      rbx, qword ptr [rdx + 8]
+0x14077592d: call     0x1400a2200    ; strings.TrimSpace
+0x140775932: test     rbx, rbx
+0x140775935: je       0x1407759b5    ; main.splitTagText+0x135
+0x140775937: mov      rdx, qword ptr [rsp + 0x50]
+0x14077593c: inc      rdx
+0x14077593f: mov      rcx, qword ptr [rsp + 0x58]
+0x140775944: cmp      rcx, rdx
+0x140775947: jb       0x140775950    ; main.splitTagText+0xd0
+0x140775949: mov      rsi, qword ptr [rsp + 0x78]
+0x14077594e: jmp      0x140775983    ; main.splitTagText+0x103
+0x140775950: mov      qword ptr [rsp + 0x40], rbx
+0x140775955: mov      qword ptr [rsp + 0x68], rax
+0x14077595a: mov      rax, qword ptr [rsp + 0x78]
+0x14077595f: mov      rbx, rdx
+0x140775962: mov      edi, 1
+0x140775967: lea      rsi, [rip + 0x374492]
+0x14077596e: call     0x14007ad20    ; runtime.growslice
+0x140775973: mov      rsi, rax
+0x140775976: mov      rdx, rbx
+0x140775979: mov      rax, qword ptr [rsp + 0x68]
+0x14077597e: mov      rbx, qword ptr [rsp + 0x40]
+0x140775983: lea      rdi, [rdx - 1]
+0x140775987: shl      rdi, 4
+0x14077598b: mov      qword ptr [rsi + rdi + 8], rbx
+0x140775990: cmp      dword ptr [rip + 0x14e59b9], 0
+0x140775997: je       0x1407759ac    ; main.splitTagText+0x12c
+0x140775999: mov      r8, qword ptr [rsi + rdi]
+0x14077599d: nop      dword ptr [rax]
+0x1407759a0: call     0x140081060    ; runtime.gcWriteBarrier2
+0x1407759a5: mov      qword ptr [r11], rax
+0x1407759a8: mov      qword ptr [r11 + 8], r8
+0x1407759ac: mov      qword ptr [rsi + rdi], rax
+0x1407759b0: jmp      0x1407758d9    ; main.splitTagText+0x59
+0x1407759b5: mov      rdx, qword ptr [rsp + 0x50]
+0x1407759ba: mov      rcx, qword ptr [rsp + 0x58]
+0x1407759bf: mov      rsi, qword ptr [rsp + 0x78]
+0x1407759c4: jmp      0x1407758d9    ; main.splitTagText+0x59
+0x1407759c9: mov      rcx, rbx
+0x1407759cc: mov      rbx, rsi
+0x1407759cf: add      rsp, 0x88
+0x1407759d6: pop      rbp
+0x1407759d7: ret      
+0x1407759d8: mov      qword ptr [rsp + 8], rax
+0x1407759dd: mov      qword ptr [rsp + 0x10], rbx
+0x1407759e2: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407759e7: mov      rax, qword ptr [rsp + 8]
+0x1407759ec: mov      rbx, qword ptr [rsp + 0x10]
+0x1407759f1: jmp      0x140775880    ; main.splitTagText
+0x1407759f6: int3     
+0x1407759f7: int3     
+0x1407759f8: int3     
+0x1407759f9: int3     
+0x1407759fa: int3     
+0x1407759fb: int3     
+0x1407759fc: int3     
+0x1407759fd: int3     
+0x1407759fe: int3     
+0x1407759ff: int3     

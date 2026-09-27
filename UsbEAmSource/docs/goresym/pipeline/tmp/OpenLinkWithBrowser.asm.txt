@@ -1,0 +1,135 @@
+0x140764bc0: lea      r12, [rsp - 0xe48]
+0x140764bc8: cmp      r12, qword ptr [r14 + 0x10]
+0x140764bcc: jbe      0x140764dea    ; main.BootstrapService.OpenLinkWithBrowser+0x22a
+0x140764bd2: push     rbp
+0x140764bd3: mov      rbp, rsp
+0x140764bd6: sub      rsp, 0xec0
+0x140764bdd: mov      qword ptr [rsp + 0xfb8], rax
+0x140764be5: mov      qword ptr [rsp + 0xfc8], rcx
+0x140764bed: mov      qword ptr [rsp + 0xfc0], rbx
+0x140764bf5: movups   xmmword ptr [rsp + 0xdd8], xmm15
+0x140764bfe: lea      rdi, [rsp + 0xde0]
+0x140764c06: lea      rdi, [rdi - 0x20]
+0x140764c0a: mov      qword ptr [rsp - 0x10], rbp
+0x140764c0f: lea      rbp, [rsp - 0x10]
+0x140764c14: call     0x1400816fd    ; runtime.duffzero+0x11d
+0x140764c19: mov      rbp, qword ptr [rbp]
+0x140764c1d: mov      rdx, qword ptr [rsp + 0xed0]
+0x140764c25: mov      qword ptr [rsp + 0xdd8], rdx
+0x140764c2d: lea      rdi, [rsp + 0xde0]
+0x140764c35: lea      rsi, [rsp + 0xed8]
+0x140764c3d: nop      dword ptr [rax]
+0x140764c40: mov      qword ptr [rsp - 0x10], rbp
+0x140764c45: lea      rbp, [rsp - 0x10]
+0x140764c4a: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x140764c4f: mov      rbp, qword ptr [rbp]
+0x140764c53: lea      rax, [rsp + 0xdd8]
+0x140764c5b: mov      ebx, 1
+0x140764c60: mov      rcx, rbx
+0x140764c63: lea      rdi, [rip + 0x4d7482]
+0x140764c6a: mov      esi, 8
+0x140764c6f: call     0x14088a940    ; main.normalizeLinkEntries
+0x140764c74: test     rbx, rbx
+0x140764c77: je       0x140764db9    ; main.BootstrapService.OpenLinkWithBrowser+0x1f9
+0x140764c7d: mov      qword ptr [rsp + 0x988], rax
+0x140764c85: movups   xmmword ptr [rsp + 0x990], xmm15
+0x140764c8e: lea      rdi, [rsp + 0x998]
+0x140764c96: mov      ecx, 0x88
+0x140764c9b: xor      eax, eax
+0x140764c9d: rep stosq qword ptr [rdi], rax
+0x140764ca0: mov      rax, qword ptr [rsp + 0xfb8]
+0x140764ca8: call     0x140769c60    ; main.BootstrapService.loadLinkPreferences
+0x140764cad: mov      rdx, qword ptr [rsp]
+0x140764cb1: mov      qword ptr [rsp + 0x990], rdx
+0x140764cb9: lea      rdi, [rsp + 0x998]
+0x140764cc1: lea      rsi, [rsp + 8]
+0x140764cc6: mov      ecx, 0x88
+0x140764ccb: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140764cce: mov      rdx, qword ptr [rsp + 0x990]
+0x140764cd6: mov      qword ptr [rsp + 0x540], rdx
+0x140764cde: lea      rdi, [rsp + 0x548]
+0x140764ce6: lea      rsi, [rsp + 0x998]
+0x140764cee: mov      ecx, 0x88
+0x140764cf3: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140764cf6: test     rax, rax
+0x140764cf9: je       0x140764d04    ; main.BootstrapService.OpenLinkWithBrowser+0x144
+0x140764cfb: add      rsp, 0xec0
+0x140764d02: pop      rbp
+0x140764d03: ret      
+0x140764d04: mov      rsi, qword ptr [rsp + 0x988]
+0x140764d0c: mov      rdx, qword ptr [rsi]
+0x140764d0f: add      rsi, 8
+0x140764d13: mov      qword ptr [rsp + 0x990], rdx
+0x140764d1b: lea      rdi, [rsp + 0x998]
+0x140764d23: mov      qword ptr [rsp - 0x10], rbp
+0x140764d28: lea      rbp, [rsp - 0x10]
+0x140764d2d: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x140764d32: mov      rbp, qword ptr [rbp]
+0x140764d36: mov      rdx, qword ptr [rsp + 0x990]
+0x140764d3e: mov      qword ptr [rsp], rdx
+0x140764d42: lea      rdi, [rsp + 8]
+0x140764d47: lea      rsi, [rsp + 0x998]
+0x140764d4f: nop      word ptr [rax + rax]
+0x140764d58: nop      dword ptr [rax + rax]
+0x140764d60: mov      qword ptr [rsp - 0x10], rbp
+0x140764d65: lea      rbp, [rsp - 0x10]
+0x140764d6a: call     0x140081a1c    ; runtime.duffcopy+0x2bc
+0x140764d6f: mov      rbp, qword ptr [rbp]
+0x140764d73: mov      rdx, qword ptr [rsp + 0x540]
+0x140764d7b: mov      qword ptr [rsp + 0xe8], rdx
+0x140764d83: lea      rdi, [rsp + 0xf0]
+0x140764d8b: lea      rsi, [rsp + 0x548]
+0x140764d93: mov      ecx, 0x88
+0x140764d98: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140764d9b: mov      rax, qword ptr [rsp + 0xfc0]
+0x140764da3: mov      rbx, qword ptr [rsp + 0xfc8]
+0x140764dab: call     0x140768fc0    ; main.openLinkWithPreferences
+0x140764db0: add      rsp, 0xec0
+0x140764db7: pop      rbp
+0x140764db8: ret      
+0x140764db9: lea      rax, [rip + 0x3ef5c0]
+0x140764dc0: call     0x14001ae20    ; runtime.newobject
+0x140764dc5: mov      qword ptr [rax + 8], 0x18
+0x140764dcd: lea      rcx, [rip + 0x4fff24]
+0x140764dd4: mov      qword ptr [rax], rcx
+0x140764dd7: mov      rbx, rax
+0x140764dda: lea      rax, [rip + 0xa6e31f]
+0x140764de1: add      rsp, 0xec0
+0x140764de8: pop      rbp
+0x140764de9: ret      
+0x140764dea: mov      qword ptr [rsp + 0xf0], rax
+0x140764df2: mov      qword ptr [rsp + 0xf8], rbx
+0x140764dfa: mov      qword ptr [rsp + 0x100], rcx
+0x140764e02: call     0x14007f140    ; runtime.morestack_noctxt
+0x140764e07: mov      rax, qword ptr [rsp + 0xf0]
+0x140764e0f: mov      rbx, qword ptr [rsp + 0xf8]
+0x140764e17: mov      rcx, qword ptr [rsp + 0x100]
+0x140764e1f: nop      
+0x140764e20: jmp      0x140764bc0    ; main.BootstrapService.OpenLinkWithBrowser
+0x140764e25: int3     
+0x140764e26: int3     
+0x140764e27: int3     
+0x140764e28: int3     
+0x140764e29: int3     
+0x140764e2a: int3     
+0x140764e2b: int3     
+0x140764e2c: int3     
+0x140764e2d: int3     
+0x140764e2e: int3     
+0x140764e2f: int3     
+0x140764e30: int3     
+0x140764e31: int3     
+0x140764e32: int3     
+0x140764e33: int3     
+0x140764e34: int3     
+0x140764e35: int3     
+0x140764e36: int3     
+0x140764e37: int3     
+0x140764e38: int3     
+0x140764e39: int3     
+0x140764e3a: int3     
+0x140764e3b: int3     
+0x140764e3c: int3     
+0x140764e3d: int3     
+0x140764e3e: int3     
+0x140764e3f: int3     

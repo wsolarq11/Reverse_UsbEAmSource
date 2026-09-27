@@ -1,0 +1,2 @@
+0x140c0a634: add      dword ptr [rax], eax
+0x140c0a636: add      byte ptr [rax], al

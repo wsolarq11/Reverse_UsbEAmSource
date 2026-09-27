@@ -1,0 +1,197 @@
+0x14089cd20: mov      r12, rsp
+0x14089cd23: sub      r12, 0x1280
+0x14089cd2a: jb       0x14089d0f0    ; main.launcherConfigStore.saveUnlockedWithCurrentRefs+0x3d0
+0x14089cd30: cmp      r12, qword ptr [r14 + 0x10]
+0x14089cd34: jbe      0x14089d0f0    ; main.launcherConfigStore.saveUnlockedWithCurrentRefs+0x3d0
+0x14089cd3a: push     rbp
+0x14089cd3b: mov      rbp, rsp
+0x14089cd3e: sub      rsp, 0x12f8
+0x14089cd45: mov      qword ptr [rsp + 0x2578], rax
+0x14089cd4d: mov      qword ptr [rsp + 0x2580], rbx
+0x14089cd55: mov      qword ptr [rsp + 0x2588], rcx
+0x14089cd5d: mov      qword ptr [rsp + 0x25a0], r8
+0x14089cd65: mov      qword ptr [rsp + 0x2590], rdi
+0x14089cd6d: mov      qword ptr [rsp + 0x2598], rsi
+0x14089cd75: movups   xmmword ptr [rsp + 0x1c40], xmm15
+0x14089cd7e: lea      rdi, [rsp + 0x1c48]
+0x14089cd86: mov      ecx, 0x126
+0x14089cd8b: xor      eax, eax
+0x14089cd8d: rep stosq qword ptr [rdi], rax
+0x14089cd90: mov      rdi, rsp
+0x14089cd93: lea      rsi, [rsp + 0x1bf0]
+0x14089cd9b: nop      dword ptr [rax + rax]
+0x14089cda0: mov      qword ptr [rsp - 0x10], rbp
+0x14089cda5: lea      rbp, [rsp - 0x10]
+0x14089cdaa: call     0x140081a9a    ; runtime.duffcopy+0x33a
+0x14089cdaf: mov      rbp, qword ptr [rbp]
+0x14089cdb3: call     0x1409c6740    ; main.validateTwoFactorStoredConfig
+0x14089cdb8: nop      dword ptr [rax + rax]
+0x14089cdc0: test     rax, rax
+0x14089cdc3: jne      0x14089d0c6    ; main.launcherConfigStore.saveUnlockedWithCurrentRefs+0x3a6
+0x14089cdc9: lea      rax, [rip + 0x36d290]
+0x14089cdd0: call     0x14001ae20    ; runtime.newobject
+0x14089cdd5: mov      qword ptr [rsp + 0x12f0], rax
+0x14089cddd: mov      rcx, qword ptr [rsp + 0x1308]
+0x14089cde5: mov      qword ptr [rsp], rcx
+0x14089cde9: lea      rdi, [rsp + 8]
+0x14089cdee: lea      rsi, [rsp + 0x1310]
+0x14089cdf6: mov      ecx, 0x126
+0x14089cdfb: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14089cdfe: mov      rax, qword ptr [rsp + 0x2590]
+0x14089ce06: mov      rbx, qword ptr [rsp + 0x2598]
+0x14089ce0e: mov      rcx, qword ptr [rsp + 0x25a0]
+0x14089ce16: call     0x140877420    ; main.normalizeLauncherConfigForSave
+0x14089ce1b: cmp      dword ptr [rip + 0x13be52e], 0
+0x14089ce22: je       0x14089ce45    ; main.launcherConfigStore.saveUnlockedWithCurrentRefs+0x125
+0x14089ce24: lea      rax, [rip + 0x36d235]
+0x14089ce2b: mov      rbx, qword ptr [rsp + 0x12f0]
+0x14089ce33: lea      rcx, [rsp + 0x938]
+0x14089ce3b: nop      dword ptr [rax + rax]
+0x14089ce40: call     0x14001b620    ; runtime.wbMove
+0x14089ce45: mov      rdx, qword ptr [rsp + 0x938]
+0x14089ce4d: mov      rdi, qword ptr [rsp + 0x12f0]
+0x14089ce55: mov      qword ptr [rdi], rdx
+0x14089ce58: lea      rdx, [rdi + 8]
+0x14089ce5c: mov      qword ptr [rsp + 0x12a8], rdx
+0x14089ce64: lea      rsi, [rsp + 0x940]
+0x14089ce6c: mov      ecx, 0x126
+0x14089ce71: mov      rax, rdi
+0x14089ce74: mov      rdi, rdx
+0x14089ce77: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14089ce7a: mov      rbx, qword ptr [rax]
+0x14089ce7d: mov      qword ptr [rsp], rbx
+0x14089ce81: lea      rdi, [rsp + 8]
+0x14089ce86: mov      rsi, rdx
+0x14089ce89: mov      ecx, 0x126
+0x14089ce8e: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14089ce91: mov      rax, qword ptr [rsp + 0x2578]
+0x14089ce99: call     0x140899000    ; main.launcherConfigStore.validateChangedIconData
+0x14089ce9e: nop      
+0x14089cea0: test     rax, rax
+0x14089cea3: jne      0x14089d09c    ; main.launcherConfigStore.saveUnlockedWithCurrentRefs+0x37c
+0x14089cea9: mov      rdx, qword ptr [rsp + 0x2578]
+0x14089ceb1: mov      rax, qword ptr [rdx]
+0x14089ceb4: mov      rbx, qword ptr [rdx + 8]
+0x14089ceb8: mov      rcx, qword ptr [rsp + 0x2580]
+0x14089cec0: mov      rdi, qword ptr [rsp + 0x2588]
+0x14089cec8: mov      rsi, qword ptr [rsp + 0x12f0]
+0x14089ced0: call     0x140891120    ; main.prepareLauncherConfigIconsForCommitWithCurrentRefs
+0x14089ced5: test     rsi, rsi
+0x14089ced8: jne      0x14089d072    ; main.launcherConfigStore.saveUnlockedWithCurrentRefs+0x352
+0x14089cede: mov      qword ptr [rsp + 0x1290], rbx
+0x14089cee6: mov      qword ptr [rsp + 0x12a0], rax
+0x14089ceee: mov      qword ptr [rsp + 0x1298], rcx
+0x14089cef6: mov      byte ptr [rsp + 0x128f], dil
+0x14089cefe: mov      rdx, qword ptr [rsp + 0x12f0]
+0x14089cf06: mov      rdx, qword ptr [rdx]
+0x14089cf09: mov      qword ptr [rsp], rdx
+0x14089cf0d: lea      rdi, [rsp + 8]
+0x14089cf12: mov      rsi, qword ptr [rsp + 0x12a8]
+0x14089cf1a: mov      ecx, 0x126
+0x14089cf1f: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14089cf22: mov      rax, qword ptr [rsp + 0x2578]
+0x14089cf2a: call     0x14089d580    ; main.launcherConfigStore.writeConfigUnlocked
+0x14089cf2f: test     rax, rax
+0x14089cf32: jne      0x14089d048    ; main.launcherConfigStore.saveUnlockedWithCurrentRefs+0x328
+0x14089cf38: mov      rax, qword ptr [rsp + 0x12a0]
+0x14089cf40: mov      rbx, qword ptr [rsp + 0x1290]
+0x14089cf48: mov      rcx, qword ptr [rsp + 0x1298]
+0x14089cf50: movzx    edi, byte ptr [rsp + 0x128f]
+0x14089cf58: call     0x140891da0    ; main.launcherConfigIconCommitPlan.finish
+0x14089cf5d: nop      dword ptr [rax]
+0x14089cf60: test     rax, rax
+0x14089cf63: je       0x14089d010    ; main.launcherConfigStore.saveUnlockedWithCurrentRefs+0x2f0
+0x14089cf69: movups   xmmword ptr [rsp + 0x12b0], xmm15
+0x14089cf72: je       0x14089cf78    ; main.launcherConfigStore.saveUnlockedWithCurrentRefs+0x258
+0x14089cf74: mov      rax, qword ptr [rax + 8]
+0x14089cf78: mov      qword ptr [rsp + 0x12b0], rax
+0x14089cf80: mov      qword ptr [rsp + 0x12b8], rbx
+0x14089cf88: movups   xmmword ptr [rsp + 0x12c0], xmm15
+0x14089cf91: movups   xmmword ptr [rsp + 0x12d0], xmm15
+0x14089cf9a: movups   xmmword ptr [rsp + 0x12e0], xmm15
+0x14089cfa3: lea      rdx, [rip + 0x1b6]
+0x14089cfaa: mov      qword ptr [rsp + 0x12c0], rdx
+0x14089cfb2: mov      qword ptr [rsp + 0x12d0], 0x40
+0x14089cfbe: lea      rdx, [rip + 0x3f1c54]
+0x14089cfc5: mov      qword ptr [rsp + 0x12c8], rdx
+0x14089cfcd: mov      qword ptr [rsp + 0x12e0], 1
+0x14089cfd9: mov      qword ptr [rsp + 0x12e8], 1
+0x14089cfe5: lea      rdx, [rsp + 0x12b0]
+0x14089cfed: mov      qword ptr [rsp + 0x12d8], rdx
+0x14089cff5: mov      rax, qword ptr [rip + 0x1372e44]
+0x14089cffc: xor      ebx, ebx
+0x14089cffe: mov      ecx, 2
+0x14089d003: lea      rdi, [rsp + 0x12c0]
+0x14089d00b: call     0x1402e3d00    ; log.Logger.output
+0x14089d010: mov      rdx, qword ptr [rsp + 0x12f0]
+0x14089d018: mov      rdx, qword ptr [rdx]
+0x14089d01b: mov      qword ptr [rsp + 0x1c40], rdx
+0x14089d023: lea      rdi, [rsp + 0x1c48]
+0x14089d02b: mov      rsi, qword ptr [rsp + 0x12a8]
+0x14089d033: mov      ecx, 0x126
+0x14089d038: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14089d03b: xor      eax, eax
+0x14089d03d: xor      ebx, ebx
+0x14089d03f: add      rsp, 0x12f8
+0x14089d046: pop      rbp
+0x14089d047: ret      
+0x14089d048: movups   xmmword ptr [rsp + 0x1c40], xmm15
+0x14089d051: lea      rdi, [rsp + 0x1c48]
+0x14089d059: mov      ecx, 0x126
+0x14089d05e: mov      rdx, rax
+0x14089d061: xor      eax, eax
+0x14089d063: rep stosq qword ptr [rdi], rax
+0x14089d066: mov      rax, rdx
+0x14089d069: add      rsp, 0x12f8
+0x14089d070: pop      rbp
+0x14089d071: ret      
+0x14089d072: movups   xmmword ptr [rsp + 0x1c40], xmm15
+0x14089d07b: lea      rdi, [rsp + 0x1c48]
+0x14089d083: mov      ecx, 0x126
+0x14089d088: xor      eax, eax
+0x14089d08a: rep stosq qword ptr [rdi], rax
+0x14089d08d: mov      rax, rsi
+0x14089d090: mov      rbx, r8
+0x14089d093: add      rsp, 0x12f8
+0x14089d09a: pop      rbp
+0x14089d09b: ret      
+0x14089d09c: movups   xmmword ptr [rsp + 0x1c40], xmm15
+0x14089d0a5: lea      rdi, [rsp + 0x1c48]
+0x14089d0ad: mov      ecx, 0x126
+0x14089d0b2: mov      rdx, rax
+0x14089d0b5: xor      eax, eax
+0x14089d0b7: rep stosq qword ptr [rdi], rax
+0x14089d0ba: mov      rax, rdx
+0x14089d0bd: add      rsp, 0x12f8
+0x14089d0c4: pop      rbp
+0x14089d0c5: ret      
+0x14089d0c6: movups   xmmword ptr [rsp + 0x1c40], xmm15
+0x14089d0cf: lea      rdi, [rsp + 0x1c48]
+0x14089d0d7: mov      ecx, 0x126
+0x14089d0dc: mov      rdx, rax
+0x14089d0df: xor      eax, eax
+0x14089d0e1: rep stosq qword ptr [rdi], rax
+0x14089d0e4: mov      rax, rdx
+0x14089d0e7: add      rsp, 0x12f8
+0x14089d0ee: pop      rbp
+0x14089d0ef: ret      
+0x14089d0f0: mov      qword ptr [rsp + 0x1278], rax
+0x14089d0f8: mov      qword ptr [rsp + 0x1280], rbx
+0x14089d100: mov      qword ptr [rsp + 0x1288], rcx
+0x14089d108: mov      qword ptr [rsp + 0x1290], rdi
+0x14089d110: mov      qword ptr [rsp + 0x1298], rsi
+0x14089d118: mov      qword ptr [rsp + 0x12a0], r8
+0x14089d120: call     0x14007f140    ; runtime.morestack_noctxt
+0x14089d125: mov      rax, qword ptr [rsp + 0x1278]
+0x14089d12d: mov      rbx, qword ptr [rsp + 0x1280]
+0x14089d135: mov      rcx, qword ptr [rsp + 0x1288]
+0x14089d13d: mov      rdi, qword ptr [rsp + 0x1290]
+0x14089d145: mov      rsi, qword ptr [rsp + 0x1298]
+0x14089d14d: mov      r8, qword ptr [rsp + 0x12a0]
+0x14089d155: jmp      0x14089cd20    ; main.launcherConfigStore.saveUnlockedWithCurrentRefs
+0x14089d15a: int3     
+0x14089d15b: int3     
+0x14089d15c: int3     
+0x14089d15d: int3     
+0x14089d15e: int3     
+0x14089d15f: int3     

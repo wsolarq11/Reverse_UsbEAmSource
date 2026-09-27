@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    # 代码为 windows 专属（wails/webview2/go-ole/clipboard），必须在 windows 上编译
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: UsbEAmSource
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          # 对齐本地验证过的工具链（HANDOFF 红线：勿用默认 go 1.27）
+          go-version: '1.25.12'
+      - name: Build
+        run: go build -tags production -trimpath ./backend
+      - name: Vet
+        run: go vet ./backend
+      - name: Test
+        run: go test -count=1 -p=1 ./backend

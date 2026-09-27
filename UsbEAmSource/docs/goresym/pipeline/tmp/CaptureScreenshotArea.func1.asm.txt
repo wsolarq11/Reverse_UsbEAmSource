@@ -1,0 +1,98 @@
+0x140789760: lea      r12, [rsp - 0x90]
+0x140789768: cmp      r12, qword ptr [r14 + 0x10]
+0x14078976c: jbe      0x1407898dc   ; main.BootstrapService).CaptureScreenshotArea.func1+0x17c
+0x140789772: push     rbp
+0x140789773: mov      rbp, rsp
+0x140789776: sub      rsp, 0x108
+0x14078977d: mov      r9, qword ptr [rdx + 0x10]
+0x140789781: movzx    r10d, byte ptr [rdx + 0x18]
+0x140789786: movzx    esi, byte ptr [rdx + 0x19]
+0x14078978a: movzx    r8d, byte ptr [rdx + 0x1a]
+0x14078978f: mov      rax, qword ptr [rdx + 8]
+0x140789793: movups   xmmword ptr [rsp + 0x118], xmm15
+0x14078979c: lea      rdi, [rsp + 0x120]
+0x1407897a4: lea      rdi, [rdi - 0x10]
+0x1407897a8: mov      qword ptr [rsp - 0x10], rbp
+0x1407897ad: lea      rbp, [rsp - 0x10]
+0x1407897b2: call     0x140081726   ; runtime.duffzero+0x146
+0x1407897b7: mov      rbp, qword ptr [rbp]
+0x1407897bb: nop      dword ptr [rax + rax]
+0x1407897c0: cmp      r9, 0xbb8
+0x1407897c7: jne      0x1407897d0   ; main.BootstrapService).CaptureScreenshotArea.func1+0x70
+0x1407897c9: mov      ecx, 0xb2d05e00
+0x1407897ce: jmp      0x1407897e7   ; main.BootstrapService).CaptureScreenshotArea.func1+0x87
+0x1407897d0: cmp      r9, 0x1388
+0x1407897d7: jne      0x1407897e5   ; main.BootstrapService).CaptureScreenshotArea.func1+0x85
+0x1407897d9: movabs   rcx, 0x12a05f200
+0x1407897e3: jmp      0x1407897e7   ; main.BootstrapService).CaptureScreenshotArea.func1+0x87
+0x1407897e5: xor      ecx, ecx
+0x1407897e7: movups   xmmword ptr [rsp + 0x90], xmm15
+0x1407897f0: lea      rdi, [rsp + 0x98]
+0x1407897f8: lea      rdi, [rdi - 0x10]
+0x1407897fc: nop      dword ptr [rax]
+0x140789800: mov      qword ptr [rsp - 0x10], rbp
+0x140789805: lea      rbp, [rsp - 0x10]
+0x14078980a: call     0x140081726   ; runtime.duffzero+0x146
+0x14078980f: mov      rbp, qword ptr [rbp]
+0x140789813: mov      rbx, rcx
+0x140789816: mov      ecx, 1
+0x14078981b: mov      edi, r10d
+0x14078981e: nop      
+0x140789820: call     0x1409b72e0   ; main.captureScreenshotAreaForServiceWithControlsAndLauncherVisibility
+0x140789825: mov      rdx, qword ptr [rsp]
+0x140789829: mov      qword ptr [rsp + 0x90], rdx
+0x140789831: lea      rdi, [rsp + 0x98]
+0x140789839: lea      rsi, [rsp + 8]
+0x14078983e: nop      
+0x140789840: mov      qword ptr [rsp - 0x10], rbp
+0x140789845: lea      rbp, [rsp - 0x10]
+0x14078984a: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x14078984f: mov      rbp, qword ptr [rbp]
+0x140789853: mov      rdx, qword ptr [rsp + 0x90]
+0x14078985b: mov      qword ptr [rsp + 0x118], rdx
+0x140789863: lea      rdi, [rsp + 0x120]
+0x14078986b: lea      rsi, [rsp + 0x98]
+0x140789873: nop      word ptr [rax + rax]
+0x14078987c: nop      dword ptr [rax]
+0x140789880: mov      qword ptr [rsp - 0x10], rbp
+0x140789885: lea      rbp, [rsp - 0x10]
+0x14078988a: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x14078988f: mov      rbp, qword ptr [rbp]
+0x140789893: mov      rdx, qword ptr [rsp + 0x90]
+0x14078989b: mov      qword ptr [rsp + 0x118], rdx
+0x1407898a3: lea      rdi, [rsp + 0x120]
+0x1407898ab: lea      rsi, [rsp + 0x98]
+0x1407898b3: nop      word ptr [rax + rax]
+0x1407898bc: nop      dword ptr [rax]
+0x1407898c0: mov      qword ptr [rsp - 0x10], rbp
+0x1407898c5: lea      rbp, [rsp - 0x10]
+0x1407898ca: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x1407898cf: mov      rbp, qword ptr [rbp]
+0x1407898d3: add      rsp, 0x108
+0x1407898da: pop      rbp
+0x1407898db: ret      
+0x1407898dc: nop      dword ptr [rax]
+0x1407898e0: call     0x14007f0a0   ; runtime.morestack
+0x1407898e5: jmp      0x140789760   ; main.BootstrapService).CaptureScreenshotArea.func1
+0x1407898ea: int3     
+0x1407898eb: int3     
+0x1407898ec: int3     
+0x1407898ed: int3     
+0x1407898ee: int3     
+0x1407898ef: int3     
+0x1407898f0: int3     
+0x1407898f1: int3     
+0x1407898f2: int3     
+0x1407898f3: int3     
+0x1407898f4: int3     
+0x1407898f5: int3     
+0x1407898f6: int3     
+0x1407898f7: int3     
+0x1407898f8: int3     
+0x1407898f9: int3     
+0x1407898fa: int3     
+0x1407898fb: int3     
+0x1407898fc: int3     
+0x1407898fd: int3     
+0x1407898fe: int3     
+0x1407898ff: int3     

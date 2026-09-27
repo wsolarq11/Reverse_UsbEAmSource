@@ -1,0 +1,22 @@
+0x1407c4f20: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407c4f24: jbe      0x1407c500b   ; main.desktopWidgetStoreError+0xeb
+0x1407c4f2a: push     rbp
+0x1407c4f2b: mov      rbp, rsp
+0x1407c4f2e: sub      rsp, 0x78
+0x1407c4f32: mov      qword ptr [rsp + 0x88], rax
+0x1407c4f3a: mov      qword ptr [rsp + 0x98], rcx
+0x1407c4f42: mov      qword ptr [rsp + 0xa0], rdi
+0x1407c4f4a: call     0x1400a2200   ; strings.TrimSpace
+0x1407c4f4f: mov      qword ptr [rsp + 0x70], rax
+0x1407c4f54: mov      qword ptr [rsp + 0x30], rbx
+0x1407c4f59: mov      rax, qword ptr [rsp + 0x98]
+0x1407c4f61: mov      rbx, qword ptr [rsp + 0xa0]
+0x1407c4f69: call     0x1400a2200   ; strings.TrimSpace
+0x1407c4f6e: mov      qword ptr [rsp + 0x68], rax
+0x1407c4f73: mov      qword ptr [rsp + 0x28], rbx
+0x1407c4f78: movups   xmmword ptr [rsp + 0x38], xmm15
+0x1407c4f7e: movups   xmmword ptr [rsp + 0x48], xmm15
+0x1407c4f84: movups   xmmword ptr [rsp + 0x58], xmm15
+0x1407c4f8a: lea      rcx, [rip + 0x324e6f]
+0x1407c4f91: mov      qword ptr [rsp + 0x38], rcx
+0x1407c4f96: lea      rcx, [rip + 0xa09a13]

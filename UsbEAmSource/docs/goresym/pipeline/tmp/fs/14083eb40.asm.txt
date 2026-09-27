@@ -1,0 +1,58 @@
+0x14083eb40: cmp      rsp, qword ptr [r14 + 0x10]
+0x14083eb44: jbe      0x14083ebb6
+0x14083eb46: push     rbp
+0x14083eb47: mov      rbp, rsp
+0x14083eb4a: sub      rsp, 0x20
+0x14083eb4e: nop      
+0x14083eb4f: mov      edx, 1
+0x14083eb54: lock xadd dword ptr [rax + 0x28], edx
+0x14083eb59: inc      edx
+0x14083eb5b: test     edx, edx
+0x14083eb5d: jge      0x14083eb76
+0x14083eb5f: mov      qword ptr [rsp + 0x30], rax
+0x14083eb64: add      rax, 0x24
+0x14083eb68: xor      ebx, ebx
+0x14083eb6a: xor      ecx, ecx
+0x14083eb6c: call     0x14007a300
+0x14083eb71: mov      rax, qword ptr [rsp + 0x30]
+0x14083eb76: mov      rcx, qword ptr [rax + 0x570]
+0x14083eb7d: test     rcx, rcx
+0x14083eb80: mov      ebx, 0xffffffff
+0x14083eb85: lock xadd dword ptr [rax + 0x28], ebx
+0x14083eb8a: dec      ebx
+0x14083eb8c: test     ebx, ebx
+0x14083eb8e: jl       0x14083eb95
+0x14083eb90: test     rcx, rcx
+0x14083eb93: jmp      0x14083ebad
+0x14083eb95: mov      qword ptr [rsp + 0x18], rcx
+0x14083eb9a: add      rax, 0x18
+0x14083eb9e: nop      
+0x14083eba0: call     0x1400934c0
+0x14083eba5: mov      rcx, qword ptr [rsp + 0x18]
+0x14083ebaa: test     rcx, rcx
+0x14083ebad: setg     al
+0x14083ebb0: add      rsp, 0x20
+0x14083ebb4: pop      rbp
+0x14083ebb5: ret      
+0x14083ebb6: mov      qword ptr [rsp + 8], rax
+0x14083ebbb: nop      dword ptr [rax + rax]
+0x14083ebc0: call     0x14007f140
+0x14083ebc5: mov      rax, qword ptr [rsp + 8]
+0x14083ebca: jmp      0x14083eb40
+0x14083ebcf: int3     
+0x14083ebd0: int3     
+0x14083ebd1: int3     
+0x14083ebd2: int3     
+0x14083ebd3: int3     
+0x14083ebd4: int3     
+0x14083ebd5: int3     
+0x14083ebd6: int3     
+0x14083ebd7: int3     
+0x14083ebd8: int3     
+0x14083ebd9: int3     
+0x14083ebda: int3     
+0x14083ebdb: int3     
+0x14083ebdc: int3     
+0x14083ebdd: int3     
+0x14083ebde: int3     
+0x14083ebdf: int3     

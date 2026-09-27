@@ -1,0 +1,92 @@
+0x1409c0120: lea      r12, [rsp - 0xa0]
+0x1409c0128: cmp      r12, qword ptr [r14 + 0x10]
+0x1409c012c: jbe      0x1409c025c   ; main.buildWindowProcessPickResult+0x13c
+0x1409c0132: push     rbp
+0x1409c0133: mov      rbp, rsp
+0x1409c0136: sub      rsp, 0x118
+0x1409c013d: mov      qword ptr [rsp + 0x198], rax
+0x1409c0145: mov      dword ptr [rsp + 0x1a8], ecx
+0x1409c014c: lea      rdi, [rsp + 0x128]
+0x1409c0154: lea      rdi, [rdi - 0x10]
+0x1409c0158: nop      dword ptr [rax + rax]
+0x1409c0160: mov      qword ptr [rsp - 0x10], rbp
+0x1409c0165: lea      rbp, [rsp - 0x10]
+0x1409c016a: call     0x140081726   ; runtime.duffzero+0x146
+0x1409c016f: mov      rbp, qword ptr [rbp]
+0x1409c0173: call     0x1400a2200   ; strings.TrimSpace
+0x1409c0178: test     rbx, rbx
+0x1409c017b: je       0x1409c0185   ; main.buildWindowProcessPickResult+0x65
+0x1409c017d: nop      
+0x1409c017e: nop      
+0x1409c0180: call     0x1401154c0   ; internal/filepathlite.Clean
+0x1409c0185: mov      qword ptr [rsp + 0x98], rbx
+0x1409c018d: mov      qword ptr [rsp + 0xa0], rax
+0x1409c0195: call     0x140116320   ; internal/filepathlite.Base
+0x1409c019a: call     0x1400a2200   ; strings.TrimSpace
+0x1409c019f: nop      
+0x1409c01a0: cmp      rbx, 1
+0x1409c01a4: jne      0x1409c01ba   ; main.buildWindowProcessPickResult+0x9a
+0x1409c01a6: cmp      byte ptr [rax], 0x2e
+0x1409c01a9: je       0x1409c01b6   ; main.buildWindowProcessPickResult+0x96
+0x1409c01ab: cmp      rbx, 1
+0x1409c01af: jne      0x1409c01ba   ; main.buildWindowProcessPickResult+0x9a
+0x1409c01b1: cmp      byte ptr [rax], 0x5c
+0x1409c01b4: jne      0x1409c01ba   ; main.buildWindowProcessPickResult+0x9a
+0x1409c01b6: xor      ebx, ebx
+0x1409c01b8: xor      eax, eax
+0x1409c01ba: mov      ecx, dword ptr [rsp + 0x1a8]
+0x1409c01c1: mov      rdi, rax
+0x1409c01c4: mov      rsi, rbx
+0x1409c01c7: mov      rax, qword ptr [rsp + 0xa0]
+0x1409c01cf: mov      rbx, qword ptr [rsp + 0x98]
+0x1409c01d7: call     0x1409c02a0   ; main.buildWindowProcessPickResultWithProcessName
+0x1409c01dc: lea      rdi, [rsp + 0xa8]
+0x1409c01e4: mov      rsi, rsp
+0x1409c01e7: mov      qword ptr [rsp - 0x10], rbp
+0x1409c01ec: lea      rbp, [rsp - 0x10]
+0x1409c01f1: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x1409c01f6: mov      rbp, qword ptr [rbp]
+0x1409c01fa: lea      rdi, [rsp + 0x128]
+0x1409c0202: lea      rsi, [rsp + 0xa8]
+0x1409c020a: mov      qword ptr [rsp - 0x10], rbp
+0x1409c020f: lea      rbp, [rsp - 0x10]
+0x1409c0214: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x1409c0219: mov      rbp, qword ptr [rbp]
+0x1409c021d: lea      rdi, [rsp + 0x128]
+0x1409c0225: lea      rsi, [rsp + 0xa8]
+0x1409c022d: nop      word ptr [rax + rax]
+0x1409c0236: nop      word ptr [rax + rax]
+0x1409c023f: nop      
+0x1409c0240: mov      qword ptr [rsp - 0x10], rbp
+0x1409c0245: lea      rbp, [rsp - 0x10]
+0x1409c024a: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x1409c024f: mov      rbp, qword ptr [rbp]
+0x1409c0253: add      rsp, 0x118
+0x1409c025a: pop      rbp
+0x1409c025b: ret      
+0x1409c025c: mov      qword ptr [rsp + 0x78], rax
+0x1409c0261: mov      qword ptr [rsp + 0x80], rbx
+0x1409c0269: mov      dword ptr [rsp + 0x88], ecx
+0x1409c0270: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409c0275: mov      rax, qword ptr [rsp + 0x78]
+0x1409c027a: mov      rbx, qword ptr [rsp + 0x80]
+0x1409c0282: mov      ecx, dword ptr [rsp + 0x88]
+0x1409c0289: jmp      0x1409c0120   ; main.buildWindowProcessPickResult
+0x1409c028e: int3     
+0x1409c028f: int3     
+0x1409c0290: int3     
+0x1409c0291: int3     
+0x1409c0292: int3     
+0x1409c0293: int3     
+0x1409c0294: int3     
+0x1409c0295: int3     
+0x1409c0296: int3     
+0x1409c0297: int3     
+0x1409c0298: int3     
+0x1409c0299: int3     
+0x1409c029a: int3     
+0x1409c029b: int3     
+0x1409c029c: int3     
+0x1409c029d: int3     
+0x1409c029e: int3     
+0x1409c029f: int3     

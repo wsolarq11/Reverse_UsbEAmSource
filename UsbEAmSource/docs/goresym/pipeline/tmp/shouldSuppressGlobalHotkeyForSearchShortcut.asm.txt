@@ -1,0 +1,87 @@
+0x1407a0c80: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a0c84: jbe      0x1407a0d57   ; main.shouldSuppressGlobalHotkeyForSearchShortcut+0xd7
+0x1407a0c8a: push     rbp
+0x1407a0c8b: mov      rbp, rsp
+0x1407a0c8e: sub      rsp, 0x48
+0x1407a0c92: mov      qword ptr [rsp + 0x58], rax
+0x1407a0c97: mov      qword ptr [rsp + 0x68], rcx
+0x1407a0c9c: mov      qword ptr [rsp + 0x70], rdi
+0x1407a0ca1: mov      qword ptr [rsp + 0x78], rsi
+0x1407a0ca6: nop      
+0x1407a0ca7: nop      
+0x1407a0ca8: lea      rcx, [rip + 0x8f5cf9]
+0x1407a0caf: xor      edi, edi
+0x1407a0cb1: mov      esi, edi
+0x1407a0cb3: mov      r8d, esi
+0x1407a0cb6: call     0x1408887c0   ; main.normalizeShortcutBindingWithOptions
+0x1407a0cbb: nop      dword ptr [rax + rax]
+0x1407a0cc0: test     rbx, rbx
+0x1407a0cc3: je       0x1407a0cf3   ; main.shouldSuppressGlobalHotkeyForSearchShortcut+0x73
+0x1407a0cc5: mov      qword ptr [rsp + 0x20], rbx
+0x1407a0cca: mov      qword ptr [rsp + 0x38], rax
+0x1407a0ccf: mov      rax, qword ptr [rsp + 0x68]
+0x1407a0cd4: mov      rbx, qword ptr [rsp + 0x70]
+0x1407a0cd9: mov      rcx, qword ptr [rsp + 0x78]
+0x1407a0cde: nop      
+0x1407a0ce0: call     0x140886c00   ; main.normalizeSearchCategoryShortcutList
+0x1407a0ce5: mov      qword ptr [rsp + 0x30], rbx
+0x1407a0cea: mov      rdx, qword ptr [rsp + 0x20]
+0x1407a0cef: xor      ecx, ecx
+0x1407a0cf1: jmp      0x1407a0d02   ; main.shouldSuppressGlobalHotkeyForSearchShortcut+0x82
+0x1407a0cf3: xor      eax, eax
+0x1407a0cf5: add      rsp, 0x48
+0x1407a0cf9: pop      rbp
+0x1407a0cfa: ret      
+0x1407a0cfb: add      rax, 0x10
+0x1407a0cff: inc      rcx
+0x1407a0d02: cmp      rbx, rcx
+0x1407a0d05: jle      0x1407a0d4f   ; main.shouldSuppressGlobalHotkeyForSearchShortcut+0xcf
+0x1407a0d07: mov      rsi, qword ptr [rax + 8]
+0x1407a0d0b: cmp      rdx, rsi
+0x1407a0d0e: jne      0x1407a0cfb   ; main.shouldSuppressGlobalHotkeyForSearchShortcut+0x7b
+0x1407a0d10: mov      qword ptr [rsp + 0x28], rcx
+0x1407a0d15: mov      qword ptr [rsp + 0x40], rax
+0x1407a0d1a: mov      rax, qword ptr [rax]
+0x1407a0d1d: mov      rbx, qword ptr [rsp + 0x38]
+0x1407a0d22: mov      rcx, rsi
+0x1407a0d25: call     0x140006280   ; runtime.memequal
+0x1407a0d2a: test     al, al
+0x1407a0d2c: jne      0x1407a0d44   ; main.shouldSuppressGlobalHotkeyForSearchShortcut+0xc4
+0x1407a0d2e: mov      rax, qword ptr [rsp + 0x40]
+0x1407a0d33: mov      rcx, qword ptr [rsp + 0x28]
+0x1407a0d38: mov      rdx, qword ptr [rsp + 0x20]
+0x1407a0d3d: mov      rbx, qword ptr [rsp + 0x30]
+0x1407a0d42: jmp      0x1407a0cfb   ; main.shouldSuppressGlobalHotkeyForSearchShortcut+0x7b
+0x1407a0d44: mov      eax, 1
+0x1407a0d49: add      rsp, 0x48
+0x1407a0d4d: pop      rbp
+0x1407a0d4e: ret      
+0x1407a0d4f: xor      eax, eax
+0x1407a0d51: add      rsp, 0x48
+0x1407a0d55: pop      rbp
+0x1407a0d56: ret      
+0x1407a0d57: mov      qword ptr [rsp + 8], rax
+0x1407a0d5c: mov      qword ptr [rsp + 0x10], rbx
+0x1407a0d61: mov      qword ptr [rsp + 0x18], rcx
+0x1407a0d66: mov      qword ptr [rsp + 0x20], rdi
+0x1407a0d6b: mov      qword ptr [rsp + 0x28], rsi
+0x1407a0d70: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a0d75: mov      rax, qword ptr [rsp + 8]
+0x1407a0d7a: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a0d7f: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a0d84: mov      rdi, qword ptr [rsp + 0x20]
+0x1407a0d89: mov      rsi, qword ptr [rsp + 0x28]
+0x1407a0d8e: jmp      0x1407a0c80   ; main.shouldSuppressGlobalHotkeyForSearchShortcut
+0x1407a0d93: int3     
+0x1407a0d94: int3     
+0x1407a0d95: int3     
+0x1407a0d96: int3     
+0x1407a0d97: int3     
+0x1407a0d98: int3     
+0x1407a0d99: int3     
+0x1407a0d9a: int3     
+0x1407a0d9b: int3     
+0x1407a0d9c: int3     
+0x1407a0d9d: int3     
+0x1407a0d9e: int3     
+0x1407a0d9f: int3     

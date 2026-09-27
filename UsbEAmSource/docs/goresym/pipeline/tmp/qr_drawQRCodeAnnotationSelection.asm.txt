@@ -1,0 +1,62 @@
+0x140951f40: lea      r12, [rsp - 0x20]
+0x140951f45: cmp      r12, qword ptr [r14 + 0x10]
+0x140951f49: jbe      0x140951ff3   ; main.drawQRCodeAnnotationSelection+0xb3
+0x140951f4f: push     rbp
+0x140951f50: mov      rbp, rsp
+0x140951f53: sub      rsp, 0x98
+0x140951f5a: mov      qword ptr [rsp + 0x140], rax
+0x140951f62: mov      rax, qword ptr [rsp + 0xa8]
+0x140951f6a: mov      qword ptr [rsp], rax
+0x140951f6e: lea      rdi, [rsp + 8]
+0x140951f73: lea      rsi, [rsp + 0xb0]
+0x140951f7b: nop      dword ptr [rax + rax]
+0x140951f80: mov      qword ptr [rsp - 0x10], rbp
+0x140951f85: lea      rbp, [rsp - 0x10]
+0x140951f8a: call     0x140081a62   ; runtime.duffcopy+0x302
+0x140951f8f: mov      rbp, qword ptr [rbp]
+0x140951f93: call     0x140952300   ; main.qrCodeAnnotationStrokeBounds
+0x140951f98: cmp      rax, rcx
+0x140951f9b: jge      0x140951fa5   ; main.drawQRCodeAnnotationSelection+0x65
+0x140951f9d: nop      dword ptr [rax]
+0x140951fa0: cmp      rbx, rdi
+0x140951fa3: jl       0x140951fae   ; main.drawQRCodeAnnotationSelection+0x6e
+0x140951fa5: add      rsp, 0x98
+0x140951fac: pop      rbp
+0x140951fad: ret      
+0x140951fae: lea      rdx, [rax - 6]
+0x140951fb2: lea      r8, [rbx - 6]
+0x140951fb6: lea      r9, [rcx + 6]
+0x140951fba: lea      rsi, [rdi + 6]
+0x140951fbe: cmp      r9, rdx
+0x140951fc1: mov      rbx, rdx
+0x140951fc4: cmovl    rbx, r9
+0x140951fc8: cmovl    r9, rdx
+0x140951fcc: cmp      rsi, r8
+0x140951fcf: mov      rcx, r8
+0x140951fd2: cmovl    rcx, rsi
+0x140951fd6: cmovl    rsi, r8
+0x140951fda: mov      rax, qword ptr [rsp + 0x140]
+0x140951fe2: mov      rdi, r9
+0x140951fe5: call     0x14095e0e0   ; main.drawQRCodeDashedSelectionBorder
+0x140951fea: add      rsp, 0x98
+0x140951ff1: pop      rbp
+0x140951ff2: ret      
+0x140951ff3: mov      qword ptr [rsp + 0xa0], rax
+0x140951ffb: nop      dword ptr [rax + rax]
+0x140952000: call     0x14007f140   ; runtime.morestack_noctxt
+0x140952005: mov      rax, qword ptr [rsp + 0xa0]
+0x14095200d: jmp      0x140951f40   ; main.drawQRCodeAnnotationSelection
+0x140952012: int3     
+0x140952013: int3     
+0x140952014: int3     
+0x140952015: int3     
+0x140952016: int3     
+0x140952017: int3     
+0x140952018: int3     
+0x140952019: int3     
+0x14095201a: int3     
+0x14095201b: int3     
+0x14095201c: int3     
+0x14095201d: int3     
+0x14095201e: int3     
+0x14095201f: int3     

@@ -1,0 +1,117 @@
+0x1407490a0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407490a4: jbe      0x1407491d9    ; main.decodeVersionUTF16String+0x139
+0x1407490aa: push     rbp
+0x1407490ab: mov      rbp, rsp
+0x1407490ae: sub      rsp, 0x50
+0x1407490b2: mov      qword ptr [rsp + 0x60], rax
+0x1407490b7: nop      word ptr [rax + rax]
+0x1407490c0: test     rdi, rdi
+0x1407490c3: jl       0x140749162    ; main.decodeVersionUTF16String+0xc2
+0x1407490c9: test     esi, esi
+0x1407490cb: je       0x140749162    ; main.decodeVersionUTF16String+0xc2
+0x1407490d1: mov      r8d, esi
+0x1407490d4: mov      r9, r8
+0x1407490d7: btr      r8, 0x3f
+0x1407490dc: lea      r10, [rdi + r9*2]
+0x1407490e0: cmp      r9, r8
+0x1407490e3: jne      0x140749158    ; main.decodeVersionUTF16String+0xb8
+0x1407490e5: cmp      rbx, r10
+0x1407490e8: jb       0x140749158    ; main.decodeVersionUTF16String+0xb8
+0x1407490ea: cmp      rdi, r10
+0x1407490ed: ja       0x1407491cd    ; main.decodeVersionUTF16String+0x12d
+0x1407490f3: sub      rcx, rdi
+0x1407490f6: mov      rdx, rcx
+0x1407490f9: neg      rcx
+0x1407490fc: sar      rcx, 0x3f
+0x140749100: and      rdi, rcx
+0x140749103: add      rdi, rax
+0x140749106: cmp      r9, 0x10
+0x14074910a: ja       0x140749122    ; main.decodeVersionUTF16String+0x82
+0x14074910c: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140749112: movups   xmmword ptr [rsp + 0x38], xmm15
+0x140749118: mov      esi, esi
+0x14074911a: lea      rax, [rsp + 0x28]
+0x14074911f: nop      
+0x140749120: jmp      0x140749154    ; main.decodeVersionUTF16String+0xb4
+0x140749122: mov      qword ptr [rsp + 0x20], rdx
+0x140749127: mov      qword ptr [rsp + 0x48], rdi
+0x14074912c: mov      ecx, esi
+0x14074912e: mov      qword ptr [rsp + 0x18], rcx
+0x140749133: lea      rax, [rip + 0x3a0dc6]
+0x14074913a: mov      rbx, rcx
+0x14074913d: nop      dword ptr [rax]
+0x140749140: call     0x14007ac40    ; runtime.makeslice
+0x140749145: mov      rdx, qword ptr [rsp + 0x20]
+0x14074914a: mov      rdi, qword ptr [rsp + 0x48]
+0x14074914f: mov      rsi, qword ptr [rsp + 0x18]
+0x140749154: xor      ecx, ecx
+0x140749156: jmp      0x140749186    ; main.decodeVersionUTF16String+0xe6
+0x140749158: xor      eax, eax
+0x14074915a: xor      ebx, ebx
+0x14074915c: add      rsp, 0x50
+0x140749160: pop      rbp
+0x140749161: ret      
+0x140749162: xor      eax, eax
+0x140749164: xor      ebx, ebx
+0x140749166: add      rsp, 0x50
+0x14074916a: pop      rbp
+0x14074916b: ret      
+0x14074916c: mov      r8, r9
+0x14074916f: sub      r9, rdx
+0x140749172: sar      r9, 0x3f
+0x140749176: and      r8, r9
+0x140749179: movzx    r8d, word ptr [rdi + r8]
+0x14074917e: mov      word ptr [rax + rcx*2], r8w
+0x140749183: inc      rcx
+0x140749186: cmp      rcx, rsi
+0x140749189: jge      0x1407491a7    ; main.decodeVersionUTF16String+0x107
+0x14074918b: lea      r8, [rcx + rcx]
+0x14074918f: lea      r8, [r8 + 2]
+0x140749193: cmp      r8, rdx
+0x140749196: ja       0x1407491c5    ; main.decodeVersionUTF16String+0x125
+0x140749198: lea      r9, [rcx + rcx]
+0x14074919c: nop      dword ptr [rax]
+0x1407491a0: cmp      r8, r9
+0x1407491a3: jae      0x14074916c    ; main.decodeVersionUTF16String+0xcc
+0x1407491a5: jmp      0x1407491b8    ; main.decodeVersionUTF16String+0x118
+0x1407491a7: mov      rbx, rsi
+0x1407491aa: mov      rcx, rbx
+0x1407491ad: call     0x1400e6000    ; syscall.UTF16ToString
+0x1407491b2: add      rsp, 0x50
+0x1407491b6: pop      rbp
+0x1407491b7: ret      
+0x1407491b8: mov      rax, r9
+0x1407491bb: mov      rcx, r8
+0x1407491be: nop      
+0x1407491c0: call     0x1400814c0    ; runtime.panicSliceB
+0x1407491c5: mov      rcx, r8
+0x1407491c8: call     0x140081480    ; runtime.panicSliceAcap
+0x1407491cd: mov      rax, rdi
+0x1407491d0: mov      rcx, r10
+0x1407491d3: call     0x1400814c0    ; runtime.panicSliceB
+0x1407491d8: nop      
+0x1407491d9: mov      qword ptr [rsp + 8], rax
+0x1407491de: mov      qword ptr [rsp + 0x10], rbx
+0x1407491e3: mov      qword ptr [rsp + 0x18], rcx
+0x1407491e8: mov      qword ptr [rsp + 0x20], rdi
+0x1407491ed: mov      dword ptr [rsp + 0x28], esi
+0x1407491f1: call     0x14007f140    ; runtime.morestack_noctxt
+0x1407491f6: mov      rax, qword ptr [rsp + 8]
+0x1407491fb: mov      rbx, qword ptr [rsp + 0x10]
+0x140749200: mov      rcx, qword ptr [rsp + 0x18]
+0x140749205: mov      rdi, qword ptr [rsp + 0x20]
+0x14074920a: mov      esi, dword ptr [rsp + 0x28]
+0x14074920e: jmp      0x1407490a0    ; main.decodeVersionUTF16String
+0x140749213: int3     
+0x140749214: int3     
+0x140749215: int3     
+0x140749216: int3     
+0x140749217: int3     
+0x140749218: int3     
+0x140749219: int3     
+0x14074921a: int3     
+0x14074921b: int3     
+0x14074921c: int3     
+0x14074921d: int3     
+0x14074921e: int3     
+0x14074921f: int3     

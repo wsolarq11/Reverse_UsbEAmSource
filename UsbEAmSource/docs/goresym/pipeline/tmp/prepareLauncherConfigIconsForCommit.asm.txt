@@ -1,0 +1,121 @@
+0x140890ec0: lea      r12, [rsp - 0x1b0]
+0x140890ec8: cmp      r12, qword ptr [r14 + 0x10]
+0x140890ecc: jbe      0x1408910ca   ; main.prepareLauncherConfigIconsForCommit+0x20a
+0x140890ed2: push     rbp
+0x140890ed3: mov      rbp, rsp
+0x140890ed6: sub      rsp, 0x228
+0x140890edd: mov      byte ptr [rsp + 0xb80], cl
+0x140890ee4: mov      qword ptr [rsp + 0xb88], rdi
+0x140890eec: mov      qword ptr [rsp + 0xb78], rbx
+0x140890ef4: mov      qword ptr [rsp + 0xb70], rax
+0x140890efc: lea      rax, [rip + 0x37915d]
+0x140890f03: call     0x14001ae20   ; runtime.newobject
+0x140890f08: mov      qword ptr [rsp + 0x220], rax
+0x140890f10: cmp      dword ptr [rip + 0x13ca439], 0
+0x140890f17: je       0x140890f38   ; main.prepareLauncherConfigIconsForCommit+0x78
+0x140890f19: mov      rbx, rax
+0x140890f1c: lea      rcx, [rsp + 0x238]
+0x140890f24: lea      rax, [rip + 0x379135]
+0x140890f2b: call     0x14001b620   ; runtime.wbMove
+0x140890f30: mov      rax, qword ptr [rsp + 0x220]
+0x140890f38: mov      rdx, qword ptr [rsp + 0x238]
+0x140890f40: mov      qword ptr [rax], rdx
+0x140890f43: lea      rdi, [rax + 8]
+0x140890f47: lea      rsi, [rsp + 0x240]
+0x140890f4f: mov      ecx, 0x126
+0x140890f54: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x140890f57: movups   xmmword ptr [rsp + 0x1f0], xmm15
+0x140890f60: movups   xmmword ptr [rsp + 0x200], xmm15
+0x140890f69: movups   xmmword ptr [rsp + 0x210], xmm15
+0x140890f72: movups   xmmword ptr [rsp + 0x128], xmm15
+0x140890f7b: lea      rdi, [rsp + 0x130]
+0x140890f83: mov      qword ptr [rsp - 0x10], rbp
+0x140890f88: lea      rbp, [rsp - 0x10]
+0x140890f8d: call     0x14008170b   ; runtime.duffzero+0x12b
+0x140890f92: mov      rbp, qword ptr [rbp]
+0x140890f96: movabs   rax, 0x8080808080808080
+0x140890fa0: mov      qword ptr [rsp + 0x128], rax
+0x140890fa8: lea      rax, [rsp + 0x128]
+0x140890fb0: mov      qword ptr [rsp + 0x200], rax
+0x140890fb8: call     0x1400797c0   ; runtime.rand
+0x140890fbd: mov      qword ptr [rsp + 0x1f8], rax
+0x140890fc5: movups   xmmword ptr [rsp + 0xf8], xmm15
+0x140890fce: movups   xmmword ptr [rsp + 0x108], xmm15
+0x140890fd7: movups   xmmword ptr [rsp + 0x118], xmm15
+0x140890fe0: movups   xmmword ptr [rsp + 0x30], xmm15
+0x140890fe6: lea      rdi, [rsp + 0x38]
+0x140890feb: mov      qword ptr [rsp - 0x10], rbp
+0x140890ff0: lea      rbp, [rsp - 0x10]
+0x140890ff5: call     0x14008170b   ; runtime.duffzero+0x12b
+0x140890ffa: mov      rbp, qword ptr [rbp]
+0x140890ffe: movabs   rax, 0x8080808080808080
+0x140891008: mov      qword ptr [rsp + 0x30], rax
+0x14089100d: lea      rax, [rsp + 0x30]
+0x140891012: mov      qword ptr [rsp + 0x108], rax
+0x14089101a: call     0x1400797c0   ; runtime.rand
+0x14089101f: mov      qword ptr [rsp + 0x100], rax
+0x140891027: movzx    eax, byte ptr [rsp + 0xb80]
+0x14089102f: test     al, al
+0x140891031: jne      0x140891045   ; main.prepareLauncherConfigIconsForCommit+0x185
+0x140891033: lea      rax, [rsp + 0xf8]
+0x14089103b: lea      rcx, [rsp + 0x1f0]
+0x140891043: jmp      0x140891073   ; main.prepareLauncherConfigIconsForCommit+0x1b3
+0x140891045: mov      rax, qword ptr [rsp + 0x220]
+0x14089104d: call     0x140894ca0   ; main.collectLauncherConfigIconRefs
+0x140891052: test     rbx, rbx
+0x140891055: jne      0x1408910b3   ; main.prepareLauncherConfigIconsForCommit+0x1f3
+0x140891057: mov      qword ptr [rsp + 0x28], rax
+0x14089105c: mov      rax, qword ptr [rsp + 0x220]
+0x140891064: call     0x1408914c0   ; main.collectLauncherConfigIconRefCounts
+0x140891069: test     rbx, rbx
+0x14089106c: jne      0x14089109c   ; main.prepareLauncherConfigIconsForCommit+0x1dc
+0x14089106e: mov      rcx, qword ptr [rsp + 0x28]
+0x140891073: mov      rbx, qword ptr [rsp + 0xb78]
+0x14089107b: mov      rdi, rax
+0x14089107e: mov      rsi, qword ptr [rsp + 0xb88]
+0x140891086: mov      rax, qword ptr [rsp + 0xb70]
+0x14089108e: call     0x140891120   ; main.prepareLauncherConfigIconsForCommitWithCurrentRefs
+0x140891093: add      rsp, 0x228
+0x14089109a: pop      rbp
+0x14089109b: ret      
+0x14089109c: xor      eax, eax
+0x14089109e: xor      edi, edi
+0x1408910a0: mov      rsi, rbx
+0x1408910a3: mov      r8, rcx
+0x1408910a6: xor      ebx, ebx
+0x1408910a8: xor      ecx, ecx
+0x1408910aa: add      rsp, 0x228
+0x1408910b1: pop      rbp
+0x1408910b2: ret      
+0x1408910b3: xor      eax, eax
+0x1408910b5: xor      edi, edi
+0x1408910b7: mov      rsi, rbx
+0x1408910ba: mov      r8, rcx
+0x1408910bd: xor      ebx, ebx
+0x1408910bf: xor      ecx, ecx
+0x1408910c1: add      rsp, 0x228
+0x1408910c8: pop      rbp
+0x1408910c9: ret      
+0x1408910ca: mov      qword ptr [rsp + 0x940], rax
+0x1408910d2: mov      qword ptr [rsp + 0x948], rbx
+0x1408910da: mov      byte ptr [rsp + 0x950], cl
+0x1408910e1: mov      qword ptr [rsp + 0x958], rdi
+0x1408910e9: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408910ee: mov      rax, qword ptr [rsp + 0x940]
+0x1408910f6: mov      rbx, qword ptr [rsp + 0x948]
+0x1408910fe: movzx    ecx, byte ptr [rsp + 0x950]
+0x140891106: mov      rdi, qword ptr [rsp + 0x958]
+0x14089110e: jmp      0x140890ec0   ; main.prepareLauncherConfigIconsForCommit
+0x140891113: int3     
+0x140891114: int3     
+0x140891115: int3     
+0x140891116: int3     
+0x140891117: int3     
+0x140891118: int3     
+0x140891119: int3     
+0x14089111a: int3     
+0x14089111b: int3     
+0x14089111c: int3     
+0x14089111d: int3     
+0x14089111e: int3     
+0x14089111f: int3     

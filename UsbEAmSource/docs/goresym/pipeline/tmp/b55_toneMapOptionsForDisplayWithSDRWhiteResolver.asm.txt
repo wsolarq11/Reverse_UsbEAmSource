@@ -1,0 +1,140 @@
+0x1409ad8e0: lea      r12, [rsp - 0x30]
+0x1409ad8e5: cmp      r12, qword ptr [r14 + 0x10]
+0x1409ad8e9: jbe      0x1409adb1b   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x23b
+0x1409ad8ef: push     rbp
+0x1409ad8f0: mov      rbp, rsp
+0x1409ad8f3: sub      rsp, 0xa8
+0x1409ad8fa: cmp      byte ptr [rsp + 0x118], 0
+0x1409ad902: je       0x1409ada11   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x131
+0x1409ad908: test     rax, rax
+0x1409ad90b: jne      0x1409ad91a   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x3a
+0x1409ad90d: movss    xmm0, dword ptr [rip + 0x81fb67]
+0x1409ad915: jmp      0x1409ada19   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x139
+0x1409ad91a: mov      rcx, qword ptr [rax]
+0x1409ad91d: mov      rdi, rsp
+0x1409ad920: lea      rsi, [rsp + 0xb8]
+0x1409ad928: mov      qword ptr [rsp - 0x10], rbp
+0x1409ad92d: lea      rbp, [rsp - 0x10]
+0x1409ad932: call     0x140081a7e   ; runtime.duffcopy+0x31e
+0x1409ad937: mov      rbp, qword ptr [rbp]
+0x1409ad93b: mov      rdx, rax
+0x1409ad93e: nop      
+0x1409ad940: call     rcx
+0x1409ad942: test     al, al
+0x1409ad944: je       0x1409ada07   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x127
+0x1409ad94a: movss    xmm4, dword ptr [rip + 0x81fb2a]
+0x1409ad952: ucomiss  xmm4, xmm0
+0x1409ad955: jbe      0x1409ada19   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x139
+0x1409ad95b: movss    dword ptr [rsp + 0x74], xmm0
+0x1409ad961: movups   xmmword ptr [rsp + 0x78], xmm15
+0x1409ad967: movups   xmmword ptr [rsp + 0x88], xmm15
+0x1409ad970: movups   xmmword ptr [rsp + 0x98], xmm15
+0x1409ad979: mov      rax, qword ptr [rsp + 0xd8]
+0x1409ad981: mov      rbx, qword ptr [rsp + 0xe0]
+0x1409ad989: call     0x140076660   ; runtime.convTstring
+0x1409ad98e: lea      rcx, [rip + 0x13c46b]
+0x1409ad995: mov      qword ptr [rsp + 0x78], rcx
+0x1409ad99a: mov      qword ptr [rsp + 0x80], rax
+0x1409ad9a2: movss    xmm0, dword ptr [rsp + 0x74]
+0x1409ad9a8: movd     eax, xmm0
+0x1409ad9ac: call     0x1400173c0   ; runtime.convT32
+0x1409ad9b1: lea      rcx, [rip + 0x13c7c8]
+0x1409ad9b8: mov      qword ptr [rsp + 0x88], rcx
+0x1409ad9c0: mov      qword ptr [rsp + 0x90], rax
+0x1409ad9c8: mov      qword ptr [rsp + 0x98], rcx
+0x1409ad9d0: lea      rcx, [rip + 0x81faa5]
+0x1409ad9d7: mov      qword ptr [rsp + 0xa0], rcx
+0x1409ad9df: lea      rax, [rip + 0x2e65ed]
+0x1409ad9e6: mov      ebx, 0x5f
+0x1409ad9eb: lea      rcx, [rsp + 0x78]
+0x1409ad9f0: mov      edi, 3
+0x1409ad9f5: mov      rsi, rdi
+0x1409ad9f8: call     0x140971440   ; main.screenshotHDRCaptureDebugLog
+0x1409ad9fd: movss    xmm0, dword ptr [rip + 0x81fa77]
+0x1409ada05: jmp      0x1409ada19   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x139
+0x1409ada07: movss    xmm0, dword ptr [rip + 0x81fa6d]
+0x1409ada0f: jmp      0x1409ada19   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x139
+0x1409ada11: movss    xmm0, dword ptr [rip + 0x81fa77]
+0x1409ada19: movss    xmm4, dword ptr [rsp + 0x120]
+0x1409ada22: movss    xmm5, dword ptr [rip + 0x81fbce]
+0x1409ada2a: pxor     xmm4, xmm5
+0x1409ada2e: movss    xmm6, dword ptr [rsp + 0x124]
+0x1409ada37: pxor     xmm6, xmm5
+0x1409ada3b: movups   xmm7, xmm4
+0x1409ada3e: minss    xmm4, xmm6
+0x1409ada42: movups   xmm6, xmm4
+0x1409ada45: minss    xmm4, xmm7
+0x1409ada49: por      xmm4, xmm6
+0x1409ada4d: pxor     xmm4, xmm5
+0x1409ada51: movss    xmm5, dword ptr [rip + 0x81fa4f]
+0x1409ada59: ucomiss  xmm4, xmm5
+0x1409ada5c: jbe      0x1409ada90   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x1b0
+0x1409ada5e: divss    xmm4, xmm5
+0x1409ada62: movss    xmm5, dword ptr [rip + 0x81d4ae]
+0x1409ada6a: ucomiss  xmm5, xmm4
+0x1409ada6d: jbe      0x1409ada79   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x199
+0x1409ada6f: movss    xmm4, dword ptr [rip + 0x81d4a1]
+0x1409ada77: jmp      0x1409ada98   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x1b8
+0x1409ada79: movss    xmm5, dword ptr [rip + 0x81fa23]
+0x1409ada81: ucomiss  xmm4, xmm5
+0x1409ada84: jbe      0x1409ada98   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x1b8
+0x1409ada86: movss    xmm4, dword ptr [rip + 0x81fa16]
+0x1409ada8e: jmp      0x1409ada98   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x1b8
+0x1409ada90: movss    xmm4, dword ptr [rip + 0x81fa08]
+0x1409ada98: movss    xmm1, dword ptr [rip + 0x81f9e8]
+0x1409adaa0: movups   xmm2, xmm4
+0x1409adaa3: movss    xmm3, dword ptr [rip + 0x81f9f1]
+0x1409adaab: call     0x1409adb40   ; main.applyScreenshotHDRToneMapEnvOverrides
+0x1409adab0: xorps    xmm4, xmm4
+0x1409adab3: ucomiss  xmm4, xmm0
+0x1409adab6: jae      0x1409adabf   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x1df
+0x1409adab8: ucomiss  xmm0, xmm0
+0x1409adabb: jne      0x1409adabf   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x1df
+0x1409adabd: jnp      0x1409adac7   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x1e7
+0x1409adabf: movss    xmm0, dword ptr [rip + 0x81f9c9]
+0x1409adac7: ucomiss  xmm4, xmm1
+0x1409adaca: jae      0x1409adae2   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x202
+0x1409adacc: movss    xmm5, dword ptr [rip + 0x81f9bc]
+0x1409adad4: ucomiss  xmm1, xmm5
+0x1409adad7: jae      0x1409adae2   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x202
+0x1409adad9: ucomiss  xmm1, xmm1
+0x1409adadc: jne      0x1409adae2   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x202
+0x1409adade: nop      
+0x1409adae0: jnp      0x1409adaea   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x20a
+0x1409adae2: movss    xmm1, dword ptr [rip + 0x81f99e]
+0x1409adaea: ucomiss  xmm0, xmm2
+0x1409adaed: jae      0x1409adaf6   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x216
+0x1409adaef: ucomiss  xmm2, xmm2
+0x1409adaf2: jne      0x1409adaf6   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x216
+0x1409adaf4: jnp      0x1409adafe   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x21e
+0x1409adaf6: movss    xmm2, dword ptr [rip + 0x81f9a2]
+0x1409adafe: ucomiss  xmm4, xmm3
+0x1409adb01: jae      0x1409adb0a   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x22a
+0x1409adb03: ucomiss  xmm3, xmm3
+0x1409adb06: jne      0x1409adb0a   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x22a
+0x1409adb08: jnp      0x1409adb12   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver+0x232
+0x1409adb0a: movss    xmm3, dword ptr [rip + 0x81f98a]
+0x1409adb12: add      rsp, 0xa8
+0x1409adb19: pop      rbp
+0x1409adb1a: ret      
+0x1409adb1b: mov      qword ptr [rsp + 0x78], rax
+0x1409adb20: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409adb25: mov      rax, qword ptr [rsp + 0x78]
+0x1409adb2a: jmp      0x1409ad8e0   ; main.screenshotHDRToneMapOptionsForDisplayWithSDRWhiteResolver
+0x1409adb2f: int3     
+0x1409adb30: int3     
+0x1409adb31: int3     
+0x1409adb32: int3     
+0x1409adb33: int3     
+0x1409adb34: int3     
+0x1409adb35: int3     
+0x1409adb36: int3     
+0x1409adb37: int3     
+0x1409adb38: int3     
+0x1409adb39: int3     
+0x1409adb3a: int3     
+0x1409adb3b: int3     
+0x1409adb3c: int3     
+0x1409adb3d: int3     
+0x1409adb3e: int3     
+0x1409adb3f: int3     

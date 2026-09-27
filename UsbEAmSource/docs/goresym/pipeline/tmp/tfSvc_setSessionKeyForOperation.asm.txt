@@ -1,0 +1,143 @@
+0x1409d9900: lea      r12, [rsp - 0x18]
+0x1409d9905: cmp      r12, qword ptr [r14 + 0x10]
+0x1409d9909: jbe      0x1409d9b13   ; main.twoFactorService.setSessionKeyForOperation+0x213
+0x1409d990f: push     rbp
+0x1409d9910: mov      rbp, rsp
+0x1409d9913: sub      rsp, 0x90
+0x1409d991a: movq     qword ptr [rsp + 0x88], xmm15
+0x1409d9924: mov      qword ptr [rsp + 0xa0], rax
+0x1409d992c: mov      qword ptr [rsp + 0xb8], rdi
+0x1409d9934: mov      qword ptr [rsp + 0xb0], rcx
+0x1409d993c: mov      byte ptr [rsp + 0x2f], 0
+0x1409d9941: mov      byte ptr [rsp + 0x2e], 0
+0x1409d9946: nop      
+0x1409d9947: mov      rdx, rax
+0x1409d994a: xor      eax, eax
+0x1409d994c: mov      r8d, 1
+0x1409d9952: lock cmpxchg dword ptr [rdx + 0x10], r8d
+0x1409d9958: sete     r8b
+0x1409d995c: nop      dword ptr [rax]
+0x1409d9960: test     r8b, r8b
+0x1409d9963: jne      0x1409d9996   ; main.twoFactorService.setSessionKeyForOperation+0x96
+0x1409d9965: mov      qword ptr [rsp + 0xa8], rbx
+0x1409d996d: lea      rax, [rdx + 0x10]
+0x1409d9971: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x1409d9976: mov      rcx, qword ptr [rsp + 0xb0]
+0x1409d997e: mov      rdx, qword ptr [rsp + 0xa0]
+0x1409d9986: mov      rbx, qword ptr [rsp + 0xa8]
+0x1409d998e: mov      rdi, qword ptr [rsp + 0xb8]
+0x1409d9996: lea      r8, [rip + 0x1c3]
+0x1409d999d: mov      qword ptr [rsp + 0x78], r8
+0x1409d99a2: lea      r8, [rdx + 0x10]
+0x1409d99a6: mov      qword ptr [rsp + 0x80], r8
+0x1409d99ae: lea      r8, [rsp + 0x78]
+0x1409d99b3: mov      qword ptr [rsp + 0x88], r8
+0x1409d99bb: mov      byte ptr [rsp + 0x2f], 1
+0x1409d99c0: cmp      qword ptr [rdx + 0x48], rbx
+0x1409d99c4: jne      0x1409d9ada   ; main.twoFactorService.setSessionKeyForOperation+0x1da
+0x1409d99ca: mov      rbx, qword ptr [rdx + 0x38]
+0x1409d99ce: mov      rax, qword ptr [rdx + 0x30]
+0x1409d99d2: mov      r8, qword ptr [rdx + 0x40]
+0x1409d99d6: test     rbx, rbx
+0x1409d99d9: je       0x1409d9a16   ; main.twoFactorService.setSessionKeyForOperation+0x116
+0x1409d99db: mov      qword ptr [rsp + 0x50], rax
+0x1409d99e0: mov      qword ptr [rsp + 0x30], rbx
+0x1409d99e5: mov      qword ptr [rsp + 0x38], r8
+0x1409d99ea: call     0x140081b00   ; runtime.memclrNoHeapPointers
+0x1409d99ef: mov      rax, qword ptr [rsp + 0x50]
+0x1409d99f4: mov      rcx, qword ptr [rsp + 0xb0]
+0x1409d99fc: mov      rdx, qword ptr [rsp + 0xa0]
+0x1409d9a04: mov      rbx, qword ptr [rsp + 0x30]
+0x1409d9a09: mov      rdi, qword ptr [rsp + 0xb8]
+0x1409d9a11: mov      r8, qword ptr [rsp + 0x38]
+0x1409d9a16: mov      qword ptr [rsp + 0x60], rax
+0x1409d9a1b: mov      qword ptr [rsp + 0x68], rbx
+0x1409d9a20: mov      qword ptr [rsp + 0x70], r8
+0x1409d9a25: test     rdi, rdi
+0x1409d9a28: jne      0x1409d9a32   ; main.twoFactorService.setSessionKeyForOperation+0x132
+0x1409d9a2a: xor      eax, eax
+0x1409d9a2c: xor      ebx, ebx
+0x1409d9a2e: xor      esi, esi
+0x1409d9a30: jmp      0x1409d9a58   ; main.twoFactorService.setSessionKeyForOperation+0x158
+0x1409d9a32: xor      eax, eax
+0x1409d9a34: mov      rbx, rdi
+0x1409d9a37: xor      ecx, ecx
+0x1409d9a39: lea      rsi, [rip + 0x110440]
+0x1409d9a40: call     0x14007ad20   ; runtime.growslice
+0x1409d9a45: mov      rdi, qword ptr [rsp + 0xb8]
+0x1409d9a4d: mov      rsi, rcx
+0x1409d9a50: mov      rcx, qword ptr [rsp + 0xb0]
+0x1409d9a58: mov      qword ptr [rsp + 0x48], rbx
+0x1409d9a5d: mov      qword ptr [rsp + 0x58], rax
+0x1409d9a62: mov      qword ptr [rsp + 0x40], rsi
+0x1409d9a67: mov      rbx, rcx
+0x1409d9a6a: mov      rcx, rdi
+0x1409d9a6d: call     0x140081e00   ; runtime.memmove
+0x1409d9a72: mov      rdx, qword ptr [rsp + 0x48]
+0x1409d9a77: mov      rsi, qword ptr [rsp + 0xa0]
+0x1409d9a7f: mov      qword ptr [rsi + 0x38], rdx
+0x1409d9a83: mov      rdx, qword ptr [rsp + 0x40]
+0x1409d9a88: mov      qword ptr [rsi + 0x40], rdx
+0x1409d9a8c: cmp      dword ptr [rip + 0x12818bd], 0
+0x1409d9a93: jne      0x1409d9a9c   ; main.twoFactorService.setSessionKeyForOperation+0x19c
+0x1409d9a95: mov      rcx, qword ptr [rsp + 0x58]
+0x1409d9a9a: jmp      0x1409d9ab1   ; main.twoFactorService.setSessionKeyForOperation+0x1b1
+0x1409d9a9c: mov      rax, qword ptr [rsi + 0x30]
+0x1409d9aa0: call     0x140081060   ; runtime.gcWriteBarrier2
+0x1409d9aa5: mov      rcx, qword ptr [rsp + 0x58]
+0x1409d9aaa: mov      qword ptr [r11], rcx
+0x1409d9aad: mov      qword ptr [r11 + 8], rax
+0x1409d9ab1: mov      qword ptr [rsi + 0x30], rcx
+0x1409d9ab5: mov      byte ptr [rsp + 0x2e], 1
+0x1409d9aba: mov      byte ptr [rsp + 0x2f], 0
+0x1409d9abf: mov      rdx, qword ptr [rsp + 0x88]
+0x1409d9ac7: mov      rax, qword ptr [rdx]
+0x1409d9aca: call     rax
+0x1409d9acc: movzx    eax, byte ptr [rsp + 0x2e]
+0x1409d9ad1: add      rsp, 0x90
+0x1409d9ad8: pop      rbp
+0x1409d9ad9: ret      
+0x1409d9ada: mov      byte ptr [rsp + 0x2e], 0
+0x1409d9adf: mov      byte ptr [rsp + 0x2f], 0
+0x1409d9ae4: mov      rax, qword ptr [rsp + 0x78]
+0x1409d9ae9: mov      rdx, r8
+0x1409d9aec: call     rax
+0x1409d9aee: movzx    eax, byte ptr [rsp + 0x2e]
+0x1409d9af3: add      rsp, 0x90
+0x1409d9afa: pop      rbp
+0x1409d9afb: ret      
+0x1409d9afc: nop      dword ptr [rax]
+0x1409d9b00: call     0x1400435e0   ; runtime.deferreturn
+0x1409d9b05: movzx    eax, byte ptr [rsp + 0x2e]
+0x1409d9b0a: add      rsp, 0x90
+0x1409d9b11: pop      rbp
+0x1409d9b12: ret      
+0x1409d9b13: mov      qword ptr [rsp + 8], rax
+0x1409d9b18: mov      qword ptr [rsp + 0x10], rbx
+0x1409d9b1d: mov      qword ptr [rsp + 0x18], rcx
+0x1409d9b22: mov      qword ptr [rsp + 0x20], rdi
+0x1409d9b27: mov      qword ptr [rsp + 0x28], rsi
+0x1409d9b2c: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d9b31: mov      rax, qword ptr [rsp + 8]
+0x1409d9b36: mov      rbx, qword ptr [rsp + 0x10]
+0x1409d9b3b: mov      rcx, qword ptr [rsp + 0x18]
+0x1409d9b40: mov      rdi, qword ptr [rsp + 0x20]
+0x1409d9b45: mov      rsi, qword ptr [rsp + 0x28]
+0x1409d9b4a: jmp      0x1409d9900   ; main.twoFactorService.setSessionKeyForOperation
+0x1409d9b4f: int3     
+0x1409d9b50: int3     
+0x1409d9b51: int3     
+0x1409d9b52: int3     
+0x1409d9b53: int3     
+0x1409d9b54: int3     
+0x1409d9b55: int3     
+0x1409d9b56: int3     
+0x1409d9b57: int3     
+0x1409d9b58: int3     
+0x1409d9b59: int3     
+0x1409d9b5a: int3     
+0x1409d9b5b: int3     
+0x1409d9b5c: int3     
+0x1409d9b5d: int3     
+0x1409d9b5e: int3     
+0x1409d9b5f: int3     

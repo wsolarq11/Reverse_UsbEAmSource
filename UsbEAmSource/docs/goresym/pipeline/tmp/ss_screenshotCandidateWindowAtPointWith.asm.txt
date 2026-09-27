@@ -1,0 +1,136 @@
+0x1409c1bc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409c1bc4: jbe      0x1409c1d0e   ; main.screenshotCandidateWindowAtPointWith+0x14e
+0x1409c1bca: push     rbp
+0x1409c1bcb: mov      rbp, rsp
+0x1409c1bce: sub      rsp, 0x28
+0x1409c1bd2: mov      qword ptr [rsp + 0x58], r8
+0x1409c1bd7: mov      qword ptr [rsp + 0x60], r9
+0x1409c1bdc: mov      qword ptr [rsp + 0x68], r10
+0x1409c1be1: mov      qword ptr [rsp + 0x48], rdi
+0x1409c1be6: mov      qword ptr [rsp + 0x40], rcx
+0x1409c1beb: movsxd   rsi, eax
+0x1409c1bee: mov      qword ptr [rsp + 0x18], rsi
+0x1409c1bf3: movsxd   rbx, ebx
+0x1409c1bf6: mov      qword ptr [rsp + 8], rbx
+0x1409c1bfb: xor      eax, eax
+0x1409c1bfd: jmp      0x1409c1c02   ; main.screenshotCandidateWindowAtPointWith+0x42
+0x1409c1bff: inc      rax
+0x1409c1c02: cmp      rdi, rax
+0x1409c1c05: jle      0x1409c1d06   ; main.screenshotCandidateWindowAtPointWith+0x146
+0x1409c1c0b: mov      r11, qword ptr [rcx + rax*8]
+0x1409c1c0f: cmp      r8, r11
+0x1409c1c12: je       0x1409c1bff   ; main.screenshotCandidateWindowAtPointWith+0x3f
+0x1409c1c14: mov      qword ptr [rsp + 0x20], rax
+0x1409c1c19: mov      qword ptr [rsp + 0x10], r11
+0x1409c1c1e: mov      rcx, qword ptr [r9]
+0x1409c1c21: mov      rax, r11
+0x1409c1c24: mov      rdx, r9
+0x1409c1c27: call     rcx
+0x1409c1c29: test     al, al
+0x1409c1c2b: jne      0x1409c1c57   ; main.screenshotCandidateWindowAtPointWith+0x97
+0x1409c1c2d: mov      rax, qword ptr [rsp + 0x20]
+0x1409c1c32: mov      rcx, qword ptr [rsp + 0x40]
+0x1409c1c37: mov      rbx, qword ptr [rsp + 8]
+0x1409c1c3c: mov      rsi, qword ptr [rsp + 0x18]
+0x1409c1c41: mov      rdi, qword ptr [rsp + 0x48]
+0x1409c1c46: mov      r8, qword ptr [rsp + 0x58]
+0x1409c1c4b: mov      r9, qword ptr [rsp + 0x60]
+0x1409c1c50: mov      r10, qword ptr [rsp + 0x68]
+0x1409c1c55: jmp      0x1409c1bff   ; main.screenshotCandidateWindowAtPointWith+0x3f
+0x1409c1c57: mov      rdx, qword ptr [rsp + 0x68]
+0x1409c1c5c: mov      rcx, qword ptr [rdx]
+0x1409c1c5f: mov      rax, qword ptr [rsp + 0x10]
+0x1409c1c64: call     rcx
+0x1409c1c66: test     rsi, rsi
+0x1409c1c69: jne      0x1409c1c75   ; main.screenshotCandidateWindowAtPointWith+0xb5
+0x1409c1c6b: cmp      rax, rcx
+0x1409c1c6e: jge      0x1409c1c75   ; main.screenshotCandidateWindowAtPointWith+0xb5
+0x1409c1c70: cmp      rbx, rdi
+0x1409c1c73: jl       0x1409c1ca5   ; main.screenshotCandidateWindowAtPointWith+0xe5
+0x1409c1c75: mov      rax, qword ptr [rsp + 0x20]
+0x1409c1c7a: mov      rcx, qword ptr [rsp + 0x40]
+0x1409c1c7f: mov      rbx, qword ptr [rsp + 8]
+0x1409c1c84: mov      rsi, qword ptr [rsp + 0x18]
+0x1409c1c89: mov      rdi, qword ptr [rsp + 0x48]
+0x1409c1c8e: mov      r8, qword ptr [rsp + 0x58]
+0x1409c1c93: mov      r9, qword ptr [rsp + 0x60]
+0x1409c1c98: mov      r10, qword ptr [rsp + 0x68]
+0x1409c1c9d: nop      dword ptr [rax]
+0x1409c1ca0: jmp      0x1409c1bff   ; main.screenshotCandidateWindowAtPointWith+0x3f
+0x1409c1ca5: mov      rsi, qword ptr [rsp + 0x18]
+0x1409c1caa: cmp      rax, rsi
+0x1409c1cad: jg       0x1409c1cce   ; main.screenshotCandidateWindowAtPointWith+0x10e
+0x1409c1caf: cmp      rcx, rsi
+0x1409c1cb2: jle      0x1409c1cc7   ; main.screenshotCandidateWindowAtPointWith+0x107
+0x1409c1cb4: mov      rcx, qword ptr [rsp + 8]
+0x1409c1cb9: cmp      rbx, rcx
+0x1409c1cbc: jg       0x1409c1cd3   ; main.screenshotCandidateWindowAtPointWith+0x113
+0x1409c1cbe: nop      
+0x1409c1cc0: cmp      rdi, rcx
+0x1409c1cc3: jle      0x1409c1cd3   ; main.screenshotCandidateWindowAtPointWith+0x113
+0x1409c1cc5: jmp      0x1409c1cfb   ; main.screenshotCandidateWindowAtPointWith+0x13b
+0x1409c1cc7: mov      rcx, qword ptr [rsp + 8]
+0x1409c1ccc: jmp      0x1409c1cd3   ; main.screenshotCandidateWindowAtPointWith+0x113
+0x1409c1cce: mov      rcx, qword ptr [rsp + 8]
+0x1409c1cd3: mov      rax, qword ptr [rsp + 0x20]
+0x1409c1cd8: mov      rcx, qword ptr [rsp + 0x40]
+0x1409c1cdd: mov      rbx, qword ptr [rsp + 8]
+0x1409c1ce2: mov      rdi, qword ptr [rsp + 0x48]
+0x1409c1ce7: mov      r8, qword ptr [rsp + 0x58]
+0x1409c1cec: mov      r9, qword ptr [rsp + 0x60]
+0x1409c1cf1: mov      r10, qword ptr [rsp + 0x68]
+0x1409c1cf6: jmp      0x1409c1bff   ; main.screenshotCandidateWindowAtPointWith+0x3f
+0x1409c1cfb: mov      rax, qword ptr [rsp + 0x10]
+0x1409c1d00: add      rsp, 0x28
+0x1409c1d04: pop      rbp
+0x1409c1d05: ret      
+0x1409c1d06: xor      eax, eax
+0x1409c1d08: add      rsp, 0x28
+0x1409c1d0c: pop      rbp
+0x1409c1d0d: ret      
+0x1409c1d0e: mov      dword ptr [rsp + 8], eax
+0x1409c1d12: mov      dword ptr [rsp + 0xc], ebx
+0x1409c1d16: mov      qword ptr [rsp + 0x10], rcx
+0x1409c1d1b: mov      qword ptr [rsp + 0x18], rdi
+0x1409c1d20: mov      qword ptr [rsp + 0x20], rsi
+0x1409c1d25: mov      qword ptr [rsp + 0x28], r8
+0x1409c1d2a: mov      qword ptr [rsp + 0x30], r9
+0x1409c1d2f: mov      qword ptr [rsp + 0x38], r10
+0x1409c1d34: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409c1d39: mov      eax, dword ptr [rsp + 8]
+0x1409c1d3d: mov      ebx, dword ptr [rsp + 0xc]
+0x1409c1d41: mov      rcx, qword ptr [rsp + 0x10]
+0x1409c1d46: mov      rdi, qword ptr [rsp + 0x18]
+0x1409c1d4b: mov      rsi, qword ptr [rsp + 0x20]
+0x1409c1d50: mov      r8, qword ptr [rsp + 0x28]
+0x1409c1d55: mov      r9, qword ptr [rsp + 0x30]
+0x1409c1d5a: mov      r10, qword ptr [rsp + 0x38]
+0x1409c1d5f: nop      
+0x1409c1d60: jmp      0x1409c1bc0   ; main.screenshotCandidateWindowAtPointWith
+0x1409c1d65: int3     
+0x1409c1d66: int3     
+0x1409c1d67: int3     
+0x1409c1d68: int3     
+0x1409c1d69: int3     
+0x1409c1d6a: int3     
+0x1409c1d6b: int3     
+0x1409c1d6c: int3     
+0x1409c1d6d: int3     
+0x1409c1d6e: int3     
+0x1409c1d6f: int3     
+0x1409c1d70: int3     
+0x1409c1d71: int3     
+0x1409c1d72: int3     
+0x1409c1d73: int3     
+0x1409c1d74: int3     
+0x1409c1d75: int3     
+0x1409c1d76: int3     
+0x1409c1d77: int3     
+0x1409c1d78: int3     
+0x1409c1d79: int3     
+0x1409c1d7a: int3     
+0x1409c1d7b: int3     
+0x1409c1d7c: int3     
+0x1409c1d7d: int3     
+0x1409c1d7e: int3     
+0x1409c1d7f: int3     

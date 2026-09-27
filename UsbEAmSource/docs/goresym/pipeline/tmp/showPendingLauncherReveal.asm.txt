@@ -1,0 +1,76 @@
+0x140796120: cmp      rsp, qword ptr [r14 + 0x10]
+0x140796124: jbe      0x140796211    ; main.BootstrapService.showPendingLauncherReveal+0xf1
+0x14079612a: push     rbp
+0x14079612b: mov      rbp, rsp
+0x14079612e: sub      rsp, 0x30
+0x140796132: mov      qword ptr [rsp + 0x48], rbx
+0x140796137: mov      qword ptr [rsp + 0x50], rcx
+0x14079613c: nop      dword ptr [rax]
+0x140796140: test     rbx, rbx
+0x140796143: je       0x14079620b    ; main.BootstrapService.showPendingLauncherReveal+0xeb
+0x140796149: mov      qword ptr [rsp + 0x40], rax
+0x14079614e: mov      qword ptr [rsp + 0x50], rcx
+0x140796153: mov      qword ptr [rsp + 0x48], rbx
+0x140796158: nop      
+0x140796159: lea      rdx, [rax + 0x540]
+0x140796160: mov      rsi, rax
+0x140796163: xor      eax, eax
+0x140796165: mov      r8d, 1
+0x14079616b: lock cmpxchg dword ptr [rsi + 0x540], r8d
+0x140796174: sete     r8b
+0x140796178: test     r8b, r8b
+0x14079617b: jne      0x14079619e    ; main.BootstrapService.showPendingLauncherReveal+0x7e
+0x14079617d: mov      qword ptr [rsp + 0x28], rdx
+0x140796182: mov      rax, rdx
+0x140796185: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14079618a: mov      rcx, qword ptr [rsp + 0x50]
+0x14079618f: mov      rdx, qword ptr [rsp + 0x28]
+0x140796194: mov      rbx, qword ptr [rsp + 0x48]
+0x140796199: mov      rsi, qword ptr [rsp + 0x40]
+0x14079619e: movzx    r8d, byte ptr [rsi + 0x44a]
+0x1407961a6: test     r8b, r8b
+0x1407961a9: mov      byte ptr [rsi + 0x44a], 0
+0x1407961b0: nop      
+0x1407961b1: nop      
+0x1407961b2: mov      r9d, 0xffffffff
+0x1407961b8: lock xadd dword ptr [rsi + 0x540], r9d
+0x1407961c1: dec      r9d
+0x1407961c4: jne      0x1407961cb    ; main.BootstrapService.showPendingLauncherReveal+0xab
+0x1407961c6: test     r8b, r8b
+0x1407961c9: jmp      0x1407961f1    ; main.BootstrapService.showPendingLauncherReveal+0xd1
+0x1407961cb: mov      byte ptr [rsp + 0x27], r8b
+0x1407961d0: mov      rax, rdx
+0x1407961d3: mov      ebx, r9d
+0x1407961d6: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x1407961db: movzx    ecx, byte ptr [rsp + 0x27]
+0x1407961e0: test     cl, cl
+0x1407961e2: mov      rcx, qword ptr [rsp + 0x50]
+0x1407961e7: mov      rbx, qword ptr [rsp + 0x48]
+0x1407961ec: mov      rsi, qword ptr [rsp + 0x40]
+0x1407961f1: je       0x140796205    ; main.BootstrapService.showPendingLauncherReveal+0xe5
+0x1407961f3: mov      rax, rsi
+0x1407961f6: xor      edi, edi
+0x1407961f8: mov      esi, 1
+0x1407961fd: nop      dword ptr [rax]
+0x140796200: call     0x140796480    ; main.BootstrapService.showLauncherWindow
+0x140796205: add      rsp, 0x30
+0x140796209: pop      rbp
+0x14079620a: ret      
+0x14079620b: add      rsp, 0x30
+0x14079620f: pop      rbp
+0x140796210: ret      
+0x140796211: mov      qword ptr [rsp + 8], rax
+0x140796216: mov      qword ptr [rsp + 0x10], rbx
+0x14079621b: mov      qword ptr [rsp + 0x18], rcx
+0x140796220: call     0x14007f140    ; runtime.morestack_noctxt
+0x140796225: mov      rax, qword ptr [rsp + 8]
+0x14079622a: mov      rbx, qword ptr [rsp + 0x10]
+0x14079622f: mov      rcx, qword ptr [rsp + 0x18]
+0x140796234: jmp      0x140796120    ; main.BootstrapService.showPendingLauncherReveal
+0x140796239: int3     
+0x14079623a: int3     
+0x14079623b: int3     
+0x14079623c: int3     
+0x14079623d: int3     
+0x14079623e: int3     
+0x14079623f: int3     

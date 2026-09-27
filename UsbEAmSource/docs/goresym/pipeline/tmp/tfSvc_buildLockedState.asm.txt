@@ -1,0 +1,91 @@
+0x1409d15e0: lea      r12, [rsp - 0x58]
+0x1409d15e5: cmp      r12, qword ptr [r14 + 0x10]
+0x1409d15e9: jbe      0x1409d179c   ; main.twoFactorService.buildLockedState+0x1bc
+0x1409d15ef: push     rbp
+0x1409d15f0: mov      rbp, rsp
+0x1409d15f3: sub      rsp, 0xd0
+0x1409d15fa: mov      qword ptr [rsp + 0xa90], rax
+0x1409d1602: movups   xmmword ptr [rsp + 0xa18], xmm15
+0x1409d160b: lea      rdi, [rsp + 0xa20]
+0x1409d1613: lea      rdi, [rdi - 0x10]
+0x1409d1617: nop      word ptr [rax + rax]
+0x1409d1620: mov      qword ptr [rsp - 0x10], rbp
+0x1409d1625: lea      rbp, [rsp - 0x10]
+0x1409d162a: call     0x140081726   ; runtime.duffzero+0x146
+0x1409d162f: mov      rbp, qword ptr [rbp]
+0x1409d1633: mov      rax, qword ptr [rsp + 0x9c8]
+0x1409d163b: mov      rbx, qword ptr [rsp + 0x9d0]
+0x1409d1643: mov      rcx, qword ptr [rsp + 0x9d8]
+0x1409d164b: mov      rdi, qword ptr [rsp + 0x9e0]
+0x1409d1653: mov      rsi, qword ptr [rsp + 0x9e8]
+0x1409d165b: mov      r8, qword ptr [rsp + 0x9f0]
+0x1409d1663: movzx    r9d, byte ptr [rsp + 0x9f8]
+0x1409d166c: call     0x1409d1da0   ; main.isTwoFactorPasswordConfigured
+0x1409d1671: mov      byte ptr [rsp + 0x5e], al
+0x1409d1675: test     al, al
+0x1409d1677: je       0x1409d1683   ; main.twoFactorService.buildLockedState+0xa3
+0x1409d1679: movzx    edx, byte ptr [rsp + 0x9f8]
+0x1409d1681: jmp      0x1409d1685   ; main.twoFactorService.buildLockedState+0xa5
+0x1409d1683: xor      edx, edx
+0x1409d1685: mov      byte ptr [rsp + 0x5f], dl
+0x1409d1689: mov      rbx, qword ptr [rsp + 0xa08]
+0x1409d1691: mov      qword ptr [rsp + 0x60], rbx
+0x1409d1696: mov      rax, qword ptr [rsp + 0xa00]
+0x1409d169e: mov      rcx, qword ptr [rsp + 0xa10]
+0x1409d16a6: call     0x1409d17c0   ; main.buildTwoFactorEntryMetadataStates
+0x1409d16ab: mov      qword ptr [rsp + 0xc8], rax
+0x1409d16b3: mov      qword ptr [rsp + 0x70], rbx
+0x1409d16b8: mov      qword ptr [rsp + 0x68], rcx
+0x1409d16bd: mov      rax, qword ptr [rsp + 0xa90]
+0x1409d16c5: call     0x1409da360   ; main.twoFactorService.previewTimeState
+0x1409d16ca: lea      rdi, [rsp + 0x78]
+0x1409d16cf: mov      rsi, rsp
+0x1409d16d2: nop      word ptr [rax + rax]
+0x1409d16db: nop      dword ptr [rax + rax]
+0x1409d16e0: mov      qword ptr [rsp - 0x10], rbp
+0x1409d16e5: lea      rbp, [rsp - 0x10]
+0x1409d16ea: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x1409d16ef: mov      rbp, qword ptr [rbp]
+0x1409d16f3: movups   xmmword ptr [rsp + 0xa18], xmm15
+0x1409d16fc: lea      rdi, [rsp + 0xa20]
+0x1409d1704: lea      rdi, [rdi - 0x10]
+0x1409d1708: mov      qword ptr [rsp - 0x10], rbp
+0x1409d170d: lea      rbp, [rsp - 0x10]
+0x1409d1712: call     0x140081726   ; runtime.duffzero+0x146
+0x1409d1717: mov      rbp, qword ptr [rbp]
+0x1409d171b: movzx    edx, byte ptr [rsp + 0x5e]
+0x1409d1720: mov      byte ptr [rsp + 0xa18], dl
+0x1409d1727: movzx    edx, byte ptr [rsp + 0x5f]
+0x1409d172c: mov      byte ptr [rsp + 0xa19], dl
+0x1409d1733: mov      rdx, qword ptr [rsp + 0x60]
+0x1409d1738: mov      qword ptr [rsp + 0xa20], rdx
+0x1409d1740: mov      rdx, qword ptr [rsp + 0xc8]
+0x1409d1748: mov      qword ptr [rsp + 0xa28], rdx
+0x1409d1750: mov      rdx, qword ptr [rsp + 0x70]
+0x1409d1755: mov      qword ptr [rsp + 0xa30], rdx
+0x1409d175d: mov      rdx, qword ptr [rsp + 0x68]
+0x1409d1762: mov      qword ptr [rsp + 0xa38], rdx
+0x1409d176a: lea      rdi, [rsp + 0xa40]
+0x1409d1772: lea      rsi, [rsp + 0x78]
+0x1409d1777: nop      word ptr [rax + rax]
+0x1409d1780: mov      qword ptr [rsp - 0x10], rbp
+0x1409d1785: lea      rbp, [rsp - 0x10]
+0x1409d178a: call     0x140081a9a   ; runtime.duffcopy+0x33a
+0x1409d178f: mov      rbp, qword ptr [rbp]
+0x1409d1793: add      rsp, 0xd0
+0x1409d179a: pop      rbp
+0x1409d179b: ret      
+0x1409d179c: mov      qword ptr [rsp + 0x9b8], rax
+0x1409d17a4: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409d17a9: mov      rax, qword ptr [rsp + 0x9b8]
+0x1409d17b1: jmp      0x1409d15e0   ; main.twoFactorService.buildLockedState
+0x1409d17b6: int3     
+0x1409d17b7: int3     
+0x1409d17b8: int3     
+0x1409d17b9: int3     
+0x1409d17ba: int3     
+0x1409d17bb: int3     
+0x1409d17bc: int3     
+0x1409d17bd: int3     
+0x1409d17be: int3     
+0x1409d17bf: int3     

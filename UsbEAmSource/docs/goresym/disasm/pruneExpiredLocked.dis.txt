@@ -1,0 +1,188 @@
+0x1408720e0: lea      r12, [rsp - 0x1b8]
+0x1408720e8: cmp      r12, qword ptr [r14 + 0x10]
+0x1408720ec: jbe      0x1408723ee   ; main.launcherAssetService.pruneExpiredLocked+0x30e
+0x1408720f2: push     rbp
+0x1408720f3: mov      rbp, rsp
+0x1408720f6: sub      rsp, 0x230
+0x1408720fd: mov      qword ptr [rsp + 0x258], rdi
+0x140872105: mov      qword ptr [rsp + 0x240], rax
+0x14087210d: mov      qword ptr [rsp + 0x108], rdi
+0x140872115: mov      qword ptr [rsp + 0x48], rcx
+0x14087211a: mov      qword ptr [rsp + 0x40], rbx
+0x14087211f: mov      rbx, qword ptr [rax + 8]
+0x140872123: lea      rdi, [rsp + 0x1d0]
+0x14087212b: lea      rdi, [rdi - 0x20]
+0x14087212f: nop      word ptr [rax + rax]
+0x140872138: nop      dword ptr [rax + rax]
+0x140872140: mov      qword ptr [rsp - 0x10], rbp
+0x140872145: lea      rbp, [rsp - 0x10]
+0x14087214a: call     0x14008172b
+0x14087214f: mov      rbp, qword ptr [rbp]
+0x140872153: lea      rax, [rip + 0x2d7046]
+0x14087215a: lea      rcx, [rsp + 0x1d0]
+0x140872162: call     0x14001b520
+0x140872167: jmp      0x140872176   ; main.launcherAssetService.pruneExpiredLocked+0x96
+0x140872169: lea      rax, [rsp + 0x1d0]
+0x140872171: call     0x14001b580
+0x140872176: mov      rdx, qword ptr [rsp + 0x1d0]
+0x14087217e: nop      
+0x140872180: test     rdx, rdx
+0x140872183: je       0x1408723e5   ; main.launcherAssetService.pruneExpiredLocked+0x305
+0x140872189: mov      rsi, qword ptr [rsp + 0x1d8]
+0x140872191: test     byte ptr [rsi], al
+0x140872193: mov      r9, qword ptr [rdx]
+0x140872196: mov      rdx, qword ptr [rdx + 8]
+0x14087219a: lea      rdi, [rsp + 0x110]
+0x1408721a2: mov      qword ptr [rsp - 0x10], rbp
+0x1408721a7: lea      rbp, [rsp - 0x10]
+0x1408721ac: call     0x140081a46
+0x1408721b1: mov      rbp, qword ptr [rbp]
+0x1408721b5: mov      rdi, qword ptr [rsp + 0x1a8]
+0x1408721bd: mov      rsi, qword ptr [rsp + 0x1b0]
+0x1408721c5: bt       rdi, 0x3f
+0x1408721ca: jae      0x1408721e3   ; main.launcherAssetService.pruneExpiredLocked+0x103
+0x1408721cc: lea      r10, [rdi + rdi]
+0x1408721d0: shr      r10, 0x1f
+0x1408721d4: movabs   r11, 0xdd7b17f80
+0x1408721de: add      r10, r11
+0x1408721e1: jmp      0x1408721f0   ; main.launcherAssetService.pruneExpiredLocked+0x110
+0x1408721e3: movabs   r11, 0xdd7b17f80
+0x1408721ed: mov      r10, rsi
+0x1408721f0: mov      qword ptr [rsp + 0x38], rdx
+0x1408721f5: mov      qword ptr [rsp + 0x50], r9
+0x1408721fa: test     r10, r10
+0x1408721fd: jne      0x140872212   ; main.launcherAssetService.pruneExpiredLocked+0x132
+0x1408721ff: mov      r10, rdi
+0x140872202: and      r10d, 0x3fffffff
+0x140872209: test     r10d, r10d
+0x14087220c: jne      0x140872212   ; main.launcherAssetService.pruneExpiredLocked+0x132
+0x14087220e: xor      eax, eax
+0x140872210: jmp      0x140872248   ; main.launcherAssetService.pruneExpiredLocked+0x168
+0x140872212: mov      r8, qword ptr [rsp + 0x1b8]
+0x14087221a: mov      rax, qword ptr [rsp + 0x40]
+0x14087221f: mov      rbx, qword ptr [rsp + 0x48]
+0x140872224: mov      rcx, qword ptr [rsp + 0x108]
+0x14087222c: call     0x1400fa040
+0x140872231: xor      eax, 1
+0x140872234: mov      rdx, qword ptr [rsp + 0x38]
+0x140872239: mov      r9, qword ptr [rsp + 0x50]
+0x14087223e: movabs   r11, 0xdd7b17f80
+0x140872248: test     al, al
+0x14087224a: je       0x140872169   ; main.launcherAssetService.pruneExpiredLocked+0x89
+0x140872250: nop      
+0x140872251: mov      qword ptr [rsp + 0x1c0], r9
+0x140872259: mov      qword ptr [rsp + 0x1c8], rdx
+0x140872261: lea      rdi, [rsp + 0x110]
+0x140872269: lea      rdi, [rdi - 0x10]
+0x14087226d: nop      word ptr [rax + rax]
+0x140872276: nop      word ptr [rax + rax]
+0x14087227f: nop      
+0x140872280: mov      qword ptr [rsp - 0x10], rbp
+0x140872285: lea      rbp, [rsp - 0x10]
+0x14087228a: call     0x14008170f
+0x14087228f: mov      rbp, qword ptr [rbp]
+0x140872293: mov      rdx, qword ptr [rsp + 0x240]
+0x14087229b: mov      rbx, qword ptr [rdx + 8]
+0x14087229f: lea      rax, [rip + 0x2d6efa]
+0x1408722a6: lea      rcx, [rsp + 0x1c0]
+0x1408722ae: call     0x14000e720
+0x1408722b3: lea      rdi, [rsp + 0x110]
+0x1408722bb: mov      rsi, rax
+0x1408722be: nop      
+0x1408722c0: mov      qword ptr [rsp - 0x10], rbp
+0x1408722c5: lea      rbp, [rsp - 0x10]
+0x1408722ca: call     0x140081a46
+0x1408722cf: mov      rbp, qword ptr [rbp]
+0x1408722d3: lea      rdi, [rsp + 0x58]
+0x1408722d8: lea      rsi, [rsp + 0x110]
+0x1408722e0: mov      qword ptr [rsp - 0x10], rbp
+0x1408722e5: lea      rbp, [rsp - 0x10]
+0x1408722ea: call     0x140081a46
+0x1408722ef: mov      rbp, qword ptr [rbp]
+0x1408722f3: test     bl, bl
+0x1408722f5: je       0x140872169   ; main.launcherAssetService.pruneExpiredLocked+0x89
+0x1408722fb: mov      rdx, qword ptr [rsp + 0x50]
+0x140872300: mov      qword ptr [rsp + 0x1c0], rdx
+0x140872308: mov      rdx, qword ptr [rsp + 0x38]
+0x14087230d: mov      qword ptr [rsp + 0x1c8], rdx
+0x140872315: mov      rdx, qword ptr [rsp + 0x240]
+0x14087231d: mov      rbx, qword ptr [rdx + 8]
+0x140872321: lea      rax, [rip + 0x2d6e78]
+0x140872328: lea      rcx, [rsp + 0x1c0]
+0x140872330: call     0x140076de0
+0x140872335: mov      rdx, qword ptr [rsp + 0x240]
+0x14087233d: mov      rsi, qword ptr [rdx + 0x18]
+0x140872341: sub      rsi, qword ptr [rsp + 0xb8]
+0x140872349: mov      qword ptr [rdx + 0x18], rsi
+0x14087234d: test     rsi, rsi
+0x140872350: jge      0x14087235a   ; main.launcherAssetService.pruneExpiredLocked+0x27a
+0x140872352: mov      qword ptr [rdx + 0x18], 0
+0x14087235a: mov      rbx, qword ptr [rdx + 0x10]
+0x14087235e: mov      rcx, qword ptr [rsp + 0x68]
+0x140872363: mov      rdi, qword ptr [rsp + 0x70]
+0x140872368: lea      rax, [rip + 0x2d6eb1]
+0x14087236f: call     0x14000d920
+0x140872374: mov      rdx, qword ptr [rax]
+0x140872377: sub      rdx, qword ptr [rsp + 0xb8]
+0x14087237f: nop      
+0x140872380: test     rdx, rdx
+0x140872383: jle      0x1408723b9   ; main.launcherAssetService.pruneExpiredLocked+0x2d9
+0x140872385: mov      qword ptr [rsp + 0x30], rdx
+0x14087238a: mov      rdx, qword ptr [rsp + 0x240]
+0x140872392: mov      rbx, qword ptr [rdx + 0x10]
+0x140872396: mov      rcx, qword ptr [rsp + 0x68]
+0x14087239b: mov      rdi, qword ptr [rsp + 0x70]
+0x1408723a0: lea      rax, [rip + 0x2d6e79]
+0x1408723a7: call     0x14000de60
+0x1408723ac: mov      rdx, qword ptr [rsp + 0x30]
+0x1408723b1: mov      qword ptr [rax], rdx
+0x1408723b4: jmp      0x140872169   ; main.launcherAssetService.pruneExpiredLocked+0x89
+0x1408723b9: mov      rdx, qword ptr [rsp + 0x240]
+0x1408723c1: mov      rbx, qword ptr [rdx + 0x10]
+0x1408723c5: mov      rcx, qword ptr [rsp + 0x68]
+0x1408723ca: mov      rdi, qword ptr [rsp + 0x70]
+0x1408723cf: lea      rax, [rip + 0x2d6e4a]
+0x1408723d6: call     0x14000e3e0
+0x1408723db: nop      dword ptr [rax + rax]
+0x1408723e0: jmp      0x140872169   ; main.launcherAssetService.pruneExpiredLocked+0x89
+0x1408723e5: add      rsp, 0x230
+0x1408723ec: pop      rbp
+0x1408723ed: ret      
+0x1408723ee: mov      qword ptr [rsp + 8], rax
+0x1408723f3: mov      qword ptr [rsp + 0x10], rbx
+0x1408723f8: mov      qword ptr [rsp + 0x18], rcx
+0x1408723fd: mov      qword ptr [rsp + 0x20], rdi
+0x140872402: call     0x14007f140
+0x140872407: mov      rax, qword ptr [rsp + 8]
+0x14087240c: mov      rbx, qword ptr [rsp + 0x10]
+0x140872411: mov      rcx, qword ptr [rsp + 0x18]
+0x140872416: mov      rdi, qword ptr [rsp + 0x20]
+0x14087241b: nop      dword ptr [rax + rax]
+0x140872420: jmp      0x1408720e0   ; main.launcherAssetService.pruneExpiredLocked
+0x140872425: int3     
+0x140872426: int3     
+0x140872427: int3     
+0x140872428: int3     
+0x140872429: int3     
+0x14087242a: int3     
+0x14087242b: int3     
+0x14087242c: int3     
+0x14087242d: int3     
+0x14087242e: int3     
+0x14087242f: int3     
+0x140872430: int3     
+0x140872431: int3     
+0x140872432: int3     
+0x140872433: int3     
+0x140872434: int3     
+0x140872435: int3     
+0x140872436: int3     
+0x140872437: int3     
+0x140872438: int3     
+0x140872439: int3     
+0x14087243a: int3     
+0x14087243b: int3     
+0x14087243c: int3     
+0x14087243d: int3     
+0x14087243e: int3     
+0x14087243f: int3     

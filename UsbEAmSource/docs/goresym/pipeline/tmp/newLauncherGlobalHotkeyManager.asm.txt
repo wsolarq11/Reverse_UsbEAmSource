@@ -1,0 +1,79 @@
+0x14089d760: cmp      rsp, qword ptr [r14 + 0x10]
+0x14089d764: jbe      0x14089d858    ; main.newLauncherGlobalHotkeyManager+0xf8
+0x14089d76a: push     rbp
+0x14089d76b: mov      rbp, rsp
+0x14089d76e: sub      rsp, 0x28
+0x14089d772: mov      qword ptr [rsp + 0x38], rax
+0x14089d777: lea      rax, [rip + 0x24f7c2]
+0x14089d77e: mov      ebx, 4
+0x14089d783: call     0x1400114c0    ; runtime.makechan
+0x14089d788: mov      qword ptr [rsp + 0x20], rax
+0x14089d78d: lea      rax, [rip + 0x24f66c]
+0x14089d794: xor      ebx, ebx
+0x14089d796: call     0x1400114c0    ; runtime.makechan
+0x14089d79b: mov      qword ptr [rsp + 0x18], rax
+0x14089d7a0: lea      rax, [rip + 0x34d9d9]
+0x14089d7a7: call     0x14001ae20    ; runtime.newobject
+0x14089d7ac: cmp      dword ptr [rip + 0x13bdb9d], 0
+0x14089d7b3: jne      0x14089d7c6    ; main.newLauncherGlobalHotkeyManager+0x66
+0x14089d7b5: mov      rcx, qword ptr [rsp + 0x38]
+0x14089d7ba: mov      rdx, qword ptr [rsp + 0x20]
+0x14089d7bf: mov      rbx, qword ptr [rsp + 0x18]
+0x14089d7c4: jmp      0x14089d7e5    ; main.newLauncherGlobalHotkeyManager+0x85
+0x14089d7c6: call     0x140081080    ; runtime.gcWriteBarrier3
+0x14089d7cb: mov      rcx, qword ptr [rsp + 0x38]
+0x14089d7d0: mov      qword ptr [r11], rcx
+0x14089d7d3: mov      rdx, qword ptr [rsp + 0x20]
+0x14089d7d8: mov      qword ptr [r11 + 8], rdx
+0x14089d7dc: mov      rbx, qword ptr [rsp + 0x18]
+0x14089d7e1: mov      qword ptr [r11 + 0x10], rbx
+0x14089d7e5: mov      qword ptr [rsp + 0x10], rax
+0x14089d7ea: mov      qword ptr [rax], rcx
+0x14089d7ed: mov      qword ptr [rax + 8], rdx
+0x14089d7f1: mov      qword ptr [rax + 0x10], rbx
+0x14089d7f5: lea      rax, [rip + 0x2ca2e4]
+0x14089d7fc: nop      dword ptr [rax]
+0x14089d800: call     0x14001ae20    ; runtime.newobject
+0x14089d805: lea      rcx, [rip + 0x74]
+0x14089d80c: mov      qword ptr [rax], rcx
+0x14089d80f: cmp      dword ptr [rip + 0x13bdb3a], 0
+0x14089d816: jne      0x14089d820    ; main.newLauncherGlobalHotkeyManager+0xc0
+0x14089d818: mov      rcx, qword ptr [rsp + 0x10]
+0x14089d81d: jmp      0x14089d82d    ; main.newLauncherGlobalHotkeyManager+0xcd
+0x14089d81f: nop      
+0x14089d820: call     0x140081040    ; runtime.gcWriteBarrier1
+0x14089d825: mov      rcx, qword ptr [rsp + 0x10]
+0x14089d82a: mov      qword ptr [r11], rcx
+0x14089d82d: mov      qword ptr [rax + 8], rcx
+0x14089d831: call     0x1400516a0    ; runtime.newproc
+0x14089d836: mov      rcx, qword ptr [rsp + 0x10]
+0x14089d83b: mov      rax, qword ptr [rcx + 0x10]
+0x14089d83f: xor      ebx, ebx
+0x14089d841: call     0x140012620    ; runtime.chanrecv1
+0x14089d846: lea      rax, [rip + 0x937f5b]
+0x14089d84d: mov      rbx, qword ptr [rsp + 0x10]
+0x14089d852: add      rsp, 0x28
+0x14089d856: pop      rbp
+0x14089d857: ret      
+0x14089d858: mov      qword ptr [rsp + 8], rax
+0x14089d85d: nop      dword ptr [rax]
+0x14089d860: call     0x14007f140    ; runtime.morestack_noctxt
+0x14089d865: mov      rax, qword ptr [rsp + 8]
+0x14089d86a: jmp      0x14089d760    ; main.newLauncherGlobalHotkeyManager
+0x14089d86f: int3     
+0x14089d870: int3     
+0x14089d871: int3     
+0x14089d872: int3     
+0x14089d873: int3     
+0x14089d874: int3     
+0x14089d875: int3     
+0x14089d876: int3     
+0x14089d877: int3     
+0x14089d878: int3     
+0x14089d879: int3     
+0x14089d87a: int3     
+0x14089d87b: int3     
+0x14089d87c: int3     
+0x14089d87d: int3     
+0x14089d87e: int3     
+0x14089d87f: int3     

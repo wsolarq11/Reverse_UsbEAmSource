@@ -1,0 +1,25 @@
+0x140861b60: cmp      rsp, qword ptr [r14 + 0x10]
+0x140861b64: jbe      0x140861c29   ; main.inputMonitorService.advancePlatformGeneration+0xc9
+0x140861b6a: push     rbp
+0x140861b6b: mov      rbp, rsp
+0x140861b6e: sub      rsp, 0x20
+0x140861b72: test     rax, rax
+0x140861b75: je       0x140861c21   ; main.inputMonitorService.advancePlatformGeneration+0xc1
+0x140861b7b: mov      qword ptr [rsp + 0x30], rax
+0x140861b80: nop      
+0x140861b81: lea      rcx, [rax + 8]
+0x140861b85: mov      qword ptr [rsp + 0x18], rcx
+0x140861b8a: mov      rdx, rax
+0x140861b8d: xor      eax, eax
+0x140861b8f: mov      ebx, 1
+0x140861b94: lock cmpxchg dword ptr [rdx + 8], ebx
+0x140861b99: sete     bl
+0x140861b9c: nop      dword ptr [rax]
+0x140861ba0: test     bl, bl
+0x140861ba2: jne      0x140861bb1   ; main.inputMonitorService.advancePlatformGeneration+0x51
+0x140861ba4: mov      rax, rcx
+0x140861ba7: call     0x140091940   ; internal/sync.Mutex.lockSlow
+0x140861bac: mov      rdx, qword ptr [rsp + 0x30]
+0x140861bb1: nop      
+0x140861bb2: mov      eax, 1
+0x140861bb7: lock xadd qword ptr [rdx + 0xd0], rax

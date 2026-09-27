@@ -1,0 +1,1313 @@
+<base href="%s">
+<style>
+:root {
+  color-scheme: light;
+  --usbeam-font-sans: "Segoe UI Variable Text", "Noto Sans SC", "PingFang SC", "Microsoft YaHei UI", sans-serif;
+  --usbeam-bg-canvas: #faf9f5;
+  --usbeam-bg-panel: rgba(245, 244, 237, 0.78);
+  --usbeam-bg-panel-strong: rgba(250, 249, 245, 0.96);
+  --usbeam-bg-panel-solid: #f5f4ed;
+  --usbeam-bg-soft: rgba(61, 61, 58, 0.06);
+  --usbeam-line-soft: rgba(77, 76, 72, 0.10);
+  --usbeam-line-strong: rgba(77, 76, 72, 0.22);
+  --usbeam-text-primary: #1a1918;
+  --usbeam-text-secondary: #4d4c48;
+  --usbeam-text-muted: #87867f;
+  --usbeam-accent: #cf7b5d;
+  --usbeam-accent-strong: #c46849;
+  --usbeam-accent-contrast: #141413;
+  --usbeam-accent-soft: rgba(196, 104, 73, 0.22);
+  --usbeam-accent-muted: rgba(196, 104, 73, 0.14);
+  --usbeam-accent-bg-soft: rgba(196, 104, 73, 0.10);
+  --usbeam-accent-bg-strong: rgba(196, 104, 73, 0.16);
+  --usbeam-accent-border-soft: rgba(196, 104, 73, 0.22);
+  --usbeam-accent-border-strong: rgba(196, 104, 73, 0.30);
+  --usbeam-accent-ring: rgba(196, 104, 73, 0.16);
+  --usbeam-input-bg: rgba(250, 249, 245, 0.82);
+  --usbeam-input-bg-hover: rgba(250, 249, 245, 0.96);
+  --usbeam-input-bg-focus: rgba(250, 249, 245, 0.92);
+  --usbeam-input-bg-readonly: rgba(61, 61, 58, 0.05);
+  --usbeam-input-bg-disabled: rgba(61, 61, 58, 0.06);
+  --usbeam-input-border: rgba(77, 76, 72, 0.18);
+  --usbeam-input-border-hover: rgba(77, 76, 72, 0.28);
+  --usbeam-input-border-focus: rgba(196, 104, 73, 0.46);
+  --usbeam-input-placeholder: rgba(77, 76, 72, 0.54);
+  --usbeam-input-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46), 0 1px 2px rgba(26, 25, 24, 0.04);
+  --usbeam-input-focus-shadow: 0 0 0 3px var(--usbeam-accent-ring), inset 0 1px 0 rgba(255, 255, 255, 0.50);
+  --usbeam-checkbox-bg: var(--usbeam-input-bg);
+  --usbeam-checkbox-bg-hover: var(--usbeam-input-bg-hover);
+  --usbeam-checkbox-bg-checked: var(--usbeam-accent-strong);
+  --usbeam-checkbox-border: var(--usbeam-input-border);
+  --usbeam-checkbox-border-hover: var(--usbeam-input-border-hover);
+  --usbeam-checkbox-border-checked: var(--usbeam-accent-strong);
+  --usbeam-checkbox-mark: #fff7ef;
+  --usbeam-state-info-bg: rgba(196, 104, 73, 0.10);
+  --usbeam-state-info-border: rgba(196, 104, 73, 0.20);
+  --usbeam-state-info-text: #9b5339;
+  --usbeam-state-success-bg: rgba(45, 134, 91, 0.10);
+  --usbeam-state-success-border: rgba(45, 134, 91, 0.24);
+  --usbeam-state-success-text: #2d865b;
+  --usbeam-state-warning-bg: rgba(180, 83, 9, 0.10);
+  --usbeam-state-warning-border: rgba(180, 83, 9, 0.24);
+  --usbeam-state-warning-text: #9a4f0a;
+  --usbeam-state-error-bg: rgba(181, 51, 51, 0.10);
+  --usbeam-state-error-border: rgba(181, 51, 51, 0.22);
+  --usbeam-state-error-text: #b53333;
+  --usbeam-search-hit-bg: rgba(196, 104, 73, 0.14);
+  --usbeam-search-hit-line: rgba(196, 104, 73, 0.28);
+  --usbeam-code-bg: rgba(18, 18, 17, 0.92);
+  --usbeam-code-text: #f6f4ec;
+  --usbeam-stage-bg: #101318;
+  --usbeam-stage-grid-line: rgba(255, 255, 255, 0.06);
+  --usbeam-stage-grid-line-soft: rgba(255, 255, 255, 0.05);
+  --usbeam-stage-overlay-bg: rgba(0, 0, 0, 0.54);
+  --usbeam-stage-overlay-border: rgba(255, 255, 255, 0.18);
+  --usbeam-stage-overlay-text: #fff7ef;
+  --usbeam-scrollbar-size: 5px;
+  --usbeam-scrollbar-thumb: rgba(77, 76, 72, 0.30);
+  --usbeam-scrollbar-thumb-hover: rgba(196, 104, 73, 0.46);
+  --usbeam-scrollbar-thumb-active: rgba(196, 104, 73, 0.60);
+  --usbeam-shadow-soft: 0 8px 24px rgba(26, 25, 24, 0.08);
+  --usbeam-shadow-strong: 0 18px 36px rgba(26, 25, 24, 0.12);
+  --usbeam-radius-lg: 12px;
+  --usbeam-radius-md: 8px;
+  --usbeam-transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --usbeam-tooltip-max-width: min(360px, calc(100vw - 20px));
+  --usbeam-tooltip-padding: 7px 9px;
+  --usbeam-tooltip-radius: 8px;
+  --usbeam-tooltip-font-size: 12px;
+  --usbeam-tooltip-marker-inset: 8px;
+}
+
+:root[data-usbeam-theme="dark"] {
+  color-scheme: dark;
+  --usbeam-bg-canvas: #141413;
+  --usbeam-bg-panel: rgba(31, 30, 29, 0.78);
+  --usbeam-bg-panel-strong: rgba(38, 38, 36, 0.92);
+  --usbeam-bg-panel-solid: #1f1e1d;
+  --usbeam-bg-soft: rgba(250, 249, 245, 0.06);
+  --usbeam-line-soft: rgba(176, 174, 165, 0.12);
+  --usbeam-line-strong: rgba(176, 174, 165, 0.22);
+  --usbeam-text-primary: #faf9f5;
+  --usbeam-text-secondary: #b0aea5;
+  --usbeam-text-muted: #87867f;
+  --usbeam-accent: #d58a6c;
+  --usbeam-accent-strong: #c46849;
+  --usbeam-accent-contrast: #141413;
+  --usbeam-accent-soft: rgba(213, 138, 108, 0.28);
+  --usbeam-accent-muted: rgba(213, 138, 108, 0.18);
+  --usbeam-accent-bg-soft: rgba(213, 138, 108, 0.16);
+  --usbeam-accent-bg-strong: rgba(213, 138, 108, 0.22);
+  --usbeam-accent-border-soft: rgba(213, 138, 108, 0.28);
+  --usbeam-accent-border-strong: rgba(213, 138, 108, 0.36);
+  --usbeam-accent-ring: rgba(213, 138, 108, 0.24);
+  --usbeam-input-bg: rgba(250, 249, 245, 0.05);
+  --usbeam-input-bg-hover: rgba(250, 249, 245, 0.08);
+  --usbeam-input-bg-focus: rgba(250, 249, 245, 0.075);
+  --usbeam-input-bg-readonly: rgba(250, 249, 245, 0.04);
+  --usbeam-input-bg-disabled: rgba(250, 249, 245, 0.04);
+  --usbeam-input-border: rgba(176, 174, 165, 0.18);
+  --usbeam-input-border-hover: rgba(176, 174, 165, 0.30);
+  --usbeam-input-border-focus: rgba(213, 138, 108, 0.50);
+  --usbeam-input-placeholder: rgba(176, 174, 165, 0.56);
+  --usbeam-input-shadow: inset 0 1px 0 rgba(250, 249, 245, 0.06), 0 1px 2px rgba(0, 0, 0, 0.22);
+  --usbeam-input-focus-shadow: 0 0 0 3px var(--usbeam-accent-ring), inset 0 1px 0 rgba(250, 249, 245, 0.08);
+  --usbeam-checkbox-bg: var(--usbeam-input-bg);
+  --usbeam-checkbox-bg-hover: var(--usbeam-input-bg-hover);
+  --usbeam-checkbox-bg-checked: var(--usbeam-accent-strong);
+  --usbeam-checkbox-border: var(--usbeam-input-border);
+  --usbeam-checkbox-border-hover: var(--usbeam-input-border-hover);
+  --usbeam-checkbox-border-checked: var(--usbeam-accent);
+  --usbeam-checkbox-mark: #fff7ef;
+  --usbeam-state-info-bg: rgba(213, 138, 108, 0.16);
+  --usbeam-state-info-border: rgba(213, 138, 108, 0.28);
+  --usbeam-state-info-text: #f0d0c4;
+  --usbeam-state-success-bg: rgba(82, 176, 123, 0.14);
+  --usbeam-state-success-border: rgba(82, 176, 123, 0.30);
+  --usbeam-state-success-text: #8fd8aa;
+  --usbeam-state-warning-bg: rgba(245, 158, 11, 0.14);
+  --usbeam-state-warning-border: rgba(245, 158, 11, 0.30);
+  --usbeam-state-warning-text: #f3c878;
+  --usbeam-state-error-bg: rgba(223, 102, 102, 0.12);
+  --usbeam-state-error-border: rgba(223, 102, 102, 0.26);
+  --usbeam-state-error-text: #df6666;
+  --usbeam-search-hit-bg: rgba(250, 249, 245, 0.08);
+  --usbeam-search-hit-line: rgba(213, 138, 108, 0.32);
+  --usbeam-code-bg: rgba(18, 18, 17, 0.92);
+  --usbeam-code-text: #f6f4ec;
+  --usbeam-stage-bg: #101318;
+  --usbeam-stage-grid-line: rgba(255, 255, 255, 0.06);
+  --usbeam-stage-grid-line-soft: rgba(255, 255, 255, 0.05);
+  --usbeam-stage-overlay-bg: rgba(0, 0, 0, 0.58);
+  --usbeam-stage-overlay-border: rgba(255, 255, 255, 0.16);
+  --usbeam-stage-overlay-text: #fff7ef;
+  --usbeam-scrollbar-thumb: rgba(176, 174, 165, 0.34);
+  --usbeam-scrollbar-thumb-hover: rgba(213, 138, 108, 0.50);
+  --usbeam-scrollbar-thumb-active: rgba(213, 138, 108, 0.64);
+  --usbeam-shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.28);
+  --usbeam-shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.38);
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%%;
+  background: var(--usbeam-bg-canvas);
+  color: var(--usbeam-text-primary);
+  font-family: var(--usbeam-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@supports (scrollbar-color: auto) {
+  * {
+    scrollbar-color: var(--usbeam-scrollbar-thumb) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+@supports selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-color: auto;
+    scrollbar-width: auto;
+  }
+
+  *::-webkit-scrollbar {
+    width: var(--usbeam-scrollbar-size);
+    height: var(--usbeam-scrollbar-size);
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    min-width: 32px;
+    min-height: 32px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background-color: var(--usbeam-scrollbar-thumb);
+    background-clip: padding-box;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--usbeam-scrollbar-thumb-hover);
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background-color: var(--usbeam-scrollbar-thumb-active);
+  }
+
+  *::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+body.usbeam-plugin, .usbeam-plugin {
+  min-height: 100vh;
+}
+
+.usbeam-page {
+  display: grid;
+  gap: 16px;
+  width: 100%%;
+  max-width: none;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.usbeam-page--fluid {
+  width: 100%%;
+  max-width: none;
+}
+
+.usbeam-panel {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--usbeam-line-soft);
+  border-radius: var(--usbeam-radius-lg);
+  background: var(--usbeam-bg-panel-strong);
+  box-shadow: var(--usbeam-shadow-soft);
+}
+
+.usbeam-toolbar,
+.usbeam-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.usbeam-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.usbeam-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.usbeam-field {
+  display: grid;
+  gap: 8px;
+}
+
+.usbeam-button,
+button.usbeam-button,
+.usbeam-select,
+.usbeam-input,
+.usbeam-textarea {
+  font: inherit;
+}
+
+.usbeam-button,
+button.usbeam-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid var(--usbeam-line-soft);
+  background: var(--usbeam-bg-panel);
+  color: var(--usbeam-text-primary);
+  cursor: pointer;
+  transition: background var(--usbeam-transition-fast), transform var(--usbeam-transition-fast), box-shadow var(--usbeam-transition-fast), border-color var(--usbeam-transition-fast);
+}
+
+.usbeam-button:hover,
+button.usbeam-button:hover {
+  border-color: var(--usbeam-accent-border-strong);
+  background: var(--usbeam-accent-bg-soft);
+  color: var(--usbeam-accent-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--usbeam-shadow-soft);
+}
+
+.usbeam-button:focus-visible,
+button.usbeam-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--usbeam-accent-ring), var(--usbeam-shadow-soft);
+}
+
+.usbeam-button:active,
+button.usbeam-button:active {
+  transform: translateY(0);
+}
+
+.usbeam-button:disabled,
+button.usbeam-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.64;
+  transform: none;
+  box-shadow: none;
+}
+
+.usbeam-button--primary {
+  background: var(--usbeam-accent);
+  border-color: transparent;
+  color: var(--usbeam-accent-contrast);
+}
+
+.usbeam-button--primary:hover {
+  background: var(--usbeam-accent-strong);
+  color: var(--usbeam-accent-contrast);
+}
+
+.usbeam-button--accent {
+  border-color: var(--usbeam-accent-border-soft);
+  background: var(--usbeam-accent-bg-soft);
+  color: var(--usbeam-accent-strong);
+}
+
+.usbeam-button--accent:hover {
+  border-color: var(--usbeam-accent-border-strong);
+  background: var(--usbeam-accent-bg-strong);
+}
+
+.usbeam-input,
+.usbeam-select,
+.usbeam-textarea,
+output,
+pre {
+  width: 100%%;
+  border: 1px solid var(--usbeam-input-border);
+  border-radius: 10px;
+  outline: none;
+  background-color: var(--usbeam-input-bg);
+  box-shadow: var(--usbeam-input-shadow);
+  color: var(--usbeam-text-primary);
+  transition: border-color var(--usbeam-transition-fast), background var(--usbeam-transition-fast), box-shadow var(--usbeam-transition-fast), color var(--usbeam-transition-fast), opacity var(--usbeam-transition-fast);
+}
+
+input:not([type]),
+input[type="text"],
+input[type="search"],
+input[type="url"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%%;
+  border: 1px solid var(--usbeam-input-border);
+  border-radius: 10px;
+  outline: none;
+  background-color: var(--usbeam-input-bg);
+  box-shadow: var(--usbeam-input-shadow);
+  color: var(--usbeam-text-primary);
+  transition: border-color var(--usbeam-transition-fast), background var(--usbeam-transition-fast), box-shadow var(--usbeam-transition-fast), color var(--usbeam-transition-fast), opacity var(--usbeam-transition-fast);
+}
+
+.usbeam-input,
+.usbeam-select,
+input:not([type]),
+input[type="text"],
+input[type="search"],
+input[type="url"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="tel"],
+select {
+  min-height: 38px;
+  padding: 0 12px;
+}
+
+.usbeam-input::placeholder,
+.usbeam-textarea::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: var(--usbeam-input-placeholder);
+  opacity: 1;
+}
+
+.usbeam-input:hover:not(:disabled):not(:read-only),
+.usbeam-select:hover:not(:disabled),
+.usbeam-textarea:hover:not(:disabled):not(:read-only),
+input:not([type]):hover:not(:disabled):not(:read-only),
+input[type="text"]:hover:not(:disabled):not(:read-only),
+input[type="search"]:hover:not(:disabled):not(:read-only),
+input[type="url"]:hover:not(:disabled):not(:read-only),
+input[type="email"]:hover:not(:disabled):not(:read-only),
+input[type="number"]:hover:not(:disabled):not(:read-only),
+input[type="password"]:hover:not(:disabled):not(:read-only),
+input[type="tel"]:hover:not(:disabled):not(:read-only),
+select:hover:not(:disabled),
+textarea:hover:not(:disabled):not(:read-only) {
+  border-color: var(--usbeam-input-border-hover);
+  background-color: var(--usbeam-input-bg-hover);
+}
+
+.usbeam-input:focus,
+.usbeam-input:focus-visible,
+.usbeam-select:focus,
+.usbeam-select:focus-visible,
+.usbeam-textarea:focus,
+.usbeam-textarea:focus-visible,
+input:not([type]):focus,
+input:not([type]):focus-visible,
+input[type="text"]:focus,
+input[type="text"]:focus-visible,
+input[type="search"]:focus,
+input[type="search"]:focus-visible,
+input[type="url"]:focus,
+input[type="url"]:focus-visible,
+input[type="email"]:focus,
+input[type="email"]:focus-visible,
+input[type="number"]:focus,
+input[type="number"]:focus-visible,
+input[type="password"]:focus,
+input[type="password"]:focus-visible,
+input[type="tel"]:focus,
+input[type="tel"]:focus-visible,
+select:focus,
+select:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  border-color: var(--usbeam-input-border-focus);
+  background-color: var(--usbeam-input-bg-focus);
+  box-shadow: var(--usbeam-input-focus-shadow);
+  outline: none;
+}
+
+.usbeam-input:read-only,
+.usbeam-textarea:read-only,
+input:not([type]):read-only,
+input[type="text"]:read-only,
+input[type="search"]:read-only,
+input[type="url"]:read-only,
+input[type="email"]:read-only,
+input[type="number"]:read-only,
+input[type="password"]:read-only,
+input[type="tel"]:read-only,
+textarea:read-only {
+  background-color: var(--usbeam-input-bg-readonly);
+  color: var(--usbeam-text-secondary);
+}
+
+.usbeam-input:disabled,
+.usbeam-select:disabled,
+.usbeam-textarea:disabled,
+input:not([type]):disabled,
+input[type="text"]:disabled,
+input[type="search"]:disabled,
+input[type="url"]:disabled,
+input[type="email"]:disabled,
+input[type="number"]:disabled,
+input[type="password"]:disabled,
+input[type="tel"]:disabled,
+select:disabled,
+textarea:disabled {
+  border-color: var(--usbeam-line-soft);
+  background-color: var(--usbeam-input-bg-disabled);
+  box-shadow: none;
+  color: var(--usbeam-text-muted);
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.usbeam-select,
+select {
+  padding-right: 34px;
+  background-color: var(--usbeam-input-bg);
+  background-image:
+    linear-gradient(45deg, transparent 50%%, currentColor 50%%),
+    linear-gradient(135deg, currentColor 50%%, transparent 50%%);
+  background-position:
+    calc(100%% - 15px) 50%%,
+    calc(100%% - 10px) 50%%;
+  background-repeat: no-repeat;
+  background-size: 5px 5px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.usbeam-select option,
+.usbeam-select optgroup,
+select option,
+select optgroup {
+  background-color: var(--usbeam-bg-panel-solid);
+  color: var(--usbeam-text-primary);
+}
+
+.usbeam-select option:disabled,
+select option:disabled {
+  color: var(--usbeam-text-muted);
+}
+
+.usbeam-textarea,
+output,
+pre {
+  min-height: 160px;
+  padding: 12px 14px;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  inline-size: 16px;
+  block-size: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  min-inline-size: 16px;
+  padding: 0;
+  display: inline-grid;
+  place-content: center;
+  border: 1px solid var(--usbeam-checkbox-border);
+  border-radius: 5px;
+  background: var(--usbeam-checkbox-bg);
+  box-shadow: var(--usbeam-input-shadow);
+  color: var(--usbeam-checkbox-mark);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="checkbox"]:focus-visible {
+  border-color: var(--usbeam-input-border-focus);
+  box-shadow: var(--usbeam-input-focus-shadow);
+  outline: none;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  inline-size: 10px;
+  block-size: 10px;
+  background: currentColor;
+  clip-path: polygon(14%% 54%%, 28%% 40%%, 43%% 55%%, 74%% 20%%, 88%% 32%%, 44%% 82%%);
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform var(--usbeam-transition-fast);
+}
+
+input[type="checkbox"]:hover:not(:disabled) {
+  border-color: var(--usbeam-checkbox-border-hover);
+  background: var(--usbeam-checkbox-bg-hover);
+}
+
+input[type="checkbox"]:checked,
+input[type="checkbox"]:indeterminate {
+  border-color: var(--usbeam-checkbox-border-checked);
+  background: var(--usbeam-checkbox-bg-checked);
+}
+
+input[type="checkbox"]:checked::before,
+input[type="checkbox"]:indeterminate::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:indeterminate::before {
+  inline-size: 8px;
+  block-size: 2px;
+  border-radius: 999px;
+  clip-path: none;
+}
+
+input[type="checkbox"]:disabled {
+  border-color: var(--usbeam-line-soft);
+  background: var(--usbeam-input-bg-disabled);
+  box-shadow: none;
+  color: var(--usbeam-text-muted);
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+output,
+pre {
+  display: block;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.usbeam-meta {
+  color: var(--usbeam-text-secondary);
+  font-size: 13px;
+}
+
+.usbeam-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--usbeam-line-soft);
+  background: var(--usbeam-bg-panel);
+  color: var(--usbeam-text-secondary);
+  font-size: 12px;
+}
+
+.usbeam-badge--success {
+  border-color: var(--usbeam-state-success-border);
+  background: var(--usbeam-state-success-bg);
+  color: var(--usbeam-state-success-text);
+}
+
+.usbeam-badge--warning {
+  border-color: var(--usbeam-state-warning-border);
+  background: var(--usbeam-state-warning-bg);
+  color: var(--usbeam-state-warning-text);
+}
+
+.usbeam-badge--error {
+  border-color: var(--usbeam-state-error-border);
+  background: var(--usbeam-state-error-bg);
+  color: var(--usbeam-state-error-text);
+}
+
+.usbeam-draggable {
+  --wails-draggable: drag;
+}
+
+.usbeam-runtime-tooltip {
+  position: fixed;
+  z-index: 100000;
+  max-width: var(--usbeam-tooltip-max-width);
+  padding: var(--usbeam-tooltip-padding);
+  border: 1px solid var(--usbeam-line-strong);
+  border-radius: var(--usbeam-tooltip-radius);
+  background: var(--usbeam-bg-panel-strong);
+  color: var(--usbeam-text-secondary);
+  box-shadow: var(--usbeam-shadow-strong);
+  font-size: var(--usbeam-tooltip-font-size);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+  white-space: pre-wrap;
+}
+
+.usbeam-runtime-tooltip::before {
+  content: "";
+  position: absolute;
+  left: var(--usbeam-tooltip-marker-inset);
+  right: var(--usbeam-tooltip-marker-inset);
+  top: 0;
+  height: 1px;
+  background: color-mix(in srgb, var(--usbeam-accent) 28%%, transparent);
+}
+
+@media (max-width: 760px) {
+  .usbeam-page {
+    padding: 14px;
+  }
+
+  .usbeam-grid--2 {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+<script>
+(function() {
+  const plugin = %s;
+  const callbacks = new Map();
+  let callId = 1;
+  let environmentPromise = null;
+  let pluginEnvironment = null;
+  let runtimePromise = null;
+  const isEmbedded = window.parent && window.parent !== window;
+
+  function ensureRuntime() {
+    if (isEmbedded) {
+      return Promise.resolve(null);
+    }
+    if (!runtimePromise) {
+      runtimePromise = import("/wails/runtime.js");
+    }
+    return runtimePromise;
+  }
+
+  function parentPost(type, payload, expectReply) {
+    if (!isEmbedded) {
+      return Promise.reject(new Error("当前不在内嵌插件上下文中"));
+    }
+
+    if (expectReply) {
+      return new Promise((resolve, reject) => {
+        const id = callId++;
+        callbacks.set(id, { resolve, reject });
+        window.parent.postMessage({
+          __usbeamPlugin: true,
+          pluginId: plugin.id,
+          callId: id,
+          type,
+          payload: payload || {}
+        }, "*");
+      });
+    }
+
+    window.parent.postMessage({
+      __usbeamPlugin: true,
+      pluginId: plugin.id,
+      type,
+      payload: payload || {}
+    }, "*");
+    return Promise.resolve(true);
+  }
+
+  async function backendCall(methodName, ...args) {
+    const runtime = await ensureRuntime();
+    return runtime.Call.ByName(methodName, ...args);
+  }
+
+  async function getEnvironment() {
+    if (!environmentPromise) {
+      environmentPromise = isEmbedded
+        ? parentPost("get-environment", null, true)
+        : backendCall("main.BootstrapService.GetPluginEnvironment", plugin.id);
+    }
+    const environment = await environmentPromise;
+    pluginEnvironment = environment;
+    return environment;
+  }
+
+  async function applyTheme() {
+    try {
+      const environment = await getEnvironment();
+      let resolvedTheme = String(environment?.resolvedTheme || environment?.themeMode || "light").toLowerCase();
+      if (resolvedTheme === "system") {
+        resolvedTheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-usbeam-theme", resolvedTheme === "dark" ? "dark" : "light");
+      const tokens = environment?.tokens && typeof environment.tokens === "object" ? environment.tokens : null;
+      if (tokens) {
+        Object.entries(tokens).forEach(([tokenName, tokenValue]) => {
+          const normalizedName = String(tokenName || "").trim();
+          const normalizedValue = String(tokenValue || "").trim();
+          if (!normalizedName || !normalizedValue) {
+            return;
+          }
+          document.documentElement.style.setProperty("--usbeam-" + normalizedName, normalizedValue);
+        });
+      }
+      applyTooltipScale(environment?.uiScalePercent);
+      return environment;
+    } catch (error) {
+      document.documentElement.setAttribute("data-usbeam-theme", "light");
+      applyTooltipScale(100);
+      throw error;
+    }
+  }
+
+  function normalizeTooltipText(value) {
+    return String(value || "")
+      .replace(/\r\n?/g, "\n")
+      .split("\n")
+      .map((line) => line.replace(/[ \t\f\v]+/g, " ").trim())
+      .filter(Boolean)
+      .join("\n");
+  }
+
+  function resolveMessage(target, key) {
+    return String(key || "").split(".").reduce((result, segment) => {
+      if (!result || typeof result !== "object") {
+        return undefined;
+      }
+      return result[segment];
+    }, target);
+  }
+
+  function formatMessage(template, params) {
+    return Object.entries(params || {}).reduce((result, entry) => {
+      return result.replaceAll("{" + entry[0] + "}", String(entry[1]));
+    }, String(template || ""));
+  }
+
+  function t(key, params) {
+    const fromEnvironment = resolveMessage(pluginEnvironment?.messages, key);
+    const fromMeta = resolveMessage(plugin.messages, key);
+    const template = typeof fromEnvironment === "string"
+      ? fromEnvironment
+      : typeof fromMeta === "string" ? fromMeta : String(key || "");
+    return formatMessage(template, params);
+  }
+
+  function normalizeTooltipScalePercent(value) {
+    const percent = Number(value);
+    if (!Number.isFinite(percent) || percent <= 0) {
+      return 100;
+    }
+    return Math.min(Math.max(percent, 50), 200);
+  }
+
+  function applyTooltipScale(uiScalePercent) {
+    const scale = normalizeTooltipScalePercent(uiScalePercent) / 100;
+    const rootStyle = document.documentElement.style;
+    const round = (value) => Math.round(value * scale);
+    rootStyle.setProperty("--usbeam-tooltip-max-width", "min(" + round(360) + "px, calc(100vw - " + round(20) + "px))");
+    rootStyle.setProperty("--usbeam-tooltip-padding", round(7) + "px " + round(9) + "px");
+    rootStyle.setProperty("--usbeam-tooltip-radius", round(8) + "px");
+    rootStyle.setProperty("--usbeam-tooltip-font-size", (12 * scale).toFixed(2) + "px");
+    rootStyle.setProperty("--usbeam-tooltip-marker-inset", round(8) + "px");
+  }
+
+  function installTooltipRuntime() {
+    if (!document.body) {
+      window.addEventListener("DOMContentLoaded", installTooltipRuntime, { once: true });
+      return;
+    }
+
+    const tooltip = document.createElement("div");
+    tooltip.className = "usbeam-runtime-tooltip";
+    tooltip.hidden = true;
+    tooltip.setAttribute("role", "tooltip");
+    document.body.appendChild(tooltip);
+
+    let activeElement = null;
+    let lastPointer = null;
+    const internalTitleRemovals = new WeakSet();
+    const interactiveSelector = "button,a[href],input,select,textarea,[role='button'],[role='menuitem'],[tabindex]:not([tabindex='-1'])";
+
+    function markInternalTitleRemoval(element) {
+      internalTitleRemovals.add(element);
+    }
+
+    function clearCapturedTooltip(element) {
+      element.removeAttribute("data-usbeam-tooltip");
+      if (element.getAttribute("data-usbeam-tooltip-aria") === "true") {
+        element.removeAttribute("aria-label");
+        element.removeAttribute("data-usbeam-tooltip-aria");
+      }
+    }
+
+    function captureTitle(element) {
+      const rawTitle = element.getAttribute("title");
+      if (rawTitle === null) {
+        return normalizeTooltipText(element.getAttribute("data-usbeam-tooltip"));
+      }
+
+      const text = normalizeTooltipText(rawTitle);
+      if (!text) {
+        clearCapturedTooltip(element);
+        return "";
+      }
+
+      element.setAttribute("data-usbeam-tooltip", text);
+      if (element.matches(interactiveSelector) &&
+        !element.hasAttribute("aria-labelledby") &&
+        (!element.hasAttribute("aria-label") || element.getAttribute("data-usbeam-tooltip-aria") === "true")) {
+        element.setAttribute("aria-label", text);
+        element.setAttribute("data-usbeam-tooltip-aria", "true");
+      }
+      markInternalTitleRemoval(element);
+      element.removeAttribute("title");
+      return text;
+    }
+
+    function captureTree(root) {
+      if (!root || root.nodeType !== 1) {
+        return;
+      }
+      if (root.hasAttribute("title")) {
+        captureTitle(root);
+      }
+      root.querySelectorAll?.("[title]").forEach(captureTitle);
+    }
+
+    function findTooltipElement(start) {
+      let current = start?.nodeType === 1 ? start : start?.parentElement;
+      while (current && current !== document.body) {
+        if (current.closest?.("[data-usbeam-tooltip-disabled='true']")) {
+          return null;
+        }
+        const text = normalizeTooltipText(current.getAttribute("data-usbeam-tooltip") || current.getAttribute("title"));
+        if (text) {
+          return current;
+        }
+        current = current.parentElement;
+      }
+      return null;
+    }
+
+    function clamp(value, min, max) {
+      if (max < min) {
+        return min;
+      }
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function positionTooltip(pointer) {
+      if (!activeElement) {
+        return;
+      }
+
+      const rect = tooltip.getBoundingClientRect();
+      const scale = normalizeTooltipScalePercent(pluginEnvironment?.uiScalePercent) / 100;
+      const gap = Math.round(12 * scale);
+      const margin = Math.round(10 * scale);
+      let x = pointer.x + gap;
+      let y = pointer.y + gap;
+      if (x + rect.width + margin > window.innerWidth) {
+        x = pointer.x - rect.width - gap;
+      }
+      if (y + rect.height + margin > window.innerHeight) {
+        y = pointer.y - rect.height - gap;
+      }
+      tooltip.style.left = Math.round(clamp(x, margin, window.innerWidth - rect.width - margin)) + "px";
+      tooltip.style.top = Math.round(clamp(y, margin, window.innerHeight - rect.height - margin)) + "px";
+    }
+
+    function showTooltip(element, pointer) {
+      const text = captureTitle(element) || normalizeTooltipText(element.getAttribute("data-usbeam-tooltip"));
+      if (!text) {
+        hideTooltip();
+        return;
+      }
+      activeElement = element;
+      lastPointer = pointer;
+      tooltip.textContent = text;
+      tooltip.hidden = false;
+      requestAnimationFrame(() => positionTooltip(pointer));
+    }
+
+    function hideTooltip() {
+      activeElement = null;
+      lastPointer = null;
+      tooltip.hidden = true;
+    }
+
+    document.addEventListener("pointerover", (event) => {
+      if (event.pointerType === "touch") {
+        return;
+      }
+      const element = findTooltipElement(event.target);
+      if (!element) {
+        hideTooltip();
+        return;
+      }
+      showTooltip(element, { x: event.clientX, y: event.clientY });
+    }, { capture: true, passive: true });
+
+    document.addEventListener("pointermove", (event) => {
+      if (event.pointerType === "touch") {
+        return;
+      }
+      const pointer = { x: event.clientX, y: event.clientY };
+      const element = findTooltipElement(event.target);
+      if (!element) {
+        hideTooltip();
+        return;
+      }
+      if (element !== activeElement) {
+        showTooltip(element, pointer);
+        return;
+      }
+      lastPointer = pointer;
+      positionTooltip(pointer);
+    }, { capture: true, passive: true });
+
+    document.addEventListener("pointerout", (event) => {
+      const nextElement = findTooltipElement(event.relatedTarget);
+      if (nextElement !== activeElement) {
+        hideTooltip();
+      }
+    }, { capture: true, passive: true });
+
+    document.addEventListener("focusin", (event) => {
+      const element = findTooltipElement(event.target);
+      if (!element) {
+        return;
+      }
+      const rect = element.getBoundingClientRect();
+      showTooltip(element, {
+        x: rect.left + rect.width / 2,
+        y: rect.bottom
+      });
+    }, true);
+
+    document.addEventListener("focusout", (event) => {
+      if (activeElement === event.target || activeElement?.contains?.(event.target)) {
+        hideTooltip();
+      }
+    }, true);
+
+    window.addEventListener("scroll", hideTooltip, true);
+    window.addEventListener("resize", hideTooltip);
+    window.addEventListener("blur", hideTooltip);
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        hideTooltip();
+      }
+    }, true);
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes" && mutation.attributeName === "title") {
+          const element = mutation.target;
+          if (element.hasAttribute("title")) {
+            captureTitle(element);
+            if (element === activeElement && lastPointer) {
+              showTooltip(element, lastPointer);
+            }
+            return;
+          }
+          if (internalTitleRemovals.has(element)) {
+            internalTitleRemovals.delete(element);
+            return;
+          }
+          clearCapturedTooltip(element);
+          if (element === activeElement) {
+            hideTooltip();
+          }
+          return;
+        }
+
+        mutation.addedNodes.forEach(captureTree);
+      });
+    });
+
+    captureTree(document.body);
+    observer.observe(document.body, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ["title"]
+    });
+  }
+
+  window.addEventListener("message", (event) => {
+    const data = event.data;
+    if (!data || !data.__usbeamHostReply) {
+      return;
+    }
+    const cb = callbacks.get(data.callId);
+    if (!cb) {
+      return;
+    }
+    callbacks.delete(data.callId);
+    if (data.error) {
+      cb.reject(new Error(data.error));
+      return;
+    }
+    cb.resolve(data.result);
+  });
+
+  function normalizeDialogResult(result, options) {
+    if (Array.isArray(result)) {
+      return result;
+    }
+    if (!result) {
+      return options?.multiple ? [] : null;
+    }
+    return result;
+  }
+
+  function isDialogSelectionCancelled(error) {
+    const message = String(error?.message || error || "").trim();
+    return /\b(cancelled|canceled) by user\b/i.test(message) ||
+      /\boperation (was )?(cancelled|canceled)\b/i.test(message);
+  }
+
+  async function openWindow(options) {
+    const payload = {
+      name: String(options?.name || "").trim(),
+      entry: String(options?.entry || "").trim(),
+      title: String(options?.title || "").trim(),
+      mode: String(options?.mode || "").trim(),
+      width: Number(options?.width || 0),
+      height: Number(options?.height || 0),
+      minWidth: Number(options?.minWidth || 0),
+      minHeight: Number(options?.minHeight || 0),
+      resizable: typeof options?.resizable === "boolean" ? options.resizable : undefined,
+      frameless: typeof options?.frameless === "boolean" ? options.frameless : undefined,
+      fullscreen: typeof options?.fullscreen === "boolean" ? options.fullscreen : undefined,
+      alwaysOnTop: Boolean(options?.alwaysOnTop),
+      hideOnEscape: typeof options?.hideOnEscape === "boolean" ? options.hideOnEscape : undefined,
+      screenId: String(options?.screenId || "").trim(),
+      query: String(options?.query || "").trim()
+    };
+
+    if (isEmbedded) {
+      return parentPost("open-window", payload, true);
+    }
+    return backendCall("main.BootstrapService.OpenPluginWindow", plugin.id, payload);
+  }
+
+  async function closeWindow(name) {
+    if (name) {
+      if (isEmbedded) {
+        return parentPost("close-window", { name: String(name).trim() }, true);
+      }
+      return backendCall("main.BootstrapService.ClosePluginWindow", String(name).trim());
+    }
+
+    if (isEmbedded) {
+      return parentPost("close", null, true);
+    }
+
+    const runtime = await ensureRuntime();
+    return runtime.Window.Close();
+  }
+
+  window.UsbEAmHost = {
+    version: "1.0",
+    plugin,
+    t,
+    getPreferences() {
+      return getEnvironment();
+    },
+    getEnvironment() {
+      return getEnvironment();
+    },
+    close() {
+      return closeWindow("");
+    },
+    closeWindow(name) {
+      return closeWindow(name);
+    },
+    async openExternal(targetURL) {
+      const normalized = String(targetURL || "").trim();
+      if (!normalized) {
+        return false;
+      }
+      if (isEmbedded) {
+        return parentPost("open-external", { url: normalized }, true);
+      }
+      const runtime = await ensureRuntime();
+      await runtime.Browser.OpenURL(normalized);
+      return true;
+    },
+    async setTitle(title) {
+      const normalized = String(title || "").trim();
+      if (isEmbedded) {
+        return parentPost("set-title", { title: normalized }, true);
+      }
+      const runtime = await ensureRuntime();
+      await runtime.Window.SetTitle(normalized);
+      return true;
+    },
+    notify(eventName, payload) {
+      const normalizedEventName = String(eventName || "");
+      const normalizedPayload = payload || null;
+      if (isEmbedded) {
+        return parentPost("notify", {
+          eventName: normalizedEventName,
+          payload: normalizedPayload
+        }, false);
+      }
+      return backendCall("main.BootstrapService.EmitPluginNotice", plugin.id, normalizedEventName, normalizedPayload);
+    },
+    async writeClipboard(text) {
+      const normalized = String(text || "");
+      if (isEmbedded) {
+        return parentPost("write-clipboard", { text: normalized }, true);
+      }
+      const runtime = await ensureRuntime();
+      await runtime.Clipboard.SetText(normalized);
+      return true;
+    },
+    async readClipboard() {
+      if (isEmbedded) {
+        const text = await parentPost("read-clipboard", null, true);
+        return String(text || "");
+      }
+      const runtime = await ensureRuntime();
+      const text = await runtime.Clipboard.Text();
+      return String(text || "");
+    },
+    async selectFile(options) {
+      if (isEmbedded) {
+        return normalizeDialogResult(await parentPost("select-file", options || {}, true), options || {});
+      }
+      const runtime = await ensureRuntime();
+      const payload = options || {};
+      if (payload.directory) {
+        try {
+          const result = await runtime.Dialogs.OpenFile({
+            Title: payload.title || "Select Folder",
+            AllowsMultipleSelection: false,
+            CanChooseDirectories: true,
+            CanChooseFiles: false
+          });
+          return result ? String(result) : null;
+        } catch (error) {
+          if (isDialogSelectionCancelled(error)) {
+            return null;
+          }
+          throw error;
+        }
+      }
+      try {
+        const result = await runtime.Dialogs.OpenFile({
+          Title: payload.title || "Select File",
+          AllowsMultipleSelection: Boolean(payload.multiple),
+          CanChooseFiles: true,
+          CanChooseDirectories: false
+        });
+        return normalizeDialogResult(result, payload);
+      } catch (error) {
+        if (isDialogSelectionCancelled(error)) {
+          return payload.multiple ? [] : null;
+        }
+        throw error;
+      }
+    },
+    listScreens() {
+      if (isEmbedded) {
+        return parentPost("list-screens", null, true);
+      }
+      return backendCall("main.BootstrapService.ListPluginScreens");
+    },
+    openWindow,
+    inputMonitor: {
+      start(options) {
+        const payload = {
+          keyboard: options?.keyboard !== false,
+          mouse: options?.mouse !== false
+        };
+        if (isEmbedded) {
+          return parentPost("input-monitor-start", payload, true);
+        }
+        return backendCall("main.BootstrapService.StartInputMonitor", payload);
+      },
+      stop() {
+        if (isEmbedded) {
+          return parentPost("input-monitor-stop", null, true);
+        }
+        return backendCall("main.BootstrapService.StopInputMonitor");
+      },
+      snapshot(options) {
+        const payload = {
+          afterId: Number(options?.afterId || 0),
+          limit: Number(options?.limit || 1024)
+        };
+        if (isEmbedded) {
+          return parentPost("input-monitor-snapshot", payload, true);
+        }
+        return backendCall("main.BootstrapService.GetInputMonitorSnapshot", payload.afterId, payload.limit);
+      }
+    },
+    window: {
+      async api() {
+        if (!isEmbedded) {
+          const runtime = await ensureRuntime();
+          return runtime.Window;
+        }
+        return {
+          ToggleFullscreen() {
+            return parentPost("native-window", { method: "ToggleFullscreen" }, true);
+          },
+          IsFullscreen() {
+            return parentPost("native-window", { method: "IsFullscreen" }, true);
+          },
+          Fullscreen() {
+            return parentPost("native-window", { method: "Fullscreen" }, true);
+          },
+          UnFullscreen() {
+            return parentPost("native-window", { method: "UnFullscreen" }, true);
+          }
+        };
+      }
+    },
+    screens: {
+      getAll() {
+        if (isEmbedded) {
+          return parentPost("native-screens", { method: "GetAll" }, true);
+        }
+        return ensureRuntime().then((runtime) => runtime.Screens.GetAll());
+      },
+      getPrimary() {
+        if (isEmbedded) {
+          return parentPost("native-screens", { method: "GetPrimary" }, true);
+        }
+        return ensureRuntime().then((runtime) => runtime.Screens.GetPrimary());
+      },
+      getCurrent() {
+        if (isEmbedded) {
+          return parentPost("native-screens", { method: "GetCurrent" }, true);
+        }
+        return ensureRuntime().then((runtime) => runtime.Screens.GetCurrent());
+      }
+    }
+  };
+
+  function dispatchPluginReady() {
+    window.dispatchEvent(new CustomEvent("usbeam-plugin-ready", {
+      detail: { plugin }
+    }));
+  }
+
+  function schedulePluginReady() {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", dispatchPluginReady, { once: true });
+      return;
+    }
+    dispatchPluginReady();
+  }
+
+    applyTheme()
+    .catch(() => null)
+    .finally(() => {
+      installTooltipRuntime();
+      schedulePluginReady();
+    });
+})();
+</script>

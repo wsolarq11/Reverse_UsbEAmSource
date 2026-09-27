@@ -1,0 +1,53 @@
+0x140923e80: cmp      rsp, qword ptr [r14 + 0x10]
+0x140923e84: jbe      0x140923ed0   ; main.normalizeValidatedPluginID+0x50
+0x140923e86: push     rbp
+0x140923e87: mov      rbp, rsp
+0x140923e8a: sub      rsp, 0x20
+0x140923e8e: mov      qword ptr [rsp + 0x30], rax
+0x140923e93: call     0x1400a2200   ; strings.TrimSpace
+0x140923e98: mov      qword ptr [rsp + 0x18], rax
+0x140923e9d: mov      qword ptr [rsp + 0x10], rbx
+0x140923ea2: call     0x140923be0   ; main.validatePluginID
+0x140923ea7: test     rax, rax
+0x140923eaa: je       0x140923ebc   ; main.normalizeValidatedPluginID+0x3c
+0x140923eac: mov      rcx, rax
+0x140923eaf: mov      rdi, rbx
+0x140923eb2: xor      eax, eax
+0x140923eb4: xor      ebx, ebx
+0x140923eb6: add      rsp, 0x20
+0x140923eba: pop      rbp
+0x140923ebb: ret      
+0x140923ebc: mov      rax, qword ptr [rsp + 0x18]
+0x140923ec1: mov      rbx, qword ptr [rsp + 0x10]
+0x140923ec6: xor      ecx, ecx
+0x140923ec8: xor      edi, edi
+0x140923eca: add      rsp, 0x20
+0x140923ece: pop      rbp
+0x140923ecf: ret      
+0x140923ed0: mov      qword ptr [rsp + 8], rax
+0x140923ed5: mov      qword ptr [rsp + 0x10], rbx
+0x140923eda: call     0x14007f140   ; runtime.morestack_noctxt
+0x140923edf: mov      rax, qword ptr [rsp + 8]
+0x140923ee4: mov      rbx, qword ptr [rsp + 0x10]
+0x140923ee9: jmp      0x140923e80   ; main.normalizeValidatedPluginID
+0x140923eeb: int3     
+0x140923eec: int3     
+0x140923eed: int3     
+0x140923eee: int3     
+0x140923eef: int3     
+0x140923ef0: int3     
+0x140923ef1: int3     
+0x140923ef2: int3     
+0x140923ef3: int3     
+0x140923ef4: int3     
+0x140923ef5: int3     
+0x140923ef6: int3     
+0x140923ef7: int3     
+0x140923ef8: int3     
+0x140923ef9: int3     
+0x140923efa: int3     
+0x140923efb: int3     
+0x140923efc: int3     
+0x140923efd: int3     
+0x140923efe: int3     
+0x140923eff: int3     

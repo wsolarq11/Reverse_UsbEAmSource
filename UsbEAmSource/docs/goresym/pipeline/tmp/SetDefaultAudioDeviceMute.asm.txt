@@ -1,0 +1,80 @@
+0x14077de00: lea      r12, [rsp - 0xa0]
+0x14077de08: cmp      r12, qword ptr [r14 + 0x10]
+0x14077de0c: jbe      0x14077df02    ; main.BootstrapService.SetDefaultAudioDeviceMute+0x102
+0x14077de12: push     rbp
+0x14077de13: mov      rbp, rsp
+0x14077de16: sub      rsp, 0x118
+0x14077de1d: mov      qword ptr [rsp + 0x1b0], rbx
+0x14077de25: mov      eax, edi
+0x14077de27: lea      rdi, [rsp + 0x128]
+0x14077de2f: nop      word ptr [rax + rax]
+0x14077de38: nop      dword ptr [rax + rax]
+0x14077de40: mov      qword ptr [rsp - 0x10], rbp
+0x14077de45: lea      rbp, [rsp - 0x10]
+0x14077de4a: call     0x140081722    ; runtime.duffzero+0x142
+0x14077de4f: mov      rbp, qword ptr [rbp]
+0x14077de53: lea      rdi, [rsp + 0x98]
+0x14077de5b: nop      dword ptr [rax + rax]
+0x14077de60: mov      qword ptr [rsp - 0x10], rbp
+0x14077de65: lea      rbp, [rsp - 0x10]
+0x14077de6a: call     0x140081722    ; runtime.duffzero+0x142
+0x14077de6f: mov      rbp, qword ptr [rbp]
+0x14077de73: mov      edx, eax
+0x14077de75: mov      rax, rbx
+0x14077de78: mov      rbx, rcx
+0x14077de7b: mov      ecx, edx
+0x14077de7d: nop      dword ptr [rax]
+0x14077de80: call     0x140751f60    ; main.setDefaultAudioDeviceMute
+0x14077de85: lea      rdi, [rsp + 0x98]
+0x14077de8d: mov      rsi, rsp
+0x14077de90: nop      word ptr [rax + rax]
+0x14077de99: nop      dword ptr [rax]
+0x14077dea0: mov      qword ptr [rsp - 0x10], rbp
+0x14077dea5: lea      rbp, [rsp - 0x10]
+0x14077deaa: call     0x140081a70    ; runtime.duffcopy+0x310
+0x14077deaf: mov      rbp, qword ptr [rbp]
+0x14077deb3: lea      rdi, [rsp + 0x128]
+0x14077debb: lea      rsi, [rsp + 0x98]
+0x14077dec3: mov      qword ptr [rsp - 0x10], rbp
+0x14077dec8: lea      rbp, [rsp - 0x10]
+0x14077decd: call     0x140081a70    ; runtime.duffcopy+0x310
+0x14077ded2: mov      rbp, qword ptr [rbp]
+0x14077ded6: lea      rdi, [rsp + 0x128]
+0x14077dede: lea      rsi, [rsp + 0x98]
+0x14077dee6: mov      qword ptr [rsp - 0x10], rbp
+0x14077deeb: lea      rbp, [rsp - 0x10]
+0x14077def0: call     0x140081a70    ; runtime.duffcopy+0x310
+0x14077def5: mov      rbp, qword ptr [rbp]
+0x14077def9: add      rsp, 0x118
+0x14077df00: pop      rbp
+0x14077df01: ret      
+0x14077df02: mov      qword ptr [rsp + 0x88], rax
+0x14077df0a: mov      qword ptr [rsp + 0x90], rbx
+0x14077df12: mov      qword ptr [rsp + 0x98], rcx
+0x14077df1a: mov      byte ptr [rsp + 0xa0], dil
+0x14077df22: call     0x14007f140    ; runtime.morestack_noctxt
+0x14077df27: mov      rax, qword ptr [rsp + 0x88]
+0x14077df2f: mov      rbx, qword ptr [rsp + 0x90]
+0x14077df37: mov      rcx, qword ptr [rsp + 0x98]
+0x14077df3f: movzx    edi, byte ptr [rsp + 0xa0]
+0x14077df47: jmp      0x14077de00    ; main.BootstrapService.SetDefaultAudioDeviceMute
+0x14077df4c: int3     
+0x14077df4d: int3     
+0x14077df4e: int3     
+0x14077df4f: int3     
+0x14077df50: int3     
+0x14077df51: int3     
+0x14077df52: int3     
+0x14077df53: int3     
+0x14077df54: int3     
+0x14077df55: int3     
+0x14077df56: int3     
+0x14077df57: int3     
+0x14077df58: int3     
+0x14077df59: int3     
+0x14077df5a: int3     
+0x14077df5b: int3     
+0x14077df5c: int3     
+0x14077df5d: int3     
+0x14077df5e: int3     
+0x14077df5f: int3     

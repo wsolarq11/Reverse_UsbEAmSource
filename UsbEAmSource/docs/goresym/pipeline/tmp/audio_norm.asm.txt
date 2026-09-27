@@ -1,0 +1,73 @@
+0x1407a6660: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407a6664: jbe      0x1407a673d   ; main.normalizeDesktopReminderAudio+0xdd
+0x1407a666a: push     rbp
+0x1407a666b: mov      rbp, rsp
+0x1407a666e: sub      rsp, 0x48
+0x1407a6672: mov      qword ptr [rsp + 0x58], rax
+0x1407a6677: mov      qword ptr [rsp + 0x78], rsi
+0x1407a667c: mov      qword ptr [rsp + 0x70], rdi
+0x1407a6681: mov      qword ptr [rsp + 0x68], rcx
+0x1407a6686: movups   xmmword ptr [rsp + 0x18], xmm15
+0x1407a668c: movups   xmmword ptr [rsp + 0x20], xmm15
+0x1407a6692: movups   xmmword ptr [rsp + 0x30], xmm15
+0x1407a6698: call     0x1400a2200   ; strings.TrimSpace
+0x1407a669d: nop      dword ptr [rax]
+0x1407a66a0: call     0x1400a1500   ; strings.ToLower
+0x1407a66a5: test     rbx, rbx
+0x1407a66a8: jne      0x1407a66b6   ; main.normalizeDesktopReminderAudio+0x56
+0x1407a66aa: mov      ebx, 6
+0x1407a66af: lea      rax, [rip + 0x490f2e]
+0x1407a66b6: mov      qword ptr [rsp + 0x10], rbx
+0x1407a66bb: mov      qword ptr [rsp + 0x40], rax
+0x1407a66c0: mov      rax, qword ptr [rsp + 0x68]
+0x1407a66c5: mov      rbx, qword ptr [rsp + 0x70]
+0x1407a66ca: call     0x1400a2200   ; strings.TrimSpace
+0x1407a66cf: mov      rsi, qword ptr [rsp + 0x78]
+0x1407a66d4: test     rsi, rsi
+0x1407a66d7: mov      ecx, 1
+0x1407a66dc: cmove    rsi, rcx
+0x1407a66e0: mov      rcx, qword ptr [rsp + 0x10]
+0x1407a66e5: cmp      rcx, 6
+0x1407a66e9: jne      0x1407a6708   ; main.normalizeDesktopReminderAudio+0xa8
+0x1407a66eb: mov      rdx, qword ptr [rsp + 0x40]
+0x1407a66f0: cmp      dword ptr [rdx], 0x74737973
+0x1407a66f6: jne      0x1407a670d   ; main.normalizeDesktopReminderAudio+0xad
+0x1407a66f8: cmp      word ptr [rdx + 4], 0x6d65
+0x1407a66fe: nop      
+0x1407a6700: jne      0x1407a670d   ; main.normalizeDesktopReminderAudio+0xad
+0x1407a6702: xor      ebx, ebx
+0x1407a6704: xor      eax, eax
+0x1407a6706: jmp      0x1407a670d   ; main.normalizeDesktopReminderAudio+0xad
+0x1407a6708: mov      rdx, qword ptr [rsp + 0x40]
+0x1407a670d: mov      qword ptr [rsp + 0x18], rdx
+0x1407a6712: mov      qword ptr [rsp + 0x20], rcx
+0x1407a6717: mov      qword ptr [rsp + 0x28], rax
+0x1407a671c: mov      qword ptr [rsp + 0x30], rbx
+0x1407a6721: mov      qword ptr [rsp + 0x38], rsi
+0x1407a6726: mov      rdx, qword ptr [rsp + 0x18]
+0x1407a672b: mov      rdi, rbx
+0x1407a672e: mov      rbx, rcx
+0x1407a6731: mov      rcx, rax
+0x1407a6734: mov      rax, rdx
+0x1407a6737: add      rsp, 0x48
+0x1407a673b: pop      rbp
+0x1407a673c: ret      
+0x1407a673d: mov      qword ptr [rsp + 8], rax
+0x1407a6742: mov      qword ptr [rsp + 0x10], rbx
+0x1407a6747: mov      qword ptr [rsp + 0x18], rcx
+0x1407a674c: mov      qword ptr [rsp + 0x20], rdi
+0x1407a6751: mov      qword ptr [rsp + 0x28], rsi
+0x1407a6756: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407a675b: mov      rax, qword ptr [rsp + 8]
+0x1407a6760: mov      rbx, qword ptr [rsp + 0x10]
+0x1407a6765: mov      rcx, qword ptr [rsp + 0x18]
+0x1407a676a: mov      rdi, qword ptr [rsp + 0x20]
+0x1407a676f: mov      rsi, qword ptr [rsp + 0x28]
+0x1407a6774: jmp      0x1407a6660   ; main.normalizeDesktopReminderAudio
+0x1407a6779: int3     
+0x1407a677a: int3     
+0x1407a677b: int3     
+0x1407a677c: int3     
+0x1407a677d: int3     
+0x1407a677e: int3     
+0x1407a677f: int3     

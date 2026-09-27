@@ -1,0 +1,21 @@
+0x1408ff4c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408ff4c4: jbe      0x1408ff4eb   ; main.oledBlackoutService.endBackgroundActivity+0x2b
+0x1408ff4c6: push     rbp
+0x1408ff4c7: mov      rbp, rsp
+0x1408ff4ca: sub      rsp, 0x10
+0x1408ff4ce: test     byte ptr [rax], al
+0x1408ff4d0: add      rax, 0x10
+0x1408ff4d4: mov      rbx, 0xffffffffffffffff
+0x1408ff4db: nop      dword ptr [rax + rax]
+0x1408ff4e0: call     0x140093820   ; sync.WaitGroup.Add
+0x1408ff4e5: add      rsp, 0x10
+0x1408ff4e9: pop      rbp
+0x1408ff4ea: ret      
+0x1408ff4eb: mov      qword ptr [rsp + 8], rax
+0x1408ff4f0: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408ff4f5: mov      rax, qword ptr [rsp + 8]
+0x1408ff4fa: jmp      0x1408ff4c0   ; main.oledBlackoutService.endBackgroundActivity
+0x1408ff4fc: int3     
+0x1408ff4fd: int3     
+0x1408ff4fe: int3     
+0x1408ff4ff: int3     

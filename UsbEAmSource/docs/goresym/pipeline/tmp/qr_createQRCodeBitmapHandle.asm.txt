@@ -1,0 +1,86 @@
+0x140935400: cmp      rsp, qword ptr [r14 + 0x10]
+0x140935404: jbe      0x1409354fb   ; main.createQRCodeBitmapHandle+0xfb
+0x14093540a: push     rbp
+0x14093540b: mov      rbp, rsp
+0x14093540e: sub      rsp, 0x38
+0x140935412: test     rax, rax
+0x140935415: je       0x1409354cb   ; main.createQRCodeBitmapHandle+0xcb
+0x14093541b: mov      rcx, qword ptr [rax + 0x30]
+0x14093541f: nop      
+0x140935420: cmp      qword ptr [rax + 0x20], rcx
+0x140935424: jge      0x1409354cb   ; main.createQRCodeBitmapHandle+0xcb
+0x14093542a: mov      rcx, qword ptr [rax + 0x38]
+0x14093542e: mov      rdx, qword ptr [rax + 0x28]
+0x140935432: cmp      rcx, rdx
+0x140935435: jle      0x1409354cb   ; main.createQRCodeBitmapHandle+0xcb
+0x14093543b: nop      dword ptr [rax + rax]
+0x140935440: call     0x1401d9f00   ; github.com/wailsapp/wails/v3/pkg/w32.CreateHBITMAPFromImage
+0x140935445: test     rbx, rbx
+0x140935448: je       0x14093548c   ; main.createQRCodeBitmapHandle+0x8c
+0x14093544a: movups   xmmword ptr [rsp + 0x28], xmm15
+0x140935450: je       0x140935456   ; main.createQRCodeBitmapHandle+0x56
+0x140935452: mov      rbx, qword ptr [rbx + 8]
+0x140935456: mov      qword ptr [rsp + 0x28], rbx
+0x14093545b: mov      qword ptr [rsp + 0x30], rcx
+0x140935460: lea      rax, [rip + 0x344b2f]
+0x140935467: mov      ebx, 0x25
+0x14093546c: lea      rcx, [rsp + 0x28]
+0x140935471: mov      edi, 1
+0x140935476: mov      rsi, rdi
+0x140935479: call     0x140133280   ; fmt.Errorf
+0x14093547e: mov      rcx, rbx
+0x140935481: mov      rbx, rax
+0x140935484: xor      eax, eax
+0x140935486: add      rsp, 0x38
+0x14093548a: pop      rbp
+0x14093548b: ret      
+0x14093548c: test     rax, rax
+0x14093548f: jne      0x1409354c1   ; main.createQRCodeBitmapHandle+0xc1
+0x140935491: lea      rax, [rip + 0x21eee8]
+0x140935498: call     0x14001ae20   ; runtime.newobject
+0x14093549d: mov      qword ptr [rax + 8], 0x21
+0x1409354a5: lea      rcx, [rip + 0x33eb56]
+0x1409354ac: mov      qword ptr [rax], rcx
+0x1409354af: lea      rbx, [rip + 0x89dc4a]
+0x1409354b6: mov      rcx, rax
+0x1409354b9: xor      eax, eax
+0x1409354bb: add      rsp, 0x38
+0x1409354bf: pop      rbp
+0x1409354c0: ret      
+0x1409354c1: xor      ebx, ebx
+0x1409354c3: xor      ecx, ecx
+0x1409354c5: add      rsp, 0x38
+0x1409354c9: pop      rbp
+0x1409354ca: ret      
+0x1409354cb: lea      rax, [rip + 0x21eeae]
+0x1409354d2: call     0x14001ae20   ; runtime.newobject
+0x1409354d7: mov      qword ptr [rax + 8], 0x2f
+0x1409354df: lea      rcx, [rip + 0x350b09]
+0x1409354e6: mov      qword ptr [rax], rcx
+0x1409354e9: lea      rbx, [rip + 0x89dc10]
+0x1409354f0: mov      rcx, rax
+0x1409354f3: xor      eax, eax
+0x1409354f5: add      rsp, 0x38
+0x1409354f9: pop      rbp
+0x1409354fa: ret      
+0x1409354fb: mov      qword ptr [rsp + 8], rax
+0x140935500: call     0x14007f140   ; runtime.morestack_noctxt
+0x140935505: mov      rax, qword ptr [rsp + 8]
+0x14093550a: jmp      0x140935400   ; main.createQRCodeBitmapHandle
+0x14093550f: int3     
+0x140935510: int3     
+0x140935511: int3     
+0x140935512: int3     
+0x140935513: int3     
+0x140935514: int3     
+0x140935515: int3     
+0x140935516: int3     
+0x140935517: int3     
+0x140935518: int3     
+0x140935519: int3     
+0x14093551a: int3     
+0x14093551b: int3     
+0x14093551c: int3     
+0x14093551d: int3     
+0x14093551e: int3     
+0x14093551f: int3     

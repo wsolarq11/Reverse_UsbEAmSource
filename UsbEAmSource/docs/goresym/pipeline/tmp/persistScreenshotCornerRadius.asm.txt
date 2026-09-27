@@ -1,0 +1,133 @@
+0x14078d080: mov      r12, rsp
+0x14078d083: sub      r12, 0x1240
+0x14078d08a: jb       0x14078d242    ; main.BootstrapService.persistScreenshotCornerRadius+0x1c2
+0x14078d090: cmp      r12, qword ptr [r14 + 0x10]
+0x14078d094: jbe      0x14078d242    ; main.BootstrapService.persistScreenshotCornerRadius+0x1c2
+0x14078d09a: push     rbp
+0x14078d09b: mov      rbp, rsp
+0x14078d09e: sub      rsp, 0x12b8
+0x14078d0a5: test     rax, rax
+0x14078d0a8: je       0x14078d239    ; main.BootstrapService.persistScreenshotCornerRadius+0x1b9
+0x14078d0ae: mov      qword ptr [rsp + 0x12c8], rax
+0x14078d0b6: nop      
+0x14078d0b7: nop      
+0x14078d0b8: lea      rcx, [rax + 0x540]
+0x14078d0bf: mov      rdx, rax
+0x14078d0c2: xor      eax, eax
+0x14078d0c4: mov      esi, 1
+0x14078d0c9: lock cmpxchg dword ptr [rdx + 0x540], esi
+0x14078d0d1: sete     sil
+0x14078d0d5: test     rbx, rbx
+0x14078d0d8: mov      edi, 0
+0x14078d0dd: cmovg    rdi, rbx
+0x14078d0e1: mov      qword ptr [rsp + 0x960], rdi
+0x14078d0e9: test     sil, sil
+0x14078d0ec: jne      0x14078d116    ; main.BootstrapService.persistScreenshotCornerRadius+0x96
+0x14078d0ee: mov      qword ptr [rsp + 0x978], rcx
+0x14078d0f6: mov      rax, rcx
+0x14078d0f9: call     0x140091940    ; internal/sync.Mutex.lockSlow
+0x14078d0fe: mov      rcx, qword ptr [rsp + 0x978]
+0x14078d106: mov      rdx, qword ptr [rsp + 0x12c8]
+0x14078d10e: mov      rdi, qword ptr [rsp + 0x960]
+0x14078d116: cmp      qword ptr [rdx + 0x2a0], rdi
+0x14078d11d: jne      0x14078d143    ; main.BootstrapService.persistScreenshotCornerRadius+0xc3
+0x14078d11f: nop      
+0x14078d120: nop      
+0x14078d121: mov      ebx, 0xffffffff
+0x14078d126: lock xadd dword ptr [rdx + 0x540], ebx
+0x14078d12e: dec      ebx
+0x14078d130: je       0x14078d13a    ; main.BootstrapService.persistScreenshotCornerRadius+0xba
+0x14078d132: mov      rax, rcx
+0x14078d135: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14078d13a: add      rsp, 0x12b8
+0x14078d141: pop      rbp
+0x14078d142: ret      
+0x14078d143: mov      qword ptr [rdx + 0x2a0], rdi
+0x14078d14a: nop      
+0x14078d14b: nop      
+0x14078d14c: mov      ebx, 0xffffffff
+0x14078d151: lock xadd dword ptr [rdx + 0x540], ebx
+0x14078d159: dec      ebx
+0x14078d15b: je       0x14078d16d    ; main.BootstrapService.persistScreenshotCornerRadius+0xed
+0x14078d15d: mov      rax, rcx
+0x14078d160: call     0x140091c20    ; internal/sync.Mutex.unlockSlow
+0x14078d165: mov      rdx, qword ptr [rsp + 0x12c8]
+0x14078d16d: mov      rax, rdx
+0x14078d170: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x14078d175: lea      rdi, [rsp + 0x980]
+0x14078d17d: mov      rsi, rsp
+0x14078d180: mov      qword ptr [rsp - 0x10], rbp
+0x14078d185: lea      rbp, [rsp - 0x10]
+0x14078d18a: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x14078d18f: mov      rbp, qword ptr [rbp]
+0x14078d193: mov      rbx, qword ptr [rsp + 0x998]
+0x14078d19b: nop      dword ptr [rax + rax]
+0x14078d1a0: test     rbx, rbx
+0x14078d1a3: jne      0x14078d1ae    ; main.BootstrapService.persistScreenshotCornerRadius+0x12e
+0x14078d1a5: add      rsp, 0x12b8
+0x14078d1ac: pop      rbp
+0x14078d1ad: ret      
+0x14078d1ae: mov      rax, qword ptr [rsp + 0x990]
+0x14078d1b6: call     0x140898ac0    ; main.launcherConfigStoreForPath
+0x14078d1bb: movups   xmmword ptr [rsp + 0x980], xmm15
+0x14078d1c4: lea      rdi, [rsp + 0x988]
+0x14078d1cc: mov      ecx, 0x126
+0x14078d1d1: mov      rdx, rax
+0x14078d1d4: xor      eax, eax
+0x14078d1d6: rep stosq qword ptr [rdi], rax
+0x14078d1d9: lea      rcx, [rip + 0xa0]
+0x14078d1e0: mov      qword ptr [rsp + 0x968], rcx
+0x14078d1e8: mov      rcx, qword ptr [rsp + 0x960]
+0x14078d1f0: mov      qword ptr [rsp + 0x970], rcx
+0x14078d1f8: mov      rax, rdx
+0x14078d1fb: lea      rbx, [rsp + 0x968]
+0x14078d203: xor      ecx, ecx
+0x14078d205: xor      edi, edi
+0x14078d207: mov      rsi, rdi
+0x14078d20a: call     0x14089b420    ; main.launcherConfigStore.Update
+0x14078d20f: mov      rcx, qword ptr [rsp]
+0x14078d213: mov      qword ptr [rsp + 0x980], rcx
+0x14078d21b: lea      rdi, [rsp + 0x988]
+0x14078d223: lea      rsi, [rsp + 8]
+0x14078d228: mov      ecx, 0x126
+0x14078d22d: rep movsq qword ptr [rdi], qword ptr [rsi]
+0x14078d230: add      rsp, 0x12b8
+0x14078d237: pop      rbp
+0x14078d238: ret      
+0x14078d239: add      rsp, 0x12b8
+0x14078d240: pop      rbp
+0x14078d241: ret      
+0x14078d242: mov      qword ptr [rsp + 8], rax
+0x14078d247: mov      qword ptr [rsp + 0x10], rbx
+0x14078d24c: call     0x14007f140    ; runtime.morestack_noctxt
+0x14078d251: mov      rax, qword ptr [rsp + 8]
+0x14078d256: mov      rbx, qword ptr [rsp + 0x10]
+0x14078d25b: nop      dword ptr [rax + rax]
+0x14078d260: jmp      0x14078d080    ; main.BootstrapService.persistScreenshotCornerRadius
+0x14078d265: int3     
+0x14078d266: int3     
+0x14078d267: int3     
+0x14078d268: int3     
+0x14078d269: int3     
+0x14078d26a: int3     
+0x14078d26b: int3     
+0x14078d26c: int3     
+0x14078d26d: int3     
+0x14078d26e: int3     
+0x14078d26f: int3     
+0x14078d270: int3     
+0x14078d271: int3     
+0x14078d272: int3     
+0x14078d273: int3     
+0x14078d274: int3     
+0x14078d275: int3     
+0x14078d276: int3     
+0x14078d277: int3     
+0x14078d278: int3     
+0x14078d279: int3     
+0x14078d27a: int3     
+0x14078d27b: int3     
+0x14078d27c: int3     
+0x14078d27d: int3     
+0x14078d27e: int3     
+0x14078d27f: int3     

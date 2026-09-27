@@ -1,0 +1,51 @@
+0x140790400: lea      r12, [rsp - 0xd0]
+0x140790408: cmp      r12, qword ptr [r14 + 0x10]
+0x14079040c: jbe      0x140790486    ; main.BootstrapService.ResolveBookmarkTitle+0x86
+0x14079040e: push     rbp
+0x14079040f: mov      rbp, rsp
+0x140790412: sub      rsp, 0x148
+0x140790419: mov      qword ptr [rsp + 0x168], rcx
+0x140790421: mov      qword ptr [rsp + 0x160], rbx
+0x140790429: call     0x1407a10c0    ; main.BootstrapService.workspaceSnapshot
+0x14079042e: lea      rdi, [rsp + 0xa8]
+0x140790436: mov      rsi, rsp
+0x140790439: nop      dword ptr [rax]
+0x140790440: mov      qword ptr [rsp - 0x10], rbp
+0x140790445: lea      rbp, [rsp - 0x10]
+0x14079044a: call     0x140081a54    ; runtime.duffcopy+0x2f4
+0x14079044f: mov      rbp, qword ptr [rbp]
+0x140790453: mov      rax, qword ptr [rsp + 0xb8]
+0x14079045b: mov      rbx, qword ptr [rsp + 0xc0]
+0x140790463: call     0x1408a5640    ; main.newLauncherNetworkAccess
+0x140790468: mov      rcx, qword ptr [rsp + 0x160]
+0x140790470: mov      rdi, qword ptr [rsp + 0x168]
+0x140790478: call     0x1407709e0    ; main.resolveBookmarkPageTitleWithNetwork
+0x14079047d: add      rsp, 0x148
+0x140790484: pop      rbp
+0x140790485: ret      
+0x140790486: mov      qword ptr [rsp + 8], rax
+0x14079048b: mov      qword ptr [rsp + 0x10], rbx
+0x140790490: mov      qword ptr [rsp + 0x18], rcx
+0x140790495: call     0x14007f140    ; runtime.morestack_noctxt
+0x14079049a: mov      rax, qword ptr [rsp + 8]
+0x14079049f: mov      rbx, qword ptr [rsp + 0x10]
+0x1407904a4: mov      rcx, qword ptr [rsp + 0x18]
+0x1407904a9: jmp      0x140790400    ; main.BootstrapService.ResolveBookmarkTitle
+0x1407904ae: int3     
+0x1407904af: int3     
+0x1407904b0: int3     
+0x1407904b1: int3     
+0x1407904b2: int3     
+0x1407904b3: int3     
+0x1407904b4: int3     
+0x1407904b5: int3     
+0x1407904b6: int3     
+0x1407904b7: int3     
+0x1407904b8: int3     
+0x1407904b9: int3     
+0x1407904ba: int3     
+0x1407904bb: int3     
+0x1407904bc: int3     
+0x1407904bd: int3     
+0x1407904be: int3     
+0x1407904bf: int3     

@@ -1,0 +1,68 @@
+0x1408d51c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408d51c4: jbe      0x1408d52b1   ; main.executeMemoryReleaseMode.func1+0xf1
+0x1408d51ca: push     rbp
+0x1408d51cb: mov      rbp, rsp
+0x1408d51ce: sub      rsp, 0x50
+0x1408d51d2: mov      edx, dword ptr [rdx + 8]
+0x1408d51d5: mov      dword ptr [rsp + 0x2c], edx
+0x1408d51d9: mov      eax, 0x50
+0x1408d51de: lea      rbx, [rsp + 0x2c]
+0x1408d51e3: mov      ecx, 4
+0x1408d51e8: call     0x1401994e0   ; golang.org/x/sys/windows.NtSetSystemInformation
+0x1408d51ed: test     rax, rax
+0x1408d51f0: je       0x1408d52a7   ; main.executeMemoryReleaseMode.func1+0xe7
+0x1408d51f6: lea      rdx, [rip + 0x8fdc03]
+0x1408d51fd: nop      dword ptr [rax]
+0x1408d5200: cmp      rax, rdx
+0x1408d5203: je       0x1408d520a   ; main.executeMemoryReleaseMode.func1+0x4a
+0x1408d5205: test     rax, rax
+0x1408d5208: jmp      0x1408d523a   ; main.executeMemoryReleaseMode.func1+0x7a
+0x1408d520a: mov      qword ptr [rsp + 0x30], rax
+0x1408d520f: mov      qword ptr [rsp + 0x38], rbx
+0x1408d5214: mov      rax, rdx
+0x1408d5217: mov      rcx, rbx
+0x1408d521a: lea      rbx, [rip + 0x8f8257]
+0x1408d5221: call     0x140010840   ; runtime.ifaceeq
+0x1408d5226: test     al, al
+0x1408d5228: jne      0x1408d5274   ; main.executeMemoryReleaseMode.func1+0xb4
+0x1408d522a: mov      rdx, qword ptr [rsp + 0x30]
+0x1408d522f: test     rdx, rdx
+0x1408d5232: mov      rax, rdx
+0x1408d5235: mov      rbx, qword ptr [rsp + 0x38]
+0x1408d523a: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1408d5240: je       0x1408d5246   ; main.executeMemoryReleaseMode.func1+0x86
+0x1408d5242: mov      rax, qword ptr [rax + 8]
+0x1408d5246: mov      qword ptr [rsp + 0x40], rax
+0x1408d524b: mov      qword ptr [rsp + 0x48], rbx
+0x1408d5250: lea      rax, [rip + 0x396a9d]
+0x1408d5257: mov      ebx, 0x1c
+0x1408d525c: lea      rcx, [rsp + 0x40]
+0x1408d5261: mov      edi, 1
+0x1408d5266: mov      rsi, rdi
+0x1408d5269: call     0x140133280   ; fmt.Errorf
+0x1408d526e: add      rsp, 0x50
+0x1408d5272: pop      rbp
+0x1408d5273: ret      
+0x1408d5274: lea      rax, [rip + 0x27f105]
+0x1408d527b: nop      dword ptr [rax + rax]
+0x1408d5280: call     0x14001ae20   ; runtime.newobject
+0x1408d5285: mov      qword ptr [rax + 8], 0x48
+0x1408d528d: lea      rcx, [rip + 0x3bbc4a]
+0x1408d5294: mov      qword ptr [rax], rcx
+0x1408d5297: mov      rbx, rax
+0x1408d529a: lea      rax, [rip + 0x8fde5f]
+0x1408d52a1: add      rsp, 0x50
+0x1408d52a5: pop      rbp
+0x1408d52a6: ret      
+0x1408d52a7: xor      eax, eax
+0x1408d52a9: xor      ebx, ebx
+0x1408d52ab: add      rsp, 0x50
+0x1408d52af: pop      rbp
+0x1408d52b0: ret      
+0x1408d52b1: call     0x14007f0a0   ; runtime.morestack
+0x1408d52b6: jmp      0x1408d51c0   ; main.executeMemoryReleaseMode.func1
+0x1408d52bb: int3     
+0x1408d52bc: int3     
+0x1408d52bd: int3     
+0x1408d52be: int3     
+0x1408d52bf: int3     

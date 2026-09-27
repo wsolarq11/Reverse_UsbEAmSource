@@ -930,6 +930,10 @@ workspacemigration.go
 
 **先读 `docs/STRATEGY.md`**——它是还原策略的唯一真相源，L0→L1→L2 分层、`[S-eq]` 标记、对拍验证范式都在里面。本节的推进顺序服从它。
 
+**仓库已 git 化（2026-09-27）**：远端 `https://github.com/wsolarq11/Reverse_UsbEAmSource`（私有），首次提交 `d0246a7` 含全部源码 + 文档 + 反汇编资产 + 策略。新会话工作流：`git pull` 拉最新 → 按 §6 开工 → 每批收尾 commit + push → CI 自动验证。
+
+**本地 git 传输配置（必读，否则 push 报 `schannel: failed to receive handshake`）**：本机 git 直连与默认 schannel 走系统代理均失败，已写入仓库级配置：`http.sslBackend=openssl`、`http.proxy=http://127.0.0.1:7890`、`http.postBuffer=524288000`。换新机器或重装后若 push 报 schannel 握手失败，重跑这三条 `git config` 即可。CI 定义在 `.github/workflows/ci.yml`（windows-latest + go1.25.12，build/vet/test 三项，push 到 main 自动触发）。
+
 批次 43 已闭环，screenshot image_budget 内存预算链全量 `[S]`，门禁三连绿，artifact 已重建。你接手时不要从零判断，直接按下面顺序推进。
 
 **第一步，校准基线（5 分钟内）**：先跑 `bash tools/count_funcs.sh` 取活体数字，再跑 `go build -tags production -trimpath ./backend`、`go vet -tags production ./backend`、`go test -count=1 -p=1 -tags production ./backend` 三项确认 EXIT=0。文档里任何历史数字若与此冲突，以活体实测为准，不要抄文档。
@@ -938,7 +942,7 @@ workspacemigration.go
 
 **四条不改的铁律**：① 签名未定型拒绝落体，宁留 `[S-sig]`/`[P]` 并写明阻断原因；② asm 直译优先于语义推断，锁内读与锁后读严格区分（照搬 `lock.Lock()` 包裹可能直接死锁，见 §6 纪律 5）；③ L1 落体必须带对拍测试，无测试不算 L1（只能算 `[S-sig]`）；④ 长尾停 L1、核心才升 L2，禁止对所有函数无差别追 `[S]`。所有文件改动走编辑工具，不得命令行改文件。
 
-**每批收尾四件套**：写 `docs/acceptance/<batch>.md`（G1/G2/G3/G4）→ 跑 `count_funcs.sh` 更新 §1 指标 → 在 HANDOFF 尾部追加批次记录 → `bash build.sh` 重建 artifact 并记录 SHA256。缺任何一件，该批不算完成。
+**每批收尾五件套**：写 `docs/acceptance/<batch>.md`（G1/G2/G3/G4）→ 跑 `count_funcs.sh` 更新 §1 指标 → 在 HANDOFF 尾部追加批次记录 → `git add -A && git commit && git push` 触发 CI → 盯 `gh run list` 确认 CI 三绿。缺任何一件，该批不算完成。
 
 当前进度锚点：`FUNCS=1026 / MARKED=837 / UNMARKED=189`，函数覆盖约 22%，未落地文件 110 个（§10）。
 **目标口径已升级为总进度 100%**：4,754 蓝图函数 100% 还原、110 未落地文件 100% 落地、`UNMARKED=0` 且 `P=0`；全程保持可编译 + 功能一致，不是字节级同哈希。**判定完成的标准改为：`count_funcs.sh` 显示 `FUNCS≥4,754`、`UNMARKED=0`、`P=0`，且 §10 差集为空。**

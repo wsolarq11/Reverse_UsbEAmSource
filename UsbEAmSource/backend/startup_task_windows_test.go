@@ -3,6 +3,8 @@ package main
 import (
 	"strings"
 	"testing"
+
+	"golang.org/x/sys/windows"
 )
 
 func TestDecodeWindowsCommandOutputEmpty(t *testing.T) {
@@ -24,9 +26,18 @@ func TestDecodeWindowsCommandOutputValidUTF8(t *testing.T) {
 // GBK 中文 "找不到" = D5 D2 B2 BB B5 BD。非 UTF-8，应回退 ACP/936 解码。
 func TestDecodeWindowsCommandOutputGBK(t *testing.T) {
 	gbk := []byte{0xd5, 0xd2, 0xb2, 0xbb, 0xb5, 0xbd}
-	got := decodeWindowsCommandOutput(gbk)
-	if got != "找不到" {
-		t.Fatalf("GBK 解码失败, got %q", got)
+
+	// 确定性：GBK(936) 解码路径不依赖系统代码页，任何环境都必须解出"找不到"。
+	if s, ok := decodeWindowsBytes(gbk, 936); !ok || s != "找不到" {
+		t.Fatalf("GBK(936) 解码失败, got %q ok=%v", s, ok)
+	}
+
+	// decodeWindowsCommandOutput 忠实还原原 asm 的 GetACP→936 顺序：
+	// 中文系统(ACP=936)命中 GBK；非中文系统 ACP 优先，不强断言具体值。
+	if windows.GetACP() == 936 {
+		if got := decodeWindowsCommandOutput(gbk); got != "找不到" {
+			t.Fatalf("ACP=936 时应解码为找不到, got %q", got)
+		}
 	}
 }
 

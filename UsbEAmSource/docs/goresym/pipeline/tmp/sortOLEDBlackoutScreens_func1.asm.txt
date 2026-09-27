@@ -1,0 +1,65 @@
+0x140906340: cmp      rsp, qword ptr [r14 + 0x10]
+0x140906344: jbe      0x1409063f8   ; main.sortOLEDBlackoutScreens.func1+0xb8
+0x14090634a: push     rbp
+0x14090634b: mov      rbp, rsp
+0x14090634e: sub      rsp, 0x48
+0x140906352: mov      rcx, qword ptr [rdx + 0x10]
+0x140906356: cmp      rax, rcx
+0x140906359: jae      0x1409063f2   ; main.sortOLEDBlackoutScreens.func1+0xb2
+0x14090635f: mov      rdx, qword ptr [rdx + 8]
+0x140906363: mov      rsi, qword ptr [rdx + rax*8]
+0x140906367: test     byte ptr [rsi], al
+0x140906369: cmp      rbx, rcx
+0x14090636c: jae      0x1409063ea   ; main.sortOLEDBlackoutScreens.func1+0xaa
+0x14090636e: mov      rax, qword ptr [rsi + 0x10]
+0x140906372: mov      qword ptr [rsp + 0x40], rax
+0x140906377: mov      rcx, qword ptr [rsi + 0x18]
+0x14090637b: mov      qword ptr [rsp + 0x30], rcx
+0x140906380: mov      rdx, qword ptr [rdx + rbx*8]
+0x140906384: mov      rsi, qword ptr [rdx + 0x10]
+0x140906388: mov      qword ptr [rsp + 0x38], rsi
+0x14090638d: mov      rdx, qword ptr [rdx + 0x18]
+0x140906391: mov      qword ptr [rsp + 0x28], rdx
+0x140906396: mov      rbx, rcx
+0x140906399: call     0x140906420   ; main.parseOLEDBlackoutScreenNumber
+0x14090639e: mov      qword ptr [rsp + 0x20], rax
+0x1409063a3: mov      rax, qword ptr [rsp + 0x38]
+0x1409063a8: mov      rbx, qword ptr [rsp + 0x28]
+0x1409063ad: call     0x140906420   ; main.parseOLEDBlackoutScreenNumber
+0x1409063b2: mov      rcx, qword ptr [rsp + 0x20]
+0x1409063b7: cmp      rax, rcx
+0x1409063ba: je       0x1409063c5   ; main.sortOLEDBlackoutScreens.func1+0x85
+0x1409063bc: setg     al
+0x1409063bf: add      rsp, 0x48
+0x1409063c3: pop      rbp
+0x1409063c4: ret      
+0x1409063c5: mov      rax, qword ptr [rsp + 0x40]
+0x1409063ca: mov      rbx, qword ptr [rsp + 0x30]
+0x1409063cf: mov      rcx, qword ptr [rsp + 0x38]
+0x1409063d4: mov      rdi, qword ptr [rsp + 0x28]
+0x1409063d9: call     0x140005ea0   ; runtime.cmpstring
+0x1409063de: test     rax, rax
+0x1409063e1: setl     al
+0x1409063e4: add      rsp, 0x48
+0x1409063e8: pop      rbp
+0x1409063e9: ret      
+0x1409063ea: mov      rax, rbx
+0x1409063ed: call     0x140081400   ; runtime.panicIndex
+0x1409063f2: call     0x140081400   ; runtime.panicIndex
+0x1409063f7: nop      
+0x1409063f8: mov      qword ptr [rsp + 8], rax
+0x1409063fd: mov      qword ptr [rsp + 0x10], rbx
+0x140906402: call     0x14007f0a0   ; runtime.morestack
+0x140906407: mov      rax, qword ptr [rsp + 8]
+0x14090640c: mov      rbx, qword ptr [rsp + 0x10]
+0x140906411: jmp      0x140906340   ; main.sortOLEDBlackoutScreens.func1
+0x140906416: int3     
+0x140906417: int3     
+0x140906418: int3     
+0x140906419: int3     
+0x14090641a: int3     
+0x14090641b: int3     
+0x14090641c: int3     
+0x14090641d: int3     
+0x14090641e: int3     
+0x14090641f: int3     

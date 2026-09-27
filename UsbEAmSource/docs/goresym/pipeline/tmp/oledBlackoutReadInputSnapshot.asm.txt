@@ -1,0 +1,36 @@
+0x14090be40: cmp      rsp, qword ptr [r14 + 0x10]
+0x14090be44: jbe      0x14090be8c   ; main.oledBlackoutReadInputSnapshot+0x4c
+0x14090be46: push     rbp
+0x14090be47: mov      rbp, rsp
+0x14090be4a: sub      rsp, 0x18
+0x14090be4e: mov      rdx, qword ptr [rip + 0x12b5cdb]
+0x14090be55: mov      rax, qword ptr [rdx]
+0x14090be58: call     rax
+0x14090be5a: mov      qword ptr [rsp + 0x10], rax
+0x14090be5f: mov      qword ptr [rsp + 8], rbx
+0x14090be64: mov      byte ptr [rsp + 7], cl
+0x14090be68: mov      rdx, qword ptr [rip + 0x12b5cc9]
+0x14090be6f: mov      rax, qword ptr [rdx]
+0x14090be72: call     rax
+0x14090be74: mov      rbx, qword ptr [rsp + 8]
+0x14090be79: movzx    ecx, byte ptr [rsp + 7]
+0x14090be7e: mov      rdi, rax
+0x14090be81: mov      rax, qword ptr [rsp + 0x10]
+0x14090be86: add      rsp, 0x18
+0x14090be8a: pop      rbp
+0x14090be8b: ret      
+0x14090be8c: call     0x14007f140   ; runtime.morestack_noctxt
+0x14090be91: jmp      0x14090be40   ; main.oledBlackoutReadInputSnapshot
+0x14090be93: int3     
+0x14090be94: int3     
+0x14090be95: int3     
+0x14090be96: int3     
+0x14090be97: int3     
+0x14090be98: int3     
+0x14090be99: int3     
+0x14090be9a: int3     
+0x14090be9b: int3     
+0x14090be9c: int3     
+0x14090be9d: int3     
+0x14090be9e: int3     
+0x14090be9f: int3     

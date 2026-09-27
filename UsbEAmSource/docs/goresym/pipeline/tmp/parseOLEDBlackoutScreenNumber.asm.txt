@@ -1,0 +1,101 @@
+0x140906420: cmp      rsp, qword ptr [r14 + 0x10]
+0x140906424: jbe      0x140906579   ; main.parseOLEDBlackoutScreenNumber+0x159
+0x14090642a: push     rbp
+0x14090642b: mov      rbp, rsp
+0x14090642e: sub      rsp, 0x70
+0x140906432: mov      qword ptr [rsp + 0x88], rbx
+0x14090643a: mov      qword ptr [rsp + 0x80], rax
+0x140906442: movups   xmmword ptr [rsp + 0x50], xmm15
+0x140906448: movups   xmmword ptr [rsp + 0x60], xmm15
+0x14090644e: xor      ecx, ecx
+0x140906450: jmp      0x140906455   ; main.parseOLEDBlackoutScreenNumber+0x35
+0x140906452: inc      rcx
+0x140906455: cmp      rbx, rcx
+0x140906458: jle      0x14090651f   ; main.parseOLEDBlackoutScreenNumber+0xff
+0x14090645e: movzx    edx, byte ptr [rax + rcx]
+0x140906462: cmp      dl, 0x30
+0x140906465: jb       0x140906515   ; main.parseOLEDBlackoutScreenNumber+0xf5
+0x14090646b: cmp      dl, 0x39
+0x14090646e: ja       0x140906515   ; main.parseOLEDBlackoutScreenNumber+0xf5
+0x140906474: mov      r8, qword ptr [rsp + 0x50]
+0x140906479: nop      
+0x14090647a: test     r8, r8
+0x14090647d: je       0x14090648e   ; main.parseOLEDBlackoutScreenNumber+0x6e
+0x14090647f: lea      r9, [rsp + 0x50]
+0x140906484: cmp      r8, r9
+0x140906487: je       0x14090649d   ; main.parseOLEDBlackoutScreenNumber+0x7d
+0x140906489: jmp      0x140906565   ; main.parseOLEDBlackoutScreenNumber+0x145
+0x14090648e: lea      r8, [rsp + 0x50]
+0x140906493: mov      qword ptr [rsp + 0x50], r8
+0x140906498: lea      r9, [rsp + 0x50]
+0x14090649d: mov      r8, qword ptr [rsp + 0x68]
+0x1409064a2: mov      r10, qword ptr [rsp + 0x60]
+0x1409064a7: inc      r10
+0x1409064aa: mov      r11, qword ptr [rsp + 0x58]
+0x1409064af: cmp      r8, r10
+0x1409064b2: jae      0x140906506   ; main.parseOLEDBlackoutScreenNumber+0xe6
+0x1409064b4: mov      qword ptr [rsp + 0x48], rcx
+0x1409064b9: mov      byte ptr [rsp + 0x47], dl
+0x1409064bd: mov      rax, r11
+0x1409064c0: mov      rbx, r10
+0x1409064c3: mov      rcx, r8
+0x1409064c6: mov      edi, 1
+0x1409064cb: lea      rsi, [rip + 0x1e39ae]
+0x1409064d2: call     0x14007ad20   ; runtime.growslice
+0x1409064d7: mov      qword ptr [rsp + 0x68], rcx
+0x1409064dc: mov      qword ptr [rsp + 0x58], rax
+0x1409064e1: mov      rcx, qword ptr [rsp + 0x48]
+0x1409064e6: movzx    edx, byte ptr [rsp + 0x47]
+0x1409064eb: lea      r9, [rsp + 0x50]
+0x1409064f0: mov      r10, rbx
+0x1409064f3: mov      r11, rax
+0x1409064f6: mov      rax, qword ptr [rsp + 0x80]
+0x1409064fe: mov      rbx, qword ptr [rsp + 0x88]
+0x140906506: mov      qword ptr [rsp + 0x60], r10
+0x14090650b: mov      byte ptr [r10 + r11 - 1], dl
+0x140906510: jmp      0x140906452   ; main.parseOLEDBlackoutScreenNumber+0x32
+0x140906515: lea      r9, [rsp + 0x50]
+0x14090651a: jmp      0x140906452   ; main.parseOLEDBlackoutScreenNumber+0x32
+0x14090651f: mov      rbx, qword ptr [rsp + 0x60]
+0x140906524: test     rbx, rbx
+0x140906527: je       0x14090654b   ; main.parseOLEDBlackoutScreenNumber+0x12b
+0x140906529: mov      rax, qword ptr [rsp + 0x58]
+0x14090652e: mov      rcx, rax
+0x140906531: neg      rcx
+0x140906534: cmp      rbx, rcx
+0x140906537: ja       0x140906553   ; main.parseOLEDBlackoutScreenNumber+0x133
+0x140906539: call     0x1400a8ea0   ; strconv.Atoi
+0x14090653e: nop      
+0x140906540: test     rbx, rbx
+0x140906543: jne      0x14090654b   ; main.parseOLEDBlackoutScreenNumber+0x12b
+0x140906545: add      rsp, 0x70
+0x140906549: pop      rbp
+0x14090654a: ret      
+0x14090654b: xor      eax, eax
+0x14090654d: add      rsp, 0x70
+0x140906551: pop      rbp
+0x140906552: ret      
+0x140906553: test     rax, rax
+0x140906556: je       0x140906560   ; main.parseOLEDBlackoutScreenNumber+0x140
+0x140906558: call     0x140073180   ; runtime.panicunsafestringlen
+0x14090655d: nop      dword ptr [rax]
+0x140906560: call     0x1400731c0   ; runtime.panicunsafestringnilptr
+0x140906565: lea      rax, [rip + 0x1e3894]
+0x14090656c: lea      rbx, [rip + 0x8c83fd]
+0x140906573: call     0x1400789c0   ; runtime.gopanic
+0x140906578: nop      
+0x140906579: mov      qword ptr [rsp + 8], rax
+0x14090657e: mov      qword ptr [rsp + 0x10], rbx
+0x140906583: call     0x14007f140   ; runtime.morestack_noctxt
+0x140906588: mov      rax, qword ptr [rsp + 8]
+0x14090658d: mov      rbx, qword ptr [rsp + 0x10]
+0x140906592: jmp      0x140906420   ; main.parseOLEDBlackoutScreenNumber
+0x140906597: int3     
+0x140906598: int3     
+0x140906599: int3     
+0x14090659a: int3     
+0x14090659b: int3     
+0x14090659c: int3     
+0x14090659d: int3     
+0x14090659e: int3     
+0x14090659f: int3     

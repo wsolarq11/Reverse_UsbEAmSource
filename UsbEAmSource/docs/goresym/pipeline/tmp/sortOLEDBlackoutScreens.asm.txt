@@ -1,0 +1,63 @@
+0x140906280: cmp      rsp, qword ptr [r14 + 0x10]
+0x140906284: jbe      0x140906301   ; main.sortOLEDBlackoutScreens+0x81
+0x140906286: push     rbp
+0x140906287: mov      rbp, rsp
+0x14090628a: sub      rsp, 0x38
+0x14090628e: mov      qword ptr [rsp + 0x48], rax
+0x140906293: cmp      rbx, 1
+0x140906297: jg       0x14090629f   ; main.sortOLEDBlackoutScreens+0x1f
+0x140906299: add      rsp, 0x38
+0x14090629d: pop      rbp
+0x14090629e: ret      
+0x14090629f: mov      qword ptr [rsp + 0x58], rcx
+0x1409062a4: mov      qword ptr [rsp + 0x50], rbx
+0x1409062a9: mov      qword ptr [rsp + 0x48], rax
+0x1409062ae: call     0x140076700   ; runtime.convTslice
+0x1409062b3: mov      qword ptr [rsp + 0x30], 0
+0x1409062bc: lea      rdx, [rip + 0x7d]
+0x1409062c3: mov      qword ptr [rsp + 0x18], rdx
+0x1409062c8: mov      rdx, qword ptr [rsp + 0x50]
+0x1409062cd: mov      qword ptr [rsp + 0x28], rdx
+0x1409062d2: mov      rdx, qword ptr [rsp + 0x58]
+0x1409062d7: mov      qword ptr [rsp + 0x30], rdx
+0x1409062dc: mov      rdx, qword ptr [rsp + 0x48]
+0x1409062e1: mov      qword ptr [rsp + 0x20], rdx
+0x1409062e6: mov      rbx, rax
+0x1409062e9: lea      rcx, [rsp + 0x18]
+0x1409062ee: lea      rax, [rip + 0x1d250b]
+0x1409062f5: call     0x1401af7e0   ; sort.Slice
+0x1409062fa: add      rsp, 0x38
+0x1409062fe: pop      rbp
+0x1409062ff: nop      
+0x140906300: ret      
+0x140906301: mov      qword ptr [rsp + 8], rax
+0x140906306: mov      qword ptr [rsp + 0x10], rbx
+0x14090630b: mov      qword ptr [rsp + 0x18], rcx
+0x140906310: call     0x14007f140   ; runtime.morestack_noctxt
+0x140906315: mov      rax, qword ptr [rsp + 8]
+0x14090631a: mov      rbx, qword ptr [rsp + 0x10]
+0x14090631f: mov      rcx, qword ptr [rsp + 0x18]
+0x140906324: jmp      0x140906280   ; main.sortOLEDBlackoutScreens
+0x140906329: int3     
+0x14090632a: int3     
+0x14090632b: int3     
+0x14090632c: int3     
+0x14090632d: int3     
+0x14090632e: int3     
+0x14090632f: int3     
+0x140906330: int3     
+0x140906331: int3     
+0x140906332: int3     
+0x140906333: int3     
+0x140906334: int3     
+0x140906335: int3     
+0x140906336: int3     
+0x140906337: int3     
+0x140906338: int3     
+0x140906339: int3     
+0x14090633a: int3     
+0x14090633b: int3     
+0x14090633c: int3     
+0x14090633d: int3     
+0x14090633e: int3     
+0x14090633f: int3     

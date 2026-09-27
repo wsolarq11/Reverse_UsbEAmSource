@@ -1,0 +1,6 @@
+0x141bc1b30: mov      eax, 0x141096b
+0x141bc1b35: add      byte ptr [rax], al
+0x141bc1b37: add      al, ch
+0x141bc1b39: imul     ecx, dword ptr [rcx], 0x41
+0x141bc1b3c: add      dword ptr [rax], eax
+0x141bc1b3e: add      byte ptr [rax], al

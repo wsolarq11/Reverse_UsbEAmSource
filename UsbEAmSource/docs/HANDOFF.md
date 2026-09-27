@@ -4748,6 +4748,30 @@ FUNCS 2826/4754 = 59.44%。
 （GetClassName 256B / MaybeWrapCursor 288B / EnumDisplayMonitorProc 320B / GetCursorPoint 320B 等）。
 FUNCS 2831/4754 = 59.55%。
 
+### 批次 256（截图/桌面小组件短函数 +7 [S]）
+
+**基线/收口**：`FUNCS=2831→2838 / S=1299→1306 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2791→2798 = 58.86%）。`go1.25.12 build/vet/test ./backend` 全 EXIT=0。
+
+**本批落地**（4 新文件 +7，全部 [S]，详见 acceptance/batch256.md）：
+- screenshot_preview_windows.go：screenshotPreviewShowWindowFlags [S 0x14099e7a0]（return 0x53=83）、
+  screenshotPreviewShowWindowCommand [S 0x14099e7c0]（return 4=SW_SHOWNOACTIVATE）。
+- screenshot_selection_toolbar_windows.go：screenshotSelectionToolbarShowWindowCommand
+  [S 0x1409ad200]（return 8=SW_SHOWNA）、screenshotSelectionToolbarShowWindowFlags [S 0x1409ad220]
+  （return 0x53=83）。
+- desktopwidgets_weather.go：desktopWeatherInt [S 0x1407c9640]（Atoi(TrimSpace(s)) →
+  (int,error)）、(*desktopWidgetWeatherService)Shutdown [S 0x1407c5180]（nil/`cancel==nil` 守卫后 s.cancel()）。
+- screenshot_scroll_canvas_windows.go：(*screenshotScrollingChunkedCanvas)Bounds [S 0x14099f520]
+  （nil/宽高<=0 → 零矩形，否则 image.Rect(0,0,width,height)）。
+
+**关键知悉**：ShowWindowFlags 两处均返 0x53=83（0x40|0x10|0x02|0x01，非标准 WS_*/WS_EX_* 组合，
+按 asm 直译字面常量）。Shutdown 偏移 cancel@+0x28、Bounds 偏移 width@+0x00/height@+0x08 与
+types 声明吻合。本批重跑 aggregate_gap.py 刷新缺口：total missing=2040、top-level=874。
+
+**下一批**：P=40。继续按 gap_aggregate.txt 长度升序落地 windowmanagement_windows.go 剩余短函数
+（GetClassName 256B / MaybeWrapCursor 288B / EnumDisplayMonitorProc 320B / GetCursorPoint 320B）
+及 desktopwidgets_weather.go 的 desktopWeatherFloat（128B）。FUNCS 2838/4754 = 59.70%。
+
 
 
 

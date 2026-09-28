@@ -4772,6 +4772,31 @@ types 声明吻合。本批重跑 aggregate_gap.py 刷新缺口：total missing=
 （GetClassName 256B / MaybeWrapCursor 288B / EnumDisplayMonitorProc 320B / GetCursorPoint 320B）
 及 desktopwidgets_weather.go 的 desktopWeatherFloat（128B）。FUNCS 2838/4754 = 59.70%。
 
+### 批次 257（输入/远程图标/工作区迁移/天气浮点 +4 [S]）
+
+**基线/收口**：`FUNCS=2838→2842 / S=1306→1310 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2798→2802 = 58.94%）。`go1.25.12 build/vet/test ./backend` 全 EXIT=0。
+
+**本批落地**（+4 [S]，1 追加 + 3 新文件，详见 acceptance/batch257.md）：
+- desktopwidgets_weather.go：desktopWeatherFloat [S 0x1407c95c0]（ParseFloat(s,64) + NaN/上界
+  MaxFloat64/负值三层守卫 → 越界返 0）。
+- inputmonitor_windows.go：inputMonitorXButtonLabel [S 0x1408695e0]（HIWORD==1→"x1"、==2→"x2"、
+  否则 "x"+FormatInt(HIWORD,10)）。
+- remoteicons.go：remoteIconContentTypeAllowed [S 0x140961fe0]（ParseMediaType(TrimSpace) err→false、
+  否则 EqualFold(mediatype, allowed)）。
+- workspacemigration_identity_windows.go：workspaceMigrationPathIsReparse [S 0x1409f4660]
+  （UTF16PtrFromString→GetFileAttributes 任一步 err→false、否则 attrs&REPARSE_POINT(0x400)!=0）。
+
+**关键知悉**：RIP-relative 目标地址初算多进 0x100000（`0x869605+0x3ca0a6=0xC336AB` 误算 `0xD096AB`），
+读到垃圾后按「disp32 加到下一条指令地址」重算修正为 0x140C336xx/0x1411CD8xx。desktopWeatherFloat
+下界常量 = 负零（-0），语义 `f < 0 → 0`。workspaceMigrationPathIsReparse 与 pluginPathIsReparse/
+launcherUpdatePathHasReparsePoint 同族（本函数 error 时返 false）。timeFromWindowsTick 涉及
+time.Time wall/monotonic 内部布局，留待专项。
+
+**下一批**：P=40。继续按 gap_aggregate.txt 长度升序落地 windowmanagement_windows.go 剩余短函数
+（GetClassName 256B / MaybeWrapCursor 288B / EnumDisplayMonitorProc 320B / GetCursorPoint 320B /
+GetWindowText 320B）。FUNCS 2842/4754 = 59.78%。
+
 
 
 

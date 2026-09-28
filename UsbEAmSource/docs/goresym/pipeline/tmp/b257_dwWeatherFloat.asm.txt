@@ -1,0 +1,53 @@
+0x1407c95c0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407c95c4: jbe      0x1407c9618   ; main.desktopWeatherFloat+0x58
+0x1407c95c6: push     rbp
+0x1407c95c7: mov      rbp, rsp
+0x1407c95ca: sub      rsp, 0x18
+0x1407c95ce: mov      qword ptr [rsp + 0x28], rax
+0x1407c95d3: call     0x1400a2200   ; strings.TrimSpace
+0x1407c95d8: mov      ecx, 0x40
+0x1407c95dd: nop      dword ptr [rax]
+0x1407c95e0: call     0x1400a7b60   ; strconv.ParseFloat
+0x1407c95e5: ucomisd  xmm0, xmm0
+0x1407c95e9: jne      0x1407c9609   ; main.desktopWeatherFloat+0x49
+0x1407c95eb: jp       0x1407c9609   ; main.desktopWeatherFloat+0x49
+0x1407c95ed: movsd    xmm1, qword ptr [rip + 0xa04243]
+0x1407c95f5: ucomisd  xmm0, xmm1
+0x1407c95f9: ja       0x1407c9609   ; main.desktopWeatherFloat+0x49
+0x1407c95fb: movsd    xmm1, qword ptr [rip + 0xa04255]
+0x1407c9603: ucomisd  xmm1, xmm0
+0x1407c9607: jbe      0x1407c9612   ; main.desktopWeatherFloat+0x52
+0x1407c9609: xorps    xmm0, xmm0
+0x1407c960c: add      rsp, 0x18
+0x1407c9610: pop      rbp
+0x1407c9611: ret      
+0x1407c9612: add      rsp, 0x18
+0x1407c9616: pop      rbp
+0x1407c9617: ret      
+0x1407c9618: mov      qword ptr [rsp + 8], rax
+0x1407c961d: mov      qword ptr [rsp + 0x10], rbx
+0x1407c9622: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407c9627: mov      rax, qword ptr [rsp + 8]
+0x1407c962c: mov      rbx, qword ptr [rsp + 0x10]
+0x1407c9631: jmp      0x1407c95c0   ; main.desktopWeatherFloat
+0x1407c9633: int3     
+0x1407c9634: int3     
+0x1407c9635: int3     
+0x1407c9636: int3     
+0x1407c9637: int3     
+0x1407c9638: int3     
+0x1407c9639: int3     
+0x1407c963a: int3     
+0x1407c963b: int3     
+0x1407c963c: int3     
+0x1407c963d: int3     
+0x1407c963e: int3     
+0x1407c963f: int3     
+0x1407c9640: cmp      rsp, qword ptr [r14 + 0x10]
+0x1407c9644: jbe      0x1407c9663   ; main.desktopWeatherInt+0x23
+0x1407c9646: push     rbp
+0x1407c9647: mov      rbp, rsp
+0x1407c964a: sub      rsp, 0x10
+0x1407c964e: mov      qword ptr [rsp + 0x20], rax
+0x1407c9653: call     0x1400a2200   ; strings.TrimSpace
+0x1407c9658: call     0x1400a8ea0   ; strconv.Atoi

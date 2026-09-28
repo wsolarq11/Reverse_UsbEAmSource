@@ -1,0 +1,47 @@
+0x1408695e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408695e4: jbe      0x14086964e   ; main.inputMonitorXButtonLabel+0x6e
+0x1408695e6: push     rbp
+0x1408695e7: mov      rbp, rsp
+0x1408695ea: sub      rsp, 0x28
+0x1408695ee: shr      eax, 0x10
+0x1408695f1: movzx    ecx, ax
+0x1408695f4: cmp      ecx, 1
+0x1408695f7: je       0x14086963c   ; main.inputMonitorXButtonLabel+0x5c
+0x1408695f9: cmp      ecx, 2
+0x1408695fc: jne      0x140869610   ; main.inputMonitorXButtonLabel+0x30
+0x1408695fe: lea      rax, [rip + 0x3ca0a6]
+0x140869605: mov      ebx, 2
+0x14086960a: add      rsp, 0x28
+0x14086960e: pop      rbp
+0x14086960f: ret      
+0x140869610: movzx    eax, ax
+0x140869613: mov      ebx, 0xa
+0x140869618: call     0x1400ad400   ; strconv.FormatInt
+0x14086961d: mov      ecx, 1
+0x140869622: mov      rdi, rax
+0x140869625: mov      rsi, rbx
+0x140869628: xor      eax, eax
+0x14086962a: lea      rbx, [rip + 0x3ca000]
+0x140869631: call     0x14005fc00   ; runtime.concatstring2
+0x140869636: add      rsp, 0x28
+0x14086963a: pop      rbp
+0x14086963b: ret      
+0x14086963c: lea      rax, [rip + 0x3ca066]
+0x140869643: mov      ebx, 2
+0x140869648: add      rsp, 0x28
+0x14086964c: pop      rbp
+0x14086964d: ret      
+0x14086964e: mov      dword ptr [rsp + 8], eax
+0x140869652: call     0x14007f140   ; runtime.morestack_noctxt
+0x140869657: mov      eax, dword ptr [rsp + 8]
+0x14086965b: jmp      0x1408695e0   ; main.inputMonitorXButtonLabel
+0x14086965d: int3     
+0x14086965e: int3     
+0x14086965f: int3     
+0x140869660: cmp      rsp, qword ptr [r14 + 0x10]
+0x140869664: jbe      0x140869771   ; main.inputMonitorPostThreadMessageValue+0x111
+0x14086966a: push     rbp
+0x14086966b: mov      rbp, rsp
+0x14086966e: sub      rsp, 0x48
+0x140869672: mov      dword ptr [rsp + 0x58], eax
+0x140869676: mov      dword ptr [rsp + 0x5c], ebx

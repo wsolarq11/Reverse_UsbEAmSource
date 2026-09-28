@@ -1,0 +1,7 @@
+0x141bd1bc0: nop      
+0x141bd1bc1: mov      byte ptr [r8 + 1], 0
+0x141bd1bc6: add      byte ptr [rax], al
+0x141bd1bc8: sbb      byte ptr [rax], al
+0x141bd1bca: add      byte ptr [rax], al
+0x141bd1bcc: add      byte ptr [rax], al
+0x141bd1bce: add      byte ptr [rax], al

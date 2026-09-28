@@ -15,6 +15,9 @@ var (
 	procGetClientRect     = user32DLL.NewProc("GetClientRect")
 	procGetClassNameW     = user32DLL.NewProc("GetClassNameW")
 	procGetWindowTextW    = user32DLL.NewProc("GetWindowTextW")
+	procIsWindow          = user32DLL.NewProc("IsWindow")
+	procGetWindowRect     = user32DLL.NewProc("GetWindowRect")
+	procGetWindowThreadProcessId = user32DLL.NewProc("GetWindowThreadProcessId")
 )
 
 // windowManagementVirtualScreenBounds 返回虚拟屏幕矩形。
@@ -204,15 +207,16 @@ func windowManagementGetWindowText(hwnd uintptr) string {
 }
 
 // windowManagementGetCursorPoint 获取鼠标屏幕坐标（GetCursorPos）。
-// [S] ASM 0x1409edfa0：Call(&pt)；成功→(pt.X,pt.Y,nil)；失败→lastErr==nil 时用
-// errors.New("未知错误")，再 fmt.Errorf("读取鼠标位置失败: %w",lastErr)，返回 (0,0,err)。
+// [S] ASM 0x1409edfa0：Call(&pt)；成功→(pt.X,pt.Y,nil)；失败→lastErr==nil 或
+// lastErr==syscall.Errno(0)（asm 里 cmp ErrnoItab + data==0）时用 errors.New("未知错误")，
+// 再 fmt.Errorf("读取鼠标位置失败: %w",lastErr)，返回 (0,0,err)。
 func windowManagementGetCursorPoint() (int32, int32, error) {
 	var pt windowManagementPoint
 	r1, _, lastErr := procGetCursorPos.Call(uintptr(unsafe.Pointer(&pt)))
 	if r1 != 0 {
 		return pt.X, pt.Y, nil
 	}
-	if lastErr == nil {
+	if lastErr == nil || errors.Is(lastErr, syscall.Errno(0)) {
 		lastErr = errors.New("未知错误")
 	}
 	return 0, 0, fmt.Errorf("读取鼠标位置失败: %w", lastErr)
@@ -233,4 +237,42 @@ func windowManagementEnumDisplayMonitorProc(hMonitor, hdcMonitor uintptr, lprcMo
 	rects := (*[]windowManagementRECT)(dwData)
 	*rects = append(*rects, r)
 	return 1
+}
+
+// windowManagementGetWindowRect 获取窗口屏幕矩形（GetWindowRect）。
+// [S] ASM 0x1409ee600：Call(hwnd,&rect)；成功→(Left,Top,Right,Bottom,nil)；
+// 失败→lastErr==nil 或 Errno(0) 时用 errors.New("未知错误")，
+// 再 fmt.Errorf("读取窗口位置失败: %w",lastErr)，返回 (0,0,0,0,err)。
+func windowManagementGetWindowRect(hwnd uintptr) (int32, int32, int32, int32, error) {
+	var rect windowManagementRECT
+	r1, _, lastErr := procGetWindowRect.Call(hwnd, uintptr(unsafe.Pointer(&rect)))
+	if r1 != 0 {
+		return rect.Left, rect.Top, rect.Right, rect.Bottom, nil
+	}
+	if lastErr == nil || errors.Is(lastErr, syscall.Errno(0)) {
+		lastErr = errors.New("未知错误")
+	}
+	return 0, 0, 0, 0, fmt.Errorf("读取窗口位置失败: %w", lastErr)
+}
+
+// windowManagementValidateSnapshotOwner 校验快照记录的窗口是否仍属于原进程。
+// [S] ASM 0x1409ea780：hwnd==0 或 IsWindow(hwnd)==0 → errors.New("目标窗口已失效")；
+// pid==0 → nil；GetWindowThreadProcessId(hwnd,&pid2)；pid2!=pid →
+// errors.New("目标窗口句柄已被其他进程复用")；否则 nil。
+func windowManagementValidateSnapshotOwner(hwnd uintptr, pid uint32) error {
+	if hwnd == 0 {
+		return errors.New("目标窗口已失效")
+	}
+	if r, _, _ := procIsWindow.Call(hwnd); r == 0 {
+		return errors.New("目标窗口已失效")
+	}
+	if pid == 0 {
+		return nil
+	}
+	var pid2 uint32
+	procGetWindowThreadProcessId.Call(hwnd, uintptr(unsafe.Pointer(&pid2)))
+	if pid2 != pid {
+		return errors.New("目标窗口句柄已被其他进程复用")
+	}
+	return nil
 }

@@ -1,0 +1,10 @@
+0x140c5f881: out      0x9b, eax
+0x140c5f883: scasb    al, byte ptr [rdi]
+0x140c5f884: out      0xa0, al
+0x140c5f886: xchg     edi, esp
+0x140c5f888: stosb    byte ptr [rdi], al
+0x140c5f889: xchg     edi, eax
+0x140c5f88a: in       eax, 0x8f
+0x140c5f88c: movabs   dword ptr [0x95e6b1a4e5b2b7e5], eax
+0x140c5f895: mov      dh, ah
+0x140c5f897: pushfq   

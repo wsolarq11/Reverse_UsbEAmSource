@@ -1,0 +1,12 @@
+0x140c6c1e0: out      0x9b, al
+0x140c6c1e2: mov      ah, 0xe6
+0x140c6c1e4: xchg     esi, eax
+0x140c6c1e5: mov      al, 0xe7
+0x140c6c1e7: stosb    byte ptr [rdi], al
+0x140c6c1e8: xchg     edi, eax
+0x140c6c1e9: in       eax, 0x8f
+0x140c6c1eb: movabs   dword ptr [0xa4e58fbce5b7a0e6], eax
+0x140c6c1f4: mov      cl, 0xe8
+0x140c6c1f6: mov      ah, 0xa5
+0x140c6c1f8: cmp      ah, byte ptr [rax]
+0x140c6c1fa: and      eax, 0xbbafe877

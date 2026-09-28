@@ -1,0 +1,12 @@
+0x140c81284: out      0x9b, eax
+0x140c81286: scasb    al, byte ptr [rdi]
+0x140c81287: out      0xa0, al
+0x140c81289: xchg     edi, esp
+0x140c8128b: stosb    byte ptr [rdi], al
+0x140c8128c: xchg     edi, eax
+0x140c8128d: in       eax, 0x8f
+0x140c8128f: movabs   dword ptr [0xb7e5849fe6a58fe5], eax
+0x140c81298: mov      dl, 0xe8
+0x140c8129a: movabs   byte ptr [0xe896bbe4b685e5ab], al
+0x140c812a3: mov      edi, 0x8ba8e79b
+0x140c812a8: in       eax, 0xa4

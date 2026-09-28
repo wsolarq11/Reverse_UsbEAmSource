@@ -1,0 +1,1 @@
+0x141bc1dc8: sbb      edi, dword ptr [rbp + 0x141]

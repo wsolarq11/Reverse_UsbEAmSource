@@ -1,0 +1,135 @@
+0x1409ee3e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409ee3e4: jbe      0x1409ee5d5   ; main.windowManagementSetWindowLongPtr+0x1f5
+0x1409ee3ea: push     rbp
+0x1409ee3eb: mov      rbp, rsp
+0x1409ee3ee: sub      rsp, 0x78
+0x1409ee3f2: movq     qword ptr [rsp + 0x70], xmm15
+0x1409ee3f9: mov      qword ptr [rsp + 0x88], rax
+0x1409ee401: mov      dword ptr [rsp + 0x90], ebx
+0x1409ee408: mov      qword ptr [rsp + 0x98], rcx
+0x1409ee410: mov      byte ptr [rsp + 0x2f], 0
+0x1409ee415: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1409ee41b: nop      dword ptr [rax + rax]
+0x1409ee420: call     0x140052560   ; runtime.LockOSThread
+0x1409ee425: lea      rax, [rip + 0x6a89e4]
+0x1409ee42c: mov      qword ptr [rsp + 0x70], rax
+0x1409ee431: mov      byte ptr [rsp + 0x2f], 1
+0x1409ee436: lea      rax, [rip + 0x10f543]
+0x1409ee43d: nop      dword ptr [rax]
+0x1409ee440: call     0x14001ae20   ; runtime.newobject
+0x1409ee445: mov      rcx, qword ptr [rip + 0x11d395c]
+0x1409ee44c: mov      rbx, rax
+0x1409ee44f: mov      edi, 1
+0x1409ee454: mov      rax, rcx
+0x1409ee457: mov      rcx, rdi
+0x1409ee45a: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409ee45f: mov      rax, qword ptr [rip + 0x11d399a]
+0x1409ee466: mov      qword ptr [rsp + 0x58], rax
+0x1409ee46b: mov      rax, qword ptr [rip + 0x11d397e]
+0x1409ee472: mov      qword ptr [rsp + 0x50], rax
+0x1409ee477: mov      ecx, dword ptr [rsp + 0x90]
+0x1409ee47e: movsxd   rcx, ecx
+0x1409ee481: mov      qword ptr [rsp + 0x38], rcx
+0x1409ee486: call     0x1401933c0   ; golang.org/x/sys/windows.LazyProc.Find
+0x1409ee48b: mov      qword ptr [rsp + 0x30], rax
+0x1409ee490: lea      rax, [rip + 0x10d7a9]
+0x1409ee497: call     0x14001ae20   ; runtime.newobject
+0x1409ee49c: mov      rcx, qword ptr [rsp + 0x88]
+0x1409ee4a4: mov      qword ptr [rax], rcx
+0x1409ee4a7: mov      rcx, qword ptr [rsp + 0x38]
+0x1409ee4ac: mov      qword ptr [rax + 8], rcx
+0x1409ee4b0: mov      rcx, qword ptr [rsp + 0x98]
+0x1409ee4b8: mov      qword ptr [rax + 0x10], rcx
+0x1409ee4bc: mov      rcx, qword ptr [rsp + 0x30]
+0x1409ee4c1: test     rcx, rcx
+0x1409ee4c4: mov      rcx, qword ptr [rsp + 0x50]
+0x1409ee4c9: mov      rdx, qword ptr [rsp + 0x58]
+0x1409ee4ce: cmovne   rcx, rdx
+0x1409ee4d2: mov      rbx, rax
+0x1409ee4d5: mov      edi, 3
+0x1409ee4da: mov      rax, rcx
+0x1409ee4dd: mov      rcx, rdi
+0x1409ee4e0: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409ee4e5: test     rax, rax
+0x1409ee4e8: jne      0x1409ee59e   ; main.windowManagementSetWindowLongPtr+0x1be
+0x1409ee4ee: lea      rdx, [rip + 0x7e47eb]
+0x1409ee4f5: cmp      rcx, rdx
+0x1409ee4f8: jne      0x1409ee4ff   ; main.windowManagementSetWindowLongPtr+0x11f
+0x1409ee4fa: mov      rdx, qword ptr [rdi]
+0x1409ee4fd: jmp      0x1409ee504   ; main.windowManagementSetWindowLongPtr+0x124
+0x1409ee4ff: mov      edx, 0
+0x1409ee504: jne      0x1409ee511   ; main.windowManagementSetWindowLongPtr+0x131
+0x1409ee506: test     rdx, rdx
+0x1409ee509: jne      0x1409ee511   ; main.windowManagementSetWindowLongPtr+0x131
+0x1409ee50b: xor      ecx, ecx
+0x1409ee50d: xor      edi, edi
+0x1409ee50f: jmp      0x1409ee541   ; main.windowManagementSetWindowLongPtr+0x161
+0x1409ee511: test     rcx, rcx
+0x1409ee514: jne      0x1409ee541   ; main.windowManagementSetWindowLongPtr+0x161
+0x1409ee516: nop      
+0x1409ee517: lea      rax, [rip + 0x165e62]
+0x1409ee51e: nop      
+0x1409ee520: call     0x14001ae20   ; runtime.newobject
+0x1409ee525: mov      qword ptr [rax + 8], 0xc
+0x1409ee52d: lea      rcx, [rip + 0x25d564]
+0x1409ee534: mov      qword ptr [rax], rcx
+0x1409ee537: lea      rcx, [rip + 0x7e4bc2]
+0x1409ee53e: mov      rdi, rax
+0x1409ee541: test     rcx, rcx
+0x1409ee544: je       0x1409ee59e   ; main.windowManagementSetWindowLongPtr+0x1be
+0x1409ee546: movups   xmmword ptr [rsp + 0x60], xmm15
+0x1409ee54c: je       0x1409ee552   ; main.windowManagementSetWindowLongPtr+0x172
+0x1409ee54e: mov      rcx, qword ptr [rcx + 8]
+0x1409ee552: mov      qword ptr [rsp + 0x60], rcx
+0x1409ee557: mov      qword ptr [rsp + 0x68], rdi
+0x1409ee55c: lea      rax, [rip + 0x27dc7d]
+0x1409ee563: mov      ebx, 0x1c
+0x1409ee568: lea      rcx, [rsp + 0x60]
+0x1409ee56d: mov      edi, 1
+0x1409ee572: mov      rsi, rdi
+0x1409ee575: call     0x140133280   ; fmt.Errorf
+0x1409ee57a: mov      qword ptr [rsp + 0x40], rax
+0x1409ee57f: mov      qword ptr [rsp + 0x48], rbx
+0x1409ee584: mov      byte ptr [rsp + 0x2f], 0
+0x1409ee589: call     0x1400525e0   ; runtime.UnlockOSThread
+0x1409ee58e: mov      rax, qword ptr [rsp + 0x40]
+0x1409ee593: mov      rbx, qword ptr [rsp + 0x48]
+0x1409ee598: add      rsp, 0x78
+0x1409ee59c: pop      rbp
+0x1409ee59d: ret      
+0x1409ee59e: movups   xmmword ptr [rsp + 0x40], xmm15
+0x1409ee5a4: mov      byte ptr [rsp + 0x2f], 0
+0x1409ee5a9: call     0x1400525e0   ; runtime.UnlockOSThread
+0x1409ee5ae: mov      rbx, qword ptr [rsp + 0x48]
+0x1409ee5b3: mov      rax, qword ptr [rsp + 0x40]
+0x1409ee5b8: add      rsp, 0x78
+0x1409ee5bc: pop      rbp
+0x1409ee5bd: ret      
+0x1409ee5be: nop      
+0x1409ee5c0: call     0x1400435e0   ; runtime.deferreturn
+0x1409ee5c5: mov      rax, qword ptr [rsp + 0x40]
+0x1409ee5ca: mov      rbx, qword ptr [rsp + 0x48]
+0x1409ee5cf: add      rsp, 0x78
+0x1409ee5d3: pop      rbp
+0x1409ee5d4: ret      
+0x1409ee5d5: mov      qword ptr [rsp + 8], rax
+0x1409ee5da: mov      dword ptr [rsp + 0x10], ebx
+0x1409ee5de: mov      qword ptr [rsp + 0x18], rcx
+0x1409ee5e3: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409ee5e8: mov      rax, qword ptr [rsp + 8]
+0x1409ee5ed: mov      ebx, dword ptr [rsp + 0x10]
+0x1409ee5f1: mov      rcx, qword ptr [rsp + 0x18]
+0x1409ee5f6: jmp      0x1409ee3e0   ; main.windowManagementSetWindowLongPtr
+0x1409ee5fb: int3     
+0x1409ee5fc: int3     
+0x1409ee5fd: int3     
+0x1409ee5fe: int3     
+0x1409ee5ff: int3     
+0x1409ee600: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409ee604: jbe      0x1409ee74d   ; main.windowManagementGetWindowRect+0x14d
+0x1409ee60a: push     rbp
+0x1409ee60b: mov      rbp, rsp
+0x1409ee60e: sub      rsp, 0x48
+0x1409ee612: mov      qword ptr [rsp + 0x58], rax
+0x1409ee617: lea      rax, [rip + 0x1c6062]
+0x1409ee61e: nop      

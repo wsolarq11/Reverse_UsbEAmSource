@@ -310,7 +310,6 @@
    352  screenshot_scroll_windows.go                screenshotScrollingRowLooksPureBlack                          0x1409a3fe0
    352  screenshot_selection_toolbar.go             (*screenshotSelectionToolbarWindowService)SetMessages         0x1409a6780
    352  webview2_process.go                         extractWebView2ProcessType                                    0x1409de960
-   352  windowmanagement_windows.go                 windowManagementValidateSnapshotOwner                         0x1409ea780
    384  bookmarks_firefox.go                        findFirefoxBookmarkNodeIDByGUID                               0x14076eac0
    384  bootstrapservice.go                         (*BootstrapService)ResolveShortcut                            0x14077d7e0
    384  desktopwidgets_configio.go                  portableDesktopWidgetDocument                                 0x1407ac4a0
@@ -336,7 +335,6 @@
    384  screenshot_scroll_windows.go                screenshotScrollingAverageRowLuma                             0x1409a3be0
    384  screenshot_scroll_windows.go                (*screenshotScrollingScrollController)update                  0x1409a5ec0
    384  windowmanagement_windows.go                 windowManagementDisplayRects                                  0x1409edce0
-   384  windowmanagement_windows.go                 windowManagementGetWindowRect                                 0x1409ee600
    384  windowmanagement_windows.go                 windowManagementExStyleNames                                  0x1409eec60
    384  workspacemigration_identity.go              sameWorkspacePathInspection                                   0x1409f43e0
    416  bookmarks.go                                describeChromiumBookmarkPath                                  0x140766c20

@@ -4821,6 +4821,34 @@ GetCursorPoint 失败链实测字符串 "未知错误"(12B) + "读取鼠标位�
 **下一批**：P=40。windowmanagement_windows.go 剩余：MaybeWrapCursor 288B（依赖 WrappedCursorPoint
 992B，需同批或先落地）、GetWindowRect 384B、MonitorRectForWindow 512B。FUNCS 2846/4754 = 59.87%。
 
+### 批次 259（窗口矩形 + 快照归属校验 +2 [S]，含 258 忠实度订正）
+
+**基线/收口**：`FUNCS=2846→2848 / S=1314→1316 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2806→2808 = 59.07%）。`go1.25.12 build/vet/test ./backend` 全 EXIT=0。
+
+**本批落地**（+2 [S]，均追加到 windowmanagement_windows.go，详见 acceptance/batch259.md）：
+- windowManagementGetWindowRect [S 0x1409ee600]（GetWindowRect.Call(hwnd,&rect)；成功→
+  (Left,Top,Right,Bottom,nil)；失败→"未知错误"→"读取窗口位置失败: %w"）。
+- windowManagementValidateSnapshotOwner [S 0x1409ea780]（IsWindow + GetWindowThreadProcessId
+  双 proc 校验 pid；失败文案 "目标窗口已失效" / "目标窗口句柄已被其他进程复用"）。
+新增 proc：procIsWindow / procGetWindowRect / procGetWindowThreadProcessId。
+
+**批次 258 忠实度订正**：GetCursorPoint 失败判据原只写 `lastErr == nil`，漏 `syscall.Errno(0)`
+分支；对照同库已固化 getCursorScreenPoint(0x14085cf00) 的 asm（cmp ErrnoItab + ifaceeq）订正为
+`lastErr == nil || errors.Is(lastErr, syscall.Errno(0))`。
+
+**关键纪律**：proc 身份一律以 LazyProc.Name 内存实证为准，不做语义推测。本批实证：
+IsWindow(0x141BD1B40) / GetWindowThreadProcessId(0x141BD1BC0) / GetWindowRect(0x141BD1EC0)；
+并预留 SetLastError(0x141BD1A40) / SetWindowLongW(0x141BD1D00) / SetWindowLongPtrW(0x141BD1C80)。
+
+**RIP 进位第三次踩坑（已固化自检）**：`0x1409EA7BF + 0x011D7609 = 0x141BC1DC8`，前次误算
+0x1411D1DC8。纪律：disp32 加下一条指令地址、逐位进位，读出后用 len 合理性自检（首读出
+len=5381816026 即错址信号）。
+
+**下一批**：FlagNames 544B / ExStyleNames 384B / StyleNames 128B（名字枚举链）；SetWindowLongPtr
+544B（三 proc 已实证）；MaybeWrapCursor 288B（依赖 WrappedCursorPoint 992B）。
+FUNCS 2848/4754 = 59.90%。
+
 
 
 

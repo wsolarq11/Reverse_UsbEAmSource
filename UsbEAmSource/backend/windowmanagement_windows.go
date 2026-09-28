@@ -1,7 +1,11 @@
 package main
 
 import (
+	"errors"
+	"fmt"
 	"image"
+	"strings"
+	"syscall"
 	"unsafe"
 )
 
@@ -9,6 +13,8 @@ import (
 var (
 	procGetWindowLongPtrW = user32DLL.NewProc("GetWindowLongPtrW")
 	procGetClientRect     = user32DLL.NewProc("GetClientRect")
+	procGetClassNameW     = user32DLL.NewProc("GetClassNameW")
+	procGetWindowTextW    = user32DLL.NewProc("GetWindowTextW")
 )
 
 // windowManagementVirtualScreenBounds 返回虚拟屏幕矩形。
@@ -161,4 +167,70 @@ func windowManagementGetClientRectValue(hwnd uintptr) (int, int, int, int) {
 		return 0, 0, 0, 0
 	}
 	return int(rect.Left), int(rect.Top), int(rect.Right-rect.Left), int(rect.Bottom-rect.Top)
+}
+
+// windowManagementGetClassName 获取窗口类名（GetClassNameW 单阶段，256 缓冲）。
+// [S] ASM 0x1409ee220：hwnd==0→空串；make([]uint16,256)→Call(hwnd,&buf[0],256)；
+// n==0→空串；否则 TrimSpace(UTF16ToString(buf[:n]))。
+func windowManagementGetClassName(hwnd uintptr) string {
+	if hwnd == 0 {
+		return ""
+	}
+	buf := make([]uint16, 256)
+	n, _, _ := procGetClassNameW.Call(hwnd, uintptr(unsafe.Pointer(&buf[0])), 256)
+	if n == 0 {
+		return ""
+	}
+	return strings.TrimSpace(syscall.UTF16ToString(buf[:int(n)]))
+}
+
+// windowManagementGetWindowText 获取窗口标题（GetWindowTextW 两阶段：先取长度再取内容）。
+// [S] ASM 0x1409ee0e0：hwnd==0→空串；Call(hwnd,0,0) 取长度 n；n==0→空串；
+// make([]uint16,n+1)→Call(hwnd,&buf[0],n+1)；n2==0→空串；否则 TrimSpace(UTF16ToString(buf[:n2]))。
+func windowManagementGetWindowText(hwnd uintptr) string {
+	if hwnd == 0 {
+		return ""
+	}
+	n, _, _ := procGetWindowTextW.Call(hwnd, 0, 0)
+	if n == 0 {
+		return ""
+	}
+	buf := make([]uint16, int(n+1))
+	n2, _, _ := procGetWindowTextW.Call(hwnd, uintptr(unsafe.Pointer(&buf[0])), n+1)
+	if n2 == 0 {
+		return ""
+	}
+	return strings.TrimSpace(syscall.UTF16ToString(buf[:int(n2)]))
+}
+
+// windowManagementGetCursorPoint 获取鼠标屏幕坐标（GetCursorPos）。
+// [S] ASM 0x1409edfa0：Call(&pt)；成功→(pt.X,pt.Y,nil)；失败→lastErr==nil 时用
+// errors.New("未知错误")，再 fmt.Errorf("读取鼠标位置失败: %w",lastErr)，返回 (0,0,err)。
+func windowManagementGetCursorPoint() (int32, int32, error) {
+	var pt windowManagementPoint
+	r1, _, lastErr := procGetCursorPos.Call(uintptr(unsafe.Pointer(&pt)))
+	if r1 != 0 {
+		return pt.X, pt.Y, nil
+	}
+	if lastErr == nil {
+		lastErr = errors.New("未知错误")
+	}
+	return 0, 0, fmt.Errorf("读取鼠标位置失败: %w", lastErr)
+}
+
+// windowManagementEnumDisplayMonitorProc 是 EnumDisplayMonitors 的回调：
+// 收集有效显示器矩形到 dwData 指向的 []windowManagementRECT。
+// [S] ASM 0x1409ede60：dwData==0 || lprcMonitor==nil → 返回 1；
+// 矩形无效（Right<=Left 或 Bottom<=Top）→ 返回 1；否则 append(*slice, rect) 后返回 1。
+func windowManagementEnumDisplayMonitorProc(hMonitor, hdcMonitor uintptr, lprcMonitor *windowManagementRECT, dwData unsafe.Pointer) uintptr {
+	if dwData == nil || lprcMonitor == nil {
+		return 1
+	}
+	r := *lprcMonitor
+	if r.Right <= r.Left || r.Bottom <= r.Top {
+		return 1
+	}
+	rects := (*[]windowManagementRECT)(dwData)
+	*rects = append(*rects, r)
+	return 1
 }

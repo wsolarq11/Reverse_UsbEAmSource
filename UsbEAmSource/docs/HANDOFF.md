@@ -4797,6 +4797,30 @@ time.Time wall/monotonic 内部布局，留待专项。
 （GetClassName 256B / MaybeWrapCursor 288B / EnumDisplayMonitorProc 320B / GetCursorPoint 320B /
 GetWindowText 320B）。FUNCS 2842/4754 = 59.78%。
 
+### 批次 258（窗口管理 user32 薄封装 +4 [S]）
+
+**基线/收口**：`FUNCS=2842→2846 / S=1310→1314 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2802→2806 = 59.02%）。`go1.25.12 build/vet/test ./backend` 全 EXIT=0。
+
+**本批落地**（+4 [S]，全部追加到 windowmanagement_windows.go，详见 acceptance/batch258.md）：
+- windowManagementGetClassName [S 0x1409ee220]（GetClassNameW.Call(hwnd,&buf[0],256) →
+  TrimSpace(UTF16ToString(buf[:n]))；新增 procGetClassNameW）。
+- windowManagementGetWindowText [S 0x1409ee0e0]（GetWindowTextW 两阶段取长度再取内容；
+  新增 procGetWindowTextW）。
+- windowManagementGetCursorPoint [S 0x1409edfa0]（GetCursorPos.Call(&pt)；成功→(X,Y,nil)；
+  失败→lastErr==nil→errors.New("未知错误")→fmt.Errorf("读取鼠标位置失败: %w")；复用
+  gpu_pick_windows.go 的 procGetCursorPos）。
+- windowManagementEnumDisplayMonitorProc [S 0x1409ede60]（EnumDisplayMonitors 回调，dwData 为
+  &[]windowManagementRECT，收集有效矩形；签名 dwData unsafe.Pointer）。
+
+**关键知悉**：procGetCursorPos 已在 gpu_pick_windows.go:20 定义，首版重复声明被 build 拦下
+（删本文件重复项复用已有）。EnumDisplayMonitorProc 首版 dwData uintptr + unsafe.Pointer(dwData)
+触发 vet "possible misuse of unsafe.Pointer"，改 dwData unsafe.Pointer 后 vet 绿（asm 无差）。
+GetCursorPoint 失败链实测字符串 "未知错误"(12B) + "读取鼠标位置失败: %w"(28B)。
+
+**下一批**：P=40。windowmanagement_windows.go 剩余：MaybeWrapCursor 288B（依赖 WrappedCursorPoint
+992B，需同批或先落地）、GetWindowRect 384B、MonitorRectForWindow 512B。FUNCS 2846/4754 = 59.87%。
+
 
 
 

@@ -1,0 +1,97 @@
+0x1409ee0e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409ee0e4: jbe      0x1409ee206   ; main.windowManagementGetWindowText+0x126
+0x1409ee0ea: push     rbp
+0x1409ee0eb: mov      rbp, rsp
+0x1409ee0ee: sub      rsp, 0x38
+0x1409ee0f2: test     rax, rax
+0x1409ee0f5: je       0x1409ee1e5   ; main.windowManagementGetWindowText+0x105
+0x1409ee0fb: mov      qword ptr [rsp + 0x48], rax
+0x1409ee100: lea      rax, [rip + 0x10f879]
+0x1409ee107: call     0x14001ae20   ; runtime.newobject
+0x1409ee10c: mov      rcx, qword ptr [rsp + 0x48]
+0x1409ee111: mov      qword ptr [rax], rcx
+0x1409ee114: mov      rcx, qword ptr [rip + 0x11d3cfd]
+0x1409ee11b: mov      rbx, rax
+0x1409ee11e: mov      edi, 1
+0x1409ee123: mov      rax, rcx
+0x1409ee126: mov      rcx, rdi
+0x1409ee129: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409ee12e: test     rax, rax
+0x1409ee131: je       0x1409ee1db   ; main.windowManagementGetWindowText+0xfb
+0x1409ee137: lea      rcx, [rax + 1]
+0x1409ee13b: mov      qword ptr [rsp + 0x20], rcx
+0x1409ee140: lea      rax, [rip + 0xfbdb9]
+0x1409ee147: mov      rbx, rcx
+0x1409ee14a: call     0x14007ac40   ; runtime.makeslice
+0x1409ee14f: mov      rdx, qword ptr [rsp + 0x20]
+0x1409ee154: test     rdx, rdx
+0x1409ee157: jbe      0x1409ee1f7   ; main.windowManagementGetWindowText+0x117
+0x1409ee15d: mov      qword ptr [rsp + 0x28], rax
+0x1409ee162: mov      qword ptr [rsp + 0x30], rax
+0x1409ee167: lea      rax, [rip + 0x10dad2]
+0x1409ee16e: call     0x14001ae20   ; runtime.newobject
+0x1409ee173: mov      rcx, qword ptr [rsp + 0x48]
+0x1409ee178: mov      qword ptr [rax], rcx
+0x1409ee17b: mov      rcx, qword ptr [rsp + 0x30]
+0x1409ee180: mov      qword ptr [rax + 8], rcx
+0x1409ee184: mov      rcx, qword ptr [rsp + 0x20]
+0x1409ee189: mov      qword ptr [rax + 0x10], rcx
+0x1409ee18d: mov      rcx, qword ptr [rip + 0x11d3c8c]
+0x1409ee194: mov      rbx, rax
+0x1409ee197: mov      edi, 3
+0x1409ee19c: mov      rax, rcx
+0x1409ee19f: mov      rcx, rdi
+0x1409ee1a2: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409ee1a7: test     rax, rax
+0x1409ee1aa: je       0x1409ee1d1   ; main.windowManagementGetWindowText+0xf1
+0x1409ee1ac: mov      rdx, qword ptr [rsp + 0x20]
+0x1409ee1b1: cmp      rax, rdx
+0x1409ee1b4: ja       0x1409ee1ef   ; main.windowManagementGetWindowText+0x10f
+0x1409ee1b6: mov      rbx, rax
+0x1409ee1b9: mov      rcx, rdx
+0x1409ee1bc: mov      rax, qword ptr [rsp + 0x28]
+0x1409ee1c1: call     0x1400e6000   ; syscall.UTF16ToString
+0x1409ee1c6: call     0x1400a2200   ; strings.TrimSpace
+0x1409ee1cb: add      rsp, 0x38
+0x1409ee1cf: pop      rbp
+0x1409ee1d0: ret      
+0x1409ee1d1: xor      eax, eax
+0x1409ee1d3: xor      ebx, ebx
+0x1409ee1d5: add      rsp, 0x38
+0x1409ee1d9: pop      rbp
+0x1409ee1da: ret      
+0x1409ee1db: xor      eax, eax
+0x1409ee1dd: xor      ebx, ebx
+0x1409ee1df: add      rsp, 0x38
+0x1409ee1e3: pop      rbp
+0x1409ee1e4: ret      
+0x1409ee1e5: xor      eax, eax
+0x1409ee1e7: xor      ebx, ebx
+0x1409ee1e9: add      rsp, 0x38
+0x1409ee1ed: pop      rbp
+0x1409ee1ee: ret      
+0x1409ee1ef: mov      rcx, rax
+0x1409ee1f2: call     0x1400814a0   ; runtime.panicSliceAcapU
+0x1409ee1f7: xor      eax, eax
+0x1409ee1f9: mov      rcx, rax
+0x1409ee1fc: nop      dword ptr [rax]
+0x1409ee200: call     0x140081400   ; runtime.panicIndex
+0x1409ee205: nop      
+0x1409ee206: mov      qword ptr [rsp + 8], rax
+0x1409ee20b: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409ee210: mov      rax, qword ptr [rsp + 8]
+0x1409ee215: jmp      0x1409ee0e0   ; main.windowManagementGetWindowText
+0x1409ee21a: int3     
+0x1409ee21b: int3     
+0x1409ee21c: int3     
+0x1409ee21d: int3     
+0x1409ee21e: int3     
+0x1409ee21f: int3     
+0x1409ee220: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409ee224: jbe      0x1409ee2ed   ; main.windowManagementGetClassName+0xcd
+0x1409ee22a: push     rbp
+0x1409ee22b: mov      rbp, rsp
+0x1409ee22e: sub      rsp, 0x30
+0x1409ee232: test     rax, rax
+0x1409ee235: je       0x1409ee2d5   ; main.windowManagementGetClassName+0xb5
+0x1409ee23b: mov      qword ptr [rsp + 0x40], rax

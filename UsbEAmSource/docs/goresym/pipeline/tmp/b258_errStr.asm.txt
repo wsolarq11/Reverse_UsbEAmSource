@@ -1,0 +1,7 @@
+0x140c4ba98: out      0x9c, al
+0x140c4ba9a: stosb    byte ptr [rdi], al
+0x140c4ba9b: out      0x9f, eax
+0x140c4ba9d: movsd    dword ptr [rdi], dword ptr [rsi]
+0x140c4ba9e: jmp      0xf0ad5437
+0x140c4baa3: scasd    eax, dword ptr [rdi]
+0x140c4baa4: jae      0x140c4bb1c

@@ -1,0 +1,4 @@
+0x140c57f1a: sub      eax, 0x646e6977
+0x140c57f1f: outsd    dx, dword ptr [rsi]
+0x140c57f20: ja       0x140c57f4f
+0x140c57f22: imul     esp, dword ptr [rdx + rsi*2 + 0x65], 0x657a6973

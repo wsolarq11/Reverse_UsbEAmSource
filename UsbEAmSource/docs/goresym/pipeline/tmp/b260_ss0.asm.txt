@@ -1,0 +1,7 @@
+0x140c3c32c: push     rdi
+0x140c3c32d: push     rbx
+0x140c3c32e: pop      rdi
+0x140c3c32f: push     rax
+0x140c3c330: push     r8
+0x140c3c332: push     rbp
+0x140c3c333: push     rax

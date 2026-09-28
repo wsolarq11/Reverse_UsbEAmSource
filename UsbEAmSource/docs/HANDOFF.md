@@ -4849,6 +4849,33 @@ len=5381816026 即错址信号）。
 544B（三 proc 已实证）；MaybeWrapCursor 288B（依赖 WrappedCursorPoint 992B）。
 FUNCS 2848/4754 = 59.90%。
 
+### 批次 260（窗口样式名枚举链 +3 [S]）
+
+**基线/收口**：`FUNCS=2848→2851 / S=1316→1319 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2808→2811 = 59.13%）。`go1.25.12 build/vet/test ./backend` 全 EXIT=0。
+
+**本批落地**（+3 [S]，均追加到 windowmanagement_windows.go，详见 acceptance/batch260.md）：
+- windowManagementFlagNames [S 0x1409eede0]（value==0→""；`Flag==0 || value&Flag!=Flag` 跳过；
+  `strings.Join(names," | ")`）。
+- windowManagementStyleNames [S 0x1409eebe0]（17 条 WS_* 切片字面量）。
+- windowManagementExStyleNames [S 0x1409eec60]（8 条 WS_EX_* 切片字面量）。
+新增类型 windowManagementFlagName{Flag uint32; Name string}（stride 24B）。
+
+**表内容全部内存实证**：StyleNames 17 条 / ExStyleNames 8 条，flag 值与 Win32 常量逐条吻合；
+分隔符 " | "（3B @0x140C33CEC）。
+
+**结构忠实度订正**：首版写成包级 var 数组 + `table[:]`，但 asm 显示两表是**每次调用在栈上构建**
+（StyleNames 走 duffcopy 复制 408B、ExStyleNames 走 duffzero+逐条填入 192B），已改为切片字面量
+直传，结构对齐二进制。
+
+**RIP 进位第四次踩坑 → 纪律治本**：`0x1409EEC00 + 0x7F7610` 应为 0x1411E6210（手算漏进位成
+0x141E6210）。此后一律用 `[long]` 显式加法并回显 computed 地址 + 校验读出内容合理性
+（名字须为可打印 ASCII、len∈1..96）；本批 ExStyle 4 条错址即靠"读出非 WS_EX_ 前缀垃圾"发现。
+
+**下一批**：SetWindowLongPtr 544B（SetLastError/SetWindowLongW/SetWindowLongPtrW 三 proc 已实证，
+格式串 "更新窗口样式失败: %w"）；DisplayRects 384B；MaybeWrapCursor 288B（依赖 WrappedCursorPoint）。
+FUNCS 2851/4754 = 59.97%。
+
 
 
 

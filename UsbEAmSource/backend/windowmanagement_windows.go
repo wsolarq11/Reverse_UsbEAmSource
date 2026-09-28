@@ -276,3 +276,65 @@ func windowManagementValidateSnapshotOwner(hwnd uintptr, pid uint32) error {
 	}
 	return nil
 }
+
+// windowManagementFlagName 是样式名查表的条目：Flag 为位掩码，Name 为对应常量名。
+type windowManagementFlagName struct {
+	Flag uint32
+	Name string
+}
+
+// windowManagementFlagNames 把窗口样式位掩码翻译为可读名字串（以 " | " 连接）。
+// [S] ASM 0x1409eede0：value==0 → ""；遍历表，Flag==0 或 value&Flag!=Flag 跳过，
+// 否则收集 Name；末尾 strings.Join(names, " | ")。
+func windowManagementFlagNames(value uint32, names []windowManagementFlagName) string {
+	if value == 0 {
+		return ""
+	}
+	flagNames := make([]string, 0, len(names))
+	for _, e := range names {
+		if e.Flag == 0 || value&e.Flag != e.Flag {
+			continue
+		}
+		flagNames = append(flagNames, e.Name)
+	}
+	return strings.Join(flagNames, " | ")
+}
+
+// windowManagementStyleNames 返回窗口样式（WS_*）的可读名字串。
+// [S] ASM 0x1409eebe0：duffcopy 把 17 条静态表（408B）复制到栈，调用 windowManagementFlagNames。
+func windowManagementStyleNames(value uint32) string {
+	return windowManagementFlagNames(value, []windowManagementFlagName{
+		{0x08000000, "WS_POPUP"},
+		{0x04000000, "WS_CHILD"},
+		{0x02000000, "WS_MINIMIZE"},
+		{0x01000000, "WS_VISIBLE"},
+		{0x00800000, "WS_DISABLED"},
+		{0x00400000, "WS_CLIPSIBLINGS"},
+		{0x00200000, "WS_CLIPCHILDREN"},
+		{0x00100000, "WS_MAXIMIZE"},
+		{0x000C0000, "WS_CAPTION"},
+		{0x00080000, "WS_BORDER"},
+		{0x00040000, "WS_DLGFRAME"},
+		{0x00020000, "WS_VSCROLL"},
+		{0x00010000, "WS_HSCROLL"},
+		{0x00008000, "WS_SYSMENU"},
+		{0x00004000, "WS_THICKFRAME"},
+		{0x00002000, "WS_MINIMIZEBOX"},
+		{0x00001000, "WS_MAXIMIZEBOX"},
+	})
+}
+
+// windowManagementExStyleNames 返回扩展窗口样式（WS_EX_*）的可读名字串。
+// [S] ASM 0x1409eec60：duffzero 清栈后逐条填入 8 条静态表（192B），调用 windowManagementFlagNames。
+func windowManagementExStyleNames(value uint32) string {
+	return windowManagementFlagNames(value, []windowManagementFlagName{
+		{0x00000008, "WS_EX_TOPMOST"},
+		{0x00000020, "WS_EX_TRANSPARENT"},
+		{0x00000080, "WS_EX_TOOLWINDOW"},
+		{0x00000100, "WS_EX_WINDOWEDGE"},
+		{0x00000200, "WS_EX_CLIENTEDGE"},
+		{0x00040000, "WS_EX_APPWINDOW"},
+		{0x00080000, "WS_EX_LAYERED"},
+		{0x08000000, "WS_EX_NOACTIVATE"},
+	})
+}

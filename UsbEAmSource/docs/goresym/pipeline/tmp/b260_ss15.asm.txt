@@ -1,0 +1,5 @@
+0x140c50870: push     rdi
+0x140c50871: push     rbx
+0x140c50872: pop      rdi
+0x140c50873: pop      r10
+0x140c5087a: pop      r8

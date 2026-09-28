@@ -1,0 +1,5 @@
+0x140c442b1: push     rdi
+0x140c442b2: push     rbx
+0x140c442b3: pop      rdi
+0x140c442b4: push     r8
+0x140c442b7: push     rsp

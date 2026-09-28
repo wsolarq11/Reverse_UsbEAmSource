@@ -4901,6 +4901,33 @@ Call(hwnd,index,newValue)）。
 **下一批**：DisplayRects 384B；MaybeWrapCursor 288B（依赖 WrappedCursorPoint 992B，须先落地）；
 MonitorRectForWindow 512B；targetFromWindowProcessPick 416B。FUNCS 2852/4754 = 60.00%。
 
+### 批次 262（MonitorRectForWindow +1 [S] + VirtualScreenBounds 返回类型订正）
+
+**基线/收口**：`FUNCS=2852→2853 / S=1320→1321 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2812→2813 = 59.24%）。`go1.25.12 build/vet/test ./backend` 全 EXIT=0。
+
+**遗留订正（HANDOFF 挂账项已清）**：`windowManagementVirtualScreenBounds` 原返回 `image.Rectangle`
+（4×int64），**实为 4×int32**。两条独立证据：① 自身尾部 asm `add edx,ecx` / `lea edi,[rax+rbx]`
+全 32 位；② 调用方 getLauncherBackgroundMetrics(0x140874520) `sub ecx,eax` + `movsxd rcx,ecx`
+（32 位减法后符号扩展，若 int64 不会有 movsxd）。已改为返回 `windowManagementRECT`，
+同步订正 bootstrapservice_callees.go（唯一调用点），并移除随之失效的 `image` 导入。
+
+**本批落地**：windowManagementMonitorRectForWindow [S 0x1409ee840]（MonitorFromWindow(hwnd,2) →
+hMonitor==0 → errors.New("无法定位目标窗口所在显示器")；GetMonitorInfoW(hMonitor,&mi{Size:40})；
+失败→"未知错误"→"读取显示器边界失败: %w"；成功→Monitor 矩形四值）。
+新增 proc：procMonitorFromWindow / procGetMonitorInfoW。
+
+**proc 身份内存实证**：0x141BC1DB0=GetSystemMetrics、0x141BC1E60=EnumDisplayMonitors、
+0x141BC1E50=MonitorFromWindow、0x141BC1E58=GetMonitorInfoW。
+**Errno itab 第三次交叉验证**：`0x1409ee910+7+0x7e43d0 = 0x1411D2CE0`，与 259/261 完全一致。
+
+**工具纪律**：disp32 一律从 .bin 原始字节按 `next+disp` 解码，不人工读十六进制；新增 PE 段表解析
+用于定性地址归属（本批确认 0x141C5AB60 属 .data，即 init 期写入的包级 funcval 槽）。
+
+**未落地（留下一批专项）**：DisplayRects 384B（回调经全局 funcval 0x141C5AB60 传递，构造方式待实证）；
+targetFromWindowProcessPick 416B（大结构栈展开待逐字段核对）；MaybeWrapCursor 288B（依赖
+WrappedCursorPoint 992B）。FUNCS 2853/4754 = 60.02%。
+
 
 
 

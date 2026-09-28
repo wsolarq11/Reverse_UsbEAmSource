@@ -310,15 +310,15 @@ func defaultTagCatalogIconForIndex(index int, name string) string {
 // Supported=true、VirtualX/Y=Min.X/Min.Y、Width/Height=宽高。返回结构经栈 40B 展开。
 func getLauncherBackgroundMetrics() LauncherBackgroundMetrics {
 	bounds := windowManagementVirtualScreenBounds()
-	width := bounds.Max.X - bounds.Min.X
-	height := bounds.Max.Y - bounds.Min.Y
+	width := int(bounds.Right - bounds.Left)
+	height := int(bounds.Bottom - bounds.Top)
 	if width <= 0 || height <= 0 {
 		return LauncherBackgroundMetrics{}
 	}
 	return LauncherBackgroundMetrics{
 		Supported: true,
-		VirtualX:  bounds.Min.X,
-		VirtualY:  bounds.Min.Y,
+		VirtualX:  int(bounds.Left),
+		VirtualY:  int(bounds.Top),
 		Width:     width,
 		Height:    height,
 	}

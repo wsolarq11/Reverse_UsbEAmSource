@@ -1,0 +1,9 @@
+0x141bd1fc0: sbb      ch, byte ptr [rax*8 + 0x140]
+0x141bd1fc7: add      byte ptr [rdi], cl
+0x141bd1fc9: add      byte ptr [rax], al
+0x141bd1fcb: add      byte ptr [rax], al
+0x141bd1fcd: add      byte ptr [rax], al
+0x141bd1fcf: add      byte ptr [rax], al
+0x141bd1fd1: add      byte ptr [rax], al
+0x141bd1fd3: add      byte ptr [rax], al
+0x141bd1fd5: add      byte ptr [rax], al

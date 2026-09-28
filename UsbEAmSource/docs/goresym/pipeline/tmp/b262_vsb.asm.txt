@@ -1,0 +1,29 @@
+0x1409edbc0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409edbc4: jbe      0x1409edcb7   ; main.windowManagementVirtualScreenBounds+0xf7
+0x1409edbca: push     rbp
+0x1409edbcb: mov      rbp, rsp
+0x1409edbce: sub      rsp, 0x38
+0x1409edbd2: lea      rax, [rip + 0x10fda7]
+0x1409edbd9: call     0x14001ae20   ; runtime.newobject
+0x1409edbde: mov      qword ptr [rax], 0x4c
+0x1409edbe5: mov      rcx, qword ptr [rip + 0x11d41c4]
+0x1409edbec: mov      rbx, rax
+0x1409edbef: mov      edi, 1
+0x1409edbf4: mov      rax, rcx
+0x1409edbf7: mov      rcx, rdi
+0x1409edbfa: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409edbff: mov      qword ptr [rsp + 0x28], rax
+0x1409edc04: lea      rax, [rip + 0x10fd75]
+0x1409edc0b: call     0x14001ae20   ; runtime.newobject
+0x1409edc10: mov      qword ptr [rax], 0x4d
+0x1409edc17: mov      rcx, qword ptr [rip + 0x11d4192]
+0x1409edc1e: mov      rbx, rax
+0x1409edc21: mov      edi, 1
+0x1409edc26: mov      rax, rcx
+0x1409edc29: mov      rcx, rdi
+0x1409edc2c: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409edc31: mov      qword ptr [rsp + 0x20], rax
+0x1409edc36: lea      rax, [rip + 0x10fd43]
+0x1409edc3d: nop      dword ptr [rax]
+0x1409edc40: call     0x14001ae20   ; runtime.newobject
+0x1409edc45: mov      qword ptr [rax], 0x4e

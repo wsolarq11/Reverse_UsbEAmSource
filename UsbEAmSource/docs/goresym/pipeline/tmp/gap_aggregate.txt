@@ -413,7 +413,6 @@
    512  oledblackout.go                             oledBlackoutOverlayKeyBindings                                0x14090b540
    512  screenshot_preview_native_windows.go        screenshotNativePreviewRender                                 0x14099e380
    512  screenshot_scroll_windows.go                sendScreenshotMouseWheelAndTrackStop                          0x1409a2f20
-   512  windowmanagement_windows.go                 windowManagementMonitorRectForWindow                          0x1409ee840
    512  workspacemigration.go                       verifyWorkspaceDataManifestWithPolicy                         0x1409f1ba0
    544  bootstrapservice.go                         (*BootstrapService)TestMouseGestureAction                     0x1407827e0
    544  bootstrapservice.go                         (*BootstrapService)PickMouseGestureAppTarget                  0x140783c60

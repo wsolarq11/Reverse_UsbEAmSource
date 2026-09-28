@@ -1,0 +1,140 @@
+0x1409ee840: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409ee844: jbe      0x1409eea1e   ; main.windowManagementMonitorRectForWindow+0x1de
+0x1409ee84a: push     rbp
+0x1409ee84b: mov      rbp, rsp
+0x1409ee84e: sub      rsp, 0x50
+0x1409ee852: mov      qword ptr [rsp + 0x60], rax
+0x1409ee857: lea      rax, [rip + 0x10f182]
+0x1409ee85e: nop      
+0x1409ee860: call     0x14001ae20   ; runtime.newobject
+0x1409ee865: mov      rcx, qword ptr [rsp + 0x60]
+0x1409ee86a: mov      qword ptr [rax], rcx
+0x1409ee86d: mov      qword ptr [rax + 8], 2
+0x1409ee875: mov      rcx, qword ptr [rip + 0x11d35d4]
+0x1409ee87c: mov      rbx, rax
+0x1409ee87f: mov      edi, 2
+0x1409ee884: mov      rax, rcx
+0x1409ee887: mov      rcx, rdi
+0x1409ee88a: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409ee88f: test     rax, rax
+0x1409ee892: je       0x1409ee9e8   ; main.windowManagementMonitorRectForWindow+0x1a8
+0x1409ee898: mov      qword ptr [rsp + 0x28], rax
+0x1409ee89d: lea      rax, [rip + 0x1c625c]
+0x1409ee8a4: call     0x14001ae20   ; runtime.newobject
+0x1409ee8a9: mov      qword ptr [rsp + 0x48], rax
+0x1409ee8ae: mov      qword ptr [rax], 0x28
+0x1409ee8b5: movups   xmmword ptr [rax + 8], xmm15
+0x1409ee8ba: movups   xmmword ptr [rax + 0x18], xmm15
+0x1409ee8bf: mov      qword ptr [rsp + 0x40], rax
+0x1409ee8c4: lea      rax, [rip + 0x10f115]
+0x1409ee8cb: call     0x14001ae20   ; runtime.newobject
+0x1409ee8d0: mov      rcx, qword ptr [rsp + 0x28]
+0x1409ee8d5: mov      qword ptr [rax], rcx
+0x1409ee8d8: mov      rcx, qword ptr [rsp + 0x40]
+0x1409ee8dd: mov      qword ptr [rax + 8], rcx
+0x1409ee8e1: mov      rcx, qword ptr [rip + 0x11d3570]
+0x1409ee8e8: mov      rbx, rax
+0x1409ee8eb: mov      edi, 2
+0x1409ee8f0: mov      rax, rcx
+0x1409ee8f3: mov      rcx, rdi
+0x1409ee8f6: call     0x1401935a0   ; golang.org/x/sys/windows.LazyProc.Call
+0x1409ee8fb: nop      dword ptr [rax + rax]
+0x1409ee900: test     rax, rax
+0x1409ee903: jne      0x1409ee9cc   ; main.windowManagementMonitorRectForWindow+0x18c
+0x1409ee909: lea      rdx, [rip + 0x7e43d0]
+0x1409ee910: cmp      rcx, rdx
+0x1409ee913: jne      0x1409ee91a   ; main.windowManagementMonitorRectForWindow+0xda
+0x1409ee915: mov      rdx, qword ptr [rdi]
+0x1409ee918: jmp      0x1409ee920   ; main.windowManagementMonitorRectForWindow+0xe0
+0x1409ee91a: mov      edx, 0
+0x1409ee91f: nop      
+0x1409ee920: jne      0x1409ee952   ; main.windowManagementMonitorRectForWindow+0x112
+0x1409ee922: test     rdx, rdx
+0x1409ee925: jne      0x1409ee952   ; main.windowManagementMonitorRectForWindow+0x112
+0x1409ee927: nop      
+0x1409ee928: lea      rax, [rip + 0x165a51]
+0x1409ee92f: call     0x14001ae20   ; runtime.newobject
+0x1409ee934: mov      qword ptr [rax + 8], 0xc
+0x1409ee93c: lea      rcx, [rip + 0x25d155]
+0x1409ee943: mov      qword ptr [rax], rcx
+0x1409ee946: lea      rcx, [rip + 0x7e47b3]
+0x1409ee94d: mov      rdi, rax
+0x1409ee950: jmp      0x1409ee981   ; main.windowManagementMonitorRectForWindow+0x141
+0x1409ee952: test     rcx, rcx
+0x1409ee955: jne      0x1409ee981   ; main.windowManagementMonitorRectForWindow+0x141
+0x1409ee957: nop      
+0x1409ee958: lea      rax, [rip + 0x165a21]
+0x1409ee95f: nop      
+0x1409ee960: call     0x14001ae20   ; runtime.newobject
+0x1409ee965: mov      qword ptr [rax + 8], 0xc
+0x1409ee96d: lea      rcx, [rip + 0x25d124]
+0x1409ee974: mov      qword ptr [rax], rcx
+0x1409ee977: lea      rcx, [rip + 0x7e4782]
+0x1409ee97e: mov      rdi, rax
+0x1409ee981: movups   xmmword ptr [rsp + 0x30], xmm15
+0x1409ee987: test     rcx, rcx
+0x1409ee98a: je       0x1409ee990   ; main.windowManagementMonitorRectForWindow+0x150
+0x1409ee98c: mov      rcx, qword ptr [rcx + 8]
+0x1409ee990: mov      qword ptr [rsp + 0x30], rcx
+0x1409ee995: mov      qword ptr [rsp + 0x38], rdi
+0x1409ee99a: lea      rax, [rip + 0x2826a4]
+0x1409ee9a1: mov      ebx, 0x1f
+0x1409ee9a6: lea      rcx, [rsp + 0x30]
+0x1409ee9ab: mov      edi, 1
+0x1409ee9b0: mov      rsi, rdi
+0x1409ee9b3: call     0x140133280   ; fmt.Errorf
+0x1409ee9b8: xor      ecx, ecx
+0x1409ee9ba: mov      edi, ecx
+0x1409ee9bc: mov      rsi, rax
+0x1409ee9bf: mov      r8, rbx
+0x1409ee9c2: mov      eax, ecx
+0x1409ee9c4: mov      ebx, eax
+0x1409ee9c6: add      rsp, 0x50
+0x1409ee9ca: pop      rbp
+0x1409ee9cb: ret      
+0x1409ee9cc: mov      rdx, qword ptr [rsp + 0x48]
+0x1409ee9d1: mov      eax, dword ptr [rdx + 4]
+0x1409ee9d4: mov      ebx, dword ptr [rdx + 8]
+0x1409ee9d7: mov      ecx, dword ptr [rdx + 0xc]
+0x1409ee9da: mov      edi, dword ptr [rdx + 0x10]
+0x1409ee9dd: xor      esi, esi
+0x1409ee9df: xor      r8d, r8d
+0x1409ee9e2: add      rsp, 0x50
+0x1409ee9e6: pop      rbp
+0x1409ee9e7: ret      
+0x1409ee9e8: lea      rax, [rip + 0x165991]
+0x1409ee9ef: call     0x14001ae20   ; runtime.newobject
+0x1409ee9f4: mov      qword ptr [rax + 8], 0x27
+0x1409ee9fc: lea      rcx, [rip + 0x28f582]
+0x1409eea03: mov      qword ptr [rax], rcx
+0x1409eea06: xor      ebx, ebx
+0x1409eea08: mov      ecx, ebx
+0x1409eea0a: mov      edi, ecx
+0x1409eea0c: lea      rsi, [rip + 0x7e46ed]
+0x1409eea13: mov      r8, rax
+0x1409eea16: mov      eax, ecx
+0x1409eea18: add      rsp, 0x50
+0x1409eea1c: pop      rbp
+0x1409eea1d: ret      
+0x1409eea1e: mov      qword ptr [rsp + 8], rax
+0x1409eea23: call     0x14007f140   ; runtime.morestack_noctxt
+0x1409eea28: mov      rax, qword ptr [rsp + 8]
+0x1409eea2d: jmp      0x1409ee840   ; main.windowManagementMonitorRectForWindow
+0x1409eea32: int3     
+0x1409eea33: int3     
+0x1409eea34: int3     
+0x1409eea35: int3     
+0x1409eea36: int3     
+0x1409eea37: int3     
+0x1409eea38: int3     
+0x1409eea39: int3     
+0x1409eea3a: int3     
+0x1409eea3b: int3     
+0x1409eea3c: int3     
+0x1409eea3d: int3     
+0x1409eea3e: int3     
+0x1409eea3f: int3     
+0x1409eea40: cmp      rsp, qword ptr [r14 + 0x10]
+0x1409eea44: jbe      0x1409eebc1   ; main.targetFromWindowProcessPick+0x181
+0x1409eea4a: push     rbp
+0x1409eea4b: mov      rbp, rsp

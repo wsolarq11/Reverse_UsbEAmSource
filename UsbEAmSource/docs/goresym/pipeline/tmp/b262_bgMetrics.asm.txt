@@ -1,0 +1,82 @@
+0x140874520: cmp      rsp, qword ptr [r14 + 0x10]
+0x140874524: jbe      0x1408745c2   ; main.getLauncherBackgroundMetrics+0xa2
+0x14087452a: push     rbp
+0x14087452b: mov      rbp, rsp
+0x14087452e: sub      rsp, 0x28
+0x140874532: movups   xmmword ptr [rsp], xmm15
+0x140874537: movups   xmmword ptr [rsp + 8], xmm15
+0x14087453d: movups   xmmword ptr [rsp + 0x18], xmm15
+0x140874543: call     0x1409edbc0   ; main.windowManagementVirtualScreenBounds
+0x140874548: sub      ecx, eax
+0x14087454a: movsxd   rcx, ecx
+0x14087454d: sub      edi, ebx
+0x14087454f: test     rcx, rcx
+0x140874552: jle      0x14087455c   ; main.getLauncherBackgroundMetrics+0x3c
+0x140874554: movsxd   rsi, edi
+0x140874557: test     rsi, rsi
+0x14087455a: jg       0x140874581   ; main.getLauncherBackgroundMetrics+0x61
+0x14087455c: movups   xmmword ptr [rsp], xmm15
+0x140874561: movups   xmmword ptr [rsp + 8], xmm15
+0x140874567: movups   xmmword ptr [rsp + 0x18], xmm15
+0x14087456d: xor      eax, eax
+0x14087456f: xor      ebx, ebx
+0x140874571: mov      rcx, rbx
+0x140874574: mov      rdi, rcx
+0x140874577: mov      rsi, rcx
+0x14087457a: add      rsp, 0x28
+0x14087457e: pop      rbp
+0x14087457f: nop      
+0x140874580: ret      
+0x140874581: mov      qword ptr [rsp], 1
+0x140874589: movups   xmmword ptr [rsp + 8], xmm15
+0x14087458f: movups   xmmword ptr [rsp + 0x18], xmm15
+0x140874595: movsxd   rdx, eax
+0x140874598: mov      qword ptr [rsp + 8], rdx
+0x14087459d: movsxd   r8, ebx
+0x1408745a0: mov      qword ptr [rsp + 0x10], r8
+0x1408745a5: mov      qword ptr [rsp + 0x18], rcx
+0x1408745aa: mov      qword ptr [rsp + 0x20], rsi
+0x1408745af: movzx    eax, byte ptr [rsp]
+0x1408745b3: mov      rbx, rdx
+0x1408745b6: mov      rdi, rcx
+0x1408745b9: mov      rcx, r8
+0x1408745bc: add      rsp, 0x28
+0x1408745c0: pop      rbp
+0x1408745c1: ret      
+0x1408745c2: call     0x14007f140   ; runtime.morestack_noctxt
+0x1408745c7: jmp      0x140874520   ; main.getLauncherBackgroundMetrics
+0x1408745cc: int3     
+0x1408745cd: int3     
+0x1408745ce: int3     
+0x1408745cf: int3     
+0x1408745d0: int3     
+0x1408745d1: int3     
+0x1408745d2: int3     
+0x1408745d3: int3     
+0x1408745d4: int3     
+0x1408745d5: int3     
+0x1408745d6: int3     
+0x1408745d7: int3     
+0x1408745d8: int3     
+0x1408745d9: int3     
+0x1408745da: int3     
+0x1408745db: int3     
+0x1408745dc: int3     
+0x1408745dd: int3     
+0x1408745de: int3     
+0x1408745df: int3     
+0x1408745e0: cmp      rsp, qword ptr [r14 + 0x10]
+0x1408745e4: jbe      0x14087473c   ; main.defaultFileLocatorConfig+0x15c
+0x1408745ea: push     rbp
+0x1408745eb: mov      rbp, rsp
+0x1408745ee: sub      rsp, 0x60
+0x1408745f2: lea      rdi, [rsp + 0x70]
+0x1408745f7: lea      rdi, [rdi - 0x10]
+0x1408745fb: nop      dword ptr [rax + rax]
+0x140874600: mov      qword ptr [rsp - 0x10], rbp
+0x140874605: lea      rbp, [rsp - 0x10]
+0x14087460a: call     0x1400816f8   ; runtime.duffzero+0x118
+0x14087460f: mov      rbp, qword ptr [rbp]
+0x140874613: nop      
+0x140874614: call     0x140874760   ; main.defaultFileLocatorFilterValue
+0x140874619: lea      rcx, [rip + 0x3f8eeb]

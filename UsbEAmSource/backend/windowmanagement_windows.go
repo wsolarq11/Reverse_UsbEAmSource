@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"image"
 	"runtime"
 	"strings"
 	"syscall"
@@ -23,6 +22,8 @@ var (
 	procGetWindowThreadProcessId = user32DLL.NewProc("GetWindowThreadProcessId")
 	procSetWindowLongPtrW        = user32DLL.NewProc("SetWindowLongPtrW")
 	procSetWindowLongW           = user32DLL.NewProc("SetWindowLongW")
+	procMonitorFromWindow        = user32DLL.NewProc("MonitorFromWindow")
+	procGetMonitorInfoW          = user32DLL.NewProc("GetMonitorInfoW")
 )
 
 // SetWindowLongPtr 前置清错误码所需的 kernel32.SetLastError
@@ -32,16 +33,23 @@ var (
 	procSetLastError = kernel32DLL.NewProc("SetLastError")
 )
 
-// windowManagementVirtualScreenBounds 返回虚拟屏幕矩形。
+// windowManagementVirtualScreenBounds 返回虚拟屏幕矩形（4×int32）。
 // [S] ASM 0x1409edbc0：四次 GetSystemMetrics（0x4c/0x4d/0x4e/0x4f =
-// SM_X/Y/CX/CYVIRTUALSCREEN），尾段 edx=x+cx / edi=y+cy 合成
-// image.Rect(x, y, x+cx, y+cy)。无回退分支（与 qrCodeVirtualScreenBounds 不同）。
-func windowManagementVirtualScreenBounds() image.Rectangle {
+// SM_X/Y/CX/CYVIRTUALSCREEN），尾段 `add edx,ecx` / `lea edi,[rax+rbx]` 为 **32 位**运算，
+// 返回 rax/rbx/rcx/rdi = Left/Top/Right/Bottom（int32）。调用方 getLauncherBackgroundMetrics
+// 用 movsxd 符号扩展，确证宽度为 int32 而非 image.Rectangle 的 int64。
+// 无回退分支（与 qrCodeVirtualScreenBounds 不同）。
+func windowManagementVirtualScreenBounds() windowManagementRECT {
 	x := getSystemMetrics(0x4c) // SM_XVIRTUALSCREEN
 	y := getSystemMetrics(0x4d) // SM_YVIRTUALSCREEN
 	w := getSystemMetrics(0x4e) // SM_CXVIRTUALSCREEN
 	h := getSystemMetrics(0x4f) // SM_CYVIRTUALSCREEN
-	return image.Rect(x, y, x+w, y+h)
+	return windowManagementRECT{
+		Left:   int32(x),
+		Top:    int32(y),
+		Right:  int32(x + w),
+		Bottom: int32(y + h),
+	}
 }
 
 // windowManagementPointInCornerGuard 判断坐标 (x,y) 是否落在矩形角落守卫带内。
@@ -375,4 +383,25 @@ func windowManagementSetWindowLongPtr(hwnd uintptr, index int32, newValue uintpt
 		lastErr = errors.New("未知错误")
 	}
 	return fmt.Errorf("更新窗口样式失败: %w", lastErr)
+}
+
+// windowManagementMonitorRectForWindow 返回窗口所在显示器的屏幕矩形。
+// [S] ASM 0x1409ee840：MonitorFromWindow(hwnd, 2=MONITOR_DEFAULTTONEAREST)；hMonitor==0 →
+// errors.New("无法定位目标窗口所在显示器")；GetMonitorInfoW(hMonitor,&mi)（Size=40）；
+// 失败→lastErr==nil 或 Errno(0) 时 errors.New("未知错误")，再
+// fmt.Errorf("读取显示器边界失败: %w",lastErr)；成功→Monitor 矩形的 (Left,Top,Right,Bottom,nil)。
+func windowManagementMonitorRectForWindow(hwnd uintptr) (int32, int32, int32, int32, error) {
+	hMonitor, _, _ := procMonitorFromWindow.Call(hwnd, 2)
+	if hMonitor == 0 {
+		return 0, 0, 0, 0, errors.New("无法定位目标窗口所在显示器")
+	}
+	mi := &windowManagementMonitorInfo{Size: 40}
+	r1, _, lastErr := procGetMonitorInfoW.Call(hMonitor, uintptr(unsafe.Pointer(mi)))
+	if r1 == 0 {
+		if lastErr == nil || errors.Is(lastErr, syscall.Errno(0)) {
+			lastErr = errors.New("未知错误")
+		}
+		return 0, 0, 0, 0, fmt.Errorf("读取显示器边界失败: %w", lastErr)
+	}
+	return mi.Monitor.Left, mi.Monitor.Top, mi.Monitor.Right, mi.Monitor.Bottom, nil
 }

@@ -1,0 +1,8 @@
+0x140c3c074: jae      0x140c3c0ce
+0x140c3c077: imul     ebp, dword ptr [rsi + 0x64], 0x6f64776f
+0x140c3c07e: movsxd   esi, dword ptr [rbp + 0x6d]
+0x140c3c081: outsb    dx, byte ptr gs:[rsi]
+0x140c3c083: je       0x140c3c0d2
+0x140c3c085: outsd    dx, dword ptr [rsi]
+0x140c3c086: jne      0x140c3c0fb
+0x140c3c088: and      byte ptr gs:[rax + 0x31], bl

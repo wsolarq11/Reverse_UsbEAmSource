@@ -1,0 +1,11 @@
+0x141bd1c80: xor      dword ptr [rdx - 0x3b], esi
+0x141bd1c83: add      dword ptr [rax], eax
+0x141bd1c86: add      byte ptr [rax], al
+0x141bd1c88: adc      dword ptr [rax], eax
+0x141bd1c8a: add      byte ptr [rax], al
+0x141bd1c8c: add      byte ptr [rax], al
+0x141bd1c8e: add      byte ptr [rax], al
+0x141bd1c90: add      byte ptr [rax], al
+0x141bd1c92: add      byte ptr [rax], al
+0x141bd1c94: add      byte ptr [rax], al
+0x141bd1c96: add      byte ptr [rax], al

@@ -439,7 +439,6 @@
    544  screenshot_preview.go                       (*screenshotPreviewWindowService)handlePreviewReadyRequest    0x140999060
    544  screenshot_scroll_windows.go                insertScreenshotScrollingAppendCandidate                      0x1409a5040
    544  windowmanagement_windows.go                 windowManagementRestoreOpacity                                0x1409ea560
-   544  windowmanagement_windows.go                 windowManagementSetWindowLongPtr                              0x1409ee3e0
    576  bookmarks.go                                (*BootstrapService)OpenLink                                   0x140764980
    576  bootstrapservice.go                         (*BootstrapService)restoreLauncherWindowLayoutSnapshot        0x14079bc40
    576  desktopwidgets_scheduler.go                 desktopWidgetDeliveryKey                                      0x1407b0fa0

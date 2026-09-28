@@ -1,0 +1,2 @@
+0x141bc1e00: add      byte ptr [rip + 0x141bd], bl
+0x141bc1e06: add      byte ptr [rax], al

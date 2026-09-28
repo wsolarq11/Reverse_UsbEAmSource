@@ -4876,6 +4876,31 @@ FUNCS 2848/4754 = 59.90%。
 格式串 "更新窗口样式失败: %w"）；DisplayRects 384B；MaybeWrapCursor 288B（依赖 WrappedCursorPoint）。
 FUNCS 2851/4754 = 59.97%。
 
+### 批次 261（SetWindowLongPtr +1 [S]）
+
+**基线/收口**：`FUNCS=2851→2852 / S=1319→1320 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2811→2812 = 59.19%）。`go1.25.12 build/vet/test ./backend` 全 EXIT=0。
+
+**本批落地**：windowManagementSetWindowLongPtr [S 0x1409ee3e0]（LockOSThread + defer
+UnlockOSThread；SetLastError.Call(0) 预清；SetWindowLongPtrW 为首选、Find 失败退回 SetWindowLongW；
+Call(hwnd,index,newValue)）。
+
+**关键发现：同一 Errno(0) 判据在本域内语义相反（须分别落地）**
+- GetCursorPoint / GetWindowRect：`Errno(0)` → **失败**，替换为 "未知错误" 后返回 error。
+- SetWindowLongPtr：`Errno(0)` → **成功**，直接返回 nil（r1 是「旧值」，0 合法，改由 lastErr 判定）。
+两处 asm 分支结构不同（前者构造 errors.New，后者 `test rcx,rcx; je` 走成功返回）。禁止"同域同判据"复用。
+
+**全部事实内存实证**：
+- defer 目标 funcval @0x141096E10 → code=0x1400525E0 = **runtime.UnlockOSThread**。
+- 三 proc 槽：0x141BC1DA8=SetLastError、0x141BC1DF0=SetWindowLongPtrW、0x141BC1E00=SetWindowLongW。
+- Errno itab `0x1409ee4f5+7+0x7e47eb = 0x1411D2CE0`，与批次 259 GetCursorPoint 算出的一致（交叉验证通过）。
+- 格式串 `更新窗口样式失败: %w`（28B @0x140C6C1E0）。
+- 全量扫 `x/sys@v0.46.0/windows/*.go` 确认**无 SetLastError**（只有 GetLastError），故新增
+  `kernel32DLL = windows.NewLazySystemDLL("kernel32.dll")` + `procSetLastError`。
+
+**下一批**：DisplayRects 384B；MaybeWrapCursor 288B（依赖 WrappedCursorPoint 992B，须先落地）；
+MonitorRectForWindow 512B；targetFromWindowProcessPick 416B。FUNCS 2852/4754 = 60.00%。
+
 
 
 

@@ -4,20 +4,32 @@ import (
 	"errors"
 	"fmt"
 	"image"
+	"runtime"
 	"strings"
 	"syscall"
 	"unsafe"
+
+	"golang.org/x/sys/windows"
 )
 
 // windowManagement 所需的 user32 LazyProc（依赖 appicon_windows.go 中的 user32DLL）。
 var (
-	procGetWindowLongPtrW = user32DLL.NewProc("GetWindowLongPtrW")
-	procGetClientRect     = user32DLL.NewProc("GetClientRect")
-	procGetClassNameW     = user32DLL.NewProc("GetClassNameW")
-	procGetWindowTextW    = user32DLL.NewProc("GetWindowTextW")
-	procIsWindow          = user32DLL.NewProc("IsWindow")
-	procGetWindowRect     = user32DLL.NewProc("GetWindowRect")
+	procGetWindowLongPtrW        = user32DLL.NewProc("GetWindowLongPtrW")
+	procGetClientRect            = user32DLL.NewProc("GetClientRect")
+	procGetClassNameW            = user32DLL.NewProc("GetClassNameW")
+	procGetWindowTextW           = user32DLL.NewProc("GetWindowTextW")
+	procIsWindow                 = user32DLL.NewProc("IsWindow")
+	procGetWindowRect            = user32DLL.NewProc("GetWindowRect")
 	procGetWindowThreadProcessId = user32DLL.NewProc("GetWindowThreadProcessId")
+	procSetWindowLongPtrW        = user32DLL.NewProc("SetWindowLongPtrW")
+	procSetWindowLongW           = user32DLL.NewProc("SetWindowLongW")
+)
+
+// SetWindowLongPtr 前置清错误码所需的 kernel32.SetLastError
+// （x/sys/windows 只导出 GetLastError，无 SetLastError，故自建）。
+var (
+	kernel32DLL      = windows.NewLazySystemDLL("kernel32.dll")
+	procSetLastError = kernel32DLL.NewProc("SetLastError")
 )
 
 // windowManagementVirtualScreenBounds 返回虚拟屏幕矩形。
@@ -337,4 +349,30 @@ func windowManagementExStyleNames(value uint32) string {
 		{0x00080000, "WS_EX_LAYERED"},
 		{0x08000000, "WS_EX_NOACTIVATE"},
 	})
+}
+
+// windowManagementSetWindowLongPtr 设置窗口样式/扩展样式等 LongPtr 值。
+// [S] ASM 0x1409ee3e0：runtime.LockOSThread + defer runtime.UnlockOSThread（funcval[0]=0x1400525e0）；
+// SetLastError.Call(0) 清错误码；默认用 SetWindowLongPtrW，其 Find() 失败则退回 SetWindowLongW；
+// Call(hwnd, uintptr(index), newValue)：r1!=0 → nil；lastErr 为 syscall.Errno(0) → nil；
+// lastErr==nil → errors.New("未知错误")；否则 fmt.Errorf("更新窗口样式失败: %w", lastErr)。
+func windowManagementSetWindowLongPtr(hwnd uintptr, index int32, newValue uintptr) error {
+	runtime.LockOSThread()
+	defer runtime.UnlockOSThread()
+	procSetLastError.Call(0)
+	proc := procSetWindowLongPtrW
+	if procSetWindowLongPtrW.Find() != nil {
+		proc = procSetWindowLongW
+	}
+	r1, _, lastErr := proc.Call(hwnd, uintptr(index), newValue)
+	if r1 != 0 {
+		return nil
+	}
+	if errno, ok := lastErr.(syscall.Errno); ok && errno == 0 {
+		return nil
+	}
+	if lastErr == nil {
+		lastErr = errors.New("未知错误")
+	}
+	return fmt.Errorf("更新窗口样式失败: %w", lastErr)
 }

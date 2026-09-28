@@ -333,7 +333,6 @@
    384  screenshot_scroll_windows.go                screenshotScrollingRowLooksDarkSeamArtifact                   0x1409a3a60
    384  screenshot_scroll_windows.go                screenshotScrollingAverageRowLuma                             0x1409a3be0
    384  screenshot_scroll_windows.go                (*screenshotScrollingScrollController)update                  0x1409a5ec0
-   384  windowmanagement_windows.go                 windowManagementDisplayRects                                  0x1409edce0
    384  workspacemigration_identity.go              sameWorkspacePathInspection                                   0x1409f43e0
    416  bookmarks.go                                describeChromiumBookmarkPath                                  0x140766c20
    416  bootstrapservice.go                         (*BootstrapService)shouldDestroyLauncherWindowOnTrayHide      0x14079a6e0

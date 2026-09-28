@@ -4928,6 +4928,32 @@ hMonitor==0 → errors.New("无法定位目标窗口所在显示器")；GetMonit
 targetFromWindowProcessPick 416B（大结构栈展开待逐字段核对）；MaybeWrapCursor 288B（依赖
 WrappedCursorPoint 992B）。FUNCS 2853/4754 = 60.02%。
 
+### 批次 263（DisplayRects +1 [S]：EnumDisplayMonitors 回调范式首落地）
+
+**基线/收口**：`FUNCS=2853→2854 / S=1321→1322 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2813→2814 = 59.29%）。`go1.25.12 build/vet/test ./backend` 全 EXIT=0。
+
+**本批落地**：windowManagementDisplayRects [S 0x1409edce0]（SM_CMONITORS → count=max(r1,1) →
+makeslice(0,count) → EnumDisplayMonitors(0,0,callback,&rects) → r1!=0&&len!=0 返回 rects；
+否则 VirtualScreenBounds 回退单元素或 nil）。新增 proc：procEnumDisplayMonitors。
+
+**上一批挂起项已闭环（callback 构造方式）**：
+① PE 段表证明槽 0x141C5AB60 属 `.data` 的 **BSS 区**（已初始化区止于 0x141C0F800），
+即 init 期写入 → 包级 `syscall.NewCallback` 形态；
+② 二进制含 `syscall.compileCallback`(0x14007c660)，main_init 与 oledBlackoutEnumTopLevelWindows
+均调用之，参照 win_enumTopLevelWindows.asm.txt 确认范式为 funcval → compileCallback → args → Call。
+据此落地包级变量 `windowManagementEnumDisplayMonitorCallback`。
+
+**重要验证经验**：`syscall.NewCallback` 的参数约束是**运行时**校验（init 期由 compileCallback
+反射检查），非法签名会让**全部**测试失败，而 build/vet 均无法发现。本批靠 `go test` 通过证明
+签名合法（4 实参皆 uintptr 宽度 + 单 uintptr 返回）。**结论：test 门禁不可省，它兜住 init 期崩溃类缺陷。**
+
+**数据流闭环**：批次 258 的回调侧 `*rects = append(...)` 与本批调用侧
+`uintptr(unsafe.Pointer(&rects))` 配对，构成完整「传入-填充-回读」链路。
+
+**下一批**：targetFromWindowProcessPick 416B（大结构栈展开待核对）；MaybeWrapCursor 288B
+（依赖 WrappedCursorPoint 992B）。FUNCS 2854/4754 = 60.04%。
+
 
 
 

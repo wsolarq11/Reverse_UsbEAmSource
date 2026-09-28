@@ -24,7 +24,12 @@ var (
 	procSetWindowLongW           = user32DLL.NewProc("SetWindowLongW")
 	procMonitorFromWindow        = user32DLL.NewProc("MonitorFromWindow")
 	procGetMonitorInfoW          = user32DLL.NewProc("GetMonitorInfoW")
+	procEnumDisplayMonitors      = user32DLL.NewProc("EnumDisplayMonitors")
 )
+
+// EnumDisplayMonitors 的回调入口。asm 0x1409edd94 以 `mov rcx,[rip+disp]` 直接读该全局槽
+// （槽位 0x141C5AB60 落在 .data 的 BSS 区，即 init 期由 syscall.NewCallback 写入）。
+var windowManagementEnumDisplayMonitorCallback = syscall.NewCallback(windowManagementEnumDisplayMonitorProc)
 
 // SetWindowLongPtr 前置清错误码所需的 kernel32.SetLastError
 // （x/sys/windows 只导出 GetLastError，无 SetLastError，故自建）。
@@ -404,4 +409,34 @@ func windowManagementMonitorRectForWindow(hwnd uintptr) (int32, int32, int32, in
 		return 0, 0, 0, 0, fmt.Errorf("读取显示器边界失败: %w", lastErr)
 	}
 	return mi.Monitor.Left, mi.Monitor.Top, mi.Monitor.Right, mi.Monitor.Bottom, nil
+}
+
+// windowManagementDisplayRects 枚举所有显示器矩形；失败或为空时回退为虚拟屏幕单矩形。
+// [S] ASM 0x1409edce0：
+//  1. GetSystemMetrics(0x50=SM_CMONITORS)，`test rax,rax; mov ecx,1; cmovle rax,rcx`
+//     → count = max(r1, 1)；
+//  2. makeslice(len=0, cap=count) 得 rects（持有于栈上 slice 头）；
+//  3. EnumDisplayMonitors(0, 0, callback, &rects)（4 实参，回调经 BSS 全局槽传入）；
+//  4. r1!=0 && len(rects)!=0 → 原样返回 rects；
+//  5. 否则取 VirtualScreenBounds：Right<=Left 或 Bottom<=Top → 返回 nil；
+//  6. 有效 → newobject 写入 4×int32 后返回单元素切片（rax/rbx=1/rcx=1）。
+func windowManagementDisplayRects() []windowManagementRECT {
+	count := getSystemMetrics(0x50) // SM_CMONITORS
+	if count <= 0 {
+		count = 1
+	}
+	rects := make([]windowManagementRECT, 0, count)
+	r1, _, _ := procEnumDisplayMonitors.Call(
+		0, 0,
+		windowManagementEnumDisplayMonitorCallback,
+		uintptr(unsafe.Pointer(&rects)),
+	)
+	if r1 != 0 && len(rects) != 0 {
+		return rects
+	}
+	bounds := windowManagementVirtualScreenBounds()
+	if bounds.Right <= bounds.Left || bounds.Bottom <= bounds.Top {
+		return nil
+	}
+	return []windowManagementRECT{bounds}
 }

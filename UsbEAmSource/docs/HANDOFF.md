@@ -4954,9 +4954,25 @@ makeslice(0,count) → EnumDisplayMonitors(0,0,callback,&rects) → r1!=0&&len!=
 **下一批**：targetFromWindowProcessPick 416B（大结构栈展开待核对）；MaybeWrapCursor 288B
 （依赖 WrappedCursorPoint 992B）。FUNCS 2854/4754 = 60.04%。
 
+### 批次 264（短函数 +3 [S]：滚动右键状态 + WebView2 检视辅助）
 
+**基线/收口**：`FUNCS=2854→2857 / S=1322→1325 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2814→2817 = 59.34%）。`go1.25.12 build/vet/test -tags production ./backend` 全 EXIT=0。
 
+**本批落地（+3 [S]）**：
+1. readScreenshotScrollingRightButtonState [S 0x1409a3320]：GetAsyncKeyState(VK_RBUTTON=2)，
+   bit15=当前按下 + bit0=上次按过，返回 (bool,bool)。新 proc procGetAsyncKeyState。文件 screenshot_scroll_windows.go（新建）。
+2. resolveWebView2ProcessInspectUserDataDir [S 0x1409df7e0]：TrimSpace → filepath.Abs，返回 (string,error)。
+3. resolveWebView2ProcessInspectHostExeName [S 0x1409df840]：os.Executable → Base → TrimSpace，
+   空/错回落默认名 "UsbEAm_Launcher.exe"（19B @0x140C5BD00，两分支同址）。文件 webview2_process_windows.go（新建）。
 
+**proc 实证**：右键 proc 槽 0x141BC1CE8 = GetAsyncKeyState。
+
+**本批后即转入整洁移交**：过程产物（pipeline/tmp + disasm*/dump_archive，共 4850 文件）移出版本控制、
+CI 门禁统一 -tags production、push、远端 CI、交接文档。详见 STRUCTURE.md / 本文件「整洁与移交」节。
+
+**下一批（新会话续接）**：targetFromWindowProcessPick 416B；MaybeWrapCursor 288B（依赖 WrappedCursorPoint 992B）。
+FUNCS 2857/4754 = 60.10%。
 
 
 

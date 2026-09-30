@@ -9,18 +9,20 @@ import (
 )
 
 // workspaceMigrationPathIsReparse 判断路径是否为 reparse point（符号链接/挂载点）。
-// [S] ASM 0x1409f4660: UTF16PtrFromString → GetFileAttributes，任一步 err→false，
-// 否则 attrs&FILE_ATTRIBUTE_REPARSE_POINT(0x400，bit10)!=0。
-func workspaceMigrationPathIsReparse(path string) bool {
+// [S] ASM 0x1409f4660: UTF16PtrFromString err→(false,err)；GetFileAttributes err→(false,err)；
+// 否则 (attrs&FILE_ATTRIBUTE_REPARSE_POINT(0x400，bit10)!=0, nil)。返回 (bool, error)。
+// 签名订正（batch 268）：batch 267 误落单 bool，validateWorkspaceMigrationExistingChain
+// 调用点实证检查 err（asm 0x1409f42ea test rbx,rbx）→ 真实为双返回。
+func workspaceMigrationPathIsReparse(path string) (bool, error) {
 	ptr, err := windows.UTF16PtrFromString(path)
 	if err != nil {
-		return false
+		return false, err
 	}
 	attrs, err := windows.GetFileAttributes(ptr)
 	if err != nil {
-		return false
+		return false, err
 	}
-	return attrs&windows.FILE_ATTRIBUTE_REPARSE_POINT != 0
+	return attrs&windows.FILE_ATTRIBUTE_REPARSE_POINT != 0, nil
 }
 
 // normalizeWorkspaceWindowsFinalPath 规范化 Windows 长路径前缀。

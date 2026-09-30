@@ -19,12 +19,12 @@
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 原始源码规模 | ≈104,374 行 | ≈104,374 行 | 每文件最大行号求和（闭包共享父函数区间，属上界估计） |
-| 已重建函数 | 2864 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 267 后） |
-| 真函数（S+S-inline+S-sig） | 2824 | 4,754 | 同上，**批次 267 达 59.40%** |
+| 已重建函数 | 2865 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 268 后） |
+| 真函数（S+S-inline+S-sig） | 2825 | 4,754 | 同上，**批次 268 达 59.42%** |
 | 文件覆盖 | 88/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 45 | **0** | 同上差集（活体实测 2026-09-30 批次 267 重跑，较 §10 的 57 已减 12），清单见 §10 |
 | UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
-| [P] 存根 | 40 | **0** | 同上（批次 267 持平） |
+| [P] 存根 | 40 | **0** | 同上（批次 268 持平） |
 
 **⚠️ 口径纪律（本文件历史数字曾三度失真）**：§1 曾长期写「批次 34 / `FUNCS=900`」，与正文实际进度不符；批次 39 记录的 `S=552/S-sig=97/P=46/UNMARKED=259` 与活体实测不符，且分项相加 955 ≠ `FUNCS=969`（自相矛盾）。**任何批次记录落笔前必须先跑 `bash tools/count_funcs.sh` 取活体数字，禁止抄上一批的数字改一改。**
 
@@ -5079,6 +5079,35 @@ windows.CloseHandle 0x140195860、os.newFile 0x140129ea0。
 **下一批**：`workspacemigration_identity.go` 剩余 3 函数（inspectWorkspaceMigrationPath 1696B /
 validateWorkspaceMigrationExistingChain 320B / sameWorkspacePathInspection 384B）依赖本批
 已落地的 normalize + NOFOLLOW 打开链，可成批落地。P=40。FUNCS 2864/4754 = 60.24%。
+
+### 批次 268（workspaceMigrationPathIsReparse 签名订正 + validateWorkspaceMigrationExistingChain +1 [S]）
+
+**基线/收口**：`FUNCS=2864→2865 / MARKED=2864→2865 / S=1335→1336 / S-inline=36 /
+S-sig=1453 / P=40 / UNMARKED=0`（真函数 2824→2825 = 59.42%；FAITHFUL 1371→1372）。
+`go1.25.12 build/vet/test -tags production ./backend` 全 EXIT=0。
+
+**签名订正（关键）**：`workspaceMigrationPathIsReparse` 真实签名 `(path string) (bool, error)`，
+batch 267 误落单 `bool`。完整 dump 0x1409f4660 四返回路径实证（UTF16 err / GetFileAttributes
+err 两路 `xor eax,eax; ret` 返 `(false, err)`；成功 `bt eax,0xa; setb al` + `xor ebx,ebx;
+xor ecx,ecx` 返 `(attrs&0x400!=0, nil)`），调用点 0x1409f42ea `test rbx,rbx` 检查 err 佐证。
+已订正为 `(bool, error)`，err 分支不再吞错。
+
+**本批落地（+1 [S]）**：
+- validateWorkspaceMigrationExistingChain [S 0x1409f42a0]（320B）：`(path string) error`。
+  循环 Clean(path) → os.Lstat err 直接返回 → workspaceMigrationPathIsReparse err 直接返回、
+  true 则 `fmt.Errorf("迁移路径不能经过符号链接、目录联接或 reparse point: %s", cleaned)`
+  （格式串 @0x140c90f6e，48B，`0x1409f436f+0x29cbff`）→ parent=Dir(cleaned)，parent==cleaned
+  则 nil，否则 path=parent 续环。
+
+**全仓整洁（本轮收尾动作）**：工作树干净（git status 空），13 个忽略项均为 pipeline/tmp、
+disasm、__pycache__、backend.exe、artifacts 等合法临时产物，无死代码残留；修正 batch 267
+遗留签名缺陷。
+
+**下一批**：`inspectWorkspaceMigrationPath`（1696B）+ `sameWorkspacePathInspection`（384B）
+依赖 `workspacePathInspection`（104B 布局，字段含 string×2 + bool×N，asm 已初探 A@0x80/
+B@0xe8 间距 0x68）与 `workspaceMigrationIdentityForExisting`（1472B，尚未 dump）。**必须先落地
+`workspaceMigrationIdentityForExisting` 定型结构，再三函数同批落地**（铁律①签名未定型拒绝落体）。
+P=40。FUNCS 2865/4754 = 60.26%。
 
 
 

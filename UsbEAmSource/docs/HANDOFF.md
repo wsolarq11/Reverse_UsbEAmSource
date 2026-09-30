@@ -19,12 +19,12 @@
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 原始源码规模 | ≈104,374 行 | ≈104,374 行 | 每文件最大行号求和（闭包共享父函数区间，属上界估计） |
-| 已重建函数 | 2865 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 268 后） |
-| 真函数（S+S-inline+S-sig） | 2825 | 4,754 | 同上，**批次 268 达 59.42%** |
+| 已重建函数 | 2868 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 269 后） |
+| 真函数（S+S-inline+S-sig） | 2828 | 4,754 | 同上，**批次 269 达 59.49%** |
 | 文件覆盖 | 88/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 45 | **0** | 同上差集（活体实测 2026-09-30 批次 267 重跑，较 §10 的 57 已减 12），清单见 §10 |
 | UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
-| [P] 存根 | 40 | **0** | 同上（批次 268 持平） |
+| [P] 存根 | 40 | **0** | 同上（批次 269 持平） |
 
 **⚠️ 口径纪律（本文件历史数字曾三度失真）**：§1 曾长期写「批次 34 / `FUNCS=900`」，与正文实际进度不符；批次 39 记录的 `S=552/S-sig=97/P=46/UNMARKED=259` 与活体实测不符，且分项相加 955 ≠ `FUNCS=969`（自相矛盾）。**任何批次记录落笔前必须先跑 `bash tools/count_funcs.sh` 取活体数字，禁止抄上一批的数字改一改。**
 
@@ -5108,6 +5108,64 @@ disasm、__pycache__、backend.exe、artifacts 等合法临时产物，无死代
 B@0xe8 间距 0x68）与 `workspaceMigrationIdentityForExisting`（1472B，尚未 dump）。**必须先落地
 `workspaceMigrationIdentityForExisting` 定型结构，再三函数同批落地**（铁律①签名未定型拒绝落体）。
 P=40。FUNCS 2865/4754 = 60.26%。
+
+### 批次 269（workspacemigration_identity 域三函数收口：identityForExisting + inspect + same）
+
+**基线/收口**：`FUNCS=2865→2868 / MARKED=2865→2868 / S=1336→1339 / S-inline=36 /
+S-sig=1453 / P=40 / UNMARKED=0`（真函数 2825→2828 = 59.49%；FAITHFUL 1372→1375）。
+`go build/vet/test -tags production ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**结构体定型（本批关键前置，复用 types_workspace.go 既有声明，未新建）**：
+`.eq.main.workspacePathIdentity`（0x140a0ace0）与 `.eq.main.workspacePathInspection`
+（0x140a0ac20）逐字段实证，与 types_workspace.go 已有声明**布局一致**：
+- `workspacePathIdentity`（40B）：canonical string@0x00(16B) + volume uint64@0x10 +
+  file uint64@0x18 + valid bool@0x20。
+- `workspacePathInspection`（104B）：canonical string@0x00(16B) + exists bool@0x10 +
+  identity@0x18(40B) + ancestorIdentity@0x40(40B)。exists 后 Go 自动 pad 7B 对齐。
+
+**本批落地（+3 [S]）**：
+1. `workspaceMigrationIdentityForExisting` [S 0x1409f46e0]（0x5C0=1472B）：
+   `(path string, _ os.FileInfo) (workspacePathIdentity, error)`。UTF16PtrFromString →
+   CreateFile(access=0x80 FILE_READ_ATTRIBUTES, share=7 READ|WRITE|DELETE,
+   disposition=OPEN_EXISTING, attrs=0x2200000=BACKUP_SEMANTICS|OPEN_REPARSE_POINT) →
+   defer CloseHandle → GetFileInformationByHandle → `bt attrs,0xa`(REPARSE_POINT) 命中 →
+   `newExtractError("迁移路径最终句柄指向 reparse point")`（@0x140c832b9，44B，`0x1409f4825+0x28ea94`）→
+   GetFinalPathNameByHandle 循环（初始栈 buf 1024，`size<=n` 则 `make([]uint16,n+1)` 重试）→
+   `normalizeWorkspaceWindowsFinalPath(string(utf16.Decode(buf[:n])))` →
+   identity{canonical, volume=VolumeSerialNumber, file=FileIndexHigh<<32|FileIndexLow, valid=true}。
+   **Filetime align=4 偏移实证**（x/sys ByHandleFileInformation）：VolumeSerialNumber@+0x1c、
+   FileIndexHigh@+0x2c、FileIndexLow@+0x30（asm 读 0x850/0x860/0x864 = info 基址 0x834 加偏移）。
+   **info 为死参数**：asm 序言不保存 rcx/rdi，直接被 `mov ecx,7`/`xor edi,edi` 覆盖，
+   源码保留参数但未使用（`_ os.FileInfo`）。
+2. `inspectWorkspaceMigrationPath` [S 0x1409f3c00]（0x6A0=1696B）：
+   `(path string) (workspacePathInspection, error)`。Abs→Clean；循环 Lstat(current)：
+   成功→break 得 info；`errors.Is(err, os.ErrNotExist)`→Dir(current)==current 则
+   `fmt.Errorf("找不到迁移路径的现有父目录: %s", cleaned)`（@0x140c822af，43B，`0x1409f3ef7+0x28e3b8`），
+   否则 append(Base(current)) 后 current=Dir(current)；其他 err 直接返回 →
+   validateWorkspaceMigrationExistingChain(current) → workspaceMigrationIdentityForExisting(current, info) →
+   从尾到头 Join 缺失段回 identity.canonical 后 Clean → exists=(缺失段数==0)；
+   identity 仅 exists 时填，ancestorIdentity 恒填。
+3. `sameWorkspacePathInspection` [S 0x1409f43e0]（0x180=384B）：
+   `(a, b workspacePathInspection) bool`。exists 不等→false；exists 时比较 identity 的
+   valid/volume/file；否则比较 ancestorIdentity 的 valid/volume/file 且 workspacePathsEqual(canonical)。
+
+**错误类型复用实证**：reparse 错误 newobject type `0x140b54380` + itab `0x1411d3100`，
+与 openWorkspaceMigrationRegularFileWindows 三处错误**同址**（`0x1409f4811+0x15fb6f` /
+`0x1409f484a+0x7de8b6`），故复用 backend 既有 `newExtractError`（archiveextract.go），非新建类型。
+
+**新增 import**：workspacemigration_identity.go 增 errors；workspacemigration_identity_windows.go
+增 unicode/utf16。**调用地址实证**：os.Lstat 0x14012d9a0、errors.Is 0x1400904a0、
+filepathlite.Dir/Base 0x140116440/0x140116320、path/filepath.join 0x1401cd660、
+path/filepath.abs 0x1401cd5e0、windows.GetFinalPathNameByHandle 0x140197160（x/sys 别名，
+zsyscall 0x140197160）、unicode/utf16.decode 0x1400e08e0、runtime.slicerunetostring 0x1400607c0。
+**黄金测试**：本批无新增测试，既有 normalize 8 例仍 PASS，三函数后端内零调用点（grep 证实），
+无回归面。
+
+**下一批**：workspace migration 域剩余骨架升档 —— `validateWorkspaceMigrationRoots`
+（0x1409efac0）、`workspacePathContains`（0x1409f0160）、`waitWorkspaceMigrationDrain`
+（0x1409ef500）、`removeOwnedWorkspaceMigrationDirectory`（0x1409f34c0）四函数未落地 +
+`stageWorkspaceDataMigration`（0x1409f0240）/`stagedWorkspaceData.Commit`（0x1409f2460）/
+`stagedWorkspaceData.Rollback`（0x1409f3100）三 [S-sig] 骨架待体。P=40。FUNCS 2868/4754 = 60.33%。
 
 
 

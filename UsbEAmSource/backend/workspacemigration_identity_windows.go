@@ -4,9 +4,66 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"unicode/utf16"
 
 	"golang.org/x/sys/windows"
 )
+
+// workspaceMigrationIdentityForExisting 为已存在的迁移路径构建 Windows 文件身份。
+// [S] ASM 0x1409f46e0: UTF16PtrFromString；CreateFile(FILE_READ_ATTRIBUTES,
+// SHARE_READ|WRITE|DELETE, OPEN_EXISTING, BACKUP_SEMANTICS|OPEN_REPARSE_POINT)；
+// defer CloseHandle；GetFileInformationByHandle；REPARSE_POINT→
+// newExtractError("迁移路径最终句柄指向 reparse point")；GetFinalPathNameByHandle
+// 循环（buf 不足则 n+1 重试）；normalizeWorkspaceWindowsFinalPath(string(utf16.Decode))；
+// identity{canonical, VolumeSerialNumber, FileIndexHigh<<32|FileIndexLow, true}。
+// info 为死参数（源码保留但未使用）。
+func workspaceMigrationIdentityForExisting(path string, _ os.FileInfo) (workspacePathIdentity, error) {
+	ptr, err := windows.UTF16PtrFromString(path)
+	if err != nil {
+		return workspacePathIdentity{}, err
+	}
+
+	handle, err := windows.CreateFile(
+		ptr,
+		windows.FILE_READ_ATTRIBUTES,
+		windows.FILE_SHARE_READ|windows.FILE_SHARE_WRITE|windows.FILE_SHARE_DELETE,
+		nil,
+		windows.OPEN_EXISTING,
+		windows.FILE_FLAG_BACKUP_SEMANTICS|windows.FILE_FLAG_OPEN_REPARSE_POINT,
+		0,
+	)
+	if err != nil {
+		return workspacePathIdentity{}, err
+	}
+	defer windows.CloseHandle(handle)
+
+	var info windows.ByHandleFileInformation
+	if err := windows.GetFileInformationByHandle(handle, &info); err != nil {
+		return workspacePathIdentity{}, err
+	}
+	if info.FileAttributes&windows.FILE_ATTRIBUTE_REPARSE_POINT != 0 {
+		return workspacePathIdentity{}, newExtractError("迁移路径最终句柄指向 reparse point")
+	}
+
+	buf := make([]uint16, 1024)
+	for {
+		n, err := windows.GetFinalPathNameByHandle(handle, &buf[0], uint32(len(buf)), 0)
+		if err != nil {
+			return workspacePathIdentity{}, err
+		}
+		if uint32(len(buf)) <= n {
+			buf = make([]uint16, int(n)+1)
+			continue
+		}
+		finalPath := normalizeWorkspaceWindowsFinalPath(string(utf16.Decode(buf[:n])))
+		return workspacePathIdentity{
+			canonical: finalPath,
+			volume:    uint64(info.VolumeSerialNumber),
+			file:      uint64(info.FileIndexHigh)<<32 | uint64(info.FileIndexLow),
+			valid:     true,
+		}, nil
+	}
+}
 
 // workspaceMigrationPathIsReparse 判断路径是否为 reparse point（符号链接/挂载点）。
 // [S] ASM 0x1409f4660: UTF16PtrFromString err→(false,err)；GetFileAttributes err→(false,err)；

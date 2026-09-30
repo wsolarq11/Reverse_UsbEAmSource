@@ -130,3 +130,32 @@ bash build.sh
 产物：`UsbEAmSource/artifacts/UsbEAm_Launcher_rebuilt.exe`。
 
 每批完工门禁仍按 `REBUILD_EXECUTION.md` 的 G1–G4 执行：`go build -tags production` + `go vet` + `go test` + 独立复核记录到 `docs/acceptance/<batch>.md`。
+
+## 九、版本控制边界（2026-09-30 整洁后）
+
+> 原则：入库的是**源码 + 权威数据 + 工具 + 文档**；可再生产物只留磁盘、不入库（`.gitignore` 已覆盖）。
+
+**入库（可复现 / 权威 / 交付）**：
+- `backend/*.go`（还原的 Go 源码，唯一真相）
+- `frontend/dist/` + `frontend/assets/`（字节级还原的 Vue SPA，交付物）
+- `docs/acceptance/*.md`、`docs/HANDOFF.md`、`STRUCTURE.md`、`STRATEGY.md`、`REPORT.md`、`REBUILD_EXECUTION.md`、`BACKEND_SYMBOLS.md`
+- `docs/goresym/` 根的权威数据：`symbols.txt`、`source_funcs.txt`、`all_types.txt`、`types.json`、`packages.txt`、`main_types_reconstructed.go`、`types_normalized.go`、`asset_semantics.md`
+- `docs/goresym/pipeline/` 根的工具与映射：`batch_disasm.py`、`va_map*.txt`、`bootstrap_*.txt` 等
+- `tools/`（count_funcs.sh、aggregate_gap.py、va_dump.py、parity 等）
+- `go.mod`、`go.sum`、`build.sh`、`wails.json`、`README.md`、`.gitignore`、`.gitattributes`
+- `.github/workflows/ci.yml`（windows-latest + go1.25.12 + build/vet/test `-tags production`）
+
+**不入库（可再生产物，磁盘保留）**：
+- `docs/goresym/pipeline/tmp/`（批次 dump 的 .bin/.asm.txt + 临时脚本，可随时用 `va_dump.py` 重新生成）
+- `docs/goresym/disasm/`、`disasm_archive/`、`disasm_assemble/`、`disasm_assemble_image/`、`disasm_lu/`、`dump_archive/`（反汇编 dump）
+- `artifacts/`、`external/`、`work/`、`archive/`、`*.exe`、`*.o`
+
+2026-09-30 整洁动作：上述过程产物（共 4850 文件）从版本控制索引移除（`git rm --cached`），磁盘文件保留；git 追踪文件数 5483 → 636。历史 commit 中的旧 dump 不回溯重写（收益低、需 force push）。
+
+## 十、CI
+
+- workflow：`.github/workflows/ci.yml`，`on: push main / pull_request / workflow_dispatch`。
+- 环境：`windows-latest`（代码为 wails/webview2/go-ole/clipboard 等 Windows 专属，不可用 ubuntu）。
+- 工具链：`go-version: '1.25.12'`（HANDOFF 红线，勿用默认新版本）。
+- 门禁三步：`go build -tags production -trimpath ./backend` → `go vet -tags production ./backend` → `go test -count=1 -p=1 -tags production ./backend`。
+- 本地等价验证：`GOFLAGS='' GOTOOLCHAIN=local PATH 前置 C:\Users\Administrator\go\bin` 后执行同三命令，EXIT=0。

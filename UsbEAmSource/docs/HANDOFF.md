@@ -930,11 +930,11 @@ workspacemigration.go
 
 **先读 `docs/STRATEGY.md`**——它是还原策略的唯一真相源，L0→L1→L2 分层、`[S-eq]` 标记、对拍验证范式都在里面。本节的推进顺序服从它。
 
-**仓库已 git 化（2026-09-27）**：远端 `https://github.com/wsolarq11/Reverse_UsbEAmSource`（私有），首次提交 `d0246a7` 含全部源码 + 文档 + 反汇编资产 + 策略。新会话工作流：`git pull` 拉最新 → 按 §6 开工 → 每批收尾 commit + push → CI 自动验证。
+**仓库已 git 化（2026-09-27）**：远端 `https://github.com/wsolarq11/Reverse_UsbEAmSource`（公开，2026-09-30 起常驻 public），首次提交 `d0246a7` 含全部源码 + 文档 + 反汇编资产 + 策略。新会话工作流：`git pull` 拉最新 → 按 §6 开工 → 每批收尾 commit + push → CI 自动验证。
 
 **本地 git 传输配置（必读，否则 push 报 `schannel: failed to receive handshake`）**：本机 git 直连与默认 schannel 走系统代理均失败，已写入仓库级配置：`http.sslBackend=openssl`、`http.proxy=http://127.0.0.1:7890`、`http.postBuffer=524288000`。换新机器或重装后若 push 报 schannel 握手失败，重跑这三条 `git config` 即可。CI 定义在 `.github/workflows/ci.yml`（windows-latest + go1.25.12，build/vet/test 三项，push 到 main 自动触发）。
 
-**CI 验证惯例（私有仓库被账号计费限制时）**：私有仓库 CI 若报 `job not started (account payments failed)`，走「公开跑绿再转私有」：`gh repo edit --visibility public --accept-visibility-change-consequences` → push 触发 CI 全绿 → `gh repo edit --visibility private --accept-visibility-change-consequences`。公开仓库 Actions 免费无限分钟，不受计费影响。
+**CI 验证惯例（2026-09-30 起，用户定规）**：仓库**常驻 public**。凡是需要触发 CI 的，统一**先确认/转为 public 再跑**；禁止先以 private 跑 CI 发现跑不通（`job not started (account payments failed)`——私有仓 windows runner 受账号计费限额，job 直接不启动）再转 public 重跑。公开仓库 Actions 免费无限分钟，不受计费影响。若仓库意外回到 private，先 `gh repo edit --visibility public --accept-visibility-change-consequences` 再触发 CI。
 
 批次 43 已闭环，screenshot image_budget 内存预算链全量 `[S]`，门禁三连绿，artifact 已重建。你接手时不要从零判断，直接按下面顺序推进。
 

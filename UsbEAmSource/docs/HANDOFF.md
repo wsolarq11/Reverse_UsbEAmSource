@@ -19,12 +19,12 @@
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 原始源码规模 | ≈104,374 行 | ≈104,374 行 | 每文件最大行号求和（闭包共享父函数区间，属上界估计） |
-| 已重建函数 | 2860 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 266 后） |
-| 真函数（S+S-inline+S-sig） | 2820 | 4,754 | 同上，**批次 266 达 59.32%** |
+| 已重建函数 | 2864 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 267 后） |
+| 真函数（S+S-inline+S-sig） | 2824 | 4,754 | 同上，**批次 267 达 59.40%** |
 | 文件覆盖 | 88/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
-| 未落地原始文件 | 54 | **0** | 同上差集（活体实测，较 §10 的 110 已减 56），清单见 §10 |
+| 未落地原始文件 | 45 | **0** | 同上差集（活体实测 2026-09-30 批次 267 重跑，较 §10 的 57 已减 12），清单见 §10 |
 | UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
-| [P] 存根 | 40 | **0** | 同上（批次 266 持平） |
+| [P] 存根 | 40 | **0** | 同上（批次 267 持平） |
 
 **⚠️ 口径纪律（本文件历史数字曾三度失真）**：§1 曾长期写「批次 34 / `FUNCS=900`」，与正文实际进度不符；批次 39 记录的 `S=552/S-sig=97/P=46/UNMARKED=259` 与活体实测不符，且分项相加 955 ≠ `FUNCS=969`（自相矛盾）。**任何批次记录落笔前必须先跑 `bash tools/count_funcs.sh` 取活体数字，禁止抄上一批的数字改一改。**
 
@@ -5034,6 +5034,51 @@ FUNCS 2860/4754 = 60.16%。
 不触达系统调用，确定性安全），全 PASS。
 
 **下一批**：gap_aggregate.txt 剩余短函数落地。P=40。FUNCS 2860/4754 = 60.16%。
+
+### 批次 267（workspacemigration 身份域 NOFOLLOW 文件打开链 +4 [S] 新增）
+
+**基线/收口**：`FUNCS=2860→2864 / MARKED=2860→2864 / S=1331→1335 / S-inline=36 /
+S-sig=1453 / P=40 / UNMARKED=0`（真函数 2820→2824 = 59.40%；FAITHFUL 1367→1371）。
+`go1.25.12 build/vet/test -tags production ./backend` 全 EXIT=0。
+
+**本批落地（+4 [S]，均为完全缺失→新增，非升档，FUNCS +4）**：
+1. normalizeWorkspaceWindowsFinalPath [S 0x1409f4d00]（288B）：`(path string) string`。
+   TrimSpace→ToLower；前缀 `\\?\unc\`(8B) → `\\`+trimmed[8:]；前缀 `\\?\`(4B) →
+   trimmed[4:]；否则原样；最终 `internal/filepathlite.Clean`（0x1401154c0）。前缀判断大小写
+   不敏感但拼接用原始 trimmed。语义：`\\?\C:\x`→`C:\x`，`\\?\UNC\srv\share`→`\\srv\share`。
+2. openWorkspaceMigrationSourceFileNoFollow [S 0x1409f4e20]（96B）：`(path string)(*os.File,error)`。
+   `ecx=0x80000000`(GENERIC_READ)、`edi=3`(OPEN_EXISTING) → regular，返回值透传。
+3. openWorkspaceMigrationTargetFileNoFollow [S 0x1409f4e80]（96B）：`ecx=0x40000000`(GENERIC_WRITE)、
+   `edi=1`(CREATE_NEW) → regular，返回值透传。
+4. openWorkspaceMigrationRegularFileWindows [S 0x1409f4ee0]（480B）：`(path string, access uint32,
+   disposition uint32)(*os.File,error)`。UTF16PtrFromString → CreateFile（sharemode =
+   OPEN_EXISTING?7(READ|WRITE|DELETE):0、attrs=0x200080=FILE_ATTRIBUTE_NORMAL|
+   FILE_FLAG_OPEN_REPARSE_POINT）→ GetFileInformationByHandle → `test attrs,0x410`
+   (REPARSE_POINT|DIRECTORY) 命中 → CloseHandle + 错误 A；`cmp handle,-1` 守卫后
+   `os.newFile(handle,path,0)`，nil → CloseHandle + 错误 B。
+
+**错误类型身份实证（复用 extractError，非新建）**：错误对象 = `newobject(0x140b54380)`
+（16B `struct{msg string}`，ptrdata=8）+ `[+0]=msg ptr`/`[+8]=msg len`；itab 0x1411d3100，
+Error 方法（fun[0]=0x140090240）= `mov rcx,[rax]; mov rbx,[rax+8]; ret`。与
+`openArchiveRegularFileNoFollow`（0x140750d20）错误构造**同址交叉验证**（newobject type
+`0x140750dcc+0x4035b4=0x140B54380`、itab `0x140750dea+0xa82316=0x1411D3100`），故直接复用
+backend 既有 `newExtractError`。字符串内存实证：错误 A `迁移文件最终句柄不是普通文件`
+@0x140c81380（14 字符=42B=0x2a，asm 实写 `[rax+8]=0x2a`）；错误 B `无法包装迁移文件句柄`
+@0x140c6fb0d（10 字符=30B=0x1e，实写 `[rax+8]=0x1e`）——len 字段与中文字符×3 精确吻合，
+交叉确认这**不是 code 字段而是 string.len**。
+
+**新增 import**：os / path/filepath / strings（+ 既有 x/sys/windows）。
+**调用地址实证**：filepathlite.Clean 0x1401154c0、windows.UTF16PtrFromString 0x140194220、
+windows.CreateFile 0x140195d20、windows.GetFileInformationByHandle 0x140197060、
+windows.CloseHandle 0x140195860、os.newFile 0x140129ea0。
+**黄金测试**：新建 `workspacemigration_identity_windows_test.go`，normalize 8 例（普通路径 /
+设备前缀 / UNC 前缀保留 `\\` 头 / 大小写不敏感前缀×2 / 首尾空白 / 仅前缀 / 空串→`.`），
+期望值取自 asm 显式路径（常量 0x5c636e755c3f5c5c / 0x5c3f5c5c / 0x140c3365d 解码），
+非凭空造值，全 PASS。四函数此前 backend 内零调用点（grep 证实），无回归面。
+
+**下一批**：`workspacemigration_identity.go` 剩余 3 函数（inspectWorkspaceMigrationPath 1696B /
+validateWorkspaceMigrationExistingChain 320B / sameWorkspacePathInspection 384B）依赖本批
+已落地的 normalize + NOFOLLOW 打开链，可成批落地。P=40。FUNCS 2864/4754 = 60.24%。
 
 
 

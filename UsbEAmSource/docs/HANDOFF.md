@@ -19,12 +19,12 @@
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 原始源码规模 | ≈104,374 行 | ≈104,374 行 | 每文件最大行号求和（闭包共享父函数区间，属上界估计） |
-| 已重建函数 | 2826 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 254 后） |
-| 真函数（S+S-inline+S-sig） | 2786 | 4,754 | 同上，**批次 254 达 58.60%** |
+| 已重建函数 | 2860 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 265 后） |
+| 真函数（S+S-inline+S-sig） | 2820 | 4,754 | 同上，**批次 265 达 59.32%** |
 | 文件覆盖 | 88/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 54 | **0** | 同上差集（活体实测，较 §10 的 110 已减 56），清单见 §10 |
 | UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
-| [P] 存根 | 40 | **0** | 同上（批次 254 持平） |
+| [P] 存根 | 40 | **0** | 同上（批次 265 持平） |
 
 **⚠️ 口径纪律（本文件历史数字曾三度失真）**：§1 曾长期写「批次 34 / `FUNCS=900`」，与正文实际进度不符；批次 39 记录的 `S=552/S-sig=97/P=46/UNMARKED=259` 与活体实测不符，且分项相加 955 ≠ `FUNCS=969`（自相矛盾）。**任何批次记录落笔前必须先跑 `bash tools/count_funcs.sh` 取活体数字，禁止抄上一批的数字改一改。**
 
@@ -4973,6 +4973,36 @@ CI 门禁统一 -tags production、push、远端 CI、交接文档。详见 STRU
 
 **下一批（新会话续接）**：targetFromWindowProcessPick 416B；MaybeWrapCursor 288B（依赖 WrappedCursorPoint 992B）。
 FUNCS 2857/4754 = 60.10%。
+
+### 批次 265（windowmanagement 光标环绕链 +3 [S]）
+
+**基线/收口**：`FUNCS=2857→2860 / S=1325→1328 / S-inline=36 / S-sig=1456 / P=40 / UNMARKED=0`
+（真函数 2817→2820 = 59.32%；FAITHFUL 1361→1364）。`go1.25.12 build/vet/test -tags production ./backend` 全 EXIT=0。
+
+**本批落地（+3 [S]）**：
+1. windowManagementWrappedCursorPoint [S 0x1409ed5c0]（992B）：`(x,y int32, monitors []RECT,
+   wrapX,wrapY bool, guardPx int)(int32,int32,bool)`。扫描首命中 monitor → 有效性检查 →
+   corner-guard → 水平 wrap（左边缘 WrapTargetX true=最右 best-3 / 右边缘 false=最左 best+3）→
+   垂直 wrap（上边缘 WrapTargetY true=最下 / 下边缘 false=最上）。**关键：水平与垂直均基于原始
+   (x,y)，相邻 monitor 命中跳过 wrap，ok=hOK|vOK。**
+2. windowManagementMaybeWrapCursor [S 0x1409ed4a0]（288B）：`(wrapX,wrapY bool, monitors []RECT,
+   guardPx int) bool`。GetCursorPoint 失败→false；WrappedCursorPoint ok=false→false；否则
+   SetCursorPos(newX,newY) 无条件 true（返回值丢弃）。
+3. targetFromWindowProcessPick [S 0x1409eea40]（416B）：`(path string, pid uint32, processName,
+   displayName, title string, hwnd uintptr, iconData string) WindowManagementTarget`。
+   duffzero 128B；Path/ProcessName/DisplayName 均 TrimSpace；ProcessName 空→filepath.Base(Path)；
+   DisplayName 空→TrimSpace(title)→ProcessName 两级回退；**Title 保留原始值**；IconRef/IconURL 空串。
+
+**新增 proc**：procSetCursorPos（user32DLL）。**新增 import**：path/filepath。
+**proc 身份内存实证**：0x141BC1DC0 = SetCursorPos（`0x1409ed53d+0x11d4883` Python 显式计算，
+与既有 proc 槽族 0x141BC1xxx 自洽）。
+**黄金对拍**：新建 `windowmanagement_windows_test.go`（WrappedCursorPoint 10 例 +
+targetFromWindowProcessPick 4 例，期望值取自 asm 显式路径 + 已落地 WrapTargetX/Y best∓3，
+非凭空造值），全 PASS。
+
+**下一批**：cursorWrapLoop / cursorWrapLoop.func1 / deferwrap1（0x1409ecde0 / 0x1409ed360 /
+0x1409ed440，time.NewTicker 8ms + selectgo 两 case + mutex 临界区闭包）；gap_aggregate 剩余短函数。
+FUNCS 2860/4754 = 60.16%。
 
 
 

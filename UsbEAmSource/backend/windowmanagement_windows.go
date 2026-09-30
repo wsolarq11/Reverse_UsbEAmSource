@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"path/filepath"
 	"runtime"
 	"strings"
 	"syscall"
@@ -25,6 +26,7 @@ var (
 	procMonitorFromWindow        = user32DLL.NewProc("MonitorFromWindow")
 	procGetMonitorInfoW          = user32DLL.NewProc("GetMonitorInfoW")
 	procEnumDisplayMonitors      = user32DLL.NewProc("EnumDisplayMonitors")
+	procSetCursorPos             = user32DLL.NewProc("SetCursorPos")
 )
 
 // EnumDisplayMonitors 的回调入口。asm 0x1409edd94 以 `mov rcx,[rip+disp]` 直接读该全局槽
@@ -439,4 +441,177 @@ func windowManagementDisplayRects() []windowManagementRECT {
 		return nil
 	}
 	return []windowManagementRECT{bounds}
+}
+
+// windowManagementWrappedCursorPoint 计算鼠标环绕后的新坐标。
+// [S] ASM 0x1409ed5c0（0x3e0=992B）：
+//
+//	1. 线性扫描 monitors（stride 0x10）找首个满足 Left<=x<Right && Top<=y<Bottom 的矩形，
+//	   命中存 left/top/right/bottom；未命中（或 Right<=Left || Top>=Bottom）→ 返回 (x,y,false)。
+//	2. windowManagementPointInCornerGuard(x,y,left,top,right,bottom,guardPx) 命中 → (x,y,false)。
+//	3. 水平：wrapX && x<=left 时探测 (x-1,y)；该点不属于任何 monitor →
+//	   WrapTargetX(monitors,y,true)（最右）。wrapX && x>=right-1 时探测 (x+1,y)；
+//	   不属于任何 monitor → WrapTargetX(monitors,y,false)（最左）。
+//	4. 垂直：wrapY && y<=top 时探测 (x,y-1)；不属于任何 monitor →
+//	   WrapTargetY(monitors,x,true)（最下）。wrapY && y>=bottom-1 时探测 (x,y+1)；
+//	   不属于任何 monitor → WrapTargetY(monitors,x,false)（最上）。
+//	5. 水平与垂直均基于**原始 (x,y)** 判定（0x1409ed736 / 0x1409ed76a 读 [rsp+0x38] 原始 x，
+//	   非已 wrap 的 newX）；返回 ok = hOK | vOK（0x1409ed7c1 `or ecx,ebx`）。
+func windowManagementWrappedCursorPoint(x, y int32, monitors []windowManagementRECT, wrapX, wrapY bool, guardPx int) (int32, int32, bool) {
+	var left, top, right, bottom int32
+	found := false
+	for i := range monitors {
+		mon := &monitors[i]
+		if x < mon.Left || x >= mon.Right || y < mon.Top || y >= mon.Bottom {
+			continue
+		}
+		left, top, right, bottom = mon.Left, mon.Top, mon.Right, mon.Bottom
+		found = true
+		break
+	}
+	if !found || right <= left || top >= bottom {
+		return x, y, false
+	}
+	if windowManagementPointInCornerGuard(int(x), int(y), int(left), int(top), int(right), int(bottom), guardPx) {
+		return x, y, false
+	}
+	newX, ok := x, false
+	if wrapX {
+		skipRight := false
+		if x <= left {
+			onAdjacent := false
+			for i := range monitors {
+				mon := &monitors[i]
+				if x-1 < mon.Left || x-1 >= mon.Right || y < mon.Top || y >= mon.Bottom {
+					continue
+				}
+				onAdjacent = true
+				break
+			}
+			if !onAdjacent {
+				if nx, hit := windowManagementWrapTargetX(monitors, y, true); hit {
+					newX = nx
+					ok = true
+				}
+				skipRight = true
+			}
+		}
+		if !skipRight && x >= right-1 {
+			onAdjacent := false
+			for i := range monitors {
+				mon := &monitors[i]
+				if x+1 < mon.Left || x+1 >= mon.Right || y < mon.Top || y >= mon.Bottom {
+					continue
+				}
+				onAdjacent = true
+				break
+			}
+			if !onAdjacent {
+				if nx, hit := windowManagementWrapTargetX(monitors, y, false); hit {
+					newX = nx
+					ok = true
+				}
+			}
+		}
+	}
+	newY := y
+	if wrapY {
+		skipBottom := false
+		if y <= top {
+			onAdjacent := false
+			for i := range monitors {
+				mon := &monitors[i]
+				if x < mon.Left || x >= mon.Right || y-1 < mon.Top || y-1 >= mon.Bottom {
+					continue
+				}
+				onAdjacent = true
+				break
+			}
+			if !onAdjacent {
+				if ny, hit := windowManagementWrapTargetY(monitors, x, true); hit {
+					newY = ny
+					ok = true
+				}
+				skipBottom = true
+			}
+		}
+		if !skipBottom && y >= bottom-1 {
+			onAdjacent := false
+			for i := range monitors {
+				mon := &monitors[i]
+				if x < mon.Left || x >= mon.Right || y+1 < mon.Top || y+1 >= mon.Bottom {
+					continue
+				}
+				onAdjacent = true
+				break
+			}
+			if !onAdjacent {
+				if ny, hit := windowManagementWrapTargetY(monitors, x, false); hit {
+					newY = ny
+					ok = true
+				}
+			}
+		}
+	}
+	return newX, newY, ok
+}
+
+// windowManagementMaybeWrapCursor 在启用环绕时把鼠标移到对侧屏幕边缘。
+// [S] ASM 0x1409ed4a0（0x120=288B）：GetCursorPoint 失败 → false；
+// WrappedCursorPoint(x,y,monitors,wrapX,wrapY,guardPx) 返回 ok=false → false；
+// 否则 newobject([2]uintptr) 打包 movsxd 符号扩展后的 (newX,newY)，
+// procSetCursorPos.Call(newX,newY)（LazyProc 槽 0x141BC1DC0，内存实证 Name='SetCursorPos'），
+// 无条件返回 true（SetCursorPos 的返回值被丢弃）。
+func windowManagementMaybeWrapCursor(wrapX, wrapY bool, monitors []windowManagementRECT, guardPx int) bool {
+	x, y, err := windowManagementGetCursorPoint()
+	if err != nil {
+		return false
+	}
+	newX, newY, ok := windowManagementWrappedCursorPoint(x, y, monitors, wrapX, wrapY, guardPx)
+	if !ok {
+		return false
+	}
+	procSetCursorPos.Call(uintptr(newX), uintptr(newY))
+	return true
+}
+
+// targetFromWindowProcessPick 由窗口拾取结果组装 WindowManagementTarget。
+// [S] ASM 0x1409eea40（0x1a0=416B）：12 个参数字（9 寄存器 + 3 栈，实参槽
+// [rsp+0x40]/[rsp+0x50]/[rsp+0x58..0x80]/[rsp+0x88]/[rsp+0x90..0x98]）；
+// duffzero+0x142 清零 128 字节 = WindowManagementTarget（types_windowmgt.go L68-78）；
+// Path=TrimSpace(processPath)，ProcessName=TrimSpace(processName) 或 filepath.Base(Path)
+// （0x1409eeab8，编译符号 internal/filepathlite.Base），DisplayName=TrimSpace(displayName)
+// 或 TrimSpace(title) 或 ProcessName（0x1409eeb7f `cmove` 两级回退），
+// Title=**原始** title（0x1409eeb62 直读 [rsp+0x78]/[rsp+0x80]，不 Trim）；
+// IconRef/IconURL 保持清零空串。
+func targetFromWindowProcessPick(
+	processPath string,
+	processID uint32,
+	processName string,
+	displayName string,
+	title string,
+	hwnd uintptr,
+	iconData string,
+) WindowManagementTarget {
+	trimmedPath := strings.TrimSpace(processPath)
+	trimmedName := strings.TrimSpace(processName)
+	if trimmedName == "" && trimmedPath != "" {
+		trimmedName = filepath.Base(trimmedPath)
+	}
+	trimmedDisplay := strings.TrimSpace(displayName)
+	if trimmedDisplay == "" {
+		trimmedDisplay = strings.TrimSpace(title)
+	}
+	if trimmedDisplay == "" {
+		trimmedDisplay = trimmedName
+	}
+	return WindowManagementTarget{
+		HWND:        hwnd,
+		ProcessID:   processID,
+		ProcessName: trimmedName,
+		Path:        trimmedPath,
+		Title:       title,
+		DisplayName: trimmedDisplay,
+		IconData:    iconData,
+	}
 }

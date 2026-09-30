@@ -159,3 +159,20 @@ bash build.sh
 - 工具链：`go-version: '1.25.12'`（HANDOFF 红线，勿用默认新版本）。
 - 门禁三步：`go build -tags production -trimpath ./backend` → `go vet -tags production ./backend` → `go test -count=1 -p=1 -tags production ./backend`。
 - 本地等价验证：`GOFLAGS='' GOTOOLCHAIN=local PATH 前置 C:\Users\Administrator\go\bin` 后执行同三命令，EXIT=0。
+
+## 十一、CI 计费惯例（私有仓限额时）
+
+> 背景：私有仓库的 GitHub Actions 有免费额度上限，超限后 job 直接不启动，报
+> "recent account payments have failed or your spending limit needs to be increased"（账号级 billing 问题，非代码问题）。
+
+**处理惯例（用户已定，2026-09-30）**：
+
+1. 临时转公开：`gh repo edit <owner>/<repo> --visibility public --accept-visibility-change-consequences`
+2. 触发并等 CI 跑通：`gh workflow run ci.yml --ref main` → `gh run watch <run-id> --exit-status`
+3. 确认绿（Build/Vet/Test 三步 ✓）后立即转回私有：`gh repo edit <owner>/<repo> --visibility private --accept-visibility-change-consequences`
+
+公开仓的 CI 不占私有额度，故能跑通；转回私有后额度照旧（公开期产生的 run 不回收）。
+
+> 注意：仓库含还原代码与过程产物，公开窗口务必短暂（跑通即转回）；转公开前确认无敏感凭证在提交历史中。
+
+历史记录：2026-09-30 run `36701214565` 按此惯例跑通（backend 2m37s，Build/Vet/Test 全 ✓）。

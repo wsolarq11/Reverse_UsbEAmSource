@@ -1039,7 +1039,7 @@ func (bs *BootstrapService) MigrateConfig(fromPath, toPath string) error {
 		return nil
 	}
 
-	endMaintenance, err := bs.beginWorkspaceMigrationMaintenance(fromPath, bs.workspace.ConfigFile)
+	endMaintenance, err := bs.beginWorkspaceMigrationMaintenance()
 	if err != nil {
 		return err
 	}
@@ -1054,7 +1054,7 @@ func (bs *BootstrapService) MigrateConfig(fromPath, toPath string) error {
 		return err
 	}
 
-	newLayout := buildWorkspaceLayoutWithConfig(cfg, fromPath)
+	newLayout := buildWorkspaceLayoutWithConfig(cfg, staged.targetPath)
 
 	_ = toPath
 
@@ -2014,7 +2014,7 @@ func (bs *BootstrapService) saveScreenshotCaptureResultWithFormat(png []byte, so
 	if err != nil {
 		return "", err
 	}
-	defer op.End()
+	defer op()
 
 	if captureTime.IsZero() {
 		captureTime = time.Now()
@@ -2197,7 +2197,7 @@ func (bs *BootstrapService) ClearScreenshotHistory() error {
 	if err != nil {
 		return err
 	}
-	defer gate.End()
+	defer gate()
 
 	ws := bs.workspaceSnapshot()
 	return clearScreenshotHistory(ws.ScreenshotDir)
@@ -2216,7 +2216,7 @@ func (bs *BootstrapService) OpenScreenshotDirectory() error {
 	if err != nil {
 		return err
 	}
-	defer gate.End()
+	defer gate()
 
 	ws := bs.workspaceSnapshot()
 	dir := strings.TrimSpace(ws.ScreenshotDir)
@@ -2278,7 +2278,7 @@ func (bs *BootstrapService) showPinnedScreenshotWithSource(data string, source s
 	if err != nil {
 		return err
 	}
-	defer gate.End()
+	defer gate()
 
 	pin := bs.screenshotPin
 	if pin == nil {
@@ -2330,7 +2330,7 @@ func (bs *BootstrapService) ShowPinnedClipboardImage() error {
 	if err != nil {
 		return err
 	}
-	defer gate.End()
+	defer gate()
 
 	pin := bs.screenshotPin
 	if pin == nil {
@@ -2360,7 +2360,7 @@ func (bs *BootstrapService) UpdatePinnedScreenshotScale(id string, scale float64
 	if err != nil {
 		return err
 	}
-	defer gate.End()
+	defer gate()
 
 	pin := bs.screenshotPin
 	if pin == nil {
@@ -2380,7 +2380,7 @@ func (bs *BootstrapService) FocusPinnedScreenshot(id string) error {
 	if err != nil {
 		return err
 	}
-	defer gate.End()
+	defer gate()
 
 	pin := bs.screenshotPin
 	if pin == nil {

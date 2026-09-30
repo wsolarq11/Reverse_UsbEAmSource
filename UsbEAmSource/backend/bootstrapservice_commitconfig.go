@@ -80,6 +80,7 @@
 package main
 
 import (
+	"errors"
 	"os"
 	"strings"
 )
@@ -87,7 +88,7 @@ import (
 // ---- prepareWorkspaceDirectories ----
 
 // prepareWorkspaceDirectories 创建 WorkspaceLayout 中各目录，返回回滚句柄。
-// [S-sig 汇编 0x1409f3760, source_funcs.txt:4886 记为 24 行]。
+// [S 汇编 0x1409f3760, source_funcs.txt:4886 记为 24 行]。
 //
 // 调用点 commitLauncherConfigReplacementWithWidgets.asm 0x140779333：
 //
@@ -111,8 +112,11 @@ import (
 //   - 只有 **ReplacePrepared 失败**时（0x14077963d）才调回滚句柄：目录已建成但配置未提交，
 //     需回滚已创建的目录。
 //
-// [P] 本骨架遍历 9 个目录字段并 os.MkdirAll；回滚句柄返回 noop（目录删除策略
-// 涉及「仅删本次新建项」的差异判定，待 workspace 目录域专项闭合）。
+// [S] 汇编 0x1409f3760：仅遍历 6 个目录
+// （Root/IconDir/IndexDir/ScreenshotDir/WebView2Dir/BackgroundDir，栈偏移 0x00/0x50/0x60/0x70/0x80/0x90）。
+// created=make([]string,0,6)；cleanup(func1 0x1409f3b80)=逆序 os.Remove(created[i])。
+// 每目录：TrimSpace 空则 continue；os.Stat 非 ErrNotExist 错误→cleanup()+return(nil,err)；
+// ErrNotExist→append(created,trimmed)；os.MkdirAll(trimmed,0755) 错误→cleanup()+return(nil,err)。
 func prepareWorkspaceDirectories(ws WorkspaceLayout) (func(), error) {
 	dirs := []string{
 		ws.Root,
@@ -121,21 +125,32 @@ func prepareWorkspaceDirectories(ws WorkspaceLayout) (func(), error) {
 		ws.ScreenshotDir,
 		ws.WebView2Dir,
 		ws.BackgroundDir,
-		ws.LanguageDir,
-		ws.AppLanguageDir,
-		ws.PluginDir,
+	}
+	created := make([]string, 0, 6)
+	cleanup := func() {
+		for i := len(created) - 1; i >= 0; i-- {
+			os.Remove(created[i])
+		}
 	}
 	for _, d := range dirs {
-		d = strings.TrimSpace(d)
-		if d == "" {
+		trimmed := strings.TrimSpace(d)
+		if trimmed == "" {
 			continue
 		}
-		if err := os.MkdirAll(d, 0o755); err != nil {
-			return func() {}, err
+		if _, err := os.Stat(trimmed); err != nil {
+			if errors.Is(err, os.ErrNotExist) {
+				created = append(created, trimmed)
+			} else {
+				cleanup()
+				return nil, err
+			}
+		}
+		if err := os.MkdirAll(trimmed, 0o755); err != nil {
+			cleanup()
+			return nil, err
 		}
 	}
-	// [P] 回滚句柄：删除本次新建的空目录。当前为 noop，保持调用链形状与补偿语义。
-	return func() {}, nil
+	return cleanup, nil
 }
 
 // ---- clearPendingFileSearchResidentWarm ----

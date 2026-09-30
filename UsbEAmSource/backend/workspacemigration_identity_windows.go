@@ -106,7 +106,9 @@ func openWorkspaceMigrationSourceFileNoFollow(path string) (*os.File, error) {
 
 // openWorkspaceMigrationTargetFileNoFollow 以 GENERIC_WRITE+CREATE_NEW 打开目标文件，不跟随符号链接。
 // [S] ASM 0x1409f4e80：openWorkspaceMigrationRegularFileWindows(path, 0x40000000, 1)。
-func openWorkspaceMigrationTargetFileNoFollow(path string) (*os.File, error) {
+// 注：perm 参数（copyWorkspaceDataWithManifest.func1 传入 info.Mode().Perm()）在 asm 0x1409f4e93
+// 被 mov ecx,0x40000000 覆盖忽略——目标文件权限由 CreateFile 默认 ACL 决定，而非 perm。
+func openWorkspaceMigrationTargetFileNoFollow(path string, _ os.FileMode) (*os.File, error) {
 	return openWorkspaceMigrationRegularFileWindows(path, windows.GENERIC_WRITE, windows.CREATE_NEW)
 }
 

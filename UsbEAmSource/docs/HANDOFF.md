@@ -19,12 +19,12 @@
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 原始源码规模 | ≈104,374 行 | ≈104,374 行 | 每文件最大行号求和（闭包共享父函数区间，属上界估计） |
-| 已重建函数 | 2868 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 269 后） |
-| 真函数（S+S-inline+S-sig） | 2828 | 4,754 | 同上，**批次 269 达 59.49%** |
+| 已重建函数 | 2871 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 270 后） |
+| 真函数（S+S-inline+S-sig） | 2831 | 4,754 | 同上，**批次 270 达 59.55%** |
 | 文件覆盖 | 88/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 45 | **0** | 同上差集（活体实测 2026-09-30 批次 267 重跑，较 §10 的 57 已减 12），清单见 §10 |
 | UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
-| [P] 存根 | 40 | **0** | 同上（批次 269 持平） |
+| [P] 存根 | 40 | **0** | 同上（批次 270 持平） |
 
 **⚠️ 口径纪律（本文件历史数字曾三度失真）**：§1 曾长期写「批次 34 / `FUNCS=900`」，与正文实际进度不符；批次 39 记录的 `S=552/S-sig=97/P=46/UNMARKED=259` 与活体实测不符，且分项相加 955 ≠ `FUNCS=969`（自相矛盾）。**任何批次记录落笔前必须先跑 `bash tools/count_funcs.sh` 取活体数字，禁止抄上一批的数字改一改。**
 
@@ -5166,6 +5166,57 @@ zsyscall 0x140197160）、unicode/utf16.decode 0x1400e08e0、runtime.sliceruneto
 （0x1409ef500）、`removeOwnedWorkspaceMigrationDirectory`（0x1409f34c0）四函数未落地 +
 `stageWorkspaceDataMigration`（0x1409f0240）/`stagedWorkspaceData.Commit`（0x1409f2460）/
 `stagedWorkspaceData.Rollback`（0x1409f3100）三 [S-sig] 骨架待体。P=40。FUNCS 2868/4754 = 60.33%。
+
+### 批次 270（workspacemigration 域 12 函数落地：gate/排空/校验/暂存/提交/回滚）
+
+**基线/收口**：`FUNCS=2868→2871 / MARKED=2868→2871 / S=1339→1349 / S-inline=36 /
+S-sig=1453→1446 / P=40 / UNMARKED=0`（真函数 2828→2831 = 59.55%；FAITHFUL 1375→1385）。
+`go build/vet/test -tags production ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+12 [S]，-7 [S-sig]，+3 FUNCS）**：
+1. `workspaceDataMaintenanceGate.begin` [S 0x1409ef000]：`(func(), error)`，nil→noop；
+   maintenance→全局 error；active==0→make idle；active++；返回 `once.Do(func2.1)` 退出闭包
+   （func2.1 0x1409ef1e0 = 递减 active / 归零 close(idle) 并清空）。
+2. `workspaceDataMaintenanceGate.enter` [S 0x1409ef2a0]：`(chan struct{}, func(), error)`，
+   nil→(closed chan,noop,nil)；maintenance→(nil,nil,全局 error)；maintenance=true；
+   idleChan = active==0 ? make+close : g.idle（不回写 g.idle）；返回 `once.Do(func2.1)`。
+3. `waitWorkspaceMigrationDrain` [S 0x1409ef500]：idle==nil→nil；select ctx.Done→
+   `errors.Join(errWorkspaceDrainTimeout, ctx.Err())` / idle→nil。
+4. `beginWorkspaceDataOperation` [S 0x1409ef7c0]：bs==nil→"工作区服务不可用"；否则
+   `(&bs.workspaceDataMaintenance).begin()` 透明透传 `(func(), error)`。
+5. `beginWorkspaceMigrationMaintenance` [S 0x1409ef840]（0 参）：bs==nil→"工作区服务不可用"；
+   app!=nil→`errWorkspaceAppActive`；enter→err 透传；WithTimeout(15s)→waitDrain→超时 exitFn()
+   后返 err；成功返 exitFn。
+6. `validateWorkspaceMigrationRoots` [S 0x1409efac0]：TrimSpace 空/Abs/Clean/workspacePathsEqual/
+   workspacePathContains 双向/inspect 源/目标/最终路径三向重叠/同一文件对象 六段校验。
+7. `workspacePathContains` [S 0x1409f0160]：Rel err/`.`/`..`/`..\` 前缀→false；否则 !IsAbs。
+8. `stageWorkspaceDataMigration` [S 0x1409f0240]：validate→Stat 源→inspect→目标空校验→
+   MkdirAll 父级→rand 命名 staging→Mkdir 0700→卷一致性→Walk 拷贝→verify(staging,false)→
+   verify(source,true)→身份复核→构造 staged。
+9. `verifyWorkspaceDataManifestWithPolicy` [S 0x1409f1ba0] + func1 [S 0x1409f1da0]：
+   visited map→Walk→清单完整性；func1 walkErr 在前、strict skip、isReparse、Mode&ModeType、
+   relKey ReplaceAll、sha256 校验。
+10. `stagedWorkspaceData.Commit` [S 0x1409f2460]：verify×2→身份复核×4→Stat/ReadDir/Remove
+    目标→Rename→committed 标志→提交后身份复核。
+11. `stagedWorkspaceData.Rollback` [S 0x1409f3100]：!committed→removeOwned(staging)；
+    否则身份复核→verify→RemoveAll→targetWasEmpty 恢复。
+12. `removeOwnedWorkspaceMigrationDirectory` [S 0x1409f34c0]：inspect→身份匹配才 RemoveAll。
+
+**订正**：`prepareWorkspaceDirectories` [S-sig]→[S]（6 目录 `{Root,IconDir,IndexDir,
+ScreenshotDir,WebView2Dir,BackgroundDir}` + 逆序清理闭包 func1 0x1409f3b80）；
+`openWorkspaceMigrationTargetFileNoFollow` 签名补 perm 参数（asm 0x1409f4e93 覆盖为
+GENERIC_WRITE 忽略，源码 `_ os.FileMode`）；`MigrateConfig` 两调用点（begin 0 参、
+buildLayout 用 staged.targetPath）+ 7 处 `defer op()/gate()`；删除独立 `End` 方法与
+bootstrapservice_migration.go 6 骨架、screenshot_stubs.go 3 骨架。
+
+**错误类型实证**：3 个包级 error 接口（errWorkspaceMigrationInProgress 0x141BC3E00 /
+errWorkspaceAppActive 0x141BC3E10 / errWorkspaceDrainTimeout 0x141BC4050，均 extractError
+itab 0x1411d3100）；"工作区服务不可用" 为每次 newobject（24B @0x140C65700）。
+
+**下一批**：workspace migration 域剩余骨架 `buildWorkspaceLayoutWithConfig`（0x1407a1ac0）
+与 `importLauncherBackgroundImage`（0x140798e40）[S-sig] 升档，或转入其他专项域。
+P=40。FUNCS 2871/4754 = 60.39%。
+
 
 
 

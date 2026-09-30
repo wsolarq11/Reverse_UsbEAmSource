@@ -1,4 +1,0 @@
-0x1411d1dc8: and      byte ptr [rax], al
-0x1411d1dca: add      byte ptr [rax], al
-0x1411d1dcc: add      byte ptr [rax], al
-0x1411d1dce: add      byte ptr [rax], al

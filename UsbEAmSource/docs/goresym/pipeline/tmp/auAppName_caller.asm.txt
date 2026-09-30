@@ -1,7 +1,0 @@
-0x140756320: mov      rsi, qword ptr [rsp + 0xb8]
-0x140756328: mov      r8, qword ptr [rsp + 0x78]
-0x14075632d: mov      r9d, dword ptr [rsp + 0x48]
-0x140756332: mov      ebx, eax
-0x140756334: mov      rax, qword ptr [rsp + 0x160]
-0x14075633c: nop      dword ptr [rax]
-0x140756340: call     0x140757a00   ; main.audioClient.resolveSessionAppName

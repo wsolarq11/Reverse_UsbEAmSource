@@ -1,6 +1,0 @@
-0x140c55a6a: movsxd   ebp, dword ptr [rdi + 0x6e]
-0x140c55a6d: je       0x140c55ad4
-0x140c55a6f: js       0x140c55ae5
-0x140c55a71: and      byte ptr [rbx + 0x61], ah
-0x140c55a74: outsb    dx, byte ptr [rsi]
-0x140c55a75: movsxd   esp, dword ptr [rbp + 0x6c]

@@ -1,4 +1,0 @@
-0x1408adf40: and      al, 0x23
-0x1408adf42: add      byte ptr [rdi + rcx + 0x11], al
-0x1408adf46: mov      esp, 0xf824
-0x1408adf4b: add      al, ch

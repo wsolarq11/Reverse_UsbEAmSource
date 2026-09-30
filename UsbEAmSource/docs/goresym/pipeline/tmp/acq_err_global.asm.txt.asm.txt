@@ -1,9 +1,0 @@
-0x141bc4520: add      byte ptr [rcx], dh
-0x141bc4522: sbb      eax, 0x141
-0x141bc4527: add      byte ptr [rax + 0x45], al
-0x141bc452a: mov      esp, 0x141
-0x141bc452f: add      byte ptr [rax + 0x1411d37], al
-0x141bc4535: add      byte ptr [rax], al
-0x141bc4537: add      al, al
-0x141bc4539: test     eax, 0x141c5
-0x141bc453e: add      byte ptr [rax], al

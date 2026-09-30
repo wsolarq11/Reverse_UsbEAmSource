@@ -1,7 +1,0 @@
-0x1411d1dd8: sub      byte ptr [rax], al
-0x1411d1dda: add      byte ptr [rax], al
-0x1411d1ddc: add      byte ptr [rax], al
-0x1411d1dde: add      byte ptr [rax], al
-0x1411d1de0: sub      byte ptr [rbx - 0x3b], cl
-0x1411d1de3: add      dword ptr [rax], eax
-0x1411d1de6: add      byte ptr [rax], al

@@ -1,5 +1,0 @@
-0x140d09620: pop      rcx
-0x140d09621: mov      ecx, 0xbe2f276e
-0x140d09626: imul     byte ptr [rcx]
-0x140d09628: push     r14
-0x140d0962a: insb     byte ptr [rdi], dx

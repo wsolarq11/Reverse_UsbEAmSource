@@ -1,5 +1,0 @@
-0x140c5064e: push     rbx
-0x140c5064f: je       0x140c506a9
-0x140c50652: imul     ebp, dword ptr [rsi + 0x64], 0x6f4c776f
-0x140c50659: outsb    dx, byte ptr [rsi]
-0x140c5065a: push     rdi

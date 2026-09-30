@@ -1,7 +1,0 @@
-0x1411eead0: and      dh, ch
-0x1411eead2: sbb      al, 0x41
-0x1411eead4: add      dword ptr [rax], eax
-0x1411eead6: add      byte ptr [rax], al
-0x1411eead8: shr      dl, 0x1e
-0x1411eeadb: add      dword ptr [r8], eax
-0x1411eeade: add      byte ptr [rax], al

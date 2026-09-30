@@ -1,8 +1,0 @@
-0x140afdb60: and      byte ptr [rax], al
-0x140afdb62: add      byte ptr [rax], al
-0x140afdb64: add      byte ptr [rax], al
-0x140afdb66: add      byte ptr [rax], al
-0x140afdb68: add      byte ptr [rax], al
-0x140afdb6a: add      byte ptr [rax], al
-0x140afdb6c: add      byte ptr [rax], al
-0x140afdb6e: add      byte ptr [rax], al

@@ -1,5 +1,0 @@
-0x140c5508a: je       0x140c550e1
-0x140c5508e: jns      0x140c55103
-0x140c55090: je       0x140c550f7
-0x140c55092: insd     dword ptr [rdi], dx
-0x140c55093: je       0x140c55109

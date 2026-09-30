@@ -1,4 +1,0 @@
-0x140c571fe: outsd    dx, dword ptr [rsi]
-0x140c57200: outsb    dx, byte ptr [rsi]
-0x140c57201: imul     esi, dword ptr [rdi + rbp*2 + 0x72], 0x6d6f7246
-0x140c57209: push     rdi

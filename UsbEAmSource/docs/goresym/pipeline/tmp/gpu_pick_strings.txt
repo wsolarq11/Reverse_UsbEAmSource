@@ -1,9 +1,0 @@
-resolveProcessNameByPID:无效进程ID: '进程 ID 无效'
-resolveProcessNameByPID:未找到: '未找到目标进程'
-resolveProcessNameByPID:名称解析失败: '目标进程名为空'
-windowFromScreenPoint:err: '无法识别鼠标所在窗口'
-resolveProcessPathByPID:err1: '目标进程路径为空通知图标资源为空用户缓存目录为空当前�' (first-nul)
-resolveProcessPathByPID:err2: '无法读取目标进程路径无法读取当前鼠标位置安装键盘监测�' (first-nul)
-resolveWindowProcessPath:err1: '0x%XdownmoveleftETaglinedarktiletag:LeftDownitem-Sta/XMLPathPT0SPT1Hsizerootnone' (first-nul)
-resolveWindowProcessPath:err2: '无法识别目标窗口对应的进程显卡调度不支持链式快捷方式�' (first-nul)
-resolveWindowProcessPath:err3: '窗口句柄无效资源标识无效/__usbeam_asset__/404 page not foundresource' (first-nul)

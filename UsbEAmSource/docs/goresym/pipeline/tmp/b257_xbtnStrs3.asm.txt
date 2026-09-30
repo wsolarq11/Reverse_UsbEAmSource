@@ -1,6 +1,0 @@
-0x140c33620: rol      byte ptr [rax], 0x7a
-0x140c33623: add      al, al
-0x140c33625: add      byte ptr [rdx], bh
-0x140c33628: jae      0x140c3368d
-0x140c3362a: insb     byte ptr [rdi], dx
-0x140c3362b: jb       0x140c3369c

@@ -1,9 +1,0 @@
-0x140753100: test     eax, eax
-0x140753102: je       0x1407532bb   ; main.setAudioSessionDevice.func1+0x47b
-0x140753108: mov      ebx, eax
-0x14075310a: mov      rcx, qword ptr [rsp + 0xc8]
-0x140753112: mov      rdi, qword ptr [rsp + 0x98]
-0x14075311a: mov      rsi, qword ptr [rsp + 0xd0]
-0x140753122: mov      r8, qword ptr [rsp + 0xa0]
-0x14075312a: mov      rax, qword ptr [rsp + 0xe0]
-0x140753132: call     0x140756920   ; main.audioClient.setPersistedSessionDevice

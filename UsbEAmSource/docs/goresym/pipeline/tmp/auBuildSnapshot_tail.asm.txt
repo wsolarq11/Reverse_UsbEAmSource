@@ -1,3 +1,0 @@
-0x1407565d0: dec      dword ptr [rax - 0x75]
-0x1407565d3: insd     dword ptr [rdi], dx
-0x1407565d4: add      byte ptr [rax - 0x7f], cl

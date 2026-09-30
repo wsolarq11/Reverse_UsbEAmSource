@@ -1,8 +1,0 @@
-0x141bd1b40: je       0x141bd1b02
-0x141bd1b42: ret      
-0x141bd1b43: add      dword ptr [rax], eax
-0x141bd1b46: add      byte ptr [rax], al
-0x141bd1b48: or       byte ptr [rax], al
-0x141bd1b4a: add      byte ptr [rax], al
-0x141bd1b4c: add      byte ptr [rax], al
-0x141bd1b4e: add      byte ptr [rax], al

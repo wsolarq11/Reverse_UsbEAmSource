@@ -1,2 +1,0 @@
-0x141c5ab60: mov      al, 0xa0
-0x141c5ab62: mov      eax, 0xd0a0c8a0

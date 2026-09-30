@@ -1,2 +1,0 @@
-0x140c4df09: je       0x140c4df64
-0x140c4df0d: imul     ebp, dword ptr [rsi + 0x64], 0x6552776f

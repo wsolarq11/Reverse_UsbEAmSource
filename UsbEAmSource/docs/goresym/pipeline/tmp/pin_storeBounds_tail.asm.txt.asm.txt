@@ -1,9 +1,0 @@
-0x140985e7d: mov      dh, 0x9c
-0x140985e7f: and      al, 0xd0
-0x140985e81: add      al, byte ptr [rax]
-0x140985e83: add      byte ptr [rax - 0x77], cl
-0x140985e86: ror      dword ptr [rax - 0x75], 0x84
-0x140985e8a: and      al, 0xa0
-0x140985e8c: add      al, byte ptr [rax]
-0x140985e8e: add      al, ch
-0x140985e90: clc      

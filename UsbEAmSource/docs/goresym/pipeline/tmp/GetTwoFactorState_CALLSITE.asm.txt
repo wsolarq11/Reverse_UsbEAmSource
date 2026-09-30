@@ -1,6 +1,0 @@
-0x14077ff40: add      al, byte ptr [rax]
-0x14077ff42: add      byte ptr [rax - 0x73], cl
-0x14077ff45: mov      esp, 0x24824
-0x14077ff4a: add      byte ptr [rax - 0x73], cl
-0x14077ff4d: je       0x14077ff73   ; main.BootstrapService.GetTwoFactorState+0xd3
-0x14077ff4f: or       byte ptr [rsi + 0xf], ah

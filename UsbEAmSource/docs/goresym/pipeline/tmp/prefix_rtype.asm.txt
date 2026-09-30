@@ -1,2 +1,0 @@
-0x140c69e00: test     al, 0xe6
-0x140c69e02: mov      byte ptr [rdi + 0x70704120], dh

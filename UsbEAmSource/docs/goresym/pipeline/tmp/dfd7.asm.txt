@@ -1,7 +1,0 @@
-0x1408adfc0: test     byte ptr [rax + rdi*8], ah
-0x1408adfc3: add      byte ptr [rax], al
-0x1408adfc5: add      byte ptr [rax - 0x75], cl
-0x1408adfc8: pushfq   
-0x1408adfc9: and      al, 0
-0x1408adfcb: add      dword ptr [rax], eax
-0x1408adfcd: add      byte ptr [rax - 0x7f], cl

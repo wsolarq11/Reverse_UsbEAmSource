@@ -1,3 +1,0 @@
-0x140c33cec: and      byte ptr [rax + riz + 0x68], bh
-0x140c33cf0: outsd    dx, dword ptr [rsi]
-0x140c33cf1: je       0x140c33d21

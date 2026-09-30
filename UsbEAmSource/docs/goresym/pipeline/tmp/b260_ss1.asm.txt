@@ -1,3 +1,0 @@
-0x140c3c334: push     rdi
-0x140c3c335: push     rbx
-0x140c3c336: pop      rdi

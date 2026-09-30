@@ -1,8 +1,0 @@
-0x1411cd520: add      byte ptr [rax], al
-0x1411cd522: add      byte ptr [rax], al
-0x1411cd524: add      byte ptr [rax], al
-0x1411cd526: add      byte ptr [rax], al
-0x1411cd528: jp       0x1411cd52a
-0x1411cd52a: add      byte ptr [rax], al
-0x1411cd52c: add      byte ptr [rax], al
-0x1411cd52e: add      byte ptr [rax], al

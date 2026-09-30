@@ -1,5 +1,0 @@
-0x140c4e1e1: push     rdi
-0x140c4e1e2: push     rbx
-0x140c4e1e3: pop      rdi
-0x140c4e1e4: push     rsp
-0x140c4e1e5: push     rdx

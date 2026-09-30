@@ -1,4 +1,0 @@
-0x140c3c0d4: jne      0x140c3c148
-0x140c3c0d6: insb     byte ptr [rdi], dx
-0x140c3c0d7: sub      byte ptr [rax + 0x74], ch
-0x140c3c0da: je       0x140c3c14c

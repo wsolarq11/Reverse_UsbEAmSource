@@ -1,8 +1,0 @@
-请求: 请求删除 GPU 首选项: rawPath=%q normalizedPath=%q
-打开失败: 删除 GPU 首选项打开注册表失败: path=%q err=%v
-键不存在: 删除 GPU 首选项时注册表键不存在，视为已删除: path=%q
-清理别名失败: 删除 GPU 首选项清理别名失败: path=%q err=%v
-刷新失败: 删除 GPU 首选项后刷新状态失败: path=%q err=%v
-成功: 删除 GPU 首选项成功: path=%q entries=%d
-normalize失败log: 删除 GPU 首选项失败: rawPath=%q err=%v
-err字符串: 显卡调度目标路径不能为空

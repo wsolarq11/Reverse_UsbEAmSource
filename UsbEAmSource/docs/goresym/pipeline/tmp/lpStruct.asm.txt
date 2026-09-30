@@ -1,8 +1,0 @@
-0x140b3a7a0: adc      byte ptr [rax], al
-0x140b3a7a2: add      byte ptr [rax], al
-0x140b3a7a4: add      byte ptr [rax], al
-0x140b3a7a6: add      byte ptr [rax], al
-0x140b3a7a8: adc      byte ptr [rax], al
-0x140b3a7aa: add      byte ptr [rax], al
-0x140b3a7ac: add      byte ptr [rax], al
-0x140b3a7ae: add      byte ptr [rax], al

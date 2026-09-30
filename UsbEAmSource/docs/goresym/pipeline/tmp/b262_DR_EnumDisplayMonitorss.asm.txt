@@ -1,2 +1,0 @@
-0x141bc1e60: add      byte ptr [rax], ah
-0x141bc1e62: mov      ebp, 0x141

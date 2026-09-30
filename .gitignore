@@ -19,3 +19,12 @@
 # Python 缓存
 __pycache__/
 *.pyc
+
+# 逆向过程产物（可随时从目标 exe 用 va_dump.py/batch_disasm.py 重新生成，不入库）
+/UsbEAmSource/docs/goresym/pipeline/tmp/
+/UsbEAmSource/docs/goresym/disasm/
+/UsbEAmSource/docs/goresym/disasm_archive/
+/UsbEAmSource/docs/goresym/disasm_assemble/
+/UsbEAmSource/docs/goresym/disasm_assemble_image/
+/UsbEAmSource/docs/goresym/disasm_lu/
+/UsbEAmSource/docs/goresym/dump_archive/

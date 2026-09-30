@@ -1,7 +1,0 @@
-0x1408ae000: and      al, 0xf8
-0x1408ae002: add      byte ptr [rax], al
-0x1408ae004: add      byte ptr [rax - 0x75], cl
-0x1408ae007: pushfq   
-0x1408ae008: and      al, 0
-0x1408ae00a: add      dword ptr [rax], eax
-0x1408ae00c: add      byte ptr [rax - 0x7f], cl

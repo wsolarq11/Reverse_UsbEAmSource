@@ -1,9 +1,0 @@
-0x140c5531a: push     rdi
-0x140c5531b: push     rbx
-0x140c5531c: pop      rdi
-0x140c5531d: pop      r8
-0x140c5531f: pop      rdi
-0x140c55320: push     r12
-0x140c55325: push     r14
-0x140c55327: push     r12
-0x140c55329: jne      0x140c553a0

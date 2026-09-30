@@ -1,5 +1,0 @@
-0x140c5bb38: outsb    dx, byte ptr [rsi]
-0x140c5bb3a: jne      0x140c5bba9
-0x140c5bb3c: imul     r14d, dword ptr [rbx + 0x70], 0x4d79616c
-0x140c5bb44: outsd    dx, dword ptr [rsi]
-0x140c5bb45: outsb    dx, byte ptr [rsi]

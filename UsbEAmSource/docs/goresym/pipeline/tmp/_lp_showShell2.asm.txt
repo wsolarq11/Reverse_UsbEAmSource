@@ -1,6 +1,0 @@
-0x141bd0300: add      byte ptr [rax], al
-0x141bd0302: add      byte ptr [rax], al
-0x141bd0304: add      byte ptr [rax], al
-0x141bd0306: add      byte ptr [rax], al
-0x141bd0308: mov      al, byte ptr [rip + 0x140c5]
-0x141bd030e: add      byte ptr [rax], al

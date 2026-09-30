@@ -1,3 +1,0 @@
-0x141bc1db0: sbb      byte ptr [rdx], 0xbd
-0x141bc1db3: add      dword ptr [r8], eax
-0x141bc1db6: add      byte ptr [rax], al

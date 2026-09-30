@@ -1,3 +1,0 @@
-0x141096878: rol      byte ptr [rsi], 1
-0x14109687b: add      dword ptr [rax], eax
-0x14109687e: add      byte ptr [rax], al

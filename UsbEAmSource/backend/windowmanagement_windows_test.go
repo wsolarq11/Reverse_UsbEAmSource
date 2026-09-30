@@ -114,3 +114,43 @@ func TestTargetFromWindowProcessPick(t *testing.T) {
 		})
 	}
 }
+
+// startCursorWrap/stopCursorWrap 的 channel 生命周期黄金用例。
+// moduleEnabled 默认 false → cursorWrapLoop 首次 tick（或 stop 关闭）即 return，不触达
+// GetSystemMetrics/MaybeWrapCursor 系统调用，测试确定性且安全。
+func TestWindowManagementCursorWrapLifecycle(t *testing.T) {
+	s := &windowManagementService{}
+	s.startCursorWrap(true, true)
+
+	if !s.cursorActive {
+		t.Fatal("startCursorWrap: cursorActive = false, want true")
+	}
+	if s.cursorStop == nil || s.cursorDone == nil {
+		t.Fatal("startCursorWrap: cursorStop/cursorDone 未创建")
+	}
+
+	// 二次 start 应被 cursorActive 短路（不覆盖既有 channel）。
+	prevStop := s.cursorStop
+	s.startCursorWrap(true, true)
+	if s.cursorStop != prevStop {
+		t.Fatal("startCursorWrap: 重复启动覆盖了 cursorStop")
+	}
+
+	s.stopCursorWrap()
+
+	if s.cursorActive {
+		t.Fatal("stopCursorWrap: cursorActive = true, want false")
+	}
+	if s.cursorStop != nil || s.cursorDone != nil {
+		t.Fatal("stopCursorWrap: cursorStop/cursorDone 未清空")
+	}
+}
+
+// stopCursorWrap 未启动时幂等：cursorStop/cursorDone 为 nil，跳过 close/recv，不 panic。
+func TestWindowManagementStopCursorWrapIdempotent(t *testing.T) {
+	s := &windowManagementService{}
+	s.stopCursorWrap()
+	if s.cursorActive || s.cursorStop != nil || s.cursorDone != nil {
+		t.Fatal("stopCursorWrap on fresh service 应为 no-op")
+	}
+}

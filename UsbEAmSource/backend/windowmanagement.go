@@ -24,6 +24,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // ========================================================================
@@ -615,48 +616,123 @@ func (s *windowManagementService) setLastError(err error) {
 // ---- windowManagementService.startCursorWrap ----
 
 // startCursorWrap 启动光标环绕线程。
-// [S-sig 汇编实证 0x1409ecaa0] source_funcs.txt:536-550（14L）。
-// [P] 涉及 goroutine 启动，待 cursorWrapLoop 函数体还原后完成。
+// [S] ASM 0x1409ecaa0：lock.Lock 后若 cursorActive 非 0 → 解锁返回；否则 make(chan struct{})
+// 两次得 stop/done，赋 s.cursorStop/s.cursorDone、置 s.cursorActive=true，解锁后
+// `go func(){ s.cursorWrapLoop(horizontal, vertical, stop, done) }()`。
+// 无 nil 接收者检查（asm 直接 lea [rax+8]）；Unlock 为显式两处（非 defer）。
 func (s *windowManagementService) startCursorWrap(horizontal, vertical bool) {
-	if s == nil {
-		return
-	}
-
 	s.lock.Lock()
-	defer s.lock.Unlock()
-
 	if s.cursorActive {
+		s.lock.Unlock()
 		return
 	}
-
-	_ = horizontal
-	_ = vertical
+	stop := make(chan struct{})
+	done := make(chan struct{})
+	s.cursorStop = stop
+	s.cursorDone = done
+	s.cursorActive = true
+	s.lock.Unlock()
+	go func() {
+		s.cursorWrapLoop(horizontal, vertical, stop, done)
+	}()
 }
 
 // ---- windowManagementService.stopCursorWrap ----
 
-// stopCursorWrap 停止光标环绕。
-// [S-sig 汇编实证 0x1409ecce0] source_funcs.txt:552-568（16L）。
-// [P] 涉及 channel 关闭，待 cursorWrapLoop 函数体还原后完成。
+// stopCursorWrap 停止光标环绕：置空 cursorStop/cursorDone/cursorActive，close(stop) 后阻塞
+// 等 <-done（等 cursorWrapLoop 退出收尾）。
+// [S] ASM 0x1409ecce0：lock.Lock 后 movups xmm15 清 cursorStop+cursorDone（16B，0x100..0x108）
+// 与 byte[0x110]=0（cursorActive=false）→ Unlock → stop!=nil 时 closechan(stop) →
+// done!=nil 时 chanrecv1(done)（即 <-done，丢弃值）。无 cursorActive 前置检查（幂等）。
 func (s *windowManagementService) stopCursorWrap() {
-	if s == nil {
-		return
-	}
-
 	s.lock.Lock()
-	defer s.lock.Unlock()
-
-	if !s.cursorActive {
-		return
+	stop := s.cursorStop
+	done := s.cursorDone
+	s.cursorStop = nil
+	s.cursorDone = nil
+	s.cursorActive = false
+	s.lock.Unlock()
+	if stop != nil {
+		close(stop)
+	}
+	if done != nil {
+		<-done
 	}
 }
 
 // ---- windowManagementService.cursorWrapLoop ----
 
-// cursorWrapLoop 光标环绕主循环。
-// [S-sig 汇编实证 0x1409ecde0] source_funcs.txt:568-607（39L）。
-// [P] 等待 cursorStop 信号+循环逻辑。
-func (s *windowManagementService) cursorWrapLoop() {
+// cursorWrapLoop 光标环绕主循环（8ms ticker + select 双 case）。
+// [S] ASM 0x1409ecde0（0x4e0=1248B）：
+//
+//	defer close(done)（deferwrap1 0x1409ed440，捕获 done → closechan）
+//	defer func(){ lock; if s.cursorStop==stop { 清 cursorStop/cursorDone/cursorActive }; unlock }()
+//	  （func1 0x1409ed360，捕获 s 与 stop；movups xmm15 清 0x100..0x108 + byte[0x110]=0）
+//	ticker := time.NewTicker(8ms)（0x7a1200=8,000,000ns）；defer ticker.Stop()（deferwrap2 0x1409ed300）
+//
+// 循环：select { <-ticker.C: ...; <-stop: return }（selectgo nsends=0 nrecvs=2 block=1）。
+// 锁内 duffcopy 拷 config（0xe0=224B）读 wrapX/wrapY，锁内读 cursorGuardPx(+0x118) 与
+// moduleEnabled(+0xf0) 后解锁。!moduleEnabled → return；!wrapX && !wrapY → return；
+// getSystemMetrics(0x50=SM_CMONITORS)<=1（单显示器）→ return（0x1409ed09e setle）。
+// time.Since(lastWrap)<140ms（0x8583b00）→ continue；
+// time.Since(lastDisplayRefresh)>=500ms（0x1dcd6500）或 monitors 空 → 刷新 DisplayRects+now；
+// MaybeWrapCursor(wrapX,wrapY,monitors,guardPx) 真 → lastWrap=now。
+//
+// 死参数 horizontal/vertical：asm morestack spill bl/cl 后从未读取（循环初始化 xor ebx,ecx
+// 覆盖），函数体从 config 实时值取 wrapX/wrapY，故保留签名但不使用。
+func (s *windowManagementService) cursorWrapLoop(horizontal, vertical bool, stop, done chan struct{}) {
+	defer close(done)
+	defer func() {
+		s.lock.Lock()
+		if s.cursorStop == stop {
+			s.cursorStop = nil
+			s.cursorDone = nil
+			s.cursorActive = false
+		}
+		s.lock.Unlock()
+	}()
+	ticker := time.NewTicker(8 * time.Millisecond)
+	defer ticker.Stop()
+
+	var lastWrap time.Time
+	var lastDisplayRefresh time.Time
+	var monitors []windowManagementRECT
+
+	for {
+		select {
+		case <-ticker.C:
+		case <-stop:
+			return
+		}
+
+		s.lock.Lock()
+		cfg := s.config
+		guardPx := s.cursorGuardPx
+		moduleEnabled := s.moduleEnabled
+		s.lock.Unlock()
+
+		if !moduleEnabled {
+			return
+		}
+		wrapX := cfg.CursorWrapHorizontalEnabled
+		wrapY := cfg.CursorWrapVerticalEnabled
+		if !wrapX && !wrapY {
+			return
+		}
+		if getSystemMetrics(0x50) <= 1 { // SM_CMONITORS：单显示器无环绕
+			return
+		}
+		if time.Since(lastWrap) < 140*time.Millisecond {
+			continue
+		}
+		if time.Since(lastDisplayRefresh) >= 500*time.Millisecond || len(monitors) == 0 {
+			monitors = windowManagementDisplayRects()
+			lastDisplayRefresh = time.Now()
+		}
+		if windowManagementMaybeWrapCursor(wrapX, wrapY, monitors, guardPx) {
+			lastWrap = time.Now()
+		}
+	}
 }
 
 // ---- upsertWindowFullscreenSnapshot ----

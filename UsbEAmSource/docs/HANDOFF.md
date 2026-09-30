@@ -19,12 +19,12 @@
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 原始源码规模 | ≈104,374 行 | ≈104,374 行 | 每文件最大行号求和（闭包共享父函数区间，属上界估计） |
-| 已重建函数 | 2860 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 265 后） |
-| 真函数（S+S-inline+S-sig） | 2820 | 4,754 | 同上，**批次 265 达 59.32%** |
+| 已重建函数 | 2860 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 266 后） |
+| 真函数（S+S-inline+S-sig） | 2820 | 4,754 | 同上，**批次 266 达 59.32%** |
 | 文件覆盖 | 88/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 54 | **0** | 同上差集（活体实测，较 §10 的 110 已减 56），清单见 §10 |
 | UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
-| [P] 存根 | 40 | **0** | 同上（批次 265 持平） |
+| [P] 存根 | 40 | **0** | 同上（批次 266 持平） |
 
 **⚠️ 口径纪律（本文件历史数字曾三度失真）**：§1 曾长期写「批次 34 / `FUNCS=900`」，与正文实际进度不符；批次 39 记录的 `S=552/S-sig=97/P=46/UNMARKED=259` 与活体实测不符，且分项相加 955 ≠ `FUNCS=969`（自相矛盾）。**任何批次记录落笔前必须先跑 `bash tools/count_funcs.sh` 取活体数字，禁止抄上一批的数字改一改。**
 
@@ -5003,6 +5003,37 @@ targetFromWindowProcessPick 4 例，期望值取自 asm 显式路径 + 已落地
 **下一批**：cursorWrapLoop / cursorWrapLoop.func1 / deferwrap1（0x1409ecde0 / 0x1409ed360 /
 0x1409ed440，time.NewTicker 8ms + selectgo 两 case + mutex 临界区闭包）；gap_aggregate 剩余短函数。
 FUNCS 2860/4754 = 60.16%。
+
+### 批次 266（windowmanagement 光标环绕线程链 +3 [S] 升档）
+
+**基线/收口**：`FUNCS=2860→2860 / S=1328→1331 / S-inline=36 / S-sig=1456→1453 / P=40 / UNMARKED=0`
+（真函数 2820→2820 = 59.32%；FAITHFUL 1364→1367）。`go1.25.12 build/vet/test -tags production ./backend` 全 EXIT=0。
+
+**本批落地（+3 [S]，均为 [S-sig] 升档，FUNCS 不变）**：
+1. startCursorWrap [S 0x1409ecaa0]（480B）：`(horizontal, vertical bool)`。无 nil 检查；lock 后
+   cursorActive 非 0 → 显式 Unlock return；makechan×2（chan struct{} 无缓冲）得 stop/done →
+   s.cursorStop/s.cursorDone/cursorActive=true → Unlock → `go func(){ s.cursorWrapLoop(h,v,stop,done) }()`
+   （newobject 5 捕获闭包 + newproc(gowrap1 0x1409ecc80)）。
+2. stopCursorWrap [S 0x1409ecce0]（256B）：`()`。无 nil 检查、无 cursorActive 前置检查（幂等）；
+   锁内读 stop/done 后 movups xmm15 清 cursorStop+cursorDone（0x100..0x108）+ byte[0x110]=0 →
+   Unlock → stop!=nil 则 closechan；done!=nil 则 chanrecv1（`<-done` 阻塞至收尾）。
+3. cursorWrapLoop [S 0x1409ecde0]（1248B）：`(horizontal, vertical bool, stop, done chan struct{})`。
+   defer 链：close(done)（deferwrap1 0x1409ed440）→ func1（0x1409ed360，lock 内若 s.cursorStop==stop
+   则清 cursorStop/cursorDone/cursorActive，竞态守卫）→ ticker.Stop（deferwrap2 0x1409ed300）。
+   ticker=8ms（0x7a1200）；selectgo 双 recv case（ticker.C / stop，block=1）；锁内 duffcopy 拷 config
+   （0xe0=224B）+ 读 cursorGuardPx(+0x118)/moduleEnabled(+0xf0)。判断链：!moduleEnabled→return；
+   !wrapX&&!wrapY→return；getSystemMetrics(0x50=SM_CMONITORS)<=1→return；time.Since(lastWrap)<140ms
+   （0x8583b00）→continue；time.Since(lastDisplayRefresh)>=500ms（0x1dcd6500）或 monitors 空→刷新
+   DisplayRects+now；MaybeWrapCursor 真→lastWrap=now。**死参数 h/v**（morestack spill bl/cl 后从未
+   读取，循环初始化 xor ebx/ecx 覆盖，函数体从 config 实时值取 wrapX/wrapY）。
+
+**新增 import**：time。**proc 身份内存实证**：0x141BC1DB0 = GetSystemMetrics（0x1409ed084 读
+`[rip+0x11d4d25]`，Python `hex(0x1409ed08b+0x11d4d25)=0x141BC1DB0`）。
+**黄金测试**：`windowmanagement_windows_test.go` 追加生命周期 2 例（start/二次 start 短路/stop 清三态；
+未启动 stop 幂等 no-op。moduleEnabled 默认 false → cursorWrapLoop 首次 tick 或 stop 关闭即 return，
+不触达系统调用，确定性安全），全 PASS。
+
+**下一批**：gap_aggregate.txt 剩余短函数落地。P=40。FUNCS 2860/4754 = 60.16%。
 
 
 

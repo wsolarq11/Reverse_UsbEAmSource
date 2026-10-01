@@ -22,10 +22,12 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"mime"
 	"net/http"
 	"net/url"
 	"os"
 	"path"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
@@ -295,61 +297,86 @@ func (s *launcherAssetService) pruneExpiredLocked(now time.Time) {
 // ---- 以下为仅落签名/占位骨架（T 档：函数体待还原，签名 100% 来自 redress） ----
 
 // RegisterBytes 对外注册入口，把内存数据注册为 launcher 资产并返回引用。
-// [signature确证 func(string,string,[]uint8,int64) (launcherAssetRef,error)]
-// 反汇编调用链：RegisterBytes → register（0x14086e463 call 0x14086f680），故本入口仅做参数校验
-// 后委托内部 register 完成锁内装配（newID 查重 / ensureCapacityLocked / next++ / entry TTL=600s /
-// addEntryLocked / buildURL(next)），语义与 register 组件对齐，避免平行重复。[S 依据 Ghidra 反编译]
-func (s *launcherAssetService) RegisterBytes(namespace, id string, data []uint8, version int64) (launcherAssetRef, error) {
+// [S] 反汇编实证 0x14086e220（234L asm）。真实签名 (namespace, contentType string, data []byte, ttl time.Duration)：
+//
+//	nil 接收者→error；len(data)==0→error（"资源内容不能为空"）；validateItemSize(len)→error；
+//	normalizeLauncherAssetNamespace(namespace) 空→error（"资源命名空间不能为空"）；
+//	mallocgc+memmove 复制 data（入口持有副本）；contentType=TrimSpace(第2参)，空则
+//	http.DetectContentType(data)，仍空则 "application/octet-stream"；
+//	register(namespace, contentType, data副本, "", len, ttl)。
+//
+// 注意：第2参是 content type（非 id），id 由 register 内 newLauncherAssetID 自动生成。
+func (s *launcherAssetService) RegisterBytes(namespace, contentType string, data []byte, ttl time.Duration) (launcherAssetRef, error) {
 	if s == nil {
-		return launcherAssetRef{}, errors.New("launcherasset: nil service")
+		return launcherAssetRef{}, errors.New("资源服务尚未初始化")
+	}
+	if len(data) == 0 {
+		return launcherAssetRef{}, errors.New("资源内容不能为空")
 	}
 	if err := s.validateItemSize(int64(len(data))); err != nil {
 		return launcherAssetRef{}, err
 	}
-	return s.register(namespace, id, data, version)
+	ns := normalizeLauncherAssetNamespace(namespace)
+	if ns == "" {
+		return launcherAssetRef{}, errors.New("资源命名空间不能为空")
+	}
+	buf := make([]byte, len(data))
+	copy(buf, data)
+	ct := strings.TrimSpace(contentType)
+	if ct == "" {
+		ct = strings.TrimSpace(http.DetectContentType(buf))
+	}
+	if ct == "" {
+		ct = "application/octet-stream"
+	}
+	return s.register(ns, ct, buf, "", int64(len(buf)), ttl)
 }
 
 // RegisterFile 把磁盘文件注册为资产。
-// [S] 反汇编实证 0x14086ed00（448L asm）。
-// 实证流程：
+// [S] 反汇编实证 0x14086ed00（440L asm）。真实签名 (namespace, path, contentType string, ttl time.Duration)：
 //
-//	normalizeLauncherAssetNamespace → TrimSpace(id) → os.OpenFile(path, O_RDONLY, 0)
-//	→ File.Stat → IsDir(rax.fun[4]) → Size ≤ 0 → Size > maxItemBytes → validateItemSize
-//	→ duffcopy 构造面参 → register(ns, id, data, version)
+//	nil 接收者→error；normalizeLauncherAssetNamespace(namespace) 空→error；
+//	path=TrimSpace(path) → os.OpenFile(path, O_RDONLY, 0)（失败 fmt.Errorf("读取资源文件失败: %w")）
+//	→ defer Close → f.Stat（失败同 wrap）→ IsDir→error（"资源文件不能是目录"）
+//	→ Size≤0→error（"资源文件不能为空"）→ validateItemSize(size)→error
+//	→ contentType=TrimSpace(第3参)，空则 mime.TypeByExtension(ToLower(filepath.Ext(path)))，
+//	仍空则 "application/octet-stream" → register(ns, contentType, nil, path, size, ttl)。
 //
-// 注意：RegisterFile 直接 OpenFile 读取完整内容后走 register，不经过 readFileBounded。
-// data 为 os.OpenFile → Stat → 校验通过后 io.ReadAll 读入（asm 无显式 ReadAll，由 register
-// 接收 []byte 完成——filePath 不存入 entry）。
-func (s *launcherAssetService) RegisterFile(namespace, id, path string, version int64) (launcherAssetRef, error) {
+// 注意：RegisterFile 不预读文件内容——register 存 filePath 于 entry，读取时经 readFileBounded。
+// 第3参是 content type（非 id），第4参是 TTL（非 version）。
+func (s *launcherAssetService) RegisterFile(namespace, path, contentType string, ttl time.Duration) (launcherAssetRef, error) {
 	if s == nil {
-		return launcherAssetRef{}, errors.New("launcherasset: nil service")
+		return launcherAssetRef{}, errors.New("资源服务尚未初始化")
 	}
 	ns := normalizeLauncherAssetNamespace(namespace)
-	id = strings.TrimSpace(id)
+	path = strings.TrimSpace(path)
 	f, err := os.OpenFile(path, os.O_RDONLY, 0)
 	if err != nil {
-		return launcherAssetRef{}, err
+		return launcherAssetRef{}, fmt.Errorf("读取资源文件失败: %w", err)
 	}
 	defer f.Close()
 	fi, err := f.Stat()
 	if err != nil {
-		return launcherAssetRef{}, err
+		return launcherAssetRef{}, fmt.Errorf("读取资源文件失败: %w", err)
 	}
 	if fi.IsDir() {
-		return launcherAssetRef{}, errors.New("launcherasset: path is a directory")
+		return launcherAssetRef{}, errors.New("资源文件不能是目录")
 	}
 	size := fi.Size()
 	if size <= 0 {
-		return launcherAssetRef{}, errors.New("launcherasset: file is empty")
+		return launcherAssetRef{}, errors.New("资源文件不能为空")
 	}
 	if err := s.validateItemSize(size); err != nil {
 		return launcherAssetRef{}, err
 	}
-	data, err := io.ReadAll(f)
-	if err != nil {
-		return launcherAssetRef{}, err
+	ct := strings.TrimSpace(contentType)
+	if ct == "" {
+		ct = mime.TypeByExtension(strings.ToLower(filepath.Ext(path)))
 	}
-	return s.register(ns, id, data, version)
+	if ct == "" {
+		ct = "application/octet-stream"
+	}
+	return s.register(ns, ct, nil, path, size, ttl)
 }
 
 // RegisterStableBytes 稳定注册：id 空时由 stableLauncherAssetID(namespace, TrimSpace(id), data[:16]) 派生。
@@ -519,50 +546,56 @@ func (s *launcherAssetService) addEntryLocked(e launcherAssetEntry) {
 	s.totalBytes += e.size
 }
 
-// register 内部注册：把内存数据 nums 注册为 launcher 资产并返回引用。
-// [Ghidra 反编译精确（0x14086f680）] C 伪代码语义；与 registerStable 同构但内容为"数据注册"且 id 自动生成：
+// register 内部注册：把资产（内存数据或文件路径）登记进服务并返回引用。
+// [S] 反汇编实证 0x14086f680（309L asm）。真实签名
+// (namespace, contentType string, data []byte, filePath string, size int64, ttl time.Duration)：
 //
-//	LOCK → currentTime → pruneExpiredLocked
-//	→ id 为空时循环 newLauncherAssetID + mapaccess2 查重至唯一（显式 id 直接使用）
-//	→ ensureCapacityLocked（容量校验失败 → (ref,err)）
-//	→ 成功路径 next++ → 构造 entry（createdAt=accessedAt=now；expiresAt=now+TTL，TTL 缺失默认 600s）
-//	→ addEntryLocked → buildLauncherAssetURL(namespace, id, next) → (launcherAssetRef, nil)
-//	返回 72 字节聚合 = (launcherAssetRef, error)。[S 依据 Ghidra 反编译]
-func (s *launcherAssetService) register(namespace, id string, data []byte, version int64) (launcherAssetRef, error) {
+//	LOCK → currentTime → pruneExpiredLocked → id 恒自动生成（newLauncherAssetID + mapaccess2 查重至唯一）
+//	→ ensureCapacityLocked(namespace, size)（失败→(ref,err)）→ next++
+//	→ entry{id, namespace, version=next, contentType, data, filePath, size,
+//	createdAt=accessedAt=now, expiresAt=now+ttl（ttl==0→600s，ttl<0→零值永不过期）}
+//	→ addEntryLocked → buildLauncherAssetURL(namespace, id, next) → ref{ID,URL,Version=next,ContentType}。
+//
+// 注意：register 不接收显式 id/version（旧还原错误）——id 恒随机、version 恒 next。
+func (s *launcherAssetService) register(namespace, contentType string, data []byte, filePath string, size int64, ttl time.Duration) (launcherAssetRef, error) {
 	if s == nil {
-		return launcherAssetRef{}, errors.New("launcherasset: nil service")
+		return launcherAssetRef{}, errors.New("资源服务尚未初始化")
 	}
 	now := s.currentTime()
 	s.lock.Lock()
 	defer s.lock.Unlock()
 	s.pruneExpiredLocked(now)
-	if id == "" {
-		// register C：自动生成 id 时 mapaccess2 查重，直至唯一；显式 id 不重生成（保稳定注册确定性）。
-		for {
-			id = newLauncherAssetID()
-			if _, exists := s.entries[id]; !exists {
-				break
-			}
+	id := newLauncherAssetID()
+	for {
+		if _, exists := s.entries[id]; !exists {
+			break
 		}
+		id = newLauncherAssetID()
 	}
-	ns := normalizeLauncherAssetNamespace(namespace)
-	if err := s.ensureCapacityLocked(ns, int64(len(data))); err != nil {
+	if err := s.ensureCapacityLocked(namespace, size); err != nil {
 		return launcherAssetRef{}, err
 	}
 	s.next++
+	if ttl == 0 {
+		ttl = 600 * time.Second
+	}
 	entry := launcherAssetEntry{
-		id:         id,
-		namespace:  ns,
-		version:    version,
-		data:       data,
-		size:       int64(len(data)),
-		createdAt:  now,
-		accessedAt: now,
-		expiresAt:  now.Add(600 * time.Second), // register C：TTL 默认 600_000_000_000ns = 10min
+		id:          id,
+		namespace:   namespace,
+		version:     s.next,
+		contentType: contentType,
+		data:        data,
+		filePath:    filePath,
+		size:        size,
+		createdAt:   now,
+		accessedAt:  now,
+	}
+	if ttl >= 0 {
+		entry.expiresAt = now.Add(ttl)
 	}
 	s.addEntryLocked(entry)
-	url := buildLauncherAssetURL(namespace, id, s.next) // register C：buildURL 第三参 = next 序号
-	return launcherAssetRef{ID: id, URL: url, Version: version}, nil
+	url := buildLauncherAssetURL(namespace, id, s.next)
+	return launcherAssetRef{ID: id, URL: url, Version: s.next, ContentType: contentType}, nil
 }
 
 // ensureCapacityLocked 校验并逐条驱逐，确保条目数/总字节预算能容纳 itemSize 的新条目。

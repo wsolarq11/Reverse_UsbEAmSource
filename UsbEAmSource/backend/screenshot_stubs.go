@@ -8,8 +8,8 @@ package main
 
 import (
 	"os"
-	"path/filepath"
 	"strings"
+	"time"
 )
 
 // attachScreenshotCaptureAssetURL 为截图路径注册资产 URL。
@@ -29,7 +29,7 @@ func (bs *BootstrapService) attachScreenshotCaptureAssetURL(path string) (string
 		return path, nil
 	}
 
-	ref, err := svc.RegisterFile("screenshot", filepath.Base(trimmed), trimmed, 0)
+	ref, err := svc.RegisterFile("screenshot/current", trimmed, screenshotContentTypeForPath(trimmed), 600*time.Second)
 	if err != nil {
 		return "", err
 	}

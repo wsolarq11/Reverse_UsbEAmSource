@@ -5263,6 +5263,44 @@ MigrateConfig 0x14077c8d6 用 staged.targetPath + ws.ConfigFile/ws.PluginDir + �
 `launcherBackgroundContentTypeForPath` 0x1407998a0 256B）或其它专项域。
 P=40。FUNCS 2873/4754 = 60.43%。
 
+### 批次 272（attachLauncherBackgroundURL 升档 + launcherBackgroundContentTypeForPath 新增 + launcherasset 签名订正）
+
+**基线/收口**：`FUNCS=2873→2874 / MARKED=2873→2874 / S=1353→1355 / S-inline=36 /
+S-sig=1444→1443 / P=40 / UNMARKED=0`（真函数 2833→2834 = 59.61%；FAITHFUL 1389→1391）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+1 [S-sig]→[S]，+1 新 [S]，-1 [S-sig]，+1 FUNCS）**：
+1. `attachLauncherBackgroundURL` [S 0x140798600, 387L]：bs/cfg nil 守卫 →
+   normalizeBackgroundPreference → TrimSpace(ImagePath) 空则写回返回 → screenshotAssetService()
+   nil 返回 → Clean(TrimSpace(ImagePath)) → os.Stat err/IsDir/Size≤0 返回 → ModTime().UnixNano()
+   → backgroundAssetLock 缓存命中（owner/path/size/modifiedAt 相等 + Exists(URL,
+   "background/custom")）复用 URL 返回 → 否则 RegisterFile("background/custom", cleaned,
+   contentTypeForPath(cleaned), 0) → err==nil 更新缓存五字段 + ImageURL → 写回 normalized。
+2. `launcherBackgroundContentTypeForPath` [S 0x1407998a0, 352B]（新）：filepath.Ext → ToLower →
+   立即数分派 .bmp/.gif/.png → image/{bmp,gif,png}、.jpg/.jpeg → image/jpeg、.webp → image/webp、
+   其余 application/octet-stream。
+
+**订正（launcherasset 核心签名，汇编实证，均已是 [S] 无档位迁移）**：
+- `RegisterFile` 0x14086ed00：`(namespace,id,path,version)` → `(namespace,path,contentType,ttl)`。
+  开 path（第2参）、contentType 派生（mime.TypeByExtension 回落 octet-stream）、ttl 直传；
+  **不预读文件**，filePath 存 entry（ReadBytes 时 readFileBounded 回读）。
+- `RegisterBytes` 0x14086e220：`(namespace,id,data,version)` → `(namespace,contentType,data,ttl)`。
+  contentType 派生（http.DetectContentType 回落 octet-stream）、mallocgc+memmove 复制 data。
+- `register` 0x14086f680：`(namespace,id,data,version)` →
+  `(namespace,contentType,data,filePath,size,ttl)`。id 恒 newLauncherAssetID 查重生成、
+  version 恒 next、expiresAt=now+ttl（ttl==0→600s、ttl<0→零值永不过期）。
+- 截图域三调用点（attachScreenshotAssetURL/attachScreenshotCaptureAssetURL/
+  attachScreenshotThumbnailAssetURL）：namespace "screenshot/current"（0x140c59c66 18B）、
+  第2参 = trimmed 全路径（非 basename）、第3参 = screenshotContentTypeForPath、第4参 = 600s。
+
+**错误消息实证**（rodata 解码）："读取资源文件失败: %w"(28B) / "资源文件不能是目录"(27B) /
+"资源文件不能为空"(24B) / "资源内容不能为空"(24B) / "资源命名空间不能为空"(30B) /
+"资源服务尚未初始化"(27B)。
+
+**下一批**：`attachScreenshotThumbnailAssetURL` 汇编实走 buildScreenshotThumbnailPNGFromData/
+FromPath（非 RegisterFile），属截图域后续专项。launcher asset 背景域已闭环。P=40。
+FUNCS 2874/4754 = 60.45%。
+
 
 
 

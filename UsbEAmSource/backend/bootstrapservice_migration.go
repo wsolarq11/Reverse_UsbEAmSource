@@ -214,3 +214,26 @@ func copyLauncherBackgroundImageFile(src, dst string) error {
 	}
 	return dstFile.Close()
 }
+
+// launcherBackgroundContentTypeForPath 按扩展名推断背景图内容类型。
+// [S 汇编实证 0x1407998a0, 352B]（launcherBackgroundContentTypeForPath.asm.txt）：
+// 内联 filepath.Ext 反向扫后缀（遇 '/' '\' 中止，遇 '.' 截取）→ strings.ToLower →
+// 立即数分派：0x706d622e=".bmp"→image/bmp、0x6669672e=".gif"→image/gif、
+// 0x676e702e=".png"→image/png、0x67706a2e=".jpg"/".jpeg"→image/jpeg、
+// 0x6265772e=".webp"→image/webp，其余 "application/octet-stream"。
+func launcherBackgroundContentTypeForPath(path string) string {
+	switch strings.ToLower(filepath.Ext(path)) {
+	case ".bmp":
+		return "image/bmp"
+	case ".gif":
+		return "image/gif"
+	case ".png":
+		return "image/png"
+	case ".jpg", ".jpeg":
+		return "image/jpeg"
+	case ".webp":
+		return "image/webp"
+	default:
+		return "application/octet-stream"
+	}
+}

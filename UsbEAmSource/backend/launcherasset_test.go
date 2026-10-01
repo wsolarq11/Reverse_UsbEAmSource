@@ -695,19 +695,25 @@ func TestOpenFileBounded(t *testing.T) {
 func TestRegisterBytes(t *testing.T) {
 	s := testAssetService()
 
-	// 基本注册。
-	ref, err := s.RegisterBytes("ns", "id3", []byte("abc"), 7)
+	// 基本注册：id 恒自动生成 32-hex、version=next、contentType 显式传入、TTL 默认 600s。
+	ref, err := s.RegisterBytes("ns", "text/plain", []byte("abc"), 0)
 	if err != nil {
 		t.Fatalf("RegisterBytes err=%v", err)
 	}
-	if ref.ID != "id3" || ref.Version != 7 {
-		t.Errorf("ref=%+v want ID=id3 version=7", ref)
+	if len(ref.ID) != 32 || !isValidLauncherAssetIDHex([]byte(ref.ID)) {
+		t.Errorf("auto id=%q not 32-hex", ref.ID)
 	}
-	if want := "/__usbeam_asset__/ns/id3?v=1"; ref.URL != want {
+	if ref.Version != 1 {
+		t.Errorf("ref.Version=%d want 1", ref.Version)
+	}
+	if want := "/__usbeam_asset__/ns/" + ref.ID + "?v=1"; ref.URL != want {
 		t.Errorf("ref.URL=%q want %q", ref.URL, want)
 	}
-	e, ok := s.entries["id3"]
-	if !ok || e.size != 3 || string(e.data) != "abc" {
+	if ref.ContentType != "text/plain" {
+		t.Errorf("ref.ContentType=%q want text/plain", ref.ContentType)
+	}
+	e, ok := s.entries[ref.ID]
+	if !ok || e.size != 3 || string(e.data) != "abc" || e.contentType != "text/plain" {
 		t.Errorf("entry not recorded: ok=%v entry=%+v", ok, e)
 	}
 	if s.next != 1 {
@@ -717,17 +723,22 @@ func TestRegisterBytes(t *testing.T) {
 		t.Errorf("namespaceBytes[ns]=%d want 3", s.namespaceBytes["ns"])
 	}
 
-	// 空 id → 自动生成合法 32-hex。
+	// 空 content type → http.DetectContentType 自动推断。
 	ref2, err := s.RegisterBytes("ns", "", []byte("x"), 1)
 	if err != nil {
-		t.Fatalf("empty-id err=%v", err)
+		t.Fatalf("empty-ct err=%v", err)
 	}
-	if len(ref2.ID) != 32 || !isValidLauncherAssetIDHex([]byte(ref2.ID)) {
-		t.Errorf("auto id=%q not 32-hex", ref2.ID)
+	if len(ref2.ID) != 32 || !isValidLauncherAssetIDHex([]byte(ref2.ID)) || ref2.ID == ref.ID {
+		t.Errorf("auto id=%q invalid or collides %q", ref2.ID, ref.ID)
+	}
+
+	// 空数据 → error。
+	if _, err := s.RegisterBytes("ns", "", nil, 1); err == nil {
+		t.Error("empty data must error")
 	}
 
 	// 越限（maxItemBytes=100）→ error。
-	if _, err := s.RegisterBytes("ns", "big", make([]byte, 101), 1); err == nil {
+	if _, err := s.RegisterBytes("ns", "", make([]byte, 101), 1); err == nil {
 		t.Error("over-item-limit must error")
 	}
 
@@ -746,37 +757,52 @@ func TestRegisterFile(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	ref, err := s.RegisterFile("ns", "idf", fp, 9)
+	// content type 空 → 由 .txt 经 mime.TypeByExtension 派生。
+	ref, err := s.RegisterFile("ns", fp, "", 0)
 	if err != nil {
 		t.Fatalf("RegisterFile err=%v", err)
 	}
-	if ref.ID != "idf" || ref.Version != 9 {
-		t.Errorf("ref=%+v want ID=idf v=9", ref)
+	if len(ref.ID) != 32 || !isValidLauncherAssetIDHex([]byte(ref.ID)) {
+		t.Errorf("auto id=%q not 32-hex", ref.ID)
 	}
-	e, ok := s.entries["idf"]
-	if !ok || string(e.data) != string(content) || e.size != int64(len(content)) {
-		t.Errorf("entry not recorded: ok=%v data=%q size=%d", ok, string(e.data), e.size)
+	if ref.Version != 1 {
+		t.Errorf("ref.Version=%d want 1", ref.Version)
+	}
+	if ref.ContentType != "text/plain; charset=utf-8" {
+		t.Errorf("ref.ContentType=%q want text/plain (from .txt)", ref.ContentType)
+	}
+	e, ok := s.entries[ref.ID]
+	if !ok || e.size != int64(len(content)) || e.filePath != fp || len(e.data) != 0 {
+		t.Errorf("entry not recorded: ok=%v size=%d filePath=%q dataLen=%d", ok, e.size, e.filePath, len(e.data))
+	}
+
+	// filePath 化 entry 经 ReadBytes 按需回读。
+	data, _, err := s.ReadBytes(ref.URL, "")
+	if err != nil || string(data) != string(content) {
+		t.Errorf("ReadBytes err=%v data=%q", err, data)
 	}
 
 	// 缺失文件 → error。
-	if _, err := s.RegisterFile("ns", "id2", dir+"\\missing.bin", 1); err == nil {
+	if _, err := s.RegisterFile("ns", dir+"\\missing.bin", "", 1); err == nil {
 		t.Error("missing file RegisterFile must error")
 	}
 }
 
 func TestReadBytes(t *testing.T) {
-	id32 := "0123456789abcdef0123456789abcdef"
 	s := testAssetService()
-	if _, err := s.RegisterBytes("ns", id32, []byte("payload"), 5); err != nil {
+	ref, err := s.RegisterBytes("ns", "text/plain", []byte("payload"), 5)
+	if err != nil {
 		t.Fatal(err)
 	}
 
-	url := buildLauncherAssetURL("ns", id32, 5)
+	url := ref.URL
 	data, ct, err := s.ReadBytes(url, "")
 	if err != nil || string(data) != "payload" {
 		t.Errorf("ReadBytes err=%v data=%q", err, data)
 	}
-	_ = ct
+	if ct != "text/plain" {
+		t.Errorf("ct=%q want text/plain", ct)
+	}
 
 	// 期望命名空间不匹配 → error。
 	if _, _, err := s.ReadBytes(url, "other"); err == nil {
@@ -831,13 +857,13 @@ func TestRegisterStableBytes(t *testing.T) {
 
 func TestServeAssetRequest(t *testing.T) {
 	s := testAssetService()
-	id32 := "0123456789abcdef0123456789abcdef"
-	if _, err := s.RegisterBytes("ns", id32, []byte("serve-body"), 1); err != nil {
+	ref, err := s.RegisterBytes("ns", "text/plain", []byte("serve-body"), 1)
+	if err != nil {
 		t.Fatal(err)
 	}
 
 	// 命中 → 200 + body。
-	req := httptest.NewRequest("GET", "http://x/__usbeam_asset__/ns/"+id32+"?v=1", nil)
+	req := httptest.NewRequest("GET", "http://x"+ref.URL, nil)
 	rec := httptest.NewRecorder()
 	if !s.ServeAssetRequest(rec, req) {
 		t.Fatal("expected handled (true)")
@@ -964,57 +990,64 @@ func TestLookupExpanded(t *testing.T) {
 }
 
 func TestRegisterBody(t *testing.T) {
-	// register 内部壳（Ghidra 反编译 0x14086f680）：id 空自动生成查重 / next 递增 /
-	// entry 装配（data/size/TTL 600s）/ ensureCapacity 出错分支 / buildURL=next。
+	// register 内部壳（反汇编 0x14086f680）：id 恒自动生成查重 / next 递增 /
+	// entry 装配（data/size/contentType/TTL 600s）/ ensureCapacity 出错分支 / buildURL=next。
 	s := testAssetService()
 
-	// 显式 id + 数据：entry 落表、data/size/namespace、next 递增、URL ?v=next。
-	ref, err := s.register("ns", "reg1", []byte("payload"), 3)
+	// 基本注册：id 自动生成、version=next、contentType 直传、size 独立入 entry。
+	ref, err := s.register("ns", "text/plain", []byte("payload"), "", 7, 0)
 	if err != nil {
 		t.Fatalf("register err=%v", err)
 	}
-	if ref.ID != "reg1" || ref.Version != 3 {
-		t.Errorf("ref=%+v want id reg1 v3", ref)
+	if len(ref.ID) != 32 || !isValidLauncherAssetIDHex([]byte(ref.ID)) {
+		t.Errorf("auto id=%q not 32-hex", ref.ID)
 	}
-	if want := "/__usbeam_asset__/ns/reg1?v=1"; ref.URL != want {
+	if ref.Version != 1 {
+		t.Errorf("ref.Version=%d want 1", ref.Version)
+	}
+	if want := "/__usbeam_asset__/ns/" + ref.ID + "?v=1"; ref.URL != want {
 		t.Errorf("ref.URL=%q want %q", ref.URL, want)
 	}
-	e, ok := s.entries["reg1"]
-	if !ok || e.namespace != "ns" || e.size != 7 || string(e.data) != "payload" || e.version != 3 {
+	if ref.ContentType != "text/plain" {
+		t.Errorf("ref.ContentType=%q want text/plain", ref.ContentType)
+	}
+	e, ok := s.entries[ref.ID]
+	if !ok || e.namespace != "ns" || e.size != 7 || string(e.data) != "payload" || e.version != 1 || e.contentType != "text/plain" {
 		t.Errorf("entry=%+v ok=%v", e, ok)
 	}
 	if s.next != 1 {
 		t.Errorf("next=%d want 1", s.next)
 	}
 
-	// 空 id → 自动生成合法 32-hex（查重唯一）。
+	// 再次注册 → 新 id 查重唯一、next 递增。
 	id0 := ref.ID
-	ref2, err := s.register("ns", "", []byte("x"), 1)
+	ref2, err := s.register("ns", "", []byte("x"), "", 1, 1)
 	if err != nil {
-		t.Fatalf("empty-id register err=%v", err)
+		t.Fatalf("register#2 err=%v", err)
 	}
 	if len(ref2.ID) != 32 || !isValidLauncherAssetIDHex([]byte(ref2.ID)) || ref2.ID == id0 {
 		t.Errorf("auto id=%q invalid or collides %q", ref2.ID, id0)
 	}
-
-	// TTL：expiresAt ≈ now + 600s（微秒级容忍，验证非零且未来）。
-	if d := time.Until(s.entries["reg1"].expiresAt); d < 500*time.Second || d > 700*time.Second {
-		t.Errorf("expiresAt=%v (%v from now), want ~600s TTL", s.entries["reg1"].expiresAt, d)
+	if s.next != 2 {
+		t.Errorf("next=%d want 2", s.next)
 	}
 
-	// ensureCapacity 越限 → error（据 limits.maxTotalBytes 触发驱逐耗尽）。
+	// TTL：expiresAt ≈ now + 600s（ttl=0 默认，微秒级容忍，验证非零且未来）。
+	if d := time.Until(e.expiresAt); d < 500*time.Second || d > 700*time.Second {
+		t.Errorf("expiresAt=%v (%v from now), want ~600s TTL", e.expiresAt, d)
+	}
 }
 
 func TestRegisterBodyCapacityError(t *testing.T) {
 	// register 内 ensureCapacityLocked 失败路径：itemSize>maxTotalBytes → 直接拒绝（驱逐也无效）。
 	s := testAssetService()
 	s.limits.maxTotalBytes = 5
-	if _, err := s.register("ns", "", make([]byte, 10), 1); err == nil {
+	if _, err := s.register("ns", "", make([]byte, 10), "", 10, 1); err == nil {
 		t.Error("capacity exceeded must error")
 	}
 
 	// nil receiver。
-	if _, err := (*launcherAssetService)(nil).register("ns", "x", []byte("a"), 1); err == nil {
+	if _, err := (*launcherAssetService)(nil).register("ns", "x", []byte("a"), "", 1, 1); err == nil {
 		t.Error("nil service must error")
 	}
 }

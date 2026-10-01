@@ -15,7 +15,9 @@ import (
 	"errors"
 	"io/fs"
 	"os"
+	"path/filepath"
 	"reflect"
+	"strings"
 )
 
 // ---- 状态装配域被调方 ----
@@ -119,9 +121,71 @@ func (bs *BootstrapService) attachLauncherConfigIconURLs(cfg *LauncherConfig) {
 }
 
 // attachLauncherBackgroundURL 为配置附加背景资源 URL。
-// [S-sig] 骨架。VA 0x140798600, 387 行 asm。体待 launcher asset 背景域专项还原。
+// [S 汇编实证 0x140798600, 387L asm]（attachLauncherBackgroundURL.asm.txt）：
+//
+//	bs/cfg nil 守卫 → normalized = normalizeBackgroundPreference(cfg.Background)
+//	→ TrimSpace(ImagePath) 空 → 写回 normalized 返回
+//	→ svc = screenshotAssetService()（读 bs.assets）nil → 写回返回
+//	→ cleaned = filepath.Clean(TrimSpace(ImagePath)) → os.Stat → err/IsDir/Size≤0 → 写回返回
+//	→ modifiedAt = ModTime().UnixNano()（asm：itab fun[1]→nano 时间变换，bt 0x3f / imul 1e9 /
+//	and 0x3fffffff / 常量 0xdd7b17f80=wallToInternal、0xa1b203eb3d1a0000=internalToUnix×1e9）
+//	→ backgroundAssetLock.Lock + defer Unlock
+//	→ 缓存命中（owner==svc && path==cleaned && size 相等 && modifiedAt 相等）
+//	且 TrimSpace(URL) 非空且 svc.Exists(URL, "background/custom") → 复用缓存 URL 写回返回
+//	→ 未命中：RegisterFile("background/custom", cleaned, launcherBackgroundContentTypeForPath(cleaned), 0)
+//	→ err==nil 更新 backgroundAssetOwner/Path/Size/ModifiedAt/URL 与 normalized.ImageURL
+//	→ 写回 normalized。
 func (bs *BootstrapService) attachLauncherBackgroundURL(cfg *LauncherConfig) {
-	_ = cfg
+	if bs == nil || cfg == nil {
+		return
+	}
+	normalized := normalizeBackgroundPreference(cfg.Preferences.Background)
+	if strings.TrimSpace(normalized.ImagePath) == "" {
+		cfg.Preferences.Background = normalized
+		return
+	}
+	svc := bs.screenshotAssetService()
+	if svc == nil {
+		cfg.Preferences.Background = normalized
+		return
+	}
+	cleaned := filepath.Clean(strings.TrimSpace(normalized.ImagePath))
+	info, err := os.Stat(cleaned)
+	if err != nil || info.IsDir() {
+		cfg.Preferences.Background = normalized
+		return
+	}
+	size := info.Size()
+	if size <= 0 {
+		cfg.Preferences.Background = normalized
+		return
+	}
+	modifiedAt := info.ModTime().UnixNano()
+
+	bs.backgroundAssetLock.Lock()
+	defer bs.backgroundAssetLock.Unlock()
+
+	if bs.backgroundAssetOwner == svc &&
+		bs.backgroundAssetPath == cleaned &&
+		bs.backgroundAssetSize == size &&
+		bs.backgroundAssetModifiedAt == modifiedAt {
+		if url := strings.TrimSpace(bs.backgroundAssetURL); url != "" && svc.Exists(url, "background/custom") {
+			normalized.ImageURL = bs.backgroundAssetURL
+			cfg.Preferences.Background = normalized
+			return
+		}
+	}
+
+	ref, err := svc.RegisterFile("background/custom", cleaned, launcherBackgroundContentTypeForPath(cleaned), 0)
+	if err == nil {
+		bs.backgroundAssetOwner = svc
+		bs.backgroundAssetPath = cleaned
+		bs.backgroundAssetSize = size
+		bs.backgroundAssetModifiedAt = modifiedAt
+		bs.backgroundAssetURL = ref.URL
+		normalized.ImageURL = ref.URL
+	}
+	cfg.Preferences.Background = normalized
 }
 
 // syncRuntimeServices 同步运行时服务。

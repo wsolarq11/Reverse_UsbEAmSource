@@ -8,6 +8,7 @@ import (
 	"errors"
 	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/wailsapp/wails/v3/pkg/application"
 )
@@ -65,7 +66,7 @@ func (bs *BootstrapService) attachScreenshotAssetURL(path string) (string, error
 	if svc == nil || trimmed == "" {
 		return path, nil
 	}
-	ref, err := svc.RegisterFile("screenshot", filepath.Base(trimmed), trimmed, 0)
+	ref, err := svc.RegisterFile("screenshot/current", trimmed, screenshotContentTypeForPath(trimmed), 600*time.Second)
 	if err != nil {
 		return "", err
 	}
@@ -81,7 +82,7 @@ func (bs *BootstrapService) attachScreenshotThumbnailAssetURL(path string) strin
 	if svc == nil || trimmed == "" {
 		return ""
 	}
-	ref, err := svc.RegisterFile("screenshot-thumb", filepath.Base(trimmed), trimmed, 0)
+	ref, err := svc.RegisterFile("screenshot-thumb", trimmed, screenshotContentTypeForPath(trimmed), 600*time.Second)
 	if err != nil {
 		return ""
 	}

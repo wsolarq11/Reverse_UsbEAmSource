@@ -19,12 +19,12 @@
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 原始源码规模 | ≈104,374 行 | ≈104,374 行 | 每文件最大行号求和（闭包共享父函数区间，属上界估计） |
-| 已重建函数 | 2871 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 270 后） |
-| 真函数（S+S-inline+S-sig） | 2831 | 4,754 | 同上，**批次 270 达 59.55%** |
+| 已重建函数 | 2873 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 271 后） |
+| 真函数（S+S-inline+S-sig） | 2833 | 4,754 | 同上，**批次 271 达 59.59%** |
 | 文件覆盖 | 88/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 45 | **0** | 同上差集（活体实测 2026-09-30 批次 267 重跑，较 §10 的 57 已减 12），清单见 §10 |
 | UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
-| [P] 存根 | 40 | **0** | 同上（批次 270 持平） |
+| [P] 存根 | 40 | **0** | 同上（批次 271 持平） |
 
 **⚠️ 口径纪律（本文件历史数字曾三度失真）**：§1 曾长期写「批次 34 / `FUNCS=900`」，与正文实际进度不符；批次 39 记录的 `S=552/S-sig=97/P=46/UNMARKED=259` 与活体实测不符，且分项相加 955 ≠ `FUNCS=969`（自相矛盾）。**任何批次记录落笔前必须先跑 `bash tools/count_funcs.sh` 取活体数字，禁止抄上一批的数字改一改。**
 
@@ -5216,6 +5216,52 @@ itab 0x1411d3100）；"工作区服务不可用" 为每次 newobject（24B @0x14
 **下一批**：workspace migration 域剩余骨架 `buildWorkspaceLayoutWithConfig`（0x1407a1ac0）
 与 `importLauncherBackgroundImage`（0x140798e40）[S-sig] 升档，或转入其他专项域。
 P=40。FUNCS 2871/4754 = 60.39%。
+
+### 批次 271（buildWorkspaceLayoutWithConfig + importLauncherBackgroundImage 升档 + 2 helper）
+
+**基线/收口**：`FUNCS=2871→2873 / MARKED=2871→2873 / S=1349→1353 / S-inline=36 /
+S-sig=1446→1444 / P=40 / UNMARKED=0`（真函数 2831→2833 = 59.59%；FAITHFUL 1385→1389）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+2 [S-sig]→[S]，+2 新 [S]，-2 [S-sig]，+2 FUNCS）**：
+1. `buildWorkspaceLayoutWithConfig` [S 0x1407a1ac0, 1696B]：签名订正为 8×string
+   （root/configFile/pluginDir + Storage 五字段，前 3 组走寄存器后 5 组走栈）；
+   rootEff=TrimSpace(root) 空则 "."，normalizeStorageConfig 后 DataRoot 非空覆盖 rootEff；
+   ConfigFile 空则 `resolveLauncherConfigFilePath(resolveProcessWorkingDirectory())`；
+   LanguageDir=AppLanguageDir=`filepath.Join(filepath.Dir(pluginDir),"language")`，PluginDir 原样；
+   Icon/Index/Screenshot/WebView2 各自非空优先，空则 `filepath.Join(rootEff, 单数子目录)`；
+   BackgroundDir=`filepath.Join(rootEff,"background")`。
+   子目录名 rodata 解码（**单数**，与 resolveWorkspaceLayout 的复数不同）：
+   icon/index/screenshot/webview2/background/language。
+2. `importLauncherBackgroundImage` [S 0x140798e40, 1632B]：签名订正为
+   `(sourcePath string)(string,error)`（ws 参数删除，改由 `bs.workspaceSnapshot()` 取 BackgroundDir，
+   ChooseLauncherBackgroundImage.asm 0x14077b3c9 只传 source 单参交叉验证）；
+   流程 TrimSpace→Abs→Stat→IsDir 判目录→`normalizeLauncherBackgroundImageExtension(filepath.Ext(abs))`
+   →MkdirAll(BackgroundDir,0o755)→`Join(BackgroundDir,"custom-background"+ext)`→
+   `copyLauncherBackgroundImageFile`→装配 BackgroundPreference（Enabled/ReadabilityOverlayEnabled=true、
+   ReadabilityOverlayOpacity=0.18、ImageOpacity=1.0）→`normalizeBackgroundPreference`→
+   `attachLauncherBackgroundURL`→返回 `(filepath.Base(abs), nil)`。
+   错误消息（rodata 解码）："背景图片路径不能为空"(30B) / "背景图片不能是目录"(27B) /
+   "不支持的背景图片格式"(30B)。
+3. `normalizeLauncherBackgroundImageExtension` [S 0x1407997a0, 256B]（新）：TrimSpace+ToLower 分派，
+   .bmp/.gif/.jpg/.png/.webp 原样，.jpeg→.jpg，其余空串（立即数 0x706d622e/0x6669672e/
+   0x67706a2e/0x676e702e/0x65706a2e(+'g')/0x6265772e(+'p') 实证）。
+4. `copyLauncherBackgroundImageFile` [S 0x1407994a0, 672B]（新）：`filepath.Clean(src)==Clean(dst)`
+   短路 nil；OpenFile(src,O_RDONLY,0) defer Close；OpenFile(dst,O_WRONLY|O_CREATE|O_TRUNC,0o644)；
+   `io.Copy` 出错关 dst 返错，成功返 `dst.Close()`。
+
+**订正**：`resolveLauncherConfigFilePath` 签名 `(WorkspaceLayout)string`→`(string)string`
+（buildWorkspaceLayoutWithConfig.asm 0x1407a1b93 调用点只传单 string，且为
+resolveProcessWorkingDirectory 返回值）；`buildWorkspaceLayoutWithConfig` 两调用点改 8 参
+（commit...WithWidgetsImpl 0x140778f40 用 ws.Root/ws.ConfigFile/ws.PluginDir + cfg.Storage 五字段；
+MigrateConfig 0x14077c8d6 用 staged.targetPath + ws.ConfigFile/ws.PluginDir + 空五字段，
+并补接 `configStoreSnapshot` 第二返回值 ws）。
+
+**下一批**：workspace migration 域已闭环（buildWorkspaceLayoutWithConfig 是迁移链最后一环，
+批次 270 的 12 函数 + 本批 2 函数全 [S]）。可转入 launcher asset 背景域
+（`attachLauncherBackgroundURL` 0x140798600 [S-sig] 387 行 asm、
+`launcherBackgroundContentTypeForPath` 0x1407998a0 256B）或其它专项域。
+P=40。FUNCS 2873/4754 = 60.43%。
 
 
 

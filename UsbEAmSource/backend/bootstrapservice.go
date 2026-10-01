@@ -609,11 +609,12 @@ func (bs *BootstrapService) commitLauncherConfigReplacementWithWidgetsImpl(cfg L
 	store, _ := bs.configStoreSnapshot()
 	ws := bs.workspaceSnapshot()
 
-	// 装配目标路径（来自工作区配置路径）
-	target := ws.ConfigFile
-
-	// 构建工作区布局
-	layout := buildWorkspaceLayoutWithConfig(cfg, target)
+	// 构建工作区布局（root=ws.Root configFile=ws.ConfigFile pluginDir=ws.PluginDir + cfg.Storage 五字段）
+	layout := buildWorkspaceLayoutWithConfig(
+		ws.Root, ws.ConfigFile, ws.PluginDir,
+		cfg.Storage.DataRoot, cfg.Storage.IconDir, cfg.Storage.IndexDir,
+		cfg.Storage.ScreenshotDir, cfg.Storage.WebView2Dir,
+	)
 
 	// 规整存储配置段（第 1 轮 normalize）
 	sc := normalizeStorageConfig(
@@ -1028,7 +1029,7 @@ func (bs *BootstrapService) MigrateConfig(fromPath, toPath string) error {
 	bs.workspaceTransaction.Lock()
 	defer bs.workspaceTransaction.Unlock()
 
-	store, _ := bs.configStoreSnapshot()
+	store, ws := bs.configStoreSnapshot()
 
 	cfg, err := store.Read()
 	if err != nil {
@@ -1054,7 +1055,10 @@ func (bs *BootstrapService) MigrateConfig(fromPath, toPath string) error {
 		return err
 	}
 
-	newLayout := buildWorkspaceLayoutWithConfig(cfg, staged.targetPath)
+	newLayout := buildWorkspaceLayoutWithConfig(
+		staged.targetPath, ws.ConfigFile, ws.PluginDir,
+		"", "", "", "", "",
+	)
 
 	_ = toPath
 

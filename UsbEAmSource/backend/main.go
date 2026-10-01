@@ -106,20 +106,21 @@ func resolveWorkspaceLayout() WorkspaceLayout {
 }
 
 // resolveLauncherConfigFilePath 解析配置文件路径。
-// [S 汇编 0x1407a1920, 0xae] 证伪纠正：旧体 `return layout.ConfigFile` 错误。
+// [S 汇编 0x1407a1920, 0xae] 证伪纠正：旧体 `return layout.ConfigFile` 错误，入参为 root string
+// 而非 WorkspaceLayout（buildWorkspaceLayoutWithConfig.asm 0x1407a1b93 调用点实证只传单 string）。
 // 实义（逐指令）：
 //
 //	os.Getenv("USBEAM_LAUNCHER_CONFIG")（22B @0x140c611ce）→ strings.TrimSpace
 //	→ 非空：filepath.Abs(v)，err==nil 返 abs，否则返原 trimmed
-//	→ 空：filepath.Join(layout.Root, "UsbEAm_Launcher_Config.json")（27B @0x140c69c4e）
-func resolveLauncherConfigFilePath(layout WorkspaceLayout) string {
+//	→ 空：filepath.Join(root, "UsbEAm_Launcher_Config.json")（27B @0x140c69c4e）
+func resolveLauncherConfigFilePath(root string) string {
 	if v := strings.TrimSpace(os.Getenv("USBEAM_LAUNCHER_CONFIG")); v != "" {
 		if abs, err := filepath.Abs(v); err == nil {
 			return abs
 		}
 		return v
 	}
-	return filepath.Join(layout.Root, "UsbEAm_Launcher_Config.json")
+	return filepath.Join(root, "UsbEAm_Launcher_Config.json")
 }
 
 // initializeWithCheckpoint 初始化并检查点恢复

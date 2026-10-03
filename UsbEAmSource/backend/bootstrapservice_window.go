@@ -258,3 +258,10 @@ func resolveLauncherWindowRelativePosition(screenW, screenH, windowW, windowH, m
 	}
 	return x, y
 }
+
+// revealLauncherWindowForQRCodeDecode 为二维码解码显示启动器窗口。
+// [S-sig 0x14079a160, 192B]：接口两方法判定（+0x48/+0x38）→ 满足则 showLauncherWindow(false,true)。
+// 体待二维码解码域专项还原。
+func (bs *BootstrapService) revealLauncherWindowForQRCodeDecode(a, b interface{}) {
+	_, _ = a, b
+}

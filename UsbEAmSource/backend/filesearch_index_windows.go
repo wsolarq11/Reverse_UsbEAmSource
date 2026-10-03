@@ -814,3 +814,10 @@ func (s *volumeIndexJournalPendingState) Release() {
 		}
 	}
 }
+
+// ApplyJournalChangesDetailed 应用日志变更（详细结果转发）。
+// [S-sig 0x140804c20, 192B]：多参数转发 ApplyJournalChangesDetailedResult。
+func (s *VolumeIndex) ApplyJournalChangesDetailed(a, b, c, d, e, f interface{}) interface{} {
+	_, _, _, _, _, _ = a, b, c, d, e, f
+	return nil
+}

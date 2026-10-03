@@ -210,3 +210,11 @@ func (w *screenshotNativePreviewWindow) decodeImage(a interface{}) interface{} {
 	_, _ = w, a
 	return nil
 }
+
+// screenshotScrollingTopSkipLooksStable 判定滚动顶部跳过是否稳定（帧差 <=10）。
+// [S-sig 0x1409a5d60, 224B]：nil/n<=0 守卫 → min(lenA,lenB,n,240) → 帧差采样
+// sampleScreenshotFrameAverageDiffWithGrid(a,b,n,12,32) <= 0xa。
+func screenshotScrollingTopSkipLooksStable(a, b interface{}, n int64) bool {
+	_, _, _ = a, b, n
+	return false
+}

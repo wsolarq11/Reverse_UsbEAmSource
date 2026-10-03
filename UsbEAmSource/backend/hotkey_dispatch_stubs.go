@@ -502,3 +502,10 @@ func (bs *BootstrapService) showLauncherFromSecondInstance() {
 		return
 	}
 }
+
+// launcherStartupDebugFatal 记录致命启动调试日志并 log.Fatal。
+// [S-sig 0x1408d30a0, 320B]：launcherStartupDebugLog("fatal: %v", err) → log.Fatal(err)。
+// 体待 launcherStartupDebugLog 落地。
+func launcherStartupDebugFatal(a, b interface{}) {
+	_, _ = a, b
+}

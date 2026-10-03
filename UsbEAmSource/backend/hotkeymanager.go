@@ -79,3 +79,32 @@ func (m *windowsLauncherGlobalHotkeyManager) Update(bindings launcherHotkeyBindi
 func (m *windowsLauncherGlobalHotkeyManager) dispatchKeyboardHookAction(a, b uintptr) {
 	_, _, _ = m, a, b
 }
+
+// updateKeyboardHookHotkeys 更新键盘钩子绑定（空则卸载，否则确保钩子安装）。
+// [S-sig 0x1408a0ae0, 288B]：写 keyboardHookBindings(+0x30/+0x38/+0x40) → 置
+// printScreenKeyDown(+0x48)=false；len==0→uninstallKeyboardHook；否则 ensureKeyboardHook。
+// 体待 ensureKeyboardHook 落地。
+func (m *windowsLauncherGlobalHotkeyManager) updateKeyboardHookHotkeys(bindings []launcherGlobalHotkeyRegistration) {
+	m.keyboardHookBindings = bindings
+	m.printScreenKeyDown = false
+	if len(bindings) == 0 {
+		m.uninstallKeyboardHook()
+	}
+}
+
+// handlePrintScreenHookMessage 处理 PrintScreen 钩子消息（keydown/keyup 去重 + 分发）。
+// [S-sig 0x1408a1000, 288B]：keydown=(0x100/0x104)、keyup=(0x101/0x105)；
+// matchPrintScreenHookRegistration 空→置(+0x48)=0 返回 false；keydown 已置→true；否则
+// 置位 + dispatchKeyboardHookAction。体待 matchPrintScreenHookRegistration 落地。
+func (m *windowsLauncherGlobalHotkeyManager) handlePrintScreenHookMessage(a, b uint32) bool {
+	_, _, _ = m, a, b
+	return false
+}
+
+// uninstallKeyboardHook 卸载键盘钩子（UnhookWindowsHookEx）。
+// [S-sig 0x1408a0ec0, 320B]：keyboardHook(+0x20) nil→置(+0x28)=0 返 (nil,nil)；
+// 否则 LazyProc.Call(UnhookWindowsHookEx)；失败→fmt.Errorf。体待错误文案专项还原。
+func (m *windowsLauncherGlobalHotkeyManager) uninstallKeyboardHook() (interface{}, error) {
+	_ = m
+	return nil, nil
+}

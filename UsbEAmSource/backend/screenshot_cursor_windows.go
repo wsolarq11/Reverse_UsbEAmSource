@@ -135,6 +135,20 @@ func restoreScreenshotCursorAfterOverlay() {
 	}
 }
 
+// setScreenshotCursorPosition 移动鼠标到屏幕坐标 (x,y)。
+// [S 汇编 0x1409a2e20, 256B]：SetCursorPos(x,y) 返回非 0 → nil；
+// 否则 err 为 nil 或 errors.Is(err, syscall.Errno(0)) → "设置鼠标位置失败"，其余透传 err。
+func setScreenshotCursorPosition(x, y int) error {
+	r1, _, err := procSetCursorPos.Call(uintptr(x), uintptr(y))
+	if r1 != 0 {
+		return nil
+	}
+	if err == nil || errors.Is(err, syscall.Errno(0)) {
+		return errors.New("设置鼠标位置失败")
+	}
+	return err
+}
+
 // copyRGBAToQRCodeDIBBits 将 *image.RGBA 拷贝为紧凑 32bpp BGRA DIB 位。
 // [S] ASM 0x140957760: 逐像素 RGBA→BGRA；目标 stride=width*4；源偏移
 // =img.Stride*(y-Min.Y)+(x-Min.X)*4；nil 参数直接返回。

@@ -5525,6 +5525,23 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1439→1444，USABLE 14
 analyzeFrameProgress/rankAppendCandidate 128-256B）+ screenshot preview 剩余。
 P=41 持平。FUNCS 2930/4754 = 61.63%。未落地文件差集 35 保持。
 
+### 批次 284（光标定位 + 更新只读句柄 +3 [S]）
+
+**基线/收口**：`FUNCS=2930→2933 / MARKED=2930→2933 / S=1407→1410 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1444→1447，USABLE 1445→1448）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+3 FUNCS）**：
+1. `setScreenshotCursorPosition` [S 0x1409a2e20]：SetCursorPos(x,y) 失败且 err 空/Errno(0)→"设置鼠标位置失败"。
+2. `openLauncherUpdateReadOnlyHandle` [S 0x1408c4d20]：CreateFile 只读+顺序扫描。
+3. `openLauncherUpdateReadOnlyInheritedHandle` [S 0x1408c4da0]：置 HANDLE_FLAG_INHERIT，失败 CloseHandle。
+
+**连带**：新建 `launcherupdate_helper_windows.go`（蓝图文件，未落地 26→25）。
+
+**下一批**：launcherupdate_helper 短函数（terminateProcess/restartRolledBack/imagePath/
+sameIdentity 128-384B）+ 截图滚动几何。P=41 持平。FUNCS 2933/4754 = 61.70%。
+未落地文件差集 35→34。
+
 
 
 

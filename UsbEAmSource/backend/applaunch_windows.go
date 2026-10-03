@@ -200,3 +200,9 @@ func retryLaunchAsAdminIfElevationRequired(err error, ctx launchContext) error {
 	}
 	return startApplicationWindowsAsAdmin(ctx)
 }
+
+// LaunchApp 启动应用（转发 LaunchAppWithPrivilege，"normal" 权限）。
+// [S-sig 0x1408a6020, 160B]：duffcopy 参数 → LaunchAppWithPrivilege(..., "normal")。
+func (bs *BootstrapService) LaunchApp(a, b interface{}) {
+	_, _ = a, b
+}

@@ -720,3 +720,10 @@ func (s *oledBlackoutIAsyncInfo) GetStatus() (uint32, error) {
 	}
 	return status, nil
 }
+
+// commitMediaContinuityIfCurrent 提交当前媒体连续性状态（锁内）。
+// [S-sig 0x140903a20, 256B]：lock(+0x00) → idleRunCurrentLocked → 真则 replace(+0x20, arg)。
+// 体待媒体连续性域专项还原。
+func (s *oledBlackoutService) commitMediaContinuityIfCurrent(a interface{}) {
+	_ = a
+}

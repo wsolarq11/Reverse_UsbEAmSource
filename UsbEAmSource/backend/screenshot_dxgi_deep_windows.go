@@ -1312,3 +1312,24 @@ func queryScreenshotDisplayConfigSDRWhiteLevelForDisplay(displayName string, ada
 		displayName, sourceName, raw, sdrWhite, nits)
 	return sdrWhite, true
 }
+
+// screenshotLinearAlphaToByte 将线性 alpha 浮点转为字节（NaN/<=0→0；>=1→255；否则四舍五入）。
+// [S 汇编 0x14097de80, 256B]：cvtss2sd → NaN/<=0→0；>=1.0→255；否则 *255 后
+// round-to-nearest-even → clamp [0,255]。
+func screenshotLinearAlphaToByte(x float32) uint8 {
+	f := float64(x)
+	if f != f || f <= 0 {
+		return 0
+	}
+	if f >= 1.0 {
+		return 255
+	}
+	v := int(math.Round(f * 255.0))
+	if v < 0 {
+		return 0
+	}
+	if v > 255 {
+		return 255
+	}
+	return uint8(v)
+}

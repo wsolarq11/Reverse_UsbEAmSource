@@ -156,3 +156,38 @@ func (s *screenshotPreviewWindowService) scheduleAutoHide(d time.Duration) {
 		_ = s
 	}()
 }
+
+// AttachApp 对接应用实例。
+// [S 汇编 0x140996240, 192B]：lock(+0x08).Lock → 写屏障写 app(+0x10) → Unlock。
+func (s *screenshotPreviewWindowService) AttachApp(app *application.App) {
+	s.lock.Lock()
+	s.app = app
+	s.lock.Unlock()
+}
+
+// AttachAssets 对接资源服务。
+// [S 汇编 0x140996300, 192B]：lock(+0x08).Lock → 写屏障写 assets(+0xe0) → Unlock。
+func (s *screenshotPreviewWindowService) AttachAssets(assets *launcherAssetService) {
+	s.lock.Lock()
+	s.assets = assets
+	s.lock.Unlock()
+}
+
+// screenshotPreviewDisplaySourceSize 计算截图预览显示源尺寸。
+// [S 汇编 0x14099b5a0, 192B]：w/h 负值钳 0；w<=0||h<=0 原值返回；TrimSpace(source) 非空
+// 且 w*3<h 则返回 (360,220)，否则原值返回。
+func screenshotPreviewDisplaySourceSize(w, h int, source string) (int, int) {
+	if w < 0 {
+		w = 0
+	}
+	if h < 0 {
+		h = 0
+	}
+	if w <= 0 || h <= 0 {
+		return w, h
+	}
+	if strings.TrimSpace(source) != "" && w*3 < h {
+		return 360, 220
+	}
+	return w, h
+}

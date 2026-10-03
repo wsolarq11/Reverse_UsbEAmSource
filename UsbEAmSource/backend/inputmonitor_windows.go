@@ -48,3 +48,11 @@ func inputMonitorKeyLabel(vk int) string {
 	}
 	return fmt.Sprintf("VK%d", vk)
 }
+
+// inputMonitorPostThreadMessageValue 向输入监听线程 PostThreadMessageW 投递值。
+// [S-sig 0x140869660, 320B]：newobject(2 字段) → LazyProc.Call(PostThreadMessageW, 4) →
+// 失败 fmt.Errorf。体待线程消息结构专项还原。
+func inputMonitorPostThreadMessageValue(a, b uint32) error {
+	_, _ = a, b
+	return nil
+}

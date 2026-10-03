@@ -121,3 +121,19 @@ func parseDesktopReminderMinute(s string) (int, bool) {
 	}
 	return t.Hour()*60 + t.Minute(), true
 }
+
+// desktopWidgetNotificationRecordAfter 通知记录排序比较器（时间相等比 ID，否则比时间）。
+// [S-sig 0x1407b5000, 320B]：time.Time.Equal 相等→cmpstring id>；否则 time.Time.After。
+// 体待通知记录结构字段名专项还原。
+func desktopWidgetNotificationRecordAfter(a, b interface{}) bool {
+	_, _ = a, b
+	return false
+}
+
+// desktopWeatherConfigChanged 判定桌面天气配置是否变化（location + provider 顺序比较）。
+// [S-sig 0x1407b6bc0, 320B]：location 不等→true；normalizeDesktopWeatherProviderOrder
+// 后逐元素比较。体待天气配置结构字段名专项还原。
+func desktopWeatherConfigChanged(a, b interface{}) bool {
+	_, _ = a, b
+	return false
+}

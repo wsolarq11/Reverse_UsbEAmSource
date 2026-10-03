@@ -524,3 +524,11 @@ func (bs *BootstrapService) StartFileLocatorSearch(a interface{}) interface{} {
 func (bs *BootstrapService) storeLauncherVerticalMaximizeSnapshot(a, b, c, d interface{}) {
 	_, _, _, _ = a, b, c, d
 }
+
+// loadLauncherUIScalePercent 读取启动器 UI 缩放百分比（clamp [100,300]，默认 100）。
+// [S-sig 0x14079c660, 320B]：workspaceSnapshot → loadLauncherConfigIfExists → 读
+// config(+0x9c8) → clamp。体待 config 字段名专项还原。
+func (bs *BootstrapService) loadLauncherUIScalePercent() int {
+	_ = bs
+	return 100
+}

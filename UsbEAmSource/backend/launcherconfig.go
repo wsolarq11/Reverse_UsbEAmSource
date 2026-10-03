@@ -519,3 +519,11 @@ func (s *launcherConfigStore) Replace(a, b, c interface{}) interface{} {
 	_, _, _, _ = s, a, b, c
 	return nil
 }
+
+// CompareAndSwap 比较并交换启动器配置（CompareAndSwapPrepared 转发）。
+// [S-sig 0x14089aec0, 416B]：CompareAndSwapPrepared → 大结构(0x126*8) 拷贝返回。
+// 体待 prepare 回调专项还原。
+func (s *launcherConfigStore) CompareAndSwap(a, b, c, d interface{}) interface{} {
+	_, _, _, _, _ = s, a, b, c, d
+	return nil
+}

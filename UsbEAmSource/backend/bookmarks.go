@@ -354,3 +354,18 @@ func describeChromiumBookmarkPath(path string) (string, string) {
 	_, _ = path, ""
 	return "", ""
 }
+
+// compactChromiumRoots 压缩 Chromium 根（过滤空 TrimSpace 项）。
+// [S-sig 0x140766a60, 448B]：makeslice → 遍历 roots TrimSpace 非空 → append。体待根结构专项还原。
+func compactChromiumRoots(a interface{}, b interface{}) interface{} {
+	_, _ = a, b
+	return nil
+}
+
+// sortedBookmarkRootNames 排序书签根名（map keys → sort.Strings）。
+// [S-sig 0x140767e00, 448B]：map 空→nil；makeslice → 遍历收集 keys → sort.Strings。
+// 体待根名域专项还原。
+func sortedBookmarkRootNames(a interface{}) interface{} {
+	_ = a
+	return nil
+}

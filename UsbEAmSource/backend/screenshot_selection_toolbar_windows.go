@@ -38,3 +38,10 @@ func screenshotSelectionToolbarBringToTop(window application.Window) {
 func (s *screenshotSelectionToolbarWindowService) SetMessages(a interface{}) {
 	_, _ = s, a
 }
+
+// normalizeScreenshotSelectionToolbarState 规范化选择工具栏状态。
+// [S-sig 0x1409ab460, 320B]：TrimSpace(name/desc) 空→默认；count clamp(1,18)。体待默认值专项还原。
+func normalizeScreenshotSelectionToolbarState(a, b, c interface{}, d int) interface{} {
+	_, _, _, _ = a, b, c, d
+	return nil
+}

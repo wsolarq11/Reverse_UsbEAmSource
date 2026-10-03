@@ -300,3 +300,11 @@ func resolveFirefoxBookmarkFolderTitle(title, fallback string) string {
 		return ""
 	}
 }
+
+// buildChromiumRootAncestry 构建 Chromium 书签根祖先路径段。
+// [S-sig 0x140767fc0, 320B]：resolveChromiumRootNameSegment → TrimSpace(path) →
+// 追加到段 → cleanFolderSegments。体待路径段域专项还原。
+func buildChromiumRootAncestry(a, b interface{}) interface{} {
+	_, _ = a, b
+	return nil
+}

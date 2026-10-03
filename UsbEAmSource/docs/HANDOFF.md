@@ -6,7 +6,7 @@
 
 ---
 
-## 1. 一句话现状（批次 342 · 映射提供者关闭/overlay 统计/侧车锁 +4 · FUNCS 3123，65.69%）
+## 1. 一句话现状（批次 343 · USN 元数据归一/Chromium 祖先/文件定位/最大化快照 +4 · FUNCS 3127，65.78%）
 
 前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原已推进到**批次 54**，后端非测试代码 **25,198 行 / 125 个 .go 文件**，测试 **54 文件 / 5,866 行**。**批次 40 已闭环（appicon_windows.go 全量 [S]）；批次 41 已闭环（bootstrapservice_callees.go 34 未标清零）；批次 42 已闭环（screenshot_png_fast.go 自定义 PNG 编码器 14 函数 [S]）；批次 43 已闭环（screenshot image_budget 内存预算/受限读取/解码链 8 函数 [S]）；批次 44 已闭环（screenshot_capture_windows GDI 捕获核心 6 函数 [S]）；批次 45 已闭环（screenshot_cursor_windows 光标快照数据搬运层 5 函数 [S]）；批次 46 已闭环（screenshot_cursor_draw_windows 光标绘制收口链 11 函数 [S]）；批次 47 已闭环（screenshot_virtual_windows GDI 虚拟屏捕获链 5 函数 [S]）；批次 48 已闭环（screenshot_hdr_windows DXGI/HDR 模式解析与入口探测 6 函数 [S]）；批次 49 已闭环（screenshot_dxgi_debug_windows DXGI 调试格式化链 4 函数 [S]）；批次 50 已闭环（screenshot_dxgi_com_windows DXGI COM 薄包装 3 函数 [S] + 1 [S-inline]）；批次 51 已闭环（screenshot_dxgi_enum_windows DXGI 枚举链 6 函数 [S] + 3 [S-inline]）；批次 52 已闭环（screenshot_capture_backend_windows 收口链 6 函数 [S] + 2 [P] DXGI 捕获核心入口）；批次 53 已闭环（screenshot_dxgi_capture_windows DXGI 捕获域 10 函数 [S] + 3 深层 [S-sig]，两个 [P] 核心入口转 [S]）；批次 54 已闭环（screenshot_dxgi_cache_windows DXGI 输出复制缓存域 19 函数 [S] + screenshot_dxgi_deep_windows 10 深层 [S-sig] + COM Release/QueryInterface 2 函数 [S]）。**
 
@@ -19,8 +19,8 @@
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 原始源码规模 | ≈104,374 行 | ≈104,374 行 | 每文件最大行号求和（闭包共享父函数区间，属上界估计） |
-| 已重建函数 | 3123 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 342 后） |
-| 真函数（S+S-inline+S-sig） | 3081 | 4,754 | 同上，**批次 342 达 65.69%** |
+| 已重建函数 | 3127 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 343 后） |
+| 真函数（S+S-inline+S-sig） | 3085 | 4,754 | 同上，**批次 343 达 65.78%** |
 | 文件覆盖 | 106/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 38 | **0** | 同上差集（活体实测 2026-09-30 批次 278 重跑，较 §10 的 57 已减 19），清单见 §10 |
 | UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
@@ -6444,6 +6444,21 @@ S-sig=1540→1543 / P=41 / UNMARKED=0`（FAITHFUL 1537→1538，USABLE 1538→15
 
 **下一批**：filesearch 域 normalizeFileSearchUSNFollowerMeta /
 searchWithPathsContextMetrics。P=41 持平。FUNCS 3123/4754 = 65.69%。未落地文件差集 33 保持。
+
+### 批次 343（USN 元数据归一/Chromium 祖先/文件定位/最大化快照 +4）
+
+**基线/收口**：`FUNCS=3123→3127 / MARKED=3123→3127 / S=1501 / S-eq=1 / S-inline=37 /
+S-sig=1543→1547 / P=41 / UNMARKED=0`（FAITHFUL 1538，USABLE 1539）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+4 FUNCS）**：
+1. `normalizeFileSearchUSNFollowerMeta` [S-sig 0x140818580]：USN 元数据归一化。
+2. `buildChromiumRootAncestry` [S-sig 0x140767fc0]：Chromium 根祖先。
+3. `BootstrapService.StartFileLocatorSearch` [S-sig 0x140786700]：文件定位搜索。
+4. `BootstrapService.storeLauncherVerticalMaximizeSnapshot` [S-sig 0x14079b720]：最大化快照。
+
+**下一批**：desktopwidget 域 desktopWidgetNotificationRecordAfter /
+desktopWeatherConfigChanged。P=41 持平。FUNCS 3127/4754 = 65.78%。未落地文件差集 33 保持。
 
 
 

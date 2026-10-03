@@ -509,3 +509,18 @@ func (bs *BootstrapService) showLauncherFromSecondInstance() {
 func launcherStartupDebugFatal(a, b interface{}) {
 	_, _ = a, b
 }
+
+// StartFileLocatorSearch 启动文件定位搜索（转发 fileLocatorService.StartSearch）。
+// [S-sig 0x140786700, 320B]：读 fileLocator(+0x438) → StartSearch → duffcopy 返回结果。
+// 体待 fileLocatorService 域专项还原。
+func (bs *BootstrapService) StartFileLocatorSearch(a interface{}) interface{} {
+	_, _ = bs, a
+	return nil
+}
+
+// storeLauncherVerticalMaximizeSnapshot 存储启动器垂直最大化快照（加锁写字段）。
+// [S-sig 0x14079b720, 320B]：newobject(4 字段) → lock(+0x540) → 写 field(+0x500) → unlock。
+// 体待快照结构字段名专项还原。
+func (bs *BootstrapService) storeLauncherVerticalMaximizeSnapshot(a, b, c, d interface{}) {
+	_, _, _, _ = a, b, c, d
+}

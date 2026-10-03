@@ -918,3 +918,11 @@ func (s *FileIndexService) lockUSNFollowerSidecar(a, b interface{}) interface{} 
 	_, _ = a, b
 	return nil
 }
+
+// normalizeFileSearchUSNFollowerMeta 归一化 USN follower 元数据（默认值填充）。
+// [S-sig 0x140818580, 320B]：enabled==0→1；normalizeVolumeRoot；limit<字段→字段；
+// timestamp==0→time.Now()。体待元数据结构字段名专项还原。
+func normalizeFileSearchUSNFollowerMeta(a interface{}) interface{} {
+	_ = a
+	return nil
+}

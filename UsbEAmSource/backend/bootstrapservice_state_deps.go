@@ -474,6 +474,14 @@ func (s *pluginWindowService) release(key string, gen uintptr, identity interfac
 	s.lock.Unlock()
 }
 
+// resolvePluginWindowScreen 解析插件窗口所在屏幕（按名字匹配 ScreenManager）。
+// [S-sig 0x1409316c0, 352B]：screenManager(+0x310).GetAll → 名字空→GetPrimary；
+// EqualFold(TrimSpace) 匹配 → 返回 screen。体待屏幕域专项还原。
+func resolvePluginWindowScreen(a interface{}, name string) interface{} {
+	_, _ = a, name
+	return nil
+}
+
 // resolvePluginPackageURL 解析插件包 URL。
 // [S-sig 0x14092c520, 224B]：TrimSpace 分支 → resolvePluginCatalogAssetURL / normalizePluginPackageFile。
 // 体待 catalog 域专项还原。

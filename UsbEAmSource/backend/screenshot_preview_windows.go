@@ -50,3 +50,19 @@ func (s *screenshotPreviewWindowService) waitBeforeReveal(a, b interface{}) bool
 	_, _ = a, b
 	return false
 }
+
+// readThumbnailPNG 读取缩略图 PNG（持锁，asset.ReadBytes）。
+// [S-sig 0x1409963c0, 352B]：lock(+0x8) → asset(+0xe0) 空→error →
+// launcherAssetService.ReadBytes。体待 asset 路径常量专项还原。
+func (s *screenshotPreviewWindowService) readThumbnailPNG() ([]byte, error) {
+	_ = s
+	return nil, nil
+}
+
+// shouldDisplay 判定是否应显示预览（持锁，字段匹配判定）。
+// [S-sig 0x140999640, 352B]：lock(+0x8) → 字段(+0xa8/+0xb0/+0x18/+0x20) 匹配 →
+// 返回 flag(+0xb1)==0。体待字段域专项还原。
+func (s *screenshotPreviewWindowService) shouldDisplay(a, b, c interface{}) bool {
+	_, _, _, _ = s, a, b, c
+	return false
+}

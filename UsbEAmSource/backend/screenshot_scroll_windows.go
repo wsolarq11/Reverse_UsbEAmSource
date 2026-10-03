@@ -300,3 +300,11 @@ func trimScreenshotScrollingAppendStart(a interface{}, b int) int {
 	_, _ = a, b
 	return b
 }
+
+// screenshotScrollingRowLooksPureBlack 判定滚动行是否接近纯黑（采样 RGBAAt）。
+// [S-sig 0x1409a3fe0, 352B]：越界→false；step=max(1,行宽/100)；采样计数 →
+// 纯黑占比判定。体待阈值常量专项还原。
+func screenshotScrollingRowLooksPureBlack(a interface{}, b int) bool {
+	_, _ = a, b
+	return false
+}

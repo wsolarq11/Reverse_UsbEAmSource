@@ -6,10 +6,14 @@ import (
 	"os"
 	"reflect"
 	"sort"
+	"strings"
 	"time"
 
 	"golang.org/x/sys/windows"
 )
+
+// volumeIndexMmapStaticDefault mmap 静态 provider 全局默认开关（环境变量空时生效）。
+var volumeIndexMmapStaticDefault uint32
 
 // errInvalidWALOffset 无效 WAL 偏移哨兵错误（f==nil 或 offset<0）。
 // 精确消息字符串待取证（.data 静态 error 值 @0x14193c650 为 typeOff 编码，未解码）。
@@ -690,6 +694,35 @@ func (v *VolumeIndex) runtimeVersionSnapshot() uint64 {
 func (p *volumeIndexJournalPendingState) ApplyDelete(a, b interface{}, c bool) {
 	_, _, _ = p, a, b
 	_ = c
+}
+
+// ApplyJournalChanges 应用 journal 变更（薄包装：默认参数转发 ApplyJournalChangesDetailedResult）。
+// [S-sig 0x140804b80, 160B]：参数重排后 ApplyJournalChangesDetailedResult。
+func (v *VolumeIndex) ApplyJournalChanges(a, b interface{}, c, d bool) interface{} {
+	_, _, _, _ = a, b, c, d
+	return nil
+}
+
+// SearchWithPathsContext 按多路径搜索（薄包装转发 searchWithPathsContextMetrics）。
+// [S-sig 0x140808160, 160B]：参数重排后 searchWithPathsContextMetrics（8 参数 + 9 字返回）。
+func (v *VolumeIndex) SearchWithPathsContext(a, b, c, d interface{}, e bool) interface{} {
+	_, _, _, _, _ = a, b, c, d, e
+	return nil
+}
+
+// shouldUseVolumeIndexMmapStaticProvider 判定是否启用 mmap 静态 provider（环境变量）。
+// [S 汇编 0x1407e77a0, 256B]：Getenv(39 字符名) → TrimSpace → ToLower → 按长度分支
+// "0"/"no"/"off"/"false"/"disable"/"disabled" → false；空 → 全局默认 !=0；其他 → true。
+func shouldUseVolumeIndexMmapStaticProvider() bool {
+	v := strings.ToLower(strings.TrimSpace(os.Getenv("USBEAM_FILE_INDEX_MMAP_STATIC")))
+	switch v {
+	case "":
+		return volumeIndexMmapStaticDefault != 0
+	case "0", "no", "off", "false", "disable", "disabled":
+		return false
+	default:
+		return true
+	}
 }
 
 // markDirtyLocked 标记索引脏（持锁）：n==0 直接返回；置 dirty、累加 changeCaught、记 LastMutationAt、

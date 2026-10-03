@@ -4,6 +4,7 @@ import (
 	"math"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // desktopWeatherInt 将天气字符串解析为整数（TrimSpace 后 Atoi）。
@@ -47,4 +48,22 @@ func normalizeDesktopWeatherProviderID(id string) string {
 	default:
 		return ""
 	}
+}
+
+// earliestDesktopWeatherTime 解析两个时间串并返回较早者；任一侧解析失败返回另一侧。
+// [S 汇编 0x1407c6f40, 256B]：time.Parse(format(35 字符), a/b)；err1!=nil→b；
+// err2!=nil→a；ta.Before(tb)→a 否则 b。
+func earliestDesktopWeatherTime(a, b string) string {
+	ta, err1 := time.Parse(time.RFC3339, a)
+	tb, err2 := time.Parse(time.RFC3339, b)
+	if err1 != nil {
+		return b
+	}
+	if err2 != nil {
+		return a
+	}
+	if ta.Before(tb) {
+		return a
+	}
+	return b
 }

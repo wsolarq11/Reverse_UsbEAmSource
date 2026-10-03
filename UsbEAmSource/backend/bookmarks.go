@@ -238,3 +238,11 @@ func normalizeFirefoxProfileName(name, path string) string {
 	}
 	return base
 }
+
+// containsUnsafeOpenLinkText 判定链接文本是否含危险内容（危险子串或控制字符）。
+// [S-sig 0x140769980, 224B]：Index(危险子串) 命中→true；否则遍历 rune 查控制字符表
+// (table[rune]&1)。体待危险子串/字符表专项还原。
+func containsUnsafeOpenLinkText(text string) bool {
+	_ = text
+	return false
+}

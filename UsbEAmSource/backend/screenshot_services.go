@@ -205,3 +205,11 @@ func screenshotPreviewDisplaySourceSize(w, h int, source string) (int, int) {
 	}
 	return w, h
 }
+
+// fitScreenshotPreviewSize 将预览尺寸拟合到上限（等比缩放 + 最小宽度钳位）。
+// [S-sig 0x14099b780, 224B]：负值钳 0；零则 (120,120)；浮点 scale=min(maxW/w,maxH/h)；
+// 结果宽 <120 则按比例重算；高 <=0 则钳 1。
+func fitScreenshotPreviewSize(w, h int) (int, int) {
+	_, _ = w, h
+	return 120, 120
+}

@@ -34,3 +34,20 @@ func TestShowDesktopWidgetNotificationSmoke(t *testing.T) {
 	showDesktopWidgetNotification("title", "body", false)
 	showDesktopWidgetNotification("title", "body", true)
 }
+
+func TestPlatformDesktopWidgetNotifierNotify(t *testing.T) {
+	// 接口方法：直连 showDesktopWidgetNotification 后返回 nil error。
+	n := platformDesktopWidgetNotifier{}
+	if err := n.Notify("title", "body", false); err != nil {
+		t.Fatalf("Notify = %v, want nil", err)
+	}
+	if err := n.Notify("title", "body", true); err != nil {
+		t.Fatalf("Notify(silent) = %v, want nil", err)
+	}
+}
+
+func TestPlatformDesktopWidgetNotifierNotifyNoop(t *testing.T) {
+	// 平台分派空实现：调用不 panic 即可。
+	platformDesktopWidgetNotifierNotify("title", "body", false)
+	platformDesktopWidgetNotifierNotify("title", "body", true)
+}

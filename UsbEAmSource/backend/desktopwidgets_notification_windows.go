@@ -47,3 +47,11 @@ func showDesktopWidgetNotification(title, body string, silent bool) {
 	}
 	showLauncherNotificationWithAudio(t, m, sound)
 }
+
+// Notify 实现 desktopWidgetNotifier 接口，直连 Windows 通知显示后返回 nil。
+// [S] 反汇编实证 0x1407ac8e0, 34B：rax/rbx=title、rcx/rdi=message、rsi=silent 透传
+// showDesktopWidgetNotification（call 0x1407ac960），随后返回 (nil error)。
+func (platformDesktopWidgetNotifier) Notify(title, message string, silent bool) error {
+	showDesktopWidgetNotification(title, message, silent)
+	return nil
+}

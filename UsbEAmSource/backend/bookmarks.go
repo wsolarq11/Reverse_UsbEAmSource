@@ -330,3 +330,11 @@ func describeFirefoxBookmarkPath(a string) (string, string) {
 	_ = a
 	return "", ""
 }
+
+// queryFirefoxBookmarkIconData 查询 Firefox 书签图标数据（候选 bitmap/root 遍历）。
+// [S-sig 0x140760760, 352B]：nil→(nil,nil)；bookmarkIconCandidates → 遍历
+// queryFirefoxBookmarkIconBitmap/Root。体待图标查询链专项还原。
+func queryFirefoxBookmarkIconData(a interface{}, b, c interface{}) (interface{}, error) {
+	_, _, _ = a, b, c
+	return nil, nil
+}

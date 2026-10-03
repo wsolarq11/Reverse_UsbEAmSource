@@ -926,3 +926,12 @@ func normalizeFileSearchUSNFollowerMeta(a interface{}) interface{} {
 	_ = a
 	return nil
 }
+
+// CloseReadProvider 关闭读提供者（持写锁，清理索引）。
+// [S-sig 0x1407e6d60, 352B]：RLock → closeVolumeIndexReadProvider →
+// clearNameTrigramIndexLocked → pinyinIndex(+0x538).Close + 置零 → 标志(+0x530)=false。
+// 体待索引结构专项还原。
+func (v *VolumeIndex) CloseReadProvider() error {
+	_ = v
+	return nil
+}

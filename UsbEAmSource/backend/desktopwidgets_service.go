@@ -153,3 +153,11 @@ func launcherWidgetStorePath(a string) string {
 	_ = a
 	return ""
 }
+
+// launcherWidgetStoreForPath 按路径取启动器 widget 存储（带缓存）。
+// [S-sig 0x1407bfd60, 352B]：launcherConfigStorePathKey → HashTrieMap.Load 命中返回；
+// 否则 LoadOrStore。体待缓存键专项还原。
+func launcherWidgetStoreForPath(a string) string {
+	_ = a
+	return ""
+}

@@ -532,3 +532,10 @@ func (bs *BootstrapService) loadLauncherUIScalePercent() int {
 	_ = bs
 	return 100
 }
+
+// closeLauncherWindowForTrayMemoryRelease 托盘内存释放时关闭启动器窗口。
+// [S-sig 0x14079a880, 352B]：lock(+0x540) → 置 flag(+0x44b)=true → 回调 cb(+0x18)()
+// → 恢复 flag → unlock。体待回调结构专项还原。
+func (bs *BootstrapService) closeLauncherWindowForTrayMemoryRelease(cb interface{}) {
+	_, _ = bs, cb
+}

@@ -295,3 +295,12 @@ func (bs *BootstrapService) shouldDestroyLauncherWindowOnTrayHide() bool {
 func (bs *BootstrapService) emitQRCodeDecoded(a interface{}, text string) {
 	_, _, _ = bs, a, text
 }
+
+// loadAppLaunchPrivilegeDefault 加载应用启动权限默认值（workspaceSnapshot → 配置 → 归一化）。
+// [S-sig 0x1408a65a0, 448B]：workspaceSnapshot → loadLauncherConfigOrDefaultIfMissing →
+// normalizeAppLaunchPrivilegeMode → 匹配 admin/standard/followLaunch → 否则 standard。
+// 体待权限模式域专项还原。
+func (bs *BootstrapService) loadAppLaunchPrivilegeDefault() string {
+	_ = bs
+	return ""
+}

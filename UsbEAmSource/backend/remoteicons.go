@@ -367,3 +367,10 @@ func (bs *BootstrapService) SearchRemoteIcons(a interface{}) interface{} {
 	_ = a
 	return nil
 }
+
+// getRemoteIconTarget 解析远程图标目标（TrimSpace → NewRequestWithContext → 回调）。
+// [S-sig 0x140962060, 448B]：TrimSpace(path) → NewRequestWithContext → 命中→回调。
+// 体待远程图标目标域专项还原。
+func getRemoteIconTarget(a, b interface{}, path string) {
+	_, _, _ = a, b, path
+}

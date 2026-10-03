@@ -74,3 +74,18 @@ func (s *screenshotPreviewWindowService) waitUntilReady(a, b, c, d interface{}) 
 	_, _, _, _, _ = s, a, b, c, d
 	return false
 }
+
+// screenshotPreviewUpdateSessionScript 更新预览会话脚本（Marshal 参数 + Sprintf 拼接）。
+// [S-sig 0x14099b200, 448B]：Marshal(参数) → TrimSpace → Marshal → Sprintf。体待会话脚本域专项还原。
+func screenshotPreviewUpdateSessionScript(a, b, c, d, e, f, g, h, i interface{}) string {
+	_, _, _, _, _, _, _, _, _ = a, b, c, d, e, f, g, h, i
+	return ""
+}
+
+// screenshotNativePreviewWindowProc 原生预览窗口消息处理（HashTrieMap 查找 → handleMessage/DefWindowProc）。
+// [S-sig 0x14099c2c0, 448B]：HashTrieMap.Load 命中→handleMessage；否则 LazyProc.Call(DefWindowProc)。
+// 体待消息分发域专项还原。
+func screenshotNativePreviewWindowProc(a interface{}, msg uint32, w, l uintptr) uintptr {
+	_, _, _, _ = a, msg, w, l
+	return 0
+}

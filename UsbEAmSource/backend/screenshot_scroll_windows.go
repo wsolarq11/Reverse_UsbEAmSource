@@ -272,3 +272,31 @@ func encodeScreenshotScrollingChunkedCanvas(a interface{}) interface{} {
 func repairScreenshotScrollingGlobalSeamArtifacts(a interface{}) {
 	_ = a
 }
+
+// trimBottom 裁剪分块画布底部（高度裁剪，逐块释放内存）。
+// [S-sig 0x14099fdc0, 320B]：height clamp → 循环 chunk 释放/收缩。体待 chunk 结构专项还原。
+func (c *screenshotScrollingChunkedCanvas) trimBottom(a int) {
+	_, _ = c, a
+}
+
+// blendScreenshotScrollingRow 混合像素行（左右邻居均值的水平混合）。
+// [S-sig 0x1409a3d60, 320B]：遍历 x → RGBAAt(x-1,y)/RGBAAt(x+1,y) → 均值 → SetRGBA(x,y)。
+// 体待 image.RGBA 精确签名专项还原。
+func blendScreenshotScrollingRow(a interface{}, b int) {
+	_, _ = a, b
+}
+
+// repairScreenshotScrollingSeamArtifacts 修复滚动接缝伪影（暗缝行检测后混合）。
+// [S-sig 0x1409a3820, 320B]：y∈[n-2,n+2] → screenshotScrollingRowLooksDarkSeamArtifact →
+// blendScreenshotScrollingRow。体待暗缝判定专项还原。
+func repairScreenshotScrollingSeamArtifacts(a interface{}, b int) {
+	_, _ = a, b
+}
+
+// trimScreenshotScrollingAppendStart 裁剪滚动追加起点的纯黑行。
+// [S-sig 0x1409a3ea0, 320B]：avail clamp → 遍历 screenshotScrollingRowLooksPureBlack 跳过。
+// 体待纯黑判定专项还原。
+func trimScreenshotScrollingAppendStart(a interface{}, b int) int {
+	_, _ = a, b
+	return b
+}

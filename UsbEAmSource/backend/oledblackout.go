@@ -466,6 +466,21 @@ func oledBlackoutMediaPauseExclusionKey(path, processName string) string {
 	return normalizeOLEDBlackoutMediaPauseExclusionProcessName(processName) + "url(http"
 }
 
+// oledBlackoutProfileKey 计算 OLED 熄灭 profile 键（屏幕配置归一化后逗号连接）。
+// [S-sig 0x1408fef00, 96B]：normalizeOLEDBlackoutProfileScreens(..., nil) → []string，
+// strings.Join(切片, ",")。体待 normalizeOLEDBlackoutProfileScreens 专项还原。
+func oledBlackoutProfileKey(a, b, c string) string {
+	_, _, _ = a, b, c
+	return ""
+}
+
+// dismissOverlayForKeyboardInputLocked 键盘输入锁定下关闭覆盖层。
+// [S-sig 0x14090b2a0, 128B]：visibleOverlayForKeyboardInputLocked 取覆盖层（nil 则返回），
+// 非 nil 则 dismissOverlayForInputLocked(覆盖层)。体待 overlay 域专项还原。
+func (s *oledBlackoutService) dismissOverlayForKeyboardInputLocked(a, b bool) {
+	_, _, _ = s, a, b
+}
+
 // parseOLEDBlackoutScreenNumber 从屏幕名提取数字编号（收集所有数字字符后 Atoi）。
 // [S 0x140906420] 单参 string 返回 int。asm：逐字节收集 '0'-'9' 到 []byte →
 //   空则 0；否则 strconv.Atoi，err!=nil 则 0。

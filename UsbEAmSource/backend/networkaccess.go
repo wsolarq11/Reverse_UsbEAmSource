@@ -46,3 +46,19 @@ func (c *configBackedLauncherNetworkAccess) Do(req *http.Request, maxBytes int64
 func (c *configBackedLauncherNetworkAccess) Get(url string, maxBytes int64) (*http.Response, error) {
 	return http.Get(url)
 }
+
+// DoWithRedirectPolicy 带重定向策略执行请求（LauncherNetworkRedirectPolicyAccess 接口方法）。
+// [S-sig 0x140a05b40, 128B]：wrapper 转发（参数重排后调用 0x1408a5d60 具体实现）。
+// 体待 redirect policy 专项还原。
+func (d *directLauncherNetworkAccess) DoWithRedirectPolicy(req *http.Request, maxBytes int64, policy func(*http.Request, []*http.Request) error) (*http.Response, error) {
+	_, _, _ = req, maxBytes, policy
+	return nil, nil
+}
+
+// DoWithRedirectPolicy 带重定向策略执行请求（config 回退实现）。
+// [S-sig 0x140a05980, 160B]：wrapper 转发（interface 解包后调用具体实现）。
+// 体待 redirect policy 专项还原。
+func (c *configBackedLauncherNetworkAccess) DoWithRedirectPolicy(req *http.Request, maxBytes int64, policy func(*http.Request, []*http.Request) error) (*http.Response, error) {
+	_, _, _ = req, maxBytes, policy
+	return nil, nil
+}

@@ -173,6 +173,23 @@ func (bs *BootstrapService) consumeLauncherDefaultSizeReset() bool {
 	return old
 }
 
+// clearLauncherVerticalMaximizeSnapshot 清空启动器垂直最大化快照。
+// [S 汇编 0x14079b8c0, 224B]：mu(+0x540).Lock + defer Unlock → verticalMaximizeSnapshot(+0x500) 置 nil。
+func (bs *BootstrapService) clearLauncherVerticalMaximizeSnapshot() {
+	bs.lock.Lock()
+	defer bs.lock.Unlock()
+	bs.verticalMaximizeSnapshot = nil
+}
+
+// SetLauncherSidebarPinnedOpen 设置启动器侧栏固定打开。
+// [S-sig 0x14079aac0, 224B]：resolveLauncherWindow → 非空则 typeAssert 后
+// applyLauncherSidebarPinnedWindowSizing(window, pinned)。体待该依赖专项还原。
+func (bs *BootstrapService) SetLauncherSidebarPinnedOpen(pinned bool) {
+	w, _ := bs.resolveLauncherWindow(nil, nil)
+	_ = w
+	_ = pinned
+}
+
 // resolveLauncherWindowRelativePosition 计算启动器窗口相对位置（居中或钳位）。
 // [S 汇编 0x1408d0a80, 80B]：6 int + 1 bool 参数，返回 (x, y)。
 // center=true：x=max((screenW-windowW)/2,0)、y=max((screenH-windowH)/2,0)（算术右移向下取整）；

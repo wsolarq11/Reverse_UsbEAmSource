@@ -673,6 +673,17 @@ func (v *VolumeIndex) usesMappedReadProvider() bool {
 	return v.readProvider != nil && reflect.TypeOf(v.readProvider) == reflect.TypeOf((*volumeIndexMappedReadProvider)(nil))
 }
 
+// runtimeVersionSnapshot 读锁下返回运行时版本号。
+// [S 汇编 0x1407e92a0, 224B]：nil 返回 0；mu.RLock + defer RUnlock → 读 runtimeVersion(+0x590)。
+func (v *VolumeIndex) runtimeVersionSnapshot() uint64 {
+	if v == nil {
+		return 0
+	}
+	v.mu.RLock()
+	defer v.mu.RUnlock()
+	return v.runtimeVersion
+}
+
 // markDirtyLocked 标记索引脏（持锁）：n==0 直接返回；置 dirty、累加 changeCaught、记 LastMutationAt、
 // runtimeVersion 递增并跳过 0。
 // [S 汇编 0x1408072e0, 192B]：ebx==0→ret；dirty(+0xe0)=true、changeCaught(+0xe4)+=n、

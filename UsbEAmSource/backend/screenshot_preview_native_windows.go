@@ -13,6 +13,7 @@ import (
 	"errors"
 	"image"
 	"math"
+	"sync"
 	"unsafe"
 
 	"github.com/wailsapp/wails/v3/pkg/w32"
@@ -178,4 +179,24 @@ func (s *screenshotNativePreviewWindow) paint(hwnd uintptr) {
 		s.redraw()
 	}
 	w32.EndPaint(hwnd, &ps)
+}
+
+// screenshotNativePreviewWindowClassOnce 保护预览窗口类注册的单次执行。
+// asm 实证：once.done 位于全局 [rip+0x12bf2ab]。
+var screenshotNativePreviewWindowClassOnce sync.Once
+
+// screenshotNativePreviewWindowClassErr 缓存注册结果（nil 表示成功）。
+// asm 实证：全局 [0x140c108e0]（itab）/ [0x140c108e8]（data）。
+var screenshotNativePreviewWindowClassErr error
+
+// ensureScreenshotNativePreviewWindowClass 确保原生预览窗口类已注册，返回注册错误。
+// [S-sig 0x14099bd80, 96B]：签名实证——once 包装 + 返回全局 error 接口（2 字）。
+// func1（0x1409f5560, 675B）：GetModuleHandle(nil) → UTF16PtrFromString(0x25=37B 类名)
+// → newobject(WNDCLASSEX cbSize=0x50) → syscall.compileCallback 窗口过程 →
+// RegisterClassEx LazyProc.Call → GetLastError → fmt.Errorf；体待窗口类注册链专项还原。
+func ensureScreenshotNativePreviewWindowClass() error {
+	screenshotNativePreviewWindowClassOnce.Do(func() {
+		screenshotNativePreviewWindowClassErr = nil
+	})
+	return screenshotNativePreviewWindowClassErr
 }

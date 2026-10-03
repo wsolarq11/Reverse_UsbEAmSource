@@ -139,3 +139,17 @@ func (bs *BootstrapService) endLauncherScreenshotCapture(win launcherWindowContr
 	win.SetPosition(x, y)
 	win.SetContentProtection(false)
 }
+
+// HideLauncherWindow 隐藏启动器窗口。
+// [S-sig 0x14079a220, 192B]：resolveLauncherWindow 取窗口（nil 则返回）；经 itab 查找
+// hideLauncherWindowToTray 方法调用。体待窗口隐藏链专项还原。
+func (bs *BootstrapService) HideLauncherWindow() {
+	_ = bs
+}
+
+// HideScreenshotPreview 隐藏截图预览窗口。
+// [S-sig 0x14079be80, 192B]：mu(+0x540) 保护读 screenshotPreview(+0x408)，非空则
+// screenshotPreviewWindowService.Hide。体待字段名精确对位专项还原。
+func (bs *BootstrapService) HideScreenshotPreview() {
+	_ = bs
+}

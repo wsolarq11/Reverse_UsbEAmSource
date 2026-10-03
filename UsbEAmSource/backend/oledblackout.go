@@ -746,3 +746,28 @@ func (s *oledBlackoutService) commitMediaContinuityIfCurrent(a interface{}) {
 // Focus + scheduleFocusRetryLocked；空则 mapdelete(+0xf8)；全空则 stopFocusRetryLocked。
 // 体待覆盖层域专项还原。
 func (s *oledBlackoutService) focusVisibleOverlayLocked() {}
+
+// forget 遗忘浏览器媒体连续性条目（processPath 小写化后 map 删除）。
+// [S 汇编 0x1408fcb20, 288B]：nil 早退；key.processPath=ToLower(TrimSpace(processPath))；
+// lock → delete(entries, key) → unlock。
+func (c *oledBlackoutBrowserMediaContinuity) forget(key oledBlackoutBrowserMediaContinuityKey) {
+	if c == nil {
+		return
+	}
+	key.processPath = strings.ToLower(strings.TrimSpace(key.processPath))
+	c.lock.Lock()
+	delete(c.entries, key)
+	c.lock.Unlock()
+}
+
+// stopIdleTimerLocked 停止空闲定时器（持锁）。
+// [S-sig 0x140902440, 288B]：idleTimer(+0x128) 非空则 stopTimer + 置 nil；generation(+0x130)++；
+// 清空多个字段。体待 idle 状态字段名专项还原。
+func (s *oledBlackoutService) stopIdleTimerLocked() {}
+
+// Close 关闭光标控制器（closeOnce 保护）。
+// [S-sig 0x140914120, 288B]：closeOnce.Do → 发 close 命令 → 等待响应。体待命令循环专项还原。
+func (c *windowsOLEDBlackoutCursorController) Close() error {
+	_ = c
+	return nil
+}

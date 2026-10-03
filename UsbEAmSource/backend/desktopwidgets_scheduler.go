@@ -33,3 +33,14 @@ func (s *desktopWidgetScheduler) Start() {
 // 单 receiver、无参数、无返回。体待调度循环专项还原。
 func (s *desktopWidgetScheduler) run() {
 }
+
+// Stop 停止调度器（stopOnce 关 stop 通道，once 关 wake，等 5s timer/done）。
+// [S-sig 0x1407acd20, 288B]：nil 早退；stopOnce(+0x2c) 关 stop；once(+0x20) 关 wake；
+// NewTimer(5s) + selectgo 等待。体待调度停止序列专项还原。
+func (s *desktopWidgetScheduler) Stop() {
+	if s == nil {
+		return
+	}
+	s.stopOnce.Do(func() { close(s.stop) })
+	s.once.Do(func() { close(s.wake) })
+}

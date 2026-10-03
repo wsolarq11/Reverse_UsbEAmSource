@@ -223,3 +223,19 @@ func cleanupOldLauncherUpdateHelpers() {
 		_ = os.RemoveAll(filepath.Join(dir, entry.Name()))
 	}
 }
+
+// scheduleLauncherUpdateHelperCleanup 把 helper 可执行文件与其目录登记为重启后删除。
+// [S 汇编 0x1408c5380, 608B]：os.Executable 失败即返回；对 exe 与 filepath.Dir(exe)
+// 分别 UTF16PtrFromString 成功后 MoveFileEx(p,nil,MOVEFILE_DELAY_UNTIL_REBOOT)。
+func scheduleLauncherUpdateHelperCleanup() {
+	exe, err := os.Executable()
+	if err != nil {
+		return
+	}
+	if p, err := windows.UTF16PtrFromString(exe); err == nil {
+		_ = windows.MoveFileEx(p, nil, windows.MOVEFILE_DELAY_UNTIL_REBOOT)
+	}
+	if d, err := windows.UTF16PtrFromString(filepath.Dir(exe)); err == nil {
+		_ = windows.MoveFileEx(d, nil, windows.MOVEFILE_DELAY_UNTIL_REBOOT)
+	}
+}

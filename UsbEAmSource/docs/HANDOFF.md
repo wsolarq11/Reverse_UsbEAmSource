@@ -5626,6 +5626,19 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1455→1456，USABLE 14
 **下一批**：launcherupdate 短函数（scheduleHelperCleanup/namedPipe/frameWithTimeout
 288-768B）+ 截图滚动几何。P=41 持平。FUNCS 2942/4754 = 61.89%。未落地文件差集 34 保持。
 
+### 批次 290（helper 重启删除登记 +1 [S]）
+
+**基线/收口**：`FUNCS=2942→2943 / MARKED=2942→2943 / S=1419→1420 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1456→1457，USABLE 1457→1458）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+1 FUNCS）**：
+1. `scheduleLauncherUpdateHelperCleanup` [S 0x1408c5380]：exe 与 Dir(exe) 分别
+   MoveFileEx(MOVEFILE_DELAY_UNTIL_REBOOT) 登记重启删除。
+
+**下一批**：launcherupdate 短函数（namedPipe/frameWithTimeout 288-768B）+
+截图滚动几何。P=41 持平。FUNCS 2943/4754 = 61.91%。未落地文件差集 34 保持。
+
 
 
 

@@ -771,3 +771,11 @@ func (c *windowsOLEDBlackoutCursorController) Close() error {
 	_ = c
 	return nil
 }
+
+// inputDismissGuardActiveLocked 判定输入消除保护是否活跃（now < dismissDeadline）。
+// [S-sig 0x14090d200, 288B]：deadline(+0x180) 零→false；否则 now.Before(deadline)。
+// 体待 dismiss 状态字段名专项还原。
+func (s *oledBlackoutService) inputDismissGuardActiveLocked(now interface{}) bool {
+	_, _ = s, now
+	return false
+}

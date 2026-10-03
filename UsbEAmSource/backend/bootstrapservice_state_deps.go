@@ -413,6 +413,20 @@ func (s *pluginWindowService) AttachApp(app *application.App) {
 	s.lock.Unlock()
 }
 
+// CloseAudience 关闭插件窗口观众（windows[id].audience.close）。
+// [S-sig 0x140930080, 288B]：nil 早退；TrimSpace(id)；lock → windows(+0x10)[id] → unlock；
+// win 非空且 audience(+0x88) 非空则调 close(+0x30)。体待 pluginManagedWindow 域专项还原。
+func (s *pluginWindowService) CloseAudience(id string) {
+	if s == nil {
+		return
+	}
+	id = strings.TrimSpace(id)
+	s.lock.Lock()
+	win := s.windows[id]
+	s.lock.Unlock()
+	_ = win
+}
+
 // resolvePluginPackageURL 解析插件包 URL。
 // [S-sig 0x14092c520, 224B]：TrimSpace 分支 → resolvePluginCatalogAssetURL / normalizePluginPackageFile。
 // 体待 catalog 域专项还原。

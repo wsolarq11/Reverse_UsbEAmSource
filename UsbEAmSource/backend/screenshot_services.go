@@ -146,3 +146,13 @@ func (s *screenshotPreviewWindowService) ShowForOwner(owner string, result Scree
 func (s *screenshotPreviewWindowService) Show(result ScreenshotCaptureResult) error {
 	return s.ShowForOwner("preview", result)
 }
+
+// scheduleAutoHide 安排自动隐藏截图预览窗口。
+// [S-sig 0x140999540, 160B]：newobject 打包 func1（捕获 receiver + 参数），runtime.newproc
+// 起 goroutine；func1（0x1409995e0）定时器到点后 Hide。体待自动隐藏链专项还原。
+func (s *screenshotPreviewWindowService) scheduleAutoHide(d time.Duration) {
+	_ = d
+	go func() {
+		_ = s
+	}()
+}

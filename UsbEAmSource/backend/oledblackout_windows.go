@@ -486,3 +486,10 @@ func (r *oledBlackoutIReference) GetInt32() (int32, bool) {
 	}
 	return value, true
 }
+
+// Cancel 取消 WinRT IAsyncOperation（经 IAsyncInfo.Cancel）。
+// [S-sig 0x140921960, 192B]：oledBlackoutQueryInterface 取 IAsyncInfo（nil/失败则返回），
+// defer releaseComObject；SyscallN(vtbl[9]@0x48 Cancel, this)。体待 QueryInterface 签名专项还原。
+func (r *oledBlackoutIAsyncOperation) Cancel() {
+	_ = r
+}

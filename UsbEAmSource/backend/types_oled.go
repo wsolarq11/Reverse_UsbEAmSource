@@ -254,3 +254,10 @@ type oledBlackoutWindowProcessCandidate struct {
 type oledBlackoutIReference struct {
 	vtbl *uintptr
 }
+
+// oledBlackoutIAsyncOperation WinRT IAsyncOperation 接口指针包装。
+// asm 实证（0x140921960 Cancel）：首字段（+0x00）为 vtable 指针；
+// Cancel 经 IAsyncInfo vtbl[9]（+0x48）SyscallN 调用。
+type oledBlackoutIAsyncOperation struct {
+	vtbl *uintptr
+}

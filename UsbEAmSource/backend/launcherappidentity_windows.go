@@ -108,3 +108,16 @@ func ensureLauncherAppIdentity() string {
 func configureLauncherAppIdentity() string {
 	return ""
 }
+
+// resolveLauncherNotificationIconPath 解析启动器通知图标路径（环境变量→缓存目录→拼接）。
+// [S-sig 0x14086bda0, 320B]：Getenv → UserCacheDir → filepath.Join(3 段)。体待常量专项还原。
+func resolveLauncherNotificationIconPath() (string, error) {
+	return "", nil
+}
+
+// launcherAppIdentityLPWSTRPropVariant 构建 AppID 的 LPWSTR PROPVARIANT。
+// [S-sig 0x14086db00, 320B]：UTF16FromString → PROPVARIANT{vt:0x1f, pwszVal}。体待结构专项还原。
+func launcherAppIdentityLPWSTRPropVariant(a string) interface{} {
+	_ = a
+	return nil
+}

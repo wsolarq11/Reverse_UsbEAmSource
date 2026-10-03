@@ -108,3 +108,11 @@ func (m *windowsLauncherGlobalHotkeyManager) uninstallKeyboardHook() (interface{
 	_ = m
 	return nil, nil
 }
+
+// postLauncherThreadMessage 向启动器线程 PostThreadMessageW 投递消息。
+// [S-sig 0x1408a16a0, 320B]：newobject(2 字段) → LazyProc.Call(PostThreadMessageW, 4) →
+// 失败 fmt.Errorf。体待错误文案专项还原。
+func postLauncherThreadMessage(a, b uint32) error {
+	_, _ = a, b
+	return nil
+}

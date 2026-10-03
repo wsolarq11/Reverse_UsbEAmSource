@@ -445,6 +445,20 @@ func (s *pluginWindowService) Close(id string) error {
 	return nil
 }
 
+// store 存储插件窗口（windows[key] 已存在且相同则更新，shutting 则跳过）。
+// [S-sig 0x140930300, 320B]：lock → shutting(+0x28)==0 且 windows(+0x10)[key]==win →
+// mapassign → unlock。体待 pluginManagedWindow 域专项还原。
+func (s *pluginWindowService) store(key string, win *pluginManagedWindow) {
+	if s == nil {
+		return
+	}
+	s.lock.Lock()
+	if !s.shutting && s.windows[key] == win {
+		s.windows[key] = win
+	}
+	s.lock.Unlock()
+}
+
 // resolvePluginPackageURL 解析插件包 URL。
 // [S-sig 0x14092c520, 224B]：TrimSpace 分支 → resolvePluginCatalogAssetURL / normalizePluginPackageFile。
 // 体待 catalog 域专项还原。

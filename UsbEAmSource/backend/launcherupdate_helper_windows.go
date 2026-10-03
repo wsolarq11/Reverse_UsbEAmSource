@@ -332,3 +332,52 @@ func openLauncherUpdateNamedPipeClient(pipeName string, timeout time.Duration) (
 		time.Sleep(20 * time.Millisecond)
 	}
 }
+
+// writeLauncherUpdateFrameWithTimeout 带超时的帧写入：后台 goroutine 写帧，超时关连接。
+// [S 汇编 0x1408c3820, 640B]：make(chan error,1) + go func1 写帧；NewTimer 后 defer Stop；
+// select timer.C → conn.Close() + "写入更新认证 named pipe 超时"；select ch → 返回写帧 err。
+func writeLauncherUpdateFrameWithTimeout(conn *os.File, payload []byte, timeout time.Duration) error {
+	ch := make(chan error, 1)
+	go func() {
+		ch <- writeLauncherUpdateFrame(conn, payload)
+	}()
+	timer := time.NewTimer(timeout)
+	defer timer.Stop()
+	select {
+	case <-timer.C:
+		if conn != nil {
+			_ = conn.Close()
+		}
+		return errors.New("写入更新认证 named pipe 超时")
+	case err := <-ch:
+		return err
+	}
+}
+
+// readLauncherUpdateFrameWithTimeout 带超时的帧读取：后台 goroutine 读帧，超时关连接。
+// [S 汇编 0x1408c3440, 768B]：make(chan {data,err},1) + go func1 读帧；NewTimer 后 defer
+// Stop；select timer.C → conn.Close() + "读取更新认证 named pipe 超时"；select ch → 返回结果。
+func readLauncherUpdateFrameWithTimeout(conn *os.File, maxSize int, timeout time.Duration) ([]byte, error) {
+	ch := make(chan struct {
+		data []byte
+		err  error
+	}, 1)
+	go func() {
+		data, err := readLauncherUpdateFrame(conn, maxSize)
+		ch <- struct {
+			data []byte
+			err  error
+		}{data, err}
+	}()
+	timer := time.NewTimer(timeout)
+	defer timer.Stop()
+	select {
+	case <-timer.C:
+		if conn != nil {
+			_ = conn.Close()
+		}
+		return nil, errors.New("读取更新认证 named pipe 超时")
+	case r := <-ch:
+		return r.data, r.err
+	}
+}

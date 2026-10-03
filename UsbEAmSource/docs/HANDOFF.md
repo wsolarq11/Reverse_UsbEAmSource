@@ -5671,6 +5671,19 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1459→1461，USABLE 14
 **下一批**：launcherupdate 短函数（frameWithTimeout/queryProcessIdentity 640-1632B）+
 截图滚动几何。P=41 持平。FUNCS 2947/4754 = 61.99%。未落地文件差集 34 保持。
 
+### 批次 293（带超时帧读写 +2 [S]）
+
+**基线/收口**：`FUNCS=2947→2949 / MARKED=2947→2949 / S=1424→1426 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1461→1463，USABLE 1462→1464）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+2 FUNCS）**：
+1. `writeLauncherUpdateFrameWithTimeout` [S 0x1408c3820]：goroutine 写帧，超时关连接。
+2. `readLauncherUpdateFrameWithTimeout` [S 0x1408c3440]：goroutine 读帧，超时关连接。
+
+**下一批**：launcherupdate（queryProcessIdentity/connectNamedPipe 1.3-1.6KB）+
+截图滚动几何。P=41 持平。FUNCS 2949/4754 = 62.03%。未落地文件差集 34 保持。
+
 
 
 

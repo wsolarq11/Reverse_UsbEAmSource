@@ -66,3 +66,11 @@ func (s *screenshotPreviewWindowService) shouldDisplay(a, b, c interface{}) bool
 	_, _, _, _ = s, a, b, c
 	return false
 }
+
+// waitUntilReady 等待预览就绪（timeout → selectgo → shouldDisplay）。
+// [S-sig 0x140999a60, 416B]：timeout nil→false；time.NewTimer → selectgo →
+// 超时→false；ready→shouldDisplay。体待就绪域专项还原。
+func (s *screenshotPreviewWindowService) waitUntilReady(a, b, c, d interface{}) bool {
+	_, _, _, _, _ = s, a, b, c, d
+	return false
+}

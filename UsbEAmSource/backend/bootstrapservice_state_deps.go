@@ -482,6 +482,14 @@ func resolvePluginWindowScreen(a interface{}, name string) interface{} {
 	return nil
 }
 
+// CloseAudienceOwned 关闭观众拥有的插件窗口（持锁，EqualFold 匹配 owner 后 close）。
+// [S-sig 0x14092fa20, 416B]：TrimSpace×2 → lock(+0x0) → windows(+0x10)[owner] →
+// window(+0x88) nil→nil；EqualFold → close 回调。体待窗口域专项还原。
+func (s *pluginWindowService) CloseAudienceOwned(a, b string) error {
+	_, _, _ = s, a, b
+	return nil
+}
+
 // resolvePluginPackageURL 解析插件包 URL。
 // [S-sig 0x14092c520, 224B]：TrimSpace 分支 → resolvePluginCatalogAssetURL / normalizePluginPackageFile。
 // 体待 catalog 域专项还原。

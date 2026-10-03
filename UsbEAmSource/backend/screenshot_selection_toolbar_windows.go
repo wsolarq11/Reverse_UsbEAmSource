@@ -45,3 +45,10 @@ func normalizeScreenshotSelectionToolbarState(a, b, c interface{}, d int) interf
 	_, _, _, _ = a, b, c, d
 	return nil
 }
+
+// screenshotSelectionToolbarBoundsForSelection 计算选择工具栏边界（几何钳位）。
+// [S-sig 0x1409ab5a0, 416B]：越界→默认矩形(0x334,0x1b2)；居中/钳位算术 → bounds。体待几何常量专项还原。
+func screenshotSelectionToolbarBoundsForSelection(a, b, c, d int64) (int64, int64, int64, int64) {
+	_, _, _, _ = a, b, c, d
+	return 0, 0, 0, 0
+}

@@ -282,3 +282,11 @@ func replacePluginPackageFile(a, b, c string) error {
 	_, _, _ = a, b, c
 	return nil
 }
+
+// resolvePluginCatalogAssetURL 解析插件目录资产 URL（绝对 http/https → JoinPath）。
+// [S-sig 0x14092c380, 416B]：TrimSpace → 空→error；url.Parse scheme http/https→String；
+// 否则 resolvePluginCatalogBaseURL → Parse → JoinPath。体待 URL 域专项还原。
+func resolvePluginCatalogAssetURL(a, b string) (string, error) {
+	_, _ = a, b
+	return "", nil
+}

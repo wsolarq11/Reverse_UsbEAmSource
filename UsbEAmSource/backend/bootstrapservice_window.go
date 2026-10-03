@@ -162,6 +162,17 @@ func (bs *BootstrapService) applyLauncherWindowSizingForShow(window application.
 	_ = window
 }
 
+// consumeLauncherDefaultSizeReset 消费「下次显示重置尺寸」标志（读旧值并清空）。
+// [S 汇编 0x140796960, 224B]：mu(+0x540).Lock + defer Unlock → 读 resetLauncherSizeOnNextShow(+0x448)
+// 置 false，返回旧值。
+func (bs *BootstrapService) consumeLauncherDefaultSizeReset() bool {
+	bs.lock.Lock()
+	defer bs.lock.Unlock()
+	old := bs.resetLauncherSizeOnNextShow
+	bs.resetLauncherSizeOnNextShow = false
+	return old
+}
+
 // resolveLauncherWindowRelativePosition 计算启动器窗口相对位置（居中或钳位）。
 // [S 汇编 0x1408d0a80, 80B]：6 int + 1 bool 参数，返回 (x, y)。
 // center=true：x=max((screenW-windowW)/2,0)、y=max((screenH-windowH)/2,0)（算术右移向下取整）；

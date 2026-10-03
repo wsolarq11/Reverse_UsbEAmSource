@@ -644,6 +644,22 @@ func (v *VolumeIndex) markPersistedAtLocked(t time.Time) {
 	v.LastSavedAt = t
 }
 
+// MarkPersistedAt 标记索引已持久化（加写锁转发 markPersistedAtLocked）。
+// [S 汇编 0x1407e8f00, 224B]：mu.Lock + defer Unlock → markPersistedAtLocked(t)。
+func (v *VolumeIndex) MarkPersistedAt(t time.Time) {
+	v.mu.Lock()
+	defer v.mu.Unlock()
+	v.markPersistedAtLocked(t)
+}
+
+// IsDirty 读锁下返回 (脏标志, 变更计数)。
+// [S 汇编 0x1407e8840, 224B]：mu.RLock + defer RUnlock → 读 dirty(+0xe0)/changeCaught(+0xe4)。
+func (v *VolumeIndex) IsDirty() (bool, uint32) {
+	v.mu.RLock()
+	defer v.mu.RUnlock()
+	return v.dirty, v.changeCaught
+}
+
 // markDirtyLocked 标记索引脏（持锁）：n==0 直接返回；置 dirty、累加 changeCaught、记 LastMutationAt、
 // runtimeVersion 递增并跳过 0。
 // [S 汇编 0x1408072e0, 192B]：ebx==0→ret；dirty(+0xe0)=true、changeCaught(+0xe4)+=n、

@@ -511,3 +511,11 @@ func normalizeStorageConfig(dataRoot, iconDir, indexDir, screenshotDir, webView2
 		WebView2Dir:   strings.TrimSpace(webView2Dir),
 	}
 }
+
+// Replace 替换启动器配置（ReplacePrepared 转发 + 大结构拷贝返回）。
+// [S-sig 0x140899800, 384B]：ReplacePrepared → 大结构(0x126*8) 拷贝返回。
+// 体待 prepare 回调专项还原。
+func (s *launcherConfigStore) Replace(a, b, c interface{}) interface{} {
+	_, _, _, _ = s, a, b, c
+	return nil
+}

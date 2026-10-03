@@ -87,3 +87,11 @@ func normalizeDesktopWeatherLanguage(s string) string {
 	}
 	return s[:2]
 }
+
+// isValidQWeatherAPIHost 校验 qweather API host 是否合法（域后缀 + label 规则）。
+// [S-sig 0x1407c9940, 384B]：len>253→false；后缀非 .qweather.com/.net→false；
+// 按 "." split → label 空/超 63/首尾 "-"/非 [a-z0-9-]→false。体待后缀常量专项还原。
+func isValidQWeatherAPIHost(a string) bool {
+	_ = a
+	return false
+}

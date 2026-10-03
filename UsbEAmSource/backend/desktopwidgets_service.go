@@ -99,3 +99,11 @@ func normalizeDesktopWidgetConfig(kind string, cfg DesktopWidgetConfig) DesktopW
 	}
 	return cfg
 }
+
+// isRuntimeEnabled 判定桌面组件运行时是否启用（RLock 下读状态）。
+// [S-sig 0x1407bee20, 256B]：RLock(+0x48) → 读多字段(+0x58/+0x80/+0x68/+0x60=="ready")。
+// 体待状态字段名专项还原。
+func (s *desktopWidgetService) isRuntimeEnabled() bool {
+	_ = s
+	return false
+}

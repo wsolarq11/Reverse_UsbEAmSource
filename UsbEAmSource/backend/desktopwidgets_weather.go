@@ -32,3 +32,19 @@ func desktopWeatherFloat(s string) float64 {
 	}
 	return f
 }
+
+// normalizeDesktopWeatherProviderID 规整天气 provider ID：TrimSpace → ToLower 后按别名归一。
+// [S 汇编 0x1407c7c00, 256B]："qweather"→"qweather"；"openmeteo"/"open-meteo"→"openmeteo"；
+// "weather-api"→"weather-api"；其他→""。
+func normalizeDesktopWeatherProviderID(id string) string {
+	switch strings.ToLower(strings.TrimSpace(id)) {
+	case "qweather":
+		return "qweather"
+	case "openmeteo", "open-meteo":
+		return "openmeteo"
+	case "weather-api":
+		return "weather-api"
+	default:
+		return ""
+	}
+}

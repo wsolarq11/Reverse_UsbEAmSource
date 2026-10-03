@@ -1311,3 +1311,37 @@ func (s *FileIndexService) searchIndexedFilesWindowQueryWithTypeMatcher(ctx cont
 func (s *FileIndexService) ResolveFileMetadataCancellable(ctx context.Context, requests []FileSearchPathRequest) ([]FileSearchHit, error) {
 	return nil, nil
 }
+
+// nameBigramSignature 计算名称双字签名：逐对字符小写化（A-Z→a-z），去重相邻重复，
+// 每对经混合哈希后置位 64 位位图。len<2 返回 0。
+// [S 汇编 0x1407e26c0, 256B]：len<2→0；循环 bigram 小写→去重→(h>>8)^h*0x45d9f3b→
+// (h>>16)^h→bts 位图。
+func nameBigramSignature(s string) uint64 {
+	if len(s) < 2 {
+		return 0
+	}
+	var sig uint64
+	var last uint16
+	hasLast := false
+	for i := 0; i+1 < len(s); i++ {
+		a := s[i]
+		b := s[i+1]
+		if a >= 'A' && a <= 'Z' {
+			a |= 0x20
+		}
+		if b >= 'A' && b <= 'Z' {
+			b |= 0x20
+		}
+		bg := uint16(a)<<8 | uint16(b)
+		if hasLast && last == bg {
+			continue
+		}
+		h := uint32(bg)
+		h = ((h >> 8) ^ h) * 0x45d9f3b
+		h = (h >> 16) ^ h
+		sig |= 1 << h
+		last = bg
+		hasLast = true
+	}
+	return sig
+}

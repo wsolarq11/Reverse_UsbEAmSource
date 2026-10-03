@@ -935,3 +935,34 @@ func (v *VolumeIndex) CloseReadProvider() error {
 	_ = v
 	return nil
 }
+
+// writeAllContext 写全部上下文（循环写直到完成或错误）。
+// [S-sig 0x1407f6420, 352B]：contextErr → writeFunc(+0x18) 循环写 → io.EOF。
+// 体待 context 写函数专项还原。
+func writeAllContext(a, b, c, d, e, f interface{}) (interface{}, error) {
+	_, _, _, _, _, _ = a, b, c, d, e, f
+	return nil, nil
+}
+
+// buildVolumeIndexPersistenceMetaLocked 构建卷索引持久化元数据（持锁）。
+// [S-sig 0x1407f6580, 352B]：timeToUnixNano × 3 → 组装 meta{version,name,...}。
+// 体待 meta 结构专项还原。
+func buildVolumeIndexPersistenceMetaLocked(a interface{}, b, c, d interface{}) interface{} {
+	_, _, _, _ = a, b, c, d
+	return nil
+}
+
+// openVolumeIndexMappedFile 打开卷索引映射文件（OpenFile + CreateFileMapping）。
+// [S-sig 0x1407fd500, 352B]：OpenFile → ErrNotExist→(nil,nil)；CreateFileMapping；
+// handle==0→close。体待映射句柄专项还原。
+func openVolumeIndexMappedFile(a string) (interface{}, interface{}) {
+	_ = a
+	return nil, nil
+}
+
+// UpdateMeta 更新卷索引元数据（持锁，字段 + 版本号递增）。
+// [S-sig 0x140807f40, 352B]：lock(+0x18) → RLock → 字段(+0x80/+0x88) 更新 →
+// version(+0x590)++。体待字段类型专项还原。
+func (v *VolumeIndex) UpdateMeta(a, b interface{}) {
+	_, _ = a, b
+}

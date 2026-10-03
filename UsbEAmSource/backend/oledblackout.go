@@ -727,3 +727,9 @@ func (s *oledBlackoutIAsyncInfo) GetStatus() (uint32, error) {
 func (s *oledBlackoutService) commitMediaContinuityIfCurrent(a interface{}) {
 	_ = a
 }
+
+// focusVisibleOverlayLocked 聚焦可见覆盖层窗口（持锁）。
+// [S-sig 0x14090dea0, 256B]：visibleOverlayOrderLocked 迭代 → overlay map(+0xf0) 非空则
+// Focus + scheduleFocusRetryLocked；空则 mapdelete(+0xf8)；全空则 stopFocusRetryLocked。
+// 体待覆盖层域专项还原。
+func (s *oledBlackoutService) focusVisibleOverlayLocked() {}

@@ -218,3 +218,25 @@ func screenshotScrollingTopSkipLooksStable(a, b interface{}, n int64) bool {
 	_, _, _ = a, b, n
 	return false
 }
+
+// screenshotPreviewSetLayeredWindowOpacity 设置预览窗口分层透明度。
+// [S-sig 0x14099e6a0, 256B]：hwnd nil 守卫 → clamp opacity [0,1] → *255 截断 → SetLayeredWindowAttributes。
+// 体待预览窗口 Win32 域专项还原。
+func screenshotPreviewSetLayeredWindowOpacity(hwnd uintptr, opacity float64) {
+	_, _ = hwnd, opacity
+}
+
+// waitScreenshotScrollingFrameReady 等待滚动帧就绪（超时循环 + 取消检查）。
+// [S-sig 0x1409a3480, 256B]：shouldCancelScreenshotScrolling → deadline 循环 → time.Sleep(min(1s))。
+// 体待滚动捕获域专项还原。
+func waitScreenshotScrollingFrameReady(a, b interface{}) bool {
+	_, _ = a, b
+	return false
+}
+
+// resolveBottomTrim 解析滚动分块画布底部裁剪行数。
+// [S-sig 0x14099fcc0, 256B]：自底向上扫描行 → screenshotScrollingRowLooksPureBlack 判黑。
+// 体待滚动分块域专项还原。
+func (c *screenshotScrollingChunkedCanvas) resolveBottomTrim() int {
+	return 0
+}

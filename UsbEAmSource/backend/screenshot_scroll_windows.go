@@ -265,3 +265,10 @@ func encodeScreenshotScrollingChunkedCanvas(a interface{}) interface{} {
 	_ = a
 	return nil
 }
+
+// repairScreenshotScrollingGlobalSeamArtifacts 修复滚动截图的全局接缝伪影。
+// [S-sig 0x1409a3960, 256B]：遍历行 → screenshotScrollingRowLooksDarkSeamArtifact →
+// blendScreenshotScrollingRow；统计修复数 → debug log。体待行混合域专项还原。
+func repairScreenshotScrollingGlobalSeamArtifacts(a interface{}) {
+	_ = a
+}

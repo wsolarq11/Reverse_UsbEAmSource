@@ -493,3 +493,12 @@ func buildLauncherWindowOptions(a, b interface{}) interface{} {
 	_, _ = a, b
 	return nil
 }
+
+// showLauncherFromSecondInstance 从第二实例触发显示启动器窗口。
+// [S-sig 0x140795da0, 288B]：ensureLauncherWindowForShow 非空→showLauncherWindow；
+// 否则 lock(+0x540) → field(+0x44a)=1 → unlock。体待启动器窗口域专项还原。
+func (bs *BootstrapService) showLauncherFromSecondInstance() {
+	if bs == nil {
+		return
+	}
+}

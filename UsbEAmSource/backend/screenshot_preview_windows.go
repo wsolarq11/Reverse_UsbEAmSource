@@ -34,3 +34,19 @@ func screenshotPreviewBounds(a interface{}, x, y int64) (int64, int64, int64, in
 	_, _, _ = a, x, y
 	return 0, 0, 0, 0
 }
+
+// buildScreenshotPreviewWindowHTMLWithStateURL 构建预览窗口 HTML（JSON 状态 URL 注入）。
+// [S-sig 0x14099b860, 256B]：TrimSpace → json.Marshal → 模板 Replace(json) → Replace("50")。
+// 体待 HTML 模板常量专项还原。
+func buildScreenshotPreviewWindowHTMLWithStateURL(a interface{}) string {
+	_ = a
+	return ""
+}
+
+// waitBeforeReveal 延迟后判定是否显示（全局 delay<=0 直接 shouldDisplay）。
+// [S-sig 0x140999c60, 288B]：delay>0 则 NewTimer(delay) 阻塞后 shouldDisplay。
+// 体待全局 delay 与 shouldDisplay 专项还原。
+func (s *screenshotPreviewWindowService) waitBeforeReveal(a, b interface{}) bool {
+	_, _ = a, b
+	return false
+}

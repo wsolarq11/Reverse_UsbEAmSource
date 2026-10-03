@@ -148,3 +148,31 @@ func screenshotFramesAreSimilar(a, b *image.RGBA) bool {
 	}
 	return sampleScreenshotFrameAverageDiffWithGrid(a, a.Rect.Min.Y, b, b.Rect.Min.Y, a.Rect.Dy(), 42, 80) <= 2
 }
+
+// rankScreenshotScrollingAppendCandidate 排名滚动追加候选（纯算术评分，无调用）。
+// [S 汇编 0x1409a5e40, 128B]：score>=1<<50→0x3fffffffffffffff（@0x1409a5e4d）；
+// score=score*1000+a*10（@0x1409a5e4f/56/5e）；d<=0||e<=0→score（@0x1409a5e64/69）；
+// s=max(a+b,0)（@0x1409a5e6f/77）；diff=max(e-s,0)（@0x1409a5e7b/81）；delta=|diff-d|
+// （@0x1409a5e88/8b/94）；score+=2*delta（@0x1409a5e98）。
+func rankScreenshotScrollingAppendCandidate(a, b, score, d, e int64) int64 {
+	if score >= 1<<50 {
+		return 0x3fffffffffffffff
+	}
+	score = score*1000 + a*10
+	if d <= 0 || e <= 0 {
+		return score
+	}
+	s := a + b
+	if s < 0 {
+		s = 0
+	}
+	diff := e - s
+	if diff < 0 {
+		diff = 0
+	}
+	delta := diff - d
+	if delta < 0 {
+		delta = -delta
+	}
+	return score + 2*delta
+}

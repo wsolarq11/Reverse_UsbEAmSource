@@ -211,3 +211,11 @@ func readExternalScreenshotImageFromPath(path string) (ScreenshotCaptureResult, 
 	}
 	return buildScreenshotResultFromPNG(png), nil
 }
+
+// screenshotImageToOpaqueRGBA 将图像转为不透明 RGBA（NewRGBA + DrawMask）。
+// [S-sig 0x14096bf60, 416B]：img nil/越界→nil；bounds→子矩形→image.NewRGBA →
+// DrawMask×2（不透明填充 + 绘制）。体待掩码域专项还原。
+func screenshotImageToOpaqueRGBA(a, b interface{}) interface{} {
+	_, _ = a, b
+	return nil
+}

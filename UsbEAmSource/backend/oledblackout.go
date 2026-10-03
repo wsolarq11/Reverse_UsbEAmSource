@@ -840,3 +840,17 @@ func (s *oledBlackoutService) autoActivatedProfileIDForTriggeredProfilesLocked(a
 func (s *oledBlackoutService) scheduleFocusRetryLocked(a, b interface{}) {
 	_, _, _ = s, a, b
 }
+
+// scheduleIdleTimerAfter 调度空闲定时器（AfterFunc → idleRunCurrentLocked）。
+// [S-sig 0x140902180, 416B]：newobject(closure) → time.AfterFunc → 持锁 idleRunCurrentLocked
+// → true→存 timer(+0x128)；false→stopTimer。体待空闲域专项还原。
+func (s *oledBlackoutService) scheduleIdleTimerAfter(a, b interface{}) {
+	_, _, _ = s, a, b
+}
+
+// handleOverlayDismiss 处理覆盖层关闭（持锁 dismissOverlayScreenLocked）。
+// [S-sig 0x14090ad20, 416B]：lock → field(+0x88) 非空→return；
+// dismissOverlayScreenLocked → 成功→清 field(+0xe8/+0xe0)。体待覆盖层域专项还原。
+func (s *oledBlackoutService) handleOverlayDismiss(a, b interface{}) {
+	_, _, _ = s, a, b
+}

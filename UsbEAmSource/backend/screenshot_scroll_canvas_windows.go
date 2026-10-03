@@ -61,3 +61,11 @@ func (s *screenshotScrollingChunkedCanvas) ReleaseRow(row int) {
 		chunk.releaseMemory()
 	}
 }
+
+// newScreenshotScrollingChunkedCanvas 构造滚动 chunked 画布（矩形校验 → 单 chunk）。
+// [S-sig 0x14099f120, 416B]：rect 空/越界→error；面积>0x7270e00→error；
+// newScreenshotScrollingCanvasChunk → 组装 canvas。体待 chunk 域专项还原。
+func newScreenshotScrollingChunkedCanvas(a, b interface{}) interface{} {
+	_, _ = a, b
+	return nil
+}

@@ -359,3 +359,11 @@ func deleteRemoteIconFailure(key string) {
 		}
 	}
 }
+
+// SearchRemoteIcons 搜索远程图标（BootstrapService 入口）。
+// [S-sig 0x14095f6c0, 256B]：搜索远程图标候选并返回结果集。
+// 体待远程图标搜索域专项还原。
+func (bs *BootstrapService) SearchRemoteIcons(a interface{}) interface{} {
+	_ = a
+	return nil
+}

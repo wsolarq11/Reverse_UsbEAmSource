@@ -265,3 +265,10 @@ func resolveLauncherWindowRelativePosition(screenW, screenH, windowW, windowH, m
 func (bs *BootstrapService) revealLauncherWindowForQRCodeDecode(a, b interface{}) {
 	_, _ = a, b
 }
+
+// ApplyLauncherWindowLayoutAction 应用启动器窗口布局动作。
+// [S-sig 0x14079a9e0, 224B]：resolveLauncherWindow → 类型断言查找 action 处理器 →
+// applyLauncherWindowLayoutAction。体待窗口布局域专项还原。
+func (bs *BootstrapService) ApplyLauncherWindowLayoutAction(a, b interface{}) {
+	_, _ = a, b
+}

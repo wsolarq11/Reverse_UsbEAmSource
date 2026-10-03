@@ -478,3 +478,18 @@ func captureScreenshotWindowForServiceWithControlsAndLauncherVisibility(bs *Boot
 func registerLauncherFileDropHandler(window application.Window) {
 	_ = window
 }
+
+// openLauncherStartupDebugLog 打开启动调试日志（附加模式写全局日志文件）。
+// [S-sig 0x1408d2da0, 256B]：全局 flag 检查 → os.OpenFile(全局路径, O_CREATE|O_APPEND|O_WRONLY, 0666)
+// → log.Logger.output。体待启动调试日志域专项还原。
+func openLauncherStartupDebugLog() error {
+	return nil
+}
+
+// buildLauncherWindowOptions 构建启动器窗口选项（宽高按缩放因子计算）。
+// [S-sig 0x1408d0280, 256B]：duffcopy 选项模板 → 宽高 imul 缩放计算 → 返回 options 结构。
+// 体待窗口选项域专项还原。
+func buildLauncherWindowOptions(a, b interface{}) interface{} {
+	_, _ = a, b
+	return nil
+}

@@ -15,6 +15,8 @@ package main
 
 import (
 	"errors"
+	"syscall"
+	"unsafe"
 
 	"github.com/wailsapp/wails/v3/pkg/application"
 )
@@ -469,4 +471,18 @@ func oledBlackoutHStringToString(h uintptr) string {
 func oledBlackoutQueryInterface(ctx interface{}) bool {
 	_ = ctx
 	return false
+}
+
+// GetInt32 读取 WinRT IReference<int32>.get_Value。
+// [S 汇编 0x140921060, 160B]：值槽清零 → SyscallN(vtbl[6]@0x30, this, &value) →
+// HRESULT 有符号 <0 → (0,false)；否则读回 value 并置 bool=true 返回 (int32, bool)。
+// 实证：receiver 首字段为 vtable 指针，this 以接口指针传入；bool 语义 = HRESULT 非负。
+func (r *oledBlackoutIReference) GetInt32() (int32, bool) {
+	var value int32
+	getValue := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(r.vtbl)) + 0x30))
+	hresult, _, _ := syscall.SyscallN(getValue, uintptr(unsafe.Pointer(r)), uintptr(unsafe.Pointer(&value)))
+	if int32(hresult) < 0 {
+		return 0, false
+	}
+	return value, true
 }

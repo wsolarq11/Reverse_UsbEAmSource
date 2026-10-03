@@ -668,3 +668,19 @@ func (v *VolumeIndex) ClearDirty() {
 	defer v.mu.Unlock()
 	v.markPersistedAtLocked(time.Now())
 }
+
+// EntryCount 读锁下返回活动条目计数。[S 汇编 0x1407e7b00, 192B]：mu.RLock（lock xadd
+// [rax+0x10] readerCount）+ defer RUnlock → activeEntryCountLocked() 透传返回 int。
+func (v *VolumeIndex) EntryCount() int {
+	v.mu.RLock()
+	defer v.mu.RUnlock()
+	return v.activeEntryCountLocked()
+}
+
+// activeEntryCountLocked 持锁下统计活动条目（读视图 + activeVolumeIndexEntryCountForView）。
+// [S-sig 0x1407e8340, 448B]：readProvider(+0x520) 为空则用默认 provider 取读视图，
+// defer 释放视图；打包 activeCount(+0xd8)/delta(+0x548..+0x588) 字段传给
+// activeVolumeIndexEntryCountForView；返回 int。体待读视图域专项还原。
+func (v *VolumeIndex) activeEntryCountLocked() int {
+	return 0
+}

@@ -18,3 +18,18 @@ func (s *desktopWidgetScheduler) Wake() {
 	default:
 	}
 }
+
+// Start 单次启动调度循环：once(+0x20) 内异步 go run()。
+// [S 汇编 0x1407acb80, 96B]：读 once.done([rax+0x20])，未完成则 doSlow 携带闭包 func1；
+// func1（0x1407acbe0）newobject 打包 gowrap1 捕获 scheduler，runtime.newproc 起 goroutine；
+// gowrap1（0x1407acc60）尾调 desktopWidgetScheduler.run。幂等（once 保证只跑一次）。
+func (s *desktopWidgetScheduler) Start() {
+	s.once.Do(func() {
+		go s.run()
+	})
+}
+
+// run 调度循环主体。[S-sig 0x1407acec0]：签名经 Start.func1.gowrap1 尾调实证——
+// 单 receiver、无参数、无返回。体待调度循环专项还原。
+func (s *desktopWidgetScheduler) run() {
+}

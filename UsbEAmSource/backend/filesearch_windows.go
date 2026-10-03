@@ -139,6 +139,24 @@ func (r *fileSearchCandidatePathResolver) Release() {
 func returnNodePathCache(cache *nodePathCache) {
 }
 
+// Get 按键读取缓存路径。key < 0x40000000 走 sliceCache 索引；>= 0x40000000 走 deltaCache map。
+// [S 汇编 0x1407e1720, 192B]：cmp ebx,0x40000000（signed）分路；slice 路径 movsxd 符号扩展，
+// 负键/越界返回 ("",false)，空字符串亦判不存在；map 路径 mapaccess2_fast32 直接透传 (v, ok)。
+func (c *nodePathCache) Get(key int32) (string, bool) {
+	if key >= 0x40000000 {
+		v, ok := c.deltaCache[key]
+		return v, ok
+	}
+	if key < 0 || key >= int32(len(c.sliceCache)) {
+		return "", false
+	}
+	v := c.sliceCache[key]
+	if v == "" {
+		return "", false
+	}
+	return v, true
+}
+
 // [S 汇编实证 0x140820180, 320B] 比较两字符串：TrimSpace 后空值处理（双空=0，a 空=1，
 // b 空=-1），否则 collator 非空走 CompareString、空走 strings.Compare；spec.Direction=="desc"
 // 时结果取反。返回 int(-1/0/1)。

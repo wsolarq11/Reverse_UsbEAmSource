@@ -247,3 +247,10 @@ type oledBlackoutWindowProcessCandidate struct {
 	processAUMID string
 	windowTitle  string
 }
+
+// oledBlackoutIReference WinRT IReference<int32> 接口指针包装。
+// asm 实证（0x140921060 GetInt32）：首字段（+0x00）为 vtable 指针，
+// this 直接以接口指针传入 get_Value；get_Value 位于 vtbl[6]（+0x30）。
+type oledBlackoutIReference struct {
+	vtbl *uintptr
+}

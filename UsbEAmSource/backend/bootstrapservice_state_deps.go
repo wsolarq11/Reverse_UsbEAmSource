@@ -413,6 +413,22 @@ func (s *pluginWindowService) AttachApp(app *application.App) {
 	s.lock.Unlock()
 }
 
+// resolvePluginPackageURL 解析插件包 URL。
+// [S-sig 0x14092c520, 224B]：TrimSpace 分支 → resolvePluginCatalogAssetURL / normalizePluginPackageFile。
+// 体待 catalog 域专项还原。
+func resolvePluginPackageURL(a, b, c, d, e string) string {
+	_, _, _, _, _ = a, b, c, d, e
+	return ""
+}
+
+// resolvePluginWindowBounds 解析插件窗口边界。
+// [S-sig 0x140931820, 224B]：覆盖值非空则透传；否则居中/钳位算术（4 字返回）。
+// 体待 window 域专项还原。
+func resolvePluginWindowBounds(a interface{}, b, c int64) (int64, int64, int64, int64) {
+	_, _, _ = a, b, c
+	return 0, 0, 0, 0
+}
+
 // Shutdown 停止输入监视服务。[S-sig 调用点 0x140774149]
 func (s *inputMonitorService) Shutdown() {}
 

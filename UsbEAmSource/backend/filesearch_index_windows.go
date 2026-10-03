@@ -725,6 +725,35 @@ func shouldUseVolumeIndexMmapStaticProvider() bool {
 	}
 }
 
+// shouldUseVolumeIndexMmapLoad 判定是否启用 mmap load（环境变量）。
+// [S 汇编 0x1407fa0e0, 256B]：Getenv(28 字符名) → TrimSpace → ToLower →
+// "0"/"no"/"off"/"false"/"disable"/"disabled" → false；其他（含空）→ true。
+func shouldUseVolumeIndexMmapLoad() bool {
+	v := strings.ToLower(strings.TrimSpace(os.Getenv("USBEAM_FILE_INDEX_MMAP_LOAD")))
+	switch v {
+	case "0", "no", "off", "false", "disable", "disabled":
+		return false
+	default:
+		return true
+	}
+}
+
+// planVolumeIndexMappedSection 规划索引映射段（页对齐算术）。
+// [S-sig 0x1407fcf00, 224B]：参数合法性/溢出检查 → 页对齐起始 → 4 int64 + 错误串返回。
+// 体待映射规划域专项还原。
+func planVolumeIndexMappedSection(offset, size, pageSize, limit int64) (int64, int64, int64, int64, string) {
+	_, _, _, _ = offset, size, pageSize, limit
+	return 0, 0, 0, 0, ""
+}
+
+// rebuildVolumeIndexSortedIndices 重建排序索引切片。
+// [S-sig 0x140807dc0, 256B]：makeslice([]int32,n) → 递增填充 → sort.Slice（比较闭包）。
+// 体待排序比较域专项还原。
+func rebuildVolumeIndexSortedIndices(n int, a, b interface{}) []int32 {
+	_, _, _ = n, a, b
+	return nil
+}
+
 // markDirtyLocked 标记索引脏（持锁）：n==0 直接返回；置 dirty、累加 changeCaught、记 LastMutationAt、
 // runtimeVersion 递增并跳过 0。
 // [S 汇编 0x1408072e0, 192B]：ebx==0→ret；dirty(+0xe0)=true、changeCaught(+0xe4)+=n、

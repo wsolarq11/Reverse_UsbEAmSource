@@ -194,3 +194,19 @@ func stopScreenshotScrollingChunkedCanvasAndSave(a, b *image.RGBA, c, d int64, e
 	_, _, _, _, _ = a, b, c, d, e
 	return nil, nil
 }
+
+// refineScreenshotScrollingChunkedAppendFromForSeam 优化滚动追加起点（接缝对齐）。
+// [S-sig 0x14099ff00, 192B]：nil/尺寸非法/边界条件则透传 c；否则
+// tailImage 取尾部，非空则 refineScreenshotScrollingAppendFromForSeam。体待 tailImage 专项。
+func refineScreenshotScrollingChunkedAppendFromForSeam(a, b, c interface{}) interface{} {
+	_, _, _ = a, b, c
+	return c
+}
+
+// screenshotNativePreviewWindow.decodeImage 解码预览图像（透传 decode）。
+// [S-sig 0x14099dda0, 192B]：duffcopy 参数结构 → screenshotNativePreviewDecodeImage。
+// 体待解码链专项还原。
+func (w *screenshotNativePreviewWindow) decodeImage(a interface{}) interface{} {
+	_, _ = w, a
+	return nil
+}

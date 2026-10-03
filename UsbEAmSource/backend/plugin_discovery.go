@@ -290,3 +290,11 @@ func resolvePluginCatalogAssetURL(a, b string) (string, error) {
 	_, _ = a, b
 	return "", nil
 }
+
+// parsePluginVersionParts 解析插件版本号段（TrimSpace → 去 v/V → split "." → Atoi）。
+// [S-sig 0x14092c800, 480B]：TrimSpace 空→nil；去 'v'/'V' 前缀 → genSplit(".") → Atoi 每段→失败→nil。
+// 体待版本解析域专项还原。
+func parsePluginVersionParts(version string) []int {
+	_ = version
+	return nil
+}

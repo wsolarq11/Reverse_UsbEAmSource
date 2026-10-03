@@ -1107,3 +1107,18 @@ func (p *volumeIndexHeapReadProvider) Acquire() interface{} {
 	_ = p
 	return nil
 }
+
+// closeMappedReadProviderForReplaceLocked 关闭映射读提供器以替换（持锁，IsSourcePath → HeapSnapshot → close）。
+// [S-sig 0x1407f5be0, 480B]：TrimSpace(path) 空→return；IsSourcePath→匹配→HeapSnapshot →
+// clearNameTrigramIndexLocked → closeVolumeIndexReadProvider。体待替换域专项还原。
+func closeMappedReadProviderForReplaceLocked(v *VolumeIndex, path string) {
+	_, _ = v, path
+}
+
+// validateVolumePinyinSections 校验卷拼音 sections 边界（段边界 + ASCII 校验）。
+// [S-sig 0x14080c220, 480B]：遍历 sections 校验边界 + 段字符 ASCII → 非法→error。
+// 体待拼音 sections 域专项还原。
+func validateVolumePinyinSections(a, b, c, d, e, f, g interface{}) error {
+	_, _, _, _, _, _, _ = a, b, c, d, e, f, g
+	return nil
+}

@@ -124,3 +124,11 @@ func registerLauncherHotkey(a, b, c, d interface{}, e, f, g int32) error {
 	_, _, _, _, _, _, _ = a, b, c, d, e, f, g
 	return nil
 }
+
+// ensureKeyboardHook 确保键盘钩子已安装（compileCallback → SetWindowsHookEx WH_KEYBOARD_LL）。
+// [S-sig 0x1408a0c00, 448B]：field(+0x20) 非空→nil；compileCallback → SetWindowsHookEx(0xd) →
+// 失败→清理+error；成功→field(+0x20)=hook。体待钩子域专项还原。
+func (m *windowsLauncherGlobalHotkeyManager) ensureKeyboardHook() error {
+	_ = m
+	return nil
+}

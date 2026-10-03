@@ -1,24 +1,25 @@
-# 批次 280 · 琐碎长尾拉满（+6 [S]，FUNCS 2904）
+# 批次 280 · 琐碎长尾拉满（+6 [S] +1 [S-eq]，FUNCS 2905）
 
 ## 目标
 
 沿 gap_aggregate 按 asm 长度升序落地零依赖琐碎纯函数，拉满 FUNCS：
 拼音音节规范化、输入监视 owner 规范化、远程图标集合名解析、远程图标缓存目录
-创建/校验、桌面小部件调度器唤醒。
+创建/校验、桌面小部件调度器唤醒、unix 毫秒时间戳。
 
 ## 基线 / 收口
 
 | 指标 | 基线（batch 279 后） | 收口（本批后） |
 |---|---|---|
-| FUNCS | 2898 | 2904 |
-| MARKED | 2898 | 2904 |
+| FUNCS | 2898 | 2905 |
+| MARKED | 2898 | 2905 |
 | S | 1377 | 1383 |
 | S-inline | 37 | 37 |
+| S-eq | 0 | 1 |
 | S-sig | 1443 | 1443 |
 | P | 41 | 41 |
 | UNMARKED | 0 | 0 |
 | FAITHFUL（S+S-inline） | 1414 | 1420 |
-| USABLE | 1414 | 1420 |
+| USABLE | 1414 | 1421 |
 
 `go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
 
@@ -32,11 +33,12 @@
 `bash tools/count_funcs.sh` 活体实测：
 
 ```
-FAITHFUL=1420  FUNCS=2904  MARKED=2904  P=41  S-eq=0  S-inline=37  S-sig=1443  S=1383  USABLE=1420
+FAITHFUL=1420  FUNCS=2905  MARKED=2905  P=41  S-eq=1  S-inline=37  S-sig=1443  S=1383  USABLE=1421
 ```
 
-分项自洽：`S + S-inline + S-sig + P = 1383 + 37 + 1443 + 41 = 2904 = FUNCS`。
-S 1377→1383（+6）、FUNCS 2898→2904（+6）、FAITHFUL 1414→1420（+6）、UNMARKED=0/P=41 保持。
+分项自洽：`S + S-inline + S-eq + S-sig + P = 1383 + 37 + 1 + 1443 + 41 = 2905 = FUNCS`。
+S 1377→1383（+6）、S-eq 0→1（+1）、FUNCS 2898→2905（+7）、FAITHFUL 1414→1420（+6）、
+USABLE 1414→1421（+7）、UNMARKED=0/P=41 保持。
 
 ## G3 行为（asm 逐地址实证）
 
@@ -76,10 +78,18 @@ asm：mapaccess2_faststr 查 name；bl=found==0→返回 name；命中→TrimSpa
 asm：nil receiver→ret；`[rax+0x08]` 取 wake chan（desktopWidgetScheduler.wake @ +0x08）；
 `runtime.selectnbsend` 非阻塞发送（返回值被忽略 → select default 分支）。
 
+### 3.7 timeFromWindowsTick [S-eq 0x1408697a0, 128B]
+
+`() int64`（unix 毫秒）。asm：time.Now() → bt 0x3f 判 hasMonotonic；有 monotonic 则
+`sec=(wall<<1>>31)+wallToInternal(0xdd7b17f80)`，无则 `sec=ext`；`nsec=wall&0x3fffffff`；
+`rax=(sec-unixToInternal)*1000 + nsec/1e6`（magic 0x431bde82d7b634db 乘后 >>82 ≡ ÷1e6）。
+等价于 time.Now().UnixMilli()（time.Time.wall 未导出，公开 API 与 sec()/nsec() 内联展开精确一致）。
+
 ## G4 独立复核
 
 - `filesearch_pinyin_windows.go`：+`normalizePinyinSyllable`（import 加 strings）。
 - `inputmonitor.go`：+`normalizeInputMonitorOwner`（import 加 errors/strings）。
+- `inputmonitor_windows.go`：+`timeFromWindowsTick`（import 加 time）。
 - `remoteicons.go`：+`resolveRemoteIconCollectionName`。
 - `remoteicons_cache_windows.go`：+`errRemoteIconCachePathUnsafe`、`createRemoteIconCacheDirectory`、
   `validateRemoteIconCacheDirectory`（import 加 os）。
@@ -89,6 +99,7 @@ asm：nil receiver→ret；`[rax+0x08]` 取 wake chan（desktopWidgetScheduler.w
 
 ## 移交（本轮收尾）
 
-6 个琐碎函数全部 [S] 落地，均零外部依赖或依赖已落地符号。FUNCS 2904/4754 = 61.09%。
-未落地文件差集 37→36（desktopwidgets_scheduler.go 新建）。下一批继续沿 gap_aggregate
-size 升序落地（desktopWidgetScheduler.Start/Stop + oledBlackoutProfileKey + timeFromWindowsTick 等）。
+7 个琐碎函数落地（6 [S] + 1 [S-eq]），均零外部依赖或依赖已落地符号。
+FUNCS 2905/4754 = 61.11%。未落地文件差集 37→36（desktopwidgets_scheduler.go 新建）。
+下一批继续沿 gap_aggregate size 升序落地（desktopWidgetScheduler.Start/Stop +
+oledBlackoutProfileKey + ensureLauncherAppIdentity 等）。

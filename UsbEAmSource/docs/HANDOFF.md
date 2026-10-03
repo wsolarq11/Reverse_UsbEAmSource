@@ -5440,13 +5440,13 @@ S-sig=1443 / P=41 / UNMARKED=0`（真函数 2852→2857 = 60.10%；FAITHFUL 1409
 **下一批**：`inspectWebView2Processes`（3104B）平台层枚举专项，或转其它未落地文件差集（37 个）。
 P=41 持平。FUNCS 2898/4754 = 60.96%。未落地文件差集 38→37。
 
-### 批次 280（琐碎长尾拉满 +6 [S]）
+### 批次 280（琐碎长尾拉满 +6 [S] +1 [S-eq]）
 
-**基线/收口**：`FUNCS=2898→2904 / MARKED=2898→2904 / S=1377→1383 / S-inline=37 /
-S-sig=1443 / P=41 / UNMARKED=0`（FAITHFUL 1414→1420）。
+**基线/收口**：`FUNCS=2898→2905 / MARKED=2898→2905 / S=1377→1383 / S-eq=0→1 /
+S-inline=37 / S-sig=1443 / P=41 / UNMARKED=0`（FAITHFUL 1414→1420，USABLE 1414→1421）。
 `go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
 
-**落地（+6 [S]，+6 FUNCS）**：
+**落地（+7 FUNCS）**：
 1. `normalizePinyinSyllable` [S 0x14080b1e0, 160B]：TrimSpace → ToLower → Replace("u:","v",-1)
    → Replace("ü","v",-1)。
 2. `normalizeInputMonitorOwner` [S 0x140861ea0, 160B]：TrimSpace → 空或 >0x100 → ("", err
@@ -5459,9 +5459,11 @@ S-sig=1443 / P=41 / UNMARKED=0`（FAITHFUL 1414→1420）。
 5. `validateRemoteIconCacheDirectory` [S 0x1409651c0, 224B]：Lstat → IsDir → Mode&ModeSymlink
    → remoteIconPathHasReparsePoint，失败返回全局错误"远程图标缓存路径不安全"。
 6. `(*desktopWidgetScheduler)Wake` [S 0x1407accc0, 96B]：nil→return；wake chan(+0x08) selectnbsend。
+7. `timeFromWindowsTick` [S-eq 0x1408697a0, 128B]：time.Now().UnixMilli()（wall 未导出，
+   公开 API 与 asm sec()/nsec() 内联展开精确等价）。
 
-**下一批**：desktopWidgetScheduler.Start/Stop + oledBlackoutProfileKey + timeFromWindowsTick 等
-gap_aggregate size 升序琐碎函数。P=41 持平。FUNCS 2904/4754 = 61.09%。未落地文件差集 37→36。
+**下一批**：desktopWidgetScheduler.Start/Stop + oledBlackoutProfileKey + ensureLauncherAppIdentity 等
+gap_aggregate size 升序琐碎函数。P=41 持平。FUNCS 2905/4754 = 61.11%。未落地文件差集 37→36。
 
 
 

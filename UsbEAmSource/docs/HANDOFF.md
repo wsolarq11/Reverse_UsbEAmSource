@@ -5639,6 +5639,22 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1456→1457，USABLE 14
 **下一批**：launcherupdate 短函数（namedPipe/frameWithTimeout 288-768B）+
 截图滚动几何。P=41 持平。FUNCS 2943/4754 = 61.91%。未落地文件差集 34 保持。
 
+### 批次 291（帧读写 +2 [S]）
+
+**基线/收口**：`FUNCS=2943→2945 / MARKED=2943→2945 / S=1420→1422 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1457→1459，USABLE 1458→1460）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+2 FUNCS）**：
+1. `writeLauncherUpdateFrame` [S 0x1408c31e0]：uint32 长度头 + payload，上限 0x810000。
+2. `readLauncherUpdateFrame` [S 0x1408c3300]：读 uint32 长度头 + ReadAtLeast 满 payload。
+
+**连带**：`launcherupdate_helper_windows.go` import +encoding/binary +io。
+
+**下一批**：launcherupdate 短函数（createNamedPipe/openNamedPipeClient/
+frameWithTimeout 352-768B）+ 截图滚动几何。P=41 持平。FUNCS 2945/4754 = 61.95%。
+未落地文件差集 34 保持。
+
 
 
 

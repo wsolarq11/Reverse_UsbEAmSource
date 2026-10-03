@@ -2,8 +2,10 @@ package main
 
 import (
 	"crypto/sha256"
+	"encoding/binary"
 	"encoding/hex"
 	"errors"
+	"io"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -238,4 +240,36 @@ func scheduleLauncherUpdateHelperCleanup() {
 	if d, err := windows.UTF16PtrFromString(filepath.Dir(exe)); err == nil {
 		_ = windows.MoveFileEx(d, nil, windows.MOVEFILE_DELAY_UNTIL_REBOOT)
 	}
+}
+
+// writeLauncherUpdateFrame 写一帧：先写 little-endian uint32 长度头，再写 payload。
+// [S 汇编 0x1408c31e0, 288B]：len==0 或 len>0x810000 → "更新认证消息大小无效"；
+// binary.Write(conn,LittleEndian,uint32(len)) 失败透传；否则 conn.Write(payload) 透传 err。
+func writeLauncherUpdateFrame(conn io.Writer, payload []byte) error {
+	if len(payload) == 0 || len(payload) > 0x810000 {
+		return errors.New("更新认证消息大小无效")
+	}
+	if err := binary.Write(conn, binary.LittleEndian, uint32(len(payload))); err != nil {
+		return err
+	}
+	_, err := conn.Write(payload)
+	return err
+}
+
+// readLauncherUpdateFrame 读一帧：先读 little-endian uint32 长度头，再读满 payload。
+// [S 汇编 0x1408c3300, 320B]：binary.Read 失败透传；size==0 或 int(size)>maxSize →
+// "更新认证消息大小无效"；io.ReadAtLeast(conn,buf,int(size)) 失败透传；成功返回 (buf,nil)。
+func readLauncherUpdateFrame(conn io.Reader, maxSize int) ([]byte, error) {
+	var size uint32
+	if err := binary.Read(conn, binary.LittleEndian, &size); err != nil {
+		return nil, err
+	}
+	if size == 0 || int(size) > maxSize {
+		return nil, errors.New("更新认证消息大小无效")
+	}
+	buf := make([]byte, int(size))
+	if _, err := io.ReadAtLeast(conn, buf, int(size)); err != nil {
+		return nil, err
+	}
+	return buf, nil
 }

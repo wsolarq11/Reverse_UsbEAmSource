@@ -33,3 +33,11 @@ func resolveWebView2ProcessInspectHostExeName() string {
 	}
 	return name
 }
+
+// inspectWebView2Processes 枚举 WebView2 进程并构造归一化快照。
+// [P] 存根：平台层进程枚举（0x1409debc0, 3104B，依赖 CreateToolhelp32Snapshot/
+// OpenProcess/读命令行等 Windows API）待专项批次还原。签名已实证：
+// func inspectWebView2Processes(userDataDir string) WebView2ProcessSnapshot。
+func inspectWebView2Processes(userDataDir string) WebView2ProcessSnapshot {
+	return WebView2ProcessSnapshot{}
+}

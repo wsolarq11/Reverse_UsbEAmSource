@@ -444,3 +444,84 @@ func connectLauncherUpdateNamedPipe(pipe windows.Handle, timeout time.Duration) 
 		return fmt.Errorf("等待更新认证 named pipe 连接返回未知状态: %d", result)
 	}
 }
+
+// queryLauncherUpdateProcessIdentity 采集进程身份：PID/父PID/创建时间/会话/SID/完整性/镜像/哈希。
+// [S 汇编 0x1408c3d60, 2112B]：OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION|SYNCHRONIZE)
+// 失败透传，defer CloseHandle；GetProcessTimes 取创建时间；queryLauncherUpdateParentPID；
+// ProcessIdToSessionId；OpenProcessToken(TOKEN_QUERY) 后 defer CloseHandle；GetTokenUser 取
+// SID；launcherUpdateTokenIntegrityRID；launcherUpdateProcessImagePath 取镜像路径；
+// openLauncherUpdateReadOnlyHandle + GetFileInformationByHandle 取卷序列号/文件索引；
+// hashLauncherUpdateFile 取 SHA256。任一失败返回零值身份 + err。
+func queryLauncherUpdateProcessIdentity(pid uint32) (launcherUpdateProcessIdentity, error) {
+	handle, err := windows.OpenProcess(windows.PROCESS_QUERY_LIMITED_INFORMATION|windows.SYNCHRONIZE, false, pid)
+	if err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+	defer windows.CloseHandle(handle)
+
+	var creation, exitTime, kernel, user windows.Filetime
+	if err := windows.GetProcessTimes(handle, &creation, &exitTime, &kernel, &user); err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+
+	parentPID, err := queryLauncherUpdateParentPID(pid)
+	if err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+
+	var sessionID uint32
+	if err := windows.ProcessIdToSessionId(pid, &sessionID); err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+
+	var token windows.Token
+	if err := windows.OpenProcessToken(handle, windows.TOKEN_QUERY, &token); err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+	defer windows.CloseHandle(windows.Handle(token))
+
+	tokenUser, err := token.GetTokenUser()
+	if err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+
+	integrityRID, err := launcherUpdateTokenIntegrityRID(token)
+	if err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+
+	imagePath, err := launcherUpdateProcessImagePath(handle)
+	if err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+
+	imageFile, err := openLauncherUpdateReadOnlyHandle(imagePath)
+	if err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+	defer windows.CloseHandle(imageFile)
+
+	var info windows.ByHandleFileInformation
+	if err := windows.GetFileInformationByHandle(imageFile, &info); err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+
+	imageHash, err := hashLauncherUpdateFile(imagePath)
+	if err != nil {
+		return launcherUpdateProcessIdentity{}, err
+	}
+
+	return launcherUpdateProcessIdentity{
+		PID:           pid,
+		ParentPID:     parentPID,
+		CreatedAt:     creation.Nanoseconds(),
+		SessionID:     sessionID,
+		UserSID:       tokenUser.User.Sid.String(),
+		IntegrityRID:  integrityRID,
+		ImagePath:     imagePath,
+		ImageSHA256:   imageHash,
+		VolumeSerial:  info.VolumeSerialNumber,
+		FileIndexHigh: info.FileIndexHigh,
+		FileIndexLow:  info.FileIndexLow,
+	}, nil
+}

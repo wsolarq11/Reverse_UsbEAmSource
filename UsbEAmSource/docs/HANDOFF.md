@@ -5697,6 +5697,19 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1463→1464，USABLE 14
 **下一批**：launcherupdate（queryLauncherUpdateProcessIdentity 0x1408c3d60, 3.2KB）+
 截图滚动几何。P=41 持平。FUNCS 2950/4754 = 62.05%。未落地文件差集 34 保持。
 
+### 批次 295（进程身份采集 +1 [S]）
+
+**基线/收口**：`FUNCS=2950→2951 / MARKED=2950→2951 / S=1427→1428 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1464→1465，USABLE 1465→1466）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+1 FUNCS）**：
+1. `queryLauncherUpdateProcessIdentity` [S 0x1408c3d60]：PID/父PID/创建时间/会话/SID/
+   完整性/镜像路径/SHA256/卷序列号/文件索引，返回 launcherUpdateProcessIdentity（96B）。
+
+**下一批**：截图滚动几何 / launcherupdate 剩余短函数。P=41 持平。FUNCS 2951/4754 =
+62.07%。未落地文件差集 34 保持。
+
 
 
 

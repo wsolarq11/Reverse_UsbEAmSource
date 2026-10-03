@@ -570,6 +570,18 @@ func (s *oledBlackoutGSMTCSessionManager) GetSessions() (uintptr, error) {
 	return out, nil
 }
 
+// GetPlaybackInfo 获取 GSMTC 会话的播放信息。
+// [S 汇编 0x140920700, 256B]：SyscallN(vtbl[0x48] GetPlaybackInfo, this, &out) → HRESULT <0 → fmt.Errorf。
+func (s *oledBlackoutGSMTCSessionManager) GetPlaybackInfo() (uintptr, error) {
+	var out uintptr
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x48))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&out)))
+	if int32(hresult) < 0 {
+		return 0, fmt.Errorf("GSMTCSession.GetPlaybackInfo failed: 0x%x", uint32(hresult))
+	}
+	return out, nil
+}
+
 // oledBlackoutIVectorView WinRT IVectorView 接口包装。
 type oledBlackoutIVectorView struct {
 	vtbl *uintptr
@@ -585,6 +597,35 @@ func (s *oledBlackoutIVectorView) GetSize() (uint32, error) {
 		return 0, fmt.Errorf("IVectorView.GetSize failed: 0x%x", uint32(hresult))
 	}
 	return size, nil
+}
+
+// GetAt 获取 IVectorView 指定索引元素。
+// [S 汇编 0x1409203a0, 256B]：SyscallN(vtbl[0x30] GetAt, this, index, &out) → HRESULT <0 → fmt.Errorf。
+func (s *oledBlackoutIVectorView) GetAt(index uint32) (uintptr, error) {
+	var out uintptr
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x30))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(index), uintptr(unsafe.Pointer(&out)))
+	if int32(hresult) < 0 {
+		return 0, fmt.Errorf("IVectorView.GetAt failed: 0x%x", uint32(hresult))
+	}
+	return out, nil
+}
+
+// oledBlackoutGSMTCPlaybackInfo WinRT GSMTCPlaybackInfo 接口包装。
+type oledBlackoutGSMTCPlaybackInfo struct {
+	vtbl *uintptr
+}
+
+// GetPlaybackStatus 获取 GSMTC 播放状态。
+// [S 汇编 0x140920de0, 256B]：SyscallN(vtbl[0x38] GetPlaybackStatus, this, &status) → HRESULT <0 → fmt.Errorf。
+func (s *oledBlackoutGSMTCPlaybackInfo) GetPlaybackStatus() (uint32, error) {
+	var status uint32
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x38))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&status)))
+	if int32(hresult) < 0 {
+		return 0, fmt.Errorf("GSMTCPlaybackInfo.GetPlaybackStatus failed: 0x%x", uint32(hresult))
+	}
+	return status, nil
 }
 
 // parseOLEDBlackoutScreenNumber 从屏幕名提取数字编号（收集所有数字字符后 Atoi）。

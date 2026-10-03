@@ -18,11 +18,14 @@ package main
 import (
 	"context"
 	"errors"
+	"fmt"
 	"path/filepath"
 	"sort"
 	"strconv"
 	"strings"
+	"syscall"
 	"time"
+	"unsafe"
 
 	"github.com/wailsapp/wails/v3/pkg/application"
 )
@@ -531,6 +534,57 @@ func (s *oledBlackoutService) idleThresholdForProfileLocked(profile string, minu
 // mapdelete(+0xf8) → syncVisibleOverlayStateLocked。体待 overlay 域专项还原。
 func (s *oledBlackoutService) dismissOverlayScreenLocked(key string) {
 	_ = key
+}
+
+// oledBlackoutGSMTCSessionManagerStatics WinRT GSMTCSessionManager 静态接口包装。
+type oledBlackoutGSMTCSessionManagerStatics struct {
+	vtbl *uintptr
+}
+
+// RequestAsync 发起 GSMTC 会话异步请求。
+// [S 汇编 0x1409200a0, 256B]：SyscallN(vtbl[0x30] RequestAsync, this, &out) → HRESULT <0 → fmt.Errorf。
+func (s *oledBlackoutGSMTCSessionManagerStatics) RequestAsync() (uintptr, error) {
+	var out uintptr
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x30))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&out)))
+	if int32(hresult) < 0 {
+		return 0, fmt.Errorf("GSMTCSessionManagerStatics.RequestAsync failed: 0x%x", uint32(hresult))
+	}
+	return out, nil
+}
+
+// oledBlackoutGSMTCSessionManager WinRT GSMTCSessionManager 接口包装。
+type oledBlackoutGSMTCSessionManager struct {
+	vtbl *uintptr
+}
+
+// GetSessions 获取 GSMTC 会话集合。
+// [S 汇编 0x1409201a0, 256B]：SyscallN(vtbl[0x38] GetSessions, this, &out) → HRESULT <0 → fmt.Errorf。
+func (s *oledBlackoutGSMTCSessionManager) GetSessions() (uintptr, error) {
+	var out uintptr
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x38))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&out)))
+	if int32(hresult) < 0 {
+		return 0, fmt.Errorf("GSMTCSessionManager.GetSessions failed: 0x%x", uint32(hresult))
+	}
+	return out, nil
+}
+
+// oledBlackoutIVectorView WinRT IVectorView 接口包装。
+type oledBlackoutIVectorView struct {
+	vtbl *uintptr
+}
+
+// GetSize 获取 IVectorView 元素数量。
+// [S 汇编 0x1409202a0, 256B]：SyscallN(vtbl[0x38] GetSize, this, &size) → HRESULT <0 → fmt.Errorf。
+func (s *oledBlackoutIVectorView) GetSize() (uint32, error) {
+	var size uint32
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x38))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&size)))
+	if int32(hresult) < 0 {
+		return 0, fmt.Errorf("IVectorView.GetSize failed: 0x%x", uint32(hresult))
+	}
+	return size, nil
 }
 
 // parseOLEDBlackoutScreenNumber 从屏幕名提取数字编号（收集所有数字字符后 Atoi）。

@@ -1,6 +1,8 @@
 package main
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"errors"
 	"os/exec"
 	"path/filepath"
@@ -132,4 +134,38 @@ func launcherUpdateTokenIntegrityRID(token windows.Token) (uint32, error) {
 		return 0, errors.New("令牌完整性 SID 无效")
 	}
 	return sid.SubAuthority(uint32(sid.SubAuthorityCount()) - 1), nil
+}
+
+// queryLauncherUpdateParentPID 通过进程快照枚举查找指定 PID 的父进程 PID。
+// [S 汇编 0x1408c46c0, 576B]：CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0)
+// 失败 → (0,err)；defer CloseHandle；Process32First 失败 → (0,err)；循环比对
+// ProcessID，命中 → (ParentProcessID,nil)；Process32Next 失败 → "未找到进程父 PID"。
+func queryLauncherUpdateParentPID(pid uint32) (uint32, error) {
+	snapshot, err := windows.CreateToolhelp32Snapshot(windows.TH32CS_SNAPPROCESS, 0)
+	if err != nil {
+		return 0, err
+	}
+	defer windows.CloseHandle(snapshot)
+	var pe windows.ProcessEntry32
+	pe.Size = uint32(unsafe.Sizeof(pe))
+	if err := windows.Process32First(snapshot, &pe); err != nil {
+		return 0, err
+	}
+	for {
+		if pe.ProcessID == pid {
+			return pe.ParentProcessID, nil
+		}
+		if err := windows.Process32Next(snapshot, &pe); err != nil {
+			return 0, errors.New("未找到进程父 PID")
+		}
+	}
+}
+
+// launcherUpdateHandshakeProof 计算握手证明：固定前缀（含 \x00 终止）拼接 nonce 后
+// SHA-256，结果十六进制小写编码。
+// [S 汇编 0x1408c3b60, 512B]：sha256.Sum256("UsbEAm launcher update handshake v2\x00"+nonce)
+// → hex.EncodeToString。
+func launcherUpdateHandshakeProof(nonce string) string {
+	sum := sha256.Sum256([]byte("UsbEAm launcher update handshake v2\x00" + nonce))
+	return hex.EncodeToString(sum[:])
 }

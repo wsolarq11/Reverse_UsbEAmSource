@@ -5576,6 +5576,23 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1450→1452，USABLE 14
 **下一批**：launcherupdate 短函数（handshakeProof/parentPID/namedPipe 320-768B）+
 截图滚动几何。P=41 持平。FUNCS 2938/4754 = 61.80%。未落地文件差集 34 保持。
 
+### 批次 287（父 PID 枚举 + 握手证明 +2 [S]）
+
+**基线/收口**：`FUNCS=2938→2940 / MARKED=2938→2940 / S=1415→1417 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1452→1454，USABLE 1453→1455）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+2 FUNCS）**：
+1. `queryLauncherUpdateParentPID` [S 0x1408c46c0]：CreateToolhelp32Snapshot 枚举，
+   ProcessID 命中返回 ParentProcessID。
+2. `launcherUpdateHandshakeProof` [S 0x1408c3b60]：sha256("...handshake v2\x00"+nonce)
+   → hex 小写。
+
+**连带**：`launcherupdate_helper_windows.go` import +crypto/sha256 +encoding/hex。
+
+**下一批**：launcherupdate 短函数（namedPipe/frameWithTimeout/validateHelperExecutable
+288-768B）+ 截图滚动几何。P=41 持平。FUNCS 2940/4754 = 61.84%。未落地文件差集 34 保持。
+
 
 
 

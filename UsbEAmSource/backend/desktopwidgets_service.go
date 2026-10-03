@@ -137,3 +137,19 @@ func desktopWeatherConfigChanged(a, b interface{}) bool {
 	_, _ = a, b
 	return false
 }
+
+// parseDesktopReminderTimeOfDay 解析桌面提醒时间（HH:MM → 小时/分钟）。
+// [S-sig 0x1407b0800, 352B]：TrimSpace → time.Parse("15:04") → 失败 (0,0,false)；
+// 否则 absSec 计算 hour/minute → (h,m,true)。体待时间格式常量专项还原。
+func parseDesktopReminderTimeOfDay(a string) (int, int, bool) {
+	_ = a
+	return 0, 0, false
+}
+
+// launcherWidgetStorePath 解析启动器 widget 存储路径（basename 替换为 widgets.json）。
+// [S-sig 0x1407bfbc0, 352B]：TrimSpace 空→""；Base+EqualFold("widgets.json") →
+// filepath.Join(Dir, sub)。体待子路径常量专项还原。
+func launcherWidgetStorePath(a string) string {
+	_ = a
+	return ""
+}

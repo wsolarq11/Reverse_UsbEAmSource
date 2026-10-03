@@ -308,3 +308,25 @@ func buildChromiumRootAncestry(a, b interface{}) interface{} {
 	_, _ = a, b
 	return nil
 }
+
+// resolveChromiumRootNameSegment 解析 Chromium 根名段（系统根返回空，否则原样）。
+// [S 汇编 0x140768100, 352B]：ToLower(TrimSpace) → switch 命中系统根名返回 ""；
+// 否则 TrimSpace 原样返回。系统根名：other/mobile/synced/account/managed/
+// bookmark_bar/reading_list。
+func resolveChromiumRootNameSegment(name string) string {
+	lower := strings.ToLower(strings.TrimSpace(name))
+	switch lower {
+	case "other", "mobile", "synced", "account", "managed", "bookmark_bar", "reading_list":
+		return ""
+	}
+	return strings.TrimSpace(name)
+}
+
+// describeFirefoxBookmarkPath 描述 Firefox 书签路径（匹配 profile 源返回名字+路径）。
+// [S-sig 0x14076d0a0, 352B]：Clean(TrimSpace) → 空/"."→nil；Dir → 遍历
+// resolveFirefoxProfileSources 匹配 → 返回 (name,path)；否则 normalizeFirefoxProfileName。
+// 体待 profile 源结构专项还原。
+func describeFirefoxBookmarkPath(a string) (string, string) {
+	_ = a
+	return "", ""
+}

@@ -867,3 +867,54 @@ func buildVolumeIndexCheckpointHeaderLocked(a interface{}, b, c uint32, d uint64
 func (s *FileIndexService) stopUSNFollowerLocked(a, b interface{}) {
 	_, _ = a, b
 }
+
+// Close 关闭映射读取提供者（closing 置位，归零时调用 release）。
+// [S 汇编 0x1407e4300, 320B]：nil/closed→(nil)；closing=true；active>0→(nil)；
+// 否则取 release 置 nil + closed=true；unlock 后 release 非空则调用。
+func (p *volumeIndexMappedReadProvider) Close() error {
+	if p == nil {
+		return nil
+	}
+	p.mu.Lock()
+	if p.closed {
+		p.mu.Unlock()
+		return nil
+	}
+	p.closing = true
+	if p.active > 0 {
+		p.mu.Unlock()
+		return nil
+	}
+	rel := p.release
+	p.release = nil
+	p.closed = true
+	p.mu.Unlock()
+	if rel != nil {
+		rel()
+	}
+	return nil
+}
+
+// OverlayStats 返回 overlay 统计（RLock 包装 overlayStatsLocked）。
+// [S-sig 0x1407e7c20, 320B]：RLock(+0x10) → defer RUnlock → overlayStatsLocked。
+// 体待 overlayStatsLocked 落地。
+func (s *VolumeIndex) OverlayStats() interface{} {
+	_ = s
+	return nil
+}
+
+// overlayStatsLocked 计算 overlay 统计（持锁，5 值返回）。
+// [S-sig 0x1407e7fe0, 320B]：baseEntryCountLocked → 迭代节点计数 → 比率计算。
+// 体待 overlay 统计结构专项还原。
+func (s *VolumeIndex) overlayStatsLocked() interface{} {
+	_ = s
+	return nil
+}
+
+// lockUSNFollowerSidecar 锁定 USN follower 侧车（全局 map LoadOrStore mutex）。
+// [S-sig 0x140818440, 320B]：usnFollowerPaths → HashTrieMap LoadOrStore → lock。
+// 体待侧车锁结构专项还原。
+func (s *FileIndexService) lockUSNFollowerSidecar(a, b interface{}) interface{} {
+	_, _ = a, b
+	return nil
+}

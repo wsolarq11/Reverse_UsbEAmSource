@@ -570,14 +570,32 @@ func (s *oledBlackoutGSMTCSessionManager) GetSessions() (uintptr, error) {
 	return out, nil
 }
 
+// oledBlackoutGSMTCSession WinRT GSMTCSession 接口包装。
+type oledBlackoutGSMTCSession struct {
+	vtbl *uintptr
+}
+
 // GetPlaybackInfo 获取 GSMTC 会话的播放信息。
 // [S 汇编 0x140920700, 256B]：SyscallN(vtbl[0x48] GetPlaybackInfo, this, &out) → HRESULT <0 → fmt.Errorf。
-func (s *oledBlackoutGSMTCSessionManager) GetPlaybackInfo() (uintptr, error) {
+func (s *oledBlackoutGSMTCSession) GetPlaybackInfo() (uintptr, error) {
 	var out uintptr
 	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x48))
 	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&out)))
 	if int32(hresult) < 0 {
 		return 0, fmt.Errorf("GSMTCSession.GetPlaybackInfo failed: 0x%x", uint32(hresult))
+	}
+	return out, nil
+}
+
+// TryGetMediaPropertiesAsync 异步获取 GSMTC 会话媒体属性。
+// [S 汇编 0x140920ce0, 256B]：SyscallN(vtbl[0x38] TryGetMediaPropertiesAsync, this, &out)
+// → HRESULT <0 → fmt.Errorf。
+func (s *oledBlackoutGSMTCSession) TryGetMediaPropertiesAsync() (uintptr, error) {
+	var out uintptr
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x38))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&out)))
+	if int32(hresult) < 0 {
+		return 0, fmt.Errorf("GSMTCSession.TryGetMediaPropertiesAsync failed: 0x%x", uint32(hresult))
 	}
 	return out, nil
 }
@@ -672,4 +690,33 @@ func oledBlackoutReadInputSnapshot() (int, int, bool, map[uintptr]struct{}) {
 	x, y, ok := oledBlackoutCurrentCursorPhysicalPoint()
 	keys := oledBlackoutPressedKeyboardKeys()
 	return x, y, ok, keys
+}
+
+// GetResults 获取 IAsyncOperation 异步结果（类型定义于 types_oled.go）。
+// [S 汇编 0x140921360, 256B]：SyscallN(vtbl[0x40] GetResults, this, &out) → HRESULT <0 → fmt.Errorf。
+func (s *oledBlackoutIAsyncOperation) GetResults() (uintptr, error) {
+	var out uintptr
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x40))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&out)))
+	if int32(hresult) < 0 {
+		return 0, fmt.Errorf("IAsyncOperation.GetResults failed: 0x%x", uint32(hresult))
+	}
+	return out, nil
+}
+
+// oledBlackoutIAsyncInfo WinRT IAsyncInfo 接口包装。
+type oledBlackoutIAsyncInfo struct {
+	vtbl *uintptr
+}
+
+// GetStatus 获取 IAsyncInfo 异步状态。
+// [S 汇编 0x140921a80, 256B]：SyscallN(vtbl[0x38] GetStatus, this, &status) → HRESULT <0 → fmt.Errorf。
+func (s *oledBlackoutIAsyncInfo) GetStatus() (uint32, error) {
+	var status uint32
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x38))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&status)))
+	if int32(hresult) < 0 {
+		return 0, fmt.Errorf("IAsyncInfo.GetStatus failed: 0x%x", uint32(hresult))
+	}
+	return status, nil
 }

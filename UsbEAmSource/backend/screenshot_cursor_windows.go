@@ -17,6 +17,15 @@ var procGetCursorInfo = user32DLL.NewProc("GetCursorInfo")
 // procShowCursor 是 user32.ShowCursor 的 LazyProc。
 var procShowCursor = user32DLL.NewProc("ShowCursor")
 
+// procLoadCursorW 是 user32.LoadCursorW 的 LazyProc。
+var procLoadCursorW = user32DLL.NewProc("LoadCursorW")
+
+// procSetCursor 是 user32.SetCursor 的 LazyProc。
+var procSetCursor = user32DLL.NewProc("SetCursor")
+
+// procReleaseCapture 是 user32.ReleaseCapture 的 LazyProc。
+var procReleaseCapture = user32DLL.NewProc("ReleaseCapture")
+
 // screenshotCursorNativeInfo 对应 Win32 CURSORINFO（24B）。
 // [S] currentScreenshotCursorInfo 0x140974a20: newobject 24B，cbSize=0x18，
 // 字段偏移 cbSize@0/flags@4/hCursor@8/ptScreenPos@0x10。
@@ -99,6 +108,31 @@ func ensureScreenshotCursorVisible() {
 		return
 	}
 	_ = adjustScreenshotCursorVisibility(true)
+}
+
+// setScreenshotOverlayCursor 加载系统光标资源（MAKEINTRESOURCE）并设置为当前光标。
+// [S 汇编 0x140973ae0, 192B]：ensureScreenshotCursorVisible()；
+// LoadCursorW(0, uint16) 返回 0 → false；否则 SetCursor(hCursor) → true。
+func setScreenshotOverlayCursor(cursor uint16) bool {
+	ensureScreenshotCursorVisible()
+	hCursor, _, _ := procLoadCursorW.Call(0, uintptr(cursor))
+	if hCursor == 0 {
+		return false
+	}
+	procSetCursor.Call(hCursor)
+	return true
+}
+
+// restoreScreenshotCursorAfterOverlay 覆盖层关闭后恢复光标：ReleaseCapture → 恢复箭头光标
+// （IDC_ARROW=0x7f00）→ 光标仍隐藏则调整到可见。
+// [S 汇编 0x140973be0, 96B]：ReleaseCapture()（0 参）；setScreenshotOverlayCursor(0x7f00)；
+// !screenshotCursorCurrentlyShowing() → adjustScreenshotCursorVisibility(true)。
+func restoreScreenshotCursorAfterOverlay() {
+	procReleaseCapture.Call()
+	setScreenshotOverlayCursor(0x7f00)
+	if !screenshotCursorCurrentlyShowing() {
+		_ = adjustScreenshotCursorVisibility(true)
+	}
 }
 
 // copyRGBAToQRCodeDIBBits 将 *image.RGBA 拷贝为紧凑 32bpp BGRA DIB 位。

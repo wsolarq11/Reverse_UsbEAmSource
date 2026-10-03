@@ -168,3 +168,14 @@ func screenshotNativePreviewImageRect(img *image.RGBA, maxW, maxH int) image.Rec
 	}
 	return image.Rect((maxW-w)/2, (maxH-h)/2, (maxW-w)/2+w, (maxH-h)/2+h)
 }
+
+// paint 处理 WM_PAINT：BeginPaint 成功后 redraw，最后 EndPaint。
+// [S 汇编 0x14099da60, 224B]：BeginPaint(hwnd,&ps) 返回非 0 → redraw()；EndPaint(hwnd,&ps)。
+// LazyProc 名 "BeginPaint"/"EndPaint"（0x141BC29F0/0x141BC29F8）。
+func (s *screenshotNativePreviewWindow) paint(hwnd uintptr) {
+	var ps w32.PAINTSTRUCT
+	if w32.BeginPaint(hwnd, &ps) != 0 {
+		s.redraw()
+	}
+	w32.EndPaint(hwnd, &ps)
+}

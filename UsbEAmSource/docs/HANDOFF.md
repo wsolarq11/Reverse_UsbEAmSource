@@ -5505,6 +5505,26 @@ S-inline=37 / S-sig=1443→1444 / P=41 / UNMARKED=0`（FAITHFUL 1436→1439，US
 decodeImage 依赖 1312B 解码器、handleMessage 1984B、WindowProc 448B、render 512B）。
 P=41 持平。FUNCS 2925/4754 = 61.55%。未落地文件差集 35 保持。
 
+### 批次 283（screenshot 滚动取消状态机 + 预览绘制/光标恢复 +5 [S]）
+
+**基线/收口**：`FUNCS=2925→2930 / MARKED=2925→2930 / S=1402→1407 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1439→1444，USABLE 1440→1445）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+5 FUNCS）**：
+1. `(*screenshotNativePreviewWindow)paint` [S 0x14099da60]：BeginPaint→redraw→EndPaint。
+2. `shouldCancelScreenshotScrolling` [S 0x1409a32a0]：右键取消状态机（armed/clicked/上升沿）。
+3. `waitScreenshotScrollingCancelable` [S 0x1409a3380]：超时窗轮询（sleep 步长上限 16ms）。
+4. `setScreenshotOverlayCursor` [S 0x140973ae0]：LoadCursorW(0,cursor)→SetCursor。
+5. `restoreScreenshotCursorAfterOverlay` [S 0x140973be0]：ReleaseCapture→箭头光标→恢复可见。
+
+**连带**：+`screenshotScrollingCancelState` 类型（pressed/armed bool）；+`procLoadCursorW`/
+`procSetCursor`/`procReleaseCapture` 三个 user32 LazyProc。
+
+**下一批**：截图滚动几何短函数（setScreenshotCursorPosition/waitFrameReady/
+analyzeFrameProgress/rankAppendCandidate 128-256B）+ screenshot preview 剩余。
+P=41 持平。FUNCS 2930/4754 = 61.63%。未落地文件差集 35 保持。
+
 
 
 

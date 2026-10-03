@@ -3,10 +3,75 @@ package main
 import (
 	"image"
 	"math"
+	"time"
 )
 
 // screenshot 滚动所需的 user32 LazyProc（依赖 appicon_windows.go 中的 user32DLL）。
 var procGetAsyncKeyState = user32DLL.NewProc("GetAsyncKeyState")
+
+// screenshotScrollingCancelState 是滚动捕获的取消判定状态：pressed 记录上一次右键
+// 按下状态，armed 记录"等待右键释放"的挂起标志（按下取消键后 arm，释放后 disarm）。
+type screenshotScrollingCancelState struct {
+	pressed bool
+	armed   bool
+}
+
+// shouldCancelScreenshotScrolling 依右键状态推进取消判定状态机。
+// [S 汇编 0x1409a32a0, 128B]：nil→false；read 得 (pressed,clicked)；
+// armed：state.pressed=pressed，pressed→false，否则 armed=false 且 false；
+// clicked→state.pressed=pressed 且 true；pressed→!state.pressed（上升沿）且
+// state.pressed=pressed；否则 false。
+func shouldCancelScreenshotScrolling(state *screenshotScrollingCancelState) bool {
+	if state == nil {
+		return false
+	}
+	pressed, clicked := readScreenshotScrollingRightButtonState()
+	if state.armed {
+		state.pressed = pressed
+		if pressed {
+			return false
+		}
+		state.armed = false
+		return false
+	}
+	if clicked {
+		state.pressed = pressed
+		return true
+	}
+	cancel := false
+	if pressed {
+		cancel = !state.pressed
+	}
+	state.pressed = pressed
+	return cancel
+}
+
+// waitScreenshotScrollingCancelable 在超时窗内轮询取消状态（sleep 步长上限 16ms）。
+// [S 汇编 0x1409a3380, 256B]：timeout<=0 → shouldCancel；先查 shouldCancel→true；
+// deadline=now.Add(timeout)；循环 time.Until<=0 → shouldCancel；sleep=min(remaining,16ms)；
+// 每次 sleep 后 shouldCancel→true。
+func waitScreenshotScrollingCancelable(timeout time.Duration, state *screenshotScrollingCancelState) bool {
+	if timeout <= 0 {
+		return shouldCancelScreenshotScrolling(state)
+	}
+	if shouldCancelScreenshotScrolling(state) {
+		return true
+	}
+	deadline := time.Now().Add(timeout)
+	for {
+		remaining := time.Until(deadline)
+		if remaining <= 0 {
+			return shouldCancelScreenshotScrolling(state)
+		}
+		if remaining > 16*time.Millisecond {
+			remaining = 16 * time.Millisecond
+		}
+		time.Sleep(remaining)
+		if shouldCancelScreenshotScrolling(state) {
+			return true
+		}
+	}
+}
 
 // readScreenshotScrollingRightButtonState 读取鼠标右键状态（GetAsyncKeyState，VK_RBUTTON=2）。
 // [S] ASM 0x1409a3320：Call(2)；`bt eax,0xf; setb al` 取 bit15 → 当前是否按下（第 1 返回值）；

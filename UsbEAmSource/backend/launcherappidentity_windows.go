@@ -9,7 +9,31 @@
 // 把 AppUserModelID 配置缓存到全局 string，后续调用直接返回缓存。
 package main
 
-import "sync"
+import (
+	"fmt"
+	"sync"
+	"syscall"
+	"unsafe"
+)
+
+// launcherAppIdentityIPropertyStore WinRT IPropertyStore 接口指针包装。
+// asm 实证（0x14086e160 Commit）：首字段（+0x00）为 vtable 指针；
+// Commit 位于 vtbl[7]（+0x38）经 SyscallN 调用。
+type launcherAppIdentityIPropertyStore struct {
+	vtbl *uintptr
+}
+
+// Commit 提交 WinRT IPropertyStore 属性变更。
+// [S 汇编 0x14086e160, 192B]：SyscallN(vtbl[7]@0x38 Commit, this) → HRESULT 有符号 <0
+// → fmt.Errorf 包装 HRESULT；否则 (nil)。
+func (s *launcherAppIdentityIPropertyStore) Commit() error {
+	commit := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x38))
+	hresult, _, _ := syscall.SyscallN(commit, uintptr(unsafe.Pointer(s)))
+	if int32(hresult) < 0 {
+		return fmt.Errorf("IPropertyStore.Commit failed: 0x%x", uint32(hresult))
+	}
+	return nil
+}
 
 // launcherAppIdentityOnce 保护 AppUserModelID 配置的单次执行。
 // asm 实证：once.done 位于全局 [rip+0x13efe7b]，与 launcherAppIdentityValue 独立成对。

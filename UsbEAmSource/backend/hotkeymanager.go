@@ -72,3 +72,10 @@ func (m *windowsLauncherGlobalHotkeyManager) Update(bindings launcherHotkeyBindi
 	_ = bindings
 	return nil
 }
+
+// dispatchKeyboardHookAction 分发键盘钩子动作（回调非空则 newobject 打包 func1 起 goroutine）。
+// [S-sig 0x1408a1300, 192B]：读 receiver[+0x00] 回调，nil 直接返回；否则 newobject 捕获
+// (回调, 参数1, 参数2) → newproc；func1（gowrap1）体待 hotkey 域专项还原。
+func (m *windowsLauncherGlobalHotkeyManager) dispatchKeyboardHookAction(a, b uintptr) {
+	_, _, _ = m, a, b
+}

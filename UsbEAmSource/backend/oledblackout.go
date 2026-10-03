@@ -488,6 +488,29 @@ func (s *oledBlackoutService) rescheduleIdleTimerIfCurrent() {
 	_ = s
 }
 
+// retryOLEDBlackoutHotkeysIfNeeded 若需要则重试 OLED 熄灭热键注册。
+// [S-sig 0x14079e080, 224B]：lock(+0x00) → 读标志(+0x88/+0x71/+0x118) → unlock；需重试则
+// configureHotkeys。体待热键域专项还原。
+func retryOLEDBlackoutHotkeysIfNeeded(s *oledBlackoutService) {
+	_ = s
+}
+
+// visibleOverlayForKeyboardInputLocked 键盘输入锁定下取可见覆盖层。
+// [S-sig 0x14090bba0, 224B]：TrimSpace → 查找 overlay 映射(+0xf8)；未命中则
+// visibleOverlayOrderLocked。体待 overlay 域专项还原。
+func (s *oledBlackoutService) visibleOverlayForKeyboardInputLocked(key string) interface{} {
+	_ = key
+	return nil
+}
+
+// dismissOverlayFromInputPollLocked 输入轮询下关闭覆盖层（持锁）。
+// [S-sig 0x14090cbe0, 224B]：dismissOverlayScreenLocked → 非空则回调并写状态(+0xe0/+0xe8)；
+// 否则 maybeStartQuickIdleAfterInputDismissLocked。体待 overlay 域专项还原。
+func (s *oledBlackoutService) dismissOverlayFromInputPollLocked(a interface{}) bool {
+	_, _ = s, a
+	return true
+}
+
 // parseOLEDBlackoutScreenNumber 从屏幕名提取数字编号（收集所有数字字符后 Atoi）。
 // [S 0x140906420] 单参 string 返回 int。asm：逐字节收集 '0'-'9' 到 []byte →
 //   空则 0；否则 strconv.Atoi，err!=nil 则 0。

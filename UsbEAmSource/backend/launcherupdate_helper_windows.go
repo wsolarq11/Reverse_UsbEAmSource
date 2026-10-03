@@ -1,8 +1,11 @@
 package main
 
 import (
+	"errors"
 	"os/exec"
 	"path/filepath"
+	"strings"
+	"unsafe"
 
 	"golang.org/x/sys/windows"
 )
@@ -77,4 +80,56 @@ func restartRolledBackLauncher(dir, name string) error {
 	cmd := exec.Command(filepath.Join(dir, name))
 	cmd.Dir = dir
 	return cmd.Start()
+}
+
+// launcherUpdateSameIdentity 判定两个进程身份是否同一（短路径字段严格相等，
+// UserSID/ImageSHA256 大小写不敏感，ImagePath 按 samePathFold）。
+// [S 汇编 0x1408c4be0, 320B]：逐字段比对，UserSID/ImageSHA256 用 strings.EqualFold，
+// ImagePath 用 samePathFold，其余 uint32/int64 严格相等。
+func launcherUpdateSameIdentity(a, b launcherUpdateProcessIdentity) bool {
+	if a.PID != b.PID || a.ParentPID != b.ParentPID || a.CreatedAt != b.CreatedAt || a.SessionID != b.SessionID {
+		return false
+	}
+	if !strings.EqualFold(a.UserSID, b.UserSID) {
+		return false
+	}
+	if a.IntegrityRID != b.IntegrityRID {
+		return false
+	}
+	if !samePathFold(a.ImagePath, b.ImagePath) {
+		return false
+	}
+	if !strings.EqualFold(a.ImageSHA256, b.ImageSHA256) {
+		return false
+	}
+	if a.VolumeSerial != b.VolumeSerial || a.FileIndexHigh != b.FileIndexHigh {
+		return false
+	}
+	return a.FileIndexLow == b.FileIndexLow
+}
+
+// launcherUpdateTokenIntegrityRID 读取令牌完整性级别（TokenIntegrityLevel）的 RID。
+// [S 汇编 0x1408c4a40, 416B]：GetTokenInformation 探测大小，size==0 →
+// "无法读取令牌完整性级别"；分配缓冲再取，err 透传；buffer 首 8 字节为 SID 指针，
+// SID 空或 SubAuthorityCount==0 → "令牌完整性 SID 无效"；否则 SubAuthority(count-1)。
+func launcherUpdateTokenIntegrityRID(token windows.Token) (uint32, error) {
+	var size uint32
+	_ = windows.GetTokenInformation(token, windows.TokenIntegrityLevel, nil, 0, &size)
+	if size == 0 {
+		return 0, errors.New("无法读取令牌完整性级别")
+	}
+	buf := make([]byte, size)
+	if err := windows.GetTokenInformation(token, windows.TokenIntegrityLevel, &buf[0], size, &size); err != nil {
+		return 0, err
+	}
+	// TOKEN_MANDATORY_LABEL 布局：Label.Sid（*SID）后跟 Attributes（uint32）。
+	label := (*struct {
+		Sid        *windows.SID
+		Attributes uint32
+	})(unsafe.Pointer(&buf[0]))
+	sid := label.Sid
+	if sid == nil || sid.SubAuthorityCount() == 0 {
+		return 0, errors.New("令牌完整性 SID 无效")
+	}
+	return sid.SubAuthority(uint32(sid.SubAuthorityCount()) - 1), nil
 }

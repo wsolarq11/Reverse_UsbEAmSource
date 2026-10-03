@@ -5559,6 +5559,23 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1447→1450，USABLE 14
 parentPID 320-576B）+ 截图滚动几何。P=41 持平。FUNCS 2936/4754 = 61.77%。
 未落地文件差集 34 保持。
 
+### 批次 286（进程身份判定 + 令牌完整性 RID +2 [S]）
+
+**基线/收口**：`FUNCS=2936→2938 / MARKED=2936→2938 / S=1413→1415 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1450→1452，USABLE 1451→1453）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+2 FUNCS）**：
+1. `launcherUpdateSameIdentity` [S 0x1408c4be0]：launcherUpdateProcessIdentity 逐字段
+   （UserSID/ImageSHA256=EqualFold，ImagePath=samePathFold，其余严格相等）。
+2. `launcherUpdateTokenIntegrityRID` [S 0x1408c4a40]：GetTokenInformation 探测+提取，
+   TOKEN_MANDATORY_LABEL 首 8 字节 SID 指针 → SubAuthority(count-1)。
+
+**连带**：`launcherupdate_helper_windows.go` import +errors +unsafe。
+
+**下一批**：launcherupdate 短函数（handshakeProof/parentPID/namedPipe 320-768B）+
+截图滚动几何。P=41 持平。FUNCS 2938/4754 = 61.80%。未落地文件差集 34 保持。
+
 
 
 

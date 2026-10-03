@@ -342,3 +342,17 @@ func (p *volumePinyinIndex) Close() error {
 	p.aliases = nil
 	return err
 }
+
+// parseVolumeNameTrigramHeader 解析名称三元组头（魔数 "UITG" + 版本 + 字段）。
+// [S-sig 0x1407f9ba0, 256B]：len<0x40→error；魔数/版本校验 → 读字段(+8..+0x30)。
+func parseVolumeNameTrigramHeader(a []byte) (interface{}, error) {
+	_ = a
+	return nil, nil
+}
+
+// encodeVolumePinyinHeader 编码拼音头（魔数 "UIYP" + 字段 + 字典指纹）。
+// [S-sig 0x14080bca0, 256B]：makeslice(0x80) → 写魔数/版本/字段 → 字典指纹(+0x18) → 写参数。
+func encodeVolumePinyinHeader(a []byte, b interface{}) []byte {
+	_, _ = a, b
+	return nil
+}

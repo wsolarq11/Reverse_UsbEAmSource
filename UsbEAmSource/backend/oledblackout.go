@@ -511,6 +511,13 @@ func (s *oledBlackoutService) dismissOverlayFromInputPollLocked(a interface{}) b
 	return true
 }
 
+// stopInputPollLocked 停止输入轮询定时器并重置状态（持锁）。
+// [S-sig 0x14090c100, 256B]：inputPollTimer(+0x138) 活跃则 stopTimer 置 nil；计数器(+0x140) 递增；
+// 状态字段(+0x148/+0x160/+0x170/+0x178/+0x188) 清零。体待轮询域专项还原。
+func (s *oledBlackoutService) stopInputPollLocked() {
+	_ = s
+}
+
 // parseOLEDBlackoutScreenNumber 从屏幕名提取数字编号（收集所有数字字符后 Atoi）。
 // [S 0x140906420] 单参 string 返回 int。asm：逐字节收集 '0'-'9' 到 []byte →
 //   空则 0；否则 strconv.Atoi，err!=nil 则 0。

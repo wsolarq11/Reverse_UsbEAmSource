@@ -5593,6 +5593,24 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1452→1454，USABLE 14
 **下一批**：launcherupdate 短函数（namedPipe/frameWithTimeout/validateHelperExecutable
 288-768B）+ 截图滚动几何。P=41 持平。FUNCS 2940/4754 = 61.84%。未落地文件差集 34 保持。
 
+### 批次 288（helper 可执行路径校验 +1 [S] + validate 签名修正）
+
+**基线/收口**：`FUNCS=2940→2941 / MARKED=2940→2941 / S=1417→1418 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1454→1455，USABLE 1455→1456）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+1 FUNCS）**：
+1. `validateLauncherUpdateHelperExecutablePath` [S 0x1408c5020]：validate 绝对路径 →
+   Base EqualFold "UsbEAm_Launcher_Updater.exe" → ToLower(Base(Dir)) ==
+   "usbeam-launcher-updater-" → samePathFold(Dir(Dir),os.TempDir())。
+
+**连带（签名修正）**：`validateLauncherUpdateAbsolutePath` 真实签名为 `(string,error)`
+（asm 0x1408ca720 实证），原误写 `error`；本批改为 `(string,error)` 并更新 3 处调用者。
+
+**下一批**：launcherupdate 短函数（cleanupOldLauncherUpdateHelpers/
+scheduleHelperCleanup/namedPipe 288-768B）+ 截图滚动几何。P=41 持平。
+FUNCS 2941/4754 = 61.86%。未落地文件差集 34 保持。
+
 
 
 

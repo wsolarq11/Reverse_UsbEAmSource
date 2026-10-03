@@ -31,7 +31,7 @@ func prepareLauncherUpdateTransaction(plan *launcherUpdatePlan) (*launcherUpdate
 	}
 	installDir := strings.TrimSpace(plan.InstallDir)
 	installDir = filepath.Clean(installDir)
-	if err := validateLauncherUpdateAbsolutePath(installDir); err != nil {
+	if _, err := validateLauncherUpdateAbsolutePath(installDir); err != nil {
 		return nil, err
 	}
 	// updateRoot must be inside installDir
@@ -138,7 +138,7 @@ func (txn *launcherUpdateTransaction) validate() error {
 		return fmt.Errorf("launcherupdate: healthNonce: %w", err)
 	}
 	for _, p := range []string{txn.InstallDir, txn.StagingDir, txn.BackupDir, txn.JournalFile} {
-		if err := validateLauncherUpdateAbsolutePath(p); err != nil {
+		if _, err := validateLauncherUpdateAbsolutePath(p); err != nil {
 			return err
 		}
 	}

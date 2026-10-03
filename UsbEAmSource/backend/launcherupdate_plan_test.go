@@ -64,11 +64,11 @@ func TestValidateLauncherUpdateAbsolutePath(t *testing.T) {
 		`\\server\share\x`,               // UNC
 		filepath.Join(wd, "a:b"),         // ADS
 	}
-	if err := validateLauncherUpdateAbsolutePath(ok); err != nil {
+	if _, err := validateLauncherUpdateAbsolutePath(ok); err != nil {
 		t.Errorf("valid abs path rejected: %v", err)
 	}
 	for _, p := range bad {
-		if err := validateLauncherUpdateAbsolutePath(p); err == nil {
+		if _, err := validateLauncherUpdateAbsolutePath(p); err == nil {
 			t.Errorf("invalid abs path accepted: %q", p)
 		}
 	}

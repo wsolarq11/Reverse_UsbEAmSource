@@ -217,36 +217,36 @@ func validateLauncherUpdateNonce(nonce string, expectedLen int) error {
 //	"//"、"//?/"、"//./"、"/device/" → "不允许 UNC 或设备路径"；
 //	filepath.Clean 后须 IsAbs 且与原串相等 → "路径必须是规范化绝对路径"；
 //	卷名后路径含 ':'（ADS）→ "路径包含 ADS"；去前导分隔符后按 FieldsFunc 分段，
-//	每段过 validateWindowsArchiveSegment；全部通过返回 nil。
-func validateLauncherUpdateAbsolutePath(path string) error {
+//	每段过 validateWindowsArchiveSegment；全部通过返回 (c, nil)。
+func validateLauncherUpdateAbsolutePath(path string) (string, error) {
 	p := strings.TrimSpace(path)
 	if p == "" || strings.IndexRune(p, 0) >= 0 {
-		return errors.New("路径为空")
+		return "", errors.New("路径为空")
 	}
 	lower := strings.ToLower(strings.ReplaceAll(p, "\\", "/"))
 	if strings.HasPrefix(lower, "//") ||
 		strings.HasPrefix(lower, "//?/") ||
 		strings.HasPrefix(lower, "//./") ||
 		strings.HasPrefix(lower, "/device/") {
-		return errors.New("不允许 UNC 或设备路径")
+		return "", errors.New("不允许 UNC 或设备路径")
 	}
 	c := filepath.Clean(p)
 	if !filepath.IsAbs(c) || c != p {
-		return errors.New("路径必须是规范化绝对路径")
+		return "", errors.New("路径必须是规范化绝对路径")
 	}
 	rest := c[len(filepath.VolumeName(c)):]
 	if strings.Contains(rest, ":") {
-		return errors.New("路径包含 ADS")
+		return "", errors.New("路径包含 ADS")
 	}
 	rest = strings.TrimPrefix(rest, "\\")
 	for _, seg := range strings.FieldsFunc(rest, func(r rune) bool {
 		return r == '/' || r == '\\'
 	}) {
 		if err := validateWindowsArchiveSegment(seg); err != nil {
-			return err
+			return "", err
 		}
 	}
-	return nil
+	return c, nil
 }
 
 // normalizeLauncherUpdateRelativePath 归一化相对路径并执行安全校验。

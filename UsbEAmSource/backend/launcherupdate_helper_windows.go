@@ -4,6 +4,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"errors"
+	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
@@ -168,4 +169,27 @@ func queryLauncherUpdateParentPID(pid uint32) (uint32, error) {
 func launcherUpdateHandshakeProof(nonce string) string {
 	sum := sha256.Sum256([]byte("UsbEAm launcher update handshake v2\x00" + nonce))
 	return hex.EncodeToString(sum[:])
+}
+
+// validateLauncherUpdateHelperExecutablePath 校验 helper 可执行文件位于认证临时目录。
+// [S 汇编 0x1408c5020, 384B]：TrimSpace+Clean 后过 validateLauncherUpdateAbsolutePath，
+// 失败 → "更新 helper 自身路径无效"；Base 须 EqualFold "UsbEAm_Launcher_Updater.exe"；
+// ToLower(Base(Dir)) 须等于 "usbeam-launcher-updater-"；samePathFold(Dir(Dir),os.TempDir())。
+// 任一步不满足 → "更新 helper 不在认证临时目录"。
+func validateLauncherUpdateHelperExecutablePath(path string) error {
+	clean, err := validateLauncherUpdateAbsolutePath(filepath.Clean(strings.TrimSpace(path)))
+	if err != nil {
+		return errors.New("更新 helper 自身路径无效")
+	}
+	dir := filepath.Dir(clean)
+	if !strings.EqualFold(filepath.Base(clean), "UsbEAm_Launcher_Updater.exe") {
+		return errors.New("更新 helper 不在认证临时目录")
+	}
+	if strings.ToLower(filepath.Base(dir)) != "usbeam-launcher-updater-" {
+		return errors.New("更新 helper 不在认证临时目录")
+	}
+	if !samePathFold(filepath.Dir(dir), os.TempDir()) {
+		return errors.New("更新 helper 不在认证临时目录")
+	}
+	return nil
 }

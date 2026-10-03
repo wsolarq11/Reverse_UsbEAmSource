@@ -5542,6 +5542,23 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1444→1447，USABLE 14
 sameIdentity 128-384B）+ 截图滚动几何。P=41 持平。FUNCS 2933/4754 = 61.70%。
 未落地文件差集 35→34。
 
+### 批次 285（launcherupdate 进程映像/终止/回滚重启 +3 [S]）
+
+**基线/收口**：`FUNCS=2933→2936 / MARKED=2933→2936 / S=1410→1413 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1447→1450，USABLE 1448→1451）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+3 FUNCS）**：
+1. `launcherUpdateProcessImagePath` [S 0x1408c4960]：QueryFullProcessImageName→Clean(UTF16ToString)。
+2. `terminateLauncherUpdateProcess` [S 0x1408c4e40]：OpenProcess→defer CloseHandle→Terminate→Wait。
+3. `restartRolledBackLauncher` [S 0x1408c4f60]：filepath.Join→exec.Command→cmd.Dir→Start。
+
+**连带**：`launcherupdate_helper_windows.go` import +os/exec。
+
+**下一批**：launcherupdate 短函数（sameIdentity/tokenIntegrityRID/handshakeProof/
+parentPID 320-576B）+ 截图滚动几何。P=41 持平。FUNCS 2936/4754 = 61.77%。
+未落地文件差集 34 保持。
+
 
 
 

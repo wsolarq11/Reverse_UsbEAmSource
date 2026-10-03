@@ -157,6 +157,23 @@ func (c *nodePathCache) Get(key int32) (string, bool) {
 	return v, true
 }
 
+// Set 按键写入缓存路径。key < 0x40000000 写 sliceCache 索引；>= 0x40000000 写 deltaCache map。
+// [S 汇编 0x1407e17e0, 259B]：map 路径 nil 则 makemap_small 建表后 mapassign_fast32；
+// slice 路径 movsxd 符号扩展，负键/越界直接忽略返回；两路均带写屏障。
+func (c *nodePathCache) Set(key int32, value string) {
+	if key >= 0x40000000 {
+		if c.deltaCache == nil {
+			c.deltaCache = make(map[int32]string)
+		}
+		c.deltaCache[key] = value
+		return
+	}
+	if key < 0 || key >= int32(len(c.sliceCache)) {
+		return
+	}
+	c.sliceCache[key] = value
+}
+
 // [S 汇编实证 0x140820180, 320B] 比较两字符串：TrimSpace 后空值处理（双空=0，a 空=1，
 // b 空=-1），否则 collator 非空走 CompareString、空走 strings.Compare；spec.Direction=="desc"
 // 时结果取反。返回 int(-1/0/1)。

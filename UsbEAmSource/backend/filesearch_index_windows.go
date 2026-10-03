@@ -684,3 +684,15 @@ func (v *VolumeIndex) EntryCount() int {
 func (v *VolumeIndex) activeEntryCountLocked() int {
 	return 0
 }
+
+// Release 释放 journal pending 状态（幂等）。
+// [S-sig 0x140806820, 160B]：released(+0x128) 未置位则置位 + callback(+0x120) 非空调用；
+// 随后清零 view 尾部(+0x110..0x130) 与 overlay(+0x130)。体待精确字段布局专项还原。
+func (s *volumeIndexJournalPendingState) Release() {
+	if !s.lease.released {
+		s.lease.released = true
+		if s.lease.release != nil {
+			s.lease.release()
+		}
+	}
+}

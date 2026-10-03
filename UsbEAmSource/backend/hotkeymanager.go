@@ -55,3 +55,12 @@ func newLauncherGlobalHotkeyManager() launcherGlobalHotkeyManager {
 	}()
 	return m
 }
+
+// Close 幂等关闭全局热键管理器。[S-sig 0x14089da00, 128B]：closeOnce(+0x4c).Do(func1)
+// 闭包写局部 error 后返回；func1 关闭键盘钩子/commands 链，体待 hotkey 域专项还原。
+func (m *windowsLauncherGlobalHotkeyManager) Close() error {
+	var err error
+	m.closeOnce.Do(func() {
+	})
+	return err
+}

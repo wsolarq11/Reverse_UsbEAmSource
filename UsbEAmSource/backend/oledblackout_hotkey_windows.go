@@ -32,3 +32,12 @@ func failedOLEDBlackoutHotkeyUpdateResult(registrations []oledBlackoutHotkeyRegi
 	_, _ = registrations, err
 	return oledBlackoutHotkeyUpdateResult{}
 }
+
+// Close 幂等关闭 OLED 黑屏热键管理器。[S-sig 0x14090f540, 128B]：closeOnce(+0x24).Do(func1)
+// 闭包写局部 error 后返回；func1（0x14090f5c0, 253B）关闭 commands/done 链，体待专项还原。
+func (m *windowsOLEDBlackoutHotkeyManager) Close() error {
+	var err error
+	m.closeOnce.Do(func() {
+	})
+	return err
+}

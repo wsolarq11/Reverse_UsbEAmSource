@@ -779,3 +779,33 @@ func (s *oledBlackoutService) inputDismissGuardActiveLocked(now interface{}) boo
 	_, _ = s, now
 	return false
 }
+
+// collectScreensLocked 收集所有屏幕（持锁，过滤 nil + 排序）。
+// [S-sig 0x140906140, 320B]：app(+0x30)/screenManager(+0x310) 空→nil；
+// GetAll → 过滤 nil → sortOLEDBlackoutScreens。体待屏幕域专项还原。
+func (s *oledBlackoutService) collectScreensLocked() interface{} {
+	_ = s
+	return nil
+}
+
+// oledBlackoutScreenIndex 按名称查找屏幕索引（1-based，TrimSpace 后 memequal）。
+// [S-sig 0x14090a340, 320B]：TrimSpace(name) → 遍历屏幕 → 匹配返回 index+1。
+// 体待屏幕名称结构专项还原。
+func oledBlackoutScreenIndex(a interface{}, b interface{}) int {
+	_, _ = a, b
+	return 0
+}
+
+// hideNonTargetWindowsLocked 隐藏非目标覆盖层窗口（持锁，map 遍历 Hide + 删除）。
+// [S-sig 0x14090abe0, 320B]：遍历 overlay(+0xf0) → 非目标→Hide + mapdelete(+0xf8)。
+// 体待覆盖层域专项还原。
+func (s *oledBlackoutService) hideNonTargetWindowsLocked(a interface{}) {
+	_, _ = s, a
+}
+
+// scheduleInputPollLocked 调度输入轮询（持锁，time.AfterFunc）。
+// [S-sig 0x14090c2a0, 320B]：ensureLifecycleLocked → AfterFunc → 条件不符 stopTimer。
+// 体待输入轮询域专项还原。
+func (s *oledBlackoutService) scheduleInputPollLocked(a, b interface{}) {
+	_, _ = a, b
+}

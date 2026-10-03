@@ -677,6 +677,14 @@ func (v *VolumeIndex) EntryCount() int {
 	return v.activeEntryCountLocked()
 }
 
+// SearchWithPaths 按多路径搜索（薄包装：context 传 nil 调 searchWithPathsContextMetrics）。
+// [S-sig 0x1407eaa80, 128B]：参数重排后 searchWithPathsContextMetrics(v, 0, 0, a, b, c, d, e)。
+// 体待 searchWithPathsContextMetrics（8 寄存器参数 + 9 字返回）专项还原。
+func (v *VolumeIndex) SearchWithPaths(a, b, c, d interface{}, e bool) interface{} {
+	_, _, _, _, _ = a, b, c, d, e
+	return nil
+}
+
 // activeEntryCountLocked 持锁下统计活动条目（读视图 + activeVolumeIndexEntryCountForView）。
 // [S-sig 0x1407e8340, 448B]：readProvider(+0x520) 为空则用默认 provider 取读视图，
 // defer 释放视图；打包 activeCount(+0xd8)/delta(+0x548..+0x588) 字段传给

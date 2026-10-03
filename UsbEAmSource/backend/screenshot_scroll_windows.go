@@ -176,3 +176,21 @@ func rankScreenshotScrollingAppendCandidate(a, b, score, d, e int64) int64 {
 	}
 	return score + 2*delta
 }
+
+// analyzeScreenshotScrollingFrameProgress 分析滚动帧进度（相似性 + 追加匹配）。
+// [S-sig 0x1409a41e0, 128B]：screenshotFramesAreSimilar(a,b) → bool，交
+// resolveScreenshotScrollingAppendMatchWithTarget(a,b,c)，返回 (结果, 相似 bool)。
+// 体待 resolveScreenshotScrollingAppendMatchWithTarget 专项还原。
+func analyzeScreenshotScrollingFrameProgress(a, b *image.RGBA, c int64) (int64, bool) {
+	similar := screenshotFramesAreSimilar(a, b)
+	_ = c
+	return 0, similar
+}
+
+// stopScreenshotScrollingChunkedCanvasAndSave 停止滚动分块画布并保存。
+// [S-sig 0x1409a0740, 128B]：尺寸 (w,h) <=0 则返回空结果，否则
+// encodeScreenshotScrollingChunkedCanvas 编码。体待编码链专项还原。
+func stopScreenshotScrollingChunkedCanvasAndSave(a, b *image.RGBA, c, d int64, e bool) ([]byte, error) {
+	_, _, _, _, _ = a, b, c, d, e
+	return nil, nil
+}

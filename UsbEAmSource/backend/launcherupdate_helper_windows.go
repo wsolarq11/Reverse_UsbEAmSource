@@ -8,6 +8,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"time"
 	"unsafe"
 
 	"golang.org/x/sys/windows"
@@ -192,4 +193,33 @@ func validateLauncherUpdateHelperExecutablePath(path string) error {
 		return errors.New("更新 helper 不在认证临时目录")
 	}
 	return nil
+}
+
+// cleanupOldLauncherUpdateHelpers 清理认证临时目录下过期（24h 前）的 helper 目录。
+// [S 汇编 0x1408c51a0, 480B]：os.ReadDir(os.TempDir()) 失败即返回；遍历目录项，
+// 仅当 IsDir 且 ToLower(Name)=="usbeam-launcher-updater-" 且 Info().ModTime() 早于
+// now-24h 时 os.RemoveAll(filepath.Join(tempDir,name))。
+func cleanupOldLauncherUpdateHelpers() {
+	dir := os.TempDir()
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return
+	}
+	cutoff := time.Now().Add(-24 * time.Hour)
+	for _, entry := range entries {
+		if !entry.IsDir() {
+			continue
+		}
+		if strings.ToLower(entry.Name()) != "usbeam-launcher-updater-" {
+			continue
+		}
+		info, err := entry.Info()
+		if err != nil {
+			continue
+		}
+		if !info.ModTime().Before(cutoff) {
+			continue
+		}
+		_ = os.RemoveAll(filepath.Join(dir, entry.Name()))
+	}
 }

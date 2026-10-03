@@ -5611,6 +5611,21 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1454→1455，USABLE 14
 scheduleHelperCleanup/namedPipe 288-768B）+ 截图滚动几何。P=41 持平。
 FUNCS 2941/4754 = 61.86%。未落地文件差集 34 保持。
 
+### 批次 289（过期 helper 清理 +1 [S]）
+
+**基线/收口**：`FUNCS=2941→2942 / MARKED=2941→2942 / S=1418→1419 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1455→1456，USABLE 1456→1457）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+1 FUNCS）**：
+1. `cleanupOldLauncherUpdateHelpers` [S 0x1408c51a0]：ReadDir(TempDir)，仅清理 24h 前
+   的 "usbeam-launcher-updater-" 前缀目录。
+
+**连带**：`launcherupdate_helper_windows.go` import +time。
+
+**下一批**：launcherupdate 短函数（scheduleHelperCleanup/namedPipe/frameWithTimeout
+288-768B）+ 截图滚动几何。P=41 持平。FUNCS 2942/4754 = 61.89%。未落地文件差集 34 保持。
+
 
 
 

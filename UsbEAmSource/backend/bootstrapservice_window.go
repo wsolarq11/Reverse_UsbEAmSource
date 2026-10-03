@@ -153,3 +153,11 @@ func (bs *BootstrapService) HideLauncherWindow() {
 func (bs *BootstrapService) HideScreenshotPreview() {
 	_ = bs
 }
+
+// applyLauncherWindowSizingForShow 显示前应用启动器窗口尺寸。
+// [S-sig 0x1407968c0, 160B]：window nil 返回；consumeLauncherDefaultSizeReset → bool、
+// loadLauncherUIScalePercent → int，交 applyLauncherWindowSizing(window,percent,bool)。
+// 体待两个依赖函数专项还原。
+func (bs *BootstrapService) applyLauncherWindowSizingForShow(window application.Window) {
+	_ = window
+}

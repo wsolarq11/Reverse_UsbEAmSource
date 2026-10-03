@@ -140,3 +140,9 @@ func (s *screenshotPreviewWindowService) ShowForOwner(owner string, result Scree
 	s.lock.Unlock()
 	return nil
 }
+
+// Show 显示截图预览窗口（固定 owner "preview"）。
+// [S 汇编 0x140996520, 160B]：duffcopy 结果结构体 → ShowForOwner("preview", result) 透传。
+func (s *screenshotPreviewWindowService) Show(result ScreenshotCaptureResult) error {
+	return s.ShowForOwner("preview", result)
+}

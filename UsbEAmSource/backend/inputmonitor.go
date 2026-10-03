@@ -66,6 +66,14 @@ func (s *inputMonitorService) advancePlatformGeneration() {
 	s.lock.Unlock()
 }
 
+// startPlatformOwned 启动平台拥有（startOverride 优先，否则 startPlatform）。
+// [S-sig 0x140861a00, 160B]：(a, b bool) 无返回。asm：advancePlatformGeneration → 读 +0x100
+// 闭包，非 nil 则间接调用 (a,b)，否则 startPlatform(a,b)。体待 startPlatform 专项还原。
+func (s *inputMonitorService) startPlatformOwned(a, b bool) {
+	s.advancePlatformGeneration()
+	_, _ = a, b
+}
+
 // stopPlatformThread 停止平台线程（大函数 1785B，体留待平台线程域专项）。
 // [S-sig 0x140866120] 单 receiver 无参无返回（序言 test rax + 读 done(+0xa0)）。
 func (s *inputMonitorService) stopPlatformThread() {}

@@ -18,6 +18,8 @@ import (
 	"path/filepath"
 	"reflect"
 	"strings"
+
+	"github.com/wailsapp/wails/v3/pkg/application"
 )
 
 // ---- 状态装配域被调方 ----
@@ -402,6 +404,14 @@ func (s *screenshotSelectionToolbarWindowService) Shutdown() {}
 
 // Shutdown 关闭插件窗口服务。[S-sig 调用点 0x14077413a]
 func (s *pluginWindowService) Shutdown() {}
+
+// AttachApp 对接 wails 应用（加锁写 app 字段）。
+// [S 汇编 0x14092d4c0, 160B]：lock(+0x00).Lock + 写屏障写 app(+0x08) + Unlock。
+func (s *pluginWindowService) AttachApp(app *application.App) {
+	s.lock.Lock()
+	s.app = app
+	s.lock.Unlock()
+}
 
 // Shutdown 停止输入监视服务。[S-sig 调用点 0x140774149]
 func (s *inputMonitorService) Shutdown() {}

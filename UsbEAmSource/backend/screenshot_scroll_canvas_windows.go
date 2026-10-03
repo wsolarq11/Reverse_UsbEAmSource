@@ -77,3 +77,10 @@ func (s *screenshotScrollingChunkedCanvas) Row(row int) interface{} {
 	_, _ = s, row
 	return nil
 }
+
+// tailImage 返回滚动画布尾部图像（NewRGBA → 遍历 Row → memmove）。
+// [S-sig 0x14099ffc0, 448B]：nil/非正→nil；image.NewRGBA → 遍历 Row → memmove 复制。体待像素域专项还原。
+func (s *screenshotScrollingChunkedCanvas) tailImage(a interface{}) interface{} {
+	_, _ = s, a
+	return nil
+}

@@ -151,3 +151,10 @@ func setShortcutAppUserModelID(a, b, c string) error {
 	_, _, _ = a, b, c
 	return nil
 }
+
+// ensureLauncherNotificationIconFile 确保启动器通知图标文件存在（MkdirAll + ReadFile + WriteFile）。
+// [S-sig 0x14086bbe0, 448B]：全局 icon 数据 nil→error；resolveLauncherNotificationIconPath→err→nil；
+// Dir→MkdirAll→err→fmt.Errorf；ReadFile 内容 memequal 相同→返回；否则 WriteFile。体待图标域专项还原。
+func ensureLauncherNotificationIconFile() (string, error) {
+	return "", nil
+}

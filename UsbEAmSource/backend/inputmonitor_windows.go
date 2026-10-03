@@ -70,3 +70,12 @@ func (s *inputMonitorService) Start() interface{} {
 	_ = s
 	return nil
 }
+
+// inputMonitorCodeLabel 生成输入监视代码标签（回车/字母/数字/F 键/自定义 map）。
+// [S-sig 0x140869940, 448B]：code==0xd+0x1c+bit0→回车标签；全局 map 命中→value；
+// 0x41-0x5a→"Key"+字母；0x30-0x39→"Digit"+数字；0x70-0x87→"F"+数字；
+// 否则 inputMonitorKeyLabel→Replace/Sprintf。体待标签常量专项还原。
+func inputMonitorCodeLabel(a, b, c int) string {
+	_, _, _ = a, b, c
+	return ""
+}

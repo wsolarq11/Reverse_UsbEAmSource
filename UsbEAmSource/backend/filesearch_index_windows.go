@@ -1100,3 +1100,10 @@ func (s *FileIndexService) usnFollowerPaths(a, b interface{}) (string, string) {
 	_, _, _ = s, a, b
 	return "", ""
 }
+
+// Acquire 获取堆读视图（字段拷贝组装）。
+// [S-sig 0x140a05100, 448B]：nil→panic；字段(+0x20/+0x28/+0x38/+0x40/+0x48/+0x68/+0x70/+0x78/+0x50/+0x58/+0x60) 拷贝。体待堆读视图域专项还原。
+func (p *volumeIndexHeapReadProvider) Acquire() interface{} {
+	_ = p
+	return nil
+}

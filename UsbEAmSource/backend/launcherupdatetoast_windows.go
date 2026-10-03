@@ -18,9 +18,12 @@ func showLauncherUpdateNotification(title, message string) error {
 }
 
 // showLauncherNotificationWithAudio 显示有声更新通知。
-// [S-sig] VA 0x1408cfd20；无独立 asm 还原记录，当前以骨架占位。
-func showLauncherNotificationWithAudio(title, message string) error {
+// [S-sig] VA 0x1408cfd20；序言保存 rax/rbx/rcx/rdi/rsi/r8 = 3×string（title/message/sound）。
+// 批次 274 依 showDesktopWidgetNotification 调用点（0x1407aca02）实证 sound 第三参，
+// 订正签名为三参；体仍是 Windows Toast COM 骨架占位。
+func showLauncherNotificationWithAudio(title, message, sound string) error {
 	_ = title
 	_ = message
+	_ = sound
 	return nil
 }

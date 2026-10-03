@@ -1005,3 +1005,19 @@ func (v *VolumeIndex) ApplyDelete(a interface{}) int {
 	_, _ = v, a
 	return 0
 }
+
+// baseSubtreeActiveCountsLocked 取子树活动计数（持锁，带缓存）。
+// [S-sig 0x140803fc0, 384B]：缓存 field(+0x558) 命中→返回 field(+0x550/+0x560)；
+// 否则 buildVolumeIndexBaseSubtreeActiveCounts。体待计数域专项还原。
+func (v *VolumeIndex) baseSubtreeActiveCountsLocked(a interface{}) (interface{}, bool) {
+	_, _ = v, a
+	return nil, false
+}
+
+// ResolvePathByNodeIndex 按节点索引解析路径（acquireReadView → resolvePath）。
+// [S-sig 0x140808d40, 384B]：acquireReadView → volumeIndexReadView.resolvePath(nodeIndex)。
+// 体待路径解析域专项还原。
+func (v *VolumeIndex) ResolvePathByNodeIndex(a interface{}, b interface{}) string {
+	_, _, _ = v, a, b
+	return ""
+}

@@ -116,3 +116,11 @@ func postLauncherThreadMessage(a, b uint32) error {
 	_, _ = a, b
 	return nil
 }
+
+// registerLauncherHotkey 注册启动器热键（RegisterHotKey）。
+// [S-sig 0x1408a1420, 384B]：newobject(热键结构) → LazyProc.Call(RegisterHotKey, 4) →
+// 失败 fmt.Errorf。体待热键结构专项还原。
+func registerLauncherHotkey(a, b, c, d interface{}, e, f, g int32) error {
+	_, _, _, _, _, _, _ = a, b, c, d, e, f, g
+	return nil
+}

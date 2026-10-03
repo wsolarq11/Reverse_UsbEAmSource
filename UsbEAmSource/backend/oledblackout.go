@@ -809,3 +809,11 @@ func (s *oledBlackoutService) hideNonTargetWindowsLocked(a interface{}) {
 func (s *oledBlackoutService) scheduleInputPollLocked(a, b interface{}) {
 	_, _ = a, b
 }
+
+// handleOverlayDismissOnEscape 处理 Esc 键覆盖层消除（持锁，条件判定后 dismiss）。
+// [S-sig 0x14090af20, 320B]：lock → 字段(+0x88/+0x38/+0x3a) 判定 →
+// dismissOverlayForKeyboardInputLocked。体待覆盖层消除域专项还原。
+func (s *oledBlackoutService) handleOverlayDismissOnEscape(a, b interface{}) bool {
+	_, _ = a, b
+	return false
+}

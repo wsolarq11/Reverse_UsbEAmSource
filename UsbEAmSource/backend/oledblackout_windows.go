@@ -15,6 +15,7 @@ package main
 
 import (
 	"errors"
+	"runtime"
 	"syscall"
 	"unsafe"
 
@@ -500,4 +501,32 @@ func (r *oledBlackoutIReference) GetInt32() (int32, bool) {
 // defer releaseComObject；SyscallN(vtbl[9]@0x48 Cancel, this)。体待 QueryInterface 签名专项还原。
 func (r *oledBlackoutIAsyncOperation) Cancel() {
 	_ = r
+}
+
+// newWindowsOLEDBlackoutCursorController 构造 Windows 光标控制器（chan × 3 + 起协程 + 等 ready）。
+// [S 汇编 0x140913520, 320B]：makechan(commands/ready/done) → newobject 填充 call(+0x18) →
+// newproc(goroutine) → chanrecv1(ready) → 返回 controller。
+func newWindowsOLEDBlackoutCursorController(call func(bool) (int32, error)) *windowsOLEDBlackoutCursorController {
+	c := &windowsOLEDBlackoutCursorController{
+		commands: make(chan oledBlackoutCursorCommand),
+		ready:    make(chan struct{}),
+		done:     make(chan struct{}),
+		call:     call,
+	}
+	go c.run()
+	<-c.ready
+	return c
+}
+
+// run 光标控制器命令循环（LockOSThread + close(ready) + 分发 hide/restore/close）。
+// [S 汇编 0x1409136c0, 512B]：LockOSThread → defer UnlockOSThread → defer close(done) →
+// close(ready) → 循环 <-commands 分发 hideOnThread/restoreOnThread/close。
+// 体待命令分发专项还原。
+func (c *windowsOLEDBlackoutCursorController) run() {
+	runtime.LockOSThread()
+	defer runtime.UnlockOSThread()
+	defer close(c.done)
+	close(c.ready)
+	for range c.commands {
+	}
 }

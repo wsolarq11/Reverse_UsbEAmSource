@@ -21,3 +21,11 @@ func shouldUseLegacyExplicitLinkBrowser(a, b, c interface{}) bool {
 	_, _, _ = a, b, c
 	return false
 }
+
+// validateExplicitLinkBrowserResolvedTarget 校验显式链接浏览器解析目标。
+// [S-sig 0x1408aab60, 320B]：TrimSpace 空→error；isWindowsAbsoluteFilesystemPath →
+// classifyAutomaticWindowsPath + isDisallowedExplicitLinkBrowserExecutable。体待路径分类域专项还原。
+func validateExplicitLinkBrowserResolvedTarget(a string) error {
+	_ = a
+	return nil
+}

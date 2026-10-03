@@ -427,6 +427,24 @@ func (s *pluginWindowService) CloseAudience(id string) {
 	_ = win
 }
 
+// Close 关闭插件窗口（windows[id].audience.close，空 id 报错）。
+// [S-sig 0x14092f500, 320B]：TrimSpace 空→error；lock → windows(+0x10)[id] → unlock；
+// win 非空且 audience(+0x88) 非空则调 close(+0x30)。体待 pluginManagedWindow 域专项还原。
+func (s *pluginWindowService) Close(id string) error {
+	if s == nil {
+		return nil
+	}
+	id = strings.TrimSpace(id)
+	if id == "" {
+		return nil
+	}
+	s.lock.Lock()
+	win := s.windows[id]
+	s.lock.Unlock()
+	_ = win
+	return nil
+}
+
 // resolvePluginPackageURL 解析插件包 URL。
 // [S-sig 0x14092c520, 224B]：TrimSpace 分支 → resolvePluginCatalogAssetURL / normalizePluginPackageFile。
 // 体待 catalog 域专项还原。

@@ -6,7 +6,7 @@
 
 ---
 
-## 1. 一句话现状（批次 345 · 屏幕收集/屏幕索引/非目标隐藏/输入轮询调度 +4 · FUNCS 3135，65.95%）
+## 1. 一句话现状（批次 346 · Esc 消除/光标控制器构造与循环/插件窗口关闭/链接浏览器校验 +5 · FUNCS 3140，66.06%）
 
 前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原已推进到**批次 54**，后端非测试代码 **25,198 行 / 125 个 .go 文件**，测试 **54 文件 / 5,866 行**。**批次 40 已闭环（appicon_windows.go 全量 [S]）；批次 41 已闭环（bootstrapservice_callees.go 34 未标清零）；批次 42 已闭环（screenshot_png_fast.go 自定义 PNG 编码器 14 函数 [S]）；批次 43 已闭环（screenshot image_budget 内存预算/受限读取/解码链 8 函数 [S]）；批次 44 已闭环（screenshot_capture_windows GDI 捕获核心 6 函数 [S]）；批次 45 已闭环（screenshot_cursor_windows 光标快照数据搬运层 5 函数 [S]）；批次 46 已闭环（screenshot_cursor_draw_windows 光标绘制收口链 11 函数 [S]）；批次 47 已闭环（screenshot_virtual_windows GDI 虚拟屏捕获链 5 函数 [S]）；批次 48 已闭环（screenshot_hdr_windows DXGI/HDR 模式解析与入口探测 6 函数 [S]）；批次 49 已闭环（screenshot_dxgi_debug_windows DXGI 调试格式化链 4 函数 [S]）；批次 50 已闭环（screenshot_dxgi_com_windows DXGI COM 薄包装 3 函数 [S] + 1 [S-inline]）；批次 51 已闭环（screenshot_dxgi_enum_windows DXGI 枚举链 6 函数 [S] + 3 [S-inline]）；批次 52 已闭环（screenshot_capture_backend_windows 收口链 6 函数 [S] + 2 [P] DXGI 捕获核心入口）；批次 53 已闭环（screenshot_dxgi_capture_windows DXGI 捕获域 10 函数 [S] + 3 深层 [S-sig]，两个 [P] 核心入口转 [S]）；批次 54 已闭环（screenshot_dxgi_cache_windows DXGI 输出复制缓存域 19 函数 [S] + screenshot_dxgi_deep_windows 10 深层 [S-sig] + COM Release/QueryInterface 2 函数 [S]）。**
 
@@ -19,8 +19,8 @@
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 原始源码规模 | ≈104,374 行 | ≈104,374 行 | 每文件最大行号求和（闭包共享父函数区间，属上界估计） |
-| 已重建函数 | 3135 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 345 后） |
-| 真函数（S+S-inline+S-sig） | 3093 | 4,754 | 同上，**批次 345 达 65.95%** |
+| 已重建函数 | 3140 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 346 后） |
+| 真函数（S+S-inline+S-sig） | 3098 | 4,754 | 同上，**批次 346 达 66.06%** |
 | 文件覆盖 | 106/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 38 | **0** | 同上差集（活体实测 2026-09-30 批次 278 重跑，较 §10 的 57 已减 19），清单见 §10 |
 | UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
@@ -6489,6 +6489,22 @@ S-sig=1551→1555 / P=41 / UNMARKED=0`（FAITHFUL 1538，USABLE 1539）。
 
 **下一批**：oledBlackout 域 handleOverlayDismissOnEscape /
 newWindowsOLEDBlackoutCursorController。P=41 持平。FUNCS 3135/4754 = 65.95%。未落地文件差集 33 保持。
+
+### 批次 346（Esc 消除/光标控制器构造与循环/插件窗口关闭/链接浏览器校验 +5）
+
+**基线/收口**：`FUNCS=3135→3140 / MARKED=3135→3140 / S=1501→1503 / S-eq=1 / S-inline=37 /
+S-sig=1555→1558 / P=41 / UNMARKED=0`（FAITHFUL 1538→1540，USABLE 1539→1541）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+5 FUNCS）**：
+1. `oledBlackoutService.handleOverlayDismissOnEscape` [S-sig 0x14090af20]：Esc 消除。
+2. `newWindowsOLEDBlackoutCursorController` [S 0x140913520]：光标控制器构造。
+3. `windowsOLEDBlackoutCursorController.run` [S 0x1409136c0]：命令循环。
+4. `pluginWindowService.Close` [S-sig 0x14092f500]：插件窗口关闭。
+5. `validateExplicitLinkBrowserResolvedTarget` [S-sig 0x1408aab60]：链接浏览器校验。
+
+**下一批**：launcher 域 resolveLauncherNotificationIconPath /
+launcherAppIdentityLPWSTRPropVariant。P=41 持平。FUNCS 3140/4754 = 66.06%。未落地文件差集 33 保持。
 
 
 

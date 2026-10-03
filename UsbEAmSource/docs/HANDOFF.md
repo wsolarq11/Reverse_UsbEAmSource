@@ -6,7 +6,7 @@
 
 ---
 
-## 1. 一句话现状（批次 336 · 键标签/插件名/配置快照/播放类型 +4 · FUNCS 3099，65.19%）
+## 1. 一句话现状（批次 337 · 租约释放/静态 mmap/检查点头/USN 停止 +4 · FUNCS 3103，65.27%）
 
 前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原已推进到**批次 54**，后端非测试代码 **25,198 行 / 125 个 .go 文件**，测试 **54 文件 / 5,866 行**。**批次 40 已闭环（appicon_windows.go 全量 [S]）；批次 41 已闭环（bootstrapservice_callees.go 34 未标清零）；批次 42 已闭环（screenshot_png_fast.go 自定义 PNG 编码器 14 函数 [S]）；批次 43 已闭环（screenshot image_budget 内存预算/受限读取/解码链 8 函数 [S]）；批次 44 已闭环（screenshot_capture_windows GDI 捕获核心 6 函数 [S]）；批次 45 已闭环（screenshot_cursor_windows 光标快照数据搬运层 5 函数 [S]）；批次 46 已闭环（screenshot_cursor_draw_windows 光标绘制收口链 11 函数 [S]）；批次 47 已闭环（screenshot_virtual_windows GDI 虚拟屏捕获链 5 函数 [S]）；批次 48 已闭环（screenshot_hdr_windows DXGI/HDR 模式解析与入口探测 6 函数 [S]）；批次 49 已闭环（screenshot_dxgi_debug_windows DXGI 调试格式化链 4 函数 [S]）；批次 50 已闭环（screenshot_dxgi_com_windows DXGI COM 薄包装 3 函数 [S] + 1 [S-inline]）；批次 51 已闭环（screenshot_dxgi_enum_windows DXGI 枚举链 6 函数 [S] + 3 [S-inline]）；批次 52 已闭环（screenshot_capture_backend_windows 收口链 6 函数 [S] + 2 [P] DXGI 捕获核心入口）；批次 53 已闭环（screenshot_dxgi_capture_windows DXGI 捕获域 10 函数 [S] + 3 深层 [S-sig]，两个 [P] 核心入口转 [S]）；批次 54 已闭环（screenshot_dxgi_cache_windows DXGI 输出复制缓存域 19 函数 [S] + screenshot_dxgi_deep_windows 10 深层 [S-sig] + COM Release/QueryInterface 2 函数 [S]）。**
 
@@ -19,8 +19,8 @@
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 原始源码规模 | ≈104,374 行 | ≈104,374 行 | 每文件最大行号求和（闭包共享父函数区间，属上界估计） |
-| 已重建函数 | 3099 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 336 后） |
-| 真函数（S+S-inline+S-sig） | 3057 | 4,754 | 同上，**批次 336 达 65.19%** |
+| 已重建函数 | 3103 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 337 后） |
+| 真函数（S+S-inline+S-sig） | 3061 | 4,754 | 同上，**批次 337 达 65.27%** |
 | 文件覆盖 | 106/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 38 | **0** | 同上差集（活体实测 2026-09-30 批次 278 重跑，较 §10 的 57 已减 19），清单见 §10 |
 | UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
@@ -6351,6 +6351,22 @@ S-sig=1520→1522 / P=41 / UNMARKED=0`（FAITHFUL 1533→1535，USABLE 1534→15
 
 **下一批**：filesearch 域 volumeIndexMappedReadProvider.releaseLease /
 VolumeIndex.CanReloadStaticMmapCheckpoint。P=41 持平。FUNCS 3099/4754 = 65.19%。
+未落地文件差集 33 保持。
+
+### 批次 337（租约释放/静态 mmap 重载/检查点头部/USN 停止 +4）
+
+**基线/收口**：`FUNCS=3099→3103 / MARKED=3099→3103 / S=1498→1499 / S-eq=1 / S-inline=37 /
+S-sig=1522→1525 / P=41 / UNMARKED=0`（FAITHFUL 1535→1536，USABLE 1536→1537）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+4 FUNCS）**：
+1. `volumeIndexMappedReadProvider.releaseLease` [S 0x1407e4440]：租约释放。
+2. `VolumeIndex.CanReloadStaticMmapCheckpoint` [S-sig 0x1407e8980]：静态 mmap 重载判定。
+3. `buildVolumeIndexCheckpointHeaderLocked` [S-sig 0x1407f4e80]：检查点头部。
+4. `FileIndexService.stopUSNFollowerLocked` [S-sig 0x14081b4e0]：USN follower 停止。
+
+**下一批**：desktopwidget desktopWidgetScheduler.Stop / oledBlackout 域
+forget/stopIdleTimerLocked。P=41 持平。FUNCS 3103/4754 = 65.27%。
 未落地文件差集 33 保持。
 
 

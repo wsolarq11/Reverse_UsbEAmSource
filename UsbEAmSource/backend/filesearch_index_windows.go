@@ -821,3 +821,49 @@ func (s *VolumeIndex) ApplyJournalChangesDetailed(a, b, c, d, e, f interface{}) 
 	_, _, _, _, _, _ = a, b, c, d, e, f
 	return nil
 }
+
+// releaseLease 释放映射读取租约（锁内 active--，归零且 closing 时调用 release）。
+// [S 汇编 0x1407e4440, 288B]：nil 早退；Mutex lock；active>0→active--；active==0 且
+// closing&&!closed→取 release 置 nil + closed=true；unlock；release 非空则调用。
+func (p *volumeIndexMappedReadProvider) releaseLease() {
+	if p == nil {
+		return
+	}
+	p.mu.Lock()
+	if p.active > 0 {
+		p.active--
+	}
+	var rel func()
+	if p.active == 0 && p.closing && !p.closed {
+		rel = p.release
+		p.release = nil
+		p.closed = true
+	}
+	p.mu.Unlock()
+	if rel != nil {
+		rel()
+	}
+}
+
+// CanReloadStaticMmapCheckpoint 判定能否重载静态 mmap 检查点。
+// [S-sig 0x1407e8980, 288B]：RLock → defer RUnlock；读字段（+0xe0）；overlayStatsLocked
+// 结果判空。体待 overlayStatsLocked 落地。
+func (s *VolumeIndex) CanReloadStaticMmapCheckpoint() bool {
+	_ = s
+	return false
+}
+
+// buildVolumeIndexCheckpointHeaderLocked 构建检查点头部（magic "UIDX"）。
+// [S-sig 0x1407f4e80, 288B]：64B 头部（magic 0x58444955="UIDX"、版本 0x20003、字段拷贝）。
+// 体待检查点结构字段名专项还原。
+func buildVolumeIndexCheckpointHeaderLocked(a interface{}, b, c uint32, d uint64) [64]byte {
+	_, _, _, _ = a, b, c, d
+	return [64]byte{}
+}
+
+// stopUSNFollowerLocked 停止指定卷的 USN follower（map 删除 + 关闭 channel + CancelIoEx）。
+// [S-sig 0x14081b4e0, 288B]：normalizeVolumeRoot → map 查找 → 删除 → closechan →
+// CancelIoEx。体待 USN follower 结构字段名专项还原。
+func (s *FileIndexService) stopUSNFollowerLocked(a, b interface{}) {
+	_, _ = a, b
+}

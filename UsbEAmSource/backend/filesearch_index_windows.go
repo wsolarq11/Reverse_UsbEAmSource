@@ -1029,3 +1029,11 @@ func volumeNameTrigramHeaderMatchesIndex(a, b, c, d, e, f, g, h interface{}) boo
 	_, _, _, _, _, _, _, _ = a, b, c, d, e, f, g, h
 	return false
 }
+
+// resolvePath 解析日志待定状态的节点路径（递归 + 缓存）。
+// [S-sig 0x140807140, 416B]：缓存 map 命中→返回；entry → 递归 parent → filepath.join 缓存。
+// 体待日志待定域专项还原。
+func (s *volumeIndexJournalPendingState) resolvePath(a, b interface{}) string {
+	_, _, _ = s, a, b
+	return ""
+}

@@ -346,3 +346,11 @@ func findFirefoxBookmarkNodeIDByGUID(a interface{}, b, c interface{}) (string, b
 	_, _, _ = a, b, c
 	return "", false
 }
+
+// describeChromiumBookmarkPath 描述 Chromium 书签路径（相对根）。
+// [S-sig 0x140766c20, 416B]：TrimSpace→Clean→空/"."→nil；resolveChromiumBookmarkRoots →
+// filepath.Rel 匹配 → genSplit 首段；fallback Dir+Base。体待根域专项还原。
+func describeChromiumBookmarkPath(path string) (string, string) {
+	_, _ = path, ""
+	return "", ""
+}

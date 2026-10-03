@@ -143,3 +143,11 @@ func createLauncherShellLink() (interface{}, error) {
 func resolveLauncherStartMenuShortcutPath() (string, error) {
 	return "", nil
 }
+
+// setShortcutAppUserModelID 设置快捷方式 AppUserModelID（TrimSpace 校验 → COM 写入）。
+// [S-sig 0x14086cca0, 416B]：TrimSpace×3 → path/id 空→error →
+// withLauncherAppIdentityCOM。体待 COM 域专项还原。
+func setShortcutAppUserModelID(a, b, c string) error {
+	_, _, _ = a, b, c
+	return nil
+}

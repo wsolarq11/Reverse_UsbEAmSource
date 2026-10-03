@@ -280,3 +280,11 @@ func (bs *BootstrapService) ResolveShortcut(a, b interface{}) interface{} {
 	_, _, _ = bs, a, b
 	return nil
 }
+
+// shouldDestroyLauncherWindowOnTrayHide 判定托盘隐藏时是否销毁启动器窗口。
+// [S-sig 0x14079a6e0, 416B]：nil→false；workspaceSnapshot → loadLauncherConfigIfExists→err→false；
+// normalizePreferencesWithOptions → 首选项字节(+0x9d8)非零。体待首选项域专项还原。
+func (bs *BootstrapService) shouldDestroyLauncherWindowOnTrayHide() bool {
+	_ = bs
+	return false
+}

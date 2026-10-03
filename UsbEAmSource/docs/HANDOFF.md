@@ -5488,6 +5488,23 @@ S-inline=37 / S-sig=1443 / P=41 / UNMARKED=0`（FAITHFUL 1429→1436，USABLE 14
 screenshotNativePinWindow 布局修正（service/pin any→指针，同 preview 8B 错位）。P=41 持平。
 FUNCS 2921/4754 = 61.47%。未落地文件差集 35 保持。
 
+### 批次 282（screenshot 原生预览显示/透明度/几何 +3 [S] +1 [S-sig]）
+
+**基线/收口**：`FUNCS=2921→2925 / MARKED=2921→2925 / S=1399→1402 / S-eq=1 /
+S-inline=37 / S-sig=1443→1444 / P=41 / UNMARKED=0`（FAITHFUL 1436→1439，USABLE 1437→1440）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+4 FUNCS）**：
+1. `(*screenshotNativePreviewWindow)SetOpacity` [S 0x14099d100]：clamp [0,1]，PostMessageW(0x86a5,&opacity)。
+2. `(*screenshotNativePreviewWindow)showOnThread` [S 0x14099d220]：SetWindowPos(0x53)→ShowWindow(4)→
+   visible=true→redraw→UpdateWindow。
+3. `screenshotNativePreviewImageRect` [S 0x14099e580]：等比居中缩放矩形（min 比例、max(1,w) 夹取）。
+4. `(*screenshotNativePreviewWindow)redraw` [S-sig 0x14099d3a0]：渲染链存根占位。
+
+**下一批**：screenshot preview 剩余（paint 224B、createWindow 672B、run 576B、SetPayload 608B、
+decodeImage 依赖 1312B 解码器、handleMessage 1984B、WindowProc 448B、render 512B）。
+P=41 持平。FUNCS 2925/4754 = 61.55%。未落地文件差集 35 保持。
+
 
 
 

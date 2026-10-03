@@ -28,7 +28,13 @@
 ## G1 编译
 
 `go1.25.12 build -tags production -trimpath -buildmode=exe ./backend` EXIT=0；
-`go1.25.12 vet ./backend` EXIT=0；`go1.25.12 test ./backend` `ok changeme/backend`。
+`go1.25.12 vet ./backend` EXIT=0；`go1.25.12 test -tags production ./backend` `ok changeme/backend`。
+
+### G1.1 既有 flaky 测试修复（CI 阻塞项）
+
+`TestServeAssetRequest`（launcherasset_test.go:860）原以 `RegisterBytes(..., 1)`（TTL=1ns）注册后立即
+服务，条目在 lookup 处因 `now >= expiresAt` 被判过期而 404（时间分辨率相关，`-count=30` 本地复现）。
+修正 TTL 为 `time.Minute`，使资产在测试窗口内有效；`-count=10 -tags production` 稳定通过。
 
 ## G2 契约
 

@@ -857,7 +857,7 @@ func TestRegisterStableBytes(t *testing.T) {
 
 func TestServeAssetRequest(t *testing.T) {
 	s := testAssetService()
-	ref, err := s.RegisterBytes("ns", "text/plain", []byte("serve-body"), 1)
+	ref, err := s.RegisterBytes("ns", "text/plain", []byte("serve-body"), time.Minute)
 	if err != nil {
 		t.Fatal(err)
 	}

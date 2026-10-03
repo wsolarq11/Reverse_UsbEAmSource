@@ -12,3 +12,12 @@ func (bs *BootstrapService) ScanLinkBrowsers() []StartMenuApp {
 func startLinkWithExplicitBrowser(a, b, c interface{}) {
 	_, _, _ = a, b, c
 }
+
+// shouldUseLegacyExplicitLinkBrowser 判定是否使用 legacy 显式链接浏览器。
+// [S-sig 0x140769b20, 320B]：url TrimSpace 空→false；cleanStringList(list) 非空→true；
+// IndexAny(url,":/")>=0→true；否则末尾找扩展名截断→TrimSpace 非空→true。
+// 体待链接浏览器域专项还原。
+func shouldUseLegacyExplicitLinkBrowser(a, b, c interface{}) bool {
+	_, _, _ = a, b, c
+	return false
+}

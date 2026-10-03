@@ -268,3 +268,35 @@ func ensureBookmarkJSONEOF(dec interface{}) error {
 	_ = dec
 	return nil
 }
+
+// sanitizeBookmarkIconFilename 清洗书签图标文件名（替换非法字符）。
+// [S-sig 0x140764540, 288B]：TrimSpace → 空返回空 → strings.NewReplacer(18 对替换) → Replace。
+// 替换表常量待读（.rdata 18 对字符串）。体待书签图标域专项还原。
+func sanitizeBookmarkIconFilename(s string) string {
+	s = strings.TrimSpace(s)
+	if s == "" {
+		return ""
+	}
+	return s
+}
+
+// resolveFirefoxBookmarkFolderTitle 解析 Firefox 书签根文件夹标题。
+// [S 汇编 0x14076fa20, 288B]：title=TrimSpace(title) 非空→原样返回；否则按 fallback 内部名
+// （"menu________"/"mobile______"/"toolbar_____"/"unfiled_____"）映射英文标题；否则空串。
+func resolveFirefoxBookmarkFolderTitle(title, fallback string) string {
+	if t := strings.TrimSpace(title); t != "" {
+		return t
+	}
+	switch strings.TrimSpace(fallback) {
+	case "menu________":
+		return "Bookmarks Menu"
+	case "mobile______":
+		return "Mobile Bookmarks"
+	case "toolbar_____":
+		return "Bookmarks Toolbar"
+	case "unfiled_____":
+		return "Other Bookmarks"
+	default:
+		return ""
+	}
+}

@@ -41,3 +41,11 @@ func (m *windowsOLEDBlackoutHotkeyManager) Close() error {
 	})
 	return err
 }
+
+// Update 更新 OLED 黑屏热键绑定。[S-sig 0x14090f3e0, 298B]：makechan(1) 打包命令
+// chansend 到 commands(+0x08)，postLauncherThreadMessage(threadID(+0x20),0x80f2) 唤醒；
+// 返回 oledBlackoutHotkeyUpdateResult。体待热键更新链专项还原。
+func (m *windowsOLEDBlackoutHotkeyManager) Update(bindings []oledBlackoutHotkeyBinding) oledBlackoutHotkeyUpdateResult {
+	_ = bindings
+	return oledBlackoutHotkeyUpdateResult{}
+}

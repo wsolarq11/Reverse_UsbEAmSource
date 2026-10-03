@@ -64,3 +64,11 @@ func (m *windowsLauncherGlobalHotkeyManager) Close() error {
 	})
 	return err
 }
+
+// Update 更新全局热键绑定。[S-sig 0x14089d8e0, 252B]：makechan(1) 打包命令
+// chansend 到 commands(+0x08)，postLauncherThreadMessage(threadID(+0x18),0x80f1) 唤醒；
+// 返回 error。体待 hotkey 域专项还原。
+func (m *windowsLauncherGlobalHotkeyManager) Update(bindings launcherHotkeyBindings) error {
+	_ = bindings
+	return nil
+}

@@ -464,3 +464,10 @@ func captureScreenshotWindowForServiceWithControlsAndLauncherVisibility(bs *Boot
 	_ = captureControls
 	return "", nil
 }
+
+// registerLauncherFileDropHandler 注册启动器文件拖放处理器。
+// [S-sig 0x1408d0760, 128B]：nil 接口直接返回；否则经 itab fun[0x138] 调窗口文件拖放
+// 注册方法（携带全局目标 + 回调闭包）。体待 wails 窗口拖放接口方法名专项还原。
+func registerLauncherFileDropHandler(window application.Window) {
+	_ = window
+}

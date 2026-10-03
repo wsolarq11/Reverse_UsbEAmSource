@@ -56,3 +56,10 @@ func inputMonitorPostThreadMessageValue(a, b uint32) error {
 	_, _ = a, b
 	return nil
 }
+
+// Stop 停止输入监听服务（StopOwner(8) 转发）。
+// [S-sig 0x1408641e0, 352B]：StopOwner(8) → duffcopy × 3 → 返回 owner。体待 owner 结构专项还原。
+func (s *inputMonitorService) Stop() interface{} {
+	_ = s
+	return nil
+}

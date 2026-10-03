@@ -966,3 +966,11 @@ func openVolumeIndexMappedFile(a string) (interface{}, interface{}) {
 func (v *VolumeIndex) UpdateMeta(a, b interface{}) {
 	_, _ = a, b
 }
+
+// shouldPersistUSNFollowerIdleMeta 判定是否应持久化 USN 跟随者空闲元数据。
+// [S-sig 0x14081d200, 352B]：idleThreshold<=0→true；否则 lastPersist.Add(threshold+30s)
+// 与 now 比较。体待时间常量专项还原。
+func shouldPersistUSNFollowerIdleMeta(a, b interface{}, idleThreshold int64) bool {
+	_, _, _ = a, b, idleThreshold
+	return true
+}

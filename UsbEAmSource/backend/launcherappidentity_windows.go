@@ -121,3 +121,18 @@ func launcherAppIdentityLPWSTRPropVariant(a string) interface{} {
 	_ = a
 	return nil
 }
+
+// setCurrentProcessExplicitAppUserModelID 设置当前进程显式 AppUserModelID。
+// [S-sig 0x14086c620, 352B]：TrimSpace 空→error；UTF16PtrFromString →
+// LazyProc.Call(SetCurrentProcessExplicitAppUserModelID, 1) → 失败 fmt.Errorf。
+// 体待错误文案专项还原。
+func setCurrentProcessExplicitAppUserModelID(a string) error {
+	_ = a
+	return nil
+}
+
+// createLauncherShellLink 创建启动器 Shell 链接（CoCreateInstance）。
+// [S-sig 0x14086d780, 352B]：CoCreateInstance(5) → 失败 fmt.Errorf。体待 CLSID 专项还原。
+func createLauncherShellLink() (interface{}, error) {
+	return nil, nil
+}

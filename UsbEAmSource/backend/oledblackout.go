@@ -481,6 +481,13 @@ func (s *oledBlackoutService) dismissOverlayForKeyboardInputLocked(a, b bool) {
 	_, _, _ = s, a, b
 }
 
+// rescheduleIdleTimerIfCurrent 若当前有 idle run 则重新调度 idle 定时器。
+// [S-sig 0x140903940, 224B]：lock(+0x00) → idleRunCurrentLocked → unlock；active 则
+// configureIdleTimer。体待 idle 定时域专项还原。
+func (s *oledBlackoutService) rescheduleIdleTimerIfCurrent() {
+	_ = s
+}
+
 // parseOLEDBlackoutScreenNumber 从屏幕名提取数字编号（收集所有数字字符后 Atoi）。
 // [S 0x140906420] 单参 string 返回 int。asm：逐字节收集 '0'-'9' 到 []byte →
 //   空则 0；否则 strconv.Atoi，err!=nil 则 0。

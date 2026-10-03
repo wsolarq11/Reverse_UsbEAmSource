@@ -198,6 +198,13 @@ func (bs *BootstrapService) shouldCloseLauncherWindow() bool {
 	return bs.allowLauncherWindowClose
 }
 
+// registerLauncherCloseToTrayHook 注册启动器关闭到托盘钩子。
+// [S-sig 0x1408d0500, 224B]：nil 返回；newobject 闭包捕获 (回调, 参数, bs) → 间接调用
+// bs 钩子注册函数（+0x160）。体待钩子注册域专项还原。
+func registerLauncherCloseToTrayHook(bs *BootstrapService, callback, arg interface{}) {
+	_, _, _ = bs, callback, arg
+}
+
 // resolveLauncherWindowRelativePosition 计算启动器窗口相对位置（居中或钳位）。
 // [S 汇编 0x1408d0a80, 80B]：6 int + 1 bool 参数，返回 (x, y)。
 // center=true：x=max((screenW-windowW)/2,0)、y=max((screenH-windowH)/2,0)（算术右移向下取整）；

@@ -62,6 +62,14 @@ func (c *windowsOLEDBlackoutCursorController) Show() error {
 	return c.request(false, true, false, nil)
 }
 
+// restoreOnThread 在 OLED 线程上恢复光标（按次数循环调用恢复闭包）。
+// [S-sig 0x140913e60, 192B]：receiver nil 或 restore(+0x18) nil → newobject 错误返回；
+// 非 nil 则循环 n 次间接调用 [restore]（闭包 code 于 [restore] 首字）。
+// 体待恢复闭包字段与错误语义专项还原。
+func (c *windowsOLEDBlackoutCursorController) restoreOnThread(n int) {
+	_, _ = c, n
+}
+
 // [S-sig 0x140914420] 当前空闲秒数。序言无参数保存（params=[]，直接 newobject + LazyProc.Call 调 GetLastInputInfo）；
 // 尾声 imul rax,rax,0xf4240（×1e6 纳秒化）+ xor ebx + xor ecx = 3×int64 返回。
 // 三返回值语义（lastInput/tick/current 或 idle/上限/当前）仍待续写，体骨架。

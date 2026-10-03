@@ -123,6 +123,15 @@ type fileLocatorContextReader struct {
 	reader io.Reader
 }
 
+// Read 带 context 的读取（io.Reader 接口方法）。
+// [S-sig 0x140a04f20, 192B]：receiver nil 则 panicwrap；否则解包 reader(+0x00:8)
+// 与 ctx(+0x10:8) 两接口，ctx 与读取参数重组后间接调用底层 Read。
+// 体待 ctx 注入语义专项还原。
+func (r *fileLocatorContextReader) Read(p []byte) (int, error) {
+	_, _ = r, p
+	return 0, nil
+}
+
 type fileLocatorNearNode struct {
 	left     fileLocatorBooleanNode
 	right    fileLocatorBooleanNode

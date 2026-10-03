@@ -161,3 +161,57 @@ func (bs *BootstrapService) HideScreenshotPreview() {
 func (bs *BootstrapService) applyLauncherWindowSizingForShow(window application.Window) {
 	_ = window
 }
+
+// resolveLauncherWindowRelativePosition 计算启动器窗口相对位置（居中或钳位）。
+// [S 汇编 0x1408d0a80, 80B]：6 int + 1 bool 参数，返回 (x, y)。
+// center=true：x=max((screenW-windowW)/2,0)、y=max((screenH-windowH)/2,0)（算术右移向下取整）；
+// center=false：x=clamp(screenW-windowW,0,maxX)、y=clamp(screenH-windowH,0,maxY)，
+// 其中 maxX/maxY 为负时对应分量置 0，screenW/screenH<=0 时直接取 maxX/maxY。
+func resolveLauncherWindowRelativePosition(screenW, screenH, windowW, windowH, maxX, maxY int, center bool) (int, int) {
+	if center {
+		x := 0
+		if screenW > 0 {
+			x = (screenW - windowW) >> 1
+			if x < 0 {
+				x = 0
+			}
+		}
+		y := 0
+		if screenH > 0 {
+			y = (screenH - windowH) >> 1
+			if y < 0 {
+				y = 0
+			}
+		}
+		return x, y
+	}
+	var x int
+	if screenW > 0 {
+		x = screenW - windowW
+		if x < 0 {
+			x = 0
+		}
+		if maxX < 0 {
+			x = 0
+		} else if maxX <= x {
+			x = maxX
+		}
+	} else {
+		x = maxX
+	}
+	var y int
+	if screenH > 0 {
+		y = screenH - windowH
+		if y < 0 {
+			y = 0
+		}
+		if maxY < 0 {
+			y = 0
+		} else if maxY <= y {
+			y = maxY
+		}
+	} else {
+		y = maxY
+	}
+	return x, y
+}

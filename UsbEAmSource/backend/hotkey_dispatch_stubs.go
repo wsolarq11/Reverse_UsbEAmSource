@@ -227,6 +227,13 @@ func (bs *BootstrapService) showLauncherWindow(window interface{}, setWindow, sh
 	// 实际实现走 Wails WindowManager，当前保持骨架。
 }
 
+// showLauncherFromTray 从系统托盘显示启动器窗口。
+// [S 汇编 0x140795ce0, 80B]：ensureLauncherWindowForShow 取窗口（interface 断言解包后），
+// 直接 showLauncherWindow(window, setWindow=true, show=false)。
+func (bs *BootstrapService) showLauncherFromTray() {
+	bs.showLauncherWindow(bs.ensureLauncherWindowForShow(), true, false)
+}
+
 // hideLauncherWindowToTray 隐藏启动器窗口到系统托盘。
 // [S 汇编 0x14079a420, 70 行] 实证流程：
 //

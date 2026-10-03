@@ -174,6 +174,23 @@ func (c *nodePathCache) Set(key int32, value string) {
 	c.sliceCache[key] = value
 }
 
+// Reset 重置缓存到指定容量：清空 sliceCache；容量不足则扩容 make([]string,n)，
+// 否则截断长度；清空 deltaCache map。
+// [S 汇编 0x1407e1620, 256B]：nil 返回；len!=0 则 memclrHasPointers(sliceCache)；
+// n > cap 则 makeslice([]string,n)；len=n；deltaCache(+0x18) 非空则 mapclear。
+func (c *nodePathCache) Reset(n int) {
+	if c == nil {
+		return
+	}
+	clear(c.sliceCache)
+	if n > cap(c.sliceCache) {
+		c.sliceCache = make([]string, n)
+	} else {
+		c.sliceCache = c.sliceCache[:n]
+	}
+	clear(c.deltaCache)
+}
+
 // [S 汇编实证 0x140820180, 320B] 比较两字符串：TrimSpace 后空值处理（双空=0，a 空=1，
 // b 空=-1），否则 collator 非空走 CompareString、空走 strings.Compare；spec.Direction=="desc"
 // 时结果取反。返回 int(-1/0/1)。

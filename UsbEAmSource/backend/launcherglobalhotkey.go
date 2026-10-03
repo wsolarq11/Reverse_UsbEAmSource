@@ -17,3 +17,11 @@ func (e *launcherHotkeyRegistrationError) Unwrap() error {
 	}
 	return e.Err
 }
+
+// unregisterLauncherHotkey 反注册全局热键（按 id）。
+// [S-sig 0x1408a15a0, 256B]：newobject 写 id → windows.LazyProc.Call(id) → 失败则 fmt.Errorf。
+// 体待热键注册域专项还原。
+func unregisterLauncherHotkey(id int32) error {
+	_ = id
+	return nil
+}

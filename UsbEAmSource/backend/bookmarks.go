@@ -20,6 +20,7 @@ import (
 	"mime"
 	"net/http"
 	"net/url"
+	"path/filepath"
 	"strings"
 	"time"
 
@@ -221,4 +222,19 @@ func resolveBookmarkPageTitleWithNetwork(access LauncherNetworkAccess, url strin
 		return "", lastErr
 	}
 	return "", errors.New("未读取到网页标题")
+}
+
+// normalizeFirefoxProfileName 规整 Firefox 配置名：名字非空则取 TrimSpace 名字；
+// 否则取路径 Base 并去首段点号扩展名。
+// [S 汇编 0x14076cfa0, 256B]：TrimSpace(name) 非空直接返回；否则 filepathlite.Base(
+// TrimSpace(path)) → TrimSpace → Index(".") → 找到则取 [:idx] 再 TrimSpace。
+func normalizeFirefoxProfileName(name, path string) string {
+	if n := strings.TrimSpace(name); n != "" {
+		return n
+	}
+	base := strings.TrimSpace(filepath.Base(strings.TrimSpace(path)))
+	if idx := strings.Index(base, "."); idx >= 0 {
+		return strings.TrimSpace(base[:idx])
+	}
+	return base
 }

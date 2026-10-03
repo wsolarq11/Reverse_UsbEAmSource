@@ -1687,11 +1687,13 @@ func (bs *BootstrapService) mouseGestureIconDataFromResourceURL(url string) stri
 //	ensureWorkspaceDirectories → workspaceSnapshot → launcherConfigStoreForPath
 //	→ store.Update(cfg, …) → err? return err → syncRuntimeServices
 //
+// 签名带 cfg（WindowManagementConfig 经栈传递，persistAndRefresh 处 duffcopy state.Config 入参）；
 // 体尚未按 asm 逐行还原（Update 入参形态需进一步确认），当前以骨架+nil 守卫占位。
-func (bs *BootstrapService) persistWindowManagementConfig() error {
+func (bs *BootstrapService) persistWindowManagementConfig(cfg WindowManagementConfig) error {
 	if bs == nil {
 		return nil
 	}
+	_ = cfg
 	return nil
 }
 

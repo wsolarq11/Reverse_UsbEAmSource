@@ -5413,6 +5413,33 @@ S-sig=1443 / P=41 / UNMARKED=0`（真函数 2850→2852 = 59.99%；FAITHFUL 1407
 **下一批**：`inspectWebView2Processes`（3104B）平台层枚举专项，或转其它未落地文件差集（38 个）。
 P=41 持平。FUNCS 2893/4754 = 60.85%。未落地文件差集 39→38。
 
+### 批次 279（launchericonasset.go gap 差集闭合 +4 [S] +1 [S-inline]）
+
+**基线/收口**：`FUNCS=2893→2898 / MARKED=2893→2898 / S=1373→1377 / S-inline=36→37 /
+S-sig=1443 / P=41 / UNMARKED=0`（真函数 2852→2857 = 60.10%；FAITHFUL 1409→1414）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+4 [S]，+1 [S-inline]，+5 FUNCS）**：
+1. `ResolveAppIconResource` [S 0x1408a17e0, 320B]：`(path string) LauncherIconResource`；
+   默认 opts（rodata 0x141be9500）→ `resolveAppIconDataWithOptions` →
+   `buildLauncherIconResource("icon/app", iconData)`。
+2. `attachWindowManagementTargetIconURL` [S 0x1408a45c0, 800B]：normalize →
+   `buildLauncherConfigIconResource("icon/window-management", IconRef, IconData)` →
+   写回 IconRef/IconURL + 清零 IconData；回退（!HasSource && IconURL=="" && TrimSpace(Path)!=""）
+   → `resolveAppIconDataWithOptions` → `buildLauncherIconResource` → IconURL。
+3. `attachWindowManagementStateIconURLs` [S 0x1408a48e0, 416B]：两次 attachTarget
+   （Config.Target @+0x28、Target @+0x100）。
+4. `persistAndRefreshWindowManagementState` [S 0x1408a4a80, 1184B]：priorErr 短路 →
+   `persistWindowManagementConfig(state.Config)` → `windowManagement.GetState()` → 分支 attachState。
+5. `defaultAppIconOptions` [S-inline]：rodata 0x141be9500 内联复制的 DRY 提取
+   （Size=256、ImageList=4、CandsPtr=&defaultAppIconSizes[0]、CandsLen/CandsCap=5）。
+
+**连带**：`AppIconOptions.CandsCap` padding→int（+0x38，ABI 64B 不变）；
+`persistWindowManagementConfig` 签名补全 cfg 入参（persist.asm duffcopy state.Config 入栈确证）。
+
+**下一批**：`inspectWebView2Processes`（3104B）平台层枚举专项，或转其它未落地文件差集（37 个）。
+P=41 持平。FUNCS 2898/4754 = 60.96%。未落地文件差集 38→37。
+
 
 
 

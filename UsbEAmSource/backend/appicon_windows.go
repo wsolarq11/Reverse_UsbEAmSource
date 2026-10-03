@@ -85,7 +85,7 @@ type AppIconOptions struct {
 	ImageList int
 	CandsPtr  unsafe.Pointer
 	CandsLen  int
-	_         [8]byte
+	CandsCap  int
 }
 
 // winBitmap 对应 GDI BITMAP 结构（32B，GetObjectW cbBuffer=0x20）。

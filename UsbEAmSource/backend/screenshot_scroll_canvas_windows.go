@@ -69,3 +69,11 @@ func newScreenshotScrollingChunkedCanvas(a, b interface{}) interface{} {
 	_, _ = a, b
 	return nil
 }
+
+// Row 返回滚动画布第 row 行的像素切片（遍历 chunks 定位 + 偏移计算）。
+// [S-sig 0x14099f560, 448B]：nil/越界→fmt.Errorf；遍历 chunks 找覆盖 row 的 chunk →
+// 计算行像素偏移返回。体待 chunk 像素域专项还原。
+func (s *screenshotScrollingChunkedCanvas) Row(row int) interface{} {
+	_, _ = s, row
+	return nil
+}

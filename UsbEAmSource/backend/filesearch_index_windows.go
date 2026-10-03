@@ -1076,3 +1076,27 @@ func volumeIndexBaseNodeDescendsFrom(a, b interface{}, nodeIndex int) bool {
 	_, _, _ = a, b, nodeIndex
 	return false
 }
+
+// IsSourcePath 判定路径是否等于映射读提供器的源路径（abs+Clean+EqualFold）。
+// [S-sig 0x1407e48a0, 448B]：TrimSpace 空→false；lock → 源路径(+0xe8/+0xf0) → abs+Clean →
+// EqualFold(path abs+Clean)。体待源路径域专项还原。
+func (p *volumeIndexMappedReadProvider) IsSourcePath(path string) bool {
+	_, _ = p, path
+	return false
+}
+
+// applyVolumeIndexTombstonesToHeapSnapshot 将墓碑应用到堆快照（标记 flag bit 2）。
+// [S-sig 0x1408073a0, 448B]：遍历 heap 快照 → tombstone map 命中 → 标记 flag(+0x16) bit2 →
+// 返回 tombstone 计数。体待墓碑域专项还原。
+func applyVolumeIndexTombstonesToHeapSnapshot(a interface{}, b interface{}, c, d interface{}) int {
+	_, _, _, _ = a, b, c, d
+	return 0
+}
+
+// usnFollowerPaths 计算 USN 跟随者路径对（volumeIndexPath → 拼接）。
+// [S-sig 0x140818280, 448B]：volumeIndexPath×2 → 尾段匹配 → concatstring2 拼接。
+// 体待 USN 域专项还原。
+func (s *FileIndexService) usnFollowerPaths(a, b interface{}) (string, string) {
+	_, _, _ = s, a, b
+	return "", ""
+}

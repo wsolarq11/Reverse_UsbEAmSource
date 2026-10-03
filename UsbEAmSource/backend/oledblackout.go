@@ -526,6 +526,13 @@ func (s *oledBlackoutService) idleThresholdForProfileLocked(profile string, minu
 	return 0
 }
 
+// dismissOverlayScreenLocked 关闭指定键的覆盖层窗口（持锁）。
+// [S-sig 0x14090d320, 256B]：TrimSpace(key) 空则 panic；overlay map(+0xf0)[key] 非空则 Hide；
+// mapdelete(+0xf8) → syncVisibleOverlayStateLocked。体待 overlay 域专项还原。
+func (s *oledBlackoutService) dismissOverlayScreenLocked(key string) {
+	_ = key
+}
+
 // parseOLEDBlackoutScreenNumber 从屏幕名提取数字编号（收集所有数字字符后 Atoi）。
 // [S 0x140906420] 单参 string 返回 int。asm：逐字节收集 '0'-'9' 到 []byte →
 //   空则 0；否则 strconv.Atoi，err!=nil 则 0。

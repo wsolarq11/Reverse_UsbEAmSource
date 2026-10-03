@@ -20,6 +20,7 @@ import (
 	"mime"
 	"net/http"
 	"net/url"
+	"os"
 	"path/filepath"
 	"strings"
 	"time"
@@ -245,4 +246,25 @@ func normalizeFirefoxProfileName(name, path string) string {
 func containsUnsafeOpenLinkText(text string) bool {
 	_ = text
 	return false
+}
+
+// resolveFirefoxProfileRoot 解析 Firefox profile 根目录：APPDATA 为空返回空；
+// 否则 Join(APPDATA, "Mozilla", "Firefox")。UserHomeDir 返回值被丢弃（历史遗留）。
+// [S 汇编 0x14076c420, 192B]：UserHomeDir（丢弃）→ Getenv(7 字符) → TrimSpace → 空则 ""；
+// 否则 filepath.Join(env, 常量7, 常量7)。
+func resolveFirefoxProfileRoot() string {
+	_, _ = os.UserHomeDir()
+	base := strings.TrimSpace(os.Getenv("APPDATA"))
+	if base == "" {
+		return ""
+	}
+	return filepath.Join(base, "Mozilla", "Firefox")
+}
+
+// ensureBookmarkJSONEOF 确保书签 JSON 已读到 EOF（EOF 正常、错误返回、非 EOF 无错 panic）。
+// [S-sig 0x140767d00, 256B]：json.Decoder.Decode(&v) → err==io.EOF→nil；err!=nil→fmt.Errorf；
+// 否则 panic（多余数据）。体待书签域专项还原。
+func ensureBookmarkJSONEOF(dec interface{}) error {
+	_ = dec
+	return nil
 }

@@ -213,3 +213,11 @@ func fitScreenshotPreviewSize(w, h int) (int, int) {
 	_, _ = w, h
 	return 120, 120
 }
+
+// captureScreenshotOverlayMouseInput 捕获覆盖层鼠标输入（SetCapture，返回释放函数）。
+// [S-sig 0x140973ce0, 192B]：LazyProc.Call；overlay nil 或失败 → nil；否则 newobject 闭包
+// 调 SetCapture 并返回释放函数。体待 capture 域专项还原。
+func captureScreenshotOverlayMouseInput(overlay interface{}) interface{} {
+	_ = overlay
+	return nil
+}

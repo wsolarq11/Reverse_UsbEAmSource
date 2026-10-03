@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"strings"
+	"time"
+)
 
 // normalizeDesktopWidgetTitle 归一化首页组件标题：TrimSpace 后按 rune 截断至 160，
 // 空标题回退到按组件种类（kind）确定的英文默认标题。
@@ -106,4 +109,15 @@ func normalizeDesktopWidgetConfig(kind string, cfg DesktopWidgetConfig) DesktopW
 func (s *desktopWidgetService) isRuntimeEnabled() bool {
 	_ = s
 	return false
+}
+
+// parseDesktopReminderMinute 解析提醒时刻（"HH:MM"）为自 0 点起的分钟数。
+// [S 汇编 0x1407b0e80, 288B]：TrimSpace → time.Parse("15:04")；err!=nil → (0,false)；
+// 否则 Hour*60+Minute → (n,true)。
+func parseDesktopReminderMinute(s string) (int, bool) {
+	t, err := time.Parse("15:04", strings.TrimSpace(s))
+	if err != nil {
+		return 0, false
+	}
+	return t.Hour()*60 + t.Minute(), true
 }

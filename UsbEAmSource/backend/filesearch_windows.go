@@ -1345,3 +1345,41 @@ func nameBigramSignature(s string) uint64 {
 	}
 	return sig
 }
+
+// nameTrigramSignature 计算名称三字签名：逐三字符小写化（A-Z→a-z），去重相邻重复，
+// 每个三字经混合哈希后置位 64 位位图。len<3 返回 0。
+// [S 汇编 0x1407e2b80, 288B]：len<3→0；循环 trigram 小写→去重→(h>>11)^h*0x45d9f3b→
+// (h>>16)^h→bts 位图。
+func nameTrigramSignature(s string) uint64 {
+	if len(s) < 3 {
+		return 0
+	}
+	var sig uint64
+	var last uint32
+	hasLast := false
+	for i := 0; i+2 < len(s); i++ {
+		a := s[i]
+		b := s[i+1]
+		c := s[i+2]
+		if a >= 'A' && a <= 'Z' {
+			a |= 0x20
+		}
+		if b >= 'A' && b <= 'Z' {
+			b |= 0x20
+		}
+		if c >= 'A' && c <= 'Z' {
+			c |= 0x20
+		}
+		tg := uint32(a)<<16 | uint32(b)<<8 | uint32(c)
+		if hasLast && last == tg {
+			continue
+		}
+		h := tg
+		h = ((h >> 11) ^ h) * 0x45d9f3b
+		h = (h >> 16) ^ h
+		sig |= 1 << h
+		last = tg
+		hasLast = true
+	}
+	return sig
+}

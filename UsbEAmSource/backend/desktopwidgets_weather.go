@@ -67,3 +67,23 @@ func earliestDesktopWeatherTime(a, b string) string {
 	}
 	return b
 }
+
+// normalizeDesktopWeatherLanguage 归一化天气语言代码（提取 ISO 639-1 前 2 字符）。
+// [S 汇编 0x1407c7d00, 288B]：TrimSpace → ToLower → IndexAny(s,"-_")；分隔符不在位置 2
+// 或前 2 字符非 a-z → 返回默认 "en"；否则返回 s[:2]。
+func normalizeDesktopWeatherLanguage(s string) string {
+	s = strings.ToLower(strings.TrimSpace(s))
+	i := strings.IndexAny(s, "-_")
+	if i < 0 {
+		i = len(s)
+	}
+	if i != 2 {
+		return "en"
+	}
+	for j := 0; j < 2; j++ {
+		if c := s[j]; c < 'a' || c > 'z' {
+			return "en"
+		}
+	}
+	return s[:2]
+}

@@ -5,6 +5,7 @@ import (
 	"encoding/binary"
 	"encoding/hex"
 	"errors"
+	"fmt"
 	"io"
 	"os"
 	"os/exec"
@@ -379,5 +380,67 @@ func readLauncherUpdateFrameWithTimeout(conn *os.File, maxSize int, timeout time
 		return nil, errors.New("读取更新认证 named pipe 超时")
 	case r := <-ch:
 		return r.data, r.err
+	}
+}
+
+// connectLauncherUpdateNamedPipe 重叠模式等待命名管道客户端连接。
+// [S 汇编 0x1408c2aa0, 1344B]：CreateEvent(nil,true,false,nil) 失败透传；defer CloseHandle；
+// ConnectNamedPipe(pipe,&overlapped{HEvent})；err==nil 或 ERROR_IO_PENDING → 返回 nil；
+// ERROR_PIPE_CONNECTED → WaitForSingleObject(event,毫秒超时)；WAIT_OBJECT_0 →
+// GetOverlappedResult(wait=false) 失败透传后返回 nil；WAIT_TIMEOUT → CancelIoEx，非
+// ERROR_NOT_FOUND 失败 → fmt.Errorf "取消更新认证 named pipe 连接失败: %w"，否则
+// GetOverlappedResult(wait=true) + "等待更新认证 named pipe 连接超时"；其他 →
+// fmt.Errorf "等待更新认证 named pipe 连接返回未知状态: %d"。
+func connectLauncherUpdateNamedPipe(pipe windows.Handle, timeout time.Duration) error {
+	event, err := windows.CreateEvent(nil, 1, 0, nil)
+	if err != nil {
+		return err
+	}
+	defer windows.CloseHandle(event)
+
+	overlapped := windows.Overlapped{
+		HEvent: event,
+	}
+
+	err = windows.ConnectNamedPipe(pipe, &overlapped)
+	if err == nil || errors.Is(err, windows.ERROR_IO_PENDING) {
+		return nil
+	}
+	if !errors.Is(err, windows.ERROR_PIPE_CONNECTED) {
+		return err
+	}
+
+	var waitMs uint32
+	if timeout > 0 {
+		ms := (timeout + 999999) / 1000000
+		if ms >= 0xffffffff {
+			waitMs = 0xfffffffe
+		} else {
+			waitMs = uint32(ms)
+		}
+	}
+
+	result, err := windows.WaitForSingleObject(event, waitMs)
+	if err != nil {
+		_ = windows.CancelIoEx(pipe, &overlapped)
+		return err
+	}
+	switch result {
+	case windows.WAIT_OBJECT_0:
+		var bytes uint32
+		if err := windows.GetOverlappedResult(pipe, &overlapped, &bytes, false); err != nil {
+			return err
+		}
+		return nil
+	case uint32(windows.WAIT_TIMEOUT):
+		if err := windows.CancelIoEx(pipe, &overlapped); err != nil && !errors.Is(err, windows.ERROR_NOT_FOUND) {
+			return fmt.Errorf("取消更新认证 named pipe 连接失败: %w", err)
+		}
+		var bytes uint32
+		_ = windows.GetOverlappedResult(pipe, &overlapped, &bytes, true)
+		return errors.New("等待更新认证 named pipe 连接超时")
+	default:
+		_ = windows.CancelIoEx(pipe, &overlapped)
+		return fmt.Errorf("等待更新认证 named pipe 连接返回未知状态: %d", result)
 	}
 }

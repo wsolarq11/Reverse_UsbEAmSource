@@ -5684,6 +5684,19 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1461→1463，USABLE 14
 **下一批**：launcherupdate（queryProcessIdentity/connectNamedPipe 1.3-1.6KB）+
 截图滚动几何。P=41 持平。FUNCS 2949/4754 = 62.03%。未落地文件差集 34 保持。
 
+### 批次 294（命名管道连接 +1 [S]）
+
+**基线/收口**：`FUNCS=2949→2950 / MARKED=2949→2950 / S=1426→1427 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1463→1464，USABLE 1464→1465）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+1 FUNCS）**：
+1. `connectLauncherUpdateNamedPipe` [S 0x1408c2aa0]：重叠 ConnectNamedPipe +
+   WaitForSingleObject + GetOverlappedResult/CancelIoEx。
+
+**下一批**：launcherupdate（queryLauncherUpdateProcessIdentity 0x1408c3d60, 3.2KB）+
+截图滚动几何。P=41 持平。FUNCS 2950/4754 = 62.05%。未落地文件差集 34 保持。
+
 
 
 

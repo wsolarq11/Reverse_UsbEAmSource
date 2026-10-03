@@ -240,3 +240,28 @@ func waitScreenshotScrollingFrameReady(a, b interface{}) bool {
 func (c *screenshotScrollingChunkedCanvas) resolveBottomTrim() int {
 	return 0
 }
+
+// captureScreenshotScrollingFrame 捕获滚动帧（接口方法转发）。
+// [S-sig 0x1409a2d40, 224B]：backend nil → defaultScreenshotScreenCaptureBackend；
+// 调用 backend[+0x18] 接口方法转发参数。
+// 体待滚动捕获域专项还原。
+func captureScreenshotScrollingFrame(a, b, c, d, e, f interface{}) interface{} {
+	_, _, _, _, _, _ = a, b, c, d, e, f
+	return nil
+}
+
+// buildScreenshotThumbnailPNGFromPath 从路径构建截图缩略图 PNG。
+// [S-sig 0x14096b200, 256B]：读图 → 缩放 → PNG 编码。
+// 体待缩略图域专项还原。
+func buildScreenshotThumbnailPNGFromPath(a interface{}) (interface{}, error) {
+	_ = a
+	return nil, nil
+}
+
+// encodeScreenshotScrollingChunkedCanvas 编码滚动分块画布。
+// [S-sig 0x1409a0640, 256B]：分块画布 → 编码输出。
+// 体待滚动分块域专项还原。
+func encodeScreenshotScrollingChunkedCanvas(a interface{}) interface{} {
+	_ = a
+	return nil
+}

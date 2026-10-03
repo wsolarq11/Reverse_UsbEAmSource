@@ -11,3 +11,10 @@ func screenshotPreviewShowWindowFlags() int {
 func screenshotPreviewShowWindowCommand() int {
 	return 4
 }
+
+// waitBeforeRevealNative 原生窗口显示前等待（定时器/条件）。
+// [S-sig 0x140999de0, 256B]：全局计数 <=0 → shouldDisplayNative；否则 time.NewTimer + chanrecv1
+// 后 shouldDisplayNative。体待预览窗口域专项还原。
+func (s *screenshotPreviewWindowService) waitBeforeRevealNative() bool {
+	return false
+}

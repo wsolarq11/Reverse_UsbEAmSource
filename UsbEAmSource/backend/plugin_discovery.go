@@ -258,3 +258,27 @@ func setNestedLanguageMessage(messages map[string]interface{}, key string, value
 		}
 	}
 }
+
+// normalizePluginPackageFile 规范化插件包文件名（去空白、正斜杠化、限 .zip）。
+// [S-sig 0x14092bca0, 352B]：TrimSpace 空→""；`\`→`/`；Index ":" <0 → path.Clean；
+// basename 扩展名 EqualFold ".zip"。体待扩展名常量专项还原。
+func normalizePluginPackageFile(file string) string {
+	_ = file
+	return ""
+}
+
+// resolvePluginCatalogBaseURL 解析插件目录基准 URL（默认 "."，限 http/https，补尾斜杠）。
+// [S-sig 0x14092c220, 352B]：TrimSpace 空→"."；url.Parse；scheme 空/非 http/https→"."；
+// path 不以 "/" 结尾→补 "/" → URL.String。体待 scheme 常量专项还原。
+func resolvePluginCatalogBaseURL(base string) string {
+	_ = base
+	return ""
+}
+
+// replacePluginPackageFile 替换插件包文件（Lstat 目标 → rename/remove 处理）。
+// [S-sig 0x14092d360, 352B]：Lstat 失败 ErrNotExist→rename；已存在→remove src + error。
+// 体待错误文案专项还原。
+func replacePluginPackageFile(a, b, c string) error {
+	_, _, _ = a, b, c
+	return nil
+}

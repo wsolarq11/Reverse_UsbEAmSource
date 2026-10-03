@@ -459,6 +459,21 @@ func (s *pluginWindowService) store(key string, win *pluginManagedWindow) {
 	s.lock.Unlock()
 }
 
+// release 释放插件窗口（gen/identity 匹配才删除 windows[key]）。
+// [S-sig 0x1409301a0, 352B]：lock → windows(+0x10)[key] 匹配 gen(+0x88)+identity(+0x90) →
+// mapdelete → unlock。体待 pluginManagedWindow 域专项还原。
+func (s *pluginWindowService) release(key string, gen uintptr, identity interface{}) {
+	if s == nil {
+		return
+	}
+	s.lock.Lock()
+	if win := s.windows[key]; win != nil {
+		_, _, _ = key, gen, identity
+		delete(s.windows, key)
+	}
+	s.lock.Unlock()
+}
+
 // resolvePluginPackageURL 解析插件包 URL。
 // [S-sig 0x14092c520, 224B]：TrimSpace 分支 → resolvePluginCatalogAssetURL / normalizePluginPackageFile。
 // 体待 catalog 域专项还原。

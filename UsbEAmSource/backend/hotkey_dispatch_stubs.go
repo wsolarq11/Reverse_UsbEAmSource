@@ -539,3 +539,10 @@ func (bs *BootstrapService) loadLauncherUIScalePercent() int {
 func (bs *BootstrapService) closeLauncherWindowForTrayMemoryRelease(cb interface{}) {
 	_, _ = bs, cb
 }
+
+// launcherStartupDebugLog 启动器启动调试日志（格式化 + 时间戳 + 写文件）。
+// [S-sig 0x1408d2f40, 352B]：debugEnabled/logger 空→返回；Sprintf → time.Now().Format →
+// Fprintf → Sync。体待格式常量专项还原。
+func launcherStartupDebugLog(a interface{}, b ...interface{}) {
+	_, _ = a, b
+}

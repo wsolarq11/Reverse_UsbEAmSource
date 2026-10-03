@@ -817,3 +817,26 @@ func (s *oledBlackoutService) handleOverlayDismissOnEscape(a, b interface{}) boo
 	_, _ = a, b
 	return false
 }
+
+// visibleOverlayNativeWindowHandlesLocked 收集可见覆盖层原生窗口句柄（持锁）。
+// [S-sig 0x140904580, 352B]：make(map) → 遍历 overlay(+0xf8) → 非空
+// NativeWindowHandle → result[handle]=true。体待覆盖层域专项还原。
+func (s *oledBlackoutService) visibleOverlayNativeWindowHandlesLocked() interface{} {
+	_ = s
+	return nil
+}
+
+// autoActivatedProfileIDForTriggeredProfilesLocked 匹配自动激活 profile ID（持锁）。
+// [S-sig 0x140906ec0, 352B]：autoID=TrimSpace(+0xb8/+0xc0) → 遍历 triggered 匹配。
+// 体待 profile 域专项还原。
+func (s *oledBlackoutService) autoActivatedProfileIDForTriggeredProfilesLocked(a, b interface{}) string {
+	_, _, _ = s, a, b
+	return ""
+}
+
+// scheduleFocusRetryLocked 调度焦点重试（持锁，stopFocusRetry + AfterFunc）。
+// [S-sig 0x14090dfa0, 352B]：stopFocusRetryLocked → ensureLifecycleLocked →
+// AfterFunc(24000ms) → 存 timer(+0x150)。体待焦点重试域专项还原。
+func (s *oledBlackoutService) scheduleFocusRetryLocked(a, b interface{}) {
+	_, _, _ = s, a, b
+}

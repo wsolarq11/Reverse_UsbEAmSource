@@ -646,6 +646,19 @@ func (s *oledBlackoutGSMTCPlaybackInfo) GetPlaybackStatus() (uint32, error) {
 	return status, nil
 }
 
+// GetPlaybackType 获取 GSMTC 播放类型（IReference<Int32>）。
+// [S-sig 0x140920ee0, 288B]：SyscallN(vtbl[0x40] GetPlaybackType, this, &ref) → HRESULT<0→(0,false)；
+// ref nil→(0,false)；否则 IReference.GetInt32→(type,true)。体待 IReference.GetInt32 落地。
+func (s *oledBlackoutGSMTCPlaybackInfo) GetPlaybackType() (uint32, bool) {
+	var ref uintptr
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x40))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&ref)))
+	if int32(hresult) < 0 || ref == 0 {
+		return 0, false
+	}
+	return 0, true
+}
+
 // parseOLEDBlackoutScreenNumber 从屏幕名提取数字编号（收集所有数字字符后 Atoi）。
 // [S 0x140906420] 单参 string 返回 int。asm：逐字节收集 '0'-'9' 到 []byte →
 //   空则 0；否则 strconv.Atoi，err!=nil 则 0。

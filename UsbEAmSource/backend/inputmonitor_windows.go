@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 	"time"
 )
@@ -24,4 +25,26 @@ func inputMonitorXButtonLabel(xbutton uint32) string {
 // time.Time.wall 未导出，公开 API UnixMilli() 与上述 sec()/nsec() 内联展开精确等价。
 func timeFromWindowsTick() int64 {
 	return time.Now().UnixMilli()
+}
+
+// inputMonitorKeyLabelMap 虚拟键码到自定义标签的映射（asm 全局 map）。
+var inputMonitorKeyLabelMap = map[int]string{}
+
+// inputMonitorKeyLabel 返回虚拟键码的可读标签。
+// [S 汇编 0x140869820, 288B]：'A'-'Z'/'0'-'9'→单字符；0x70-0x87（F1-F24）→"F"+FormatInt(vk-0x6f)；
+// 否则查全局 map，命中返回标签；未命中 fmt.Sprintf("VK%d", vk)。
+func inputMonitorKeyLabel(vk int) string {
+	if vk >= 'A' && vk <= 'Z' {
+		return string(rune(vk))
+	}
+	if vk >= '0' && vk <= '9' {
+		return string(rune(vk))
+	}
+	if vk >= 0x70 && vk <= 0x87 {
+		return "F" + strconv.FormatInt(int64(vk-0x6f), 10)
+	}
+	if s, ok := inputMonitorKeyLabelMap[vk]; ok {
+		return s
+	}
+	return fmt.Sprintf("VK%d", vk)
 }

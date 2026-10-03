@@ -437,3 +437,29 @@ func (s *fileLocatorService) Shutdown() {}
 
 // Shutdown 停止桌面小部件服务。[S-sig 调用点 0x140774167]
 func (s *desktopWidgetService) Shutdown() {}
+
+// normalizePluginWindowLogicalName 归一化插件窗口逻辑名（去空白、空则回退、截断 128 rune）。
+// [S 汇编 0x140930f00, 288B]：TrimSpace(name) 空→TrimSpace(fallback)；仍空→默认（6B）；
+// countrunes>128→截断到 128 rune。
+func normalizePluginWindowLogicalName(name, fallback string) string {
+	s := strings.TrimSpace(name)
+	if s == "" {
+		s = strings.TrimSpace(fallback)
+	}
+	if s == "" {
+		s = "window"
+	}
+	runes := []rune(s)
+	if len(runes) > 128 {
+		runes = runes[:128]
+	}
+	return string(runes)
+}
+
+// launcherConfigSnapshotsEqual 比较两个配置快照是否相等（字段 + revision）。
+// [S-sig 0x14089cc00, 288B]：bool 标志不等→false；标志皆 false→true；字段字节比较 →
+// launcherConfigRevision 两次→revision 相等则 memequal。体待配置快照结构专项还原。
+func launcherConfigSnapshotsEqual(a, b interface{}, fa, fb bool) bool {
+	_, _, _, _ = a, b, fa, fb
+	return false
+}

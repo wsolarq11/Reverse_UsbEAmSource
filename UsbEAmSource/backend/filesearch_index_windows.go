@@ -1045,3 +1045,34 @@ func (v *VolumeIndex) baseEntryCountLocked() int64 {
 	_ = v
 	return 0
 }
+
+// acquireReadView 获取索引读视图（RWMutex.RLock → acquireReadViewLocked）。
+// [S-sig 0x1407e5ac0, 448B]：RLock(+0x10) → acquireReadViewLocked → 组装读视图。
+// 体待读视图域专项还原。
+func (v *VolumeIndex) acquireReadView() interface{} {
+	_ = v
+	return nil
+}
+
+// runtimeSnapshot 返回索引运行时快照（RLock → activeEntryCountLocked → 字段拷贝）。
+// [S-sig 0x1407e78e0, 448B]：RLock → activeEntryCountLocked → 字段(+0x90/+0x98/+0xa0/+0xa8/+0xb0/+0xb8/+0x80/+0x88) 拷贝。体待快照域专项还原。
+func (v *VolumeIndex) runtimeSnapshot() interface{} {
+	_ = v
+	return nil
+}
+
+// ShouldCheckpointOverlay 判定是否应做 overlay 检查点（RLock → overlayStatsLocked）。
+// [S-sig 0x1407e7dc0, 448B]：RLock → overlayStatsLocked → 计数比较 → bool。
+// 体待 overlay 统计域专项还原。
+func (v *VolumeIndex) ShouldCheckpointOverlay(a interface{}, b float64) bool {
+	_, _, _ = v, a, b
+	return false
+}
+
+// volumeIndexBaseNodeDescendsFrom 判定基础节点是否从某节点派生（nodeAtIndex 遍历父链）。
+// [S-sig 0x140804720, 448B]：遍历 nodeAtIndex → 父链匹配 nodeIndex → bool。
+// 体待节点域专项还原。
+func volumeIndexBaseNodeDescendsFrom(a, b interface{}, nodeIndex int) bool {
+	_, _, _ = a, b, nodeIndex
+	return false
+}

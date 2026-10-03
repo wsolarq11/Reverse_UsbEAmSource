@@ -273,3 +273,62 @@ func readLauncherUpdateFrame(conn io.Reader, maxSize int) ([]byte, error) {
 	}
 	return buf, nil
 }
+
+// createLauncherUpdateNamedPipe 创建认证命名管道：SDDL 授权 SYSTEM/Administrators/当前用户。
+// [S 汇编 0x1408c2940, 352B]：GetCurrentProcessToken().GetTokenUser() 失败或 User.Sid 空 →
+// "无法读取当前用户 SID"；SDDL "D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GA;;;"+sid+")"；
+// SecurityDescriptorFromString 失败透传；UTF16PtrFromString 失败透传；CreateNamedPipe
+// (FILE_FLAG_OVERLAPPED|FIRST_PIPE_INSTANCE|PIPE_ACCESS_DUPLEX, PIPE_REJECT_REMOTE_CLIENTS,
+// 1, 65536, 65536, 30000, sa)。
+func createLauncherUpdateNamedPipe(pipeName string) (windows.Handle, error) {
+	user, err := windows.GetCurrentProcessToken().GetTokenUser()
+	if err != nil || user == nil || user.User.Sid == nil {
+		return 0, errors.New("无法读取当前用户 SID")
+	}
+	sddl := "D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GA;;;" + user.User.Sid.String() + ")"
+	sd, err := windows.SecurityDescriptorFromString(sddl)
+	if err != nil {
+		return 0, err
+	}
+	sa := &windows.SecurityAttributes{
+		Length:             24,
+		SecurityDescriptor: sd,
+	}
+	name, err := windows.UTF16PtrFromString(pipeName)
+	if err != nil {
+		return 0, err
+	}
+	return windows.CreateNamedPipe(name,
+		windows.FILE_FLAG_OVERLAPPED|windows.FILE_FLAG_FIRST_PIPE_INSTANCE|windows.PIPE_ACCESS_DUPLEX,
+		windows.PIPE_REJECT_REMOTE_CLIENTS,
+		1, 65536, 65536, 30000, sa)
+}
+
+// openLauncherUpdateNamedPipeClient 以 20ms 间隔重试连接认证命名管道直到超时。
+// [S 汇编 0x1408c3040, 416B]：UTF16PtrFromString 失败透传；循环 CreateFile
+// (GENERIC_READ|GENERIC_WRITE, 0, OPEN_EXISTING, FILE_FLAG_OVERLAPPED|FILE_ATTRIBUTE_NORMAL)；
+// 成功返回 handle；ERROR_PIPE_BUSY/ERROR_FILE_NOT_FOUND 则 time.Sleep(20ms) 重试，
+// time.Now().After(deadline) 超时 → "连接更新认证 named pipe 超时"；其他错误透传。
+func openLauncherUpdateNamedPipeClient(pipeName string, timeout time.Duration) (windows.Handle, error) {
+	deadline := time.Now().Add(timeout)
+	name, err := windows.UTF16PtrFromString(pipeName)
+	if err != nil {
+		return 0, err
+	}
+	for {
+		handle, err := windows.CreateFile(name,
+			windows.GENERIC_READ|windows.GENERIC_WRITE,
+			0, nil, windows.OPEN_EXISTING,
+			windows.FILE_FLAG_OVERLAPPED|windows.FILE_ATTRIBUTE_NORMAL, 0)
+		if err == nil {
+			return handle, nil
+		}
+		if !errors.Is(err, windows.ERROR_PIPE_BUSY) && !errors.Is(err, windows.ERROR_FILE_NOT_FOUND) {
+			return 0, err
+		}
+		if time.Now().After(deadline) {
+			return 0, errors.New("连接更新认证 named pipe 超时")
+		}
+		time.Sleep(20 * time.Millisecond)
+	}
+}

@@ -5655,6 +5655,22 @@ S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1457→1459，USABLE 14
 frameWithTimeout 352-768B）+ 截图滚动几何。P=41 持平。FUNCS 2945/4754 = 61.95%。
 未落地文件差集 34 保持。
 
+### 批次 292（认证命名管道 +2 [S]）
+
+**基线/收口**：`FUNCS=2945→2947 / MARKED=2945→2947 / S=1422→1424 / S-eq=1 /
+S-inline=37 / S-sig=1444 / P=41 / UNMARKED=0`（FAITHFUL 1459→1461，USABLE 1460→1462）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+2 FUNCS）**：
+1. `createLauncherUpdateNamedPipe` [S 0x1408c2940]：SDDL 授权 SY/BA/当前用户 SID，
+   CreateNamedPipe(FILE_FLAG_OVERLAPPED|FIRST_PIPE_INSTANCE|PIPE_ACCESS_DUPLEX,
+   PIPE_REJECT_REMOTE_CLIENTS)。
+2. `openLauncherUpdateNamedPipeClient` [S 0x1408c3040]：CreateFile 20ms 重试，
+   PIPE_BUSY/FILE_NOT_FOUND 直到超时。
+
+**下一批**：launcherupdate 短函数（frameWithTimeout/queryProcessIdentity 640-1632B）+
+截图滚动几何。P=41 持平。FUNCS 2947/4754 = 61.99%。未落地文件差集 34 保持。
+
 
 
 

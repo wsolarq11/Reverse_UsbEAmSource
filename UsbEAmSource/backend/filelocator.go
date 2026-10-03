@@ -53,3 +53,27 @@ func defaultFileLocatorConfig() FileLocatorConfig {
 		IncludeSubfolders:   true,
 	}
 }
+
+// GetFileLocatorState 获取文件定位器状态（转发 fileLocator.GetState）。
+// [S 汇编 0x140786620, 224B]：读 fileLocator(+0x438) → GetState，duffcopy 透传大结构。
+func (bs *BootstrapService) GetFileLocatorState() interface{} {
+	return bs.fileLocator.GetState()
+}
+
+// PauseFileLocatorSearch 暂停文件定位搜索（转发 fileLocator.PauseSearch）。
+// [S 汇编 0x140786840, 224B]：读 fileLocator(+0x438) → PauseSearch，duffcopy 透传。
+func (bs *BootstrapService) PauseFileLocatorSearch() error {
+	return bs.fileLocator.PauseSearch()
+}
+
+// ResumeFileLocatorSearch 恢复文件定位搜索（转发 fileLocator.ResumeSearch）。
+// [S 汇编 0x140786920, 224B]：读 fileLocator(+0x438) → ResumeSearch，duffcopy 透传。
+func (bs *BootstrapService) ResumeFileLocatorSearch() error {
+	return bs.fileLocator.ResumeSearch()
+}
+
+// StopFileLocatorSearch 停止文件定位搜索（转发 fileLocator.StopSearch）。
+// [S 汇编 0x140786a00, 224B]：读 fileLocator(+0x438) → StopSearch，duffcopy 透传。
+func (bs *BootstrapService) StopFileLocatorSearch() error {
+	return bs.fileLocator.StopSearch()
+}

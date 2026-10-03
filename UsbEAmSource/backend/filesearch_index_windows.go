@@ -4,6 +4,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"os"
+	"reflect"
 	"sort"
 	"time"
 
@@ -658,6 +659,18 @@ func (v *VolumeIndex) IsDirty() (bool, uint32) {
 	v.mu.RLock()
 	defer v.mu.RUnlock()
 	return v.dirty, v.changeCaught
+}
+
+// usesMappedReadProvider 判定读 provider 是否为映射实现。
+// [S 汇编 0x1407e7660, 224B]：nil 返回 false；mu.RLock + defer RUnlock →
+// 比较 readProvider(+0x520) 具体类型 itab 是否为映射 provider。
+func (v *VolumeIndex) usesMappedReadProvider() bool {
+	if v == nil {
+		return false
+	}
+	v.mu.RLock()
+	defer v.mu.RUnlock()
+	return v.readProvider != nil && reflect.TypeOf(v.readProvider) == reflect.TypeOf((*volumeIndexMappedReadProvider)(nil))
 }
 
 // markDirtyLocked 标记索引脏（持锁）：n==0 直接返回；置 dirty、累加 changeCaught、记 LastMutationAt、

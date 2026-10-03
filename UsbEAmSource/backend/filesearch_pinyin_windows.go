@@ -326,3 +326,19 @@ func normalizePinyinSyllable(s string) string {
 	s = strings.Replace(s, "ü", "v", -1)
 	return s
 }
+
+// Close 关闭拼音索引：nil 或 mappedFile 为空直接返回 nil；否则 Close 映射文件并
+// 清空 mappedFile/records/aliases，透传 Close 的 error。
+// [S 汇编 0x14080e240, 192B] 实证：p==nil||mappedFile(+0x58)==nil → (nil,nil)；
+// 否则 volumeIndexMappedFile.Close() → mappedFile=nil、records(+0x28/+0x30/+0x38)=nil、
+// aliases(+0x40/+0x48/+0x50)=nil，返回 Close 的 error。
+func (p *volumePinyinIndex) Close() error {
+	if p == nil || p.mappedFile == nil {
+		return nil
+	}
+	err := p.mappedFile.Close()
+	p.mappedFile = nil
+	p.records = nil
+	p.aliases = nil
+	return err
+}

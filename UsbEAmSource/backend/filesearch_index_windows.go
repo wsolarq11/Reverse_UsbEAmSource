@@ -631,3 +631,40 @@ func truncateOpenWALAtValidOffset(f *os.File, offset int64) error {
 	}
 	return f.Sync()
 }
+
+// markPersistedAtLocked 标记索引已持久化（持锁）：t 为零值则取 now；清 dirty/changeCaught，记 LastSavedAt。
+// [S 汇编 0x1407e9040, 224B]：sec()/nsec() 判零 → 零值则 time.Now；dirty(+0xe0)=false、
+// changeCaught(+0xe4)=0、LastSavedAt(+0xc0/+0xc8/+0xd0)=t。
+func (v *VolumeIndex) markPersistedAtLocked(t time.Time) {
+	if t.IsZero() {
+		t = time.Now()
+	}
+	v.dirty = false
+	v.changeCaught = 0
+	v.LastSavedAt = t
+}
+
+// markDirtyLocked 标记索引脏（持锁）：n==0 直接返回；置 dirty、累加 changeCaught、记 LastMutationAt、
+// runtimeVersion 递增并跳过 0。
+// [S 汇编 0x1408072e0, 192B]：ebx==0→ret；dirty(+0xe0)=true、changeCaught(+0xe4)+=n、
+// LastMutationAt(+0xa8/+0xb0/+0xb8)=now、runtimeVersion(+0x590) 自增（旧值 -1 时覆盖为 1）。
+func (v *VolumeIndex) markDirtyLocked(n int32) {
+	if n == 0 {
+		return
+	}
+	v.dirty = true
+	v.changeCaught += uint32(n)
+	v.LastMutationAt = time.Now()
+	v.runtimeVersion++
+	if v.runtimeVersion == 0 {
+		v.runtimeVersion = 1
+	}
+}
+
+// ClearDirty 加写锁标记索引已持久化。[S 汇编 0x1407e8e00, 160B]：mu.Lock + defer Unlock →
+// markPersistedAtLocked(time.Now())。
+func (v *VolumeIndex) ClearDirty() {
+	v.mu.Lock()
+	defer v.mu.Unlock()
+	v.markPersistedAtLocked(time.Now())
+}

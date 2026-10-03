@@ -9,10 +9,15 @@
 // threadID @+0x20）。
 package main
 
-import "github.com/wailsapp/wails/v3/pkg/w32"
+import (
+	"errors"
 
-// 自定义窗口消息（WM_APP 偏移）：隐藏 0x86a2、关闭 0x86a3。
+	"github.com/wailsapp/wails/v3/pkg/w32"
+)
+
+// 自定义窗口消息（WM_APP 偏移）：显示 0x86a1、隐藏 0x86a2、关闭 0x86a3。
 const (
+	screenshotNativePreviewShowMessage  = 0x86a1
 	screenshotNativePreviewHideMessage  = 0x86a2
 	screenshotNativePreviewCloseMessage = 0x86a3
 )
@@ -50,6 +55,18 @@ func (s *screenshotNativePreviewWindow) Hide() error {
 		return nil
 	}
 	w32.PostMessage(hwnd, screenshotNativePreviewHideMessage, 0, 0)
+	return nil
+}
+
+// Show 异步显示窗口：PostMessage 显示消息（0x86a1）。无句柄时返回错误"原生截图预览窗口不可用"。
+// [S 汇编 0x14099cea0, 192B]：handle()==0→errors.New(33B 字符串)；否则 PostMessageW(hwnd,0x86a1,0,0)
+// → 返回 nil error。
+func (s *screenshotNativePreviewWindow) Show() error {
+	hwnd := s.handle()
+	if hwnd == 0 {
+		return errors.New("原生截图预览窗口不可用")
+	}
+	w32.PostMessage(hwnd, screenshotNativePreviewShowMessage, 0, 0)
 	return nil
 }
 

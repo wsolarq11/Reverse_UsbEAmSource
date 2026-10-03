@@ -5464,6 +5464,30 @@ lock@+0x10，原 any 16B 布局错位 8B；修正后 bounds@+0x28/visible@+0xd8/
 **下一批**：size 升序长尾（VolumeIndex 访问器需先落地 activeEntryCountLocked/markPersistedAtLocked，
 或转 screenshot 剩余几何/光标函数）。P=41 持平。FUNCS 2914/4754 = 61.30%。未落地文件差集 37→35。
 
+### 批次 281（filesearch 持久化访问器 + screenshot 帧比对/预览显示 +7 [S]）
+
+**基线/收口**：`FUNCS=2914→2921 / MARKED=2914→2921 / S=1392→1399 / S-eq=1 /
+S-inline=37 / S-sig=1443 / P=41 / UNMARKED=0`（FAITHFUL 1429→1436，USABLE 1430→1437）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+7 FUNCS）**：
+1. `markPersistedAtLocked` [S 0x1407e9040]：零值→now；dirty=false、changeCaught=0、LastSavedAt=t。
+2. `markDirtyLocked` [S 0x1408072e0]：n==0→ret；dirty=true、changeCaught+=n、LastMutationAt=now、
+   runtimeVersion 自增跳过 0。
+3. `ClearDirty` [S 0x1407e8e00]：mu.Lock+defer Unlock → markPersistedAtLocked(time.Now())。
+4. `(*volumePinyinIndex)Close` [S 0x14080e240]：mappedFile.Close 透传 err，清 mappedFile/records/aliases。
+5. `sampleScreenshotFrameAverageDiffWithGrid` [S 0x1409a6040]：网格采样 RGB 曼哈顿差/3 平均。
+6. `screenshotFramesAreSimilar` [S 0x1409a4140]：尺寸一致且平均差 <= 2（42×80 网格）。
+7. `(*screenshotNativePreviewWindow)Show` [S 0x14099cea0]：无句柄 err"原生截图预览窗口不可用"，
+   否则 PostMessageW(0x86a1)。
+
+**连带**：`launcherasset_test.go` TestReadBytes `RegisterBytes(..., 5)` → `time.Minute`（TTL 5ns 秒级
+单位 flaky，同 batch279 TestServeAssetRequest 修复源）。
+
+**下一批**：screenshot preview 剩余（decodeImage 依赖 screenshotNativePreviewDecodeImage）+
+screenshotNativePinWindow 布局修正（service/pin any→指针，同 preview 8B 错位）。P=41 持平。
+FUNCS 2921/4754 = 61.47%。未落地文件差集 35 保持。
+
 
 
 

@@ -790,7 +790,7 @@ func TestRegisterFile(t *testing.T) {
 
 func TestReadBytes(t *testing.T) {
 	s := testAssetService()
-	ref, err := s.RegisterBytes("ns", "text/plain", []byte("payload"), 5)
+	ref, err := s.RegisterBytes("ns", "text/plain", []byte("payload"), time.Minute)
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -974,3 +974,34 @@ func shouldPersistUSNFollowerIdleMeta(a, b interface{}, idleThreshold int64) boo
 	_, _, _ = a, b, idleThreshold
 	return true
 }
+
+// closeVolumeIndexReadProvider 关闭卷索引读提供者（置 nil + 回调关闭）。
+// [S-sig 0x1407e6f20, 384B]：provider(+0x520/+0x528) nil→nil；查找 → 回调 close →
+// 置零。体待提供者域专项还原。
+func closeVolumeIndexReadProvider(v *VolumeIndex) error {
+	_ = v
+	return nil
+}
+
+// clearNameTrigramIndexLocked 清除名称三字索引（持锁，置 nil + close）。
+// [S-sig 0x1407e9120, 384B]：lock(+0x500/+0x510) → 字段(+0x508/+0x518) 置零 →
+// trigramIndex.close。体待索引域专项还原。
+func (v *VolumeIndex) clearNameTrigramIndexLocked() {
+	_ = v
+}
+
+// buildVolumeIndexCheckpointLayout 构建卷索引 checkpoint 布局（偏移算术）。
+// [S-sig 0x1407fc820, 384B]：count*24 + other*4 + 0x40 溢出检查 → layout。
+// 体待布局常量专项还原。
+func buildVolumeIndexCheckpointLayout(a, b, c, d interface{}) interface{} {
+	_, _, _, _ = a, b, c, d
+	return nil
+}
+
+// ApplyDelete 应用删除（持锁，canApplyDeleteLocked → applyDeleteLocked → markDirty）。
+// [S-sig 0x140802ea0, 384B]：lock(+0x18) → RLock → canApplyDeleteLocked →
+// applyDeleteLocked>0 → markDirtyLocked。体待删除域专项还原。
+func (v *VolumeIndex) ApplyDelete(a interface{}) int {
+	_, _ = v, a
+	return 0
+}

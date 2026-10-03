@@ -62,3 +62,10 @@ func (c *configBackedLauncherNetworkAccess) DoWithRedirectPolicy(req *http.Reque
 	_, _, _ = req, maxBytes, policy
 	return nil, nil
 }
+
+// newHTTPClient 构建 HTTP 客户端（newTransport + 写 Timeout）。
+// [S-sig 0x1408a5960, 192B]：newTransport → 错误则返回；newobject(http.Client) → 写 Transport/Timeout。
+func (c *configBackedLauncherNetworkAccess) newHTTPClient() (*http.Client, error) {
+	_ = c
+	return nil, nil
+}

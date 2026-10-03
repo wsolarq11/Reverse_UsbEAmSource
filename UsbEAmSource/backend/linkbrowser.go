@@ -6,3 +6,9 @@ package main
 func (bs *BootstrapService) ScanLinkBrowsers() []StartMenuApp {
 	return detectLinkBrowsers()
 }
+
+// startLinkWithExplicitBrowser 用显式浏览器启动链接（buildLinkCommand → startExplicitLinkBrowser）。
+// [S-sig 0x140769a60, 192B]：buildLinkCommand → len<1 则 panicSliceB；命令[1:] → startExplicitLinkBrowser。
+func startLinkWithExplicitBrowser(a, b, c interface{}) {
+	_, _, _ = a, b, c
+}

@@ -518,6 +518,14 @@ func (s *oledBlackoutService) stopInputPollLocked() {
 	_ = s
 }
 
+// idleThresholdForProfileLocked 计算配置文件的 idle 阈值（纳秒）。
+// [S-sig 0x140907020, 256B]：quickIdleAppliesToProfileLocked(TrimSpace(profile)) → 5s；
+// 否则 minutes 钳位 [1,60] → *time.Minute。体待 profile 域专项还原。
+func (s *oledBlackoutService) idleThresholdForProfileLocked(profile string, minutes int64) time.Duration {
+	_, _ = profile, minutes
+	return 0
+}
+
 // parseOLEDBlackoutScreenNumber 从屏幕名提取数字编号（收集所有数字字符后 Atoi）。
 // [S 0x140906420] 单参 string 返回 int。asm：逐字节收集 '0'-'9' 到 []byte →
 //   空则 0；否则 strconv.Atoi，err!=nil 则 0。

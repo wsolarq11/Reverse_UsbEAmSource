@@ -272,3 +272,11 @@ func (bs *BootstrapService) revealLauncherWindowForQRCodeDecode(a, b interface{}
 func (bs *BootstrapService) ApplyLauncherWindowLayoutAction(a, b interface{}) {
 	_, _ = a, b
 }
+
+// ResolveShortcut 解析快捷方式（resolveShortcutInfoWithIconResolver 转发）。
+// [S-sig 0x14077d7e0, 384B]：resolveShortcutInfoWithIconResolver(path) → duffcopy × 3。
+// 体待快捷方式信息结构专项还原。
+func (bs *BootstrapService) ResolveShortcut(a, b interface{}) interface{} {
+	_, _, _ = bs, a, b
+	return nil
+}

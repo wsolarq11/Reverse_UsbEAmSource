@@ -59,3 +59,11 @@ func replaceLauncherUpdateMetadataFile(src, dst string) error {
 	return windows.MoveFileEx(srcPtr, dstPtr,
 		windows.MOVEFILE_REPLACE_EXISTING|windows.MOVEFILE_WRITE_THROUGH)
 }
+
+// validateLauncherUpdateRollbackBackup 校验更新回滚备份（Lstat + reparse 检查）。
+// [S-sig 0x1408ce6a0, 384B]：Lstat → ErrNotExist→nil；err→err；mode bit 0x1b→error；
+// launcherUpdatePathHasReparsePoint→error。体待错误文案专项还原。
+func validateLauncherUpdateRollbackBackup(path string) error {
+	_ = path
+	return nil
+}

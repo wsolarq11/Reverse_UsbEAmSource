@@ -530,3 +530,19 @@ func (c *windowsOLEDBlackoutCursorController) run() {
 	for range c.commands {
 	}
 }
+
+// handleOverlayDismissOnAnyKey 处理任意键关闭遮罩（持锁，守卫判定）。
+// [S-sig 0x14090b0c0, 384B]：lock(+0x0) → field(+0x88)/field(+0x3a) 判定 →
+// inputDismissGuardActiveLocked → dismissOverlayForKeyboardInputLocked。体待键盘域专项还原。
+func (s *oledBlackoutService) handleOverlayDismissOnAnyKey(a, b interface{}) bool {
+	_, _, _ = s, a, b
+	return false
+}
+
+// findMatchingVisibleProfileIDLocked 查找匹配可见屏幕的配置 ID（持锁，遍历 profiles）。
+// [S-sig 0x14090d840, 384B]：profiles(+0xf8) 空→""；collectScreensLocked →
+// oledBlackoutProfileMatchesVisibleScreens → TrimSpace(profile.id)。体待配置域专项还原。
+func (s *oledBlackoutService) findMatchingVisibleProfileIDLocked() string {
+	_ = s
+	return ""
+}

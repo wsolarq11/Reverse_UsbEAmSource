@@ -403,7 +403,7 @@ type screenshotNativePinWindow struct {
 }
 
 type screenshotNativePreviewWindow struct {
-	service   any
+	service   *screenshotPreviewWindowService
 	ready     chan error
 	lock      sync.Mutex
 	hwnd      uintptr

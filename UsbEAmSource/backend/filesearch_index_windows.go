@@ -684,6 +684,14 @@ func (v *VolumeIndex) runtimeVersionSnapshot() uint64 {
 	return v.runtimeVersion
 }
 
+// ApplyDelete 应用 journal 删除条目到 overlay 映射。
+// [S-sig 0x140806b60, 224B]：entry 解析 + mapassign_fast64 写 overlay(+0x210)。
+// 体待 journal entry 专项还原。
+func (p *volumeIndexJournalPendingState) ApplyDelete(a, b interface{}, c bool) {
+	_, _, _ = p, a, b
+	_ = c
+}
+
 // markDirtyLocked 标记索引脏（持锁）：n==0 直接返回；置 dirty、累加 changeCaught、记 LastMutationAt、
 // runtimeVersion 递增并跳过 0。
 // [S 汇编 0x1408072e0, 192B]：ebx==0→ret；dirty(+0xe0)=true、changeCaught(+0xe4)+=n、

@@ -173,6 +173,20 @@ func (s *screenshotPreviewWindowService) AttachAssets(assets *launcherAssetServi
 	s.lock.Unlock()
 }
 
+// releaseNativePreviewWindow 释放原生预览窗口（匹配则置 nil）。
+// [S 汇编 0x140999800, 224B]：nil 返回；lock(+0x08).Lock + defer Unlock →
+// nativeWindow(+0x28) == w 则置 nil。
+func (s *screenshotPreviewWindowService) releaseNativePreviewWindow(w *screenshotNativePreviewWindow) {
+	if s == nil || w == nil {
+		return
+	}
+	s.lock.Lock()
+	defer s.lock.Unlock()
+	if s.nativeWindow == w {
+		s.nativeWindow = nil
+	}
+}
+
 // screenshotPreviewDisplaySourceSize 计算截图预览显示源尺寸。
 // [S 汇编 0x14099b5a0, 192B]：w/h 负值钳 0；w<=0||h<=0 原值返回；TrimSpace(source) 非空
 // 且 w*3<h 则返回 (360,220)，否则原值返回。

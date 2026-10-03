@@ -190,6 +190,14 @@ func (bs *BootstrapService) SetLauncherSidebarPinnedOpen(pinned bool) {
 	_ = pinned
 }
 
+// shouldCloseLauncherWindow 判定是否应关闭启动器窗口。
+// [S 汇编 0x14079a2e0, 224B]：mu(+0x540).Lock + defer Unlock → 读 allowLauncherWindowClose(+0x44b)。
+func (bs *BootstrapService) shouldCloseLauncherWindow() bool {
+	bs.lock.Lock()
+	defer bs.lock.Unlock()
+	return bs.allowLauncherWindowClose
+}
+
 // resolveLauncherWindowRelativePosition 计算启动器窗口相对位置（居中或钳位）。
 // [S 汇编 0x1408d0a80, 80B]：6 int + 1 bool 参数，返回 (x, y)。
 // center=true：x=max((screenW-windowW)/2,0)、y=max((screenH-windowH)/2,0)（算术右移向下取整）；

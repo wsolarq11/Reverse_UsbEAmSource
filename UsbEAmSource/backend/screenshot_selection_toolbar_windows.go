@@ -31,3 +31,10 @@ func screenshotSelectionToolbarRevealWindow(window application.Window, activate 
 func screenshotSelectionToolbarBringToTop(window application.Window) {
 	_ = window
 }
+
+// SetMessages 设置选择工具栏消息（持锁，normalize 后写入 field(+0x68)）。
+// [S-sig 0x1409a6780, 352B]：lock(+0x8) → normalizeScreenshotSelectionToolbarMessages →
+// 写入 field(+0x68)。体待消息结构专项还原。
+func (s *screenshotSelectionToolbarWindowService) SetMessages(a interface{}) {
+	_, _ = s, a
+}

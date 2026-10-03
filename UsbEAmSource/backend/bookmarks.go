@@ -338,3 +338,11 @@ func queryFirefoxBookmarkIconData(a interface{}, b, c interface{}) (interface{},
 	_, _, _ = a, b, c
 	return nil, nil
 }
+
+// findFirefoxBookmarkNodeIDByGUID 按 GUID 查找 Firefox 书签节点 ID（遍历 map 匹配）。
+// [S-sig 0x14076eac0, 384B]：遍历 map → node.guid(+0x78/+0x80) TrimSpace →
+// EqualFold 匹配 guid → 返回 (key, true)。体待节点结构专项还原。
+func findFirefoxBookmarkNodeIDByGUID(a interface{}, b, c interface{}) (string, bool) {
+	_, _, _ = a, b, c
+	return "", false
+}

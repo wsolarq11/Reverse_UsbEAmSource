@@ -308,3 +308,19 @@ func screenshotScrollingRowLooksPureBlack(a interface{}, b int) bool {
 	_, _ = a, b
 	return false
 }
+
+// buildScreenshotMouseWheelInputs 构建鼠标滚轮输入序列（按 delta 分片）。
+// [S-sig 0x1409a3120, 384B]：delta==0→nil；dir=±120；count=clamp(ceil(|delta|/120),1,16)；
+// makeslice 填充。体待输入结构专项还原。
+func buildScreenshotMouseWheelInputs(a int32) interface{} {
+	_ = a
+	return nil
+}
+
+// screenshotScrollingRowLooksDarkSeamArtifact 判定滚动行是否为暗接缝伪影（亮度邻域比较）。
+// [S-sig 0x1409a3a60, 384B]：AverageRowLuma(y/y±1) → 负→false；纯黑邻域判定 → 亮度阈值。
+// 体待亮度常量专项还原。
+func screenshotScrollingRowLooksDarkSeamArtifact(a interface{}, b int) bool {
+	_, _ = a, b
+	return false
+}

@@ -95,3 +95,19 @@ func isValidQWeatherAPIHost(a string) bool {
 	_ = a
 	return false
 }
+
+// providerErrorSnapshot 返回提供器错误快照（遍历 field(+0x40) map 复制）。
+// [S-sig 0x1407c72c0, 448B]：makemap_small → 遍历 field(+0x40) → mapassign_faststr 复制 → 返回。
+// 体待提供器错误域专项还原。
+func (s *desktopWidgetWeatherService) providerErrorSnapshot() interface{} {
+	_ = s
+	return nil
+}
+
+// desktopWeatherCredential 解析桌面天气凭证（内置 OpenMeteo/自定义 provider + 解密）。
+// [S-sig 0x1407c8860, 448B]：provider=="OpenMeteo"→nil；map 命中→TrimSpace 空→nil；
+// unprotectDesktopWidgetSecret→err→error。体待凭证域专项还原。
+func desktopWeatherCredential(provider string) interface{} {
+	_ = provider
+	return nil
+}

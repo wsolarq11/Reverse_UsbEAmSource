@@ -288,3 +288,10 @@ func (bs *BootstrapService) shouldDestroyLauncherWindowOnTrayHide() bool {
 	_ = bs
 	return false
 }
+
+// emitQRCodeDecoded 触发二维码解码事件（TrimSpace → 显示窗口 → 队列/直接发出）。
+// [S-sig 0x140799d80, 448B]：TrimSpace(text) 空→return；ensureLauncherWindowForShow→err→return；
+// revealLauncherWindowForQRCodeDecode → emitOrQueueQRCodeDecoded。体待二维码域专项还原。
+func (bs *BootstrapService) emitQRCodeDecoded(a interface{}, text string) {
+	_, _, _ = bs, a, text
+}

@@ -861,3 +861,11 @@ func (s *oledBlackoutService) handleOverlayDismiss(a, b interface{}) {
 func (s *oledBlackoutService) clearAutoActivatedProfileIfNotVisibleLocked() {
 	_ = s
 }
+
+// visibleOverlayForMousePointLocked 定位鼠标点命中的可见覆盖层（持锁）。
+// [S-sig 0x14090bc80, 448B]：collectScreensLocked → 遍历 screens → TrimSpace+map 命中 →
+// 矩形包含→返回；否则 visibleOverlayForKeyboardInputLocked。体待覆盖层命中域专项还原。
+func (s *oledBlackoutService) visibleOverlayForMousePointLocked(a, b, c, d interface{}) interface{} {
+	_, _, _, _, _ = s, a, b, c, d
+	return nil
+}

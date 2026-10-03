@@ -8,6 +8,11 @@
 // 档位：[S] 工厂装配/初始化主骨架（汇编逐条）；字段 byte-offset 对齐为 [P]（Stub 结构用字段名）。
 package main
 
+import (
+	"errors"
+	"strings"
+)
+
 // newInputMonitorService 构造并初始化输入监听服务。
 // [S 汇编 0x140861c40]：make([]InputMonitorEvent, 0x1000) + 两 map + newobject 装配 +
 // 若干 limit(0x1000) + pressedKeys/owners，随后 inputMonitorInitialize。
@@ -87,4 +92,15 @@ func (s *inputMonitorService) closePlatformOwned() {
 	} else {
 		s.stopPlatformThread()
 	}
+}
+
+// normalizeInputMonitorOwner 规范化输入监视 owner 名称：TrimSpace 后非空且 ≤256 字节则返回，
+// 否则返回 ("", error)。[S 汇编 0x140861ea0, 160B] 实证：TrimSpace → len==0 或 len>0x100
+// → newobject 错误("输入监测 owner 无效", 25 字节) 返回 ("", err)；否则返回 (trimmed, nil)。
+func normalizeInputMonitorOwner(s string) (string, error) {
+	trimmed := strings.TrimSpace(s)
+	if trimmed == "" || len(trimmed) > 0x100 {
+		return "", errors.New("输入监测 owner 无效")
+	}
+	return trimmed, nil
 }

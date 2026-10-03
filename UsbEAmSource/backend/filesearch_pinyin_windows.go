@@ -1,6 +1,9 @@
 package main
 
-import "encoding/binary"
+import (
+	"encoding/binary"
+	"strings"
+)
 
 // 拼音模糊匹配（文件搜索）：fileSearchPinyinFuzzyMatcher 的 Match 与术语级
 // matchFileSearchPinyinTerm。全部为寄存器级 asm 实证的 [S] 落地。
@@ -312,4 +315,14 @@ func (v volumeIndexReadView) matchSearchCandidateNodeWithPinyin(
 		cur = n.ParentIdx
 	}
 	return plan.mask == matched
+}
+
+// normalizePinyinSyllable 规范化单个拼音音节：TrimSpace → ToLower → 统一 ü 表示。
+// [S 汇编 0x14080b1e0, 160B] 实证：TrimSpace → ToLower → Replace("u:","v",-1)
+// → Replace("ü","v",-1)（old len=2/2，new len=1/1，n=-1）。
+func normalizePinyinSyllable(s string) string {
+	s = strings.ToLower(strings.TrimSpace(s))
+	s = strings.Replace(s, "u:", "v", -1)
+	s = strings.Replace(s, "ü", "v", -1)
+	return s
 }

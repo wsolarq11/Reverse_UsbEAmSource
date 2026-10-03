@@ -5440,6 +5440,29 @@ S-sig=1443 / P=41 / UNMARKED=0`（真函数 2852→2857 = 60.10%；FAITHFUL 1409
 **下一批**：`inspectWebView2Processes`（3104B）平台层枚举专项，或转其它未落地文件差集（37 个）。
 P=41 持平。FUNCS 2898/4754 = 60.96%。未落地文件差集 38→37。
 
+### 批次 280（琐碎长尾拉满 +6 [S]）
+
+**基线/收口**：`FUNCS=2898→2904 / MARKED=2898→2904 / S=1377→1383 / S-inline=37 /
+S-sig=1443 / P=41 / UNMARKED=0`（FAITHFUL 1414→1420）。
+`go1.25.12 build/vet/test ./backend` 全 EXIT=0（test `ok changeme/backend`）。
+
+**落地（+6 [S]，+6 FUNCS）**：
+1. `normalizePinyinSyllable` [S 0x14080b1e0, 160B]：TrimSpace → ToLower → Replace("u:","v",-1)
+   → Replace("ü","v",-1)。
+2. `normalizeInputMonitorOwner` [S 0x140861ea0, 160B]：TrimSpace → 空或 >0x100 → ("", err
+   "输入监测 owner 无效")；否则 (trimmed, nil)。
+3. `resolveRemoteIconCollectionName` [S 0x1409661a0, 160B]：(name string,
+   collections map[string]remoteIconifyCollectionRef) string；map 查命中 TrimSpace 非空返回，
+   否则回退 name（调用者 0x14095fe87 确认参数顺序）。
+4. `createRemoteIconCacheDirectory` [S 0x140965120, 160B]：Mkdir(0o755)，非 fs.ErrExist 返回 err，
+   否则 validate。
+5. `validateRemoteIconCacheDirectory` [S 0x1409651c0, 224B]：Lstat → IsDir → Mode&ModeSymlink
+   → remoteIconPathHasReparsePoint，失败返回全局错误"远程图标缓存路径不安全"。
+6. `(*desktopWidgetScheduler)Wake` [S 0x1407accc0, 96B]：nil→return；wake chan(+0x08) selectnbsend。
+
+**下一批**：desktopWidgetScheduler.Start/Stop + oledBlackoutProfileKey + timeFromWindowsTick 等
+gap_aggregate size 升序琐碎函数。P=41 持平。FUNCS 2904/4754 = 61.09%。未落地文件差集 37→36。
+
 
 
 

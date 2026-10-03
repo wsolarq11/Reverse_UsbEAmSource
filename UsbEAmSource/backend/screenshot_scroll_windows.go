@@ -324,3 +324,18 @@ func screenshotScrollingRowLooksDarkSeamArtifact(a interface{}, b int) bool {
 	_, _ = a, b
 	return false
 }
+
+// screenshotScrollingAverageRowLuma 采样滚动行平均亮度（RGBAAt → 加权 luma）。
+// [S-sig 0x1409a3be0, 384B]：越界→负常量；step=max(1,宽/100)；采样累加
+// r*0x12b+g*0x24b+b*0x72 → sum/count。体待权重常量专项还原。
+func screenshotScrollingAverageRowLuma(a interface{}, b int) float64 {
+	_, _ = a, b
+	return 0
+}
+
+// update 更新滚动步长（边界校验 + 分段算术 clamp(2,16)）。
+// [S-sig 0x1409a5ec0, 384B]：nil/非正→return；按滚动速度分段算术 → 写 step(+0x8)。
+// 体待分段常量专项还原。
+func (c *screenshotScrollingScrollController) update(a, b int64) {
+	_, _, _ = c, a, b
+}

@@ -136,3 +136,10 @@ func setCurrentProcessExplicitAppUserModelID(a string) error {
 func createLauncherShellLink() (interface{}, error) {
 	return nil, nil
 }
+
+// resolveLauncherStartMenuShortcutPath 解析启动器开始菜单快捷方式路径。
+// [S-sig 0x14086cb00, 416B]：Getenv(7)→TrimSpace→非空返回；UserConfigDir→err→fmt.Errorf；
+// filepath.join(dir, "Microsoft", "Windows", "Start Menu", "Programs", ...)。体待路径段专项还原。
+func resolveLauncherStartMenuShortcutPath() (string, error) {
+	return "", nil
+}

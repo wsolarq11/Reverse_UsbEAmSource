@@ -551,6 +551,11 @@ type screenshotScrollingChunkedCanvas struct {
 	chunks []*screenshotScrollingCanvasChunk
 }
 
+type screenshotScrollingScrollController struct {
+	total int64
+	step  int64
+}
+
 type screenshotSelectionOverlayHitTestSession interface {
 	setHitTestTransparent(bool)
 }

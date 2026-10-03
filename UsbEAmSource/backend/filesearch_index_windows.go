@@ -1021,3 +1021,11 @@ func (v *VolumeIndex) ResolvePathByNodeIndex(a interface{}, b interface{}) strin
 	_, _, _ = v, a, b
 	return ""
 }
+
+// volumeNameTrigramHeaderMatchesIndex 校验三字索引头是否匹配索引。
+// [S-sig 0x1407f9ca0, 416B]：nil/magic(0x20003)/baseEntryCountLocked 校验 →
+// 头字段比较 → timeToUnixNano 比较。体待头域专项还原。
+func volumeNameTrigramHeaderMatchesIndex(a, b, c, d, e, f, g, h interface{}) bool {
+	_, _, _, _, _, _, _, _ = a, b, c, d, e, f, g, h
+	return false
+}

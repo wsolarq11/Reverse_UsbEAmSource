@@ -35,6 +35,51 @@ func (s *launcherAppIdentityIPropertyStore) Commit() error {
 	return nil
 }
 
+// SetValue 写 IPropertyStore 属性值。
+// [S 汇编 0x14086de40, 256B]：SyscallN(vtbl[0x30] SetValue, this, key, propvariant)
+// → HRESULT <0 → fmt.Errorf；否则 nil。
+func (s *launcherAppIdentityIPropertyStore) SetValue(key, propvariant uintptr) error {
+	setValue := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x30))
+	hresult, _, _ := syscall.SyscallN(setValue, uintptr(unsafe.Pointer(s)), key, propvariant)
+	if int32(hresult) < 0 {
+		return fmt.Errorf("IPropertyStore.SetValue failed: 0x%x", uint32(hresult))
+	}
+	return nil
+}
+
+// launcherAppIdentityIPersistFile Win32 IPersistFile 接口指针包装。
+type launcherAppIdentityIPersistFile struct {
+	vtbl *uintptr
+}
+
+// Load 加载 IPersistFile（文件名 + 模式）。
+// [S 汇编 0x14086dc40, 256B]：SyscallN(vtbl[0x28] Load, this, fileName, mode)
+// → HRESULT <0 → fmt.Errorf；否则 nil。
+func (f *launcherAppIdentityIPersistFile) Load(fileName uintptr, mode uint32) error {
+	load := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(f.vtbl)) + 0x28))
+	hresult, _, _ := syscall.SyscallN(load, uintptr(unsafe.Pointer(f)), fileName, uintptr(mode))
+	if int32(hresult) < 0 {
+		return fmt.Errorf("IPersistFile.Load failed: 0x%x", uint32(hresult))
+	}
+	return nil
+}
+
+// Save 保存 IPersistFile（文件名 + 是否记住）。
+// [S 汇编 0x14086dd40, 256B]：SyscallN(vtbl[0x30] Save, this, fileName, remember)
+// → HRESULT <0 → fmt.Errorf；否则 nil。
+func (f *launcherAppIdentityIPersistFile) Save(fileName uintptr, remember bool) error {
+	save := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(f.vtbl)) + 0x30))
+	rem := uintptr(0)
+	if remember {
+		rem = 1
+	}
+	hresult, _, _ := syscall.SyscallN(save, uintptr(unsafe.Pointer(f)), fileName, rem)
+	if int32(hresult) < 0 {
+		return fmt.Errorf("IPersistFile.Save failed: 0x%x", uint32(hresult))
+	}
+	return nil
+}
+
 // launcherAppIdentityOnce 保护 AppUserModelID 配置的单次执行。
 // asm 实证：once.done 位于全局 [rip+0x13efe7b]，与 launcherAppIdentityValue 独立成对。
 var launcherAppIdentityOnce sync.Once

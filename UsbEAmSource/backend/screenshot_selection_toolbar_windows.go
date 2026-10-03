@@ -52,3 +52,10 @@ func screenshotSelectionToolbarBoundsForSelection(a, b, c, d int64) (int64, int6
 	_, _, _, _ = a, b, c, d
 	return 0, 0, 0, 0
 }
+
+// screenshotSelectionToolbarConstrainNativeWindowToVirtualScreen 将工具栏原生窗口钳位到虚拟屏。
+// [S-sig 0x1409ad4c0, 416B]：hwnd nil→return；LazyProc.Call(GetWindowRect) → rect 空→return；
+// qrCodeVirtualScreenBounds → clamp → SetWindowPos。体待几何域专项还原。
+func screenshotSelectionToolbarConstrainNativeWindowToVirtualScreen(a interface{}) {
+	_ = a
+}

@@ -369,3 +369,11 @@ func sortedBookmarkRootNames(a interface{}) interface{} {
 	_ = a
 	return nil
 }
+
+// resolveBookmarkSourceKind 解析书签源类型（source/path 名匹配 edge/brave/chrome/firefox/vivaldi/chromium）。
+// [S-sig 0x14076ad20, 448B]：TrimSpace+ToLower(source) 匹配 → 返回 kind；
+// 否则 Base(path) ToLower 匹配 bookmarks/places.sqlite → 返回；否则 nil。体待 kind 常量专项还原。
+func resolveBookmarkSourceKind(a, b interface{}) string {
+	_, _ = a, b
+	return ""
+}

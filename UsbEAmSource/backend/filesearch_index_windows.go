@@ -1037,3 +1037,11 @@ func (s *volumeIndexJournalPendingState) resolvePath(a, b interface{}) string {
 	_, _, _ = s, a, b
 	return ""
 }
+
+// baseEntryCountLocked 返回索引基础条目计数（持锁，缓存 field(+0x40)）。
+// [S-sig 0x1407e8120, 448B]：field(+0x40) 非空→返回；读视图(+0x520/+0x528) 空→0；
+// volumeIndexMappedReadProvider.Acquire → 计数。体待读视图域专项还原。
+func (v *VolumeIndex) baseEntryCountLocked() int64 {
+	_ = v
+	return 0
+}

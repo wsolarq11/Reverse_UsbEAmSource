@@ -854,3 +854,10 @@ func (s *oledBlackoutService) scheduleIdleTimerAfter(a, b interface{}) {
 func (s *oledBlackoutService) handleOverlayDismiss(a, b interface{}) {
 	_, _, _ = s, a, b
 }
+
+// clearAutoActivatedProfileIfNotVisibleLocked 自动激活配置不可见时清除（持锁）。
+// [S-sig 0x14090d6a0, 416B]：profile(+0x198/+0x1a0) TrimSpace 空→return；
+// findProfileLocked → collectScreensLocked → 不相交→清 field(+0x1a0/+0x198)。体待配置域专项还原。
+func (s *oledBlackoutService) clearAutoActivatedProfileIfNotVisibleLocked() {
+	_ = s
+}

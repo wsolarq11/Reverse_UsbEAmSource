@@ -61,7 +61,9 @@ func screenshotOverlayWindowRect(hwnd uintptr) image.Rectangle { return image.Re
 // [S-sig 0x1409af160] 汇编实证：ctrlRect/winBounds(image.Rectangle 各 4 寄存器)+x/y(int 栈)+
 // ctrlFound/winFound(bool 栈) 参数；返回 bool。逻辑：winFound→true、ctrlFound→false、
 // 否则 screenshotRectMatchesBounds(ctrlRect,winBounds) 或 screenshotPointNearWindowEdge(x,y,winBounds,10)。
-func shouldPreferWindowOverControlAtPoint(ctrlRect, winBounds image.Rectangle, x, y int, ctrlFound, winFound bool) bool { return false }
+func shouldPreferWindowOverControlAtPoint(ctrlRect, winBounds image.Rectangle, x, y int, ctrlFound, winFound bool) bool {
+	return false
+}
 
 // [S 汇编 0x1409af2a0, 128B]：x/y 为点、rect 为矩形、threshold 为阈值（<0 钳 0）。rect 空或
 // 点不在 rect 内 → false；否则返回点到 rect 边界最近距离 <= threshold。
@@ -310,7 +312,9 @@ func screenshotUIAElementHitContainsPoint(rect image.Rectangle, controlType uint
 // [S-sig 0x1409b2ce0] 汇编实证：a(image.Rectangle:rax/rbx/rcx/rdi)+aControlType(uint32:esi)+
 // aOK(bool:r8b)+b(image.Rectangle+bControlType+bOK 栈) 参数；返回 bool。逻辑：controlType 分类
 // （0xc358 基址跳转表）+ rect 比较，未逐条翻译。
-func screenshotPreferUIAElementHitInfo(a image.Rectangle, aControlType uint32, aOK bool, b image.Rectangle, bControlType uint32, bOK bool) bool { return false }
+func screenshotPreferUIAElementHitInfo(a image.Rectangle, aControlType uint32, aOK bool, b image.Rectangle, bControlType uint32, bOK bool) bool {
+	return false
+}
 
 // [S-sig 0x1409b3080] 在 COM 线程上创建 IUIAutomation 包装（CoCreateInstance）。返回
 // *screenshotUIAutomation。体未还原。

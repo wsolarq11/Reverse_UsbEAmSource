@@ -34,8 +34,8 @@ func (p *screenshotCOMQueryWorkerPool) Query(payload screenshotCOMQueryPayload) 
 //   - sil = uint8（写 req+0x08 = priority）
 //   - r8/r9 = error 接口（itab/data；0x1409b44e7 test r8,r8 判 nil，nil 则 fmt.Errorf 构造默认
 //     busyError，写 req+0x20/+0x28 = busyError 字段）
-//   返回三寄存器：成功路径 rax=req 指针 + rbx/rcx=0（(req,nil)）；busy/shutdown 路径 rax=0 +
-//   rbx/rcx=error（(nil,err)）。故返回 (*screenshotCOMQueryRequest, error)。体未还原。
+//     返回三寄存器：成功路径 rax=req 指针 + rbx/rcx=0（(req,nil)）；busy/shutdown 路径 rax=0 +
+//     rbx/rcx=error（(nil,err)）。故返回 (*screenshotCOMQueryRequest, error)。体未还原。
 func (p *screenshotCOMQueryWorkerPool) enqueue(x, y int32, targetWindow uintptr, priority uint8, busyError error) (*screenshotCOMQueryRequest, error) {
 	return nil, nil
 }

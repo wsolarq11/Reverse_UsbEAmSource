@@ -186,19 +186,19 @@ type fileLocatorService struct {
 // +0x58 results 切片、+0x70 resultTruncated。字段级语义 [P]（计数器名按 FileLocatorState 推断，
 // +0x00/+0x08/+0x48/+0x50 四槽未实证），本轮仅需类型存在以支撑 walkRoot/processFile [S-sig]。
 type fileLocatorSearchProgress struct {
-	_                  uint64                    // +0x00 语义待专项
-	_                  uint64                    // +0x08 语义待专项
-	checkedItemCount   int                       // +0x10
-	checkedBytes       int64                     // +0x18
-	searchedItemCount  int                       // +0x20
-	searchedBytes      int64                     // +0x28
-	matchedBytes       int64                     // +0x30
-	textMatchCount     int                       // +0x38
-	skippedBinaryCount int                       // +0x40
-	_                  uint64                    // +0x48 语义待专项
-	_                  uint64                    // +0x50 语义待专项
+	_                  uint64                     // +0x00 语义待专项
+	_                  uint64                     // +0x08 语义待专项
+	checkedItemCount   int                        // +0x10
+	checkedBytes       int64                      // +0x18
+	searchedItemCount  int                        // +0x20
+	searchedBytes      int64                      // +0x28
+	matchedBytes       int64                      // +0x30
+	textMatchCount     int                        // +0x38
+	skippedBinaryCount int                        // +0x40
+	_                  uint64                     // +0x48 语义待专项
+	_                  uint64                     // +0x50 语义待专项
 	results            []FileLocatorResultSummary // +0x58
-	truncated          bool                      // +0x70
+	truncated          bool                       // +0x70
 }
 
 type fileLocatorStringMatcher struct {

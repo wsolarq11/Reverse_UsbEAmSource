@@ -8,10 +8,11 @@
 //   - adjustMemoryReleaseTokenPrivileges 0x1408d5c00  448B
 //
 // SYSTEM_MEMORY_LIST_COMMAND 映射（resolveMemoryReleaseCommand 逐字节 cmp 实证）：
-//   "standbylist"           → 4 (MemoryPurgeStandbyList)
-//   "workingsets"           → 2
-//   "modifiedpagelist"      → 3
-//   "priority0standbylist"  → 5 (LowPriority)
+//
+//	"standbylist"           → 4 (MemoryPurgeStandbyList)
+//	"workingsets"           → 2
+//	"modifiedpagelist"      → 3
+//	"priority0standbylist"  → 5 (LowPriority)
 package main
 
 import (

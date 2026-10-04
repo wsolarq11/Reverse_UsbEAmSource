@@ -55,8 +55,9 @@ func newOLEDBlackoutService(app *application.App) *oledBlackoutService {
 
 // ensureLifecycleLocked 初始化生命周期字段（幂等）。
 // [S 0x1408ff220] 单 receiver 方法，无参无返回。asm：
-//   shutdownDone==nil → make(chan struct{})；lifecycleGeneration==0 → 1；
-//   lifecycleContext==nil → WithCancel(context.Background())；shuttingDown → lifecycleCancel()。
+//
+//	shutdownDone==nil → make(chan struct{})；lifecycleGeneration==0 → 1；
+//	lifecycleContext==nil → WithCancel(context.Background())；shuttingDown → lifecycleCancel()。
 func (s *oledBlackoutService) ensureLifecycleLocked() {
 	if s.shutdownDone == nil {
 		s.shutdownDone = make(chan struct{})
@@ -458,9 +459,10 @@ func (bs *BootstrapService) shouldSuppressOLEDBlackoutHotkey(binding string) boo
 
 // oledBlackoutMediaPauseExclusionKey 生成媒体暂停排除项的缓存 key。
 // [S 0x1408fdf40] 双参 (path, processName string) 返回 string。asm：
-//   normalizeOLEDBlackoutMediaPauseExclusionPath → strings.ToLower →
-//   非空则 concat(lower, "path:")；空则
-//   normalizeOLEDBlackoutMediaPauseExclusionProcessName → concat(name, "url(http")。
+//
+//	normalizeOLEDBlackoutMediaPauseExclusionPath → strings.ToLower →
+//	非空则 concat(lower, "path:")；空则
+//	normalizeOLEDBlackoutMediaPauseExclusionProcessName → concat(name, "url(http")。
 func oledBlackoutMediaPauseExclusionKey(path, processName string) string {
 	p := strings.ToLower(normalizeOLEDBlackoutMediaPauseExclusionPath(path))
 	if p != "" {
@@ -698,7 +700,8 @@ func (s *oledBlackoutGSMTCPlaybackInfo) GetPlaybackType() (uint32, bool) {
 
 // parseOLEDBlackoutScreenNumber 从屏幕名提取数字编号（收集所有数字字符后 Atoi）。
 // [S 0x140906420] 单参 string 返回 int。asm：逐字节收集 '0'-'9' 到 []byte →
-//   空则 0；否则 strconv.Atoi，err!=nil 则 0。
+//
+//	空则 0；否则 strconv.Atoi，err!=nil 则 0。
 func parseOLEDBlackoutScreenNumber(name string) int {
 	var b []byte
 	for i := 0; i < len(name); i++ {
@@ -718,7 +721,8 @@ func parseOLEDBlackoutScreenNumber(name string) int {
 
 // sortOLEDBlackoutScreens 按屏幕编号升序（编号相同按名称）排序屏幕切片。
 // [S 0x140906280] 单参 []*OLEDBlackoutScreen。asm：len<=1 直接返回；否则
-//   sort.Slice 闭包比较 parseOLEDBlackoutScreenNumber(Name)，相等则 Name 字符串比较。
+//
+//	sort.Slice 闭包比较 parseOLEDBlackoutScreenNumber(Name)，相等则 Name 字符串比较。
 func sortOLEDBlackoutScreens(screens []*OLEDBlackoutScreen) {
 	if len(screens) > 1 {
 		sort.Slice(screens, func(i, j int) bool {
@@ -734,8 +738,9 @@ func sortOLEDBlackoutScreens(screens []*OLEDBlackoutScreen) {
 
 // oledBlackoutReadInputSnapshot 读取输入快照（光标物理坐标 + 按下的键集合）。
 // [S 0x14090be40] 无参返回 (int, int, bool, map[uintptr]struct{})。asm：经两个全局
-//   函数值调用 oledBlackoutCurrentCursorPhysicalPoint / oledBlackoutPressedKeyboardKeys，
-//   返回 (x, y, ok, keys)。
+//
+//	函数值调用 oledBlackoutCurrentCursorPhysicalPoint / oledBlackoutPressedKeyboardKeys，
+//	返回 (x, y, ok, keys)。
 func oledBlackoutReadInputSnapshot() (int, int, bool, map[uintptr]struct{}) {
 	x, y, ok := oledBlackoutCurrentCursorPhysicalPoint()
 	keys := oledBlackoutPressedKeyboardKeys()

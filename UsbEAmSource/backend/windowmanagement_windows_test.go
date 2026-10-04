@@ -12,13 +12,13 @@ func TestWindowManagementWrappedCursorPoint(t *testing.T) {
 		{Left: 1920, Top: 0, Right: 3840, Bottom: 1080},
 	}
 	cases := []struct {
-		name                       string
-		x, y                       int32
-		monitors                   []windowManagementRECT
-		wrapX, wrapY               bool
-		guardPx                    int
-		wantX, wantY               int32
-		wantOK                     bool
+		name         string
+		x, y         int32
+		monitors     []windowManagementRECT
+		wrapX, wrapY bool
+		guardPx      int
+		wantX, wantY int32
+		wantOK       bool
 	}{
 		// 中间点：不命中 corner guard、不触发任何 wrap → 原值。
 		{"interior", 960, 540, single, true, true, 100, 960, 540, false},
@@ -56,18 +56,18 @@ func TestWindowManagementWrappedCursorPoint(t *testing.T) {
 // DisplayName 空时先回退 TrimSpace(title) 再回退 ProcessName；Title 保留原始值。
 func TestTargetFromWindowProcessPick(t *testing.T) {
 	cases := []struct {
-		name                          string
-		path                          string
-		pid                           uint32
-		processName, displayName      string
-		title                         string
-		hwnd                          uintptr
-		iconData                      string
-		wantPath, wantName            string
-		wantTitle, wantDisplay        string
-		wantHWND                      uintptr
-		wantPID                       uint32
-		wantIcon                      string
+		name                     string
+		path                     string
+		pid                      uint32
+		processName, displayName string
+		title                    string
+		hwnd                     uintptr
+		iconData                 string
+		wantPath, wantName       string
+		wantTitle, wantDisplay   string
+		wantHWND                 uintptr
+		wantPID                  uint32
+		wantIcon                 string
 	}{
 		{
 			name: "all-populated", path: " C:\\app\\x.exe ", pid: 42,

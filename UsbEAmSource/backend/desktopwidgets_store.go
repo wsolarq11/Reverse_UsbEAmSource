@@ -150,22 +150,23 @@ func cloneDesktopWidgetDocument(doc DesktopWidgetDocument) DesktopWidgetDocument
 
 // validateDesktopWidgetDocument 校验组件文档（版本/修订号/组件/便签/计次/整体序列化大小）。
 // [S 汇编 0x1407c3940, 2368B] 实证：
-//   Version!=1→("version","不支持的版本 %d"@0x140c5f674,21B,Version)；
-//   Revision<0→("revision","不能为负数"@0x140c52cce,15B)；
-//   len(Widgets)>200→("widgets","组件数量超过 %d"@0x140c5f689,21B,200)；
-//   Widgets 遍历：key!=w.ID→("widgets","组件键与 id 不一致"@0x140c66a8d,25B)；
-//   TrimSpace(w.Type) 白名单 {note,clock,timer,weather,calendar,reminder,stopwatch,worldClock} 否则
-//   ("widgets["+key+"]","组件类型无效"@0x140c59ce4,18B)；
-//   utf8.RuneCountInString(w.Title)>160(0xa0) 或 w.Revision<=0→("widgets["+key+"]",
-//   "标题或 revision 无效"@0x140c66aa6,25B)；json.Marshal(w.Config) 失败或 len>0x10000→
-//   ("widgets["+key+"]","组件配置超过限制"@0x140c64e60,24B)；
-//   Notes 遍历：key!=note.WidgetID 或 len(note.Body)>0x40000 或 RuneCountInString(note.Body)>0x10000→
-//   ("notes["+key+"]","便签身份或正文长度无效"@0x140c739b1,33B)；累计 len(Body)>0x800000→
-//   ("notes","便签正文总量超过限制"@0x140c6ee83,30B)；
-//   StopwatchLaps 遍历：len(laps)>0x3e8→("stopwatchLaps["+key+"]","计次数量超过限制"@0x140c64e78,24B)；
-//   累计 len(laps)>0x2710→("stopwatchLaps","全局计次数量超过限制"@0x140c6eea1,30B)；
-//   终 json.Marshal(doc) 失败→返回原始 err；len(data)+1>0x2000000→("document",
-//   "序列化后超过 %d 字节"@0x140c6ba00,28B,0x2000000)；否则 validateLauncherConfigJSONStructure(data)。
+//
+//	Version!=1→("version","不支持的版本 %d"@0x140c5f674,21B,Version)；
+//	Revision<0→("revision","不能为负数"@0x140c52cce,15B)；
+//	len(Widgets)>200→("widgets","组件数量超过 %d"@0x140c5f689,21B,200)；
+//	Widgets 遍历：key!=w.ID→("widgets","组件键与 id 不一致"@0x140c66a8d,25B)；
+//	TrimSpace(w.Type) 白名单 {note,clock,timer,weather,calendar,reminder,stopwatch,worldClock} 否则
+//	("widgets["+key+"]","组件类型无效"@0x140c59ce4,18B)；
+//	utf8.RuneCountInString(w.Title)>160(0xa0) 或 w.Revision<=0→("widgets["+key+"]",
+//	"标题或 revision 无效"@0x140c66aa6,25B)；json.Marshal(w.Config) 失败或 len>0x10000→
+//	("widgets["+key+"]","组件配置超过限制"@0x140c64e60,24B)；
+//	Notes 遍历：key!=note.WidgetID 或 len(note.Body)>0x40000 或 RuneCountInString(note.Body)>0x10000→
+//	("notes["+key+"]","便签身份或正文长度无效"@0x140c739b1,33B)；累计 len(Body)>0x800000→
+//	("notes","便签正文总量超过限制"@0x140c6ee83,30B)；
+//	StopwatchLaps 遍历：len(laps)>0x3e8→("stopwatchLaps["+key+"]","计次数量超过限制"@0x140c64e78,24B)；
+//	累计 len(laps)>0x2710→("stopwatchLaps","全局计次数量超过限制"@0x140c6eea1,30B)；
+//	终 json.Marshal(doc) 失败→返回原始 err；len(data)+1>0x2000000→("document",
+//	"序列化后超过 %d 字节"@0x140c6ba00,28B,0x2000000)；否则 validateLauncherConfigJSONStructure(data)。
 func validateDesktopWidgetDocument(doc DesktopWidgetDocument) error {
 	if doc.Version != 1 {
 		return desktopWidgetStoreError("version", fmt.Sprintf("不支持的版本 %d", doc.Version))
@@ -300,18 +301,19 @@ func (s *launcherWidgetStore) Read() (bool, error) {
 
 // writeDesktopWidgetDocumentFile 原子写组件文档到磁盘（临时文件 + rename + 重试）。
 // [S 汇编 0x1407c47c0, 1504B] 实证：
-//   path=TrimSpace(path)，空→errors.New("首页组件存储路径不能为空"@0x140c782eb,36B)；
-//   doc=normalizeDesktopWidgetDocument(doc)；validateDesktopWidgetDocument(doc) 失败→返回该 err；
-//   dir=filepath.Dir(path)；os.MkdirAll(dir,0x1ed=0o755) 失败→返回；
-//   data=json.MarshalIndent(doc,"","  ")+'\n'（indent 2 空格@0x140c3366b，追加 0x0a 换行）；
-//   tmp=os.CreateTemp(dir,".launcher-widgets-*.tmp"@0x140c62ea1,23B) 失败→返回；defer tmp.Close()；
-//   tmp.Write(data) 失败→返回；tmp.Sync() 失败→返回；tmp.Close() 失败→返回；
-//   rename 重试 ≤5 次：os.Rename(tmp.Name(),path) 成功→nil；失败且 errors.Is(err,os.ErrPermission)||
-//   errors.Is(err,os.ErrExist) 则 time.Sleep(50ms=0x2faf080) 后 attempt++ 重试，否则返回 err；
-//   5 次后仍失败返回最后的 rename err。
-//   注：重试条件两 error 变量为 .data 段 @0x141c10970/0x141c10980，紧邻 os.ErrNotExist@0x141c10990
-//   （func1 内 errors.Is(os.ErrNotExist) 实证），按 io/fs 包 error 声明顺序
-//   （ErrPermission→ErrExist→ErrNotExist）确定为 os.ErrPermission 与 os.ErrExist。
+//
+//	path=TrimSpace(path)，空→errors.New("首页组件存储路径不能为空"@0x140c782eb,36B)；
+//	doc=normalizeDesktopWidgetDocument(doc)；validateDesktopWidgetDocument(doc) 失败→返回该 err；
+//	dir=filepath.Dir(path)；os.MkdirAll(dir,0x1ed=0o755) 失败→返回；
+//	data=json.MarshalIndent(doc,"","  ")+'\n'（indent 2 空格@0x140c3366b，追加 0x0a 换行）；
+//	tmp=os.CreateTemp(dir,".launcher-widgets-*.tmp"@0x140c62ea1,23B) 失败→返回；defer tmp.Close()；
+//	tmp.Write(data) 失败→返回；tmp.Sync() 失败→返回；tmp.Close() 失败→返回；
+//	rename 重试 ≤5 次：os.Rename(tmp.Name(),path) 成功→nil；失败且 errors.Is(err,os.ErrPermission)||
+//	errors.Is(err,os.ErrExist) 则 time.Sleep(50ms=0x2faf080) 后 attempt++ 重试，否则返回 err；
+//	5 次后仍失败返回最后的 rename err。
+//	注：重试条件两 error 变量为 .data 段 @0x141c10970/0x141c10980，紧邻 os.ErrNotExist@0x141c10990
+//	（func1 内 errors.Is(os.ErrNotExist) 实证），按 io/fs 包 error 声明顺序
+//	（ErrPermission→ErrExist→ErrNotExist）确定为 os.ErrPermission 与 os.ErrExist。
 func writeDesktopWidgetDocumentFile(path string, doc DesktopWidgetDocument) error {
 	path = strings.TrimSpace(path)
 	if path == "" {
@@ -361,11 +363,12 @@ func writeDesktopWidgetDocumentFile(path string, doc DesktopWidgetDocument) erro
 // writeUnlocked 在持锁状态下写组件文档：归一化→校验→通过 writeDocument（默认 writeDesktopWidgetDocumentFile）
 // 落盘→缓存。用于 Ensure/Update/ReplaceWithRollback 等写入路径。
 // [S 汇编 0x1407c3260, 640B] 实证：
-//   doc=normalizeDesktopWidgetDocument(doc)；validateDesktopWidgetDocument(doc) 失败→返回该 err；
-//   w:=s.writeDocument（字段 @0x98），w==nil 时取默认 writeDesktopWidgetDocumentFile
-//   （全局函数指针 @0x141096dd0=0x1407c47c0）；w(s.path,doc) 失败→返回该 err；
-//   成功→s.cached=cloneDesktopWidgetDocument(doc)、cachedExists=true、cachedLoadErr=nil、
-//   loaded=true、return nil。
+//
+//	doc=normalizeDesktopWidgetDocument(doc)；validateDesktopWidgetDocument(doc) 失败→返回该 err；
+//	w:=s.writeDocument（字段 @0x98），w==nil 时取默认 writeDesktopWidgetDocumentFile
+//	（全局函数指针 @0x141096dd0=0x1407c47c0）；w(s.path,doc) 失败→返回该 err；
+//	成功→s.cached=cloneDesktopWidgetDocument(doc)、cachedExists=true、cachedLoadErr=nil、
+//	loaded=true、return nil。
 func (s *launcherWidgetStore) writeUnlocked(doc DesktopWidgetDocument) error {
 	doc = normalizeDesktopWidgetDocument(doc)
 	if err := validateDesktopWidgetDocument(doc); err != nil {
@@ -387,11 +390,12 @@ func (s *launcherWidgetStore) writeUnlocked(doc DesktopWidgetDocument) error {
 
 // Ensure 确保组件文档存在：不存在则以零值文档为底、盖上当前 UTC 时间戳后写盘，返回文档副本。
 // [S 汇编 0x1407c06e0, 1504B] 实证（返回 (DesktopWidgetDocument,error)）：
-//   s==nil→(零值,errors.New("首页组件存储不可用"@0x140c69cd5,27B))；s.mu.Lock()+defer Unlock；
-//   exists,doc,err:=loadUnlocked()；err!=nil→(零值,err)；exists→(doc,nil)；
-//   否则 doc=normalizeDesktopWidgetDocument(零值)；doc.UpdatedAt=time.Now().UTC().
-//   Format(time.RFC3339Nano="2006-01-02T15:04:05.999999999Z07:00"@0x140c7708d,35B)；
-//   writeUnlocked(doc) 失败→(零值,err)；成功→(cloneDesktopWidgetDocument(doc),nil)。
+//
+//	s==nil→(零值,errors.New("首页组件存储不可用"@0x140c69cd5,27B))；s.mu.Lock()+defer Unlock；
+//	exists,doc,err:=loadUnlocked()；err!=nil→(零值,err)；exists→(doc,nil)；
+//	否则 doc=normalizeDesktopWidgetDocument(零值)；doc.UpdatedAt=time.Now().UTC().
+//	Format(time.RFC3339Nano="2006-01-02T15:04:05.999999999Z07:00"@0x140c7708d,35B)；
+//	writeUnlocked(doc) 失败→(零值,err)；成功→(cloneDesktopWidgetDocument(doc),nil)。
 func (s *launcherWidgetStore) Ensure() (DesktopWidgetDocument, error) {
 	if s == nil {
 		return DesktopWidgetDocument{}, errors.New("首页组件存储不可用")
@@ -416,11 +420,12 @@ func (s *launcherWidgetStore) Ensure() (DesktopWidgetDocument, error) {
 // Update 在持锁状态下更新组件文档：深拷贝现有文档→可选的 mutate 回调改副本→Revision+1 并盖 UTC
 // 时间戳→写盘→返回副本。mutate 为 nil 时跳过（仅提升版本号与时间戳）。
 // [S 汇编 0x1407c1100, 1600B] 实证（返回 (DesktopWidgetDocument,error)）：
-//   s==nil→(零值,errors.New("首页组件存储不可用"@0x140c69cd5,27B))；s.mu.Lock()+defer Unlock；
-//   _,doc,err:=loadUnlocked()（exists 忽略）；err!=nil→(零值,err)；clone:=cloneDesktopWidgetDocument(doc)；
-//   mutate!=nil 则 err=mutate(&clone)（回调指针 @[rsp+0x278]，接收堆上 clone 指针），err!=nil→(零值,err)；
-//   clone.Revision=doc.Revision+1（inc）；clone.UpdatedAt=time.Now().UTC().Format(time.RFC3339Nano)；
-//   writeUnlocked(clone) 失败→(零值,err)；成功→(cloneDesktopWidgetDocument(clone),nil)。
+//
+//	s==nil→(零值,errors.New("首页组件存储不可用"@0x140c69cd5,27B))；s.mu.Lock()+defer Unlock；
+//	_,doc,err:=loadUnlocked()（exists 忽略）；err!=nil→(零值,err)；clone:=cloneDesktopWidgetDocument(doc)；
+//	mutate!=nil 则 err=mutate(&clone)（回调指针 @[rsp+0x278]，接收堆上 clone 指针），err!=nil→(零值,err)；
+//	clone.Revision=doc.Revision+1（inc）；clone.UpdatedAt=time.Now().UTC().Format(time.RFC3339Nano)；
+//	writeUnlocked(clone) 失败→(零值,err)；成功→(cloneDesktopWidgetDocument(clone),nil)。
 func (s *launcherWidgetStore) Update(mutate func(*DesktopWidgetDocument) error) (DesktopWidgetDocument, error) {
 	if s == nil {
 		return DesktopWidgetDocument{}, errors.New("首页组件存储不可用")
@@ -448,15 +453,16 @@ func (s *launcherWidgetStore) Update(mutate func(*DesktopWidgetDocument) error) 
 // ReplaceWithRollback 用新文档整体替换（带回滚）：归一化+时间戳+校验新文档→直接 writeDocument 落盘→
 // 缓存新文档→返回一个回滚闭包（调用时恢复旧文档或删除文件）。返回 (func() error, error)。
 // [S 汇编 0x1407c17a0, 3136B + func1@0x1407c1e60] 实证：
-//   s==nil→(nil,errors.New("首页组件存储不可用"@0x140c69cd5,27B))；s.mu.Lock()+defer Unlock；
-//   exists,oldDoc,err:=loadUnlocked()；err!=nil 时 oldDoc 清零且 exists=false（不返回错误）；
-//   newDoc=normalizeDesktopWidgetDocument(newDoc)；newDoc.UpdatedAt=time.Now().UTC().Format(RFC3339Nano)；
-//   validateDesktopWidgetDocument(newDoc) 失败→(nil,err)；w:=s.writeDocument（nil 取默认）→
-//   w(s.path,newDoc) 失败→(nil,err)；成功→s.cached=clone(newDoc)、cachedExists=true、cachedLoadErr=nil、
-//   loaded=true；返回闭包（捕获 s/exists/w/oldDoc）：
-//     闭包内加锁 defer 解锁；exists 则 w(s.path,oldDoc) 恢复（失败返回 err）→缓存 oldDoc、
-//     cachedExists=true；否则 os.Remove(s.path)，err 非 nil 且 !errors.Is(err,os.ErrNotExist) 返回 err→
-//     缓存 normalizeDesktopWidgetDocument(零值)、cachedExists=false；两条路径均 loaded=true、return nil。
+//
+//	s==nil→(nil,errors.New("首页组件存储不可用"@0x140c69cd5,27B))；s.mu.Lock()+defer Unlock；
+//	exists,oldDoc,err:=loadUnlocked()；err!=nil 时 oldDoc 清零且 exists=false（不返回错误）；
+//	newDoc=normalizeDesktopWidgetDocument(newDoc)；newDoc.UpdatedAt=time.Now().UTC().Format(RFC3339Nano)；
+//	validateDesktopWidgetDocument(newDoc) 失败→(nil,err)；w:=s.writeDocument（nil 取默认）→
+//	w(s.path,newDoc) 失败→(nil,err)；成功→s.cached=clone(newDoc)、cachedExists=true、cachedLoadErr=nil、
+//	loaded=true；返回闭包（捕获 s/exists/w/oldDoc）：
+//	  闭包内加锁 defer 解锁；exists 则 w(s.path,oldDoc) 恢复（失败返回 err）→缓存 oldDoc、
+//	  cachedExists=true；否则 os.Remove(s.path)，err 非 nil 且 !errors.Is(err,os.ErrNotExist) 返回 err→
+//	  缓存 normalizeDesktopWidgetDocument(零值)、cachedExists=false；两条路径均 loaded=true、return nil。
 func (s *launcherWidgetStore) ReplaceWithRollback(newDoc DesktopWidgetDocument) (func() error, error) {
 	if s == nil {
 		return nil, errors.New("首页组件存储不可用")

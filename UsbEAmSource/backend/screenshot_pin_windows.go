@@ -16,16 +16,16 @@ import (
 var (
 	dwmapiDLL = windows.NewLazySystemDLL("dwmapi.dll")
 
-	procDwmSetWindowAttribute        = dwmapiDLL.NewProc("DwmSetWindowAttribute")
-	procSetLayeredWindowAttributes   = user32DLL.NewProc("SetLayeredWindowAttributes")
+	procDwmSetWindowAttribute      = dwmapiDLL.NewProc("DwmSetWindowAttribute")
+	procSetLayeredWindowAttributes = user32DLL.NewProc("SetLayeredWindowAttributes")
 )
 
 // DWMWA_BORDER_COLOR：DwmSetWindowAttribute 的边框颜色属性。
 // DWMWA_COLOR_NONE：边框颜色属性取该值时禁用窗口边框（"抑制边框"）。
 const (
-	dwmwaBorderColor uint32 = 0x22         // DWMWA_BORDER_COLOR
-	dwmwaColorNone   uint32 = 0xFFFFFFFE   // DWMWA_COLOR_NONE
-	lwaAlpha         uintptr = 0x2         // LWA_ALPHA：使用 bAlpha 参数
+	dwmwaBorderColor uint32  = 0x22       // DWMWA_BORDER_COLOR
+	dwmwaColorNone   uint32  = 0xFFFFFFFE // DWMWA_COLOR_NONE
+	lwaAlpha         uintptr = 0x2        // LWA_ALPHA：使用 bAlpha 参数
 )
 
 // screenshotPinSetLayeredWindowOpacity 设置钉窗口分层不透明度。

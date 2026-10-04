@@ -180,11 +180,11 @@ type nameSearchPlan struct {
 // shouldPrioritizeSearchTerm 判断术语 i 是否应排在术语 j 之前（sort less 语义）。
 // [S 汇编 0x1407e19c0, 704B] 实证，按优先级依次比较：
 //
-//	1. 双方候选计数都 >0 且不等 → 计数更小者优先（return countJ > countI）；
-//	2. 单片段（len(patterns)==1）vs 多片段 → 单片段优先；
-//	3. 全部片段字节总长不等 → 总长更短者优先；
-//	4. 片段数不等 → 片段更少者优先；
-//	5. 平局 → 索引更大者优先（return j > i）。
+//  1. 双方候选计数都 >0 且不等 → 计数更小者优先（return countJ > countI）；
+//  2. 单片段（len(patterns)==1）vs 多片段 → 单片段优先；
+//  3. 全部片段字节总长不等 → 总长更短者优先；
+//  4. 片段数不等 → 片段更少者优先；
+//  5. 平局 → 索引更大者优先（return j > i）。
 func shouldPrioritizeSearchTerm(terms []nameSearchTerm, i, j, countI, countJ int) bool {
 	if countI > 0 && countJ > 0 && countI != countJ {
 		return countJ > countI

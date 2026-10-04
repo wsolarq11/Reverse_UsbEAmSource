@@ -43,7 +43,7 @@ func (b *BootstrapService) InstallLauncherUpdate(version string) (LauncherUpdate
 //   - rdi = taskID（prepareLauncherUpdatePackageWithWorkspace 第二参，0x1408b39e4）
 //   - rsi = done func()（尾声 0x1408b3d70 mov rdx,[0x490]; mov rax,[rdx]; call rax 无参调用）
 //   - r8/r9 = version string（isLauncherVersionUpdateAvailableText 首参透传，0x1408b38e9）
-//   无返回寄存器 = void。体未还原。
+//     无返回寄存器 = void。体未还原。
 func (b *BootstrapService) runLauncherUpdateTask(ctx context.Context, taskID int64, done func(), version string) {
 }
 
@@ -68,8 +68,8 @@ func (b *BootstrapService) fetchLauncherRemoteConfigWithContext(ctx context.Cont
 //   - rbx/rcx = ctx（NewRequestWithContext 首参，0x1408b46a0）
 //   - workspace WorkspaceLayout 值传（栈首参 @[rsp+0x1c8]，160B；[0x1d8]/[0x1e0]=ConfigFile 字段
 //     传 newLauncherNetworkAccess）
-//   调用方 fetchLauncherRemoteConfigWithContext（0x1408b450c）workspaceSnapshot 后 duffcopy 铺栈 +
-//   rax/rbx/rcx。返回 duffzero+0x134 初始化 LauncherConfig+error。体未还原。
+//     调用方 fetchLauncherRemoteConfigWithContext（0x1408b450c）workspaceSnapshot 后 duffcopy 铺栈 +
+//     rax/rbx/rcx。返回 duffzero+0x134 初始化 LauncherConfig+error。体未还原。
 func (b *BootstrapService) fetchLauncherRemoteConfigWithWorkspace(workspace WorkspaceLayout, ctx context.Context) (LauncherConfig, error) {
 	return LauncherConfig{}, nil
 }
@@ -175,9 +175,9 @@ func (b *BootstrapService) isLauncherUpdateTaskActive(taskID int64) bool {
 // 汇编实证（morestack 序言存 3 槽 rax/rbx/rcx）：
 //   - rbx/rcx = ctx context.Context（InstallLauncherUpdate 调用点 0x1408b35a0 传 context.Background
 //     全局 itab/data；序言 cmov 空 ctx → 默认值）
-//   返回 6 寄存器：AX/BX=ctx（context.WithCancel 结果，0x1408b75ee）、CX=taskID（[0x4d0] 自增）、
-//   DI=done func()（闭包捕获 channel/receiver/taskID）、SI/R8=error。
-//   对应 (context.Context, int64, func(), error)。体未还原。
+//     返回 6 寄存器：AX/BX=ctx（context.WithCancel 结果，0x1408b75ee）、CX=taskID（[0x4d0] 自增）、
+//     DI=done func()（闭包捕获 channel/receiver/taskID）、SI/R8=error。
+//     对应 (context.Context, int64, func(), error)。体未还原。
 func (b *BootstrapService) beginLauncherUpdateTask(ctx context.Context) (context.Context, int64, func(), error) {
 	return nil, 0, nil, nil
 }
@@ -234,10 +234,10 @@ func (w *launcherUpdateProgressWriter) Write(p []byte) (int, error) {
 //     ensureWorkspaceDirectories）
 //   - rbx/rcx = ctx（launcherUpdateContextError 首参透传）；rdi = taskID（setLauncherUpdateProgressForTask 第二参）
 //   - rsi/r8 = executableName string（locateLauncherUpdateContentRoot 第三参，0x1408b8762）
-//   stack 后续 8 槽：concurrent bool(@0x320) + url(@0x328/0x330) + sha256(@0x338/0x340) +
-//   totalSize int64(@0x348) + root(@0x350/0x358)（root 即 locateLauncherUpdateContentRoot 第二参）
-//   返回：AX/BX=新包路径 string（0x1408b8913 尾迹 [0x180]/[0x188]），CX=下载字节 int64（[0x118]），
-//   DI/SI=error。故返回 (string, int64, error)。体未还原。
+//     stack 后续 8 槽：concurrent bool(@0x320) + url(@0x328/0x330) + sha256(@0x338/0x340) +
+//     totalSize int64(@0x348) + root(@0x350/0x358)（root 即 locateLauncherUpdateContentRoot 第二参）
+//     返回：AX/BX=新包路径 string（0x1408b8913 尾迹 [0x180]/[0x188]），CX=下载字节 int64（[0x118]），
+//     DI/SI=error。故返回 (string, int64, error)。体未还原。
 func (b *BootstrapService) prepareLauncherUpdatePackageWithWorkspace(workspace WorkspaceLayout, ctx context.Context, taskID int64, executableName string, concurrent bool, url string, sha256 string, totalSize int64, root string) (string, int64, error) {
 	return "", 0, nil
 }
@@ -248,10 +248,10 @@ func (b *BootstrapService) prepareLauncherUpdatePackageWithWorkspace(workspace W
 //     传 newLauncherNetworkAccess）
 //   - rbx/rcx = ctx（probeLauncherUpdatePackageRange/normalizeLauncherUpdateContextError 首参透传）
 //   - rdi = taskID；rsi/r8 = path string（prepare 调用点 0x1408b8572/0x1408b8564 传 filepath.join 结果）
-//   stack 后续 8 槽：concurrent bool(@0x188) + url(@0x190/0x198) + sha256(@0x1a0/0x1a8) +
-//   totalSize int64(@0x1b0) + root(@0x1b8/0x1c0)
-//   尾迹分叉：probe bool(AL)=1 走 concurrently（r9=total,r10/r11=path），=0 走 sequentially（r9/r10=path）；
-//   两者均返回 (int64,error)，故本函数返回 (int64,error)。体未还原。
+//     stack 后续 8 槽：concurrent bool(@0x188) + url(@0x190/0x198) + sha256(@0x1a0/0x1a8) +
+//     totalSize int64(@0x1b0) + root(@0x1b8/0x1c0)
+//     尾迹分叉：probe bool(AL)=1 走 concurrently（r9=total,r10/r11=path），=0 走 sequentially（r9/r10=path）；
+//     两者均返回 (int64,error)，故本函数返回 (int64,error)。体未还原。
 func (b *BootstrapService) downloadLauncherUpdatePackageWithWorkspace(workspace WorkspaceLayout, ctx context.Context, taskID int64, path string, concurrent bool, url string, sha256 string, totalSize int64, root string) (int64, error) {
 	return 0, nil
 }
@@ -261,8 +261,8 @@ func (b *BootstrapService) downloadLauncherUpdatePackageWithWorkspace(workspace 
 //   - rcx/rdi = access LauncherNetworkAccess 接口（itab/data；0x1408b94ff 读 [itab+0x18]=Do 方法槽，
 //     0x1408b951a call Do(data, req, maxBytes)）
 //   - rsi/r8 = url string（ptr/len，NewRequestWithContext 第三参透传）
-//   返回四寄存器：AL=bool（Content-Range 确定态，仅 206+total>0 为 1）、BX=int64（total）、
-//   CX/DI=error（2）。故返回 (bool,int64,error)。体未还原。
+//     返回四寄存器：AL=bool（Content-Range 确定态，仅 206+total>0 为 1）、BX=int64（total）、
+//     CX/DI=error（2）。故返回 (bool,int64,error)。体未还原。
 func probeLauncherUpdatePackageRange(ctx context.Context, access LauncherNetworkAccess, url string) (bool, int64, error) {
 	return false, 0, nil
 }
@@ -278,10 +278,10 @@ func parseLauncherUpdateContentRangeTotal(header string) int64 {
 //   - rdi = taskID（setLauncherUpdateProgressForTask 第二参透传）
 //   - rsi/r8 = access LauncherNetworkAccess（Do 方法槽 [itab+0x18]）
 //   - r9/r10 = path string（os.OpenFile 首参 name，flags=0x242, perm=0x1b6）
-//   stack 8 槽（调用方 downloadLauncherUpdatePackageWithWorkspace 0x1408b91cd 铺 4 xmmword）：
-//   concurrent bool(@0x1e0) + url(@0x1e8/0x1f0) + sha256(@0x1f8/0x200) +
-//   totalSize int64(@0x208) + root(@0x210/0x218)
-//   返回 rax=int64 + rbx/rcx=error。批 242 漏 concurrent bool 与 root string 两参，totalSize 原命名 expectedSize。
+//     stack 8 槽（调用方 downloadLauncherUpdatePackageWithWorkspace 0x1408b91cd 铺 4 xmmword）：
+//     concurrent bool(@0x1e0) + url(@0x1e8/0x1f0) + sha256(@0x1f8/0x200) +
+//     totalSize int64(@0x208) + root(@0x210/0x218)
+//     返回 rax=int64 + rbx/rcx=error。批 242 漏 concurrent bool 与 root string 两参，totalSize 原命名 expectedSize。
 func (b *BootstrapService) downloadLauncherUpdatePackageSequentially(ctx context.Context, taskID int64, access LauncherNetworkAccess, path string, concurrent bool, url string, sha256 string, totalSize int64, root string) (int64, error) {
 	return 0, nil
 }
@@ -292,9 +292,9 @@ func (b *BootstrapService) downloadLauncherUpdatePackageSequentially(ctx context
 //   - rsi/r8 = access LauncherNetworkAccess（Do 方法槽 [itab+0x18]）
 //   - r9 = total int64（0x1408baa16 cmp r9,0x20000000 上限校验；Truncate/buildRanges 首参）
 //   - r10/r11 = path string（0x1408baa75 os.OpenFile 首参 name，flags=0x242, perm=0x1b6）
-//   stack 8 槽（调用方 0x1408b914c 铺 4 xmmword）：concurrent bool(@0x128) + url(@0x130/0x138) +
-//   sha256(@0x140/0x148) + totalSize int64(@0x150) + root(@0x158/0x160)
-//   返回 rax=int64 + rbx/rcx=error。
+//     stack 8 槽（调用方 0x1408b914c 铺 4 xmmword）：concurrent bool(@0x128) + url(@0x130/0x138) +
+//     sha256(@0x140/0x148) + totalSize int64(@0x150) + root(@0x158/0x160)
+//     返回 rax=int64 + rbx/rcx=error。
 func (b *BootstrapService) downloadLauncherUpdatePackageConcurrently(ctx context.Context, taskID int64, access LauncherNetworkAccess, total int64, path string, concurrent bool, url string, sha256 string, totalSize int64, root string) (int64, error) {
 	return 0, nil
 }
@@ -310,7 +310,7 @@ func buildLauncherUpdatePackageRanges(total, chunkSize int64) []launcherUpdatePa
 //   - rsi/r8 = url string（ptr/len，NewRequestWithContext 第三参透传）
 //   - r9 = file *os.File（0x1408bbdb9 作 os.File.WriteAt 接收者）
 //   - r10/r11 = r launcherUpdatePackageRange（Start/End；0x1408bb860 cmp r10,r11，len=End-Start+1）
-//   返回 rax/rbx=error(2)。故返回 error。体未还原。
+//     返回 rax/rbx=error(2)。故返回 error。体未还原。
 func downloadLauncherUpdatePackageRange(ctx context.Context, access LauncherNetworkAccess, url string, file *os.File, r launcherUpdatePackageRange) error {
 	return nil
 }

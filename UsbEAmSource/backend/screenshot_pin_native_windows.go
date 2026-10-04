@@ -206,12 +206,13 @@ func screenshotNativePinOpacityThumbRect(bounds application.Rect, opacity float6
 //   - rax = img（体内解引用 [rax+0x20..0x38] 读 image.RGBA.Rect）
 //   - rbx/rcx/rdi/rsi = 4 int（bounds application.Rect，透传 CloseButtonRect/OpacityPanelRect）
 //   - r8b/r9b/r10b = 3 byte 布尔门控（均 test dl,dl/je 作存在性判定，非颜色分量）：
-//       r8b 门 close 按钮（0x140992ec0 test r8b/r9b 双判），r9b 门 opacity 面板（0x140992fd0），
-//       r10b 门高亮二次绘制（0x140992f25）
+//     r8b 门 close 按钮（0x140992ec0 test r8b/r9b 双判），r9b 门 opacity 面板（0x140992fd0），
+//     r10b 门高亮二次绘制（0x140992f25）
 //   - r11 = int（0x140992e35 test r11,r11;jle + bt r11d,0;jb 作「正且偶」判定 = 动画 tick）
 //   - xmm0 = float64（opacity，透传 OpacityThumbRect）
-//   三条 return 路径均无返回寄存器设置 = void。体未还原（GDI/像素绘制副作用）。
-func screenshotNativePinDrawOverlay(img *image.RGBA, bounds application.Rect, showCloseButton, showOpacityPanel, showHighlight bool, tick int, opacity float64) {}
+//     三条 return 路径均无返回寄存器设置 = void。体未还原（GDI/像素绘制副作用）。
+func screenshotNativePinDrawOverlay(img *image.RGBA, bounds application.Rect, showCloseButton, showOpacityPanel, showHighlight bool, tick int, opacity float64) {
+}
 
 // [S-sig 0x1409932c0] 序言保存 rax(img)+rbx/rcx/rdi/rsi(4 int)+r8b-r11b(color)；体内
 // inc/dec 缩进矩形并两次透传 OverwriteRectBorder，故 (img,rect,color)。体未还原。

@@ -196,7 +196,7 @@ func windowManagementGetClientRectValue(hwnd uintptr) (int, int, int, int) {
 	if r1 == 0 {
 		return 0, 0, 0, 0
 	}
-	return int(rect.Left), int(rect.Top), int(rect.Right-rect.Left), int(rect.Bottom-rect.Top)
+	return int(rect.Left), int(rect.Top), int(rect.Right - rect.Left), int(rect.Bottom - rect.Top)
 }
 
 // windowManagementGetClassName 获取窗口类名（GetClassNameW 单阶段，256 缓冲）。
@@ -446,17 +446,17 @@ func windowManagementDisplayRects() []windowManagementRECT {
 // windowManagementWrappedCursorPoint 计算鼠标环绕后的新坐标。
 // [S] ASM 0x1409ed5c0（0x3e0=992B）：
 //
-//	1. 线性扫描 monitors（stride 0x10）找首个满足 Left<=x<Right && Top<=y<Bottom 的矩形，
-//	   命中存 left/top/right/bottom；未命中（或 Right<=Left || Top>=Bottom）→ 返回 (x,y,false)。
-//	2. windowManagementPointInCornerGuard(x,y,left,top,right,bottom,guardPx) 命中 → (x,y,false)。
-//	3. 水平：wrapX && x<=left 时探测 (x-1,y)；该点不属于任何 monitor →
-//	   WrapTargetX(monitors,y,true)（最右）。wrapX && x>=right-1 时探测 (x+1,y)；
-//	   不属于任何 monitor → WrapTargetX(monitors,y,false)（最左）。
-//	4. 垂直：wrapY && y<=top 时探测 (x,y-1)；不属于任何 monitor →
-//	   WrapTargetY(monitors,x,true)（最下）。wrapY && y>=bottom-1 时探测 (x,y+1)；
-//	   不属于任何 monitor → WrapTargetY(monitors,x,false)（最上）。
-//	5. 水平与垂直均基于**原始 (x,y)** 判定（0x1409ed736 / 0x1409ed76a 读 [rsp+0x38] 原始 x，
-//	   非已 wrap 的 newX）；返回 ok = hOK | vOK（0x1409ed7c1 `or ecx,ebx`）。
+//  1. 线性扫描 monitors（stride 0x10）找首个满足 Left<=x<Right && Top<=y<Bottom 的矩形，
+//     命中存 left/top/right/bottom；未命中（或 Right<=Left || Top>=Bottom）→ 返回 (x,y,false)。
+//  2. windowManagementPointInCornerGuard(x,y,left,top,right,bottom,guardPx) 命中 → (x,y,false)。
+//  3. 水平：wrapX && x<=left 时探测 (x-1,y)；该点不属于任何 monitor →
+//     WrapTargetX(monitors,y,true)（最右）。wrapX && x>=right-1 时探测 (x+1,y)；
+//     不属于任何 monitor → WrapTargetX(monitors,y,false)（最左）。
+//  4. 垂直：wrapY && y<=top 时探测 (x,y-1)；不属于任何 monitor →
+//     WrapTargetY(monitors,x,true)（最下）。wrapY && y>=bottom-1 时探测 (x,y+1)；
+//     不属于任何 monitor → WrapTargetY(monitors,x,false)（最上）。
+//  5. 水平与垂直均基于**原始 (x,y)** 判定（0x1409ed736 / 0x1409ed76a 读 [rsp+0x38] 原始 x，
+//     非已 wrap 的 newX）；返回 ok = hOK | vOK（0x1409ed7c1 `or ecx,ebx`）。
 func windowManagementWrappedCursorPoint(x, y int32, monitors []windowManagementRECT, wrapX, wrapY bool, guardPx int) (int32, int32, bool) {
 	var left, top, right, bottom int32
 	found := false

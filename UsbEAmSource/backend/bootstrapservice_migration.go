@@ -44,6 +44,7 @@ import (
 //	默认子目录名（rodata 解码，单数形式）：icon/index/screenshot/webview2/background/language。
 //
 // 三处调用点交叉验证（寄存器映射一致）：
+//
 //	commit...WithWidgetsImpl.asm 0x140778f40：参1-3 = ws.Root/ws.ConfigFile/ws.PluginDir；
 //	MigrateConfig.asm 0x14077c8d6：参1 = staged.targetPath，参2-3 = ws.ConfigFile/ws.PluginDir；
 //	PreviewInitializationImportConfig.asm 0x14077c1e2：先 filepathlite.Dir 后装配参2-3。

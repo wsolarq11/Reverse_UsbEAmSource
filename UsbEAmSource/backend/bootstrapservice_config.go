@@ -163,11 +163,12 @@ func (s *launcherConfigStore) Read() (LauncherConfig, error) {
 
 // Delete 删除小部件文档缓存文件，并把缓存重置为默认文档（cachedExists=false）。
 // [S 汇编 0x1407c0d20, 992B] 实证：
-//   s==nil→errors.New("首页组件存储不可用"@0x140c69cd5,27B)；s.mu.Lock()+defer Unlock；
-//   path=strings.TrimSpace(s.path)，空→errors.New("首页组件存储路径不能为空"@0x140c782eb,36B)；
-//   os.Remove(path)，err 非 nil 且 !errors.Is(err,os.ErrNotExist) 返回 err；
-//   成功/NotExist→s.cached=normalizeDesktopWidgetDocument(零值)、cachedExists=false、cachedLoadErr=nil、
-//   loaded=true、return nil。
+//
+//	s==nil→errors.New("首页组件存储不可用"@0x140c69cd5,27B)；s.mu.Lock()+defer Unlock；
+//	path=strings.TrimSpace(s.path)，空→errors.New("首页组件存储路径不能为空"@0x140c782eb,36B)；
+//	os.Remove(path)，err 非 nil 且 !errors.Is(err,os.ErrNotExist) 返回 err；
+//	成功/NotExist→s.cached=normalizeDesktopWidgetDocument(零值)、cachedExists=false、cachedLoadErr=nil、
+//	loaded=true、return nil。
 func (s *launcherWidgetStore) Delete() error {
 	if s == nil {
 		return errors.New("首页组件存储不可用")

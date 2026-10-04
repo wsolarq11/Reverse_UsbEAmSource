@@ -207,7 +207,8 @@ func (s *screenshotWindowSelectionSession) invalidateWindowChange(hwnd uintptr) 
 
 // [S-sig 0x1409be100] 汇编实证：recv+rbx=hwnd(uintptr，透传 w32.InvalidateRect)+a/b(image.Rectangle
 // 各 4 word，rcx/rdi/rsi/r8 与栈 [rsp+0xf0..0x108]) 参数；无返回值。
-func (s *screenshotWindowSelectionSession) invalidateInfoRectChange(hwnd uintptr, a, b image.Rectangle) {}
+func (s *screenshotWindowSelectionSession) invalidateInfoRectChange(hwnd uintptr, a, b image.Rectangle) {
+}
 
 // [S-sig 0x1409be360] 序言 test rbx 判空(hwnd)，mov rax,rbx 后调 screenshotWindowBounds 求边框，
 // 再 image.Rectangle.Intersect 与工作区求交；零值分支 xor eax 清四字。返回 image.Rectangle。

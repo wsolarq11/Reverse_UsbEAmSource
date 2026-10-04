@@ -21,12 +21,12 @@ func TestScreenshotPinOpacityClamp(t *testing.T) {
 		in        float64
 		wantAlpha int
 	}{
-		{0.0, 51},   // clamp -> 0.2, int(0.2*255)=51
+		{0.0, 51}, // clamp -> 0.2, int(0.2*255)=51
 		{0.2, 51},
-		{0.5, 127},  // int(127.5) 截断 -> 127
-		{1.0, 255},  // >=1.0 -> 255
+		{0.5, 127}, // int(127.5) 截断 -> 127
+		{1.0, 255}, // >=1.0 -> 255
 		{2.0, 255},
-		{-1.0, 51},  // clamp -> 0.2
+		{-1.0, 51}, // clamp -> 0.2
 	}
 	for _, c := range cases {
 		op := c.in

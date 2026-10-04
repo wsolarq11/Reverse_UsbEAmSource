@@ -11,6 +11,9 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/wailsapp/wails/v3/pkg/application"
 )
 
@@ -82,6 +85,38 @@ func (bs *BootstrapService) showPendingLauncherReveal(window interface{}) {
 	if reveal {
 		bs.showLauncherWindow(window, false, true)
 	}
+}
+
+// ShowLauncherUpdateNotification 显示启动器更新通知（Wails 服务方法，无返回）。
+// [S 汇编 0x140795ec0, 256B]：bs==nil→return；beginLauncherUpdateNotification() 为 false→return；
+// showLauncherUpdateNotification(title,message) 返回 error 非 nil 时
+// fmt.Fprintf(os.Stderr, "显示启动更新通知失败: %v\n", err)。
+// 格式串 35B 实测于 0x140c770b0（.rdata）；写入目标为全局 *os.File（[rip+0x1479921]→.data@0x141c0f868，
+// 经 itab@0x1411d2cc0 装箱为 io.Writer）。入口序言 spill rbx/rcx/rdi/rsi = title/message 四寄存器。
+func (bs *BootstrapService) ShowLauncherUpdateNotification(title, message string) {
+	if bs == nil {
+		return
+	}
+	if !bs.beginLauncherUpdateNotification() {
+		return
+	}
+	if err := showLauncherUpdateNotification(title, message); err != nil {
+		fmt.Fprintf(os.Stderr, "显示启动更新通知失败: %v\n", err)
+	}
+}
+
+// beginLauncherUpdateNotification 启动器更新通知「仅一次」门禁。
+// [S 汇编 0x140795fc0, 256B]：lock(+0x540=bs.lock) → defer unlock → 读
+// launcherUpdateNotificationShown(+0x4f1)：已显示→false；否则置 true→true。
+// 实测：launcherUpdateNotificationShown offset=0x4f1（unsafe.Offsetof），与 asm `cmp [rcx+0x4f1]` 对齐。
+func (bs *BootstrapService) beginLauncherUpdateNotification() bool {
+	bs.lock.Lock()
+	defer bs.lock.Unlock()
+	if bs.launcherUpdateNotificationShown {
+		return false
+	}
+	bs.launcherUpdateNotificationShown = true
+	return true
 }
 
 // launcherScreenshotCaptureState 记录启动器窗口截屏前的原始状态，供截屏结束后恢复。

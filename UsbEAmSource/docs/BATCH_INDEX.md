@@ -329,3 +329,4 @@
 | 370 | [batch370.md](acceptance/batch370.md) | 批次 370 · 二维码解码事件/提供器错误快照/桌面天气凭证/鼠标点覆盖层定位 +4（FUNCS 3236） |
 | 371 | [batch371.md](acceptance/batch371.md) | 批次 371 · 远程图标目标/预览会话脚本/原生预览窗口消息/启动权限默认值 +4（FUNCS 3240） |
 | 372 | [batch372.md](acceptance/batch372.md) | 批次 372 · 键盘钩子/插件版本解析/映射读提供器替换关闭/拼音 sections 校验 +4（FUNCS 3244） |
+| 373 | [batch373.md](acceptance/batch373.md) | 批次 373 · 启动器更新通知门禁/显示 +2（FUNCS 3246） |

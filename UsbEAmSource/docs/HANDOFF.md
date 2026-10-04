@@ -53,7 +53,7 @@ node tools/count_funcs.js
 node tools/list_missing.js
 ```
 
-**当前口径（批次 372）**：`FUNCS=3244 MARKED=3244 S=1504 S-inline=37 S-eq=1 S-sig=1661 P=41 UNMARKED=0`，真函数 3202/4754 = **68.24%**。
+**当前口径（批次 373）**：`FUNCS=3246 MARKED=3246 S=1506 S-inline=37 S-eq=1 S-sig=1661 P=41 UNMARKED=0`，真函数 3204/4754 = **68.28%**。
 
 **单批收尾五步（SSOT 单出口，禁止抄上一批数字）**：落地函数 → 三门禁 EXIT=0 → `node tools/count_funcs.js` 取活体数字 → 写 `docs/acceptance/batchNNN.md` + 更新本文件 §1 标题/§2/进度表 + `node tools/gen_batch_index.js` 重生成索引 → dulwich commit+push（`$env:GITHUB_TOKEN = gh auth token`）→ `gh api` 轮询 CI 到 `completed success`。
 
@@ -61,22 +61,22 @@ node tools/list_missing.js
 
 ---
 
-## 1. 一句话现状（批次 372 · 键盘钩子/插件版本解析/映射读提供器替换关闭/拼音 sections 校验 +4 · FUNCS 3244，68.24%）
+## 1. 一句话现状（批次 373 · 启动器更新通知门禁/显示 +2 · FUNCS 3246，68.28%）
 
-前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 372**，后端非测试代码 **125 个 .go 文件**，测试 **54 文件**。
+前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 373**，后端非测试代码 **125 个 .go 文件**，测试 **54 文件**。
 
-**门禁活体实测（批次 372）**：`go1.25.12 build ./backend` / `go vet ./backend` / `go test ./backend` 三项 **EXIT=0**（`ok changeme/backend`）。
+**门禁活体实测（批次 373）**：`go1.25.12 build ./backend` / `go vet ./backend` / `go test ./backend` 三项 **EXIT=0**（`ok changeme/backend`）。
 
-**当前进度分母（批次 372 实测，此后一律以此为准）**：
+**当前进度分母（批次 373 实测，此后一律以此为准）**：
 
 | 指标 | 实测值 | 目标（总进度 100%） | 取证方式 |
 |---|---|---|---|
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
-| 已重建函数 | 3244 | 4,754 | `node tools/count_funcs.js` 实测（批次 372 后） |
-| 真函数（S+S-inline+S-sig） | 3202 | 4,754 | 同上，**批次 372 达 68.24%** |
+| 已重建函数 | 3246 | 4,754 | `node tools/count_funcs.js` 实测（批次 373 后） |
+| 真函数（S+S-inline+S-sig） | 3204 | 4,754 | 同上，**批次 373 达 68.28%** |
 | 文件覆盖 | 113/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
-| 未落地原始文件 | 31 | **0** | 差集（清单见 `UNLANDED.md`，批次 372 后实测） |
+| 未落地原始文件 | 31 | **0** | 差集（清单见 `UNLANDED.md`，批次 373 后实测） |
 | UNMARKED | 0 | **0** | `node tools/count_funcs.js` 实测 |
 | [P] 存根 | 41 | **0** | 同上（批次 278 持平） |
 
@@ -86,13 +86,13 @@ node tools/list_missing.js
 
 ---
 
-## 2. 交接状态（批次 372 收尾后）
+## 2. 交接状态（批次 373 收尾后）
 
 **下一批推荐**：`node tools/list_missing.js` 头部 448B/480B 候选；filesearch 域 `VolumeIndex.activeEntryCountLocked`(0x1407e8340)/`VolumeIndex.overlayStatsLocked`(0x1407e7fe0) 优先；`P=41 → [S]` 转换（`tools/list_p.awk` 定位：mousegestures/nativedrag/oledblackout_windows/screenshot_uia_windows/screenshot_windows/webview2_process_windows）。
 
-**未落地文件差集 31**（清单见 `UNLANDED.md`，批次 372 后实测）；**P=41 持平**；**UNMARKED=0 保持**。
+**未落地文件差集 31**（清单见 `UNLANDED.md`，批次 373 后实测）；**P=41 持平**；**UNMARKED=0 保持**。
 
-**归档状态**：批次 19–39 详细记录 → `acceptance/batch19-39.md`；批次 40–372 验收 → `acceptance/batchNN.md`（索引见 `BATCH_INDEX.md`）。
+**归档状态**：批次 19–39 详细记录 → `acceptance/batch19-39.md`；批次 40–373 验收 → `acceptance/batchNN.md`（索引见 `BATCH_INDEX.md`）。
 
 ---
 

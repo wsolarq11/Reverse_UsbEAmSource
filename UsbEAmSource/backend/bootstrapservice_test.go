@@ -638,6 +638,22 @@ func TestBootstrapServiceLayout(t *testing.T) {
 	if startupTaskSyncOff != 0x510 {
 		t.Errorf("BootstrapService.startupTaskSync offset = 0x%x (expected 0x510)", startupTaskSyncOff)
 	}
+	notificationShownOff := unsafe.Offsetof(bs.launcherUpdateNotificationShown)
+	if notificationShownOff != 0x4f1 {
+		t.Errorf("BootstrapService.launcherUpdateNotificationShown offset = 0x%x (expected 0x4f1)", notificationShownOff)
+	}
+}
+
+// TestBeginLauncherUpdateNotificationOnce 锁定批次 373：通知门禁「仅一次」语义。
+// 首次调用置位并返回 true，之后返回 false（launcherUpdateNotificationShown 已置位）。
+func TestBeginLauncherUpdateNotificationOnce(t *testing.T) {
+	bs := &BootstrapService{}
+	if !bs.beginLauncherUpdateNotification() {
+		t.Fatal("首次调用应返回 true")
+	}
+	if bs.beginLauncherUpdateNotification() {
+		t.Fatal("第二次调用应返回 false（通知已显示）")
+	}
 }
 
 // TestSyncStartupTaskNilReceiver 锁定批次 131 nil 检查：bs==nil → "启动任务服务不可用"。

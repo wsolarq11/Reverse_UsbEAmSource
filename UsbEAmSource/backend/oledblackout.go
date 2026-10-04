@@ -600,6 +600,43 @@ func (s *oledBlackoutGSMTCSession) TryGetMediaPropertiesAsync() (uintptr, error)
 	return out, nil
 }
 
+// GetSourceAppUserModelId 获取 GSMTC 会话来源 AppUserModelId（HSTRING → string）。
+// [S 汇编 0x1409204a0, 480B]：SyscallN(vtbl[0x30] GetSourceAppUserModelId, this, &out)
+// → HRESULT<0 → fmt.Errorf("%s失败: HRESULT 0x%08X", "读取系统媒体会话来源", hresult)；
+// 成功 → defer oledBlackoutDeleteHString(out) → 返 oledBlackoutHStringToString(out), nil。
+// 格式串 24B @0x140c64c08、描述串 30B @0x140c6f5a9 均经 .rdata 字节级实测。
+func (s *oledBlackoutGSMTCSession) GetSourceAppUserModelId() (string, error) {
+	var out uintptr
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x30))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&out)))
+	if int32(hresult) < 0 {
+		return "", fmt.Errorf("%s失败: HRESULT 0x%08X", "读取系统媒体会话来源", uint32(hresult))
+	}
+	defer oledBlackoutDeleteHString(out)
+	return oledBlackoutHStringToString(out), nil
+}
+
+// oledBlackoutGSMTCMediaProperties WinRT GSMTCMediaProperties 接口包装。
+type oledBlackoutGSMTCMediaProperties struct {
+	vtbl *uintptr
+}
+
+// GetTitle 获取 GSMTC 媒体标题（HSTRING → string）。
+// [S 汇编 0x140921100, 480B]：SyscallN(vtbl[0x30] GetTitle, this, &out)
+// → HRESULT<0 → fmt.Errorf("%s失败: HRESULT 0x%08X", "读取系统媒体标题", hresult)；
+// 成功 → defer oledBlackoutDeleteHString(out) → 返 oledBlackoutHStringToString(out), nil。
+// 描述串 24B @0x140c653a0 经 .rdata 字节级实测。
+func (s *oledBlackoutGSMTCMediaProperties) GetTitle() (string, error) {
+	var out uintptr
+	fn := *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(s.vtbl)) + 0x30))
+	hresult, _, _ := syscall.SyscallN(fn, uintptr(unsafe.Pointer(s)), uintptr(unsafe.Pointer(&out)))
+	if int32(hresult) < 0 {
+		return "", fmt.Errorf("%s失败: HRESULT 0x%08X", "读取系统媒体标题", uint32(hresult))
+	}
+	defer oledBlackoutDeleteHString(out)
+	return oledBlackoutHStringToString(out), nil
+}
+
 // oledBlackoutIVectorView WinRT IVectorView 接口包装。
 type oledBlackoutIVectorView struct {
 	vtbl *uintptr

@@ -6,6 +6,41 @@
 
 ---
 
+## 0. 新会话启动卡（批次 372 交接 · 从这里直接开工）
+
+**工作目录（Windows PowerShell，非 bash）**：`D:\AI\projects\Reverse_penetration\Reverse_UsbEAmSource\UsbEAmSource`
+
+**三条门禁（精确工具链，`go` 用绝对路径）**：
+
+```powershell
+$go = "C:\Users\Administrator\go\bin\go.exe"
+& $go build -tags production -trimpath -buildmode=exe -o artifacts/UsbEAm_Launcher_rebuilt.exe ./backend
+& $go vet ./backend
+& $go test -count=1 -p=1 -tags production ./backend
+```
+
+**活体 count（Node 等价 awk，本环境 bash/awk 不可用）**：
+
+```powershell
+node tools/count_funcs.js
+```
+
+**缺失清单（权威，自动含方法提升，勿手动落 combridge IUnknown）**：
+
+```powershell
+node tools/list_missing.js
+```
+
+**当前口径（批次 372）**：`FUNCS=3244 MARKED=3244 S=1504 S-inline=37 S-eq=1 S-sig=1661 P=41 UNMARKED=0`，真函数 3202/4754 = **68.24%**。
+
+**单批收尾五步（SSOT 单出口，禁止抄上一批数字）**：落地函数 → 三门禁 EXIT=0 → `node tools/count_funcs.js` 取活体数字 → 写 `docs/acceptance/batchNNN.md` + 更新 HANDOFF §1 标题/尾/表格 → dulwich commit+push（`$env:GITHUB_TOKEN = gh auth token`）→ `gh api` 轮询 CI 到 `completed success`。
+
+**环境陷阱（换会话必读）**：`git.exe`/`bash.exe`/`awk`/`scoop` 不在 PATH（commit/push 用 dulwich `C:\Users\Administrator\.dsh\tmp_git_sync.py` 或纯 push 内联；count 用 `tools/count_funcs.js`）；dulwich push 网络抖动时用**纯 push 重试**（勿重复 commit，会产出重复提交）；`linearFloatToSRGBByte`(0x14097dd60) 已落地但 list_missing 仍列，**勿重落**；`nativeFileDragDataObject.*`/`nativeFileDragFormatEnumerator.*`（128B）为 combridge IUnknown 自动提升，**勿手动落**。
+
+**下一批推荐**：`node tools/list_missing.js` 头部 448B/480B 候选；filesearch 域 `VolumeIndex.activeEntryCountLocked`(0x1407e8340)/`VolumeIndex.overlayStatsLocked`(0x1407e7fe0) 优先；`P=41` → `[S]` 转换清单见 §5。
+
+---
+
 ## 1. 一句话现状（批次 372 · 键盘钩子/插件版本解析/映射读提供器替换关闭/拼音 sections 校验 +4 · FUNCS 3244，68.24%）
 
 前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原已推进到**批次 54**，后端非测试代码 **25,198 行 / 125 个 .go 文件**，测试 **54 文件 / 5,866 行**。**批次 40 已闭环（appicon_windows.go 全量 [S]）；批次 41 已闭环（bootstrapservice_callees.go 34 未标清零）；批次 42 已闭环（screenshot_png_fast.go 自定义 PNG 编码器 14 函数 [S]）；批次 43 已闭环（screenshot image_budget 内存预算/受限读取/解码链 8 函数 [S]）；批次 44 已闭环（screenshot_capture_windows GDI 捕获核心 6 函数 [S]）；批次 45 已闭环（screenshot_cursor_windows 光标快照数据搬运层 5 函数 [S]）；批次 46 已闭环（screenshot_cursor_draw_windows 光标绘制收口链 11 函数 [S]）；批次 47 已闭环（screenshot_virtual_windows GDI 虚拟屏捕获链 5 函数 [S]）；批次 48 已闭环（screenshot_hdr_windows DXGI/HDR 模式解析与入口探测 6 函数 [S]）；批次 49 已闭环（screenshot_dxgi_debug_windows DXGI 调试格式化链 4 函数 [S]）；批次 50 已闭环（screenshot_dxgi_com_windows DXGI COM 薄包装 3 函数 [S] + 1 [S-inline]）；批次 51 已闭环（screenshot_dxgi_enum_windows DXGI 枚举链 6 函数 [S] + 3 [S-inline]）；批次 52 已闭环（screenshot_capture_backend_windows 收口链 6 函数 [S] + 2 [P] DXGI 捕获核心入口）；批次 53 已闭环（screenshot_dxgi_capture_windows DXGI 捕获域 10 函数 [S] + 3 深层 [S-sig]，两个 [P] 核心入口转 [S]）；批次 54 已闭环（screenshot_dxgi_cache_windows DXGI 输出复制缓存域 19 函数 [S] + screenshot_dxgi_deep_windows 10 深层 [S-sig] + COM Release/QueryInterface 2 函数 [S]）。**

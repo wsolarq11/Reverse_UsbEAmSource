@@ -92,6 +92,8 @@ node tools/list_missing.js
 
 **未落地文件差集 31**（清单见 `UNLANDED.md`，批次 374 后实测）；**P=41 持平**；**UNMARKED=0 保持**。
 
+**整洁基线（批次 374 后一次性）**：全仓 `gofmt` 已归位（`git show a7e52e6`，纯格式，count 不变），`go vet` 干净；后端纯 Go（`CGO_ENABLED=0`、无 `CgoFiles`），`.github/workflows/ci.yml` 已对齐本地门禁（go1.25.12 + `-tags production` build/vet/test）。新会话开工前若 `gofmt -l ./backend` 仍列文件，说明有新增手写码未格式化。
+
 **归档状态**：批次 19–39 详细记录 → `acceptance/batch19-39.md`；批次 40–374 验收 → `acceptance/batchNN.md`（索引见 `BATCH_INDEX.md`）。
 
 ---

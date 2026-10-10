@@ -302,11 +302,37 @@ func resolveFirefoxBookmarkFolderTitle(title, fallback string) string {
 }
 
 // buildChromiumRootAncestry 构建 Chromium 书签根祖先路径段。
-// [S-sig 0x140767fc0, 320B]：resolveChromiumRootNameSegment → TrimSpace(path) →
-// 追加到段 → cleanFolderSegments。体待路径段域专项还原。
-func buildChromiumRootAncestry(a, b interface{}) interface{} {
-	_, _ = a, b
-	return nil
+// [S 汇编 0x140767fc0, 320B(0x140)]：resolveChromiumRootNameSegment(name) 非空→追加；
+// TrimSpace(path) 非空→追加；cleanFolderSegments 规整后返回。
+func buildChromiumRootAncestry(name, path string) []string {
+	segments := make([]string, 0, 2)
+	if seg := resolveChromiumRootNameSegment(name); seg != "" {
+		segments = append(segments, seg)
+	}
+	if p := strings.TrimSpace(path); p != "" {
+		segments = append(segments, p)
+	}
+	return cleanFolderSegments(segments)
+}
+
+// cleanFolderSegments 规整路径段切片：逐段 TrimSpace，空段跳过，相邻重复段去重。
+// [S 汇编 0x140768dc0, 512B(0x200)]：空入参→非 nil 空切片；makeslice(cap=len)；
+// 逐段 TrimSpace 非空且 != 前一追加段（先比长度再 memequal）才 append。
+func cleanFolderSegments(segments []string) []string {
+	if len(segments) == 0 {
+		return []string{}
+	}
+	out := make([]string, 0, len(segments))
+	prev := ""
+	for _, seg := range segments {
+		t := strings.TrimSpace(seg)
+		if t == "" || t == prev {
+			continue
+		}
+		out = append(out, t)
+		prev = t
+	}
+	return out
 }
 
 // resolveChromiumRootNameSegment 解析 Chromium 根名段（系统根返回空，否则原样）。
@@ -368,12 +394,4 @@ func compactChromiumRoots(a interface{}, b interface{}) interface{} {
 func sortedBookmarkRootNames(a interface{}) interface{} {
 	_ = a
 	return nil
-}
-
-// resolveBookmarkSourceKind 解析书签源类型（source/path 名匹配 edge/brave/chrome/firefox/vivaldi/chromium）。
-// [S-sig 0x14076ad20, 448B]：TrimSpace+ToLower(source) 匹配 → 返回 kind；
-// 否则 Base(path) ToLower 匹配 bookmarks/places.sqlite → 返回；否则 nil。体待 kind 常量专项还原。
-func resolveBookmarkSourceKind(a, b interface{}) string {
-	_, _ = a, b
-	return ""
 }

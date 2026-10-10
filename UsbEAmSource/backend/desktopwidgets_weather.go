@@ -25,10 +25,11 @@ func (s *desktopWidgetWeatherService) Shutdown() {
 }
 
 // desktopWeatherFloat 将天气字符串解析为浮点数（TrimSpace 后 ParseFloat）。
-// [S] ASM 0x1407c95c0: ParseFloat(s,64) 后做 NaN/上界/负值守卫，越界返回 0。
+// [S] ASM 0x1407c95c0: ParseFloat(s,64) 后做 NaN/±MaxFloat64 越界守卫，越界返回 0。
+// 边界常量实证：0x1411cd838=+MaxFloat64、0x1411cd858=-MaxFloat64（.rdata 双精度）。
 func desktopWeatherFloat(s string) float64 {
 	f, _ := strconv.ParseFloat(strings.TrimSpace(s), 64)
-	if f != f || f > math.MaxFloat64 || f < 0 {
+	if f != f || f > math.MaxFloat64 || f < -math.MaxFloat64 {
 		return 0
 	}
 	return f
@@ -110,4 +111,15 @@ func (s *desktopWidgetWeatherService) providerErrorSnapshot() interface{} {
 func desktopWeatherCredential(provider string) interface{} {
 	_ = provider
 	return nil
+}
+
+// desktopWeatherTimes 派生三个 RFC3339Nano 时间串：now、now+30min、now+24h。
+// [S 汇编 0x1407c93a0, 0x1f7B]：三次 time.Time.Format（35 字符布局 0x140c7708d =
+// time.RFC3339Nano "2006-01-02T15:04:05.999999999Z07:00"）；Add 时长常量
+// 0x1a3185c5000=1800s(30min)、0x4e94914f0000=86400s(24h)。返回 (now, now+30min, now+24h)。
+func desktopWeatherTimes(t time.Time) (string, string, string) {
+	a := t.Format(time.RFC3339Nano)
+	b := t.Add(30 * time.Minute).Format(time.RFC3339Nano)
+	c := t.Add(24 * time.Hour).Format(time.RFC3339Nano)
+	return a, b, c
 }

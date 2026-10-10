@@ -331,3 +331,4 @@
 | 372 | [batch372.md](acceptance/batch372.md) | 批次 372 · 键盘钩子/插件版本解析/映射读提供器替换关闭/拼音 sections 校验 +4（FUNCS 3244） |
 | 373 | [batch373.md](acceptance/batch373.md) | 批次 373 · 启动器更新通知门禁/显示 +2（FUNCS 3246） |
 | 374 | [batch374.md](acceptance/batch374.md) | 批次 374 · GSMTC 来源/标题读取 +2（FUNCS 3248） |
+| 375 | [batch375.md](acceptance/batch375.md) | 批次 375 · bookmark 源类型/路径段 + weather 时间派生 +7（FUNCS 3252） |

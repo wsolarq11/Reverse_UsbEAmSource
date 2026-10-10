@@ -1,5 +1,25 @@
 package main
 
+import "strings"
+
+// sanitizeScreenshotPreviewResult 清洗截图预览结果：TrimSpace 三个 URL/数据字段与 path，
+// Width/Height 钳制到 ≥0，Mode 经 normalizeScreenshotMode 归一，Cancelled 透传。
+// [S 汇编 0x14099b3c0, 448B]：逐字段 TrimSpace / cmovl 钳制 / normalizeScreenshotMode。
+func sanitizeScreenshotPreviewResult(r ScreenshotCaptureResult) ScreenshotCaptureResult {
+	r.ImageData = strings.TrimSpace(r.ImageData)
+	r.ImageURL = strings.TrimSpace(r.ImageURL)
+	r.ThumbnailURL = strings.TrimSpace(r.ThumbnailURL)
+	if r.Width < 0 {
+		r.Width = 0
+	}
+	if r.Height < 0 {
+		r.Height = 0
+	}
+	r.Mode = normalizeScreenshotMode(r.Mode)
+	r.Path = strings.TrimSpace(r.Path)
+	return r
+}
+
 // screenshotPreviewShowWindowFlags 返回截图预览窗口显示 flags。
 // [S] ASM 0x14099e7a0: mov eax, 0x53; ret（返回常量 0x53=83）。
 func screenshotPreviewShowWindowFlags() int {

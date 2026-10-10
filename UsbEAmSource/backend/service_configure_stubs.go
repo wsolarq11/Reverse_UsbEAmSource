@@ -67,8 +67,18 @@ func (s *mouseGestureService) buildState() interface{} { return nil }
 // SetRuntimeEnabled 设置运行时启用。 [S-sig 0x1408e06a0]：签名经符号表实证；体骨架。
 func (s *mouseGestureService) SetRuntimeEnabled(enabled bool) error { return nil }
 
-// SetCaptureSuspended 设置捕获暂停。 [S-sig 0x1408e0840]：签名经符号表实证；体骨架。
-func (s *mouseGestureService) SetCaptureSuspended(suspended bool) error { return nil }
+// SetCaptureSuspended 设置捕获暂停。
+// [S 汇编 0x1408e0840, 480B]：lock.Lock(+0x0) → capturePaused(+0x150)=suspended →
+// lastError(+0x118/0x120)="" → lock.Unlock → syncPlatformRuntime → buildState（返回值丢弃）→ return nil。
+func (s *mouseGestureService) SetCaptureSuspended(suspended bool) error {
+	s.lock.Lock()
+	s.capturePaused = suspended
+	s.lastError = ""
+	s.lock.Unlock()
+	s.syncPlatformRuntime()
+	s.buildState()
+	return nil
+}
 
 // SetHotCornerEnabled 设置热角启用。 [S-sig 0x1408e09e0]：签名经符号表实证；体骨架。
 func (s *mouseGestureService) SetHotCornerEnabled(enabled bool) error { return nil }

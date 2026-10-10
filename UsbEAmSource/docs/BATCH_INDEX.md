@@ -334,3 +334,4 @@
 | 375 | [batch375.md](acceptance/batch375.md) | 批次 375 · bookmark 源类型/路径段 + weather 时间派生 +7（FUNCS 3252） |
 | 376 | [batch376.md](acceptance/batch376.md) | 批次 376 · weather 提供器错误快照/写入 +1（FUNCS 3253） |
 | 377 | [batch377.md](acceptance/batch377.md) | 批次 377 · 鼠标手势配置 wrapper +3（FUNCS 3256） |
+| 378 | [batch378.md](acceptance/batch378.md) | 批次 378 · 鼠标手势暂停 delegate + 截图预览结果清洗 +2（FUNCS 3257） |

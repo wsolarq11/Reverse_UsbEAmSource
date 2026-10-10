@@ -13,16 +13,14 @@ import (
 )
 
 type ScreenshotCaptureResult struct {
-	ImageData        string `json:"imageData"`
-	ImageURL         string `json:"imageUrl,omitempty"`
-	ThumbnailURL     string `json:"thumbnailUrl,omitempty"`
-	Width            int    `json:"width"`
-	Height           int    `json:"height"`
-	Mode             string `json:"mode"`
-	Path             string `json:"path"`
-	Cancelled        bool   `json:"cancelled"`
-	Truncated        bool   `json:"truncated,omitempty"`
-	TruncationReason string `json:"truncationReason,omitempty"`
+	ImageData    string `json:"imageData"`
+	ImageURL     string `json:"imageUrl,omitempty"`
+	ThumbnailURL string `json:"thumbnailUrl,omitempty"`
+	Width        int    `json:"width"`
+	Height       int    `json:"height"`
+	Mode         string `json:"mode"`
+	Path         string `json:"path"`
+	Cancelled    bool   `json:"cancelled"`
 }
 
 type ScreenshotHistoryEntry struct {

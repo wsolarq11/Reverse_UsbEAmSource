@@ -8,7 +8,7 @@
 
 ## 致新会话
 
-你接手的是 UsbEAm Launcher 1.0.3 的逆向还原工程，一段已经走通 68.80% 的活。别被"逆向"两个字唬住：前端已字节级还原，后端 507 个结构体全量还原且能编译，3266 个函数已落地、其中 3224 个是真函数。你拿到的是一副已经搭好骨架、只剩填肉的躯壳，不是荒地。
+你接手的是 UsbEAm Launcher 1.0.3 的逆向还原工程，一段已经走通 68.84% 的活。别被"逆向"两个字唬住：前端已字节级还原，后端 507 个结构体全量还原且能编译，3266 个函数已落地、其中 3224 个是真函数。你拿到的是一副已经搭好骨架、只剩填肉的躯壳，不是荒地。
 
 三条铁律，开工前刻进脑子：
 
@@ -20,7 +20,7 @@
 
 慢就是快。每批只做一件事：落体 → 门禁 → count → 验收 → 提交，五步闭环再开下一批。别一口气吞一个域，那会死在半路。
 
-最后一段（68.80% → 100%）交给你了。把它做完。
+最后一段（68.84% → 100%）交给你了。把它做完。
 
 ---
 
@@ -53,7 +53,7 @@ node tools/count_funcs.js
 node tools/list_missing.js
 ```
 
-**当前口径（批次 382）**：`FUNCS=3271 MARKED=3271 S=1537 S-inline=37 S-eq=1 S-sig=1655 P=41 UNMARKED=0`，真函数 3229/4754 = **67.92%**。
+**当前口径（批次 383）**：`FUNCS=3273 MARKED=3273 S=1539 S-inline=37 S-eq=1 S-sig=1655 P=41 UNMARKED=0`，真函数 3231/4754 = **67.96%**。
 
 **单批收尾五步（SSOT 单出口，禁止抄上一批数字）**：落地函数 → 三门禁 EXIT=0 → `node tools/count_funcs.js` 取活体数字 → 写 `docs/acceptance/batchNNN.md` + 更新本文件 §1 标题/§2/进度表 + `node tools/gen_batch_index.js` 重生成索引 → dulwich commit+push（`$env:GITHUB_TOKEN = gh auth token`）→ `gh api` 轮询 CI 到 `completed success`。
 
@@ -61,20 +61,20 @@ node tools/list_missing.js
 
 ---
 
-## 1. 一句话现状（批次 382 · filesearch 搜索键收集 + 持久化路径 + 节点校验 + 三元组头 +7 · FUNCS 3271，68.80%）
+## 1. 一句话现状（批次 383 · filesearch 排序索引定位 + 映射读视图租约 +2 · FUNCS 3273，68.84%）
 
-前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 382**，后端非测试代码 **235 个 .go 文件**，测试 **92 文件**。
+前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 383**，后端非测试代码 **235 个 .go 文件**，测试 **92 文件**。
 
-**门禁活体实测（批次 382）**：`go1.25.12 build ./backend` / `go vet ./backend` / `go test ./backend` 三项 **EXIT=0**（`ok changeme/backend`）。
+**门禁活体实测（批次 383）**：`go1.25.12 build ./backend` / `go vet ./backend` / `go test ./backend` 三项 **EXIT=0**（`ok changeme/backend`）。
 
-**当前进度分母（批次 382 实测，此后一律以此为准）**：
+**当前进度分母（批次 383 实测，此后一律以此为准）**：
 
 | 指标 | 实测值 | 目标（总进度 100%） | 取证方式 |
 |---|---|---|---|
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
-| 已重建函数 | 3271 | 4,754 | `node tools/count_funcs.js` 实测（批次 382 后） |
-| 真函数（S+S-inline+S-sig） | 3229 | 4,754 | 同上，**批次 382 达 67.92%** |
+| 已重建函数 | 3273 | 4,754 | `node tools/count_funcs.js` 实测（批次 383 后） |
+| 真函数（S+S-inline+S-sig） | 3231 | 4,754 | 同上，**批次 383 达 67.96%** |
 | 文件覆盖 | 114/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 30 | **0** | 差集（清单见 `UNLANDED.md`，批次 375 后实测） |
 | UNMARKED | 0 | **0** | `node tools/count_funcs.js` 实测 |
@@ -86,15 +86,16 @@ node tools/list_missing.js
 
 ---
 
-## 2. 交接状态（批次 382 收尾后）
+## 2. 交接状态（批次 383 收尾后）
 
-**下一批推荐**：remoteicons 域剩余（`validateRemoteIconCachePath` 0x1409643a0 /
-`validateRemoteIconTemporaryFile` 0x1409652a0 / `writeRemoteIconCache` 0x140963b80，调用图已证
-`validateRemoteIconTemporaryFile` 仅被 `writeRemoteIconCache` 调）；plugin update catalog 域
+**下一批推荐**：filesearch 写链上下文（`writeVolumeIndexSortedIndicesContext` 0x1407f61e0 /
+`writeVolumeNameTrigramSignaturesContext` 0x1407f7cc0 / `saveVolumeIndexMetaContext`
+0x1407f7f00 / `writeAllContext` 0x1407f6420，四者互依，需先定 `writeAllContext` 签名与
+writer 类型）；`volumeIndexReadView.resolvePath` 0x1407f11e0（依赖 resolvePathWithTombstones）；
+remoteicons 域剩余（`validateRemoteIconCachePath` 0x1409643a0 / `validateRemoteIconTemporaryFile`
+0x1409652a0 / `writeRemoteIconCache` 0x140963b80）；plugin update catalog 域
 （`mergeLocalAndRemotePluginManifest`/`remoteCatalogEntryToManifest`/
-`validateAndNormalizeRemoteCatalogEntries`）；`buildScreenshotThumbnailPNGFromPath`(0x14096b200) 体；
-`directLauncherNetworkAccess.newHTTPClient`/`configBackedLauncherNetworkAccess.newHTTPClient` 体
-（需先定 client 结构 +0x28 字段与 Transport.Clone 装配）；`P=41 → [S]` 转换。
+`validateAndNormalizeRemoteCatalogEntries`）；`P=41 → [S]` 转换。
 
 **未落地文件差集 30**（清单见 `UNLANDED.md`，批次 375 后实测）；**P=41 持平**；**UNMARKED=0 保持**。
 

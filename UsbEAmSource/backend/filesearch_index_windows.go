@@ -609,6 +609,42 @@ func validateVolumeIndexNodeBytes(nodeBytes []byte, namePoolSize int) error {
 	return nil
 }
 
+// sortedIndexAt 按排序位置取节点索引（sortedIndices 优先，缺省回退 sortedBytes）。
+// [S 汇编 0x1407f2460, 544B] 实证：index<0→(-1,false)；sortedIndices 非空→越界返回
+// (-1,false)，否则读 sortedIndices[index]；空→sortedBytes 空或 len%4!=0 或越界→(-1,false)，
+// 否则按小端读 sortedBytes[index*4:] 的 int32。nodeIndex<0→(nodeIndex,false)；
+// 否则返回 (nodeIndex, nodeCount>nodeIndex)（nodeCount=nodeBytes/24 或 len(nodes)）。
+func (v volumeIndexReadView) sortedIndexAt(index int) (int32, bool) {
+	if index < 0 {
+		return -1, false
+	}
+	var nodeIndex int32
+	if len(v.sortedIndices) != 0 {
+		if index >= len(v.sortedIndices) {
+			return -1, false
+		}
+		nodeIndex = v.sortedIndices[index]
+	} else {
+		if len(v.sortedBytes) == 0 || len(v.sortedBytes)%4 != 0 {
+			return -1, false
+		}
+		if index >= len(v.sortedBytes)/4 {
+			return -1, false
+		}
+		nodeIndex = int32(binary.LittleEndian.Uint32(v.sortedBytes[index*4:]))
+	}
+	if nodeIndex < 0 {
+		return nodeIndex, false
+	}
+	var count int64
+	if len(v.nodeBytes) != 0 {
+		count = int64(len(v.nodeBytes) / 24)
+	} else {
+		count = int64(len(v.nodes))
+	}
+	return nodeIndex, count > int64(nodeIndex)
+}
+
 // [S 汇编 0x1407f1e40, 544B] 实证：取节点名。
 // NameOffset==0xFFFFFFFF 表示 delta 节点：先查 deltaByFRN 再线性扫 deltaNodes；
 // 否则从 namePool[NameOffset : NameOffset+NameLen] 切片。
@@ -991,6 +1027,26 @@ func (p *volumeIndexMappedReadProvider) releaseLease() {
 	if rel != nil {
 		rel()
 	}
+}
+
+// Acquire 获取映射读视图租约（持锁计数；已关闭返回无 release 的静态视图）。
+// [S 汇编 0x1407e4100, 512B] 实证：nil→零 lease；Mutex lock；closed(+0x111)→锁内复制 view
+// 后 unlock 返回 lease{view}（release 保持 nil）；否则 active(+0x108)++ → 锁内取
+// release(+0x100) → unlock → 复制 view → lease{view,release}。
+func (p *volumeIndexMappedReadProvider) Acquire() volumeIndexReadLease {
+	if p == nil {
+		return volumeIndexReadLease{}
+	}
+	p.mu.Lock()
+	if p.closed {
+		view := p.view
+		p.mu.Unlock()
+		return volumeIndexReadLease{view: view}
+	}
+	p.active++
+	rel := p.release
+	p.mu.Unlock()
+	return volumeIndexReadLease{view: p.view, release: rel}
 }
 
 // CanReloadStaticMmapCheckpoint 判定能否重载静态 mmap 检查点。

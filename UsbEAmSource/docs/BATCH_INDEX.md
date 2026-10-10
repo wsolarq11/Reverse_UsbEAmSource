@@ -338,3 +338,4 @@
 | 379 | [batch379.md](acceptance/batch379.md) | 批次 379 · 插件目录查找 +2 / OLED 连续性克隆 +1（FUNCS 3260） |
 | 380 | [batch380.md](acceptance/batch380.md) | 批次 380 · 截图缩略图 PNG 链路 +4（FUNCS 3264） |
 | 381 | [batch381.md](acceptance/batch381.md) | 批次 381 · OLED 媒体连续性 remember + 截图 PNG 编码 +2（FUNCS 3266） |
+| 382 | [batch382.md](acceptance/batch382.md) | 批次 382 · filesearch 搜索键收集 + 持久化路径 + 节点校验 + 三元组头 +7（FUNCS 3271） |

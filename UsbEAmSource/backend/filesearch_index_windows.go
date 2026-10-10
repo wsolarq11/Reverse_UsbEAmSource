@@ -19,6 +19,29 @@ var volumeIndexMmapStaticDefault uint32
 // 精确消息字符串待取证（.data 静态 error 值 @0x14193c650 为 typeOff 编码，未解码）。
 var errInvalidWALOffset = errors.New("invalid WAL offset")
 
+// errVolumeIndexNodeBytesInvalid 卷索引节点字节流损坏/格式不兼容的统一哨兵。
+var errVolumeIndexNodeBytesInvalid = errors.New("索引文件损坏或版本不兼容")
+
+// newVolumeIndexPersistencePaths 从索引根路径派生 6 个持久化文件路径。
+// [S 汇编 0x1407e1020, 576B] 实证：从末尾回扫找最后一个 `\`/`/`/`.`；
+// 命中 `.` 且其索引 > 最后一个 `\`/`/` 索引时 base=root[:dot]（去扩展名），否则 base=root。
+// CheckpointPath 恒为完整 root；其余 5 个 = base + ".meta"/".wal"/".tri"/".bkt"/".pyn"
+// （后缀经 .rdata 常量 0x140c35c68/0x140c3480a/0x140c3480e/0x140c34812/0x140c34816 实证）。
+func newVolumeIndexPersistencePaths(root string) volumeIndexPersistencePaths {
+	base := root
+	if dot := strings.LastIndexByte(root, '.'); dot > strings.LastIndexAny(root, `/\`) {
+		base = root[:dot]
+	}
+	return volumeIndexPersistencePaths{
+		CheckpointPath:  root,
+		MetaPath:        base + ".meta",
+		WALPath:         base + ".wal",
+		NameTrigramPath: base + ".tri",
+		BucketPath:      base + ".bkt",
+		PinyinPath:      base + ".pyn",
+	}
+}
+
 // bytesContainsFold 在字节切片 b 中查找子串 sub；caseSensitive=false 时对 b 的
 // 字节做 ASCII 大写→小写折叠（sub 由调用方保证已小写）。
 // [S 汇编 0x1407e1260, 224B] 实证：
@@ -277,6 +300,107 @@ func selectDriverTermIndex(terms []nameSearchTerm, idx *nameFrequencyIndex, fall
 	return best
 }
 
+// collectSearchTermBigramKeys 收集单个术语 patterns 中的双字（bigram）键。
+// [S 汇编 0x1407e27c0, 576B] 实证：flags[0]||flags[1] 非零（模式术语）→ 返回 nil；
+// 遍历 patterns（[]byte 步长 0x18），len(p)==2 时取前两字节 ASCII 大写→小写
+// 组合为 uint16 key（c0<<8|c1），map 去重后 append（结果初始 cap=2）。
+func collectSearchTermBigramKeys(term nameSearchTerm) []uint16 {
+	if term.flags[0] != 0 || term.flags[1] != 0 {
+		return nil
+	}
+	seen := make(map[uint16]struct{})
+	keys := make([]uint16, 0, 2)
+	for _, p := range term.patterns {
+		if len(p) != 2 {
+			continue
+		}
+		c0 := p[0]
+		if 'A' <= c0 && c0 <= 'Z' {
+			c0 |= 0x20
+		}
+		c1 := p[1]
+		if 'A' <= c1 && c1 <= 'Z' {
+			c1 |= 0x20
+		}
+		key := uint16(c0)<<8 | uint16(c1)
+		if _, ok := seen[key]; ok {
+			continue
+		}
+		seen[key] = struct{}{}
+		keys = append(keys, key)
+	}
+	return keys
+}
+
+// selectSearchBigramKeys 从所有术语中选出最长的一组双字键。
+// [S 汇编 0x1407e2a00, 384B] 实证：遍历 terms(+0x38 结构) → collectSearchTermBigramKeys；
+// keys 空则跳过；result 为 nil 或 len(keys)>len(result) 时 result=keys。
+func selectSearchBigramKeys(terms []nameSearchTerm) []uint16 {
+	var result []uint16
+	for _, term := range terms {
+		keys := collectSearchTermBigramKeys(term)
+		if len(keys) == 0 {
+			continue
+		}
+		if result == nil || len(keys) > len(result) {
+			result = keys
+		}
+	}
+	return result
+}
+
+// collectSearchTermTrigramKeys 收集单个术语 patterns 中的三字（trigram）键。
+// [S 汇编 0x1407e2ca0, 736B] 实证：flags[0]||flags[1] 非零（模式术语）→ 返回 nil；
+// 遍历 patterns，len(p)>=3 时对每个 3 字节滑动窗口（i∈[0,len-3)）取三字节
+// ASCII 大写→小写组合为 uint32 key（c0<<16|c1<<8|c2），map 去重后 append（cap=8）。
+func collectSearchTermTrigramKeys(term nameSearchTerm) []uint32 {
+	if term.flags[0] != 0 || term.flags[1] != 0 {
+		return nil
+	}
+	seen := make(map[uint32]struct{})
+	keys := make([]uint32, 0, 8)
+	for _, p := range term.patterns {
+		for i := 0; i+2 < len(p); i++ {
+			c0 := p[i]
+			if 'A' <= c0 && c0 <= 'Z' {
+				c0 |= 0x20
+			}
+			c1 := p[i+1]
+			if 'A' <= c1 && c1 <= 'Z' {
+				c1 |= 0x20
+			}
+			c2 := p[i+2]
+			if 'A' <= c2 && c2 <= 'Z' {
+				c2 |= 0x20
+			}
+			key := uint32(c0)<<16 | uint32(c1)<<8 | uint32(c2)
+			if _, ok := seen[key]; ok {
+				continue
+			}
+			seen[key] = struct{}{}
+			keys = append(keys, key)
+		}
+	}
+	return keys
+}
+
+// selectSearchTrigramKeys 从所有术语中选出最长的一组三字键。
+// [S 汇编 0x1407e2f80, 384B] 实证：遍历 terms(+0x38 结构) → collectSearchTermTrigramKeys；
+// keys 空则跳过；result 为 nil 或 len(keys)>len(result) 时 result=keys。
+func selectSearchTrigramKeys(terms []nameSearchTerm) []uint32 {
+	var result []uint32
+	for _, term := range terms {
+		keys := collectSearchTermTrigramKeys(term)
+		if len(keys) == 0 {
+			continue
+		}
+		if result == nil || len(keys) > len(result) {
+			result = keys
+		}
+	}
+	return result
+}
+
 // buildOrderedNameTermIndices 收集除 driverIdx 外的字面量术语索引，并按
 // shouldPrioritizeSearchTerm 稳定排序。 [S 汇编 0x1407e33a0, 544B + func1 0x1407e35c0,
 // 288B] 实证：make([]int,0,len(terms))；跳过 i==driverIdx 及 flags[0]||flags[1]；
@@ -459,6 +583,30 @@ func (v volumeIndexReadView) nodeAtIndex(nodeIndex int32) IndexNode {
 		return v.nodeAt(int(nodeIndex))
 	}
 	return IndexNode{}
+}
+
+// validateVolumeIndexNodeBytes 校验节点字节流与名字池大小的一致性。
+// [S 汇编 0x1407e2420, 512B] 实证：len%24!=0 或 namePoolSize<0 → errVolumeIndexNodeBytesInvalid；
+// 逐节点（24B）解析并校验 ParentIdx∈[-1,nodeCount) 与 NameOffset+NameLen<=namePoolSize，
+// 任一越界 → errVolumeIndexNodeBytesInvalid；全部通过 → nil。
+func validateVolumeIndexNodeBytes(nodeBytes []byte, namePoolSize int) error {
+	if len(nodeBytes)%24 != 0 || namePoolSize < 0 {
+		return errVolumeIndexNodeBytesInvalid
+	}
+	nodeCount := len(nodeBytes) / 24
+	for i := 0; i < nodeCount; i++ {
+		rec := nodeBytes[i*24 : i*24+24]
+		parentIdx := int32(binary.LittleEndian.Uint32(rec[12:16]))
+		if parentIdx < -1 || parentIdx >= int32(nodeCount) {
+			return errVolumeIndexNodeBytesInvalid
+		}
+		nameOffset := int(binary.LittleEndian.Uint32(rec[8:12]))
+		nameLen := int(binary.LittleEndian.Uint16(rec[20:22]))
+		if nameOffset+nameLen > namePoolSize {
+			return errVolumeIndexNodeBytesInvalid
+		}
+	}
+	return nil
 }
 
 // [S 汇编 0x1407f1e40, 544B] 实证：取节点名。
@@ -859,6 +1007,37 @@ func (s *VolumeIndex) CanReloadStaticMmapCheckpoint() bool {
 func buildVolumeIndexCheckpointHeaderLocked(a interface{}, b, c uint32, d uint64) [64]byte {
 	_, _, _, _ = a, b, c, d
 	return [64]byte{}
+}
+
+// 名称三元组（trigram）索引头二进制格式常量（64 字节头，SSOT 见 parseVolumeNameTrigramHeader）。
+const (
+	volumeNameTrigramHeaderMagic   = "UITG"
+	volumeNameTrigramHeaderVersion = 1
+	volumeIndexFormatVersion       = 0x20003
+	maxVolumeIndexEntryCount       = 0xffffffff
+)
+
+// buildVolumeNameTrigramHeaderLocked 构建名称三元组索引头（调用方持锁）。
+// [S 汇编 0x1407f66e0, 512B] 实证：entryCount∉[0,0xffffffff] → 返回 64B 零头；
+// 否则写 magic "UITG"(+0)、version 1(+4)、indexVersion 0x20003(+8)、entryCount(+0xc)、
+// rootFRN(+0x10)、journalID(+0x18)、lastUSN(+0x20)、GeneratedAt.Unix()(+0x28)、
+// LastMutationAt.UnixNano()(+0x30)、保留(+0x38)。
+func buildVolumeNameTrigramHeaderLocked(idx *VolumeIndex, entryCount int) [64]byte {
+	var h [64]byte
+	if entryCount < 0 || entryCount > maxVolumeIndexEntryCount {
+		return h
+	}
+	copy(h[0:4], volumeNameTrigramHeaderMagic)
+	binary.LittleEndian.PutUint32(h[4:8], volumeNameTrigramHeaderVersion)
+	binary.LittleEndian.PutUint32(h[8:12], volumeIndexFormatVersion)
+	binary.LittleEndian.PutUint32(h[12:16], uint32(entryCount))
+	binary.LittleEndian.PutUint64(h[16:24], idx.RootFRN)
+	binary.LittleEndian.PutUint64(h[24:32], idx.JournalID)
+	binary.LittleEndian.PutUint64(h[32:40], uint64(idx.LastUSN))
+	binary.LittleEndian.PutUint64(h[40:48], uint64(idx.GeneratedAt.Unix()))
+	binary.LittleEndian.PutUint64(h[48:56], uint64(idx.LastMutationAt.UnixNano()))
+	// h[56:64] 保留为零。
+	return h
 }
 
 // stopUSNFollowerLocked 停止指定卷的 USN follower（map 删除 + 关闭 channel + CancelIoEx）。

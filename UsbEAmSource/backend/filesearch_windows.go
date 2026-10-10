@@ -1383,19 +1383,3 @@ func nameTrigramSignature(s string) uint64 {
 	}
 	return sig
 }
-
-// selectSearchBigramKeys 收集所有搜索词的双字键（遍历 terms → collectSearchTermBigramKeys）。
-// [S-sig 0x1407e2a00, 384B]：遍历 terms(+0x38 结构) → collectSearchTermBigramKeys 累计。
-// 体待词结构专项还原。
-func selectSearchBigramKeys(a interface{}, b interface{}) interface{} {
-	_, _ = a, b
-	return nil
-}
-
-// selectSearchTrigramKeys 收集所有搜索词的三字键（遍历 terms → collectSearchTermTrigramKeys）。
-// [S-sig 0x1407e2f80, 384B]：遍历 terms(+0x38 结构) → collectSearchTermTrigramKeys 累计。
-// 体待词结构专项还原。
-func selectSearchTrigramKeys(a interface{}, b interface{}) interface{} {
-	_, _ = a, b
-	return nil
-}

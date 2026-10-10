@@ -61,6 +61,45 @@ func normalizeScreenshotSaveFormat(format string) string {
 	return "png"
 }
 
+// normalizeScreenshotSaveFormatForPath 依路径扩展名规范化保存格式，返回 (格式, 规范化路径, 错误)。
+// [S 汇编 0x140967ba0, 544B]：TrimSpace(path) 空→"截图保存路径不能为空"；
+// 从末尾回扫扩展名（遇 / \ 提前断，取最后 . 后缀 ToLower）；
+// ".png"→("png",path)，".jpg"/".jpeg"→("jpg",path)；其他非空扩展名→
+// "仅支持保存 PNG 或 JPG 截图"；无扩展名→normalizeScreenshotSaveFormat(fallback)
+// 并拼接 ".png"/".jpg"。
+func normalizeScreenshotSaveFormatForPath(path, fallbackFormat string) (string, string, error) {
+	path = strings.TrimSpace(path)
+	if path == "" {
+		return "png", "", errors.New("截图保存路径不能为空")
+	}
+	ext := ""
+	for i := len(path) - 1; i >= 0; i-- {
+		c := path[i]
+		if c == '\\' || c == '/' {
+			break
+		}
+		if c == '.' {
+			ext = strings.ToLower(path[i:])
+			break
+		}
+	}
+	switch ext {
+	case ".png":
+		return "png", path, nil
+	case ".jpg", ".jpeg":
+		return "jpg", path, nil
+	case "":
+		format := normalizeScreenshotSaveFormat(fallbackFormat)
+		suffix := ".png"
+		if format == "jpg" {
+			suffix = ".jpg"
+		}
+		return format, path + suffix, nil
+	default:
+		return "png", "", errors.New("仅支持保存 PNG 或 JPG 截图")
+	}
+}
+
 // normalizeScreenshotMode 规范化截图模式字符串，未知模式回落 "area"。
 // [S 汇编 0x14096c960, 480B] 实证
 func normalizeScreenshotMode(mode string) string {

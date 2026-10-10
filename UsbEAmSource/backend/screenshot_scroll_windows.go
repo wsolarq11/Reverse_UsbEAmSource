@@ -1,9 +1,14 @@
 package main
 
 import (
+	"errors"
+	"fmt"
 	"image"
 	"math"
+	"strings"
 	"time"
+
+	"golang.org/x/image/draw"
 )
 
 // screenshot 滚动所需的 user32 LazyProc（依赖 appicon_windows.go 中的 user32DLL）。
@@ -256,6 +261,78 @@ func captureScreenshotScrollingFrame(a, b, c, d, e, f interface{}) interface{} {
 func buildScreenshotThumbnailPNGFromPath(a interface{}) (interface{}, error) {
 	_ = a
 	return nil, nil
+}
+
+// buildScreenshotThumbnailPNGFromData 从图片字节构建截图缩略图 PNG。
+// [S 汇编 0x14096b8c0, 480B]：len==0→"截图数据为空"；decodeScreenshotImageBytesWithBudget(data,"png",12)
+// 失败→fmt.Errorf("解析截图缩略图失败: %w")；defer release → buildScreenshotThumbnailPNG。
+func buildScreenshotThumbnailPNGFromData(data []byte) ([]byte, error) {
+	if len(data) == 0 {
+		return nil, errors.New("截图数据为空")
+	}
+	img, _, release, err := decodeScreenshotImageBytesWithBudget(data, "png", 12)
+	if err != nil {
+		return nil, fmt.Errorf("解析截图缩略图失败: %w", err)
+	}
+	defer release()
+	return buildScreenshotThumbnailPNG(img)
+}
+
+// buildScreenshotThumbnailPNGFromTrustedPath 从受信任路径读取图片并构建缩略图 PNG。
+// [S 汇编 0x14096b300, 544B]：TrimSpace 空→"截图路径不能为空"；readScreenshotImageFileLimited
+// 失败透传；decodeScreenshotImageBytesWithBudget(raw,"",12) 失败→fmt.Errorf("解析截图缩略图失败: %w")；
+// defer release → buildScreenshotThumbnailPNG。
+func buildScreenshotThumbnailPNGFromTrustedPath(path string) ([]byte, error) {
+	path = strings.TrimSpace(path)
+	if path == "" {
+		return nil, errors.New("截图路径不能为空")
+	}
+	raw, err := readScreenshotImageFileLimited(path)
+	if err != nil {
+		return nil, err
+	}
+	img, _, release, err := decodeScreenshotImageBytesWithBudget(raw, "", 12)
+	if err != nil {
+		return nil, fmt.Errorf("解析截图缩略图失败: %w", err)
+	}
+	defer release()
+	return buildScreenshotThumbnailPNG(img)
+}
+
+// buildScreenshotThumbnailPNG 将图片缩放到 ≤360×220 并编码为 PNG。
+// [S 汇编 0x14096baa0, 864B]：nil→"截图缩略图来源为空"；宽高 ≤0→"截图缩略图尺寸无效"；
+// 竖长图(width*3<height) cover 顶部裁剪至 360×220；否则 contain 缩放（宽限 360、高限 220）；
+// draw.CatmullRom.Scale(dst, dst.Bounds(), img, sr, draw.Src, nil) → encodeScreenshotRGBAWithKlauspostPNG。
+func buildScreenshotThumbnailPNG(img image.Image) ([]byte, error) {
+	if img == nil {
+		return nil, errors.New("截图缩略图来源为空")
+	}
+	b := img.Bounds()
+	w := b.Dx()
+	h := b.Dy()
+	if w <= 0 || h <= 0 {
+		return nil, errors.New("截图缩略图尺寸无效")
+	}
+	var tw, th int
+	sr := b
+	if w*3 < h {
+		tw, th = 360, 220
+		crop := max(1, min(h, w*220/360))
+		sr = image.Rect(b.Min.X, b.Min.Y, b.Max.X, b.Min.Y+crop)
+	} else {
+		tw, th = w, h
+		if w > 360 {
+			tw = 360
+			th = max(1, h*360/w)
+		}
+		if th > 220 {
+			th = 220
+			tw = max(1, tw*220/th)
+		}
+	}
+	dst := image.NewRGBA(image.Rect(0, 0, tw, th))
+	draw.CatmullRom.Scale(dst, dst.Bounds(), img, sr, draw.Src, nil)
+	return encodeScreenshotRGBAWithKlauspostPNG((*screenshotRGBAImageRowSource)(dst))
 }
 
 // encodeScreenshotScrollingChunkedCanvas 编码滚动分块画布。

@@ -342,3 +342,4 @@
 | 383 | [batch383.md](acceptance/batch383.md) | 批次 383 · filesearch 排序索引定位 + 映射读视图租约 +2（FUNCS 3273） |
 | 384 | [batch384.md](acceptance/batch384.md) | 批次 384 · filesearch 写链上下文 + 桌面小部件投递键 +7（FUNCS 3278） |
 | 385 | [batch385.md](acceptance/batch385.md) | 批次 385 · filesearch 映射读链（open + Map + 页对齐规划）+3（FUNCS 3279） |
+| 386 | [batch386.md](acceptance/batch386.md) | 批次 386 · filesearch checkpoint 映射规划（三段 + 系统粒度）+2（FUNCS 3281） |

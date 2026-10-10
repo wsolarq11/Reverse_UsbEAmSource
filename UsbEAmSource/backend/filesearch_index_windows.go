@@ -21,6 +21,10 @@ import (
 // volumeIndexMmapStaticDefault mmap 静态 provider 全局默认开关（环境变量空时生效）。
 var volumeIndexMmapStaticDefault uint32
 
+// volumeIndexGetSystemInfoProc 是 kernel32.GetSystemInfo 的延迟加载入口（LazyProc 名
+// "GetSystemInfo"@0x140c4ded5，13B，全局 @0x141bc1930 实证）。
+var volumeIndexGetSystemInfoProc = windows.NewLazySystemDLL("kernel32.dll").NewProc("GetSystemInfo")
+
 // errInvalidWALOffset 无效 WAL 偏移哨兵错误（f==nil 或 offset<0）。
 // 精确消息字符串待取证（.data 静态 error 值 @0x14193c650 为 typeOff 编码，未解码）。
 var errInvalidWALOffset = errors.New("invalid WAL offset")
@@ -957,6 +961,49 @@ func planVolumeIndexMappedSection(offset, size, granularity, limit int64) (int64
 		return 0, 0, 0, 0, errVolumeIndexNodeBytesInvalid
 	}
 	return alignedOffset, alignedSize, inPageOffset, size, nil
+}
+
+// planVolumeIndexCheckpointMap 规划 checkpoint 三个段（nodes/sorted/names）的映射视图。
+// [S 汇编 0x1407fcfe0, 736B] 实证：签名 (layout volumeIndexCheckpointLayout, granularity int64)
+// 返回 ([3]volumeIndexMappedSectionPlan, error)。逐段调用 planVolumeIndexMappedSection：
+// nodes=(NodeOffset,NodeBytes)、sorted=(SortedOffset,SortedBytes)、names=(NameOffset,NameBytes)，
+// 三者 limit 均取 layout.FileSize（@0x1407fd066/0a3/0ed rdi=[rsp+0xd0]）、granularity 取 r11；
+// 任一段 err（@0x1407fd076/0c0/105 test rsi）→ 返回 (零, err)；否则组装三段
+// (MapOffset,MapBytes,SectionOffset,SectionBytes)（@0x1407fd13f..1b9 栈写）。
+func planVolumeIndexCheckpointMap(layout volumeIndexCheckpointLayout, granularity int64) ([3]volumeIndexMappedSectionPlan, error) {
+	var out [3]volumeIndexMappedSectionPlan
+	alignedOffset, alignedSize, inPageOffset, sectionBytes, err := planVolumeIndexMappedSection(layout.NodeOffset, layout.NodeBytes, granularity, layout.FileSize)
+	if err != nil {
+		return out, err
+	}
+	out[0] = volumeIndexMappedSectionPlan{MapOffset: alignedOffset, MapBytes: alignedSize, SectionOffset: inPageOffset, SectionBytes: sectionBytes}
+	alignedOffset, alignedSize, inPageOffset, sectionBytes, err = planVolumeIndexMappedSection(layout.SortedOffset, layout.SortedBytes, granularity, layout.FileSize)
+	if err != nil {
+		return out, err
+	}
+	out[1] = volumeIndexMappedSectionPlan{MapOffset: alignedOffset, MapBytes: alignedSize, SectionOffset: inPageOffset, SectionBytes: sectionBytes}
+	alignedOffset, alignedSize, inPageOffset, sectionBytes, err = planVolumeIndexMappedSection(layout.NameOffset, layout.NameBytes, granularity, layout.FileSize)
+	if err != nil {
+		return out, err
+	}
+	out[2] = volumeIndexMappedSectionPlan{MapOffset: alignedOffset, MapBytes: alignedSize, SectionOffset: inPageOffset, SectionBytes: sectionBytes}
+	return out, nil
+}
+
+// planVolumeIndexCheckpointMapWithSystemGranularity 用系统分配粒度规划 checkpoint 映射视图。
+// [S 汇编 0x1407fd2c0, 576B] 实证：签名 (layout volumeIndexCheckpointLayout)
+// 返回 ([3]volumeIndexMappedSectionPlan, error)。newobject{volumeIndexSystemInfo}
+// （@0x1407fd33d）→ GetSystemInfo LazyProc.Call(1 arg=&info)（@0x1407fd385，全局 @0x141bc1930
+// Name="GetSystemInfo"）；info.AllocationGranularity(+0x28)<=0（@0x1407fd396 jg 失败）→
+// errVolumeIndexNodeBytesInvalid；否则 planVolumeIndexCheckpointMap(layout, granularity)
+// （@0x1407fd411，r11=granularity）。
+func planVolumeIndexCheckpointMapWithSystemGranularity(layout volumeIndexCheckpointLayout) ([3]volumeIndexMappedSectionPlan, error) {
+	var info volumeIndexSystemInfo
+	volumeIndexGetSystemInfoProc.Call(uintptr(unsafe.Pointer(&info)))
+	if info.AllocationGranularity <= 0 {
+		return [3]volumeIndexMappedSectionPlan{}, errVolumeIndexNodeBytesInvalid
+	}
+	return planVolumeIndexCheckpointMap(layout, int64(info.AllocationGranularity))
 }
 
 // rebuildVolumeIndexSortedIndices 重建排序索引切片。

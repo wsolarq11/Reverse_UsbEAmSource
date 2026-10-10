@@ -189,6 +189,33 @@ func (c *oledBlackoutBrowserMediaContinuity) clone() *oledBlackoutBrowserMediaCo
 	return result
 }
 
+// remember 记录浏览器媒体连续性条目：processPath 与 mediaTitle 均 TrimSpace+ToLower 后写 map。
+// [S 汇编 0x1408fc600, 544B] 签名 (windowHandle uintptr, processID uint32, processPath, mediaTitle string)：
+// nil receiver 早退；processPath/mediaTitle 各自 TrimSpace+ToLower；
+// windowHandle==0 || processID==0 || lowerPath=="" || lowerTitle=="" 任一 → 早退；
+// lock → entries nil 则 make → entries[{windowHandle, processID, lowerPath}] = lowerTitle → unlock。
+// key 存原始 windowHandle/processID，path 存 lowercase（asm [rsp+0x38]=handle/[rsp+0x40]=pid/[rsp+0x48]=lowerPath）。
+func (c *oledBlackoutBrowserMediaContinuity) remember(windowHandle uintptr, processID uint32, processPath, mediaTitle string) {
+	if c == nil {
+		return
+	}
+	lowerPath := strings.ToLower(strings.TrimSpace(processPath))
+	lowerTitle := strings.ToLower(strings.TrimSpace(mediaTitle))
+	if windowHandle == 0 || processID == 0 || lowerPath == "" || lowerTitle == "" {
+		return
+	}
+	c.lock.Lock()
+	if c.entries == nil {
+		c.entries = make(map[oledBlackoutBrowserMediaContinuityKey]string)
+	}
+	c.entries[oledBlackoutBrowserMediaContinuityKey{
+		windowHandle: windowHandle,
+		processID:    processID,
+		processPath:  lowerPath,
+	}] = lowerTitle
+	c.lock.Unlock()
+}
+
 // armInputDismissGuardLocked 将输入消除保护截止时间推迟 250ms（加锁上下文内）。
 // [S 0x14090d180] 单 receiver 无参无返回。asm：inputDismissGuardUntil(+0x180)=time.Now().Add(250ms)。
 func (s *oledBlackoutService) armInputDismissGuardLocked() {

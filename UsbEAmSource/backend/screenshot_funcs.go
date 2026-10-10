@@ -570,6 +570,23 @@ func reserveScreenshotImageBounds(x0, y0, x1, y1, stride, channels int64) (func(
 	return screenshotImageMemoryBudgetGlobal.Reserve(estimated)
 }
 
+// ---- encodeScreenshotImagePNG ----
+// encodeScreenshotImagePNG 将 RGBA 图像选区编码为 PNG（复用二维码选区 PNG 编码路径）。
+// [S 汇编 0x14096c780, 480B] rect.Intersect(img.Rect) → reserveScreenshotImageBounds
+// （stride=1, channels=8）预留预算；err 非空返回 (nil, err)；否则 defer release() 后
+// encodeQRCodeSelectionPNG(img, rect)（用原始 rect，非 intersect 结果）。
+func encodeScreenshotImagePNG(img *image.RGBA, rect image.Rectangle) ([]byte, error) {
+	inter := rect.Intersect(img.Rect)
+	release, err := reserveScreenshotImageBounds(
+		int64(inter.Min.X), int64(inter.Min.Y),
+		int64(inter.Max.X), int64(inter.Max.Y), 1, 8)
+	if err != nil {
+		return nil, err
+	}
+	defer release()
+	return encodeQRCodeSelectionPNG(img, rect)
+}
+
 // ---- buildScreenshotResultMetadataFromPNG ----
 // buildScreenshotResultMetadataFromPNG 从 PNG 字节构建截图结果元数据。
 // [S 汇编 0x140966a80, 1024B] normalizeScreenshotMode → 选配置（scrolling 专用或默认）→

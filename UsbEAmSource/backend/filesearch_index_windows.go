@@ -1,9 +1,14 @@
 package main
 
 import (
+	"context"
 	"encoding/binary"
+	"encoding/json"
 	"errors"
+	"fmt"
+	"io"
 	"os"
+	"path/filepath"
 	"reflect"
 	"sort"
 	"strings"
@@ -1171,20 +1176,208 @@ func (v *VolumeIndex) CloseReadProvider() error {
 	return nil
 }
 
-// writeAllContext 写全部上下文（循环写直到完成或错误）。
-// [S-sig 0x1407f6420, 352B]：contextErr → writeFunc(+0x18) 循环写 → io.EOF。
-// 体待 context 写函数专项还原。
-func writeAllContext(a, b, c, d, e, f interface{}) (interface{}, error) {
-	_, _, _, _, _, _ = a, b, c, d, e, f
-	return nil, nil
+// writeAllContext 将 p 全部写入 w，每次写前检查 ctx 是否已取消。
+// [S 汇编 0x1407f6420, 352B] 实证：签名 (ctx context.Context, w io.Writer, p []byte) error。
+// 循环 for len(p)>0：contextErr(ctx)!=nil→return err；w.Write(p)（itab+0x18 方法槽、
+// data@+0x60 为 receiver）→ err!=nil→return；n<=0→return io.ErrShortWrite（全局
+// {0x1411d3100,0x141bc4610}→errorString{0x140c47b7f,11}="short write"）；
+// n>len(p) 则 runtime.panicSliceB（编译器边界检查）；否则 p=p[n:] 推进；循环结束返回 nil。
+func writeAllContext(ctx context.Context, w io.Writer, p []byte) error {
+	for len(p) > 0 {
+		if err := contextErr(ctx); err != nil {
+			return err
+		}
+		n, err := w.Write(p)
+		if err != nil {
+			return err
+		}
+		if n <= 0 {
+			return io.ErrShortWrite
+		}
+		p = p[n:]
+	}
+	return nil
+}
+
+// writeVolumeIndexSortedIndicesContext 将排序索引（[]int32）按小端分块写入。
+// [S 汇编 0x1407f61e0, 576B] 实证：签名 (ctx context.Context, w io.Writer, indices []int32) error。
+// len==0→nil；makeslice []byte(0x20000) 复用缓冲；外层游标循环每块 ≤0x8000 个索引；
+// 内层把 int32 逐个小端写入 buf[i*4:]（x86 下等价 memcpy）；writeAllContext(ctx,w,buf[:chunk*4])。
+func writeVolumeIndexSortedIndicesContext(ctx context.Context, w io.Writer, indices []int32) error {
+	if len(indices) == 0 {
+		return nil
+	}
+	buf := make([]byte, 0x20000)
+	for cursor := 0; cursor < len(indices); {
+		if err := contextErr(ctx); err != nil {
+			return err
+		}
+		chunk := len(indices) - cursor
+		if chunk > 0x8000 {
+			chunk = 0x8000
+		}
+		for i := 0; i < chunk; i++ {
+			binary.LittleEndian.PutUint32(buf[i*4:], uint32(indices[cursor+i]))
+		}
+		if err := writeAllContext(ctx, w, buf[:chunk*4]); err != nil {
+			return err
+		}
+		cursor += chunk
+	}
+	return nil
+}
+
+// writeVolumeNameTrigramSignaturesContext 将卷名三元组签名（[]uint64）按小端分块写入。
+// [S 汇编 0x1407f7cc0, 576B] 实证：签名 (ctx context.Context, w io.Writer, signatures []uint64) error。
+// 与 sortedIndices 同构：缓冲 0x40000、块 ≤0x8000 个 uint64、每元素 8 字节小端。
+func writeVolumeNameTrigramSignaturesContext(ctx context.Context, w io.Writer, signatures []uint64) error {
+	if len(signatures) == 0 {
+		return nil
+	}
+	buf := make([]byte, 0x40000)
+	for cursor := 0; cursor < len(signatures); {
+		if err := contextErr(ctx); err != nil {
+			return err
+		}
+		chunk := len(signatures) - cursor
+		if chunk > 0x8000 {
+			chunk = 0x8000
+		}
+		for i := 0; i < chunk; i++ {
+			binary.LittleEndian.PutUint64(buf[i*8:], signatures[cursor+i])
+		}
+		if err := writeAllContext(ctx, w, buf[:chunk*8]); err != nil {
+			return err
+		}
+		cursor += chunk
+	}
+	return nil
 }
 
 // buildVolumeIndexPersistenceMetaLocked 构建卷索引持久化元数据（持锁）。
-// [S-sig 0x1407f6580, 352B]：timeToUnixNano × 3 → 组装 meta{version,name,...}。
-// 体待 meta 结构专项还原。
-func buildVolumeIndexPersistenceMetaLocked(a interface{}, b, c, d interface{}) interface{} {
-	_, _, _, _ = a, b, c, d
-	return nil
+// [S 汇编 0x1407f6580, 352B] 实证：签名 (v *VolumeIndex, now time.Time) volumeIndexPersistenceMeta。
+// Version=1、IndexVersion=0x20003（movabs 0x2000300000001 写入前 8 字节）；
+// RootFRN=v.RootFRN(+0x30)、JournalID=v.JournalID(+0x80)、LastUSN=v.LastUSN(+0x88)；
+// 三个时间字段分别 timeToUnixNano(v.GeneratedAt@+0x90 / v.LastMutationAt@+0xa8 / now)。
+func buildVolumeIndexPersistenceMetaLocked(v *VolumeIndex, now time.Time) volumeIndexPersistenceMeta {
+	return volumeIndexPersistenceMeta{
+		Version:                1,
+		IndexVersion:           0x20003,
+		RootFRN:                v.RootFRN,
+		JournalID:              v.JournalID,
+		LastUSN:                v.LastUSN,
+		GeneratedAtUnixNano:    timeToUnixNano(v.GeneratedAt),
+		LastMutationAtUnixNano: timeToUnixNano(v.LastMutationAt),
+		LastSavedAtUnixNano:    timeToUnixNano(now),
+	}
+}
+
+// errReplaceFileAtomically 原子替换耗尽重试后的兜底错误。
+// 消息字符串位于 .data BSS 静态区（运行时初始化），非 .rdata 常量，未直接读取；
+// 该分支仅在 lastErr 全程为 nil 时可达（循环首轮 rename 失败即赋值，实际不可达）。
+var errReplaceFileAtomically = errors.New("replace file atomically failed")
+
+// replaceFileAtomically 原子替换 src→dst（Windows rename 不覆盖已存在文件，
+// 故先备份 dst 到临时文件再替换，失败回滚）。最多 8 轮、逐轮 25ms 退避。
+// [S 汇编 0x1407f8140, 1280B] 实证：签名 (src, dst string) error。
+// 每轮：rename(src,dst) 成功→nil；失败 lastErr=err。CreateTemp(dir, "."+base+"-*.bak")
+// 备份名；close→remove 临时占位→rename(dst,tmpName) 备份；rename(src,dst) 正式替换，
+// 失败则 rename(tmpName,dst) 回滚，回滚失败返回 fmt.Errorf("替换 %q 失败且回滚旧文件失败
+// （新文件保留在 %q，旧文件保留在 %q）: replace=%v rollback=%w", dst, src, tmpName, err, rbErr)；
+// 成功则 remove 备份并返回 nil。rename(dst,tmpName) 失败且非 os.ErrNotExist 时 lastErr=err。
+func replaceFileAtomically(src, dst string) error {
+	var lastErr error
+	for i := 0; i < 8; i++ {
+		if err := os.Rename(src, dst); err == nil {
+			return nil
+		} else {
+			lastErr = err
+		}
+		tmp, err := os.CreateTemp(filepath.Dir(dst), "."+filepath.Base(dst)+"-*.bak")
+		if err != nil {
+			if i < 7 {
+				time.Sleep(time.Duration(i+1) * 25 * time.Millisecond)
+			}
+			continue
+		}
+		tmpName := tmp.Name()
+		if err := tmp.Close(); err != nil {
+			_ = os.Remove(tmpName)
+			if i < 7 {
+				time.Sleep(time.Duration(i+1) * 25 * time.Millisecond)
+			}
+			continue
+		}
+		if err := os.Remove(tmpName); err != nil {
+			if i < 7 {
+				time.Sleep(time.Duration(i+1) * 25 * time.Millisecond)
+			}
+			continue
+		}
+		if err := os.Rename(dst, tmpName); err != nil {
+			if !errors.Is(err, os.ErrNotExist) {
+				lastErr = err
+			}
+			if i < 7 {
+				time.Sleep(time.Duration(i+1) * 25 * time.Millisecond)
+			}
+			continue
+		}
+		if err := os.Rename(src, dst); err != nil {
+			if rbErr := os.Rename(tmpName, dst); rbErr != nil {
+				return fmt.Errorf("替换 %q 失败且回滚旧文件失败（新文件保留在 %q，旧文件保留在 %q）: replace=%v rollback=%w",
+					dst, src, tmpName, err, rbErr)
+			}
+			lastErr = err
+			if i < 7 {
+				time.Sleep(time.Duration(i+1) * 25 * time.Millisecond)
+			}
+			continue
+		}
+		_ = os.Remove(tmpName)
+		return nil
+	}
+	if lastErr != nil {
+		return lastErr
+	}
+	return errReplaceFileAtomically
+}
+
+// saveVolumeIndexMetaContext 持久化卷索引元数据（原子替换）。
+// [S 汇编 0x1407f7f00, 576B] 实证：签名 (ctx context.Context, path string, meta volumeIndexPersistenceMeta) error。
+// TrimSpace(path) 空→nil；contextErr；MkdirAll(Dir(path),0o755)；json.Marshal(meta)；
+// CreateTemp(Dir(path), ".meta-*.tmp")；Write(data)；Close；replaceFileAtomically(tmp, path)。
+// 任一失败清理临时文件后返回错误。
+func saveVolumeIndexMetaContext(ctx context.Context, path string, meta volumeIndexPersistenceMeta) error {
+	path = strings.TrimSpace(path)
+	if path == "" {
+		return nil
+	}
+	if err := contextErr(ctx); err != nil {
+		return err
+	}
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	data, err := json.Marshal(meta)
+	if err != nil {
+		return err
+	}
+	tmp, err := os.CreateTemp(filepath.Dir(path), ".meta-*.tmp")
+	if err != nil {
+		return err
+	}
+	tmpName := tmp.Name()
+	if _, err := tmp.Write(data); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	if err := tmp.Close(); err != nil {
+		_ = os.Remove(tmpName)
+		return err
+	}
+	return replaceFileAtomically(tmpName, path)
 }
 
 // openVolumeIndexMappedFile 打开卷索引映射文件（OpenFile + CreateFileMapping）。

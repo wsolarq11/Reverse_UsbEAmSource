@@ -340,3 +340,4 @@
 | 381 | [batch381.md](acceptance/batch381.md) | 批次 381 · OLED 媒体连续性 remember + 截图 PNG 编码 +2（FUNCS 3266） |
 | 382 | [batch382.md](acceptance/batch382.md) | 批次 382 · filesearch 搜索键收集 + 持久化路径 + 节点校验 + 三元组头 +7（FUNCS 3271） |
 | 383 | [batch383.md](acceptance/batch383.md) | 批次 383 · filesearch 排序索引定位 + 映射读视图租约 +2（FUNCS 3273） |
+| 384 | [batch384.md](acceptance/batch384.md) | 批次 384 · filesearch 写链上下文 + 桌面小部件投递键 +7（FUNCS 3278） |

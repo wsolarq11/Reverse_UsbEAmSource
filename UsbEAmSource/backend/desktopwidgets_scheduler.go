@@ -6,6 +6,11 @@
 // 结构 desktopWidgetScheduler：types_desktopwidget.go（wake chan struct{} @ +0x08）。
 package main
 
+import (
+	"crypto/sha256"
+	"time"
+)
+
 // Wake 非阻塞唤醒调度器：向 wake 通道发送空结构体，通道满则丢弃。
 // [S 汇编 0x1407accc0, 96B] 实证：nil receiver→return；[rax+0x08] 取 wake chan；
 // runtime.selectnbsend 非阻塞发送（返回值被忽略，即 select default 分支）。
@@ -43,4 +48,24 @@ func (s *desktopWidgetScheduler) Stop() {
 	}
 	s.stopOnce.Do(func() { close(s.stop) })
 	s.once.Do(func() { close(s.wake) })
+}
+
+// desktopWidgetDeliveryKey 生成桌面小部件投递去重键。
+// [S 汇编 0x1407b0fa0, 576B] 实证：签名 (entityID, variant string, due time.Time) string。
+// 时间先去单调并转 UTC（bt wall,0x3f 去单调：wall'=wall&0x3fffffff、
+// ext'=(wall>>30)+wallToInternal(0xdd7b17f80)，Format 时 loc 置 nil=UTC）；
+// RFC3339Nano 格式化（layout "2006-01-02T15:04:05.999999999Z07:00" @0x140c7708d,35B）；
+// sha256(entityID + "\x00" + variant + "\x00" + timeStr) → 32B；
+// 按 16 字符表（"esktopWidgets.qw" @0x140c7711a，.rdata 实证）逐字节高低 nibble 展开为 64B；
+// 返回 entityID + "\x02" + 64 字符指纹。
+func desktopWidgetDeliveryKey(entityID, variant string, due time.Time) string {
+	timeStr := due.UTC().Format(time.RFC3339Nano)
+	sum := sha256.Sum256([]byte(entityID + "\x00" + variant + "\x00" + timeStr))
+	const alphabet = "esktopWidgets.qw"
+	out := make([]byte, 64)
+	for i := 0; i < 32; i++ {
+		out[i*2] = alphabet[sum[i]>>4]
+		out[i*2+1] = alphabet[sum[i]&0xf]
+	}
+	return entityID + "\x02" + string(out)
 }

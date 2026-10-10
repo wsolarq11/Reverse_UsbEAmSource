@@ -332,3 +332,4 @@
 | 373 | [batch373.md](acceptance/batch373.md) | 批次 373 · 启动器更新通知门禁/显示 +2（FUNCS 3246） |
 | 374 | [batch374.md](acceptance/batch374.md) | 批次 374 · GSMTC 来源/标题读取 +2（FUNCS 3248） |
 | 375 | [batch375.md](acceptance/batch375.md) | 批次 375 · bookmark 源类型/路径段 + weather 时间派生 +7（FUNCS 3252） |
+| 376 | [batch376.md](acceptance/batch376.md) | 批次 376 · weather 提供器错误快照/写入 +1（FUNCS 3253） |

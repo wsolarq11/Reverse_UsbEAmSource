@@ -97,12 +97,44 @@ func isValidQWeatherAPIHost(a string) bool {
 	return false
 }
 
-// providerErrorSnapshot 返回提供器错误快照（遍历 field(+0x40) map 复制）。
-// [S-sig 0x1407c72c0, 448B]：makemap_small → 遍历 field(+0x40) → mapassign_faststr 复制 → 返回。
-// 体待提供器错误域专项还原。
-func (s *desktopWidgetWeatherService) providerErrorSnapshot() interface{} {
-	_ = s
-	return nil
+// providerErrorSnapshot 返回提供器错误快照（锁内遍历 providerErrors map 复制）。
+// [S 汇编 0x1407c72c0, 448B]：makemap_small 新建 result；s==nil→返回空 map；
+// mu.Lock → defer mu.Unlock → 遍历 s.providerErrors(+0x40) mapassign 复制 → 返回 result。
+func (s *desktopWidgetWeatherService) providerErrorSnapshot() map[string]string {
+	result := make(map[string]string)
+	if s == nil {
+		return result
+	}
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	for k, v := range s.providerErrors {
+		result[k] = v
+	}
+	return result
+}
+
+// setProviderError 设置/清除某天气提供器的错误信息（锁内写 providerErrors map）。
+// [S 汇编 0x1407c7040, 544B(0x220)]：s==nil→return；normalizeDesktopWeatherProviderID(providerID)
+// 空→return；mu.Lock→defer mu.Unlock；providerErrors nil→make；TrimSpace(errMsg) 非空→写入、
+// 空→mapdelete。字段 +0x30=mu、+0x40=providerErrors。
+func (s *desktopWidgetWeatherService) setProviderError(providerID, errMsg string) {
+	if s == nil {
+		return
+	}
+	id := normalizeDesktopWeatherProviderID(providerID)
+	if id == "" {
+		return
+	}
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	if s.providerErrors == nil {
+		s.providerErrors = make(map[string]string)
+	}
+	if msg := strings.TrimSpace(errMsg); msg != "" {
+		s.providerErrors[id] = msg
+	} else {
+		delete(s.providerErrors, id)
+	}
 }
 
 // desktopWeatherCredential 解析桌面天气凭证（内置 OpenMeteo/自定义 provider + 解密）。

@@ -13,6 +13,7 @@ import (
 	"sort"
 	"strings"
 	"time"
+	"unsafe"
 
 	"golang.org/x/sys/windows"
 )
@@ -928,11 +929,34 @@ func shouldUseVolumeIndexMmapLoad() bool {
 }
 
 // planVolumeIndexMappedSection 规划索引映射段（页对齐算术）。
-// [S-sig 0x1407fcf00, 224B]：参数合法性/溢出检查 → 页对齐起始 → 4 int64 + 错误串返回。
-// 体待映射规划域专项还原。
-func planVolumeIndexMappedSection(offset, size, pageSize, limit int64) (int64, int64, int64, int64, string) {
-	_, _, _, _ = offset, size, pageSize, limit
-	return 0, 0, 0, 0, ""
+// [S 汇编 0x1407fcf00, 224B] 实证：签名 (offset, size, granularity, limit int64)
+// 返回 (alignedOffset, alignedSize, inPageOffset, sectionSize int64, error)。
+// offset<0 || size<0 || granularity<=0 || limit<0（@0x1407fcf00..f12）→ 哨兵错误；
+// size==0（@0x1407fcf2e je）→ (align(offset), 0, offset-align, 0, nil)；
+// size!=0：offset+size 溢出或 limit<offset+size（@0x1407fcf37/40）→ 哨兵错误；
+// alignedOffset = floor(offset/granularity)*granularity（@0x1407fcf67 idiv）；
+// inPageOffset = offset - alignedOffset（@0x1407fcf6e）；
+// alignedSize = size + inPageOffset（@0x1407fcf71）；inPageOffset>alignedSize 溢出 → 哨兵；
+// 否则返回 (alignedOffset, alignedSize, inPageOffset, size, nil)。
+func planVolumeIndexMappedSection(offset, size, granularity, limit int64) (int64, int64, int64, int64, error) {
+	if offset < 0 || size < 0 || granularity <= 0 || limit < 0 {
+		return 0, 0, 0, 0, errVolumeIndexNodeBytesInvalid
+	}
+	if size == 0 {
+		alignedOffset := offset / granularity * granularity
+		inPageOffset := offset - alignedOffset
+		return alignedOffset, 0, inPageOffset, 0, nil
+	}
+	if offset+size < offset || limit < offset+size {
+		return 0, 0, 0, 0, errVolumeIndexNodeBytesInvalid
+	}
+	alignedOffset := offset / granularity * granularity
+	inPageOffset := offset - alignedOffset
+	alignedSize := size + inPageOffset
+	if inPageOffset > alignedSize {
+		return 0, 0, 0, 0, errVolumeIndexNodeBytesInvalid
+	}
+	return alignedOffset, alignedSize, inPageOffset, size, nil
 }
 
 // rebuildVolumeIndexSortedIndices 重建排序索引切片。
@@ -1381,11 +1405,63 @@ func saveVolumeIndexMetaContext(ctx context.Context, path string, meta volumeInd
 }
 
 // openVolumeIndexMappedFile 打开卷索引映射文件（OpenFile + CreateFileMapping）。
-// [S-sig 0x1407fd500, 352B]：OpenFile → ErrNotExist→(nil,nil)；CreateFileMapping；
-// handle==0→close。体待映射句柄专项还原。
-func openVolumeIndexMappedFile(a string) (interface{}, interface{}) {
-	_ = a
-	return nil, nil
+// [S 汇编 0x1407fd500, 352B]：os.OpenFile(path, O_RDONLY, 0)（@0x1407fd520）；
+// err!=nil 且 errors.Is(err, os.ErrNotExist)（@0x1407fd607）→ (nil,nil)，否则 (nil,err)；
+// windows.CreateFileMapping(f.Fd(), nil, PAGE_READONLY=2, 0, 0, nil)（@0x1407fd569，rcx=2）；
+// err!=nil → f.Close() → (nil,err)；否则 newobject{volumeIndexMappedFile}，
+// m.file=f、m.mapping=handle（@0x1407fd5d0/5d8）→ (m, nil)。
+func openVolumeIndexMappedFile(path string) (*volumeIndexMappedFile, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	mapping, err := windows.CreateFileMapping(windows.Handle(f.Fd()), nil, windows.PAGE_READONLY, 0, 0, nil)
+	if err != nil {
+		_ = f.Close()
+		return nil, err
+	}
+	return &volumeIndexMappedFile{file: f, mapping: uintptr(mapping)}, nil
+}
+
+// Map 映射索引文件 [mapOffset, mapOffset+mapBytes) 到内存视图，返回
+// 视图内 [sectionOffset, sectionOffset+sectionBytes) 的切片。
+// [S 汇编 0x1407fd660, 544B] 实证：签名 (m, mapOffset int64, mapBytes int64,
+// sectionOffset int64, sectionBytes int64) ([]byte, error)。
+// m==nil 或 mapping==0（@0x1407fd672/680）→ errVolumeIndexNodeBytesInvalid；
+// mapBytes<=0 或 sectionBytes<=0（@0x1407fd689/68e）→ (nil,nil)；
+// mapOffset<0 或 sectionOffset<0（@0x1407fd6a5/6aa）→ errVolumeIndexNodeBytesInvalid；
+// windows.MapViewOfFile(mapping, FILE_MAP_READ=4, mapOffset>>32, mapOffset, mapBytes)
+// （@0x1407fd6f3）；err→(nil,err)、addr==0→errVolumeIndexNodeBytesInvalid；
+// views 追加 addr（@0x1407fd77c，Close 逆序 Unmap 用）；
+// mapBytes < sectionOffset+sectionBytes（@0x1407fd7a8 jge 失败）→ errVolumeIndexNodeBytesInvalid；
+// 否则 unsafe.Slice(addr, mapBytes)[sectionOffset : sectionOffset+sectionBytes : mapBytes]
+// （@0x1407fd7d8 ptr=base+sectionOffset、len=sectionBytes、cap=mapBytes-sectionOffset）。
+func (m *volumeIndexMappedFile) Map(mapOffset, mapBytes, sectionOffset, sectionBytes int64) ([]byte, error) {
+	if m == nil || m.mapping == 0 {
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	if mapBytes <= 0 || sectionBytes <= 0 {
+		return nil, nil
+	}
+	if mapOffset < 0 || sectionOffset < 0 {
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	addr, err := windows.MapViewOfFile(windows.Handle(m.mapping), windows.FILE_MAP_READ, uint32(mapOffset>>32), uint32(mapOffset), uintptr(mapBytes))
+	if err != nil {
+		return nil, err
+	}
+	if addr == 0 {
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	m.views = append(m.views, addr)
+	if sectionOffset+sectionBytes < sectionOffset || mapBytes < sectionOffset+sectionBytes {
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	data := unsafe.Slice((*byte)(unsafe.Add(unsafe.Pointer(nil), addr)), int(mapBytes))
+	return data[int(sectionOffset):int(sectionOffset+sectionBytes):int(mapBytes)], nil
 }
 
 // UpdateMeta 更新卷索引元数据（持锁，字段 + 版本号递增）。

@@ -345,3 +345,4 @@
 | 386 | [batch386.md](acceptance/batch386.md) | 批次 386 · filesearch checkpoint 映射规划（三段 + 系统粒度）+2（FUNCS 3281） |
 | 387 | [batch387.md](acceptance/batch387.md) | 批次 387 · filesearch checkpoint 头解析 + 布局构建 +2（FUNCS 3282） |
 | 388 | [batch388.md](acceptance/batch388.md) | 批次 388 · 三字索引头解析 + 匹配校验（S-sig→S 升级，FUNCS 3282） |
+| 389 | [batch389.md](acceptance/batch389.md) | 批次 389 · 名称三元组索引读链（mmap + stream + 分派）+3 · FUNCS 3285 |

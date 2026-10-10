@@ -8,7 +8,7 @@
 
 ## 致新会话
 
-你接手的是 UsbEAm Launcher 1.0.3 的逆向还原工程，一段已经走通 69.04% 的活。别被"逆向"两个字唬住：前端已字节级还原，后端 507 个结构体全量还原且能编译，3282 个函数已落地、其中 3240 个是真函数。你拿到的是一副已经搭好骨架、只剩填肉的躯壳，不是荒地。
+你接手的是 UsbEAm Launcher 1.0.3 的逆向还原工程，一段已经走通 69.10% 的活。别被"逆向"两个字唬住：前端已字节级还原，后端 507 个结构体全量还原且能编译，3285 个函数已落地、其中 3243 个是真函数。你拿到的是一副已经搭好骨架、只剩填肉的躯壳，不是荒地。
 
 三条铁律，开工前刻进脑子：
 
@@ -20,7 +20,7 @@
 
 慢就是快。每批只做一件事：落体 → 门禁 → count → 验收 → 提交，五步闭环再开下一批。别一口气吞一个域，那会死在半路。
 
-最后一段（69.04% → 100%）交给你了。把它做完。
+最后一段（69.10% → 100%）交给你了。把它做完。
 
 ---
 
@@ -53,7 +53,7 @@ node tools/count_funcs.js
 node tools/list_missing.js
 ```
 
-**当前口径（批次 388）**：`FUNCS=3282 MARKED=3282 S=1555 S-inline=37 S-eq=1 S-sig=1648 P=41 UNMARKED=0`，真函数 3240/4754 = **68.15%**。
+**当前口径（批次 389）**：`FUNCS=3285 MARKED=3285 S=1558 S-inline=37 S-eq=1 S-sig=1648 P=41 UNMARKED=0`，真函数 3243/4754 = **68.22%**。
 
 **单批收尾五步（SSOT 单出口，禁止抄上一批数字）**：落地函数 → 三门禁 EXIT=0 → `node tools/count_funcs.js` 取活体数字 → 写 `docs/acceptance/batchNNN.md` + 更新本文件 §1 标题/§2/进度表 + `node tools/gen_batch_index.js` 重生成索引 → dulwich commit+push（`$env:GITHUB_TOKEN = gh auth token`）→ `gh api` 轮询 CI 到 `completed success`。
 
@@ -61,11 +61,11 @@ node tools/list_missing.js
 
 ---
 
-## 1. 一句话现状（批次 388 · 三字索引头解析 + 匹配校验 S-sig→S · FUNCS 3282，69.04%）
+## 1. 一句话现状（批次 389 · 名称三元组索引读链 +3 · FUNCS 3285，69.10%）
 
-前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 387**，后端非测试代码 **235 个 .go 文件**，测试 **92 文件**。
+前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 389**，后端非测试代码 **235 个 .go 文件**，测试 **92 文件**。
 
-**门禁活体实测（批次 388）**：`go1.25.12 build ./backend` / `go vet ./backend` / `go test ./backend` 三项 **EXIT=0**（`ok changeme/backend`）。
+**门禁活体实测（批次 389）**：`go1.25.12 build ./backend` / `go vet ./backend` / `go test ./backend` 三项 **EXIT=0**（`ok changeme/backend`）。
 
 **当前进度分母（批次 387 实测，此后一律以此为准）**：
 
@@ -73,8 +73,8 @@ node tools/list_missing.js
 |---|---|---|---|
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
-| 已重建函数 | 3282 | 4,754 | `node tools/count_funcs.js` 实测（批次 388 后） |
-| 真函数（S+S-inline+S-sig） | 3240 | 4,754 | 同上，**批次 388 达 68.15%** |
+| 已重建函数 | 3285 | 4,754 | `node tools/count_funcs.js` 实测（批次 389 后） |
+| 真函数（S+S-inline+S-sig） | 3243 | 4,754 | 同上，**批次 389 达 68.22%** |
 | 文件覆盖 | 114/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 30 | **0** | 差集（清单见 `UNLANDED.md`，批次 375 后实测） |
 | UNMARKED | 0 | **0** | `node tools/count_funcs.js` 实测 |
@@ -86,13 +86,13 @@ node tools/list_missing.js
 
 ---
 
-## 2. 交接状态（批次 388 收尾后）
+## 2. 交接状态（批次 389 收尾后）
 
-**下一批推荐**：`loadVolumeIndexCheckpointMappedViewContext` 0x1407fb100（全链已实证：
-OpenFile→Stat→ReadAtLeast 0x40→parseHeader（b387）→buildLayout（b387）→
+**下一批推荐**：`loadVolumeIndexWithPathsContext` 0x1407f86e0（trigram 读链最外层入口，608B，
+依赖本批三函数 + checkpoint 读链）；`loadVolumeIndexCheckpointMappedViewContext` 0x1407fb100
+（全链已实证：OpenFile→Stat→ReadAtLeast 0x40→parseHeader（b387）→buildLayout（b387）→
 planMapWithSystemGranularity（b386）→openMapped/Map（b385）→validateVolumeIndexNodeBytes）；
-`validateVolumeIndexNodeBytes` / `parseVolumeIndexCheckpointNodes`（节点流解析）；
-`loadVolumeNameTrigramIndexMappedContext` 0x1407f8d60（trigram 读链主入口，依赖本批两函数）；
+`decodeVolumeIndexNodesFromBytesWithNodeCount`（节点流解析）；
 `P=41 → [S]` 转换。
 
 **未落地文件差集 30**（清单见 `UNLANDED.md`，批次 375 后实测）；**P=41 持平**；**UNMARKED=0 保持**。

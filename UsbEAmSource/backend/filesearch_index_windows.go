@@ -33,6 +33,9 @@ var errInvalidWALOffset = errors.New("invalid WAL offset")
 // errVolumeIndexNodeBytesInvalid 卷索引节点字节流损坏/格式不兼容的统一哨兵。
 var errVolumeIndexNodeBytesInvalid = errors.New("索引文件损坏或版本不兼容")
 
+// errVolumeIndexFileNotFound 卷索引文件不存在的哨兵（.data 静态 error @0x141bc3c60 实证）。
+var errVolumeIndexFileNotFound = errors.New("索引文件不存在")
+
 // newVolumeIndexPersistencePaths 从索引根路径派生 6 个持久化文件路径。
 // [S 汇编 0x1407e1020, 576B] 实证：从末尾回扫找最后一个 `\`/`/`/`.`；
 // 命中 `.` 且其索引 > 最后一个 `\`/`/` 索引时 base=root[:dot]（去扩展名），否则 base=root。
@@ -1150,6 +1153,12 @@ const (
 	maxVolumeIndexEntryCount       = 0xffffffff
 )
 
+// 名称三元组索引流式读取分块常量（每批最多 0x8000 条 = 0x40000 字节，实证自 0x1407f9300）。
+const (
+	volumeNameTrigramStreamChunkEntries = 0x8000
+	volumeNameTrigramStreamChunkBytes   = 0x40000
+)
+
 // 卷索引 checkpoint 头二进制格式常量（64 字节头，SSOT 见 parseVolumeIndexCheckpointHeader）。
 const (
 	volumeIndexCheckpointHeaderMagic = "UIDX"
@@ -1677,6 +1686,189 @@ func volumeNameTrigramHeaderMatchesIndex(header volumeNameTrigramHeader, idx *Vo
 		return false
 	}
 	return timeToUnixNano(idx.LastMutationAt) == header.LastMutationAt
+}
+
+// loadVolumeNameTrigramIndexMappedContext 以 mmap 方式加载名称三元组索引。
+// [S 汇编 0x1407f8d60, 1440B] 实证：签名 (ctx context.Context, path string,
+// idx *VolumeIndex) (*volumeNameTrigramIndex, error)。
+// idx==nil（@0x1407f8d95 test rsi）→ (nil, errVolumeIndexNodeBytesInvalid)；
+// contextErr(ctx)!=nil（@0x1407f8dc6）→ (nil, cerr)；
+// os.Stat(path)（@0x1407f8de4）失败且 errors.Is(os.ErrNotExist)（@0x1407f8e18）→
+// (nil, errVolumeIndexFileNotFound)，否则 (nil, err)；
+// fi.Size()<64（@0x1407f8e6e jl）→ (nil, errVolumeIndexNodeBytesInvalid)；
+// openVolumeIndexMappedFile（@0x1407f8e88）失败 → (nil, err)；
+// m.Map(0, size, 0, size)（@0x1407f8ee4）失败 → Close + (nil, err)；
+// 再次 contextErr（@0x1407f8f1a）→ Close + (nil, cerr)；
+// parseVolumeNameTrigramHeader(mapped[:64])（@0x1407f8f4b）失败 → Close + (nil, err)；
+// !volumeNameTrigramHeaderMatchesIndex（@0x1407f8fe0）→ Close + (nil, errVolumeIndexNodeBytesInvalid)；
+// len(mapped)<64+EntryCount*8（@0x1407f902b）→ Close + (nil, errVolumeIndexNodeBytesInvalid)；
+// 否则 mapped[0x40:0x40+EntryCount*8] 作 signatureBytes、mappedFile=m、
+// version=runtimeVersionSnapshot → (result, nil)。
+func loadVolumeNameTrigramIndexMappedContext(ctx context.Context, path string, idx *VolumeIndex) (*volumeNameTrigramIndex, error) {
+	if idx == nil {
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	if cerr := contextErr(ctx); cerr != nil {
+		return nil, cerr
+	}
+	fi, err := os.Stat(path)
+	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			return nil, errVolumeIndexFileNotFound
+		}
+		return nil, err
+	}
+	fileSize := fi.Size()
+	if fileSize < volumeIndexCheckpointHeaderSize {
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	m, err := openVolumeIndexMappedFile(path)
+	if err != nil {
+		return nil, err
+	}
+	mapped, err := m.Map(0, fileSize, 0, fileSize)
+	if err != nil {
+		_ = m.Close()
+		return nil, err
+	}
+	if cerr := contextErr(ctx); cerr != nil {
+		_ = m.Close()
+		return nil, cerr
+	}
+	header, err := parseVolumeNameTrigramHeader(mapped[:volumeIndexCheckpointHeaderSize])
+	if err != nil {
+		_ = m.Close()
+		return nil, err
+	}
+	if !volumeNameTrigramHeaderMatchesIndex(header, idx) {
+		_ = m.Close()
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	entryBytes := int64(header.EntryCount) * 8
+	if int64(len(mapped)) < int64(volumeIndexCheckpointHeaderSize)+entryBytes {
+		_ = m.Close()
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	return &volumeNameTrigramIndex{
+		version:        idx.runtimeVersionSnapshot(),
+		signatureBytes: mapped[volumeIndexCheckpointHeaderSize : volumeIndexCheckpointHeaderSize+int(entryBytes)],
+		mappedFile:     m,
+	}, nil
+}
+
+// loadVolumeNameTrigramIndexContext 以流式读取方式加载名称三元组索引。
+// [S 汇编 0x1407f9300, 2112B] 实证：签名 (ctx context.Context, path string,
+// idx *VolumeIndex) (*volumeNameTrigramIndex, error)。
+// idx==nil（@0x1407f9360 test rsi）→ (nil, errVolumeIndexNodeBytesInvalid)；
+// os.OpenFile(path, O_RDONLY, 0)（@0x1407f938c）失败 → (nil, err)；
+// defer f.Close()（@0x1407f93a2，deferwrap1=0x1407f9b40）；
+// contextErr（@0x1407f93e0）→ (nil, cerr)；f.Stat()（@0x1407f93f6）失败 → (nil, err)；
+// io.ReadAtLeast(f, headerBuf[:], 64)（@0x1407f944a）失败 → (nil, errVolumeIndexNodeBytesInvalid)；
+// parseVolumeNameTrigramHeader（@0x1407f9468）失败 → (nil, err)；
+// !volumeNameTrigramHeaderMatchesIndex（@0x1407f9500）→ (nil, errVolumeIndexNodeBytesInvalid)；
+// fi.Size()<64+EntryCount*8（@0x1407f9558）→ (nil, errVolumeIndexNodeBytesInvalid)；
+// signatures=make([]uint64, EntryCount)、buf=make([]byte, 0x40000)；
+// 循环（@0x1407f9828）：contextErr 检查 → 本批 min(剩余, 0x8000) 条 →
+// io.ReadAtLeast(f, buf, n*8) 失败 → (nil, errVolumeIndexNodeBytesInvalid) →
+// 逐条 LE uint64 拷入 signatures[i+j]；
+// 结束构造 {version: runtimeVersionSnapshot, signatures: signatures}。
+func loadVolumeNameTrigramIndexContext(ctx context.Context, path string, idx *VolumeIndex) (*volumeNameTrigramIndex, error) {
+	if idx == nil {
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	f, err := os.OpenFile(path, os.O_RDONLY, 0)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+	if cerr := contextErr(ctx); cerr != nil {
+		return nil, cerr
+	}
+	fi, err := f.Stat()
+	if err != nil {
+		return nil, err
+	}
+	var headerBuf [volumeIndexCheckpointHeaderSize]byte
+	if _, err := io.ReadAtLeast(f, headerBuf[:], volumeIndexCheckpointHeaderSize); err != nil {
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	header, err := parseVolumeNameTrigramHeader(headerBuf[:])
+	if err != nil {
+		return nil, err
+	}
+	if !volumeNameTrigramHeaderMatchesIndex(header, idx) {
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	if fi.Size() < int64(volumeIndexCheckpointHeaderSize)+int64(header.EntryCount)*8 {
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	signatures := make([]uint64, int(header.EntryCount))
+	buf := make([]byte, volumeNameTrigramStreamChunkBytes)
+	total := int(header.EntryCount)
+	for i := 0; i < total; {
+		if cerr := contextErr(ctx); cerr != nil {
+			return nil, cerr
+		}
+		n := total - i
+		if n > volumeNameTrigramStreamChunkEntries {
+			n = volumeNameTrigramStreamChunkEntries
+		}
+		if _, err := io.ReadAtLeast(f, buf[:volumeNameTrigramStreamChunkBytes], n*8); err != nil {
+			return nil, errVolumeIndexNodeBytesInvalid
+		}
+		for j := 0; j < n; j++ {
+			signatures[i+j] = binary.LittleEndian.Uint64(buf[j*8 : j*8+8])
+		}
+		i += n
+	}
+	return &volumeNameTrigramIndex{
+		version:    idx.runtimeVersionSnapshot(),
+		signatures: signatures,
+	}, nil
+}
+
+// loadVolumeNameTrigramIndexIntoVolumeContext 加载名称三元组索引到卷索引（mmap/stream 分派）。
+// [S 汇编 0x1407f8940, 1056B] 实证：签名 (ctx context.Context, idx *VolumeIndex,
+// path string) error。idx==nil（@0x1407f8967 test rcx）→ nil；
+// TrimSpace(path)==""（@0x1407f8997 TrimSpace + @0x1407f89a0 test rbx）→ nil；
+// shouldUseVolumeIndexMmapStaticProvider（@0x1407f89af）true →
+// loadVolumeNameTrigramIndexMappedContext(ctx, path, idx)；err!=nil 且非 os.ErrNotExist /
+// errVolumeIndexFileNotFound / errVolumeIndexNodeBytesInvalid（@0x1407f89fe..8a86）→
+// contextErr(ctx)!=nil 则返回 cerr（@0x1407f8ac0），否则打点 logFileSearchPerf 后
+// loadVolumeNameTrigramIndexContext(ctx, path, idx) 兜底；false → 直接 stream；
+// 最终 err!=nil → 返回 err；result!=nil → nameTrigramMu.Lock(+0x500) +
+// nameTrigram=result(+0x508) + Unlock（@0x1407f8c4f..8cd7）；返回 nil。
+func loadVolumeNameTrigramIndexIntoVolumeContext(ctx context.Context, idx *VolumeIndex, path string) error {
+	if idx == nil {
+		return nil
+	}
+	path = strings.TrimSpace(path)
+	if path == "" {
+		return nil
+	}
+	var result *volumeNameTrigramIndex
+	var err error
+	if shouldUseVolumeIndexMmapStaticProvider() {
+		result, err = loadVolumeNameTrigramIndexMappedContext(ctx, path, idx)
+		if err != nil && !errors.Is(err, os.ErrNotExist) && !errors.Is(err, errVolumeIndexFileNotFound) && !errors.Is(err, errVolumeIndexNodeBytesInvalid) {
+			if cerr := contextErr(ctx); cerr != nil {
+				return cerr
+			}
+			logFileSearchPerf("trigram mmap load failed path=%q err=%v fallback=stream", fmt.Sprintf("%q %v", path, err), 2)
+			result, err = loadVolumeNameTrigramIndexContext(ctx, path, idx)
+		}
+	} else {
+		result, err = loadVolumeNameTrigramIndexContext(ctx, path, idx)
+	}
+	if err != nil {
+		return err
+	}
+	if result != nil {
+		idx.nameTrigramMu.Lock()
+		idx.nameTrigram = result
+		idx.nameTrigramMu.Unlock()
+	}
+	return nil
 }
 
 // resolvePath 解析日志待定状态的节点路径（递归 + 缓存）。

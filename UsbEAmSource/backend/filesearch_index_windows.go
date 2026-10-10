@@ -1649,11 +1649,34 @@ func (v *VolumeIndex) ResolvePathByNodeIndex(a interface{}, b interface{}) strin
 }
 
 // volumeNameTrigramHeaderMatchesIndex 校验三字索引头是否匹配索引。
-// [S-sig 0x1407f9ca0, 416B]：nil/magic(0x20003)/baseEntryCountLocked 校验 →
-// 头字段比较 → timeToUnixNano 比较。体待头域专项还原。
-func volumeNameTrigramHeaderMatchesIndex(a, b, c, d, e, f, g, h interface{}) bool {
-	_, _, _, _, _, _, _, _ = a, b, c, d, e, f, g, h
-	return false
+// [S 汇编 0x1407f9ca0, 448B] 实证：签名 (header volumeNameTrigramHeader, idx *VolumeIndex) bool
+// （header 8 字段拆寄存器 rax..r9、idx=r10 @0x1407f9cd3 test）。校验顺序：
+// idx==nil（@0x1407f9cd6 je）→ false；IndexVersion≠0x20003（@0x1407f9cdc cmp）→ false；
+// baseEntryCountLocked()≠EntryCount（@0x1407f9cf2 call + @0x1407f9d00 cmp）→ false；
+// idx.RootFRN(+0x30)≠header.RootFRN（@0x1407f9d13）→ false；
+// idx.JournalID(+0x80)≠（@0x1407f9d22）/ idx.LastUSN(+0x88)≠（@0x1407f9d30）→ false；
+// idx.GeneratedAt.Unix()≠header.GeneratedAt（@0x1407f9d80，wall/ext 分派内联 @0x1407f9d49..77）→ false；
+// 否则 timeToUnixNano(idx.LastMutationAt)==header.LastMutationAt（@0x1407f9da4 call + sete）。
+func volumeNameTrigramHeaderMatchesIndex(header volumeNameTrigramHeader, idx *VolumeIndex) bool {
+	if idx == nil {
+		return false
+	}
+	if header.IndexVersion != volumeIndexFormatVersion {
+		return false
+	}
+	if idx.baseEntryCountLocked() != int64(header.EntryCount) {
+		return false
+	}
+	if idx.RootFRN != header.RootFRN {
+		return false
+	}
+	if idx.JournalID != header.JournalID || idx.LastUSN != header.LastUSN {
+		return false
+	}
+	if idx.GeneratedAt.Unix() != header.GeneratedAt {
+		return false
+	}
+	return timeToUnixNano(idx.LastMutationAt) == header.LastMutationAt
 }
 
 // resolvePath 解析日志待定状态的节点路径（递归 + 缓存）。

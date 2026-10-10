@@ -744,6 +744,18 @@ type volumeNameTrigramIndex struct {
 	closed         bool
 }
 
+// volumeNameTrigramHeader 名称三元组索引 64B 头解析结果（SSOT 见
+// parseVolumeNameTrigramHeader / buildVolumeNameTrigramHeaderLocked）。
+type volumeNameTrigramHeader struct {
+	IndexVersion   uint32
+	EntryCount     uint32
+	RootFRN        uint64
+	JournalID      uint64
+	LastUSN        int64
+	GeneratedAt    int64 // Unix 秒
+	LastMutationAt int64 // Unix 纳秒
+}
+
 type volumePinyinIdentity struct {
 	rootFRN     uint64
 	journalID   uint64

@@ -343,11 +343,32 @@ func (p *volumePinyinIndex) Close() error {
 	return err
 }
 
-// parseVolumeNameTrigramHeader 解析名称三元组头（魔数 "UITG" + 版本 + 字段）。
-// [S-sig 0x1407f9ba0, 256B]：len<0x40→error；魔数/版本校验 → 读字段(+8..+0x30)。
-func parseVolumeNameTrigramHeader(a []byte) (interface{}, error) {
-	_ = a
-	return nil, nil
+// parseVolumeNameTrigramHeader 解析名称三元组索引 64B 头。
+// [S 汇编 0x1407f9ba0, 640B] 实证：签名 (b []byte) (volumeNameTrigramHeader, error)。
+// 二进制布局（LE）：magic "UITG"(+0)、version 1(+4)、IndexVersion(+8)、EntryCount(+0xc)、
+// RootFRN(+0x10)、JournalID(+0x18)、LastUSN(+0x20)、GeneratedAt.Unix()(+0x28)、
+// LastMutationAt.UnixNano()(+0x30)、保留(+0x38)。校验：len<64（@0x1407f9bc0 jl）、
+// magic≠"UITG"（@0x1407f9bca，0x47544955）、version≠1（@0x1407f9bd2）→
+// errVolumeIndexNodeBytesInvalid；否则字段直拷（@0x1407f9bfd..c34）。
+func parseVolumeNameTrigramHeader(b []byte) (volumeNameTrigramHeader, error) {
+	if len(b) < volumeIndexCheckpointHeaderSize {
+		return volumeNameTrigramHeader{}, errVolumeIndexNodeBytesInvalid
+	}
+	if string(b[0:4]) != volumeNameTrigramHeaderMagic {
+		return volumeNameTrigramHeader{}, errVolumeIndexNodeBytesInvalid
+	}
+	if binary.LittleEndian.Uint32(b[4:8]) != volumeNameTrigramHeaderVersion {
+		return volumeNameTrigramHeader{}, errVolumeIndexNodeBytesInvalid
+	}
+	return volumeNameTrigramHeader{
+		IndexVersion:   binary.LittleEndian.Uint32(b[8:12]),
+		EntryCount:     binary.LittleEndian.Uint32(b[12:16]),
+		RootFRN:        binary.LittleEndian.Uint64(b[16:24]),
+		JournalID:      binary.LittleEndian.Uint64(b[24:32]),
+		LastUSN:        int64(binary.LittleEndian.Uint64(b[32:40])),
+		GeneratedAt:    int64(binary.LittleEndian.Uint64(b[40:48])),
+		LastMutationAt: int64(binary.LittleEndian.Uint64(b[48:56])),
+	}, nil
 }
 
 // encodeVolumePinyinHeader 编码拼音头（魔数 "UIYP" + 字段 + 字典指纹）。

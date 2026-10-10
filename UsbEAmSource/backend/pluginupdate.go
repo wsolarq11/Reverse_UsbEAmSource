@@ -30,3 +30,27 @@ func comparePluginVersionText(current, latest string) int {
 	_, _ = current, latest
 	return 0
 }
+
+// findRemoteCatalogEntry 按 ID（TrimSpace + EqualFold 不区分大小写）在远程目录切片中查找条目。
+// [S 汇编 0x14092b900, 544B]：遍历 entries（步长 0x138），EqualFold(TrimSpace(e.ID), TrimSpace(name))
+// 命中返回 (e, true)，否则 (zero, false)。
+func findRemoteCatalogEntry(name string, entries []PluginRemoteCatalogEntry) (PluginRemoteCatalogEntry, bool) {
+	for _, e := range entries {
+		if strings.EqualFold(strings.TrimSpace(e.ID), strings.TrimSpace(name)) {
+			return e, true
+		}
+	}
+	return PluginRemoteCatalogEntry{}, false
+}
+
+// findPluginInUpdateState 按 ID（TrimSpace + EqualFold）在更新状态插件清单中查找。
+// [S 汇编 0x14092b6e0, 544B]：遍历 manifests（步长 0x178），EqualFold(TrimSpace(e.ID), TrimSpace(name))
+// 命中返回 (e, true)，否则 (zero, false)。
+func findPluginInUpdateState(name string, entries []PluginManifest) (PluginManifest, bool) {
+	for _, e := range entries {
+		if strings.EqualFold(strings.TrimSpace(e.ID), strings.TrimSpace(name)) {
+			return e, true
+		}
+	}
+	return PluginManifest{}, false
+}

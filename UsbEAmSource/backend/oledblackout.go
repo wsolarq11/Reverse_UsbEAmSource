@@ -169,6 +169,26 @@ func (c *oledBlackoutBrowserMediaContinuity) clear() {
 	c.lock.Unlock()
 }
 
+// clone 深拷贝浏览器媒体连续性（返回新对象，锁内复制 entries map）。
+// [S 0x1408fcce0, 544B] 单 receiver 无参，返回 *oledBlackoutBrowserMediaContinuity。
+// asm：newobject → c==nil 直接返回空 clone → lock.Lock → len(entries)>0 则 make(map, n)
+// → 遍历 mapassign 复制 → Unlock → 返回。
+func (c *oledBlackoutBrowserMediaContinuity) clone() *oledBlackoutBrowserMediaContinuity {
+	result := &oledBlackoutBrowserMediaContinuity{}
+	if c == nil {
+		return result
+	}
+	c.lock.Lock()
+	if n := len(c.entries); n > 0 {
+		result.entries = make(map[oledBlackoutBrowserMediaContinuityKey]string, n)
+		for k, v := range c.entries {
+			result.entries[k] = v
+		}
+	}
+	c.lock.Unlock()
+	return result
+}
+
 // armInputDismissGuardLocked 将输入消除保护截止时间推迟 250ms（加锁上下文内）。
 // [S 0x14090d180] 单 receiver 无参无返回。asm：inputDismissGuardUntil(+0x180)=time.Now().Add(250ms)。
 func (s *oledBlackoutService) armInputDismissGuardLocked() {

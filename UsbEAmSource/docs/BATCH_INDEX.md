@@ -335,3 +335,4 @@
 | 376 | [batch376.md](acceptance/batch376.md) | 批次 376 · weather 提供器错误快照/写入 +1（FUNCS 3253） |
 | 377 | [batch377.md](acceptance/batch377.md) | 批次 377 · 鼠标手势配置 wrapper +3（FUNCS 3256） |
 | 378 | [batch378.md](acceptance/batch378.md) | 批次 378 · 鼠标手势暂停 delegate + 截图预览结果清洗 +2（FUNCS 3257） |
+| 379 | [batch379.md](acceptance/batch379.md) | 批次 379 · 插件目录查找 +2 / OLED 连续性克隆 +1（FUNCS 3260） |

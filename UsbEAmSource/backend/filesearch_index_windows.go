@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"math"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -1149,6 +1150,12 @@ const (
 	maxVolumeIndexEntryCount       = 0xffffffff
 )
 
+// 卷索引 checkpoint 头二进制格式常量（64 字节头，SSOT 见 parseVolumeIndexCheckpointHeader）。
+const (
+	volumeIndexCheckpointHeaderMagic = "UIDX"
+	volumeIndexCheckpointHeaderSize  = 64
+)
+
 // buildVolumeNameTrigramHeaderLocked 构建名称三元组索引头（调用方持锁）。
 // [S 汇编 0x1407f66e0, 512B] 实证：entryCount∉[0,0xffffffff] → 返回 64B 零头；
 // 否则写 magic "UITG"(+0)、version 1(+4)、indexVersion 0x20003(+8)、entryCount(+0xc)、
@@ -1541,12 +1548,80 @@ func (v *VolumeIndex) clearNameTrigramIndexLocked() {
 	_ = v
 }
 
+// parseVolumeIndexCheckpointHeader 解析卷索引 checkpoint 64B 头。
+// [S 汇编 0x1407fc9a0, 608B] 实证：签名 (b []byte) (volumeIndexCheckpointHeader, error)。
+// 二进制布局：magic "UIDX"(+0)、version 0x20003(+4)、entryCount(+8)、sortedCount(+0xc)、
+// rootFRN(+0x10)、journalID(+0x18)、lastUSN(+0x20)、GeneratedAt.Unix()(+0x28)、
+// namePoolSize(+0x30)、保留(+0x38)。校验顺序：len<64（@0x1407fc9c8 jl）、
+// magic≠"UIDX"（@0x1407fc9ce）、version≠0x20003（@0x1407fc9db）、
+// rootFRN==0（@0x1407fc9ed test）、entryCount≠sortedCount（@0x1407fca00 cmp r10d,r9d）→
+// errVolumeIndexNodeBytesInvalid；否则 generatedAt=time.Unix(sec,0)（@0x1407fca5b
+// ext=[+0x28]+62135596800=unixToInternal、wall=0、loc=time.Local @rip+0x13c6250）。
+func parseVolumeIndexCheckpointHeader(b []byte) (volumeIndexCheckpointHeader, error) {
+	if len(b) < volumeIndexCheckpointHeaderSize {
+		return volumeIndexCheckpointHeader{}, errVolumeIndexNodeBytesInvalid
+	}
+	if string(b[0:4]) != volumeIndexCheckpointHeaderMagic {
+		return volumeIndexCheckpointHeader{}, errVolumeIndexNodeBytesInvalid
+	}
+	if binary.LittleEndian.Uint32(b[4:8]) != volumeIndexFormatVersion {
+		return volumeIndexCheckpointHeader{}, errVolumeIndexNodeBytesInvalid
+	}
+	rootFRN := binary.LittleEndian.Uint64(b[16:24])
+	if rootFRN == 0 {
+		return volumeIndexCheckpointHeader{}, errVolumeIndexNodeBytesInvalid
+	}
+	entryCount := binary.LittleEndian.Uint32(b[8:12])
+	sortedCount := binary.LittleEndian.Uint32(b[12:16])
+	if entryCount != sortedCount {
+		return volumeIndexCheckpointHeader{}, errVolumeIndexNodeBytesInvalid
+	}
+	return volumeIndexCheckpointHeader{
+		rootFRN:      rootFRN,
+		journalID:    binary.LittleEndian.Uint64(b[24:32]),
+		lastUSN:      int64(binary.LittleEndian.Uint64(b[32:40])),
+		generatedAt:  time.Unix(int64(binary.LittleEndian.Uint64(b[40:48])), 0),
+		entryCount:   entryCount,
+		sortedCount:  sortedCount,
+		namePoolSize: binary.LittleEndian.Uint64(b[48:56]),
+	}, nil
+}
+
 // buildVolumeIndexCheckpointLayout 构建卷索引 checkpoint 布局（偏移算术）。
-// [S-sig 0x1407fc820, 384B]：count*24 + other*4 + 0x40 溢出检查 → layout。
-// 体待布局常量专项还原。
-func buildVolumeIndexCheckpointLayout(a, b, c, d interface{}) interface{} {
-	_, _, _, _ = a, b, c, d
-	return nil
+// [S 汇编 0x1407fc820, 384B] 实证：签名 (fileSize int64, entryCount uint32,
+// sortedCount uint32, namePoolSize uint64) (volumeIndexCheckpointLayout, error)。
+// namePoolSize>MaxInt64（@0x1407fc849 cmp rdi,0x7fffffffffffffff ja）→ 哨兵；
+// nodeBytes=entryCount*24（@0x1407fc854 *3 后 shl 3）、sortedBytes=sortedCount*4
+// （@0x1407fc85e lea rsi*4）；expected=namePoolSize+nodeBytes+sortedBytes+0x40
+// （@0x1407fc862/866）；expected<0x40（@0x1407fc872）或 expected<nodeBytes+0x40
+// （@0x1407fc880）→ 哨兵（第三道 nameOffset<=expected @0x1407fc885 因 namePoolSize>=0
+// 恒真，语义等价省略）；fileSize<expected（@0x1407fc8c0 cmp rax,r10 jge）→ 哨兵；
+// 否则布局 FileSize=fileSize、NodeOffset=0x40、NodeBytes=nodeBytes、
+// SortedOffset=nodeBytes+0x40、SortedBytes=sortedBytes、NameOffset=nodeBytes+sortedBytes+0x40、
+// NameBytes=namePoolSize、ExpectedBytes=expected（@0x1407fc8fa..924 栈写）。
+func buildVolumeIndexCheckpointLayout(fileSize int64, entryCount, sortedCount uint32, namePoolSize uint64) (volumeIndexCheckpointLayout, error) {
+	if namePoolSize > math.MaxInt64 {
+		return volumeIndexCheckpointLayout{}, errVolumeIndexNodeBytesInvalid
+	}
+	nodeBytes := int64(entryCount) * int64(unsafe.Sizeof(IndexNode{}))
+	sortedBytes := int64(sortedCount) * int64(unsafe.Sizeof(int32(0)))
+	expectedBytes := int64(namePoolSize) + nodeBytes + sortedBytes + volumeIndexCheckpointHeaderSize
+	if expectedBytes < volumeIndexCheckpointHeaderSize || expectedBytes < nodeBytes+volumeIndexCheckpointHeaderSize {
+		return volumeIndexCheckpointLayout{}, errVolumeIndexNodeBytesInvalid
+	}
+	if fileSize < expectedBytes {
+		return volumeIndexCheckpointLayout{}, errVolumeIndexNodeBytesInvalid
+	}
+	return volumeIndexCheckpointLayout{
+		FileSize:      fileSize,
+		NodeOffset:    volumeIndexCheckpointHeaderSize,
+		NodeBytes:     nodeBytes,
+		SortedOffset:  nodeBytes + volumeIndexCheckpointHeaderSize,
+		SortedBytes:   sortedBytes,
+		NameOffset:    nodeBytes + sortedBytes + volumeIndexCheckpointHeaderSize,
+		NameBytes:     int64(namePoolSize),
+		ExpectedBytes: expectedBytes,
+	}, nil
 }
 
 // ApplyDelete 应用删除（持锁，canApplyDeleteLocked → applyDeleteLocked → markDirty）。

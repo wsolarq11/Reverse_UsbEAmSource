@@ -1453,6 +1453,45 @@ func (bs *BootstrapService) UpdateMouseGestureConfig(config interface{}) error {
 	return nil
 }
 
+// SetMouseGestureCaptureSuspended 设置鼠标手势捕获暂停。
+// [S 汇编 0x140782340, 480B]：bs.mouseGestures(+0x390).SetCaptureSuspended(suspended)
+// → attachMouseGestureConfigIconURLs(mouseGestures.config)（返回丢弃）→ 返回 error。
+func (bs *BootstrapService) SetMouseGestureCaptureSuspended(suspended bool) error {
+	if bs.mouseGestures == nil {
+		return nil
+	}
+	err := bs.mouseGestures.SetCaptureSuspended(suspended)
+	bs.attachMouseGestureConfigIconURLs(bs.mouseGestures.config)
+	return err
+}
+
+// TestHotCorner 测试热角。
+// [S 汇编 0x140783a60, 512B]：bs.mouseGestures(+0x390).TestHotCorner(corner)
+// → attachMouseGestureConfigIconURLs(mouseGestures.config)（返回丢弃）→ 返回 error。
+func (bs *BootstrapService) TestHotCorner(corner string) error {
+	if bs.mouseGestures == nil {
+		return nil
+	}
+	err := bs.mouseGestures.TestHotCorner(corner)
+	bs.attachMouseGestureConfigIconURLs(bs.mouseGestures.config)
+	return err
+}
+
+// PickMouseGestureAppTarget 选择鼠标手势应用目标。
+// [S 汇编 0x140783c60, 544B]：bs.mouseGestures(+0x390).PickAppTarget()
+// → attachMouseGestureAppProfileIconURL(profileID) → 返回 (target, error)。
+func (bs *BootstrapService) PickMouseGestureAppTarget() (string, error) {
+	if bs.mouseGestures == nil {
+		return "", nil
+	}
+	target, err := bs.mouseGestures.PickAppTarget()
+	if err != nil {
+		return target, err
+	}
+	bs.attachMouseGestureAppProfileIconURL(target)
+	return target, nil
+}
+
 // ---- mouseGesture 执行域（批次 21 全量 [S]） ----
 
 // executeMouseGestureLauncherAction 执行鼠标手势启动器动作。
@@ -1603,10 +1642,13 @@ func (bs *BootstrapService) launchMouseGestureConfiguredApp(appID string) error 
 }
 
 // attachMouseGestureConfigIconURLs 附加鼠标手势配置图标 URL。
-// [S 汇编实证 0x140784000]：normalizeMouseGestureConfig → forEachProfile → attachMouseGestureAppProfileIconURL
-func (bs *BootstrapService) attachMouseGestureConfigIconURLs(config interface{}) {
-	_ = config
-	// 薄委托：经 normalize 后逐项附加
+// [S 汇编实证 0x140784000]：normalizeMouseGestureConfig → 遍历 Apps(步长 0x118) →
+// 每项 attachMouseGestureAppProfileIconURL 写回图标。子服务图标解析待专项还原，当前 normalize 后原样返回。
+func (bs *BootstrapService) attachMouseGestureConfigIconURLs(cfg MouseGestureConfig) MouseGestureConfig {
+	_ = bs
+	cfg = normalizeMouseGestureConfig(cfg)
+	// 逐 profile 图标回填体待 attachMouseGestureAppProfileIconURL 字节级续作。
+	return cfg
 }
 
 // attachOLEDBlackoutConfigIconURLs 附加 OLED 熄屏配置图标 URL。

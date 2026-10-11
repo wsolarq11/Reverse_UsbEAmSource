@@ -764,6 +764,16 @@ type volumePinyinIdentity struct {
 	nodeCount   uint32
 }
 
+// volumeIndexBucketIdentity 桶索引（.bkt）身份 4×qword（32 字节）。
+// 布局经 asm 0x1407f6f00 实证：rootFRN@0、journalID@8、lastUSN@0x10、
+// generatedAt@0x18（UnixNano）。
+type volumeIndexBucketIdentity struct {
+	rootFRN     uint64
+	journalID   uint64
+	lastUSN     int64
+	generatedAt int64
+}
+
 type volumePinyinIndex struct {
 	identity    volumePinyinIdentity
 	records     []uint8

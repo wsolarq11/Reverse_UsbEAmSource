@@ -348,3 +348,4 @@
 | 389 | [batch389.md](acceptance/batch389.md) | 批次 389 · 名称三元组索引读链（mmap + stream + 分派）+3 · FUNCS 3285 |
 | 390 | [batch390.md](acceptance/batch390.md) | 批次 390 · checkpoint 读链节点流解析 +1 · FUNCS 3286 |
 | 391 | [batch391.md](acceptance/batch391.md) | 批次 391 · checkpoint 读链前缀桶计数 +3 · FUNCS 3289 |
+| 392 | [batch392.md](acceptance/batch392.md) | 批次 392 · .bkt 桶持久化 + checkpoint 视图全链汇合 · FUNCS 3293 |

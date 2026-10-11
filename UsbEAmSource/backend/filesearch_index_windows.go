@@ -36,6 +36,9 @@ var errVolumeIndexNodeBytesInvalid = errors.New("索引文件损坏或版本不�
 // errVolumeIndexFileNotFound 卷索引文件不存在的哨兵（.data 静态 error @0x141bc3c60 实证）。
 var errVolumeIndexFileNotFound = errors.New("索引文件不存在")
 
+// errVolumeIndexBucketPathEmpty bucket 路径为空的哨兵（.data 静态 error @0x141bc3e10，消息 10B "empty path" 经 0x1407f7089 mov [rax+8],0xa 实证）。
+var errVolumeIndexBucketPathEmpty = errors.New("empty path")
+
 // newVolumeIndexPersistencePaths 从索引根路径派生 6 个持久化文件路径。
 // [S 汇编 0x1407e1020, 576B] 实证：从末尾回扫找最后一个 `\`/`/`/`.`；
 // 命中 `.` 且其索引 > 最后一个 `\`/`/` 索引时 base=root[:dot]（去扩展名），否则 base=root。
@@ -1330,6 +1333,356 @@ const (
 	volumeIndexCheckpointHeaderMagic = "UIDX"
 	volumeIndexCheckpointHeaderSize  = 64
 )
+
+// 名称前缀桶索引（.bkt）二进制格式常量（0x440 字节头，SSOT 见 load/saveVolumeIndexBucketContext）。
+const (
+	volumeIndexBucketHeaderMagic = uint64(0x4b424d4145425355) // "USBEAMBK"
+	volumeIndexBucketVersion     = uint16(0x3254)             // "T2"
+	volumeIndexBucketHeaderSize  = 0x440
+	volumeIndexBucketNameLen     = 0xa // CreateTemp 模式 ".bkt-*.tmp" 的随机名长度
+)
+
+// loadVolumeIndexBucketContext 从 .bkt 文件加载名称前缀桶计数与身份校验。
+// [S 汇编 0x1407f6f00, 230B] 实证：签名 (ctx context.Context, path string,
+// want *volumeIndexBucketIdentity, enabled bool) (*namePrefixBucketCounts, int, error)。
+// TrimSpace(path)==""（@0x1407f702e strings.TrimSpace + @0x1407f7043 test rcx,rcx）→
+// (nil, 0, errVolumeIndexBucketPathEmpty)；os.ReadFile(path)（@0x1407f7061）→
+// err!=nil（@0x1407f706d jne）→ (nil, 0, err)；len(data)<0x440（@0x1407f7083 cmp jl）→
+// (nil, 0, errVolumeIndexNodeBytesInvalid)；magic@0≠USBEAMBK 或 version@8≠T2（@0x1407f7098/9c）→
+// (nil, 0, errVolumeIndexNodeBytesInvalid)；entryCount=dword@0xa（@0x1407f70aa）；want!=nil
+// （@0x1407f70b6 test rdx）→ 4×qword 身份比较，任一不等→哨兵；namePoolSize=dword@0xe（@0x1407f70d8 test），
+// len(data)!=0x440+namePoolSize*4（@0x1407f70fc jne）→哨兵；new(namePrefixBucketCounts)
+// （@0x1407f710a）→ 逐 int32 LE 解析 firstByte（@0x1407f7129/3b duffcopy+loop）、
+// namePoolSize>0（@0x1407f715c test）→ twoByte=make([]int32,namePoolSize)+int32-LE 逐条拷贝
+// → return (bucket, entryCount, nil)（@0x1407f719c）。
+func loadVolumeIndexBucketContext(ctx context.Context, path string, want *volumeIndexBucketIdentity, enabled bool) (*namePrefixBucketCounts, int, error) {
+	_ = enabled
+	if strings.TrimSpace(path) == "" {
+		return nil, 0, errVolumeIndexBucketPathEmpty
+	}
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return nil, 0, err
+	}
+	if len(data) < volumeIndexBucketHeaderSize {
+		return nil, 0, errVolumeIndexNodeBytesInvalid
+	}
+	if binary.LittleEndian.Uint64(data[0:8]) != volumeIndexBucketHeaderMagic {
+		return nil, 0, errVolumeIndexNodeBytesInvalid
+	}
+	if binary.LittleEndian.Uint16(data[8:10]) != volumeIndexBucketVersion {
+		return nil, 0, errVolumeIndexNodeBytesInvalid
+	}
+	entryCount := int(binary.LittleEndian.Uint32(data[0xa:0xe]))
+	if want != nil {
+		if want.rootFRN != binary.LittleEndian.Uint64(data[0x12:0x1a]) ||
+			want.journalID != binary.LittleEndian.Uint64(data[0x1a:0x22]) ||
+			want.lastUSN != int64(binary.LittleEndian.Uint64(data[0x22:0x2a])) ||
+			want.generatedAt != int64(binary.LittleEndian.Uint64(data[0x2a:0x32])) {
+			return nil, 0, errVolumeIndexNodeBytesInvalid
+		}
+	}
+	namePoolSize := int(binary.LittleEndian.Uint32(data[0xe:0x12]))
+	if len(data) != volumeIndexBucketHeaderSize+namePoolSize*4 {
+		return nil, 0, errVolumeIndexNodeBytesInvalid
+	}
+	bucket := new(namePrefixBucketCounts)
+	for i := 0; i < 256; i++ {
+		bucket.firstByte[i] = int32(binary.LittleEndian.Uint32(data[0x40+i*4 : 0x44+i*4]))
+	}
+	if namePoolSize > 0 {
+		bucket.twoByte = make([]int32, namePoolSize)
+		for i := 0; i < namePoolSize; i++ {
+			bucket.twoByte[i] = int32(binary.LittleEndian.Uint32(data[volumeIndexBucketHeaderSize+i*4 : volumeIndexBucketHeaderSize+(i+1)*4]))
+		}
+	}
+	return bucket, entryCount, nil
+}
+
+// saveVolumeIndexBucketContext 持久化卷前缀桶索引到 .bkt 文件（原子替换）。
+// [S 汇编 0x1407f68e0, 328B] 实证：签名 (ctx context.Context, v *VolumeIndex, path string,
+// counts namePrefixBucketCounts) error（counts 0x418 字节值传参 @rsp+0x8a0）。
+// v==nil（@0x1407f6915 test rcx,je）或 TrimSpace(path)==""（@0x1407f694d）→ nil；
+// os.MkdirAll(filepath.Dir(path), 0o755)（@0x1407f6983，ecx=0x1ed）→ err→return err；
+// 默认 counts = v.prefixBuckets 全字段拷贝（@0x1407f6991/9b7 rep movsq 0x82 qwords 拷贝
+// 0x418 字节到栈 local @rsp+0x898）；delta 分支：len(v.deltaByFRN)>0（@0x1407f69bd/69d0 jg）
+// 或 v.deltaReplaced!=0（@0x1407f69dc）→ buildVolumeIndexCheckpointSnapshotLocked(v)
+// （@0x1407f69e6）→ entryCount=activeCount、counts=buildNamePrefixBucketCounts(nodes,namePool)；
+// 否则 entryCount=len(v.SortedIndices)（@0x1407f69d5）。header 0x40 字节小端写入 magic@0、
+// version@8、entryCount@0xa、namePoolSize（len(counts.twoByte) 当 twoByte.ptr≠nil 否则 0）@0xe、
+// rootFRN@0x12、journalID@0x1a、lastUSN@0x22、generatedAt@0x2a=timeToUnixNano(v.GeneratedAt)。
+// os.CreateTemp(Dir(path), ".bkt-*.tmp")（@0x1407f6a74，edi=0xa）→ 写 header[:0x40]
+// → firstByte[256] int32-LE 写 0x400 字节 → twoByte 段（namePoolSize>0 时 namePoolSize*4 字节
+// int32-LE）→ close → replaceFileAtomically(temp,path)。任一写/关闭失败则清理临时文件后返回错误。
+func saveVolumeIndexBucketContext(ctx context.Context, v *VolumeIndex, path string, counts namePrefixBucketCounts) error {
+	if v == nil || strings.TrimSpace(path) == "" {
+		return nil
+	}
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	entryCount := len(v.SortedIndices)
+	if len(v.deltaByFRN) > 0 || v.deltaReplaced != nil {
+		nodes, namePool, _, activeCount, err := buildVolumeIndexCheckpointSnapshotLocked(v)
+		if err != nil {
+			return err
+		}
+		entryCount = activeCount
+		counts = buildNamePrefixBucketCounts(nodes, namePool)
+	}
+	tmp, err := os.CreateTemp(filepath.Dir(path), ".bkt-*.tmp")
+	if err != nil {
+		return err
+	}
+	tmpName := tmp.Name()
+	var header [0x40]byte
+	binary.LittleEndian.PutUint64(header[0:8], volumeIndexBucketHeaderMagic)
+	binary.LittleEndian.PutUint16(header[8:10], volumeIndexBucketVersion)
+	binary.LittleEndian.PutUint32(header[0xa:0xe], uint32(entryCount))
+	namePoolSize := uint32(len(counts.twoByte))
+	binary.LittleEndian.PutUint32(header[0xe:0x12], namePoolSize)
+	binary.LittleEndian.PutUint64(header[0x12:0x1a], v.RootFRN)
+	binary.LittleEndian.PutUint64(header[0x1a:0x22], v.JournalID)
+	binary.LittleEndian.PutUint64(header[0x22:0x2a], uint64(v.LastUSN))
+	binary.LittleEndian.PutUint64(header[0x2a:0x32], uint64(timeToUnixNano(v.GeneratedAt)))
+	if err := writeAllContext(ctx, tmp, header[:]); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	firstByteBuf := make([]byte, 0x400)
+	for i := 0; i < 256; i++ {
+		binary.LittleEndian.PutUint32(firstByteBuf[i*4:], uint32(counts.firstByte[i]))
+	}
+	if err := writeAllContext(ctx, tmp, firstByteBuf); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	if namePoolSize > 0 {
+		twoByteBuf := make([]byte, int(namePoolSize)*4)
+		for i := uint32(0); i < namePoolSize; i++ {
+			binary.LittleEndian.PutUint32(twoByteBuf[i*4:], uint32(counts.twoByte[i]))
+		}
+		if err := writeAllContext(ctx, tmp, twoByteBuf); err != nil {
+			_ = tmp.Close()
+			_ = os.Remove(tmpName)
+			return err
+		}
+	}
+	if err := tmp.Close(); err != nil {
+		_ = os.Remove(tmpName)
+		return err
+	}
+	return replaceFileAtomically(tmpName, path)
+}
+
+// buildVolumeIndexCheckpointSnapshotLocked 构建检查点快照（持锁，返回节点/名字池/排序索引/活动计数）。
+// [S-sig 汇编 0x1407e70a0, 314B] 实证：签名 (v *VolumeIndex) (nodes []IndexNode, namePool []byte,
+// sortedIndices []int32, activeCount int, err error)。v==nil→(零,零,nil)；无 delta
+// （len(deltaByFRN)==0 && deltaReplaced==0）且 v.Nodes 非空或 v.NamePool 非空→字段深拷贝；
+// 无 delta 且两者皆空→若 readProvider 为 MappedReadProvider 则走 HeapSnapshot 路径（gap），否则零返回；
+// 有 delta→走 HeapSnapshot + applyTombstones + applyDeltaOverlay 路径（gap，体待专项还原）。
+func buildVolumeIndexCheckpointSnapshotLocked(v *VolumeIndex) (nodes []IndexNode, namePool []byte, sortedIndices []int32, activeCount int, err error) {
+	if v == nil {
+		return nil, nil, nil, 0, nil
+	}
+	if len(v.deltaByFRN) == 0 && v.deltaReplaced == nil {
+		if len(v.Nodes) > 0 || len(v.NamePool) > 0 {
+			nodes = make([]IndexNode, len(v.Nodes))
+			copy(nodes, v.Nodes)
+			namePool = make([]byte, len(v.NamePool))
+			copy(namePool, v.NamePool)
+			sortedIndices = make([]int32, len(v.SortedIndices))
+			copy(sortedIndices, v.SortedIndices)
+			return nodes, namePool, sortedIndices, v.activeCount, nil
+		}
+		if _, ok := v.readProvider.(*volumeIndexMappedReadProvider); ok {
+			return nil, nil, nil, 0, errVolumeIndexNodeBytesInvalid
+		}
+		return nil, nil, nil, 0, nil
+	}
+	return nil, nil, nil, 0, errVolumeIndexNodeBytesInvalid
+}
+
+// loadVolumeIndexCheckpointMappedViewContext mmap 方式加载 checkpoint 视图（含可选 .bkt 桶加载）。
+// [S 汇编 0x1407fb100, 1041B] 实证：签名 (ctx context.Context, root string, path string,
+// bucketPath string) (*volumeIndexCheckpointView, error)（bucketPath 为第 4 寄存参数 @r10/r11）。
+// 流程：contextErr→return；os.OpenFile(path,O_RDONLY,0)→err 分派 errVolumeIndexFileNotFound
+// 或原始 err；f.Stat()→err→close+return；io.ReadAtLeast(f,headerBuf[:64],64)→err→close+
+// errVolumeIndexNodeBytesInvalid；close f；parseVolumeIndexCheckpointHeader→err→return；
+// buildVolumeIndexCheckpointLayout(fi.Size(),entryCount,sortedCount,namePoolSize)→err→return；
+// planVolumeIndexCheckpointMapWithSystemGranularity→err→return；
+// openVolumeIndexMappedFile→err→return；m.Map×3 node/sorted/namePool→err→Close+return；
+// contextErr recheck→Close+return；validateVolumeIndexNodeBytes→err→Close+return。
+// 分支 shouldUseVolumeIndexMmapStaticProvider：true→nodes/sortedIndices/namePool=nil、
+// 校验 sortedBytes 长度与 sortedCount、逐个 sortedIndex∈[0,nodeCount)；false→
+// decodeVolumeIndexNodesFromBytesWithNodeCount→nodes+activeCount→
+// sortedIndices int32-LE copy+逐个越界校验、namePool=copy(namePoolBytes)。
+// 构造 view#1（prefixBuckets=nil）。桶段：bucketPath 非空→want 身份→
+// loadVolumeIndexBucketContext；成功且非 nil→prefixBuckets=counts；否则回退重建
+// buildNamePrefixBucketCountsFromNodeBytes→err→Close+return；recounts 赋值 prefixBuckets、
+// go func(){_ = saveVolumeIndexBucketContext(context.Background(), &tmp, bucketPath, recounts)}()。
+// 构造 view#2（prefixBuckets 已赋值）→ return (view, nil)。
+func loadVolumeIndexCheckpointMappedViewContext(ctx context.Context, root string, path string, bucketPath string) (*volumeIndexCheckpointView, error) {
+	if cerr := contextErr(ctx); cerr != nil {
+		return nil, cerr
+	}
+	f, err := os.OpenFile(path, os.O_RDONLY, 0)
+	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			return nil, errVolumeIndexFileNotFound
+		}
+		return nil, err
+	}
+	fi, err := f.Stat()
+	if err != nil {
+		f.Close()
+		return nil, err
+	}
+	var headerBuf [volumeIndexCheckpointHeaderSize]byte
+	if _, err := io.ReadAtLeast(f, headerBuf[:], volumeIndexCheckpointHeaderSize); err != nil {
+		f.Close()
+		return nil, errVolumeIndexNodeBytesInvalid
+	}
+	f.Close()
+
+	header, err := parseVolumeIndexCheckpointHeader(headerBuf[:])
+	if err != nil {
+		return nil, err
+	}
+	layout, err := buildVolumeIndexCheckpointLayout(fi.Size(), header.entryCount, header.sortedCount, header.namePoolSize)
+	if err != nil {
+		return nil, err
+	}
+	plans, err := planVolumeIndexCheckpointMapWithSystemGranularity(layout)
+	if err != nil {
+		return nil, err
+	}
+	m, err := openVolumeIndexMappedFile(path)
+	if err != nil {
+		return nil, err
+	}
+	nodeBytes, err := m.Map(plans[0].MapOffset, plans[0].MapBytes, plans[0].SectionOffset, plans[0].SectionBytes)
+	if err != nil {
+		m.Close()
+		return nil, err
+	}
+	sortedBytes, err := m.Map(plans[1].MapOffset, plans[1].MapBytes, plans[1].SectionOffset, plans[1].SectionBytes)
+	if err != nil {
+		m.Close()
+		return nil, err
+	}
+	namePoolBytes, err := m.Map(plans[2].MapOffset, plans[2].MapBytes, plans[2].SectionOffset, plans[2].SectionBytes)
+	if err != nil {
+		m.Close()
+		return nil, err
+	}
+	if cerr := contextErr(ctx); cerr != nil {
+		m.Close()
+		return nil, cerr
+	}
+	if err := validateVolumeIndexNodeBytes(nodeBytes, int(header.namePoolSize)); err != nil {
+		m.Close()
+		return nil, err
+	}
+
+	var nodes []IndexNode
+	var sortedIndices []int32
+	var namePool []byte
+	activeCount := 0
+
+	if shouldUseVolumeIndexMmapStaticProvider() {
+		if len(sortedBytes)%4 != 0 {
+			m.Close()
+			return nil, errVolumeIndexNodeBytesInvalid
+		}
+		sortedCount := len(sortedBytes) / 4
+		if int(header.sortedCount) != sortedCount {
+			m.Close()
+			return nil, errVolumeIndexNodeBytesInvalid
+		}
+		nodeCount := len(nodeBytes) / 24
+		for i := 0; i < sortedCount; i++ {
+			idx := int32(binary.LittleEndian.Uint32(sortedBytes[i*4:]))
+			if idx < 0 || int(idx) >= nodeCount {
+				m.Close()
+				return nil, errVolumeIndexNodeBytesInvalid
+			}
+		}
+	} else {
+		var derr error
+		nodes, activeCount, derr = decodeVolumeIndexNodesFromBytesWithNodeCount(nodeBytes, len(nodeBytes)/24)
+		if derr != nil {
+			m.Close()
+			return nil, derr
+		}
+		if len(sortedBytes)%4 != 0 {
+			m.Close()
+			return nil, errVolumeIndexNodeBytesInvalid
+		}
+		sortedIndices = make([]int32, len(sortedBytes)/4)
+		nodeCount := len(nodeBytes) / 24
+		for i := range sortedIndices {
+			sortedIndices[i] = int32(binary.LittleEndian.Uint32(sortedBytes[i*4:]))
+			if sortedIndices[i] < 0 || int(sortedIndices[i]) >= nodeCount {
+				m.Close()
+				return nil, errVolumeIndexNodeBytesInvalid
+			}
+		}
+		namePool = append([]byte(nil), namePoolBytes...)
+	}
+
+	cv := &volumeIndexCheckpointView{
+		root:          root,
+		rootFRN:       header.rootFRN,
+		journalID:     header.journalID,
+		lastUSN:       header.lastUSN,
+		generatedAt:   header.generatedAt,
+		layout:        layout,
+		mappedFile:    m,
+		nodes:         nodes,
+		nodeBytes:     nodeBytes,
+		sortedIndices: sortedIndices,
+		sortedBytes:   sortedBytes,
+		namePool:      namePool,
+		namePoolBytes: namePoolBytes,
+		activeCount:   activeCount,
+	}
+
+	var prefixBuckets *namePrefixBucketCounts
+	if bucketPath != "" {
+		want := volumeIndexBucketIdentity{
+			rootFRN:     header.rootFRN,
+			journalID:   header.journalID,
+			lastUSN:     header.lastUSN,
+			generatedAt: timeToUnixNano(header.generatedAt),
+		}
+		counts, _, lerr := loadVolumeIndexBucketContext(ctx, bucketPath, &want, true)
+		if lerr != nil || counts == nil {
+			recounts, _, rerr := buildNamePrefixBucketCountsFromNodeBytes(nodeBytes, namePoolBytes)
+			if rerr != nil {
+				m.Close()
+				return nil, rerr
+			}
+			prefixBuckets = &recounts
+			go func() {
+				var tmp VolumeIndex
+				tmp.RootFRN = header.rootFRN
+				tmp.JournalID = header.journalID
+				tmp.LastUSN = header.lastUSN
+				tmp.GeneratedAt = header.generatedAt
+				tmp.activeCount = activeCount
+				tmp.prefixBuckets = recounts
+				_ = saveVolumeIndexBucketContext(context.Background(), &tmp, bucketPath, recounts)
+			}()
+		} else {
+			prefixBuckets = counts
+		}
+	}
+	cv.prefixBuckets = prefixBuckets
+	return cv, nil
+}
 
 // buildVolumeNameTrigramHeaderLocked 构建名称三元组索引头（调用方持锁）。
 // [S 汇编 0x1407f66e0, 512B] 实证：entryCount∉[0,0xffffffff] → 返回 64B 零头；

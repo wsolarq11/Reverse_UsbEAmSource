@@ -1340,13 +1340,60 @@ func (p *volumeIndexMappedReadProvider) CheckpointSections() (volumeIndexCheckpo
 }
 
 // saveVolumeIndexCheckpointLockedContext 持锁保存 checkpoint（两条路径：sections 直写 / heap 快照写入）。
-// [P 0x1407f4ae0, 928B]：asm 实证 contextErr→readProvider nil?→heap path；CheckpointSections→
-// IsSourcePath→heap path?→buildVolumeIndexCheckpointHeaderLocked→
-// writeVolumeIndexCheckpointSectionsContext；堆路径→
-// buildVolumeIndexCheckpointSnapshotLocked→err?→return err→
-// writeVolumeIndexCheckpointHeapContext。体待 heap path 专项还原。
+// [S 汇编 0x1407f4ae0, 928B] 实证：contextErr→readProvider 非 Mapped→堆路径直落；
+// readProvider 为 Mapped→再查 deltaByFRN(len>0)/deltaReplaced(≠nil)/Nodes(len>0)/
+// SortedIndices(len>0)/NamePool(len>0)→任一项命中即堆路径，否则 CheckpointSections→
+// !ok 或 !IsSourcePath→堆路径，否则 sections 直写路径。
 func saveVolumeIndexCheckpointLockedContext(ctx context.Context, v *VolumeIndex, path string) error {
-	_, _, _ = ctx, v, path
+	if err := contextErr(ctx); err != nil {
+		return err
+	}
+	// 若 readProvider 非 *volumeIndexMappedReadProvider（或无），直接走堆路径。
+	rp, isMapped := v.readProvider.(*volumeIndexMappedReadProvider)
+	if !isMapped || rp == nil {
+		nodes, namePool, sortedIndices, activeCount, err := buildVolumeIndexCheckpointSnapshotLocked(v)
+		if err != nil {
+			return err
+		}
+		return writeVolumeIndexCheckpointHeapContext(ctx, v, path, nodes, namePool, sortedIndices, activeCount)
+	}
+	// readProvider 为 Mapped：有 delta 或内存数据则强制堆路径。
+	if len(v.deltaByFRN) > 0 || v.deltaReplaced != nil ||
+		len(v.Nodes) > 0 || len(v.SortedIndices) > 0 || len(v.NamePool) > 0 {
+		nodes, namePool, sortedIndices, activeCount, err := buildVolumeIndexCheckpointSnapshotLocked(v)
+		if err != nil {
+			return err
+		}
+		return writeVolumeIndexCheckpointHeapContext(ctx, v, path, nodes, namePool, sortedIndices, activeCount)
+	}
+	// 尝试 sections 路径：要求 CheckpointSections 成功且路径匹配源文件。
+	sections, ok := rp.CheckpointSections()
+	if !ok || !rp.IsSourcePath(path) {
+		nodes, namePool, sortedIndices, activeCount, err := buildVolumeIndexCheckpointSnapshotLocked(v)
+		if err != nil {
+			return err
+		}
+		return writeVolumeIndexCheckpointHeapContext(ctx, v, path, nodes, namePool, sortedIndices, activeCount)
+	}
+	// sections 直写路径。
+	nodeCount := uint32(len(sections.nodes) / 24)
+	sortedCount := uint32(len(sections.sorted) / 4)
+	namePoolSize := uint32(len(sections.names))
+	header := buildVolumeIndexCheckpointHeaderLocked(v, nodeCount, sortedCount, namePoolSize)
+	return writeVolumeIndexCheckpointSectionsContext(ctx, path, header, sections.nodes, sections.sorted, sections.names)
+}
+
+// writeVolumeIndexCheckpointHeapContext 堆快照持久化 checkpoint（头+节点+排序+名字池+字段更新）。
+// [P 0x1407f4fa0, 2112B]：asm 实证签名 (ctx context.Context, v *VolumeIndex, path string,
+// nodes []IndexNode, namePool []byte, sortedIndices []int32, activeCount int) error。
+// 流程：sortedIndices 逐个边界校验→MkdirAll→CreateTemp→buildVolumeIndexCheckpointHeaderLocked
+// →writeAllContext(header)→writeVolumeIndexNodesContext→writeVolumeIndexSortedIndicesContext
+// →contextErr→writeAllContext(namePool)→close→closeMappedReadProviderForReplaceLocked
+// →replaceFileAtomically→字段更新(+0x38/+0x40/+0x48/+0x50/+0x58/+0x60/+0x68/+0x70/+0x78/+0xd8/+0xe8/+0xf0)
+// →clearNameTrigramIndexLocked→buildNamePrefixBucketCounts→prefixBuckets 更新。
+// 体待 405 asm 行专项还原。
+func writeVolumeIndexCheckpointHeapContext(ctx context.Context, v *VolumeIndex, path string, nodes []IndexNode, namePool []byte, sortedIndices []int32, activeCount int) error {
+	_, _, _, _, _, _, _ = ctx, v, path, nodes, namePool, sortedIndices, activeCount
 	return nil
 }
 
@@ -2426,7 +2473,96 @@ func loadVolumeNameTrigramIndexIntoVolumeContext(ctx context.Context, idx *Volum
 	return nil
 }
 
-// writeVolumeIndexNodesContext 将 []IndexNode 按 24B 小端格式分块写入（0x2000 块/0x30000 缓冲）。\n// [S 汇编 0x1407f5dc0, 1056B] 实证：签名 (ctx context.Context, w io.Writer, nodes []IndexNode) error。\n// len(nodes)==0（@0x1407f5dfa test r8,je）→ (nil,nil)；makeslice([]byte,0x30000)（@0x1407f5e29/35）；\n// 外层游标循环：contextErr(ctx)（@0x1407f5e86）→err；chunk=min(剩余,0x2000)（@0x1407f5ea7 jle/cmp r11d,0x2000）、\n// chunkBytes=chunk*24（@0x1407f5eb6 lea+shl 3）；内层逐节点序列化 24B：FRN qword LE@+0（@0x1407f5faf）、\n// NameOffset dword LE@+8（@0x1407f5fef）、ParentIdx dword LE@+12（@0x1407f602f）、\n// ModTime dword LE@+16（@0x1407f606f）、NameLen word LE@+20（@0x1407f609c）、\n// Flags word LE@+22（@0x1407f5f2f）；writeAllContext(ctx,w,buf[:chunkBytes])（@0x1407f5f06）；\n// err!=nil→return；cursor+=chunk 推进（@0x1407f5e5a）；终 return (nil,nil)（@0x1407f5f1f）。\nfunc writeVolumeIndexNodesContext(ctx context.Context, w io.Writer, nodes []IndexNode) error {\n\tif len(nodes) == 0 {\n\t\treturn nil\n\t}\n\tbuf := make([]byte, 0x30000)\n\tvar cursor int\n\tfor cursor < len(nodes) {\n\t\tif err := contextErr(ctx); err != nil {\n\t\t\treturn err\n\t\t}\n\t\tchunk := len(nodes) - cursor\n\t\tif chunk > 0x2000 {\n\t\t\tchunk = 0x2000\n\t\t}\n\t\tchunkBytes := chunk * 24\n\t\tfor i := 0; i < chunk; i++ {\n\t\t\tnode := nodes[cursor+i]\n\t\t\toff := i * 24\n\t\t\tbinary.LittleEndian.PutUint64(buf[off:off+8], node.FRN)\n\t\t\tbinary.LittleEndian.PutUint32(buf[off+8:off+12], uint32(node.NameOffset))\n\t\t\tbinary.LittleEndian.PutUint32(buf[off+12:off+16], uint32(node.ParentIdx))\n\t\t\tbinary.LittleEndian.PutUint32(buf[off+16:off+20], uint32(node.ModTime))\n\t\t\tbinary.LittleEndian.PutUint16(buf[off+20:off+22], node.NameLen)\n\t\t\tbinary.LittleEndian.PutUint16(buf[off+22:off+24], node.Flags)\n\t\t}\n\t\tif err := writeAllContext(ctx, w, buf[:chunkBytes]); err != nil {\n\t\t\treturn err\n\t\t}\n\t\tcursor += chunk\n\t}\n\treturn nil\n}\n\n// writeVolumeIndexCheckpointSectionsContext 持久化 checkpoint 文件（头+节点+排序+名字池四段）。\n// [S 汇编 0x1407f57e0, 1024B] 实证：签名 (ctx context.Context, path string, header [64]byte,\n// nodes []byte, sorted []byte, namePool []byte) error。contextErr→return（@0x1407f5875）；\n// MkdirAll(filepath.Dir(path), 0o755)（@0x1407f588b/95，ecx=0x1ed）→err→return；\n// os.CreateTemp(filepath.Dir(path), \".data-*.tmp\")（@0x1407f58be/ca，edi=0xa）→err→return；\n// 写头 writeAllContext(ctx, tmp, header[:0x40])（@0x1407f5924）→err 清理；写节点字节\n// writeAllContext(ctx,tmp, nodes)（@0x1407f5966）→err 清理；写排序 writeAllContext(ctx,tmp,sorted)\n// （@0x1407f59a8）→err 清理；写名字池 writeAllContext(ctx,tmp,namePool)（@0x1407f59ea）→err 清理；\n// tmp.Close()（@0x1407f5a00）→err 清理后 os.Remove 返回；replaceFileAtomically(tmpName, path)\n// （@0x1407f5a52）→return err。任一写失败→close+Remove 清理暂存文件后返回错误。\nfunc writeVolumeIndexCheckpointSectionsContext(ctx context.Context, path string, header [64]byte, nodes []byte, sorted []byte, namePool []byte) error {\n\tif err := contextErr(ctx); err != nil {\n\t\treturn err\n\t}\n\tif err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {\n\t\treturn err\n\t}\n\ttmp, err := os.CreateTemp(filepath.Dir(path), \".data-*.tmp\")\n\tif err != nil {\n\t\treturn err\n\t}\n\ttmpName := tmp.Name()\n\tif err := writeAllContext(ctx, tmp, header[:]); err != nil {\n\t\t_ = tmp.Close()\n\t\t_ = os.Remove(tmpName)\n\t\treturn err\n\t}\n\tif err := writeAllContext(ctx, tmp, nodes); err != nil {\n\t\t_ = tmp.Close()\n\t\t_ = os.Remove(tmpName)\n\t\treturn err\n\t}\n\tif err := writeAllContext(ctx, tmp, sorted); err != nil {\n\t\t_ = tmp.Close()\n\t\t_ = os.Remove(tmpName)\n\t\treturn err\n\t}\n\tif err := writeAllContext(ctx, tmp, namePool); err != nil {\n\t\t_ = tmp.Close()\n\t\t_ = os.Remove(tmpName)\n\t\treturn err\n\t}\n\tif err := tmp.Close(); err != nil {\n\t\t_ = os.Remove(tmpName)\n\t\treturn err\n\t}\n\treturn replaceFileAtomically(tmpName, path)\n}\n\n// resolvePath 解析日志待定状态的节点路径（递归 + 缓存）。
+// writeVolumeIndexNodesContext 将 []IndexNode 按 24B 小端格式分块写入（0x2000 块/0x30000 缓冲）。
+// [S 汇编 0x1407f5dc0, 1056B] 实证：签名 (ctx context.Context, w io.Writer, nodes []IndexNode) error。
+// len(nodes)==0→nil；makeslice([]byte,0x30000)；外层游标循环：contextErr(ctx)→err；
+// chunk=min(剩余,0x2000)、chunkBytes=chunk*24；内层逐节点序列化 24B：FRN qword LE@+0、
+// NameOffset dword LE@+8、ParentIdx dword LE@+12、ModTime dword LE@+16、
+// NameLen word LE@+20、Flags word LE@+22；writeAllContext(ctx,w,buf[:chunkBytes])；
+// err!=nil→return；cursor+=chunk 推进；终 return nil。
+func writeVolumeIndexNodesContext(ctx context.Context, w io.Writer, nodes []IndexNode) error {
+	if len(nodes) == 0 {
+		return nil
+	}
+	buf := make([]byte, 0x30000)
+	var cursor int
+	for cursor < len(nodes) {
+		if err := contextErr(ctx); err != nil {
+			return err
+		}
+		chunk := len(nodes) - cursor
+		if chunk > 0x2000 {
+			chunk = 0x2000
+		}
+		chunkBytes := chunk * 24
+		for i := 0; i < chunk; i++ {
+			node := nodes[cursor+i]
+			off := i * 24
+			binary.LittleEndian.PutUint64(buf[off:off+8], node.FRN)
+			binary.LittleEndian.PutUint32(buf[off+8:off+12], uint32(node.NameOffset))
+			binary.LittleEndian.PutUint32(buf[off+12:off+16], uint32(node.ParentIdx))
+			binary.LittleEndian.PutUint32(buf[off+16:off+20], uint32(node.ModTime))
+			binary.LittleEndian.PutUint16(buf[off+20:off+22], node.NameLen)
+			binary.LittleEndian.PutUint16(buf[off+22:off+24], node.Flags)
+		}
+		if err := writeAllContext(ctx, w, buf[:chunkBytes]); err != nil {
+			return err
+		}
+		cursor += chunk
+	}
+	return nil
+}
+
+
+
+// writeVolumeIndexCheckpointSectionsContext 持久化 checkpoint 文件（头+节点+排序+名字池四段）。
+// [S 汇编 0x1407f57e0, 1024B] 实证：签名 (ctx context.Context, path string, header [64]byte,
+// nodes []byte, sorted []byte, namePool []byte) error。contextErr→return；
+// MkdirAll(filepath.Dir(path), 0o755)→err→return；
+// os.CreateTemp(filepath.Dir(path), ".data-*.tmp")→err→return；
+// 写头 writeAllContext(ctx, tmp, header[:0x40])→err 清理；写节点字节
+// writeAllContext(ctx,tmp, nodes)→err 清理；写排序 writeAllContext(ctx,tmp,sorted)
+// →err 清理；写名字池 writeAllContext(ctx,tmp,namePool)→err 清理；
+// tmp.Close()→err 清理后 os.Remove 返回；replaceFileAtomically(tmpName, path)→return err。
+// 任一写失败→close+Remove 清理暂存文件后返回错误。
+func writeVolumeIndexCheckpointSectionsContext(ctx context.Context, path string, header [64]byte, nodes []byte, sorted []byte, namePool []byte) error {
+	if err := contextErr(ctx); err != nil {
+		return err
+	}
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	tmp, err := os.CreateTemp(filepath.Dir(path), ".data-*.tmp")
+	if err != nil {
+		return err
+	}
+	tmpName := tmp.Name()
+	if err := writeAllContext(ctx, tmp, header[:]); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	if err := writeAllContext(ctx, tmp, nodes); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	if err := writeAllContext(ctx, tmp, sorted); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	if err := writeAllContext(ctx, tmp, namePool); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	if err := tmp.Close(); err != nil {
+		_ = os.Remove(tmpName)
+		return err
+	}
+	return replaceFileAtomically(tmpName, path)
+}
 // [S-sig 0x140807140, 416B]：缓存 map 命中→返回；entry → 递归 parent → filepath.join 缓存。
 // 体待日志待定域专项还原。
 func (s *volumeIndexJournalPendingState) resolvePath(a, b interface{}) string {

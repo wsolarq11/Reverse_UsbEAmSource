@@ -61,7 +61,7 @@ node tools/list_missing.js
 
 ---
 
-## 1. 一句话现状（批次 392 · .bkt 桶持久化 + checkpoint 视图全链汇合 · FUNCS 3293，69.27%）
+## 1. 一句话现状（批次 394 · saveVolumeIndexCheckpointLockedContext [S] + writeVolumeIndexCheckpointHeapContext [P] 存根 · FUNCS 3298，69.37%）
 
 前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 391**，后端非测试代码 **235 个 .go 文件**，测试 **92 文件**。
 
@@ -73,8 +73,8 @@ node tools/list_missing.js
 |---|---|---|---|
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
-| 已重建函数 | 3293 | 4,754 | `node tools/count_funcs.js` 实测（批次 392 后） |
-| 真函数（S+S-inline+S-sig） | 3251 | 4,754 | 同上，**批次 392 达 68.38%** |
+| 已重建函数 | 3298 | 4,754 | `node tools/count_funcs.js` 实测（批次 394 后） |
+| 真函数（S+S-inline+S-sig） | 3255 | 4,754 | 同上，**批次 394 达 68.47%** |
 | 文件覆盖 | 114/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 30 | **0** | 差集（清单见 `UNLANDED.md`，批次 375 后实测） |
 | UNMARKED | 0 | **0** | `node tools/count_funcs.js` 实测 |
@@ -86,11 +86,11 @@ node tools/list_missing.js
 
 ---
 
-## 2. 交接状态（批次 392 收尾后）
+## 2. 交接状态（批次 394 收尾后）
 
-**下一批推荐**：checkpoint 写链（`saveVolumeIndexCheckpointContext + buildVolumeIndexCheckpointFileContext + writeVolumeIndexNodesContext`），`P=41 → [S]` 转换。
+**下一批推荐**：`writeVolumeIndexCheckpointHeapContext` [P→S] 升级（2112B, 405 行 asm），连接 `saveVolumeIndexCheckpointLockedContext` 的堆快照持久化分支。
 
-**未落地文件差集 30**（清单见 `UNLANDED.md`，批次 375 后实测）；**P=41 持平**；**UNMARKED=0 保持**。
+**未落地文件差集 30**（清单见 `UNLANDED.md`，批次 375 后实测）；**P=43 持平**；**UNMARKED=0 保持**。
 
 **整洁基线（批次 374 后一次性）**：全仓 `gofmt` 已归位（`git show a7e52e6`，纯格式，count 不变），`go vet` 干净；后端纯 Go（`CGO_ENABLED=0`、无 `CgoFiles`），`.github/workflows/ci.yml` 已对齐本地门禁（go1.25.12 + `-tags production` build/vet/test）。新会话开工前若 `gofmt -l ./backend` 仍列文件，说明有新增手写码未格式化。
 

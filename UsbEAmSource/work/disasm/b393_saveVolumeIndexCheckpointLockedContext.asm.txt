@@ -1,0 +1,175 @@
+0x1407f4ae0: lea      r12, [rsp - 0xc8]
+0x1407f4ae8: cmp      r12, qword ptr [r14 + 0x10]
+0x1407f4aec: jbe      0x1407f4e38   ; main.saveVolumeIndexCheckpointLockedContext+0x358
+0x1407f4af2: push     rbp
+0x1407f4af3: mov      rbp, rsp
+0x1407f4af6: sub      rsp, 0x140
+0x1407f4afd: mov      qword ptr [rsp + 0x160], rcx
+0x1407f4b05: mov      qword ptr [rsp + 0x170], rsi
+0x1407f4b0d: mov      qword ptr [rsp + 0x158], rbx
+0x1407f4b15: mov      qword ptr [rsp + 0x150], rax
+0x1407f4b1d: mov      qword ptr [rsp + 0x168], rdi
+0x1407f4b25: call     0x140853840   ; main.contextErr
+0x1407f4b2a: test     rax, rax
+0x1407f4b2d: jne      0x1407f4e2f   ; main.saveVolumeIndexCheckpointLockedContext+0x34f
+0x1407f4b33: lea      rcx, [rip + 0x9de406]
+0x1407f4b3a: mov      rax, qword ptr [rsp + 0x160]
+0x1407f4b42: cmp      qword ptr [rax + 0x520], rcx
+0x1407f4b49: jne      0x1407f4b54   ; main.saveVolumeIndexCheckpointLockedContext+0x74
+0x1407f4b4b: mov      rcx, qword ptr [rax + 0x528]
+0x1407f4b52: jmp      0x1407f4b59   ; main.saveVolumeIndexCheckpointLockedContext+0x79
+0x1407f4b54: mov      ecx, 0
+0x1407f4b59: jne      0x1407f4d9c   ; main.saveVolumeIndexCheckpointLockedContext+0x2bc
+0x1407f4b5f: mov      rdx, qword ptr [rax + 0x548]
+0x1407f4b66: test     rdx, rdx
+0x1407f4b69: je       0x1407f4b70   ; main.saveVolumeIndexCheckpointLockedContext+0x90
+0x1407f4b6b: mov      rdx, qword ptr [rdx]
+0x1407f4b6e: jmp      0x1407f4b72   ; main.saveVolumeIndexCheckpointLockedContext+0x92
+0x1407f4b70: xor      edx, edx
+0x1407f4b72: test     rdx, rdx
+0x1407f4b75: jne      0x1407f4d9c   ; main.saveVolumeIndexCheckpointLockedContext+0x2bc
+0x1407f4b7b: cmp      qword ptr [rax + 0x570], 0
+0x1407f4b83: jne      0x1407f4d9c   ; main.saveVolumeIndexCheckpointLockedContext+0x2bc
+0x1407f4b89: cmp      qword ptr [rax + 0x40], 0
+0x1407f4b8e: jne      0x1407f4d9c   ; main.saveVolumeIndexCheckpointLockedContext+0x2bc
+0x1407f4b94: cmp      qword ptr [rax + 0x70], 0
+0x1407f4b99: jne      0x1407f4d9c   ; main.saveVolumeIndexCheckpointLockedContext+0x2bc
+0x1407f4b9f: cmp      qword ptr [rax + 0x58], 0
+0x1407f4ba4: jne      0x1407f4d9c   ; main.saveVolumeIndexCheckpointLockedContext+0x2bc
+0x1407f4baa: mov      qword ptr [rsp + 0xf0], rcx
+0x1407f4bb2: mov      rax, rcx
+0x1407f4bb5: call     0x1407e4560   ; main.volumeIndexMappedReadProvider.CheckpointSections
+0x1407f4bba: cmp      byte ptr [rsp], 0
+0x1407f4bbe: mov      qword ptr [rsp + 0xf8], rax
+0x1407f4bc6: mov      qword ptr [rsp + 0x100], rbx
+0x1407f4bce: mov      qword ptr [rsp + 0x108], rcx
+0x1407f4bd6: mov      qword ptr [rsp + 0x110], rdi
+0x1407f4bde: mov      qword ptr [rsp + 0x118], rsi
+0x1407f4be6: mov      qword ptr [rsp + 0x120], r8
+0x1407f4bee: mov      qword ptr [rsp + 0x128], r9
+0x1407f4bf6: mov      qword ptr [rsp + 0x130], r10
+0x1407f4bfe: mov      qword ptr [rsp + 0x138], r11
+0x1407f4c06: mov      rcx, qword ptr [rsp + 0xf8]
+0x1407f4c0e: mov      qword ptr [rsp + 0xa8], rcx
+0x1407f4c16: movups   xmm0, xmmword ptr [rsp + 0x100]
+0x1407f4c1e: movups   xmmword ptr [rsp + 0xb0], xmm0
+0x1407f4c26: movups   xmm0, xmmword ptr [rsp + 0x110]
+0x1407f4c2e: movups   xmmword ptr [rsp + 0xc0], xmm0
+0x1407f4c36: movups   xmm0, xmmword ptr [rsp + 0x120]
+0x1407f4c3e: movups   xmmword ptr [rsp + 0xd0], xmm0
+0x1407f4c46: movups   xmm0, xmmword ptr [rsp + 0x130]
+0x1407f4c4e: movups   xmmword ptr [rsp + 0xe0], xmm0
+0x1407f4c56: je       0x1407f4c79   ; main.saveVolumeIndexCheckpointLockedContext+0x199
+0x1407f4c58: mov      rax, qword ptr [rsp + 0xf0]
+0x1407f4c60: mov      rbx, qword ptr [rsp + 0x168]
+0x1407f4c68: mov      rcx, qword ptr [rsp + 0x170]
+0x1407f4c70: call     0x1407e48a0   ; main.volumeIndexMappedReadProvider.IsSourcePath
+0x1407f4c75: test     al, al
+0x1407f4c77: je       0x1407f4c86   ; main.saveVolumeIndexCheckpointLockedContext+0x1a6
+0x1407f4c79: mov      rax, qword ptr [rsp + 0x160]
+0x1407f4c81: jmp      0x1407f4d9c   ; main.saveVolumeIndexCheckpointLockedContext+0x2bc
+0x1407f4c86: mov      rdx, qword ptr [rsp + 0xb0]
+0x1407f4c8e: movabs   rax, 0xaaaaaaaaaaaaaaab
+0x1407f4c98: mov      rcx, rdx
+0x1407f4c9b: imul     rdx
+0x1407f4c9e: lea      rbx, [rdx + rcx]
+0x1407f4ca2: sar      rbx, 4
+0x1407f4ca6: mov      rcx, qword ptr [rsp + 0xc8]
+0x1407f4cae: shr      rcx, 2
+0x1407f4cb2: mov      rdi, qword ptr [rsp + 0xe0]
+0x1407f4cba: mov      rax, qword ptr [rsp + 0x160]
+0x1407f4cc2: call     0x1407f4e80   ; main.buildVolumeIndexCheckpointHeaderLocked
+0x1407f4cc7: movups   xmm0, xmmword ptr [rsp]
+0x1407f4ccb: movups   xmmword ptr [rsp + 0xf8], xmm0
+0x1407f4cd3: movups   xmm0, xmmword ptr [rsp + 0x10]
+0x1407f4cd8: movups   xmmword ptr [rsp + 0x108], xmm0
+0x1407f4ce0: movups   xmm0, xmmword ptr [rsp + 0x20]
+0x1407f4ce5: movups   xmmword ptr [rsp + 0x118], xmm0
+0x1407f4ced: movups   xmm0, xmmword ptr [rsp + 0x30]
+0x1407f4cf2: movups   xmmword ptr [rsp + 0x128], xmm0
+0x1407f4cfa: movups   xmm0, xmmword ptr [rsp + 0xf8]
+0x1407f4d02: movups   xmmword ptr [rsp], xmm0
+0x1407f4d06: movups   xmm0, xmmword ptr [rsp + 0x108]
+0x1407f4d0e: movups   xmmword ptr [rsp + 0x10], xmm0
+0x1407f4d13: movups   xmm0, xmmword ptr [rsp + 0x118]
+0x1407f4d1b: movups   xmmword ptr [rsp + 0x20], xmm0
+0x1407f4d20: movups   xmm0, xmmword ptr [rsp + 0x128]
+0x1407f4d28: movups   xmmword ptr [rsp + 0x30], xmm0
+0x1407f4d2d: mov      rdx, qword ptr [rsp + 0xa8]
+0x1407f4d35: mov      qword ptr [rsp + 0x40], rdx
+0x1407f4d3a: movups   xmm0, xmmword ptr [rsp + 0xb0]
+0x1407f4d42: movups   xmmword ptr [rsp + 0x48], xmm0
+0x1407f4d47: movups   xmm0, xmmword ptr [rsp + 0xc0]
+0x1407f4d4f: movups   xmmword ptr [rsp + 0x58], xmm0
+0x1407f4d54: movups   xmm0, xmmword ptr [rsp + 0xd0]
+0x1407f4d5c: movups   xmmword ptr [rsp + 0x68], xmm0
+0x1407f4d61: movups   xmm0, xmmword ptr [rsp + 0xe0]
+0x1407f4d69: movups   xmmword ptr [rsp + 0x78], xmm0
+0x1407f4d6e: mov      rax, qword ptr [rsp + 0x150]
+0x1407f4d76: mov      rbx, qword ptr [rsp + 0x158]
+0x1407f4d7e: mov      rcx, qword ptr [rsp + 0x168]
+0x1407f4d86: mov      rdi, qword ptr [rsp + 0x170]
+0x1407f4d8e: call     0x1407f57e0   ; main.writeVolumeIndexCheckpointSectionsContext
+0x1407f4d93: add      rsp, 0x140
+0x1407f4d9a: pop      rbp
+0x1407f4d9b: ret      
+0x1407f4d9c: nop      dword ptr [rax]
+0x1407f4da0: call     0x1407e70a0   ; main.buildVolumeIndexCheckpointSnapshotLocked
+0x1407f4da5: mov      rdx, qword ptr [rsp + 0x10]
+0x1407f4daa: test     rdx, rdx
+0x1407f4dad: je       0x1407f4dc1   ; main.saveVolumeIndexCheckpointLockedContext+0x2e1
+0x1407f4daf: mov      rbx, qword ptr [rsp + 0x18]
+0x1407f4db4: mov      rax, rdx
+0x1407f4db7: add      rsp, 0x140
+0x1407f4dbe: pop      rbp
+0x1407f4dbf: nop      
+0x1407f4dc0: ret      
+0x1407f4dc1: mov      rdx, qword ptr [rsp]
+0x1407f4dc5: movzx    r12d, byte ptr [rsp + 8]
+0x1407f4dcb: mov      qword ptr [rsp], rdi
+0x1407f4dcf: mov      qword ptr [rsp + 8], rsi
+0x1407f4dd4: mov      qword ptr [rsp + 0x10], r8
+0x1407f4dd9: mov      qword ptr [rsp + 0x18], r9
+0x1407f4dde: mov      qword ptr [rsp + 0x20], r10
+0x1407f4de3: mov      qword ptr [rsp + 0x28], r11
+0x1407f4de8: mov      byte ptr [rsp + 0x30], r12b
+0x1407f4ded: mov      rdi, qword ptr [rsp + 0x168]
+0x1407f4df5: mov      rsi, qword ptr [rsp + 0x170]
+0x1407f4dfd: mov      r8, rax
+0x1407f4e00: mov      r9, rbx
+0x1407f4e03: mov      r10, rcx
+0x1407f4e06: mov      r11, rdx
+0x1407f4e09: mov      rax, qword ptr [rsp + 0x150]
+0x1407f4e11: mov      rbx, qword ptr [rsp + 0x158]
+0x1407f4e19: mov      rcx, qword ptr [rsp + 0x160]
+0x1407f4e21: call     0x1407f4fa0   ; main.writeVolumeIndexCheckpointHeapContext
+0x1407f4e26: add      rsp, 0x140
+0x1407f4e2d: pop      rbp
+0x1407f4e2e: ret      
+0x1407f4e2f: add      rsp, 0x140
+0x1407f4e36: pop      rbp
+0x1407f4e37: ret      
+0x1407f4e38: mov      qword ptr [rsp + 8], rax
+0x1407f4e3d: mov      qword ptr [rsp + 0x10], rbx
+0x1407f4e42: mov      qword ptr [rsp + 0x18], rcx
+0x1407f4e47: mov      qword ptr [rsp + 0x20], rdi
+0x1407f4e4c: mov      qword ptr [rsp + 0x28], rsi
+0x1407f4e51: call     0x14007f140   ; runtime.morestack_noctxt
+0x1407f4e56: mov      rax, qword ptr [rsp + 8]
+0x1407f4e5b: mov      rbx, qword ptr [rsp + 0x10]
+0x1407f4e60: mov      rcx, qword ptr [rsp + 0x18]
+0x1407f4e65: mov      rdi, qword ptr [rsp + 0x20]
+0x1407f4e6a: mov      rsi, qword ptr [rsp + 0x28]
+0x1407f4e6f: jmp      0x1407f4ae0   ; main.saveVolumeIndexCheckpointLockedContext
+0x1407f4e74: int3     
+0x1407f4e75: int3     
+0x1407f4e76: int3     
+0x1407f4e77: int3     
+0x1407f4e78: int3     
+0x1407f4e79: int3     
+0x1407f4e7a: int3     
+0x1407f4e7b: int3     
+0x1407f4e7c: int3     
+0x1407f4e7d: int3     
+0x1407f4e7e: int3     
+0x1407f4e7f: int3     

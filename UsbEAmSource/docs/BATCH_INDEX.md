@@ -349,3 +349,6 @@
 | 390 | [batch390.md](acceptance/batch390.md) | 批次 390 · checkpoint 读链节点流解析 +1 · FUNCS 3286 |
 | 391 | [batch391.md](acceptance/batch391.md) | 批次 391 · checkpoint 读链前缀桶计数 +3 · FUNCS 3289 |
 | 392 | [batch392.md](acceptance/batch392.md) | 批次 392 · .bkt 桶持久化 + checkpoint 视图全链汇合 · FUNCS 3293 |
+| 393 | [batch393.md](acceptance/batch393.md) | Batch 393 — Checkpoint Write Chain 部分落地 |
+| 394 | [batch394.md](acceptance/batch394.md) | Batch 394 — Checkpoint Write Chain: saveVolumeIndexCheckpointLockedContext [S] + writeVolumeIndexCheckpointHeapContext [P] 存根 |
+| 395 | [batch395.md](acceptance/batch395.md) | 批次 395 验收 — writeVolumeIndexCheckpointHeapContext [P→S] |

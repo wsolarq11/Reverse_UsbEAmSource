@@ -1384,16 +1384,95 @@ func saveVolumeIndexCheckpointLockedContext(ctx context.Context, v *VolumeIndex,
 }
 
 // writeVolumeIndexCheckpointHeapContext 堆快照持久化 checkpoint（头+节点+排序+名字池+字段更新）。
-// [P 0x1407f4fa0, 2112B]：asm 实证签名 (ctx context.Context, v *VolumeIndex, path string,
+// [S 汇编 0x1407f4fa0, 2112B] 实证：签名 (ctx context.Context, v *VolumeIndex, path string,
 // nodes []IndexNode, namePool []byte, sortedIndices []int32, activeCount int) error。
-// 流程：sortedIndices 逐个边界校验→MkdirAll→CreateTemp→buildVolumeIndexCheckpointHeaderLocked
-// →writeAllContext(header)→writeVolumeIndexNodesContext→writeVolumeIndexSortedIndicesContext
-// →contextErr→writeAllContext(namePool)→close→closeMappedReadProviderForReplaceLocked
-// →replaceFileAtomically→字段更新(+0x38/+0x40/+0x48/+0x50/+0x58/+0x60/+0x68/+0x70/+0x78/+0xd8/+0xe8/+0xf0)
-// →clearNameTrigramIndexLocked→buildNamePrefixBucketCounts→prefixBuckets 更新。
-// 体待 405 asm 行专项还原。
+// 流程：(1) contextErr 守卫；(2) 遍历 nodes 校验每个 node.ParentIdx∈[-1, len(nodes))；
+// (3) MkdirAll→CreateTemp→buildVolumeIndexCheckpointHeaderLocked(v, len(nodes),
+// len(sortedIndices), len(namePool))→writeAllContext(header[0x40])→
+// writeVolumeIndexNodesContext(nodes)→writeVolumeIndexSortedIndicesContext(sortedIndices)→
+// contextErr 重检→writeAllContext(namePool)→tmp.Close→
+// closeMappedReadProviderForReplaceLocked→replaceFileAtomically；
+// (4) 字段更新：v.Nodes=nodes、v.SortedIndices=sortedIndices、v.NamePool=namePool、
+// v.activeCount=activeCount、delta 全清零→buildNamePrefixBucketCounts→v.prefixBuckets→
+// clearNameTrigramIndexLocked。
+// 5 路错误清理：任一步失败则 os.Remove(tmpName)+（若 tmp 仍打开则 Close）后返回错误。
 func writeVolumeIndexCheckpointHeapContext(ctx context.Context, v *VolumeIndex, path string, nodes []IndexNode, namePool []byte, sortedIndices []int32, activeCount int) error {
-	_, _, _, _, _, _, _ = ctx, v, path, nodes, namePool, sortedIndices, activeCount
+	// (1) contextErr 守卫（@0x1407f5005 contextErr + @0x1407f500d test jne）。
+	if err := contextErr(ctx); err != nil {
+		return err
+	}
+	// (2) 遍历 nodes 校验每个 node.ParentIdx∈[-1, len(nodes))（@0x1407f502c..5083）。
+	nodeCount := len(nodes)
+	for i := 0; i < nodeCount; i++ {
+		p := int(nodes[i].ParentIdx)
+		if p < -1 || p >= nodeCount {
+			return errVolumeIndexNodeBytesInvalid
+		}
+	}
+	// (3) 写入管线：MkdirAll → CreateTemp → header → nodes → sortedIndices → namePool → Close。
+	dir := filepath.Dir(path)
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return err
+	}
+	tmp, err := os.CreateTemp(dir, ".data-*.tmp")
+	if err != nil {
+		return err
+	}
+	tmpName := tmp.Name()
+	// header（@0x1407f5147 buildVolumeIndexCheckpointHeaderLocked）。
+	header := buildVolumeIndexCheckpointHeaderLocked(v, uint32(nodeCount), uint32(len(sortedIndices)), uint32(len(namePool)))
+	if err := writeAllContext(ctx, tmp, header[:]); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	// nodes（@0x1407f51e5 writeVolumeIndexNodesContext）。
+	if err := writeVolumeIndexNodesContext(ctx, tmp, nodes); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	// sortedIndices（@0x1407f522a writeVolumeIndexSortedIndicesContext）。
+	if err := writeVolumeIndexSortedIndicesContext(ctx, tmp, sortedIndices); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	// contextErr 重检（@0x1407f5248 contextErr + @0x1407f5250 jne→清理）。
+	if err := contextErr(ctx); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	// namePool（@0x1407f528d writeAllContext）。
+	if err := writeAllContext(ctx, tmp, namePool); err != nil {
+		_ = tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
+	}
+	// Close（@0x1407f52a6 os.file.close）。
+	if err := tmp.Close(); err != nil {
+		_ = os.Remove(tmpName)
+		return err
+	}
+	// 关闭旧映射提供者（@0x1407f52cc closeMappedReadProviderForReplaceLocked）。
+	closeMappedReadProviderForReplaceLocked(v, path)
+	// 原子替换（@0x1407f52fa replaceFileAtomically）。
+	if err := replaceFileAtomically(tmpName, path); err != nil {
+		return err
+	}
+	// (4) 字段更新（@0x1407f5309..551c，heapFlag 常为 1，径直执行）。
+	v.Nodes = nodes
+	v.SortedIndices = sortedIndices
+	v.NamePool = namePool
+	v.activeCount = activeCount
+	v.deltaByFRN = nil
+	v.deltaReplaced = nil
+	v.deltaNodes = nil
+	// 重建前缀桶（@0x1407f5483 buildNamePrefixBucketCounts）。
+	v.prefixBuckets = buildNamePrefixBucketCounts(nodes, namePool)
+	// 清除旧三字索引（@0x1407f5509 clearNameTrigramIndexLocked）。
+	v.clearNameTrigramIndexLocked()
 	return nil
 }
 

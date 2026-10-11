@@ -347,3 +347,4 @@
 | 388 | [batch388.md](acceptance/batch388.md) | 批次 388 · 三字索引头解析 + 匹配校验（S-sig→S 升级，FUNCS 3282） |
 | 389 | [batch389.md](acceptance/batch389.md) | 批次 389 · 名称三元组索引读链（mmap + stream + 分派）+3 · FUNCS 3285 |
 | 390 | [batch390.md](acceptance/batch390.md) | 批次 390 · checkpoint 读链节点流解析 +1 · FUNCS 3286 |
+| 391 | [batch391.md](acceptance/batch391.md) | 批次 391 · checkpoint 读链前缀桶计数 +3 · FUNCS 3289 |

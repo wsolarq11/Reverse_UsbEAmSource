@@ -795,8 +795,12 @@ func timeToUnixNano(t time.Time) int64 {
 }
 
 // addNamePrefixBucketCount 累加名字 1-2 字节前缀桶计数（大小写折叠为小写）。
-// [S 0x1407e2620] (c, name string, count int32)。asm：nil/空名返回 → 首字节折叠小写
-// → firstByte[c0]+=count → len>=2 时 twoByte[(c0<<8)|c1]+=count。
+// [S 0x1407e2620, 160B] (c, name string, count int32)。asm：c==nil（@0x1407e262d
+// test rax,rax je）或 len(name)==0（@0x1407e2632 test rcx,rcx je）返回 → 首字节
+// 折叠小写（@0x1407e2640 cmp dil,0x19 ja / or edx,0x20）→ firstByte[c0]+=count
+// （@0x1407e264c add [rax+rdi*4],esi）→ len(name)<2（@0x1407e264f cmp rcx,2 jl）
+// 或 twoByte.len==0（@0x1407e2655 mov rcx,[rax+0x408] / @0x1407e2660 test rcx,rcx
+// jne）返回 → 否则 twoByte[(c0<<8)|c1]+=count（@0x1407e2695 add [rax+rdx*4],esi）。
 func addNamePrefixBucketCount(c *namePrefixBucketCounts, name string, count int32) {
 	if c == nil || len(name) == 0 {
 		return
@@ -806,12 +810,135 @@ func addNamePrefixBucketCount(c *namePrefixBucketCounts, name string, count int3
 		c0 += 'a' - 'A'
 	}
 	c.firstByte[c0] += count
-	if len(name) >= 2 {
-		c1 := name[1]
-		if c1 >= 'A' && c1 <= 'Z' {
-			c1 += 'a' - 'A'
+	if len(name) < 2 || len(c.twoByte) == 0 {
+		return
+	}
+	c1 := name[1]
+	if c1 >= 'A' && c1 <= 'Z' {
+		c1 += 'a' - 'A'
+	}
+	c.twoByte[int(c0)<<8|int(c1)] += count
+}
+
+// buildNamePrefixBucketCounts 从已解析节点切片构建名字前缀桶计数。
+// [S 汇编 0x1407e1c80, 608B] 实证：签名 (nodes []IndexNode, namePool []byte)
+// namePrefixBucketCounts。len(nodes)>0x2710（@0x1407e1cf1 cmp rbx,0x2710 jle）→
+// 预分配 twoByte=make([]int32,0x10000)（@0x1407e1d09 makeslice）；遍历 nodes
+// （@0x1407e1d55 cmp rbx,rax jle），Flags&2（@0x1407e1d82 test r9w,2 jne）跳过
+// deleted；否则 namePool[NameOffset:NameOffset+NameLen]（@0x1407e1da3 jb
+// panicSliceAcap，cap 界）→ addNamePrefixBucketCount(&counts, name, 1)。
+func buildNamePrefixBucketCounts(nodes []IndexNode, namePool []byte) namePrefixBucketCounts {
+	var counts namePrefixBucketCounts
+	if len(nodes) > 0x2710 {
+		counts.twoByte = make([]int32, 0x10000, 0x10000)
+	}
+	for i := range nodes {
+		n := nodes[i]
+		if n.Flags&2 != 0 {
+			continue
 		}
-		c.twoByte[int(c0)<<8|int(c1)] += count
+		off := int(n.NameOffset)
+		name := namePool[off : off+int(n.NameLen)]
+		addNamePrefixBucketCount(&counts, string(name), 1)
+	}
+	return counts
+}
+
+// buildNamePrefixBucketCountsFromNodeBytes 从序列化节点字节流构建名字前缀桶计数。
+// [S 汇编 0x1407e1ee0, 1344B] 实证：签名 (nodeBytes []byte, namePool []byte)
+// (namePrefixBucketCounts, int, error)。len%24!=0（@0x1407e1f6a 魔数除 24 后
+// cmp rbx,r12 jne）→ (零,0,errVolumeIndexNodeBytesInvalid)；derived=len/24；
+// derived>0x2710（@0x1407e1fa2）→ 预分配 twoByte；逐 24B 解析（FRN@0/NameOffset@8/
+// ParentIdx@12/ModTime@16/NameLen@20/Flags@22，小端）；ParentIdx<-1（@0x1407e2146
+// cmp r8d,-1）或 ParentIdx>=derived（@0x1407e2165 cmp r8d,r11d）→ 错误；Flags&2
+// （@0x1407e218f test r8w,2）跳过；namePool 越界（@0x1407e21b1 cmp r8,rcx jb）→
+// 错误；addNamePrefixBucketCount(&counts, name, 1) 累加；返回 (counts, active, nil)。
+func buildNamePrefixBucketCountsFromNodeBytes(nodeBytes []byte, namePool []byte) (namePrefixBucketCounts, int, error) {
+	var counts namePrefixBucketCounts
+	if len(nodeBytes)%24 != 0 {
+		return counts, 0, errVolumeIndexNodeBytesInvalid
+	}
+	derived := len(nodeBytes) / 24
+	if derived > 0x2710 {
+		counts.twoByte = make([]int32, 0x10000, 0x10000)
+	}
+	active := 0
+	for off := 0; off < len(nodeBytes); off += 24 {
+		rec := nodeBytes[off : off+24]
+		node := IndexNode{
+			FRN:        binary.LittleEndian.Uint64(rec[0:8]),
+			NameOffset: binary.LittleEndian.Uint32(rec[8:12]),
+			ParentIdx:  int32(binary.LittleEndian.Uint32(rec[12:16])),
+			ModTime:    binary.LittleEndian.Uint32(rec[16:20]),
+			NameLen:    binary.LittleEndian.Uint16(rec[20:22]),
+			Flags:      binary.LittleEndian.Uint16(rec[22:24]),
+		}
+		if node.ParentIdx < -1 || node.ParentIdx >= int32(derived) {
+			return counts, 0, errVolumeIndexNodeBytesInvalid
+		}
+		if node.Flags&2 != 0 {
+			continue
+		}
+		nameOff := int(node.NameOffset)
+		nameLen := int(node.NameLen)
+		if nameOff+nameLen > len(namePool) {
+			return counts, 0, errVolumeIndexNodeBytesInvalid
+		}
+		name := namePool[nameOff : nameOff+nameLen]
+		addNamePrefixBucketCount(&counts, string(name), 1)
+		active++
+	}
+	return counts, active, nil
+}
+
+// newVolumeIndexReadViewFromCheckpointView 从 checkpoint 视图构建读视图。
+// [S 汇编 0x1407e5260, 1120B] 实证：签名 (cv *volumeIndexCheckpointView)
+// volumeIndexReadView。cv==nil（@0x1407e52a0 test rax,rax je）→ 零值。
+// prefixBuckets!=nil（@0x1407e52a9 cmp [rax+0x120],0 je）→ 直接路径：namePool 空则
+// 回退 namePoolBytes（@0x1407e52cc test rcx,rcx），nodes 非空则 nodeBytes 清零
+// （@0x1407e530a cmovne）。prefixBuckets==nil → new(namePrefixBucketCounts)
+// （@0x1407e546d newobject）→ *pb = buildNamePrefixBucketCounts(nodes, namePool)
+// （@0x1407e5500 call），此路径 namePool 不回退（@0x1407e5649 直拷 cv.namePool）。
+// nameTrigram/nameBigram/pinyin/tombstones/delta 等字段保持零值（duffzero 清零）。
+func newVolumeIndexReadViewFromCheckpointView(cv *volumeIndexCheckpointView) volumeIndexReadView {
+	if cv == nil {
+		return volumeIndexReadView{}
+	}
+	if cv.prefixBuckets != nil {
+		namePool := cv.namePool
+		if len(namePool) == 0 {
+			namePool = cv.namePoolBytes
+		}
+		nodeBytes := cv.nodeBytes
+		if len(cv.nodes) != 0 {
+			nodeBytes = nil
+		}
+		return volumeIndexReadView{
+			root:          cv.root,
+			nodes:         cv.nodes,
+			nodeBytes:     nodeBytes,
+			sortedIndices: cv.sortedIndices,
+			sortedBytes:   cv.sortedBytes,
+			namePool:      namePool,
+			activeCount:   cv.activeCount,
+			prefixBuckets: cv.prefixBuckets,
+		}
+	}
+	pb := new(namePrefixBucketCounts)
+	*pb = buildNamePrefixBucketCounts(cv.nodes, cv.namePool)
+	nodeBytes := cv.nodeBytes
+	if len(cv.nodes) != 0 {
+		nodeBytes = nil
+	}
+	return volumeIndexReadView{
+		root:          cv.root,
+		nodes:         cv.nodes,
+		nodeBytes:     nodeBytes,
+		sortedIndices: cv.sortedIndices,
+		sortedBytes:   cv.sortedBytes,
+		namePool:      cv.namePool,
+		activeCount:   cv.activeCount,
+		prefixBuckets: pb,
 	}
 }
 

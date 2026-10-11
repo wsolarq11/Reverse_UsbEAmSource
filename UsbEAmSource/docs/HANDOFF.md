@@ -53,7 +53,7 @@ node tools/count_funcs.js
 node tools/list_missing.js
 ```
 
-**当前口径（批次 390）**：`FUNCS=3286 MARKED=3286 S=1559 S-inline=37 S-eq=1 S-sig=1648 P=41 UNMARKED=0`，真函数 3244/4754 = **68.24%**。
+**当前口径（批次 391）**：`FUNCS=3289 MARKED=3289 S=1562 S-inline=37 S-eq=1 S-sig=1648 P=41 UNMARKED=0`，真函数 3247/4754 = **68.30%**。
 
 **单批收尾五步（SSOT 单出口，禁止抄上一批数字）**：落地函数 → 三门禁 EXIT=0 → `node tools/count_funcs.js` 取活体数字 → 写 `docs/acceptance/batchNNN.md` + 更新本文件 §1 标题/§2/进度表 + `node tools/gen_batch_index.js` 重生成索引 → dulwich commit+push（`$env:GITHUB_TOKEN = gh auth token`）→ `gh api` 轮询 CI 到 `completed success`。
 
@@ -61,11 +61,11 @@ node tools/list_missing.js
 
 ---
 
-## 1. 一句话现状（批次 390 · checkpoint 读链节点流解析 +1 · FUNCS 3286，69.12%）
+## 1. 一句话现状（批次 391 · checkpoint 读链前缀桶计数 +3 · FUNCS 3289，69.19%）
 
-前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 390**，后端非测试代码 **235 个 .go 文件**，测试 **92 文件**。
+前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 391**，后端非测试代码 **235 个 .go 文件**，测试 **92 文件**。
 
-**门禁活体实测（批次 390）**：`go1.25.12 build ./backend` / `go vet ./backend` / `go test ./backend` 三项 **EXIT=0**（`ok changeme/backend`）。
+**门禁活体实测（批次 391）**：`go1.25.12 build ./backend` / `go vet ./backend` / `go test ./backend` 三项 **EXIT=0**（`ok changeme/backend`）。
 
 **当前进度分母（批次 387 实测，此后一律以此为准）**：
 
@@ -73,8 +73,8 @@ node tools/list_missing.js
 |---|---|---|---|
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
-| 已重建函数 | 3286 | 4,754 | `node tools/count_funcs.js` 实测（批次 390 后） |
-| 真函数（S+S-inline+S-sig） | 3244 | 4,754 | 同上，**批次 390 达 68.24%** |
+| 已重建函数 | 3289 | 4,754 | `node tools/count_funcs.js` 实测（批次 391 后） |
+| 真函数（S+S-inline+S-sig） | 3247 | 4,754 | 同上，**批次 391 达 68.30%** |
 | 文件覆盖 | 114/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 30 | **0** | 差集（清单见 `UNLANDED.md`，批次 375 后实测） |
 | UNMARKED | 0 | **0** | `node tools/count_funcs.js` 实测 |
@@ -86,14 +86,13 @@ node tools/list_missing.js
 
 ---
 
-## 2. 交接状态（批次 390 收尾后）
+## 2. 交接状态（批次 391 收尾后）
 
-**下一批推荐**：`buildNamePrefixBucketCountsFromNodeBytes` 0x1407e1ee0 与
-`newVolumeIndexReadViewFromCheckpointView` 0x1407e5260（checkpoint 读链上游依赖）；
-随后 `loadVolumeIndexCheckpointMappedViewContext` 0x1407fb100（全链已实证：
-OpenFile→Stat→ReadAtLeast 0x40→parseHeader（b387）→buildLayout（b387）→
+**下一批推荐**：`loadVolumeIndexCheckpointMappedViewContext` 0x1407fb100（checkpoint 读链
+汇合点，全链已实证：OpenFile→Stat→ReadAtLeast 0x40→parseHeader（b387）→buildLayout（b387）→
 planMapWithSystemGranularity（b386）→openMapped/Map（b385）→validateVolumeIndexNodeBytes→
-decodeVolumeIndexNodesFromBytesWithNodeCount（b390），含 goroutine 闭包 func1/gowrap1 与
+decodeVolumeIndexNodesFromBytesWithNodeCount（b390）→buildNamePrefixBucketCountsFromNodeBytes
+（b391）→newVolumeIndexReadViewFromCheckpointView（b391），含 goroutine 闭包 func1/gowrap1 与
 `loadVolumeIndexBucketContext` 0x1407f6f00）；`P=41 → [S]` 转换。
 
 **未落地文件差集 30**（清单见 `UNLANDED.md`，批次 375 后实测）；**P=41 持平**；**UNMARKED=0 保持**。

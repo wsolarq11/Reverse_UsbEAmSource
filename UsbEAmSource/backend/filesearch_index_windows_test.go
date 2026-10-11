@@ -299,3 +299,160 @@ func TestMatchSearchCandidateNode(t *testing.T) {
 		t.Fatal("parent tombstoned expected false")
 	}
 }
+
+func TestAddNamePrefixBucketCountSkipsEmptyTwoByte(t *testing.T) {
+	// twoByte 为空（nil）时只累加 firstByte，bigram 累加应被跳过（不 panic）。
+	var c namePrefixBucketCounts
+	addNamePrefixBucketCount(&c, "foo", 1)
+	if c.firstByte['f'] != 1 {
+		t.Fatalf("firstByte['f']=%d, want 1", c.firstByte['f'])
+	}
+	if c.firstByte['o'] != 0 {
+		t.Fatalf("firstByte['o']=%d, want 0 (非首字节)", c.firstByte['o'])
+	}
+}
+
+func TestBuildNamePrefixBucketCounts(t *testing.T) {
+	namePool := []byte("foobar")
+	nodes := []IndexNode{
+		{FRN: 100, NameOffset: 0, ParentIdx: -1, NameLen: 3, Flags: 1}, // "foo"
+		{FRN: 101, NameOffset: 3, ParentIdx: 0, NameLen: 3, Flags: 0},  // "bar"
+		{FRN: 102, NameOffset: 0, ParentIdx: 0, NameLen: 3, Flags: 2},  // "foo" deleted
+	}
+	got := buildNamePrefixBucketCounts(nodes, namePool)
+	if got.firstByte['f'] != 1 {
+		t.Fatalf("firstByte['f']=%d, want 1", got.firstByte['f'])
+	}
+	if got.firstByte['b'] != 1 {
+		t.Fatalf("firstByte['b']=%d, want 1", got.firstByte['b'])
+	}
+	if got.firstByte['o'] != 0 {
+		t.Fatalf("firstByte['o']=%d, want 0 (非首字节)", got.firstByte['o'])
+	}
+	if len(got.twoByte) != 0 {
+		t.Fatalf("twoByte len=%d, want 0 (nodes<=10000 不预分配)", len(got.twoByte))
+	}
+}
+
+func TestBuildNamePrefixBucketCountsPreallocatesTwoByte(t *testing.T) {
+	// >10000 节点触发 twoByte 预分配（即使全 deleted，循环内不访问 namePool）。
+	nodes := make([]IndexNode, 10001)
+	for i := range nodes {
+		nodes[i] = IndexNode{Flags: 2}
+	}
+	got := buildNamePrefixBucketCounts(nodes, nil)
+	if len(got.twoByte) != 0x10000 {
+		t.Fatalf("twoByte len=%d, want 0x10000", len(got.twoByte))
+	}
+}
+
+func TestBuildNamePrefixBucketCountsFromNodeBytes(t *testing.T) {
+	namePool := []byte("foobar")
+	nodes := []IndexNode{
+		{FRN: 100, NameOffset: 0, ParentIdx: -1, NameLen: 3, Flags: 1}, // "foo"
+		{FRN: 101, NameOffset: 3, ParentIdx: 0, NameLen: 3, Flags: 0},  // "bar"
+		{FRN: 102, NameOffset: 0, ParentIdx: 0, NameLen: 3, Flags: 2},  // "foo" deleted
+	}
+	got, active, err := buildNamePrefixBucketCountsFromNodeBytes(makeNodeBytes(nodes), namePool)
+	if err != nil {
+		t.Fatalf("err=%v, want nil", err)
+	}
+	if active != 2 {
+		t.Fatalf("active=%d, want 2", active)
+	}
+	if got.firstByte['f'] != 1 {
+		t.Fatalf("firstByte['f']=%d, want 1", got.firstByte['f'])
+	}
+	if got.firstByte['b'] != 1 {
+		t.Fatalf("firstByte['b']=%d, want 1", got.firstByte['b'])
+	}
+
+	if _, _, err := buildNamePrefixBucketCountsFromNodeBytes(make([]byte, 25), namePool); err != errVolumeIndexNodeBytesInvalid {
+		t.Fatalf("len%%24!=0 err=%v, want sentinel", err)
+	}
+
+	bad := []IndexNode{{FRN: 1, ParentIdx: 5, Flags: 0, NameOffset: 0, NameLen: 0}}
+	if _, _, err := buildNamePrefixBucketCountsFromNodeBytes(makeNodeBytes(bad), namePool); err != errVolumeIndexNodeBytesInvalid {
+		t.Fatalf("parentIdx>=derived err=%v, want sentinel", err)
+	}
+
+	bad2 := []IndexNode{{FRN: 1, ParentIdx: -2, Flags: 0}}
+	if _, _, err := buildNamePrefixBucketCountsFromNodeBytes(makeNodeBytes(bad2), namePool); err != errVolumeIndexNodeBytesInvalid {
+		t.Fatalf("parentIdx<-1 err=%v, want sentinel", err)
+	}
+
+	bad3 := []IndexNode{{FRN: 1, ParentIdx: -1, Flags: 0, NameOffset: 100, NameLen: 10}}
+	if _, _, err := buildNamePrefixBucketCountsFromNodeBytes(makeNodeBytes(bad3), namePool); err != errVolumeIndexNodeBytesInvalid {
+		t.Fatalf("namePool overflow err=%v, want sentinel", err)
+	}
+}
+
+func TestNewVolumeIndexReadViewFromCheckpointView(t *testing.T) {
+	if got := newVolumeIndexReadViewFromCheckpointView(nil); got.root != "" || got.prefixBuckets != nil {
+		t.Fatalf("nil cv expected zero view, got %+v", got)
+	}
+
+	namePool := []byte("foobar")
+	nodes := []IndexNode{
+		{FRN: 100, NameOffset: 0, ParentIdx: -1, NameLen: 3, Flags: 1},
+		{FRN: 101, NameOffset: 3, ParentIdx: 0, NameLen: 3, Flags: 0},
+	}
+
+	pb := &namePrefixBucketCounts{}
+	cv1 := &volumeIndexCheckpointView{
+		root:          "C:\\vol",
+		nodes:         nodes,
+		nodeBytes:     makeNodeBytes(nodes),
+		sortedIndices: []int32{0, 1},
+		sortedBytes:   []byte{0, 0, 0, 0},
+		namePool:      nil,
+		namePoolBytes: namePool,
+		activeCount:   7,
+		prefixBuckets: pb,
+	}
+	got1 := newVolumeIndexReadViewFromCheckpointView(cv1)
+	if got1.root != "C:\\vol" {
+		t.Fatalf("root=%q, want C:\\vol", got1.root)
+	}
+	if len(got1.nodeBytes) != 0 {
+		t.Fatalf("nodes 非空应清零 nodeBytes, got len=%d", len(got1.nodeBytes))
+	}
+	if string(got1.namePool) != "foobar" {
+		t.Fatalf("namePool=%q, want foobar (fallback)", got1.namePool)
+	}
+	if got1.activeCount != 7 {
+		t.Fatalf("activeCount=%d, want 7", got1.activeCount)
+	}
+	if got1.prefixBuckets != pb {
+		t.Fatal("prefixBuckets 应复用传入指针")
+	}
+
+	cv2 := &volumeIndexCheckpointView{
+		root:          "C:\\vol2",
+		nodes:         nodes,
+		nodeBytes:     makeNodeBytes(nodes),
+		namePool:      namePool,
+		namePoolBytes: []byte("unused"),
+		activeCount:   3,
+	}
+	got2 := newVolumeIndexReadViewFromCheckpointView(cv2)
+	if got2.prefixBuckets == nil {
+		t.Fatal("prefixBuckets 应被构建")
+	}
+	if got2.prefixBuckets.firstByte['f'] != 1 {
+		t.Fatalf("prefixBuckets.firstByte['f']=%d, want 1", got2.prefixBuckets.firstByte['f'])
+	}
+	if string(got2.namePool) != "foobar" {
+		t.Fatalf("namePool=%q, want foobar (不回退)", got2.namePool)
+	}
+
+	cv3 := &volumeIndexCheckpointView{
+		root:      "C:\\vol3",
+		nodeBytes: makeNodeBytes(nodes),
+		namePool:  namePool,
+	}
+	got3 := newVolumeIndexReadViewFromCheckpointView(cv3)
+	if len(got3.nodeBytes) == 0 {
+		t.Fatal("nodes 空应保留 nodeBytes")
+	}
+}

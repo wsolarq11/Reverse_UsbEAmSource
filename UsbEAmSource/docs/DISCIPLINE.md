@@ -24,7 +24,7 @@
 8. [批次 31 新增] **驱逐的实证签名两次反转**：`evictOldestLocked` 第一参从 `exceptID string`→`namespaceFilter string`（命名空间筛选而非 ex-id），`ensureCapacityLocked` 第一参同改为 `namespace string`（非 itemSize/id），三层驱逐循环代替单层交织。开工后务必先对比 disasm 确认当前代码签名再修改。
 9. [批次 33 新增] **`disasm/` 目录存在指令丢失**：`ReadBytes.dis.txt`/`readFileBounded.dis.txt` 等文件的 duffcopy 段（`call 0x140081a46` 前后）**缺失参数装载指令**，只靠该目录会误判"栈槽无写入"。关键位置（尤其决定签名的寄存器装配）必须用 `va_dump.py` 重新现场抽取做字节级比对。
 
-## 9b. 实证错误记录（累计 77 处）
+## 9b. 实证错误记录（累计 78 处）
 
 | 批次 | 错误 | 纠正 |
 |---|---|---|
@@ -50,6 +50,7 @@
 | 29 | fail 路径写入空 URL 到缓存（不存在 asm 逻辑） | asm 无任何失败回写路径 |
 | 29 | `buildLauncherIconResource` 返回 `{IconRef:ref.ID, ...}` → `{IconData:trimmed, ...}` | asm 三条出口 duffcopy 确证 |
 | 29 | LRU 驱逐「随机删 entry」→「Linear Scan min Sequence」 | `mapIter` 遍历确证 |
+| 391 | `addNamePrefixBucketCount` 缺 twoByte 空检查（twoByte nil 时 bigram 累加 panic） | 补 `len(name)<2 \|\| len(c.twoByte)==0` 返回；@0x1407e2655 `mov rcx,[rax+0x408]` / `test rcx,rcx` / `jne` 实证 |
 
 ---
 

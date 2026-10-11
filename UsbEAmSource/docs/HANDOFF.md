@@ -61,7 +61,7 @@ node tools/list_missing.js
 
 ---
 
-## 1. 一句话现状（批次 395 · writeVolumeIndexCheckpointHeapContext [P→S] · FUNCS 3298，68.47%）
+## 1. 一句话现状（批次 396 · CheckpointSections [P→S-eq] · checkpoint 持久化链闭环 · FUNCS 3298，68.47%）
 
 前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 391**，后端非测试代码 **235 个 .go 文件**，测试 **92 文件**。
 
@@ -74,11 +74,11 @@ node tools/list_missing.js
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
 | 已重建函数 | 3298 | 4,754 | `node tools/count_funcs.js` 实测（批次 395 后） |
-| 真函数（S+S-inline+S-sig） | 3255 | 4,754 | 同上，**批次 395 达 68.47%** |
+| 真函数（S+S-inline+S-sig） | 3255 | 4,754 | 同上，**批次 396 达 68.47%** |
 | 文件覆盖 | 114/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 30 | **0** | 差集（清单见 `UNLANDED.md`，批次 375 后实测） |
 | UNMARKED | 0 | **0** | `node tools/count_funcs.js` 实测 |
-| [P] 存根 | 41 | **0** | 同上（批次 278 持平） |
+| [P] 存根 | 41 | **0** | 同上（批次 396 后） |
 
 **关键里程碑（已闭环域，详见各批验收）**：memoryrelease、SQLite、mouseGesture、OLEDBlackout 执行域；Screenshot 全链（PNG 编码器 / 内存预算 / GDI 捕获 / 光标 / DXGI 枚举与捕获 / HDR / 调试）；hotkey 三角与抑制域；launcherasset（icon 中枢 / 驱逐 / 文件注册）；launcherconfigicon（预算 / 存储 / commit 管线 / 迁移）；windowManagement；appicon GDI 渲染；plugin（id / security / host / discovery）；twofactor 全链；qrcode（框选 / 剪贴板 / 解码）；filesearch（名称搜索计划 / 排序 / 拼音 / 节点访问）；开机自启（Task Scheduler）；配置存储（CompareAndSwap/Replace 链）；filelocator 运行时；gpu 纯逻辑；desktopwidgets（日历 / 时钟 / 组件存储 CRUD）。
 
@@ -88,9 +88,9 @@ node tools/list_missing.js
 
 ## 2. 交接状态（批次 394 收尾后）
 
-**下一批推荐**：下一个 [P] 存根升级（42→41），优先选 P=42 中对门禁链路最关键的。可用 `node tools/list_missing.js` 列出当前 P 项。
+**下一批推荐**：下一个 [P] 存根升级（41→40），优先选 filesearch 域链上残留依赖（如 `IsSourcePath` [S-sig]、`closeMappedReadProviderForReplaceLocked` [S-sig] 可升档），或从 `list_missing.js` 的 P=41 中选最小代价的。
 
-**未落地文件差集 30**（清单见 `UNLANDED.md`，批次 375 后实测）；**P=42**；**UNMARKED=0 保持**。
+**未落地文件差集 30**（清单见 `UNLANDED.md`，批次 375 后实测）；**P=41**；**UNMARKED=0 保持**。
 
 **整洁基线（批次 374 后一次性）**：全仓 `gofmt` 已归位（`git show a7e52e6`，纯格式，count 不变），`go vet` 干净；后端纯 Go（`CGO_ENABLED=0`、无 `CgoFiles`），`.github/workflows/ci.yml` 已对齐本地门禁（go1.25.12 + `-tags production` build/vet/test）。新会话开工前若 `gofmt -l ./backend` 仍列文件，说明有新增手写码未格式化。
 

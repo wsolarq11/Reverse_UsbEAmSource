@@ -1332,11 +1332,24 @@ func buildVolumeIndexCheckpointHeaderLocked(v *VolumeIndex, entryCount, sortedCo
 }
 
 // CheckpointSections 返回映射读提供器的 checkpoint 段（节点/排序/名字池 + ok）。
-// [P 0x1407e4560, 928B]：asm 实证调用 (p.CheckpointSections()) (volumeIndexCheckpointSections, bool)。
-// 体待映射检查点段专线还原。
+// [S-eq 0x1407e4560, 928B]：无独立 asm dump，签名与语义由调用方实证交叉验证
+// （saveVolumeIndexCheckpointLockedContext @0x1407f4bb5 call → 9 寄存器返回
+// nodes.ptr/len/cap + sorted.ptr/len/cap + names.ptr/len/cap + stack bool ok）。
+// 语义：持锁读取 p.view 的 nodeBytes/sortedBytes/namePool 原始字节，有效则返 (sec, true)。
 func (p *volumeIndexMappedReadProvider) CheckpointSections() (volumeIndexCheckpointSections, bool) {
-	_ = p
-	return volumeIndexCheckpointSections{}, false
+	if p == nil {
+		return volumeIndexCheckpointSections{}, false
+	}
+	p.mu.Lock()
+	defer p.mu.Unlock()
+	if p.view.nodeBytes == nil {
+		return volumeIndexCheckpointSections{}, false
+	}
+	return volumeIndexCheckpointSections{
+		nodes:  p.view.nodeBytes,
+		sorted: p.view.sortedBytes,
+		names:  p.view.namePool,
+	}, true
 }
 
 // saveVolumeIndexCheckpointLockedContext 持锁保存 checkpoint（两条路径：sections 直写 / heap 快照写入）。

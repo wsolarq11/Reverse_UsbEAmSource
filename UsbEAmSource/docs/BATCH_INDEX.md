@@ -352,3 +352,4 @@
 | 393 | [batch393.md](acceptance/batch393.md) | Batch 393 — Checkpoint Write Chain 部分落地 |
 | 394 | [batch394.md](acceptance/batch394.md) | Batch 394 — Checkpoint Write Chain: saveVolumeIndexCheckpointLockedContext [S] + writeVolumeIndexCheckpointHeapContext [P] 存根 |
 | 395 | [batch395.md](acceptance/batch395.md) | 批次 395 验收 — writeVolumeIndexCheckpointHeapContext [P→S] |
+| 396 | [batch396.md](acceptance/batch396.md) | 批次 396 验收 — CheckpointSections [P→S-eq] |

@@ -112,6 +112,57 @@ func TestNodeAtAndNodeAtIndex(t *testing.T) {
 	}
 }
 
+func TestDecodeVolumeIndexNodesFromBytesWithNodeCount(t *testing.T) {
+	nodes := []IndexNode{
+		{FRN: 100, NameOffset: 0, ParentIdx: -1, ModTime: 200, NameLen: 3, Flags: 1},
+		{FRN: 101, NameOffset: 3, ParentIdx: 0, ModTime: 201, NameLen: 4, Flags: 0},
+		{FRN: 102, NameOffset: 7, ParentIdx: 0, ModTime: 202, NameLen: 2, Flags: 2},
+	}
+	got, active, err := decodeVolumeIndexNodesFromBytesWithNodeCount(makeNodeBytes(nodes), 3)
+	if err != nil {
+		t.Fatalf("decode err=%v, want nil", err)
+	}
+	if len(got) != 3 {
+		t.Fatalf("len=%d, want 3", len(got))
+	}
+	for i := range nodes {
+		if got[i] != nodes[i] {
+			t.Fatalf("node[%d]=%+v, want %+v", i, got[i], nodes[i])
+		}
+	}
+	// Flags&2 的节点不计入 active
+	if active != 2 {
+		t.Fatalf("active=%d, want 2", active)
+	}
+
+	// 空流：makeslice(0,0) 返回非 nil 空切片（与 asm 无条件 makeslice 一致）
+	if g, a, err := decodeVolumeIndexNodesFromBytesWithNodeCount(nil, 0); err != nil || len(g) != 0 || a != 0 {
+		t.Fatalf("empty decode got (%v,%d,%v), want (len 0,0,nil)", g, a, err)
+	}
+
+	// len%24!=0
+	if _, _, err := decodeVolumeIndexNodesFromBytesWithNodeCount(make([]byte, 25), 2); err != errVolumeIndexNodeBytesInvalid {
+		t.Fatalf("len%%24!=0 err=%v, want sentinel", err)
+	}
+
+	// nodeCount < derived
+	if _, _, err := decodeVolumeIndexNodesFromBytesWithNodeCount(makeNodeBytes(nodes), 2); err != errVolumeIndexNodeBytesInvalid {
+		t.Fatalf("nodeCount<derived err=%v, want sentinel", err)
+	}
+
+	// ParentIdx >= nodeCount（显式 nodeCount 校验）
+	bad := []IndexNode{{FRN: 1, ParentIdx: 5, Flags: 0}}
+	if _, _, err := decodeVolumeIndexNodesFromBytesWithNodeCount(makeNodeBytes(bad), 3); err != errVolumeIndexNodeBytesInvalid {
+		t.Fatalf("parentIdx>=nodeCount err=%v, want sentinel", err)
+	}
+
+	// ParentIdx < -1
+	bad2 := []IndexNode{{FRN: 1, ParentIdx: -2, Flags: 0}}
+	if _, _, err := decodeVolumeIndexNodesFromBytesWithNodeCount(makeNodeBytes(bad2), 3); err != errVolumeIndexNodeBytesInvalid {
+		t.Fatalf("parentIdx<-1 err=%v, want sentinel", err)
+	}
+}
+
 func TestNodeName(t *testing.T) {
 	// 普通路径：namePool 切片
 	v := volumeIndexReadView{namePool: []byte("helloworld")}

@@ -623,6 +623,45 @@ func validateVolumeIndexNodeBytes(nodeBytes []byte, namePoolSize int) error {
 	return nil
 }
 
+// decodeVolumeIndexNodesFromBytesWithNodeCount 从序列化节点字节流解析 []IndexNode。
+// [S 汇编 0x1407fcc00, 768B] 实证：签名 (nodeBytes []byte, nodeCount int)
+// ([]IndexNode, int, error)。len%24!=0（@0x1407fcc39 魔数除 24 后 cmp rbx,r9）→ 哨兵；
+// nodeCount < len/24（@0x1407fcc40 cmp rdi,rdx jl）→ 哨兵；否则 makeslice(len/24)。
+// 逐 24B 解析（FRN@0 8B、NameOffset@8 4B、ParentIdx@12 4B、ModTime@16 4B、
+// NameLen@20 2B、Flags@22 2B，小端）；ParentIdx<-1 或 ParentIdx>=nodeCount
+// （@0x1407fcde2..e18，cmp esi,r9d jg）→ 哨兵；Flags&2==0（@0x1407fccf3 test r10w,2）
+// 计入 active 计数；返回 (nodes, active, nil)。
+func decodeVolumeIndexNodesFromBytesWithNodeCount(nodeBytes []byte, nodeCount int) ([]IndexNode, int, error) {
+	if len(nodeBytes)%24 != 0 {
+		return nil, 0, errVolumeIndexNodeBytesInvalid
+	}
+	derived := len(nodeBytes) / 24
+	if nodeCount < derived {
+		return nil, 0, errVolumeIndexNodeBytesInvalid
+	}
+	nodes := make([]IndexNode, derived, derived)
+	active := 0
+	for i := 0; i < derived; i++ {
+		rec := nodeBytes[i*24 : i*24+24]
+		node := IndexNode{
+			FRN:        binary.LittleEndian.Uint64(rec[0:8]),
+			NameOffset: binary.LittleEndian.Uint32(rec[8:12]),
+			ParentIdx:  int32(binary.LittleEndian.Uint32(rec[12:16])),
+			ModTime:    binary.LittleEndian.Uint32(rec[16:20]),
+			NameLen:    binary.LittleEndian.Uint16(rec[20:22]),
+			Flags:      binary.LittleEndian.Uint16(rec[22:24]),
+		}
+		if node.ParentIdx < -1 || node.ParentIdx >= int32(nodeCount) {
+			return nil, 0, errVolumeIndexNodeBytesInvalid
+		}
+		nodes[i] = node
+		if node.Flags&2 == 0 {
+			active++
+		}
+	}
+	return nodes, active, nil
+}
+
 // sortedIndexAt 按排序位置取节点索引（sortedIndices 优先，缺省回退 sortedBytes）。
 // [S 汇编 0x1407f2460, 544B] 实证：index<0→(-1,false)；sortedIndices 非空→越界返回
 // (-1,false)，否则读 sortedIndices[index]；空→sortedBytes 空或 len%4!=0 或越界→(-1,false)，

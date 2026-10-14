@@ -102,9 +102,19 @@ bash tools/list_p.sh
 
 **未落地文件差集 30**（清单见 `UNLANDED.md`，批次 375 后实测）；**P=41**；**UNMARKED=0 保持**。
 
+**2026-12-12 整洁基线**：追踪文件 811 → 792。四项根因修复（每项详见 commit `dcfec49` 与 `STRUCTURE.md` §9）：
+① `.gitignore` 根锚定漏洞导致 `UsbEAmSource/work/` 9 个产物漏入库；② `.gitattributes` + `core.autocrlf=true` 会在 checkout 时把 `.go` 改写成 CRLF；
+③ 标记识别逻辑 4 份各自实现（2 份漏识别 `[S-eq]`），已统一到 `count_funcs.sh`；④ `HANDOFF.md` 声称 git/bash/awk 不在 PATH、commit 走 dulwich——实测均在 PATH，dulwich 未装。
+**工具收敛**：`tools/` 32 → 21 个文件，删除重复/临时/一次性工具 16 个。旧文档若引用已删工具，视为历史记录，勿照抄命令。
+
 **整洁基线（批次 374 后一次性）**：全仓 `gofmt` 已归位（`git show a7e52e6`，纯格式，count 不变），`go vet` 干净；后端纯 Go（`CGO_ENABLED=0`、无 `CgoFiles`），`.github/workflows/ci.yml` 已对齐本地门禁（go1.25.12 + `-tags production` build/vet/test）。新会话开工前若 `gofmt -l ./backend` 仍列文件，说明有新增手写码未格式化。
 
 **归档状态**：批次 19–39 详细记录 → `acceptance/batch19-39.md`；批次 40–374 验收 → `acceptance/batchNN.md`（索引见 `BATCH_INDEX.md`）。
+
+**未经对拍的历史落体（待清偿技术债）**：`STRATEGY.md` §5 规则 3 要求"L1 落体必须带对拍测试"，
+但对拍 harness 直到批次 397 才首次落地。因此**批次 <397 的全部 `[S]` 与 `[S-eq]` 落体未经对拍**，
+严格说只达 `[S-sig]`。处置口径：**不回溯改标记**（那会一次性调低全部历史进度且无实测依据），
+改为"触及即补"——每次动到某域的既有 `[S]` 时，顺手补该域的对拍。清明口径由你定。
 
 ---
 
@@ -113,14 +123,16 @@ bash tools/list_p.sh
 | 文件 | 职责 | 谁更新 |
 |---|---|---|
 | `HANDOFF.md`（本文件） | 精简导航 + 活体口径 + 交接状态 | 每批收尾时 |
-| `ENV.md` | 目标物身份、锁定构建参数、关键环境事实、反汇编资产清单 | 环境/资产变化时 |
+| `ENV.md` | 目标物身份（含 SHA256）、构建参数、环境事实、反汇编资产清单、复现前置 | 环境/资产变化时 |
 | `DISCIPLINE.md` | 逐寄存器还原纪律 + 累计实证错误纠正（每批开工前必读） | 新错误实证时 |
 | `UNLANDED.md` | 未落地原始文件差集 + 重跑命令 | 差集变化时 |
 | `BATCH_INDEX.md` | 批次 → 验收文档索引（脚本生成，勿手改） | `node tools/gen_batch_index.js` |
 | `acceptance/batchNN.md` | 每批四路验收（G1 编译 / G2 契约 / G3 行为 / G4 独立复核） | 每批收尾时 |
 | `acceptance/batch19-39.md` | 批次 19–39 详细记录归档（无独立验收文档） | 冻结 |
-| `STRATEGY.md` | 还原策略（L0→L1→L2 分层口径） | 策略变更时 |
-| `STRUCTURE.md` | 目录职责与路径约定 | 结构变更时 |
+| `STRATEGY.md` | 还原策略（L0→L1→L2 分层口径）+ 标记口径 SSOT + 对拍纪律 | 策略变更时 |
+| `STRUCTURE.md` | 目录职责、路径约定、**版本控制边界与整洁履历** | 结构变更时 |
+| `tools/parity/README.md` | 对拍工作流、用例格式、已知局限 | 对拍扩展时 |
 | `goresym/source_funcs.txt` | 4,754 蓝图函数权威清单 | 冻结 |
+| `.gitattributes` | 行尾策略（`.go` 钉死 LF，Windows 脚本 CRLF，二进制标记） | 行尾策略变更时 |
 
 **单批收尾落笔顺序**：函数落地 → 门禁 → count → `acceptance/batchNN.md` → 更新本文件 §1/§2 → `gen_batch_index.js` 重生成索引 → commit/push → CI 绿。

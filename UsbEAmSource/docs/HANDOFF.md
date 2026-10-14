@@ -47,6 +47,12 @@ $go = "C:\Users\Administrator\go\bin\go.exe"
 bash tools/count_funcs.sh
 ```
 
+**首次建库（克隆后或库被清掉后必做；`work/` 不入库，库随带不生）**：
+
+```powershell
+python tools/index/build_index.py          # 全量重写，可重复；缺库时下面两个查询入口会直接提示
+```
+
 **缺失清单（唯一口径薄封装，自动含方法提升，勿手动落 combridge IUnknown）**：
 
 ```powershell

@@ -12,6 +12,7 @@ package main
 
 import (
 	"image"
+	"syscall"
 	"time"
 	"unsafe"
 )
@@ -309,25 +310,59 @@ func screenshotUIAElementHitContainsPoint(rect image.Rectangle, controlType uint
 	return rect.Min.X <= x && x < rect.Max.X && rect.Min.Y <= y && y < rect.Max.Y
 }
 
-// [S-sig 0x1409b2ce0] 汇编实证：a(image.Rectangle:rax/rbx/rcx/rdi)+aControlType(uint32:esi)+
-// aOK(bool:r8b)+b(image.Rectangle+bControlType+bOK 栈) 参数；返回 bool。逻辑：controlType 分类
-// （0xc358 基址跳转表）+ rect 比较，未逐条翻译。
-func screenshotPreferUIAElementHitInfo(a image.Rectangle, aControlType uint32, aOK bool, b image.Rectangle, bControlType uint32, bOK bool) bool {
-	return false
-}
-
 // [S-sig 0x1409b3080] 在 COM 线程上创建 IUIAutomation 包装（CoCreateInstance）。返回
 // *screenshotUIAutomation。体未还原。
 func createScreenshotUIAutomationOnCOMThread() *screenshotUIAutomation { return nil }
 
-// [S-sig 0x1409b31c0] 释放 IUIAutomation 包装（rax 为指针，nil 直返）。
-func releaseScreenshotUIAutomation(p *screenshotUIAutomation) {}
+// [S 汇编 0x1409b31c0 等四处内联] releaseScreenshotVtblRelease 从 COM 包装对象的 vtable
+// 中取出 Release 槽（vtbl[2]）。Release 位于 IUnknown vtable 第三槽，偏移 +0x10；
+// Close（若实现）位于 +0x18。指针取用形态与 screenshotCOMVtableSlot 同域一致。
+func releaseScreenshotVtblRelease(p uintptr) uintptr {
+	if p == 0 {
+		return 0
+	}
+	vtbl := *(**uintptr)(unsafe.Pointer(&p))
+	if vtbl == nil {
+		return 0
+	}
+	return *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(vtbl)) + 0x10))
+}
 
-// [S-sig 0x1409b3240] 释放 UIA 元素（无对应落地类型，以 unsafe.Pointer 承载）。
-func releaseScreenshotUIAElement(p unsafe.Pointer) {}
+// releaseScreenshotUnknown 释放首字段为 vtable 指针的 COM 包装对象。
+// [S 汇编 0x1409b31c0 / 0x1409b3240 / 0x1409b32c0 / 0x1409b3340，各 128B，四处逐指令同构]
+// 汇编实证：p==0 → 返回（test rax,rax / je）；vtable:=*p，vtable==0 → 返回（mov rdx,[rax] /
+// test rdx,rdx / je）；vtable[2]==0 → 返回（cmp [rdx+0x10],0 / je）；否则
+// SyscallN(vtable[2], p)（mov rax,[rdx+0x10] / lea rbx,[rsp+0x20] 存栈上 itab /
+// ecx=1 / call syscall.SyscallN）。本串四处尾调均命中 +0x10，与 screenshotCOMRelease
+// （0x14097df80）同构。
+func releaseScreenshotUnknown(p uintptr) {
+	release := releaseScreenshotVtblRelease(p)
+	if release == 0 {
+		return
+	}
+	syscall.SyscallN(release, p)
+}
 
-// [S-sig 0x1409b32c0] 释放 IAccessible 包装（rax 为指针，nil 直返）。
-func releaseScreenshotAccessible(p *screenshotAccessible) {}
+// releaseScreenshotUIAutomation 释放 IUIAutomation 包装。
+// [S 汇编 0x1409b31c0, 128B]：尾调 releaseScreenshotUnknown。
+func releaseScreenshotUIAutomation(p *screenshotUIAutomation) {
+	releaseScreenshotUnknown(uintptr(unsafe.Pointer(p)))
+}
 
-// [S-sig 0x1409b3340] 释放 UIA 树遍历器（无对应落地类型，以 unsafe.Pointer 承载）。
-func releaseScreenshotUIATreeWalker(p unsafe.Pointer) {}
+// releaseScreenshotUIAElement 释放 UIA 元素（IUIAutomationElement，无对应落地类型）。
+// [S 汇编 0x1409b3240, 128B]：尾调 releaseScreenshotUnknown。
+func releaseScreenshotUIAElement(p unsafe.Pointer) {
+	releaseScreenshotUnknown(uintptr(p))
+}
+
+// releaseScreenshotAccessible 释放 IAccessible 包装。
+// [S 汇编 0x1409b32c0, 128B]：尾调 releaseScreenshotUnknown。
+func releaseScreenshotAccessible(p *screenshotAccessible) {
+	releaseScreenshotUnknown(uintptr(unsafe.Pointer(p)))
+}
+
+// releaseScreenshotUIATreeWalker 释放 UIA 树遍历器（IUIAutomationTreeWalker，无对应落地类型）。
+// [S 汇编 0x1409b3340, 128B]：尾调 releaseScreenshotUnknown。
+func releaseScreenshotUIATreeWalker(p unsafe.Pointer) {
+	releaseScreenshotUnknown(uintptr(p))
+}

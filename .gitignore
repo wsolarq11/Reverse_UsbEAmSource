@@ -1,14 +1,23 @@
-# 第三方工具与安装包
-/external/
+# ===================================================================
+# 版本控制边界（策略见 UsbEAmSource/docs/STRUCTURE.md §9）
+#   入库：源码 + 权威数据 + 工具 + 文档 + 交付物
+#   不入库：可再生产物（磁盘保留，随时可重建）
+#
+# 规则一律不锚定到仓库根：仓库存在多份同名产物目录
+# （根 work/ 与 UsbEAmSource/work/），锚定写法会漏掉子目录那份。
+# ===================================================================
 
-# 分析中间产物
-/work/
+# 第三方工具与安装包
+external/
+
+# 分析中间产物（反汇编 dump / 字节码 / 临时脚本）
+work/
 
 # 历史归档（旧脚本、产物、备份）
-/archive/
+archive/
 
 # 构建产物
-/UsbEAmSource/artifacts/
+UsbEAmSource/artifacts/
 
 # 编译中间产物与二进制（可从源码重建，不入库）
 *.o
@@ -20,11 +29,14 @@
 __pycache__/
 *.pyc
 
-# 逆向过程产物（可随时从目标 exe 用 va_dump.py/batch_disasm.py 重新生成，不入库）
-/UsbEAmSource/docs/goresym/pipeline/tmp/
-/UsbEAmSource/docs/goresym/disasm/
-/UsbEAmSource/docs/goresym/disasm_archive/
-/UsbEAmSource/docs/goresym/disasm_assemble/
-/UsbEAmSource/docs/goresym/disasm_assemble_image/
-/UsbEAmSource/docs/goresym/disasm_lu/
-/UsbEAmSource/docs/goresym/dump_archive/
+# 逆向过程产物（可随时从目标 exe 用 va_dump.py / batch_disasm.py 重新生成）
+UsbEAmSource/docs/goresym/pipeline/tmp/
+UsbEAmSource/docs/goresym/disasm/
+UsbEAmSource/docs/goresym/disasm_archive/
+UsbEAmSource/docs/goresym/disasm_assemble/
+UsbEAmSource/docs/goresym/disasm_assemble_image/
+UsbEAmSource/docs/goresym/disasm_lu/
+UsbEAmSource/docs/goresym/dump_archive/
+
+# 对拍抽取产物（由 extract_func.py 从目标 exe 重新生成；用例与期望入库，产物不入库）
+UsbEAmSource/tools/parity/bin/

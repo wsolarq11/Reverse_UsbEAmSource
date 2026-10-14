@@ -2605,8 +2605,6 @@ func writeVolumeIndexNodesContext(ctx context.Context, w io.Writer, nodes []Inde
 	return nil
 }
 
-
-
 // writeVolumeIndexCheckpointSectionsContext 持久化 checkpoint 文件（头+节点+排序+名字池四段）。
 // [S 汇编 0x1407f57e0, 1024B] 实证：签名 (ctx context.Context, path string, header [64]byte,
 // nodes []byte, sorted []byte, namePool []byte) error。contextErr→return；
@@ -2655,6 +2653,7 @@ func writeVolumeIndexCheckpointSectionsContext(ctx context.Context, path string,
 	}
 	return replaceFileAtomically(tmpName, path)
 }
+
 // [S-sig 0x140807140, 416B]：缓存 map 命中→返回；entry → 递归 parent → filepath.join 缓存。
 // 体待日志待定域专项还原。
 func (s *volumeIndexJournalPendingState) resolvePath(a, b interface{}) string {

@@ -35,13 +35,17 @@ UsbEAmSource/
 ├── tools/              # 工程内工具
 │   ├── go-introspect/  # addr_tool / va_dump / disasm / read_gostring 等
 │   ├── dump_scripts/   # 批次批量 dump 与常量解码脚本
-│   ├── split_types.py  # 类型拆分脚本
 │   ├── parity/         # 对拍 harness（行为等价验证，见 tools/parity/README.md）
-│   └── count_funcs.sh / count_funcs.awk
-├── artifacts/          # 构建产物（不参与源码逻辑）
+│   ├── count_funcs.sh  # 标记口径统计 —— 唯一真相源（docs/STRATEGY.md §4）
+│   ├── list_p.sh       # 列出 [P] 存根（标记判定与 count_funcs.sh 同源）
+│   ├── list_missing.js # 缺失函数清单（自动含方法提升）
+│   ├── gen_batch_index.js  # 重生成 docs/BATCH_INDEX.md
+│   └── …               # 其余按需工具，见该目录
+├── artifacts/          # 构建产物（不参与源码逻辑，不入库）
 │   ├── UsbEAm_Launcher_rebuilt.exe
 │   ├── backend_root.exe
 │   └── backend_service.exe
+├── work/               # 过程产物（磁盘保留，不入库）
 ├── build.sh            # 可复现构建（代理 + go1.25.12）
 ├── go.mod / go.sum
 └── wails.json
@@ -131,26 +135,36 @@ bash build.sh
 
 每批完工门禁仍按 `REBUILD_EXECUTION.md` 的 G1–G4 执行：`go build -tags production` + `go vet` + `go test` + 独立复核记录到 `docs/acceptance/<batch>.md`。
 
-## 九、版本控制边界（2026-09-30 整洁后）
+## 九、版本控制边界（2026-12-12 复核后）
 
-> 原则：入库的是**源码 + 权威数据 + 工具 + 文档**；可再生产物只留磁盘、不入库（`.gitignore` 已覆盖）。
+> 原则：入库的是**源码 + 权威数据 + 工具 + 文档 + 交付物**；可再生产物只留磁盘、不入库（`.gitignore` 已覆盖）。
+> **`.gitignore` 规则一律不锚定仓库根**：仓库存在多份同名产物目录（根 `work/` 与 `UsbEAmSource/work/`），锚定写法（`/work/`）会漏掉子目录那份。
 
 **入库（可复现 / 权威 / 交付）**：
 - `backend/*.go`（还原的 Go 源码，唯一真相）
 - `frontend/dist/` + `frontend/assets/`（字节级还原的 Vue SPA，交付物）
-- `docs/acceptance/*.md`、`docs/HANDOFF.md`、`STRUCTURE.md`、`STRATEGY.md`、`REPORT.md`、`REBUILD_EXECUTION.md`、`BACKEND_SYMBOLS.md`
+- `docs/acceptance/*.md`、`docs/HANDOFF.md`、`STRUCTURE.md`、`STRATEGY.md`、`REPORT.md`、`REBUILD_EXECUTION.md`、`BACKEND_SYMBOLS.md`、`DISCIPLINE.md`、`ENV.md`
 - `docs/goresym/` 根的权威数据：`symbols.txt`、`source_funcs.txt`、`all_types.txt`、`types.json`、`packages.txt`、`main_types_reconstructed.go`、`types_normalized.go`、`asset_semantics.md`
 - `docs/goresym/pipeline/` 根的工具与映射：`batch_disasm.py`、`va_map*.txt`、`bootstrap_*.txt` 等
-- `tools/`（count_funcs.sh、aggregate_gap.py、va_dump.py、parity 等）
+- `tools/`（各工具、`go-introspect/`、`parity/`）
+- `tools/parity/cases/`（对拍用例与期望值——**入库**，是行为契约）
 - `go.mod`、`go.sum`、`build.sh`、`wails.json`、`README.md`、`.gitignore`、`.gitattributes`
 - `.github/workflows/ci.yml`（windows-latest + go1.25.12 + build/vet/test `-tags production`）
 
 **不入库（可再生产物，磁盘保留）**：
 - `docs/goresym/pipeline/tmp/`（批次 dump 的 .bin/.asm.txt + 临时脚本，可随时用 `va_dump.py` 重新生成）
 - `docs/goresym/disasm/`、`disasm_archive/`、`disasm_assemble/`、`disasm_assemble_image/`、`disasm_lu/`、`dump_archive/`（反汇编 dump）
+- `tools/parity/bin/`（对拍抽取产物，由 `extract_func.py` 从目标 exe 重新生成）
 - `artifacts/`、`external/`、`work/`、`archive/`、`*.exe`、`*.o`
 
-2026-09-30 整洁动作：上述过程产物（共 4850 文件）从版本控制索引移除（`git rm --cached`），磁盘文件保留；git 追踪文件数 5483 → 636。历史 commit 中的旧 dump 不回溯重写（收益低、需 force push）。
+**整洁动作履历**：
+
+| 日期 | 动作 | 追踪数 |
+|---|---|---|
+| 2026-09-30 | 过程产物（4850 文件）从索引移除（`git rm --cached`），磁盘保留 | 5483 → 636 |
+| 2026-12-12 | ① 修 `.gitignore` 锚定漏洞（`/work/` → `work/`），移除 `UsbEAmSource/work/` 下 9 个漏网产物；② 删重复/临时工具 10 个（`count_funcs.js`、`count_funcs.awk`、`list_p.{awk,js}`、`find_unmarked.awk`、`list_unmarked.awk`、`dbg_funcs.js`、`tmp_{find_p.go,full_missing.js,match_p_asm.js}`）；③ 删一次性分析工具 6 个（`align_funcs.js`、`gap_csv.py`、`batch_sig_{evidence,summary}.py`、`split_handoff.js`、`list_missing_byfile.js`）；④ 标记识别逻辑统一到 `count_funcs.sh`（原 4 份各自实现，其中 2 份漏识别 `[S-eq]`） | 811 → 792 |
+
+历史 commit 中的旧 dump 不回溯重写（收益低、需 force push）。
 
 ## 十、CI
 

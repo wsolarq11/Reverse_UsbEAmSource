@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-# 研究用途：精确复刻 count_funcs.awk 的 last 状态机，提取 backend/*.go 里所有 [P] 存根，
+# 研究用途：按 tools/count_funcs.sh 的 last 状态机提取 backend/*.go 里所有 [P] 存根，
 # 反查 symbols.txt 得 VA+邻接长度，输出 CSV（File,Func,Recv,Sym,VA,Len）。
+# 与 tools/list_p.sh 的区别：本脚本附带 VA 与邻接长度，用于挑选落体目标。
 # 用法：python tools/p_funcs.py <out.csv>
 import csv
 import os
@@ -29,10 +30,13 @@ def has(s, tag):
 
 
 def classify(line):
-    # 与 count_funcs.awk 相同的 tier 判定（顺序敏感）
+    # 标记判定必须与 tools/count_funcs.sh（唯一真相源，docs/STRATEGY.md §4）逐条一致，
+    # 否则同一份代码在不同脚本下会得出矛盾的档位。优先级：S-sig > S-eq > S-inline > S > P。
     if "[S-sig]" in line or "[S-sig " in line or "[S-sig\t" in line:
         return "S-sig"
-    if "[S-inline]" in line or "[S-inline " in line:
+    if "[S-eq]" in line or "[S-eq " in line or "[S-eq\t" in line:
+        return "S-eq"
+    if "[S-inline]" in line or "[S-inline " in line or "[S-inline\t" in line:
         return "S-inline"
     if "[S]" in line or "[S " in line or "[S\t" in line:
         return "S"

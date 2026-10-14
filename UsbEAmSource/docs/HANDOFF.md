@@ -8,19 +8,19 @@
 
 ## 致新会话
 
-你接手的是 UsbEAm Launcher 1.0.3 的逆向还原工程，一段已经走通 69.10% 的活。别被"逆向"两个字唬住：前端已字节级还原，后端 507 个结构体全量还原且能编译，3285 个函数已落地、其中 3243 个是真函数。你拿到的是一副已经搭好骨架、只剩填肉的躯壳，不是荒地。
+你接手的是 UsbEAm Launcher 1.0.3 的逆向还原工程，一段已经走通 68.56% 的活。别被"逆向"两个字唬住：前端已字节级还原，后端 507 个结构体全量还原且能编译，3302 个函数已落地、其中 3259 个是真函数。你拿到的是一副已经搭好骨架、只剩填肉的躯壳，不是荒地。
 
 三条铁律，开工前刻进脑子：
 
-1. **先跑 count，再谈数字**。`node tools/count_funcs.js` 是唯一真相源，任何批次数字落笔前必须重跑。这工程历史上三次数字失真，根因全是"抄上一批改一改"。别当第四个。
+1. **先跑 count，再谈数字**。`bash tools/count_funcs.sh` 是唯一真相源，任何批次数字落笔前必须重跑。这工程历史上三次数字失真，根因全是"抄上一批改一改"。别当第四个。
 2. **asm 实录压过一切推断**。签名、字段偏移、锁内锁外，只有反汇编指令说了算。签名没定型就老老实实留 `[S-sig]`，绝不造伪 `[S]`——伪忠实比存根更毒，它会骗过下一棒。
 3. **两样东西别碰**：combridge IUnknown（128B 那些 AddRef/Release/QueryInterface，是自动提升不是活）和 `linearFloatToSRGBByte`（名字错配，落一次白落一次）。
 
-入口只有一个：本文件 §0。环境坑在 `ENV.md`，纪律和 77 处实证错误教训在 `DISCIPLINE.md`，下一步在 §2，缺函数清单 `node tools/list_missing.js` 现查现用。其余都别翻，翻旧批次记录只会浪费你的上下文。
+入口只有一个：本文件 §0。环境坑在 `ENV.md`，纪律和实证错误教训在 `DISCIPLINE.md`，下一步在 §2，缺函数清单 `node tools/list_missing.js` 现查现用。其余都别翻，翻旧批次记录只会浪费你的上下文。
 
 慢就是快。每批只做一件事：落体 → 门禁 → count → 验收 → 提交，五步闭环再开下一批。别一口气吞一个域，那会死在半路。
 
-最后一段（69.10% → 100%）交给你了。把它做完。
+最后一段（68.56% → 100%）交给你了。把它做完。
 
 ---
 
@@ -41,10 +41,10 @@ $go = "C:\Users\Administrator\go\bin\go.exe"
 & $go test -count=1 -p=1 -tags production ./backend
 ```
 
-**活体 count（Node 等价 awk，本环境 bash/awk 不可用）**：
+**活体 count（唯一真相源，`bash`/`awk` 本机可用，位于 Git for Windows）**：
 
 ```powershell
-node tools/count_funcs.js
+bash tools/count_funcs.sh
 ```
 
 **缺失清单（权威，自动含方法提升，勿手动落 combridge IUnknown）**：
@@ -53,19 +53,25 @@ node tools/count_funcs.js
 node tools/list_missing.js
 ```
 
-**当前口径（批次 392）**：`FUNCS=3289 MARKED=3289 S=1562 S-inline=37 S-eq=1 S-sig=1648 P=41 UNMARKED=0`，真函数 3247/4754 = **68.30%**。
+**P 存根清单**：
 
-**单批收尾五步（SSOT 单出口，禁止抄上一批数字）**：落地函数 → 三门禁 EXIT=0 → `node tools/count_funcs.js` 取活体数字 → 写 `docs/acceptance/batchNNN.md` + 更新本文件 §1 标题/§2/进度表 + `node tools/gen_batch_index.js` 重生成索引 → dulwich commit+push（`$env:GITHUB_TOKEN = gh auth token`）→ `gh api` 轮询 CI 到 `completed success`。
+```powershell
+bash tools/list_p.sh
+```
 
-**环境陷阱（换会话必读，详见 `DISCIPLINE.md` 与 `ENV.md`）**：`git.exe`/`bash.exe`/`awk`/`scoop` 不在 PATH（commit/push 用 dulwich `C:\Users\Administrator\.dsh\tmp_git_sync.py` 或纯 push 内联；count 用 `tools/count_funcs.js`）；dulwich push 网络抖动时用**纯 push 重试**（勿重复 commit，会产出重复提交）；`linearFloatToSRGBByte`(0x14097dd60) 已落地但 list_missing 仍列，**勿重落**；`nativeFileDragDataObject.*`/`nativeFileDragFormatEnumerator.*`（128B）为 combridge IUnknown 自动提升，**勿手动落**。
+**单批收尾五步（SSOT 单出口，禁止抄上一批数字）**：落地函数 → 三门禁 EXIT=0 → `bash tools/count_funcs.sh` 取活体数字 → 写 `docs/acceptance/batchNNN.md` + 更新本文件 §1 标题/§2/进度表 + `node tools/gen_batch_index.js` 重生成索引 → `git commit` + `git push` → `gh run list` / `gh api` 轮询 CI 到 `completed success`。
+
+**环境事实（2026-12-12 实测核准，详见 `DISCIPLINE.md` 与 `ENV.md`）**：`git`（`C:\Program Files\Git\cmd`）、`bash` / `awk`（`C:\Program Files\Git\usr\bin`）、`gh`（`C:\Program Files\GitHub CLI`，已认证 `wsolarq11`，含 `workflow` scope）**均在 PATH**；**仅 `scoop` 不在 PATH**，且 `scoop/apps/temurin-lts-jdk/current` 为断裂链接（JDK 已被卸载，故 Ghidra 不可用）。`dulwich` **未安装**，旧的 `tmp_git_sync.py` 已不存在——commit/push 一律用原生 `git`。`linearFloatToSRGBByte`(0x14097dd60) 已落地但 list_missing 仍列，**勿重落**；`nativeFileDragDataObject.*`/`nativeFileDragFormatEnumerator.*`（128B）为 combridge IUnknown 自动提升，**勿手动落**。
 
 ---
 
-## 1. 一句话现状（批次 396 · CheckpointSections [P→S-eq] · checkpoint 持久化链闭环 · FUNCS 3298，68.47%）
+## 1. 一句话现状（批次 397 · screenshot UIA 命中优先级 + COM 释放串 [S-sig→S] · 首次接入函数级对拍 · FUNCS 3302，68.56%）
 
-前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 391**，后端非测试代码 **235 个 .go 文件**，测试 **92 文件**。
+前端层已**字节级完整还原**并验证；Go 后端**类型层（507 个结构体）已全量还原且能编译**；函数/方法体还原推进到**批次 397**，后端非测试代码 **236 个 .go 文件**，测试 **94 文件**。
 
-**门禁活体实测（批次 392）**：`go1.25.12 build ./backend` / `go vet ./backend` / `go test ./backend` 三项 **EXIT=0**（`ok changeme/backend`）。
+**门禁活体实测（批次 397）**：`go1.25.12 build ./backend` / `go vet ./backend` / `go test ./backend` / `go fmt ./backend` 四项 **EXIT=0**（`ok changeme/backend`），对拍 `go test -run TestParity ./backend` **1557 例通过**。
+
+**⚠️ 对拍 harness 已落地**：`tools/parity/` 此前只有 README（`cases/emu/run.sh` 均不存在），本批首次接入。工作流与纪律见 `docs/STRATEGY.md` §6 与 `tools/parity/README.md`。首个样本 `screenshotPreferUIAElementHitInfo`。**历史批次（<397）的 `[S]` 与 `[S-eq]` 落体一律未经对拍**，按 STRATEGY §5 规则 3 严格说应为 `[S-sig]`；此项列为待清偿技术债，优先在触及该域时补齐。
 
 **当前进度分母（批次 387 实测，此后一律以此为准）**：
 
@@ -73,22 +79,26 @@ node tools/list_missing.js
 |---|---|---|---|
 | 蓝图函数项 | 4,754 | 4,754 | `docs/goresym/source_funcs.txt` 中 `Lines: a to b (n)` 条目计数 |
 | 蓝图源文件数 | 145 | 145 | 同文件 `^File: ` 条目计数 |
-| 已重建函数 | 3298 | 4,754 | `node tools/count_funcs.js` 实测（批次 395 后） |
-| 真函数（S+S-inline+S-sig） | 3255 | 4,754 | 同上，**批次 396 达 68.47%** |
+| 已重建函数 | 3302 | 4,754 | `bash tools/count_funcs.sh` 实测（批次 397 后） |
+| 真函数（S+S-inline+S-sig） | 3259 | 4,754 | 同上，**批次 397 达 68.56%** |
 | 文件覆盖 | 114/144 | **100%（144/144）** | backend 非测试文件名与蓝图 `File:` 清单逐个对名 |
 | 未落地原始文件 | 30 | **0** | 差集（清单见 `UNLANDED.md`，批次 375 后实测） |
-| UNMARKED | 0 | **0** | `node tools/count_funcs.js` 实测 |
-| [P] 存根 | 41 | **0** | 同上（批次 396 后） |
+| UNMARKED | 0 | **0** | `bash tools/count_funcs.sh` 实测 |
+| [P] 存根 | 41 | **0** | 同上（批次 397 后） |
 
-**关键里程碑（已闭环域，详见各批验收）**：memoryrelease、SQLite、mouseGesture、OLEDBlackout 执行域；Screenshot 全链（PNG 编码器 / 内存预算 / GDI 捕获 / 光标 / DXGI 枚举与捕获 / HDR / 调试）；hotkey 三角与抑制域；launcherasset（icon 中枢 / 驱逐 / 文件注册）；launcherconfigicon（预算 / 存储 / commit 管线 / 迁移）；windowManagement；appicon GDI 渲染；plugin（id / security / host / discovery）；twofactor 全链；qrcode（框选 / 剪贴板 / 解码）；filesearch（名称搜索计划 / 排序 / 拼音 / 节点访问）；开机自启（Task Scheduler）；配置存储（CompareAndSwap/Replace 链）；filelocator 运行时；gpu 纯逻辑；desktopwidgets（日历 / 时钟 / 组件存储 CRUD）。
+**关键里程碑（已闭环域，详见各批验收）**：memoryrelease、SQLite、mouseGesture、OLEDBlackout 执行域；Screenshot 全链（PNG 编码器 / 内存预算 / GDI 捕获 / 光标 / DXGI 枚举与捕获 / HDR / 调试 / UIA 命中优先级与 COM 释放）；hotkey 三角与抑制域；launcherasset（icon 中枢 / 驱逐 / 文件注册）；launcherconfigicon（预算 / 存储 / commit 管线 / 迁移）；windowManagement；appicon GDI 渲染；plugin（id / security / host / discovery）；twofactor 全链；qrcode（框选 / 剪贴板 / 解码）；filesearch（名称搜索计划 / 排序 / 拼音 / 节点访问）；开机自启（Task Scheduler）；配置存储（CompareAndSwap/Replace 链）；filelocator 运行时；gpu 纯逻辑；desktopwidgets（日历 / 时钟 / 组件存储 CRUD）。
 
-**⚠️ 口径纪律**：任何批次记录落笔前必须先跑 `node tools/count_funcs.js` 取活体数字，禁止抄上一批数字改一改。标记书写规范与档位定义见 `DISCIPLINE.md`。
+**⚠️ 口径纪律**：任何批次记录落笔前必须先跑 `bash tools/count_funcs.sh` 取活体数字，禁止抄上一批数字改一改。标记书写规范与档位定义见 `DISCIPLINE.md`。
 
 ---
 
-## 2. 交接状态（批次 394 收尾后）
+## 2. 交接状态（批次 397 收尾后）
 
-**下一批推荐**：下一个 [P] 存根升级（41→40），优先选 filesearch 域链上残留依赖（如 `IsSourcePath` [S-sig]、`closeMappedReadProviderForReplaceLocked` [S-sig] 可升档），或从 `list_missing.js` 的 P=41 中选最小代价的。
+**下一批推荐**：先把对拍 harness 扩到同域已有 `[S]` 落体——`screenshotUIAElementHitContainsPoint`（0x1409b2c60，128B，同为无 call 叶子函数）是现成目标，`extract_func.py` 可直接抽。这既清偿 §1 的技术债，又验证工具链的可复用性（换函数只需写 `ref_<fn>.py`）。之后再推进 screenshot UIA 的 `[P]` 签名专项（6 个存根，序言已标注"参数语义未定"）。
+
+**⚠️ `unsafe` 形态纪律（批次 397）**：`go vet` 拒绝 `uintptr(unsafe.Pointer(x))` 与 `unsafe.Add(unsafe.Pointer(uintptrVal), off)`。合规范式见 `screenshot_dxgi_deep_windows.go:100-109` `screenshotCOMVtableSlot`。
+
+**⚠️ 抽取器能力边界**：`tools/parity/emu/extract_func.py` 只支持**无 call 的叶子函数**，含 call 直接门禁失败。直接执行原始字节码的强化路线未打通（见批次 397 验收 §4.2）。
 
 **未落地文件差集 30**（清单见 `UNLANDED.md`，批次 375 后实测）；**P=41**；**UNMARKED=0 保持**。
 

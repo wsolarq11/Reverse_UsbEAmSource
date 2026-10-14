@@ -1,5 +1,21 @@
-# 统一换行符，消除 windows/linux CI 漂移
-* text=auto
+# 统一换行符，消除 windows/linux CI 漂移。
+# 规则：文本文件入库一律 LF；仅 Windows 脚本按平台要求保留 CRLF。
+# 注意 core.autocrlf 可能被全局设为 true，此处显式钉死，避免 checkout 时被改写。
+
+* text=auto eol=lf
+
+# Go 源码必须 LF（项目规则）
+*.go text eol=lf
+
+# Windows 脚本保留 CRLF（.bat/.cmd 必须 CRLF；.ps1 需 BOM，见项目规则）
 *.bat text eol=crlf
 *.cmd text eol=crlf
 *.ps1 text eol=crlf
+
+# 二进制与反汇编产物不参与行尾转换
+*.bin binary
+*.exe binary
+*.dll binary
+*.png binary
+*.ico binary
+*.zip binary

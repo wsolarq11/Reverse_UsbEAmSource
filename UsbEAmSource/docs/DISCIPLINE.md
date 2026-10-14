@@ -51,6 +51,8 @@
 | 29 | `buildLauncherIconResource` 返回 `{IconRef:ref.ID, ...}` → `{IconData:trimmed, ...}` | asm 三条出口 duffcopy 确证 |
 | 29 | LRU 驱逐「随机删 entry」→「Linear Scan min Sequence」 | `mapIter` 遍历确证 |
 | 391 | `addNamePrefixBucketCount` 缺 twoByte 空检查（twoByte nil 时 bigram 累加 panic） | 补 `len(name)<2 \|\| len(c.twoByte)==0` 返回；@0x1407e2655 `mov rcx,[rax+0x408]` / `test rcx,rcx` / `jne` 实证 |
+| 工具 | 跨工具比函数名未做形态还原：蓝图粘连名 `volumeIndexReadViewfindNodeIndexByFRN` 与符号表点号名被当成两个函数，缺口凭空多 51 个 | 用符号表（编译级形态规范）做还原，`common.resolve_func_key()`；口径见 `tools/index/README.md` §3 |
+| 工具 | 缺失判定带短名回退，把「别的类型里的同名方法」算成本函数的实现，31 个真未落地被漏报 | 判定只做精确键相等，`common.classify_missing()` 唯一实现；`node tools/list_missing.js` 改薄封装 |
 
 ---
 

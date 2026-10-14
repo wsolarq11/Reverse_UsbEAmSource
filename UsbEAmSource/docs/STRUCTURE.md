@@ -33,12 +33,13 @@ UsbEAmSource/
 │   ├── acceptance/     # 各批次质检验收记录
 │   └── goresym/        # redress 符号、行号蓝图、按批反汇编资产
 ├── tools/              # 工程内工具
-│   ├── go-introspect/  # addr_tool / va_dump / disasm / read_gostring 等
-│   ├── dump_scripts/   # 批次批量 dump 与常量解码脚本
+│   ├── go-introspect/  # PE 抽取：va_dump / va_disasm / batch_disasm / addr_tool + stdsyms 源码
 │   ├── parity/         # 对拍 harness（行为等价验证，见 tools/parity/README.md）
+│   ├── index/          # 分析索引（SQL 查询层：符号/蓝图/落地/资产/调用边，见其 README.md）
+│   ├── ghidra/         # Ghidra headless 入口（ghidra_headless.ps1：设 JDK 后转发参数）
 │   ├── count_funcs.sh  # 标记口径统计 —— 唯一真相源（docs/STRATEGY.md §4）
-│   ├── list_p.sh       # 列出 [P] 存根（标记判定与 count_funcs.sh 同源）
-│   ├── list_missing.js # 缺失函数清单（自动含方法提升）
+│   ├── list_p.sh       # [P] 存根清单薄封装（转发 tools/index/q.py landed P，附 VA/字节数）
+│   ├── list_missing.js # 缺失函数清单薄封装（转发 tools/index/q.py missing，口径唯一）
 │   ├── gen_batch_index.js  # 重生成 docs/BATCH_INDEX.md
 │   └── …               # 其余按需工具，见该目录
 ├── artifacts/          # 构建产物（不参与源码逻辑，不入库）
@@ -114,7 +115,7 @@ archive/
 | `UsbEAmSource/tmp_reparse_dump/` | `work/disasm/reparse/` |
 | `UsbEAmSource/docs/goresym/pipeline/tmp_lease/` | `work/disasm/lease/` |
 | `UsbEAmSource/docs/goresym/pipeline/tmp_runnow/` | `work/disasm/runnow/` |
-| `UsbEAmSource/tmp_tools/` | `UsbEAmSource/tools/dump_scripts/` |
+| `UsbEAmSource/tmp_tools/` | `UsbEAmSource/tools/dump_scripts/`（该目录已于 2026 收敛中删除，见 `tools/index/README.md` §1） |
 | `UsbEAmSource/tmp_json_decode.py` | `work/scripts/tmp_json_decode.py` |
 | `UsbEAmSource/backend.exe` | `UsbEAmSource/artifacts/backend_root.exe` |
 | `UsbEAmSource/backend/backend.exe` | `UsbEAmSource/artifacts/backend_service.exe` |

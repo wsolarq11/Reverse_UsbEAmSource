@@ -53,14 +53,14 @@
 | `python` | ✅ | `C:\Python314\python.exe`（**用 `python`，`python3` 是 WindowsApps stub**） |
 | `scoop` | ❌ 不在 PATH | 且 `scoop/apps/temurin-lts-jdk/current` 是**断裂链接**（JDK 已卸载） |
 | `dulwich` | ❌ 未安装 | 旧的 `tmp_git_sync.py` 已不存在 —— commit/push 一律用原生 `git` |
-| Ghidra | ❌ 不可用 | 12.1.3 在 `external/`，但**缺 JDK**，headless/Emulator 均无法启动 |
+| Ghidra | ✅ 可用 | 12.1.3 在 `external/`；JDK 21 在 `D:\_tools_\jdk\jdk-21.0.12.1+1`；`JAVA_HOME`（User 级）已指向它，新终端可原生跑 `analyzeHeadless.bat`。钉版本的入口：`tools/ghidra/ghidra_headless.ps1`。已知限制：Go 大结构体按值传参的函数反编译报 `Cannot assign parameter address`（工具限制，与脚本无关） |
 
 其余环境事实：
 
 1. **外网走本地代理 `127.0.0.1:7890`**（Clash/V2Ray 类，系统已配）。Go 需显式配代理：
    `export HTTPS_PROXY=http://127.0.0.1:7890 HTTP_PROXY=http://127.0.0.1:7890 ALL_PROXY=http://127.0.0.1:7890`
 2. 精确工具链 Go 1.25.12 在 `C:\Users\Administrator\go\bin\go.exe`。
-3. 已装逆向工具：`redress.exe`、`GoReSym.exe`、`addr_tool.exe`、`va_dump.py`/`disasm.py`（见 §5）。
+3. 已装逆向工具：`redress.exe`、`GoReSym.exe`、`addr_tool.exe`、`va_dump.py`（见 §5）；现成的反汇编查询入口是 `tools/index/asmtool.py`。
 4. **`go` 的构建缓存与 `GOTOOLCHAIN`**：本地验证时若出现工具链自动下载，用 `GOTOOLCHAIN=local` 锁定。
 
 ## 4. 反汇编资产清单（全部不入库，可由目标 exe 重建）
@@ -94,4 +94,12 @@ python tools/go-introspect/va_dump.py "$EXE" 0xBASEVA LENGTH ../work/disasm/dump
 
 ```bash
 python tools/parity/emu/extract_func.py <funcVA> <length> <outName>
+```
+
+Ghidra headless（唯一入口；`-scriptPath` 目录里任一脚本编译不过会让**整个目录**的脚本都装载失败）：
+
+```bash
+pwsh tools/ghidra/ghidra_headless.ps1 ../work/ghidra/project usbeam \
+  -process -noanalysis -readOnly \
+  -scriptPath ../work/ghidra/scripts -postScript InspectAssemble.java
 ```

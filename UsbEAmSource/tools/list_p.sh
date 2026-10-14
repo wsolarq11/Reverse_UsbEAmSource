@@ -1,30 +1,11 @@
 #!/bin/bash
-# 列出 backend/*.go 中所有 [P] 存根（文件:行: 声明）。
-# 标记判定与 tools/count_funcs.sh（唯一真相源，docs/STRATEGY.md §4）逐条一致，
-# 优先级：S-sig > S-eq > S-inline > S > P。
-# 需要 VA 与邻接长度时用 tools/p_funcs.py。
+# [P] 存根清单 —— 薄封装。
 #
-# 用量：bash tools/list_p.sh
-cd "$(dirname "$0")/../backend" || exit 1
-
-awk '
-/^\/\// {
-    if (last == "") {
-        s = $0
-        if (index(s, "[S-sig]") > 0 || index(s, "[S-sig ") > 0 || index(s, "[S-sig\t") > 0) last = "S-sig"
-        else if (index(s, "[S-eq]") > 0 || index(s, "[S-eq ") > 0 || index(s, "[S-eq\t") > 0) last = "S-eq"
-        else if (index(s, "[S-inline]") > 0 || index(s, "[S-inline ") > 0 || index(s, "[S-inline\t") > 0) last = "S-inline"
-        else if (index(s, "[S]") > 0) last = "S"
-        else if (index(s, "[S ") > 0 || index(s, "[S\t") > 0) last = "S"
-        else if (index(s, "[P]") > 0) last = "P"
-        else if (index(s, "[P ") > 0 || index(s, "[P\t") > 0) last = "P"
-    }
-    next
-}
-/^func / {
-    if (last == "P") printf "%s:%d: %s\n", FILENAME, FNR, $0
-    last = ""
-    next
-}
-{ last = "" }
-' $(ls *.go | grep -v _test)
+# 标记判定的唯一真相源是 tools/count_funcs.sh 的 awk 状态机（docs/STRATEGY.md §4）。
+# 本脚本不再自带一份实现，只转发 python tools/index/q.py landed。
+# 输出已在签名前带上符号 VA 与实测字节数（原 tools/p_funcs.py 的 CSV 视图已并入）。
+#
+# 用量：bash tools/list_p.sh [marker]     # 默认 P
+set -euo pipefail
+cd "$(cd "$(dirname "$0")/.." && pwd)"
+exec python tools/index/q.py landed "${1:-P}"

@@ -24,7 +24,7 @@
 8. [批次 31 新增] **驱逐的实证签名两次反转**：`evictOldestLocked` 第一参从 `exceptID string`→`namespaceFilter string`（命名空间筛选而非 ex-id），`ensureCapacityLocked` 第一参同改为 `namespace string`（非 itemSize/id），三层驱逐循环代替单层交织。开工后务必先对比 disasm 确认当前代码签名再修改。
 9. [批次 33 新增] **`disasm/` 目录存在指令丢失**：`ReadBytes.dis.txt`/`readFileBounded.dis.txt` 等文件的 duffcopy 段（`call 0x140081a46` 前后）**缺失参数装载指令**，只靠该目录会误判"栈槽无写入"。关键位置（尤其决定签名的寄存器装配）必须用 `va_dump.py` 重新现场抽取做字节级比对。
 
-## 9b. 实证错误记录（累计 78 处）
+## 9b. 实证错误记录（表内精选；「累计 78 处」为 2026-12-12 口径，其后工具类增补未并入）
 
 | 批次 | 错误 | 纠正 |
 |---|---|---|
@@ -53,6 +53,9 @@
 | 391 | `addNamePrefixBucketCount` 缺 twoByte 空检查（twoByte nil 时 bigram 累加 panic） | 补 `len(name)<2 \|\| len(c.twoByte)==0` 返回；@0x1407e2655 `mov rcx,[rax+0x408]` / `test rcx,rcx` / `jne` 实证 |
 | 工具 | 跨工具比函数名未做形态还原：蓝图粘连名 `volumeIndexReadViewfindNodeIndexByFRN` 与符号表点号名被当成两个函数，缺口凭空多 51 个 | 用符号表（编译级形态规范）做还原，`common.resolve_func_key()`；口径见 `tools/index/README.md` §3 |
 | 工具 | 缺失判定带短名回退，把「别的类型里的同名方法」算成本函数的实现，31 个真未落地被漏报 | 判定只做精确键相等，`common.classify_missing()` 唯一实现；`node tools/list_missing.js` 改薄封装 |
+| 工具 | VA/长度按函数**短名**匹配：`screenshotPreviewWindowService.Hide` 与 `screenshotSelectionToolbarWindowService.Hide` 显示同一个地址，界面上的"函数长度"是假的 | 键改完整比较键优先、短名只作回退；332 条未落地函数 VA 零重复 |
+| 工具 | 同一份反汇编在不同脚本里标注不同：`asmtool.py --print` 只标 `call/jmp`，`va_dump.py` 标 `call/j*`，同一地址一边有符号一边没有 | 统一走 `common.annotate_symbol()`（窗口 0x2000），两处输出逐字相同 |
+| 工具 | 工作区行尾是 CRLF 而 `.gitattributes` 要求 LF：`git status` 报 9 个数据文件"已修改"，`git diff` 内容却是空的（stat 缓存假象） | 字节级去 CR 后工作区与索引一致；`git add` 刷 stat 缓存，status 只剩真改动 |
 
 ---
 
